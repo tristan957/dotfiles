@@ -1,0 +1,28 @@
+[preferences/editor]
+highlight-current-line=true
+display-overview-map=true
+bracket-matching=true
+scheme='oblivion'
+tabs-size=uint32 4
+display-line-numbers=true
+insert-spaces=true
+wrap-last-split-mode='word'
+auto-indent=true
+
+[preferences/ui]
+show-tabs-mode='auto'
+
+[plugins/filebrowser]
+virtual-root='file:///home/tristan957/Desktop/solus-setup'
+tree-view=true
+root='file:///'
+
+[plugins]
+active-plugins=['filebrowser']
+
+[state/window]
+size=(900, 700)
+state=87168
+bottom-panel-size=140
+side-panel-size=200
+side-panel-active-page='GeditWindowDocumentsPanel'

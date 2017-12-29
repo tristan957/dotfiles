@@ -1,0 +1,24 @@
+[preferences]
+executable-text-activation='ask'
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+recursive-search='local-only'
+show-directory-item-counts='local-only'
+show-image-thumbnails='local-only'
+
+[window-state]
+geometry='890x550+959+48'
+maximized=false
+
+[icon-view]
+default-zoom-level='small'
+
+[desktop]
+home-icon-visible=false
+volumes-visible=false
+trash-icon-visible=false
+
+[list-view]
+default-visible-columns=['name', 'size', 'type', 'date_modified']
+use-tree-view=true
+default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency']

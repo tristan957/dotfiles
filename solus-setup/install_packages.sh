@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # read the file and install packages
 function install()
 {

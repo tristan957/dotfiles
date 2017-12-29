@@ -1,7 +1,7 @@
 adapta-gtk-theme
+apache-maven
 arcanist
 atom
-cargo
 dconf-editor
 discord
 font-ubuntu-ttf
@@ -21,7 +21,6 @@ gtk3-icon-browser
 kodi
 libreoffice-all
 man-pages
-maven
 netcat
 nodejs
 neofetch
@@ -29,9 +28,9 @@ papirus-icon-theme
 pavucontrol
 pip
 qalculate-gtk
-rust
 solbuild
 steam
+stow
 vim
 vlc
 vscode
