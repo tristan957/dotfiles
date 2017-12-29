@@ -1,0 +1,15 @@
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+login-shell=true
+scroll-on-output=false
+use-custom-command=false
+visible-name='Default'
+
+[/]
+tab-position='top'
+sidebar-on-right=false
+theme-variant='dark'
+use-tabs=true
+control-scroll-zoom=true
+advanced-paste-replace-crlf=true
+enable-wide-handle=false
+window-style='normal'
