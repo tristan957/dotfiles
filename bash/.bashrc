@@ -56,13 +56,16 @@ alias get-make='echo "include ../Makefile.common" > Makefile' # Makefile in curr
 
 # ENV Variables
 
-# ADD GOPATH variable although is the defualt
+# Add GOPATH variable although is the defualt
 export GOPATH=$HOME/go
 
-# ADD rustc, rustup, cargo to PATH
+# Add Rust executables to PATH
 RUSTPATH=$HOME/.cargo/bin
 
-export PATH=$PATH:$GOPATH/bin:$RUSTPATH
+# Add yarn executable to PATH
+YARNPATH=$HOME/.yarn/bin
+
+export PATH=$PATH:$GOPATH/bin:$RUSTPATH:YARNPATH
 
 # Bash History Control
 export HISTCONTROL=ignoredups
