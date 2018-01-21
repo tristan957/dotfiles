@@ -3,6 +3,7 @@ login-shell=true
 scroll-on-output=false
 use-custom-command=false
 visible-name='Default'
+terminal-bell='none'
 
 [/]
 tab-position='top'

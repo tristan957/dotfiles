@@ -21,6 +21,7 @@ main()
             dconf_load
             rust_init
             gnu_stow
+            $SUDO systemctl mask cups-browsed
         else
             echo "Error: File does not exist."
             exit 2
