@@ -41,9 +41,11 @@ alias mkdir="mkdir -p"
 # Git
 alias ga="git add"
 alias gc="git commit"
-alias gcm="git commit -m"
 alias gca="git commit -a"
 alias gcam="git commit -a -m"
+alias gck="git checkout"
+alias gckb="git checkout -b"
+alias gcm="git commit -m"
 alias gpl="git pull"
 alias gps="git push"
 
