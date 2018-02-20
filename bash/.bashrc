@@ -74,6 +74,9 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=1000000
 shopt -s histappend
 
+# To use the assemblies from other formulae you need to set:
+export MONO_GAC_PREFIX="/usr/local"
+
 #-------------------------------------------------------------------------
 
 # Tab completion
