@@ -41,11 +41,7 @@ alias mkdir="mkdir -p"
 # Git
 alias ga="git add"
 alias gc="git commit"
-alias gca="git commit -a"
-alias gcam="git commit -a -m"
 alias gck="git checkout"
-alias gckb="git checkout -b"
-alias gcm="git commit -m"
 alias gpl="git pull"
 alias gps="git push"
 
@@ -64,18 +60,15 @@ export GOPATH=$HOME/go
 # Add Rust executables to PATH
 RUSTPATH=$HOME/.cargo/bin
 
-# Add yarn executable to PATH
+# Add Yarn executables to PATH
 YARNPATH=$HOME/.yarn/bin
 
-export PATH=$PATH:$GOPATH/bin:$RUSTPATH:YARNPATH
+export PATH=$PATH:$GOPATH/bin:$RUSTPATH:$YARNPATH
 
 # Bash History Control
 export HISTCONTROL=ignoredups
 export HISTSIZE=1000000
 shopt -s histappend
-
-# To use the assemblies from other formulae you need to set:
-export MONO_GAC_PREFIX="/usr/local"
 
 #-------------------------------------------------------------------------
 
