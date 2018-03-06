@@ -106,6 +106,14 @@ bind "set skip-completed-text on"
 
 #-------------------------------------------------------------------------
 
+# Direnv
+
+if type "direnv" > /dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi
+
+#-------------------------------------------------------------------------
+
 # Jenv
 
 if type "jenv" > /dev/null 2>&1; then
