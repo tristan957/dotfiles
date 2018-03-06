@@ -55,15 +55,18 @@ alias get-make='echo "include ../Makefile.common" > Makefile' # Makefile in curr
 # ENV Variables
 
 # Add GOPATH variable although is the defualt
-export GOPATH=$HOME/go
+export GOPATH="$HOME/go"
+
+# Add Jenv executable to PATH
+JENVBIN="$HOME/.jenv/bin"
 
 # Add Rust executables to PATH
-RUSTPATH=$HOME/.cargo/bin
+RUSTBIN="$HOME/.cargo/bin"
 
 # Add Yarn executables to PATH
-YARNPATH=$HOME/.yarn/bin
+YARNBIN="$HOME/.yarn/bin"
 
-export PATH=$PATH:$GOPATH/bin:$RUSTPATH:$YARNPATH
+export PATH="$PATH:$GOPATH/bin:$JENVBIN:$RUSTBIN:$YARNBIN"
 
 # Bash History Control
 export HISTCONTROL=ignoredups
@@ -105,7 +108,7 @@ bind "set skip-completed-text on"
 
 # Jenv
 
-if type "jenv" > /dev/null 2>&1; then
+if [ -d "$JENVBIN" ]; then
     eval "$(jenv init -)"
 fi
 
@@ -124,13 +127,18 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 
 #-------------------------------------------------------------------------
 
-# Line to add to OS .bashrc file
-
-# source /home/tristan957/.TP-config/.bashrc
-
-#-------------------------------------------------------------------------
+# Tilix
 
 # To avoid using a login shell for Tilix
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #         source /usr/share/defaults/etc/profile.d/vte.sh # Solus
 # fi
+
+#-------------------------------------------------------------------------
+
+# SDKMAN
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
