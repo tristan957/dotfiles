@@ -108,7 +108,7 @@ bind "set skip-completed-text on"
 
 # Jenv
 
-if [ -d "$JENVBIN" ]; then
+if type "jenv" > /dev/null 2>&1; then
     eval "$(jenv init -)"
 fi
 
