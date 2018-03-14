@@ -5,7 +5,7 @@
 # check if I am root
 if [ $EUID -ne 0 ]
 then
-    user_char='$'
+    user_char='⋮' # '$'
 else
     user_char='#'
 fi
