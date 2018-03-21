@@ -3,8 +3,7 @@
 # Prompt
 
 # check if I am root
-if [ $EUID -ne 0 ]
-then
+if [ $EUID -ne 0 ]; then
     user_char='‖' # '⋮' # '$'
 else
     user_char='#'
