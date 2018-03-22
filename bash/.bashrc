@@ -25,14 +25,14 @@ PROMPT_DIRTRIM=3
 export EDITOR="vim"
 
 # Octal Permissions
-alias permissions='stat -c "%a %n"'
+alias permissions="stat -c '%a %n'"
 
 # ls folder color
-alias ls='ls --color'
-export LS_COLORS=$LS_COLORS:'di=1:ex=4:ow=1:'
+alias ls="ls --color"
+export LS_COLORS=$LS_COLORS:"di=1:ex=4:ow=1:"
 
 # Apply color to diff
-alias diff='diff --color=auto'
+alias diff="diff --color=auto"
 
 # mkdir changes
 alias mkdir="mkdir -p"
@@ -47,7 +47,8 @@ alias gps="git push"
 # Solus Packaging
 alias fetch-yml="../common/Scripts/yauto.py" # url
 alias update-yml="/usr/share/ypkg/yupdate.py" # version-number url
-alias get-make='echo "include ../Makefile.common" > Makefile' # Makefile in current package directory
+alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile 
+in current package directory
 
 #-------------------------------------------------------------------------
 
@@ -94,9 +95,9 @@ fi
 # https://stackoverflow.com/questions/31155381/what-does-i-mean-in-bash
 # [[ $- = *i* ]] &&
 # https://ss64.com/bash/syntax-inputrc.html
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
-bind '"\e[Z":menu-complete-backward' # Shift tab
+bind "set show-all-if-ambiguous on"
+bind "TAB:menu-complete"
+bind "'\e[Z':menu-complete-backward" # Shift tab
 bind "set menu-complete-display-prefix on"
 # bind "set completion-prefix-display-length 4"
 bind "set completion-ignore-case on"
