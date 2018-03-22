@@ -47,8 +47,7 @@ alias gps="git push"
 # Solus Packaging
 alias fetch-yml="../common/Scripts/yauto.py" # url
 alias update-yml="/usr/share/ypkg/yupdate.py" # version-number url
-alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile 
-in current package directory
+alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in current package directory
 
 #-------------------------------------------------------------------------
 
@@ -97,12 +96,18 @@ fi
 # https://ss64.com/bash/syntax-inputrc.html
 bind "set show-all-if-ambiguous on"
 bind "TAB:menu-complete"
-bind "'\e[Z':menu-complete-backward" # Shift tab
+bind '"\e[Z":menu-complete-backward' # Shift-tab
 bind "set menu-complete-display-prefix on"
 # bind "set completion-prefix-display-length 4"
 bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set skip-completed-text on"
+bind '"\e[A": history-search-backward' # up-arrow
+bind '"\e[B": history-search-forward' # down-arrow
+bind "set expand-tilde on"
+bind '"\b": kill-whole-line' # Ctrl-backspace
+bind '"\ed": backward-kill-word' # Alt-d
+bind '"\eD": shell-kill-word' # Alt-D
 
 #-------------------------------------------------------------------------
 
