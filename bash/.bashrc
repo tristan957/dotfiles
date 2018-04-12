@@ -59,13 +59,16 @@ export GOPATH="$HOME/go"
 # Add Jenv executable to PATH
 JENVBIN="$HOME/.jenv/bin"
 
+# Add pip executables to PATH
+PIPBIN="$HOME/.local/bin"
+
 # Add Rust executables to PATH
 RUSTBIN="$HOME/.cargo/bin"
 
 # Add Yarn executables to PATH
 YARNBIN="$HOME/.yarn/bin"
 
-export PATH="$PATH:$GOPATH/bin:$JENVBIN:$RUSTBIN:$YARNBIN"
+export PATH="$PATH:$GOPATH/bin:$JENVBIN:$PIPBIN:$RUSTBIN:$YARNBIN"
 
 # Bash History Control
 export HISTCONTROL=ignoredups
@@ -102,8 +105,8 @@ bind "set menu-complete-display-prefix on"
 bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set skip-completed-text on"
-bind '"\e[A": history-search-backward' # up-arrow
-bind '"\e[B": history-search-forward' # down-arrow
+# bind '"\e[A": history-search-backward' # up-arrow
+# bind '"\e[B": history-search-forward' # down-arrow
 bind "set expand-tilde on"
 bind '"\b": kill-whole-line' # Ctrl-backspace
 bind '"\ed": backward-kill-word' # Alt-d
