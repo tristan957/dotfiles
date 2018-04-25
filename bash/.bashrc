@@ -9,10 +9,18 @@
 #     user_char='#'
 # fi
 
-export PS1='\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]$(__git_ps1 "[%s]")\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]'
-export PS2='\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]'
-export PS3='\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]'
-export PS4='\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]'
+# Git branch for prompt
+source "$HOME/dotfiles/bash/git-prompt.sh"
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto"
+branch='$(__git_ps1 "[%s]")'
+
+# Prompt
+PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]$branch\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
+PS2="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
+PS3="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
+PS4="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 
 # How many directories to show
 PROMPT_DIRTRIM=3
@@ -21,15 +29,12 @@ PROMPT_DIRTRIM=3
 
 # Alii
 
-# Set Vim to default terminal text editor
-export EDITOR="vim"
-
 # Octal Permissions
 alias permissions="stat -c '%a %n'"
 
 # ls folder color
 alias ls="ls --color"
-export LS_COLORS=$LS_COLORS:"di=1:ex=4:ow=1:"
+export LS_COLORS="$LS_COLORS:di=1:ex=4:ow=1:"
 
 # Apply color to diff
 alias diff="diff --color=auto"
@@ -53,11 +58,20 @@ alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in curr
 
 # ENV Variables
 
+# Set default terminal text editor
+if type "neovim" > /dev/null 2>&1; then
+    export EDITOR="neovim"
+    export GIT_EDITOR="neovim"
+elif type "vim" > /dev/null 2>&1; then
+    export EDITOR="vim"
+    export GIT_EDITOR="vim"
+else
+    export EDITOR="nano"
+    export GIT_EDITOR="nano"
+fi
+
 # Add GOPATH variable although is the defualt
 export GOPATH="$HOME/go"
-
-# Add Jenv executable to PATH
-JENVBIN="$HOME/.jenv/bin"
 
 # Add pip executables to PATH
 LOCALBIN="$HOME/.local/bin"
@@ -68,7 +82,7 @@ RUSTBIN="$HOME/.cargo/bin"
 # Add Yarn executables to PATH
 YARNBIN="$HOME/.yarn/bin"
 
-export PATH="$PATH:$LOCALBIN:$GOPATH/bin:$JENVBIN:$RUSTBIN:$YARNBIN"
+export PATH="$PATH:$LOCALBIN:$GOPATH/bin:$RUSTBIN:$YARNBIN"
 
 # Bash History Control
 export HISTCONTROL=ignoredups
@@ -111,29 +125,6 @@ bind "set expand-tilde on"
 bind '"\b": kill-whole-line' # Ctrl-backspace
 bind '"\ed": backward-kill-word' # Alt-d
 bind '"\eD": shell-kill-word' # Alt-D
-
-#-------------------------------------------------------------------------
-
-# Direnv
-
-if type "direnv" > /dev/null 2>&1; then
-    eval "$(direnv hook bash)"
-fi
-
-#-------------------------------------------------------------------------
-
-# Jenv
-
-if type "jenv" > /dev/null 2>&1; then
-    eval "$(jenv init -)"
-fi
-
-#-------------------------------------------------------------------------
-
-# Git branch for prompt
-
-source $HOME/dotfiles/git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
 
 #-------------------------------------------------------------------------
 
