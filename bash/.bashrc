@@ -3,16 +3,16 @@
 # Prompt
 
 # check if I am root
-if [ $EUID -ne 0 ]; then
-    user_char='‖' # '⋮' # '$'
-else
-    user_char='#'
-fi
+# if [ $EUID -ne 0 ]; then
+#     user_char='‖' # '⋮' # '$'
+# else
+#     user_char='#'
+# fi
 
-export PS1='\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]$(__git_ps1 "[%s]")\n\[$(tput setaf 51)\]\[$(tput bold)\]└─$user_char \[$(tput sgr0)\]'
-export PS2="\[$(tput setaf 51)\]$(tput bold)└─$user_char \[$(tput sgr0)\]"
-export PS3="\[$(tput setaf 51)\]$(tput bold)└─$user_char \[$(tput sgr0)\]"
-export PS4="\[$(tput setaf 51)\]$(tput bold)└─$user_char \[$(tput sgr0)\]"
+export PS1='\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]$(__git_ps1 "[%s]")\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]'
+export PS2='\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]'
+export PS3='\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]'
+export PS4='\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]'
 
 # How many directories to show
 PROMPT_DIRTRIM=3
