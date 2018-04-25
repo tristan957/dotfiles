@@ -60,7 +60,7 @@ export GOPATH="$HOME/go"
 JENVBIN="$HOME/.jenv/bin"
 
 # Add pip executables to PATH
-PIPBIN="$HOME/.local/bin"
+LOCALBIN="$HOME/.local/bin"
 
 # Add Rust executables to PATH
 RUSTBIN="$HOME/.cargo/bin"
@@ -68,7 +68,7 @@ RUSTBIN="$HOME/.cargo/bin"
 # Add Yarn executables to PATH
 YARNBIN="$HOME/.yarn/bin"
 
-export PATH="$PATH:$GOPATH/bin:$JENVBIN:$PIPBIN:$RUSTBIN:$YARNBIN"
+export PATH="$PATH:$LOCALBIN:$GOPATH/bin:$JENVBIN:$RUSTBIN:$YARNBIN"
 
 # Bash History Control
 export HISTCONTROL=ignoredups
