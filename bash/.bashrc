@@ -10,14 +10,14 @@
 # fi
 
 # Git branch for prompt
-source "$HOME/dotfiles/bash/git-prompt.sh"
+source "${HOME}/dotfiles/bash/git-prompt.sh"
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 branch='$(__git_ps1 "[%s]")'
 
 # Prompt
-PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]$branch\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
+PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
 PS2="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS3="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS4="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
@@ -34,7 +34,7 @@ alias permissions="stat -c '%a %n'"
 
 # ls folder color
 alias ls="ls --color"
-export LS_COLORS="$LS_COLORS:di=1:ex=4:ow=1:"
+export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 
 # Apply color to diff
 alias diff="diff --color=auto"
@@ -71,42 +71,27 @@ else
 fi
 
 # Add GOPATH variable although is the defualt
-export GOPATH="$HOME/go"
+export GOPATH="${HOME}/go"
 
 # Add pip executables to PATH
-LOCALBIN="$HOME/.local/bin"
+LOCALBIN="${HOME}/.local/bin"
 
 # Add Rust executables to PATH
-RUSTBIN="$HOME/.cargo/bin"
+RUSTBIN="${HOME}/.cargo/bin"
 
 # Add Yarn executables to PATH
-YARNBIN="$HOME/.yarn/bin"
+YARNBIN="${HOME}/.yarn/bin"
 
-export PATH="$PATH:$LOCALBIN:$GOPATH/bin:$RUSTBIN:$YARNBIN"
+export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}"
 
 # Bash History Control
-export HISTCONTROL=ignoredups
+export HISTCONTROL="ignoredups"
 export HISTSIZE=1000000
 shopt -s histappend
 
 #-------------------------------------------------------------------------
 
-# Tab completion
-
-# Check for interactive bash and that we haven't already been sourced.
-if [ -n "${BASH_VERSION-}" -a -n "${PS1-}" -a -z "${BASH_COMPLETION_COMPAT_DIR-}" ]; then
-
-    # Check for recent enough version of bash.
-    if [ ${BASH_VERSINFO[0]} -gt 4 ] || \
-       [ ${BASH_VERSINFO[0]} -eq 4 -a ${BASH_VERSINFO[1]} -ge 1 ]; then
-        [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion" ] && \
-            . "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion"
-        if shopt -q progcomp && [ -r /usr/share/bash-completion/bash_completion ]; then
-            # Source completion code.
-            . /usr/share/bash-completion/bash_completion
-        fi
-    fi
-fi
+# inputrc commands
 
 # https://stackoverflow.com/questions/31155381/what-does-i-mean-in-bash
 # [[ $- = *i* ]] &&
