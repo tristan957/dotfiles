@@ -60,8 +60,8 @@ alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in curr
 
 # Set default terminal text editor
 if type "neovim" > /dev/null 2>&1; then
-    export EDITOR="neovim"
-    export GIT_EDITOR="neovim"
+    export EDITOR="nvim"
+    export GIT_EDITOR="nvim"
 elif type "vim" > /dev/null 2>&1; then
     export EDITOR="vim"
     export GIT_EDITOR="vim"
