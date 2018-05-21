@@ -26,9 +26,10 @@ nodejs
 neofetch
 papirus-icon-theme
 pavucontrol
-php
 pip
 qalculate-gtk
+qt5-base
+qt5-quickcontrols2
 solbuild
 steam
 stow
