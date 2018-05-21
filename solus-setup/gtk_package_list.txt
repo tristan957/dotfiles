@@ -28,7 +28,7 @@ papirus-icon-theme
 pavucontrol
 pip
 qalculate-gtk
-qt5-base
+qt5-creator
 qt5-quickcontrols2
 solbuild
 steam
