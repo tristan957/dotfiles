@@ -17,7 +17,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 branch='$(__git_ps1 "[%s]")'
 
 # Prompt
-PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
+PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][$? \t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
 PS2="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS3="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS4="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
@@ -86,6 +86,7 @@ export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}"
 
 # Bash History Control
 export HISTCONTROL="ignoredups"
+export HISTIGNORE=" *"
 export HISTSIZE=1000000
 shopt -s histappend
 
