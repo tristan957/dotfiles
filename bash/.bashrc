@@ -1,5 +1,12 @@
 #-------------------------------------------------------------------------
 
+# Operating Systems
+
+OS_LINUX="linux-gnu"
+OS_MAC="darwin"*
+
+#-------------------------------------------------------------------------
+
 # Prompt
 
 # check if I am root
@@ -33,8 +40,11 @@ PROMPT_DIRTRIM=3
 alias permissions="stat -c '%a %n'"
 
 # ls folder color
-alias ls="ls --color"
-export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
+# Mac uses old af tools. Apple, you suck.
+if [[ "${OSTYPE}" != "${OS_MAC}" ]]; then
+    alias ls="ls --color"
+    export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
+fi
 
 # Apply color to diff
 alias diff="diff --color=auto"
@@ -95,15 +105,26 @@ shopt -s histappend
 # Bash Completion
 
 # Check for interactive bash and that we haven't already been sourced.
-if [ -n "${BASH_VERSION-}" -a -n "${PS1-}" -a -z "${BASH_COMPLETION_VERSINFO-}" ]; then
-    # Check for recent enough version of bash.
-    if [ ${BASH_VERSINFO[0]} -gt 4 ] || \
-       [ ${BASH_VERSINFO[0]} -eq 4 -a ${BASH_VERSINFO[1]} -ge 1 ]; then
-        [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion" ] && \
-            . "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion"
-        if shopt -q progcomp && [ -r /usr/share/bash-completion/bash_completion ]; then
-            # Source completion code.
-            . /usr/share/bash-completion/bash_completion
+if [[ "${OSTYPE}" == "${OS_LINUX}" ]]; then
+    if [ -n "${BASH_VERSION-}" -a -n "${PS1-}" -a -z "${BASH_COMPLETION_VERSINFO-}" ]; then
+        # Check for recent enough version of bash.
+        if [ ${BASH_VERSINFO[0]} -gt 4 ] || \
+        [ ${BASH_VERSINFO[0]} -eq 4 -a ${BASH_VERSINFO[1]} -ge 1 ]; then
+            [ -r "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion" ] && \
+                . "${XDG_CONFIG_HOME:-$HOME/.config}/bash_completion"
+            if shopt -q progcomp && [ -r /usr/share/bash-completion/bash_completion ]; then
+                # Source completion code.
+                . /usr/share/bash-completion/bash_completion
+            fi
+        fi
+    fi
+fi
+
+# Tab completion for Mac
+if [[ "${OSTYPE}" == "${type_MAC}" ]]; then
+    if type "brew" > /dev/null 2>&1; then
+        if [ -f $(brew --prefix)/etc/bash_completion ]; then
+            . $(brew --prefix)/etc/bash_completion
         fi
     fi
 fi
@@ -140,7 +161,6 @@ bind '"\eD": shell-kill-word' # Alt-D
 
 # Tilix
 
-# export PS1='\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]$(__git_ps1 "[%s]")\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]'
 # To avoid using a login shell for Tilix
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #         source /usr/share/defaults/etc/profile.d/vte.sh # Solus
