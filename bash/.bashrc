@@ -3,7 +3,7 @@
 # Operating Systems
 
 OS_LINUX="linux-gnu"
-OS_MAC="darwin"*
+OS_MAC="darwin"
 
 #-------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ alias permissions="stat -c '%a %n'"
 
 # ls folder color
 # Mac uses old af tools. Apple, you suck.
-if [[ "${OSTYPE}" != "${OS_MAC}" ]]; then
+if [[ "${OSTYPE}" != $OS_MAC* ]]; then
     alias ls="ls --color"
     export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 fi
@@ -105,7 +105,7 @@ shopt -s histappend
 # Bash Completion
 
 # Check for interactive bash and that we haven't already been sourced.
-if [[ "${OSTYPE}" == "${OS_LINUX}" ]]; then
+if [[ "${OSTYPE}" == $OS_LINUX* ]]; then
     if [ -n "${BASH_VERSION-}" -a -n "${PS1-}" -a -z "${BASH_COMPLETION_VERSINFO-}" ]; then
         # Check for recent enough version of bash.
         if [ ${BASH_VERSINFO[0]} -gt 4 ] || \
@@ -121,7 +121,7 @@ if [[ "${OSTYPE}" == "${OS_LINUX}" ]]; then
 fi
 
 # Tab completion for Mac
-if [[ "${OSTYPE}" == "${type_MAC}" ]]; then
+if [[ "${OSTYPE}" == $type_MAC ]]; then
     if type "brew" > /dev/null 2>&1; then
         if [ -f $(brew --prefix)/etc/bash_completion ]; then
             . $(brew --prefix)/etc/bash_completion
