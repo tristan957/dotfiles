@@ -121,7 +121,7 @@ if [[ "${OSTYPE}" == $OS_LINUX* ]]; then
 fi
 
 # Tab completion for Mac
-if [[ "${OSTYPE}" == $type_MAC ]]; then
+if [[ "${OSTYPE}" == $OS_MAC* ]]; then
     if type "brew" > /dev/null 2>&1; then
         if [ -f $(brew --prefix)/etc/bash_completion ]; then
             . $(brew --prefix)/etc/bash_completion
