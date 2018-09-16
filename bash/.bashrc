@@ -1,10 +1,17 @@
+source /usr/share/defaults/etc/profile
+
 #-------------------------------------------------------------------------
 
 # Operating Systems
 
-OS_LINUX="linux-gnu"
+if [ -z "${OSTYPE}" ]; then
+    OS="$(uname -a)"
+    OS_LINUX="Linux"
+else
+    OS="${OSTYPE}"
+    OS_LINUX="linux-gnu"
+fi
 OS_MAC="Darwin"
-OS="$(uname -a)"
 
 #-------------------------------------------------------------------------
 
@@ -96,9 +103,9 @@ YARNBIN="${HOME}/.yarn/bin"
 export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}"
 
 # Bash History Control
-export HISTCONTROL="ignoredups"
-export HISTIGNORE=" *"
-export HISTSIZE=1000000
+HISTCONTROL="ignoredups:ignorespace"
+HISTSIZE=1000
+HISTFILESIZE=2000
 shopt -s histappend
 
 #-------------------------------------------------------------------------
@@ -138,33 +145,15 @@ fi
 # [[ $- = *i* ]] &&
 # https://ss64.com/bash/syntax-inputrc.html
 bind "set show-all-if-ambiguous on"
-bind "TAB:menu-complete"
-bind '"\e[Z":menu-complete-backward' # Shift-tab
 bind "set menu-complete-display-prefix on"
-# bind "set completion-prefix-display-length 4"
 bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set skip-completed-text on"
-# bind '"\e[A": history-search-backward' # up-arrow
-# bind '"\e[B": history-search-forward' # down-arrow
+bind "TAB: menu-complete"
+bind '"\e[Z": menu-complete-backward' # Shift-tab
+bind '"\e[A": history-search-backward' # up-arrow
+bind '"\e[B": history-search-forward' # down-arrow
 bind "set expand-tilde on"
 bind '"\b": kill-whole-line' # Ctrl-backspace
 bind '"\ed": backward-kill-word' # Alt-d
 bind '"\eD": shell-kill-word' # Alt-D
-
-#-------------------------------------------------------------------------
-
-# Solus default .bashrc location
-
-# source /usr/share/defaults/etc/profile
-
-#-------------------------------------------------------------------------
-
-# Tilix
-
-# To avoid using a login shell for Tilix
-# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-#         source /usr/share/defaults/etc/profile.d/vte.sh # Solus
-# fi
-
-#-------------------------------------------------------------------------
