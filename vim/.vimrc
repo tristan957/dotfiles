@@ -21,4 +21,4 @@ set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 
-command Git set cc=80 | highlight ColorColumn ctermbg=Red
+command Git set cc=72 | highlight ColorColumn ctermbg=Red
