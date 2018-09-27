@@ -5,10 +5,14 @@ search-filter-time-type='last_modified'
 recursive-search='local-only'
 show-directory-item-counts='local-only'
 show-image-thumbnails='local-only'
+search-view='list-view'
 
 [window-state]
-geometry='890x550+959+48'
+geometry='889x534+533+225'
 maximized=false
+
+[compression]
+default-compression-format='zip'
 
 [icon-view]
 default-zoom-level='small'
@@ -20,5 +24,6 @@ trash-icon-visible=false
 
 [list-view]
 default-visible-columns=['name', 'size', 'type', 'date_modified']
+default-zoom-level='standard'
 use-tree-view=true
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency']

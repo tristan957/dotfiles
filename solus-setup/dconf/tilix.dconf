@@ -6,6 +6,7 @@ visible-name='Default'
 terminal-bell='none'
 
 [/]
+prompt-on-close=false
 tab-position='top'
 sidebar-on-right=false
 theme-variant='dark'

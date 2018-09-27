@@ -13,15 +13,15 @@ auto-indent=true
 show-tabs-mode='auto'
 
 [plugins/filebrowser]
-virtual-root='file:///home/tristan957/Desktop/solus-setup'
-tree-view=true
+virtual-root='file:///home/tristan957/Projects/vue-cli/packages/@vue/cli/lib'
+tree-view=false
 root='file:///'
 
 [plugins]
 active-plugins=['filebrowser']
 
 [state/window]
-size=(900, 700)
+size=(952, 1006)
 state=87168
 bottom-panel-size=140
 side-panel-size=200
