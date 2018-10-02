@@ -8,12 +8,13 @@ fi
 
 if [ -z "${OSTYPE}" ]; then
     OS="$(uname -a)"
+    OS_MAC="Darwin"
     OS_LINUX="Linux"
 else
     OS="${OSTYPE}"
+    OS_MAC="darwin"
     OS_LINUX="linux-gnu"
 fi
-OS_MAC="Darwin"
 
 #-------------------------------------------------------------------------
 
