@@ -35,7 +35,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 branch='$(__git_ps1 "[%s]")'
 
 # Prompt
-PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][$? \t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
+PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\$? \t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
 PS2="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS3="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS4="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
@@ -154,8 +154,8 @@ bind "set bell-style none"
 bind "set skip-completed-text on"
 bind "TAB: menu-complete"
 bind '"\e[Z": menu-complete-backward' # Shift-tab
-bind '"\e[A": history-search-backward' # up-arrow
-bind '"\e[B": history-search-forward' # down-arrow
+# bind '"\e[A": history-search-backward' # up-arrow
+# bind '"\e[B": history-search-forward' # down-arrow
 bind "set expand-tilde on"
 bind '"\b": kill-whole-line' # Ctrl-backspace
 bind '"\ed": backward-kill-word' # Alt-d

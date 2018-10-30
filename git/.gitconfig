@@ -1,7 +1,7 @@
 [user]
 	name = Tristan Partin
 	email = tristan.partin@gmail.com
-	signingkey = 1BCE5A59A33057CF
+	signingkey = 0CFCC58761C26191CEDBEB4EA1256275A68C30A1
 [alias]
     lg = !"git lg1"
     lg1 = !"git lg1-specific --all"
