@@ -28,6 +28,7 @@ qalculate-gtk
 solbuild
 steam
 stow
+tmux
 vim
 vlc
 vscode

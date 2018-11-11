@@ -4,5 +4,6 @@ gnu_stow()
     stow bash
     # stow git
     stow solus
+    stow tmux
     stow vim
 }
