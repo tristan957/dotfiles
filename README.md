@@ -22,7 +22,7 @@ The above is a list of packages `stow` can be used on. That syntax looks like
 
 ## Bash Prompt
 
-![Bash Prompt](prompt.png?raw=true "Title")
+![Bash Prompt](prompt.png?raw=true "Bash Prompt")
 
 From left to right:
 
