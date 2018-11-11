@@ -41,7 +41,7 @@ PS3="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 PS4="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
 
 # How many directories to show
-PROMPT_DIRTRIM=3
+PROMPT_DIRTRIM=2
 
 #-------------------------------------------------------------------------
 
