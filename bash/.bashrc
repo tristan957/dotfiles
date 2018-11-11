@@ -160,3 +160,12 @@ bind "set expand-tilde on"
 bind '"\b": kill-whole-line' # Ctrl-backspace
 bind '"\ed": backward-kill-word' # Alt-d
 bind '"\eD": shell-kill-word' # Alt-D
+
+#-------------------------------------------------------------------------
+
+# Tilix
+
+# To avoid using a login shell for Tilix
+# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#     source /usr/share/defaults/etc/profile.d/vte.sh # Solus
+# fi
