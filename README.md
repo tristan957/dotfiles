@@ -13,8 +13,8 @@ install bootstrapped. It can be invoked by
 This repository uses GNU `stow` to manage `dotfiles`.
 
 * bash
-* git
 * solus
+* tmux
 * vim
 
 The above is a list of packages `stow` can be used on. That syntax looks like
