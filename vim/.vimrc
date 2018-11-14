@@ -1,6 +1,6 @@
 " http://vimdoc.sourceforge.net/htmldoc/options.html
 
-command Git set cc=72 | highlight ColorColumn ctermbg=redraw		" show red bar at line 72
+command Git set cc=72 | highlight ColorColumn ctermbg=Red   		" show red bar at line 72
 
 filetype indent on 													" language-specific indentation ~/.vim/indent
 
