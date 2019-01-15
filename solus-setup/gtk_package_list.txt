@@ -2,6 +2,9 @@ adapta-gtk-theme
 apache-maven
 arcanist
 llvm-clang
+docker
+docker-compose
+docker-credentials-secretservice
 dconf-editor
 discord
 font-ubuntu-ttf
@@ -22,7 +25,7 @@ netcat
 nodejs
 neofetch
 papirus-icon-theme
-pavucontrol
+php
 pip
 qalculate-gtk
 solbuild

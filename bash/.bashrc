@@ -91,6 +91,9 @@ else
     export GIT_EDITOR="nano"
 fi
 
+# Add Symfony executables to PATH
+SYMFONYBIN="${HOME}/.symfony/bin"
+
 # Add GOPATH variable although is the defualt
 export GOPATH="${HOME}/go"
 
@@ -103,7 +106,7 @@ RUSTBIN="${HOME}/.cargo/bin"
 # Add Yarn executables to PATH
 YARNBIN="${HOME}/.yarn/bin"
 
-export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}"
+export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}:${SYMFONYBIN}"
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
