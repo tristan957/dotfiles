@@ -80,7 +80,7 @@ alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in curr
 # ENV Variables
 
 # Set default terminal text editor
-if type "neovim" > /dev/null 2>&1; then
+if type "nvim" > /dev/null 2>&1; then
     export EDITOR="nvim"
     export GIT_EDITOR="nvim"
 elif type "vim" > /dev/null 2>&1; then
@@ -90,9 +90,6 @@ else
     export EDITOR="nano"
     export GIT_EDITOR="nano"
 fi
-
-# Add Symfony executables to PATH
-SYMFONYBIN="${HOME}/.symfony/bin"
 
 # Add GOPATH variable although is the defualt
 export GOPATH="${HOME}/go"
@@ -115,6 +112,11 @@ HISTFILESIZE=2000
 shopt -s histappend
 
 # XDG User Directories
+# $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
+# non-essential runtime files and other file objects (such as sockets, named
+# pipes, ...) should be stored. The directory MUST be owned by the user, and
+# he MUST be the only one having read and write access to it. Its Unix access
+# mode MUST be 0700.
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
