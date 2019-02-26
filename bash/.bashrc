@@ -57,6 +57,10 @@ if [[ $OS != $OS_MAC* ]]; then
     export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 fi
 
+if [[ $OS != $OS_MAC* ]]; then
+    alias get_windows_key="sudo hexdump -C /sys/firmware/acpi/tables/MSDM"
+fi
+
 # Apply color to diff
 alias diff="diff --color=auto"
 
