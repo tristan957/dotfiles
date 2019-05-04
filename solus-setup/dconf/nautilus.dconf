@@ -1,16 +1,3 @@
-[preferences]
-executable-text-activation='ask'
-default-folder-viewer='icon-view'
-search-filter-time-type='last_modified'
-recursive-search='local-only'
-show-directory-item-counts='local-only'
-show-image-thumbnails='local-only'
-search-view='list-view'
-
-[window-state]
-geometry='889x534+533+225'
-maximized=false
-
 [compression]
 default-compression-format='zip'
 
@@ -18,12 +5,27 @@ default-compression-format='zip'
 default-zoom-level='small'
 
 [desktop]
-home-icon-visible=false
 volumes-visible=false
+home-icon-visible=false
 trash-icon-visible=false
 
+[window-state]
+geometry='868x489+2521+236'
+maximized=false
+
+[preferences]
+search-filter-time-type='last_modified'
+show-image-thumbnails='local-only'
+recursive-search='local-only'
+search-view='list-view'
+executable-text-activation='ask'
+show-directory-item-counts='local-only'
+default-folder-viewer='icon-view'
+use-experimental-views=false
+click-policy='double'
+
 [list-view]
-default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-zoom-level='standard'
 use-tree-view=true
+default-visible-columns=['name', 'size', 'type', 'date_modified']
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency']
