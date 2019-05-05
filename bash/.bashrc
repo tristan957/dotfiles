@@ -96,7 +96,7 @@ else
 fi
 
 # Add GOPATH variable although is the defualt
-export GOPATH="${HOME}/go"
+export GOPATH="${HOME}/.go"
 
 # Add pip executables to PATH
 LOCALBIN="${HOME}/.local/bin"
