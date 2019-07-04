@@ -1,5 +1,5 @@
 if [ -f /usr/share/defaults/etc/profile ]; then
-    source /usr/share/defaults/etc/profile
+	source /usr/share/defaults/etc/profile
 fi
 
 #-------------------------------------------------------------------------
@@ -7,13 +7,13 @@ fi
 # Operating Systems
 
 if [ -z "${OSTYPE}" ]; then
-    OS="$(uname -a)"
-    OS_MAC="Darwin"
-    OS_LINUX="Linux"
+	OS="$(uname -a)"
+	OS_MAC="Darwin"
+	OS_LINUX="Linux"
 else
-    OS="${OSTYPE}"
-    OS_MAC="darwin"
-    OS_LINUX="linux-gnu"
+	OS="${OSTYPE}"
+	OS_MAC="darwin"
+	OS_LINUX="linux-gnu"
 fi
 
 #-------------------------------------------------------------------------
@@ -53,12 +53,12 @@ alias permissions="stat -c '%a %n'"
 # ls folder color
 # Mac uses old af tools. Apple, you suck.
 if [[ $OS != $OS_MAC* ]]; then
-    alias ls="ls --color"
-    export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
+	alias ls="ls --color"
+	export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 fi
 
 if [[ $OS != $OS_MAC* ]]; then
-    alias get_windows_key="sudo hexdump -C /sys/firmware/acpi/tables/MSDM"
+	alias get_windows_key="sudo hexdump -C /sys/firmware/acpi/tables/MSDM"
 fi
 
 # Apply color to diff
@@ -85,14 +85,14 @@ alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in curr
 
 # Set default terminal text editor
 if type "nvim" > /dev/null 2>&1; then
-    export EDITOR="nvim"
-    export GIT_EDITOR="nvim"
+	export EDITOR="nvim"
+	export GIT_EDITOR="nvim"
 elif type "vim" > /dev/null 2>&1; then
-    export EDITOR="vim"
-    export GIT_EDITOR="vim"
+	export EDITOR="vim"
+	export GIT_EDITOR="vim"
 else
-    export EDITOR="nano"
-    export GIT_EDITOR="nano"
+	export EDITOR="nano"
+	export GIT_EDITOR="nano"
 fi
 
 # Add GOPATH variable although is the defualt
@@ -107,7 +107,10 @@ RUSTBIN="${HOME}/.cargo/bin"
 # Add Yarn executables to PATH
 YARNBIN="${HOME}/.yarn/bin"
 
-export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}:${SYMFONYBIN}"
+# Add snap executables to PATH
+SNAPBIN="/var/lib/snapd/snap/bin"
+
+export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}:${SNAPBIN}"
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
@@ -133,25 +136,28 @@ export XDG_PUBLICSHARE_DIR="${HOME}/Public"
 export XDG_TEMPLATES_DIR="${HOME}/Templates"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
+if [[ $OS != $OS_MAC* ]]; then
+	export JAVA_HOME="/usr/lib/jvm/java-openjdk"
+fi
+
 #-------------------------------------------------------------------------
 
 # Bash Completion
 
 # Check for interactive bash and that we haven't already been sourced.
 if [[ $OS == $OS_LINUX* ]]; then
-    if [ -f /etc/bashrc ]; then
-	    source /etc/bashrc
-    fi
-
+	if [ -f /etc/bashrc ]; then
+		source /etc/bashrc
+	fi
 fi
 
 # Tab completion for Mac
 if [[ $OS == $OS_MAC* ]]; then
-    if type brew 2&>/dev/null; then
-        for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
-            source "$completion_file"
-        done
-    fi
+	if type brew 2&>/dev/null; then
+		for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
+			source "$completion_file"
+		done
+	fi
 fi
 
 #-------------------------------------------------------------------------
