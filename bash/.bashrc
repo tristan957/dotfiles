@@ -1,5 +1,31 @@
-if [ -f /usr/share/defaults/etc/profile ]; then
-	source /usr/share/defaults/etc/profile
+#-------------------------------------------------------------------------
+
+# Solus-specific
+
+if [[ $OS == $OS_LINUX* ]]; then
+	if [ -f /usr/share/defaults/etc/profile ]; then
+		source /usr/share/defaults/etc/profile
+	fi
+fi
+
+# Fedora-specific
+if [[ $OS == $OS_LINUX* ]]; then
+	if [ -f /etc/bashrc ]; then
+		source /etc/bashrc
+	fi
+fi
+
+#-------------------------------------------------------------------------
+
+# Bash Completion
+
+# Tab completion for Mac
+if [[ $OS == $OS_MAC* ]]; then
+	if type brew 2&>/dev/null; then
+		for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
+			source "$completion_file"
+		done
+	fi
 fi
 
 #-------------------------------------------------------------------------
@@ -138,26 +164,6 @@ export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 if [[ $OS != $OS_MAC* ]]; then
 	export JAVA_HOME="/usr/lib/jvm/java-openjdk"
-fi
-
-#-------------------------------------------------------------------------
-
-# Bash Completion
-
-# Check for interactive bash and that we haven't already been sourced.
-if [[ $OS == $OS_LINUX* ]]; then
-	if [ -f /etc/bashrc ]; then
-		source /etc/bashrc
-	fi
-fi
-
-# Tab completion for Mac
-if [[ $OS == $OS_MAC* ]]; then
-	if type brew 2&>/dev/null; then
-		for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
-			source "$completion_file"
-		done
-	fi
 fi
 
 #-------------------------------------------------------------------------
