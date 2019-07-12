@@ -1,7 +1,8 @@
 #-------------------------------------------------------------------------
 
-# Solus-specific
+# Distro-specific Defaults
 
+# Solus-specific
 if [[ $OS == $OS_LINUX* ]]; then
 	if [ -f /usr/share/defaults/etc/profile ]; then
 		source /usr/share/defaults/etc/profile
