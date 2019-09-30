@@ -89,7 +89,9 @@ if [[ $OS != $OS_MAC* ]]; then
 fi
 
 # Apply color to diff
-alias diff="diff --color=auto"
+if [[ $OS != $OS_MAC* ]]; then
+    alias diff="diff --color=auto"
+fi
 
 # mkdir changes
 alias mkdir="mkdir -p"
