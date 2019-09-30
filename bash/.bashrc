@@ -1,5 +1,19 @@
 #-------------------------------------------------------------------------
 
+# Operating Systems
+
+if [ -z ${OSTYPE+x} ]; then
+	OS="$(uname -a)"
+	OS_MAC="Darwin"
+	OS_LINUX="Linux"
+else
+	OS="${OSTYPE}"
+	OS_MAC="darwin"
+	OS_LINUX="linux"
+fi
+
+#-------------------------------------------------------------------------
+
 # Distro-specific Defaults
 
 # Solus-specific
@@ -18,29 +32,19 @@ fi
 
 #-------------------------------------------------------------------------
 
-# Bash Completion
+# Homebrew Bash Completion
 
-# Tab completion for Mac
 if [[ $OS == $OS_MAC* ]]; then
-	if type brew 2&>/dev/null; then
-		for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
-			source "$completion_file"
-		done
+	HOMEBREW_PREFIX=$(brew --prefix)
+	if type brew &>/dev/null; then
+		if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+			source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+		else
+			for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+			[[ -r "$COMPLETION" ]] && source "$COMPLETION"
+			done
+		fi
 	fi
-fi
-
-#-------------------------------------------------------------------------
-
-# Operating Systems
-
-if [ -z "${OSTYPE}" ]; then
-	OS="$(uname -a)"
-	OS_MAC="Darwin"
-	OS_LINUX="Linux"
-else
-	OS="${OSTYPE}"
-	OS_MAC="darwin"
-	OS_LINUX="linux-gnu"
 fi
 
 #-------------------------------------------------------------------------
@@ -110,7 +114,7 @@ alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in curr
 
 #-------------------------------------------------------------------------
 
-# ENV Variables
+# Environment Variables
 
 # Set default terminal text editor
 if type "nvim" > /dev/null 2>&1; then
