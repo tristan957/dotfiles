@@ -8,7 +8,7 @@
 	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 [user]
 	name = Tristan Partin
-	email = tristan.partin@gmail.com
-	signingkey = 3A1E4917537EABF41F5C3B7682B8DF53D1578694
+	email = tristan@partin.io
+	signingkey = 9018292AA9F3EB019247A787AF43E2FACAF945C0
 [commit]
 	gpgsign = true

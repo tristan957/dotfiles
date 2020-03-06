@@ -128,7 +128,7 @@ else
 	export GIT_EDITOR="nano"
 fi
 
-# Add GOPATH variable although is the defualt
+# Export a hidden GOPATH
 export GOPATH="${HOME}/.go"
 
 # Add pip executables to PATH
@@ -142,6 +142,11 @@ YARNBIN="${HOME}/.yarn/bin"
 
 # Add snap executables to PATH
 SNAPBIN="/var/lib/snapd/snap/bin"
+
+# Get Linuxbrew prefix
+# if [[ $OS != $OS_MAC* ]]; then
+# 	LINUXBREWPREFIX="${HOME}/.linuxbrew"
+# fi
 
 export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}:${SNAPBIN}"
 
@@ -170,7 +175,7 @@ export XDG_TEMPLATES_DIR="${HOME}/Templates"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 if [[ $OS != $OS_MAC* ]]; then
-	export JAVA_HOME="/usr/lib/jvm/java-openjdk"
+	export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
 fi
 
 #-------------------------------------------------------------------------

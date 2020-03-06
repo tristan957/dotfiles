@@ -1,41 +1,8 @@
 " http://vimdoc.sourceforge.net/htmldoc/options.html
 
-command ApplyGitEdge set cc=72 | highlight ColorColumn ctermbg=Red " show red bar at line 72
-
-filetype plugin indent on " allow Vim to recognize the file type and use language-specific indentation
-
-set autoindent " new lines inherit the indentation of previous lines
-set autoread " relaod files changed outside of Vim
-set background=dark " use dark theme
-set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
-set confirm " display confirmation dialog when closing unsaved file
-set cursorline " highlight the current line
-set encoding=UTF-8
-set exrc " load .exrc file in current directory
-set hlsearch " highlight matches
-set incsearch " search as characters are entered
-set laststatus=2 " always show the status bar
-set lazyredraw " redraw only when we need to
-set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
-set number " show line numbers
-set ruler " show the line and column number of the cursor position, separated by a comma
-set noexpandtab " use tabs instead of spaces
-set secure " no autocmd, shell, or write commands can be run in .exrc files
-set shiftwidth=4 " number of spaces to use for each step of (auto)indent
-set showbreak=++++  " what to show when line breaks
-set showcmd " show the last run command
-set showmatch " highlight matching brackets
-set smartcase " automatically switch search to case-sensitive when search query contains an uppercase letter
-set smartindent " smart autoindenting when starting a new line
-set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places
-set softtabstop=4 " how many spaces a tab is when editing
-set tabstop=4 " how many spaces a tab is when viewing
-set termguicolors
-set textwidth=100 " maximum width of text that is being inserted
-set undolevels=1000 " maximum number of changes that can be undone
-set wildmenu " visual autocomplete for command menu
-
-syntax enable " enable syntax highlighting
+""""""""
+" Plug
+""""""""
 
 " plug.vim initialization
 if has('nvim') && empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -54,36 +21,239 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'vim-airline/vim-airline'
-Plug 'valloric/youcompleteme', { 'do': './install.py --java-completer --clangd-completer --clang-completer', 'for': ['java', 'c', 'cpp', 'python', 'typescript', 'javascript'] }
-Plug 'scrooloose/syntastic'
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'scrooloose/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons' " NERDFonts...
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
+""""""""""""
+" coc.nvim
+""""""""""""
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"""""""""""""""""""
+" Custom Commands
+"""""""""""""""""""
+
+command! ApplyGitEdge set cc=72 | highlight ColorColumn ctermbg=Red " show red bar at line 72
+
+""""""""""""
+" Settings
+""""""""""""
+set autoindent " new lines inherit the indentation of previous lines
+set autoread " relaod files changed outside of Vim
+set background=dark " use dark theme
+set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
+set cmdheight=2 " give more space for displaying messages
+set confirm " display confirmation dialog when closing unsaved file
+set cursorline " highlight the current line
+set encoding=UTF-8
+set exrc " load .exrc file in current directory
+set hidden " TextEdit might fail if hidden is not set
+set hlsearch " highlight matches
+set incsearch " search as characters are entered
+set laststatus=2 " always show the status bar
+set lazyredraw " redraw only when we need to
+set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
+set number " show line numbers
+set ruler " show the line and column number of the cursor position, separated by a comma
+set nobackup " some language servers have issues with backup files, see coc.nvim#649
+set noexpandtab " use tabs instead of spaces
+set noshowmode " don't show the mode since we are already using the statusbar
+set nowritebackup " some language servers have issues with backup files, see coc.nvim#649
+set secure " no autocmd, shell, or write commands can be run in .exrc files
+set signcolumn=yes " always show the signcolumn
+set shiftwidth=4 " number of spaces to use for each step of (auto)indent
+set shortmess+=c " don't pass messages to |ins-completion-menu|
+set showbreak=++++  " what to show when line breaks
+" set showcmd " show the last run command
+set showmatch " highlight matching brackets
+set smartcase " automatically switch search to case-sensitive when search query contains an uppercase letter
+set smartindent " smart autoindenting when starting a new line
+set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places
+set softtabstop=0 " how many spaces a tab is when editing
+set tabstop=4 " how many spaces a tab is when viewing
+set termguicolors
+set textwidth=100 " maximum width of text that is being inserted
+set undolevels=1000 " maximum number of changes that can be undone
+set updatetime=300
+set wildmenu " visual autocomplete for command menu
+
+syntax enable " enable syntax highlighting
+
 colorscheme gruvbox
 
-let g:syntastic_java_checkers = []
-let g:airline_theme='gruvbox.vim'
 let g:gruvbox_contrast_dark='hard'
-let g:airline_powerline_fonts=0
-let g:airline_theme='gruvbox'
 let NERDTreeShowHidden=1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
+      \ }
 
-" shortcuts
+" NERDTree show when directory opened among other things
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" Close NERDTree if it is the only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"""""""""""""""""""""""""""""""
+" File Type Specific Settings
+"""""""""""""""""""""""""""""""
+
+filetype on " allow Vim to recognize the file type
+
+" C
+autocmd FileType c setlocal noexpandtab tabstop=4 softtabstop=0
+" C++
+autocmd FileType cpp setlocal noexpandtab tabstop=4 softtabstop=0
+" JSON
+autocmd FileType json syntax match Comment +\/\/.\+$+
+" Rust
+autocmd FileType rust setlocal noexpandtab tabstop=4 softtabstop=0
+
+"""""""""""""
+" Shortcuts
+"""""""""""""
+
 map <C-b> :NERDTreeFocus<CR> " focus NERD Tree
 map <C-t> :NERDTreeToggle<CR> " toggle NERD Tree
 map <C-r> :NERDTreeRefreshRoot<CR> " refresh NERD Tree
@@ -91,11 +261,7 @@ nnoremap <C-Left> :tabprevious<CR> " previous tab
 nnoremap <C-Right> :tabnext<CR> " next tab
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
-nmap <silent> <A-Up> :wincmd k<CR> " move up a window
-nmap <silent> <A-Down> :wincmd j<CR> " move down a window
-nmap <silent> <A-Left> :wincmd h<CR> " move left a window
-nmap <silent> <A-Right> :wincmd l<CR> " move right a window
-
-" NERDTree show when directory opened
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+nmap <silent> <M-k> :wincmd k<CR> " move up a window
+nmap <silent> <M-j> :wincmd j<CR> " move down a window
+nmap <silent> <M-h> :wincmd h<CR> " move left a window
+nmap <silent> <M-l> :wincmd l<CR> " move right a window
