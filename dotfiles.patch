@@ -1,0 +1,37 @@
+diff --git a/.gitignore b/.gitignore
+index 2563a70..3418e40 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,2 +1,5 @@
+ .DS_Store
+-vim/.vim/autoload
++*/.config/*
++!vim/.config/nvim
++.netrwhist
++autoload
+diff --git a/bash/.stow-local-ignore b/bash/.stow-local-ignore
+index 56e9300..16c6fd9 100644
+--- a/bash/.stow-local-ignore
++++ b/bash/.stow-local-ignore
+@@ -1 +1,2 @@
+ git-prompt.sh
++os
+diff --git a/bash/os/linux/distros/fedora/fedora.bash b/bash/os/linux/distros/fedora/fedora.bash
+new file mode 100644
+index 0000000..e69de29
+diff --git a/bash/os/linux/distros/solus/solus.bash b/bash/os/linux/distros/solus/solus.bash
+new file mode 100644
+index 0000000..e69de29
+diff --git a/bash/os/linux/linux.bash b/bash/os/linux/linux.bash
+new file mode 100644
+index 0000000..e69de29
+diff --git a/bash/os/macos/macos.bash b/bash/os/macos/macos.bash
+new file mode 100644
+index 0000000..95793ef
+--- /dev/null
++++ b/bash/os/macos/macos.bash
+@@ -0,0 +1,4 @@
++if [[ -d /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]]; then
++	source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
++	source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
++fi

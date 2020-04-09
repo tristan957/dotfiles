@@ -218,7 +218,6 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 let NERDTreeShowHidden=1
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]

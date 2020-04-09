@@ -1,2 +1,5 @@
 .DS_Store
-vim/.vim/autoload
+*/.config/*
+!vim/.config/nvim
+.netrwhist
+autoload
