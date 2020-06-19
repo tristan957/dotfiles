@@ -9,6 +9,6 @@
 [user]
 	name = Tristan Partin
 	email = tristan@partin.io
-	signingkey = 9018292AA9F3EB019247A787AF43E2FACAF945C0
+	signingkey = CC000B6D725FAEB6E8CEE5FD5AD0476101F9899D
 [commit]
 	gpgsign = true

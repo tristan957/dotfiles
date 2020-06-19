@@ -22,7 +22,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
@@ -30,7 +30,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-solarized8'
-" Plug 'ryanoasis/vim-devicons' " NERDFonts...
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -193,6 +192,7 @@ set nobackup " some language servers have issues with backup files, see coc.nvim
 set noexpandtab " use tabs instead of spaces
 set noshowmode " don't show the mode since we are already using the statusbar
 set nowritebackup " some language servers have issues with backup files, see coc.nvim#649
+set relativenumber " show relative line numbering
 set secure " no autocmd, shell, or write commands can be run in .exrc files
 set signcolumn=yes " always show the signcolumn
 set shiftwidth=4 " number of spaces to use for each step of (auto)indent
@@ -228,11 +228,16 @@ let g:lightline = {
       \ },
       \ }
 
+" Toggle relativenumber in certain situations
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave " set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter " set norelativenumber
+augroup END
+
 " NERDTree show when directory opened among other things
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" Close NERDTree if it is the only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """""""""""""""""""""""""""""""
 " File Type Specific Settings
