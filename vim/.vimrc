@@ -28,11 +28,136 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+syntax enable " enable syntax highlighting
+
+colorscheme gruvbox
+
+"""""""""""""
+" Shortcuts
+"""""""""""""
+
+map <leader>nf :NERDTreeFocus<CR>
+map <leader>nt :NERDTreeToggle<CR>
+map <leader>nr :NERDTreeRefreshRoot<CR>
+map <leader>gs :Gstatus<CR>
+nnoremap <leader>k :wincmd k<CR> " move up a window
+nnoremap <leader>j :wincmd j<CR> " move down a window
+nnoremap <leader>h :wincmd h<CR> " move left a window
+nnoremap <leader>l :wincmd l<CR> " move right a window
+nnoremap <SPACE> <Nop>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-P> :GFiles<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
+
+""""""""""""
+" Settings
+""""""""""""
+set autoindent " new lines inherit the indentation of previous lines
+set autoread " relaod files changed outside of Vim
+set background=dark " use dark theme
+set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
+set cmdheight=2 " give more space for displaying messages
+set colorcolumn=80 "colorcolumn at 80
+set confirm " display confirmation dialog when closing unsaved file
+set cursorline " highlight the current line
+set encoding=UTF-8
+set exrc " load .exrc file in current directory
+set hidden " TextEdit might fail if hidden is not set
+set hlsearch " highlight matches
+set incsearch " search as characters are entered
+set laststatus=2 " always show the status bar
+set lazyredraw " redraw only when we need to
+set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
+set number " show line numbers
+set ruler " show the line and column number of the cursor position, separated by a comma
+set nobackup " some language servers have issues with backup files, see coc.nvim#649
+set noerrorbells " no sounds please vim
+set noexpandtab " use tabs instead of spaces
+set noshowmode " don't show the mode since we are already using the statusbar
+set nowrap " do not wrap
+set nowritebackup " some language servers have issues with backup files, see coc.nvim#649
+set noswapfile
+set relativenumber " show relative line numbering
+set secure " no autocmd, shell, or write commands can be run in .exrc files
+set signcolumn=yes " always show the signcolumn
+set shiftwidth=4 " number of spaces to use for each step of (auto)indent
+set shortmess+=c " don't pass messages to |ins-completion-menu|
+set showbreak=++++  " what to show when line breaks
+" set showcmd " show the last run command
+set showmatch " highlight matching brackets
+set smartcase " automatically switch search to case-sensitive when search query contains an uppercase letter
+set smartindent " smart autoindenting when starting a new line
+set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places
+set softtabstop=0 " how many spaces a tab is when editing
+set tabstop=4 " how many spaces a tab is when viewing
+set termguicolors
+set textwidth=100 " maximum width of text that is being inserted
+set undodir=~/.cache/vim/undodir " remember to create directory
+set undofile
+set updatetime=300
+set wildmenu " visual autocomplete for command menu
+
+let mapleader=" "
+let g:netrw_banner=0
+let g:gruvbox_contrast_dark='hard'
+let NERDTreeShowHidden=1
+let g:lightline = {
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'cocstatus': 'coc#status',
+  \   'currentfunction': 'CocCurrentFunction'
+  \ },
+\ }
+
+highlight ColorColumn ctermbg=237 guibg=#3C3836
+
+"""""""""""""""""""""""""""""""
+" File Type Specific Settings
+"""""""""""""""""""""""""""""""
+
+filetype on " allow Vim to recognize the file type
+
+" C
+autocmd FileType c setlocal noexpandtab tabstop=4 softtabstop=0
+" C++
+autocmd FileType cpp setlocal noexpandtab tabstop=4 softtabstop=0
+" JSON
+autocmd FileType json syntax match Comment +\/\/.\+$+
+" Rust
+autocmd FileType rust setlocal noexpandtab tabstop=4 softtabstop=0
+
+""""""""""""""""
+" Auto-behaviors
+""""""""""""""""
+
+" NERDTree show when directory opened among other things
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Toggle relativenumber in certain situations
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave " set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter " set norelativenumber
+augroup END
+
+"""""""""""""""""""
+" Custom Commands
+"""""""""""""""""""
 
 """"""""""""
 " coc.nvim
@@ -161,111 +286,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-"""""""""""""""""""
-" Custom Commands
-"""""""""""""""""""
-
-command! ApplyGitEdge set cc=72 | highlight ColorColumn ctermbg=Red " show red bar at line 72
-
-""""""""""""
-" Settings
-""""""""""""
-set autoindent " new lines inherit the indentation of previous lines
-set autoread " relaod files changed outside of Vim
-set background=dark " use dark theme
-set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
-set cmdheight=2 " give more space for displaying messages
-set confirm " display confirmation dialog when closing unsaved file
-set cursorline " highlight the current line
-set encoding=UTF-8
-set exrc " load .exrc file in current directory
-set hidden " TextEdit might fail if hidden is not set
-set hlsearch " highlight matches
-set incsearch " search as characters are entered
-set laststatus=2 " always show the status bar
-set lazyredraw " redraw only when we need to
-set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
-set number " show line numbers
-set ruler " show the line and column number of the cursor position, separated by a comma
-set nobackup " some language servers have issues with backup files, see coc.nvim#649
-set noexpandtab " use tabs instead of spaces
-set noshowmode " don't show the mode since we are already using the statusbar
-set nowritebackup " some language servers have issues with backup files, see coc.nvim#649
-set relativenumber " show relative line numbering
-set secure " no autocmd, shell, or write commands can be run in .exrc files
-set signcolumn=yes " always show the signcolumn
-set shiftwidth=4 " number of spaces to use for each step of (auto)indent
-set shortmess+=c " don't pass messages to |ins-completion-menu|
-set showbreak=++++  " what to show when line breaks
-" set showcmd " show the last run command
-set showmatch " highlight matching brackets
-set smartcase " automatically switch search to case-sensitive when search query contains an uppercase letter
-set smartindent " smart autoindenting when starting a new line
-set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places
-set softtabstop=0 " how many spaces a tab is when editing
-set tabstop=4 " how many spaces a tab is when viewing
-set termguicolors
-set textwidth=100 " maximum width of text that is being inserted
-set undolevels=1000 " maximum number of changes that can be undone
-set updatetime=300
-set wildmenu " visual autocomplete for command menu
-
-syntax enable " enable syntax highlighting
-
-colorscheme gruvbox
-
-let g:gruvbox_contrast_dark='hard'
-let NERDTreeShowHidden=1
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ }
-
-" Toggle relativenumber in certain situations
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave " set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter " set norelativenumber
-augroup END
-
-" NERDTree show when directory opened among other things
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-"""""""""""""""""""""""""""""""
-" File Type Specific Settings
-"""""""""""""""""""""""""""""""
-
-filetype on " allow Vim to recognize the file type
-
-" C
-autocmd FileType c setlocal noexpandtab tabstop=4 softtabstop=0
-" C++
-autocmd FileType cpp setlocal noexpandtab tabstop=4 softtabstop=0
-" JSON
-autocmd FileType json syntax match Comment +\/\/.\+$+
-" Rust
-autocmd FileType rust setlocal noexpandtab tabstop=4 softtabstop=0
-
-"""""""""""""
-" Shortcuts
-"""""""""""""
-
-map <C-b> :NERDTreeFocus<CR> " focus NERD Tree
-map <C-t> :NERDTreeToggle<CR> " toggle NERD Tree
-map <C-r> :NERDTreeRefreshRoot<CR> " refresh NERD Tree
-nnoremap <C-Left> :tabprevious<CR> " previous tab
-nnoremap <C-Right> :tabnext<CR> " next tab
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
-nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
-nmap <silent> <M-k> :wincmd k<CR> " move up a window
-nmap <silent> <M-j> :wincmd j<CR> " move down a window
-nmap <silent> <M-h> :wincmd h<CR> " move left a window
-nmap <silent> <M-l> :wincmd l<CR> " move right a window
