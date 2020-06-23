@@ -37,13 +37,14 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 syntax enable " enable syntax highlighting
-
 colorscheme gruvbox
+let mapleader=" "
 
 """""""""""""
 " Shortcuts
 """""""""""""
 
+nnoremap <SPACE> <Nop>
 map <leader>nf :NERDTreeFocus<CR>
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>nr :NERDTreeRefreshRoot<CR>
@@ -52,7 +53,6 @@ nnoremap <leader>k :wincmd k<CR> " move up a window
 nnoremap <leader>j :wincmd j<CR> " move down a window
 nnoremap <leader>h :wincmd h<CR> " move left a window
 nnoremap <leader>l :wincmd l<CR> " move right a window
-nnoremap <SPACE> <Nop>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-P> :GFiles<CR>
 nnoremap <C-Left> :tabprevious<CR>
@@ -108,7 +108,6 @@ set undofile
 set updatetime=300
 set wildmenu " visual autocomplete for command menu
 
-let mapleader=" "
 let g:netrw_banner=0
 let g:gruvbox_contrast_dark='hard'
 let NERDTreeShowHidden=1
