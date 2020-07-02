@@ -17,6 +17,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 * ssh
 * tmux
 * vim
+* terraform
 
 The above is a list of packages `stow` can be used on. That syntax looks like
 `stow {package}`.

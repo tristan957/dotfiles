@@ -17,12 +17,10 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'majutsushi/tagbar'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
@@ -72,7 +70,6 @@ set colorcolumn=80 "colorcolumn at 80
 set confirm " display confirmation dialog when closing unsaved file
 set cursorline " highlight the current line
 set encoding=UTF-8
-set exrc " load .exrc file in current directory
 set hidden " TextEdit might fail if hidden is not set
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
@@ -114,9 +111,10 @@ let NERDTreeShowHidden=1
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+  \             [ 'gitstatus', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
   \ },
   \ 'component_function': {
+  \   'gitstatus': 'FugitiveStatusLine',
   \   'cocstatus': 'coc#status',
   \   'currentfunction': 'CocCurrentFunction'
   \ },
@@ -144,8 +142,8 @@ autocmd FileType rust setlocal noexpandtab tabstop=4 softtabstop=0
 """"""""""""""""
 
 " NERDTree show when directory opened among other things
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 " Toggle relativenumber in certain situations
 augroup numbertoggle

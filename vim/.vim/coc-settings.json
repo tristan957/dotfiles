@@ -1,3 +1,4 @@
 {
-	"languageserver": {}
+	"languageserver": {},
+	"git.enableGutter": true
 }
