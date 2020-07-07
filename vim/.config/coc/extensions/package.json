@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "coc-css": ">=1.2.4",
+    "coc-eslint": ">=1.2.7",
+    "coc-git": ">=1.7.15",
+    "coc-html": ">=1.2.4",
+    "coc-java": ">=1.4.11",
+    "coc-json": ">=1.2.6",
+    "coc-pairs": ">=1.2.21",
+    "coc-prettier": ">=1.1.16",
+    "coc-rust-analyzer": ">=0.7.10",
+    "coc-tsserver": ">=1.5.2",
+    "coc-yaml": ">=1.0.4"
+  }
+}
