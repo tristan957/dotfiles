@@ -42,28 +42,21 @@ fi
 
 # Prompt
 
-# check if I am root
-# if [ $EUID -ne 0 ]; then
-#     user_char='‖' # '⋮' # '$'
-# else
-#     user_char='#'
-# fi
-
 # Git branch for prompt
 source "${HOME}/dotfiles/bash/git-prompt.sh"
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto"
+# GIT_PS1_SHOWDIRTYSTATE=1
+# GIT_PS1_SHOWUNTRACKEDFILES=1
+# GIT_PS1_SHOWUPSTREAM="auto"
 branch='$(__git_ps1 "[%s]")'
 
 # Prompt
-PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\$? \t] \[$(tput setaf 76)\][\u@\h] \[$(tput setaf 214)\][\w] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─‖ \[$(tput sgr0)\]"
-PS2="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
-PS3="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
-PS4="\[$(tput setaf 51)\]$(tput bold)└─‖ \[$(tput sgr0)\]"
+PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─\$ \[$(tput sgr0)\]"
+PS2="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
+PS3="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
+PS4="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
 
 # How many directories to show
-PROMPT_DIRTRIM=2
+# PROMPT_DIRTRIM=1
 
 #-------------------------------------------------------------------------
 

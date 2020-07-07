@@ -29,7 +29,8 @@ The above is a list of packages `stow` can be used on. That syntax looks like
 From left to right:
 
 * return code of previous command
+* number of jobs currently managed by the shell
 * 24-hr time
-* username@computer
-* current directory limited to 2 directories
-* git branch marked with dirty state, new file, and push/pull state
+* username@hostname
+* current directory
+* git branch
