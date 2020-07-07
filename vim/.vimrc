@@ -35,7 +35,6 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 syntax enable " enable syntax highlighting
-colorscheme gruvbox
 let mapleader=" "
 
 """""""""""""
@@ -47,6 +46,8 @@ map <leader>nf :NERDTreeFocus<CR>
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>nr :NERDTreeRefreshRoot<CR>
 map <leader>gs :Gstatus<CR>
+nmap <leader>rw <Plug>(coc-rename) # rename word
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR> project-wide rename word
 nnoremap <leader>k :wincmd k<CR> " move up a window
 nnoremap <leader>j :wincmd j<CR> " move down a window
 nnoremap <leader>h :wincmd h<CR> " move left a window
@@ -63,7 +64,6 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " 
 """"""""""""
 set autoindent " new lines inherit the indentation of previous lines
 set autoread " relaod files changed outside of Vim
-set background=dark " use dark theme
 set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
 set cmdheight=2 " give more space for displaying messages
 set colorcolumn=80 "colorcolumn at 80
@@ -106,7 +106,10 @@ set updatetime=300
 set wildmenu " visual autocomplete for command menu
 
 let g:netrw_banner=0
-let g:gruvbox_contrast_dark='hard'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 let NERDTreeShowHidden=1
 let g:lightline = {
   \ 'active': {
@@ -119,6 +122,11 @@ let g:lightline = {
   \   'currentfunction': 'CocCurrentFunction'
   \ },
 \ }
+
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_selection='0'
+colorscheme gruvbox
+set background=dark
 
 highlight ColorColumn ctermbg=237 guibg=#3C3836
 
@@ -151,6 +159,9 @@ augroup numbertoggle
 	autocmd BufEnter,FocusGained,InsertLeave " set relativenumber
 	autocmd BufLeave,FocusLost,InsertEnter " set norelativenumber
 augroup END
+
+" Trim whitespace upon writing buffer
+autocmd BufWritePre * :call TrimWhitespace()
 
 """""""""""""""""""
 " Custom Commands
