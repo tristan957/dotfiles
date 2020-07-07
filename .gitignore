@@ -1,3 +1,4 @@
 .DS_Store
-.netrwhist
-autoload
+node_modules
+vim/.vim/autoload
+vim/.vim/.netrwhist
