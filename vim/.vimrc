@@ -19,11 +19,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'easymotion/vim-easymotion'
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
@@ -42,9 +40,6 @@ let mapleader=" "
 """""""""""""
 
 nnoremap <SPACE> <Nop>
-map <leader>nf :NERDTreeFocus<CR>
-map <leader>nt :NERDTreeToggle<CR>
-map <leader>nr :NERDTreeRefreshRoot<CR>
 map <leader>gs :Gstatus<CR>
 nmap <leader>rw <Plug>(coc-rename) # rename word
 nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR> project-wide rename word
@@ -110,7 +105,6 @@ if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-let NERDTreeShowHidden=1
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
@@ -148,10 +142,6 @@ autocmd FileType rust setlocal noexpandtab tabstop=4 softtabstop=0
 """"""""""""""""
 " Auto-behaviors
 """"""""""""""""
-
-" NERDTree show when directory opened among other things
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") && v:this_session == "" | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 " Toggle relativenumber in certain situations
 augroup numbertoggle
