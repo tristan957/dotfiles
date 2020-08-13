@@ -104,12 +104,15 @@ alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in curr
 if type "nvim" > /dev/null 2>&1; then
 	export EDITOR="nvim"
 	export GIT_EDITOR="nvim"
+	export VISUAL="nvim"
 elif type "vim" > /dev/null 2>&1; then
 	export EDITOR="vim"
 	export GIT_EDITOR="vim"
+	export VISUAL="vim"
 else
 	export EDITOR="nano"
 	export GIT_EDITOR="nano"
+	export VISUAL="nano"
 fi
 
 # Export a hidden GOPATH
@@ -184,11 +187,3 @@ bind '"\b": kill-whole-line' # Ctrl-backspace
 bind '"\ed": backward-kill-word' # Alt-d
 bind '"\eD": shell-kill-word' # Alt-D
 
-#-------------------------------------------------------------------------
-
-# Tilix
-
-# To avoid using a login shell for Tilix
-# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-#     source /usr/share/defaults/etc/profile.d/vte.sh # Solus
-# fi
