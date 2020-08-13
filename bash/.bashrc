@@ -84,18 +84,6 @@ fi
 # mkdir changes
 alias mkdir="mkdir -p"
 
-# Git
-alias ga="git add"
-alias gc="git commit"
-alias gck="git checkout"
-alias gpl="git pull"
-alias gps="git push"
-
-# Solus Packaging
-alias fetch-yml="../common/Scripts/yauto.py" # url
-alias update-yml="/usr/share/ypkg/yupdate.py" # version-number url
-alias get-make="echo 'include ../Makefile.common' > Makefile" # Makefile in current package directory
-
 #-------------------------------------------------------------------------
 
 # Environment Variables
