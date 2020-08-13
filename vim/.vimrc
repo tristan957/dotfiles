@@ -41,14 +41,16 @@ let mapleader=" "
 
 nnoremap <SPACE> <Nop>
 map <leader>gs :Gstatus<CR>
-nmap <leader>rw <Plug>(coc-rename) # rename word
+nmap <leader>rw <Plug>(coc-rename) " rename word
 nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR> project-wide rename word
+nnoremap <C-k> :<C-u>move-2<CR>== " move line up
+nnoremap <C-j> :<C-u>move+<CR>== " move line down
 nnoremap <leader>k :wincmd k<CR> " move up a window
 nnoremap <leader>j :wincmd j<CR> " move down a window
 nnoremap <leader>h :wincmd h<CR> " move left a window
 nnoremap <leader>l :wincmd l<CR> " move right a window
-nnoremap <C-p> :Files<CR>
-nnoremap <C-P> :GFiles<CR>
+nnoremap <leader>ogf :GFiles<CR>
+nnoremap <leader>of :Files<CR>
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
