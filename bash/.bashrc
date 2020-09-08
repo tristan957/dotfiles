@@ -14,44 +14,24 @@ shopt -s globstar
 
 #-------------------------------------------------------------------------
 
-# Operating Systems
-
-if [ -z ${OSTYPE+x} ]; then
-	OS="$(uname -a)"
-	OS_MAC="Darwin"
-	OS_LINUX="Linux"
-else
-	OS="${OSTYPE}"
-	OS_MAC="darwin"
-	OS_LINUX="linux"
-fi
-
-#-------------------------------------------------------------------------
-
 # Distro-specific Defaults
 
 # Solus-specific
-if [[ $OS == $OS_LINUX* ]]; then
-	if [ -f /usr/share/defaults/etc/profile ]; then
-		source /usr/share/defaults/etc/profile
-	fi
+if [ -f /usr/share/defaults/etc/profile ]; then
+	source /usr/share/defaults/etc/profile
 fi
 
 # Fedora-specific
-if [[ $OS == $OS_LINUX* ]]; then
-	if [ -f /etc/bashrc ]; then
-		source /etc/bashrc
-	fi
+if [ -f /etc/bashrc ]; then
+	source /etc/bashrc
 fi
 
 # Ubuntu-specific
-if [[ $OS == $OS_LINUX* ]]; then
-	if ! shopt -oq posix; then
-		if [ -f /usr/share/bash-completion/bash_completion ]; then
-			source /usr/share/bash-completion/bash_completion
-		elif [ -f /etc/bash_completion ]; then
-			source /etc/bash_completion
-		fi
+if ! shopt -oq posix; then
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		source /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		source /etc/bash_completion
 	fi
 fi
 
@@ -59,9 +39,7 @@ fi
 
 # Homebrew Bash Completion
 
-if [[ $OS == $OS_MAC* ]]; then
-	[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-fi
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 #-------------------------------------------------------------------------
 
@@ -162,10 +140,6 @@ export XDG_TEMPLATES_DIR="${HOME}/Templates"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
-
-if [[ $OS != $OS_MAC* ]]; then
-	export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
-fi
 
 # HTTP Proxy
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
