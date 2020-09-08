@@ -143,7 +143,7 @@ export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
 # HTTP Proxy
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-	if ! ping -q -c 1 proxy-web.micron.com &> /dev/null; then
+	if ping -q -c 1 proxy-web.micron.com &> /dev/null; then
 		export http_proxy=proxy-web.micron.com:80
 		export HTTP_PROXY=$http_proxy
 		export https_proxy=$http_proxy
