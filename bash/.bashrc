@@ -1,3 +1,17 @@
+# If not running interactively, do nothing
+case $- in
+	*i*) ;;
+	*) return;;
+esac
+
+#-------------------------------------------------------------------------
+
+# Shell Options
+
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s globstar
+
 #-------------------------------------------------------------------------
 
 # Operating Systems
@@ -27,6 +41,17 @@ fi
 if [[ $OS == $OS_LINUX* ]]; then
 	if [ -f /etc/bashrc ]; then
 		source /etc/bashrc
+	fi
+fi
+
+# Ubuntu-specific
+if [[ $OS == $OS_LINUX* ]]; then
+	if ! shopt -oq posix; then
+		if [ -f /usr/share/bash-completion/bash_completion ]; then
+			source /usr/share/bash-completion/bash_completion
+		elif [ -f /etc/bash_completion ]; then
+			source /etc/bash_completion
+		fi
 	fi
 fi
 
@@ -62,27 +87,17 @@ PS4="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
 
 # Alii
 
-# Octal Permissions
-alias permissions="stat -c '%a %n'"
-
-# ls folder color
-# Mac uses old af tools. Apple, you suck.
-if [[ $OS != $OS_MAC* ]]; then
-	alias ls="ls --color"
-	export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
+if [ -f ~/.bash_aliases ]; then
+	source ~/.bash_aliases
 fi
 
-if [[ $OS != $OS_MAC* ]]; then
-	alias get_windows_key="sudo hexdump -C /sys/firmware/acpi/tables/MSDM"
-fi
+#-------------------------------------------------------------------------
 
-# Apply color to diff
-if [[ $OS != $OS_MAC* ]]; then
-    alias diff="diff --color=auto"
-fi
+# Functions
 
-# mkdir changes
-alias mkdir="mkdir -p"
+if [ -f ~/.bash_functions ]; then
+	source ~/.bash_functions
+fi
 
 #-------------------------------------------------------------------------
 
@@ -127,8 +142,6 @@ export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}:${SNAPBIN}"
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
-shopt -s histappend
-
 
 # XDG User Directories
 # $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
@@ -153,25 +166,3 @@ export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 if [[ $OS != $OS_MAC* ]]; then
 	export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $(which javac)))))
 fi
-
-#-------------------------------------------------------------------------
-
-# inputrc commands
-
-# https://stackoverflow.com/questions/31155381/what-does-i-mean-in-bash
-# [[ $- = *i* ]] &&
-# https://ss64.com/bash/syntax-inputrc.html
-bind "set show-all-if-ambiguous on"
-bind "set menu-complete-display-prefix on"
-bind "set completion-ignore-case on"
-bind "set bell-style none"
-bind "set skip-completed-text on"
-bind "TAB: menu-complete"
-bind '"\e[Z": menu-complete-backward' # Shift-tab
-# bind '"\e[A": history-search-backward' # up-arrow
-# bind '"\e[B": history-search-forward' # down-arrow
-bind "set expand-tilde on"
-bind '"\b": kill-whole-line' # Ctrl-backspace
-bind '"\ed": backward-kill-word' # Alt-d
-bind '"\eD": shell-kill-word' # Alt-D
-

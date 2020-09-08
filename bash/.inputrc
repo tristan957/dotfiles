@@ -1,0 +1,17 @@
+# https://stackoverflow.com/questions/31155381/what-does-i-mean-in-bash
+# [[ $- = *i* ]] &&
+# https://ss64.com/bash/syntax-inputrc.html
+
+set show-all-if-ambiguous on
+set menu-complete-display-prefix on
+set completion-ignore-case on
+set bell-style none
+set skip-completed-text on
+TAB: menu-complete
+"\e[Z": menu-complete-backward # Shift-tab
+"\e[A": history-search-backward # up-arrow
+"\e[B": history-search-forward # down-arrow
+set expand-tilde on
+"\b": kill-whole-line # Ctrl-backspace
+"\ed": backward-kill-word # Alt-d
+"\eD": shell-kill-word # Alt-D
