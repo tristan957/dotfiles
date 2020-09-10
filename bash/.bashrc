@@ -96,6 +96,9 @@ else
 	export VISUAL="nano"
 fi
 
+# Forget about "unable to sign commit" errors
+export GPG_TTY=$(tty)
+
 # Export a hidden GOPATH
 export GOPATH="${HOME}/.go"
 
@@ -160,7 +163,7 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
 	# This should be removable in Windows v2004 with WSL2 since systemd is
 	# supported (sudo systemctl enable --now (?) ssh).
 	if pgrep -x ssh-agent &> /dev/null; then
-		kill $(pgrep -x  ssh-agent)
+		kill $(pgrep -x ssh-agent)
 	fi
 	eval $(ssh-agent -s)
 fi
