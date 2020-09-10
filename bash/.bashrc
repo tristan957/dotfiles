@@ -163,7 +163,7 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
 	# This should be removable in Windows v2004 with WSL2 since systemd is
 	# supported (sudo systemctl enable --now (?) ssh).
 	if pgrep -x ssh-agent &> /dev/null; then
-		kill $(pgrep -x ssh-agent)
+		kill $(pgrep -x ssh-agent | xargs)
 	fi
-	eval $(ssh-agent -s)
+	eval $(ssh-agent -s) 2>&1 > /dev/null
 fi
