@@ -4,7 +4,7 @@ case $- in
 	*) return;;
 esac
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Shell Options
 
@@ -12,7 +12,7 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Distro-specific Defaults
 
@@ -35,13 +35,13 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Homebrew Bash Completion
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Prompt
 
@@ -61,7 +61,7 @@ PS4="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
 # How many directories to show
 # PROMPT_DIRTRIM=1
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Alii
 
@@ -69,7 +69,7 @@ if [ -f ~/.bash_aliases ]; then
 	source ~/.bash_aliases
 fi
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Functions
 
@@ -77,7 +77,7 @@ if [ -f ~/.bash_functions ]; then
 	source ~/.bash_functions
 fi
 
-#-------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 # Environment Variables
 
@@ -142,11 +142,25 @@ export XDG_VIDEOS_DIR="${HOME}/Videos"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
 # HTTP Proxy
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
 	if ping -q -c 1 proxy-web.micron.com &> /dev/null; then
 		export http_proxy=proxy-web.micron.com:80
 		export HTTP_PROXY=$http_proxy
 		export https_proxy=$http_proxy
 		export HTTPS_PROXY=$https_proxy
 	fi
+fi
+
+#------------------------------------------------------------------------------
+
+# Windows Subsystem for Linux
+
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
+	# SSH Agent
+	# This should be removable in Windows v2004 with WSL2 since systemd is
+	# supported (sudo systemctl enable --now (?) ssh).
+	if pgrep -x ssh-agent &> /dev/null; then
+		kill $(pgrep -x  ssh-agent)
+	fi
+	eval $(ssh-agent -s)
 fi
