@@ -75,7 +75,8 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_DESCRIBE_STYLE="auto"
 GIT_PS1_HIDE_IF_PWD_IGNORED=1
-branch='$(__formatted_git_ps1_branch)'
+GIT_PS1_STATESEPARATOR=" "
+branch='$(__git_ps1 "[%s]")'
 
 # Prompt
 PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─\$ \[$(tput sgr0)\]"
