@@ -47,10 +47,16 @@ fi
 
 # Git branch for prompt
 source "${HOME}/dotfiles/bash/git-prompt.sh"
-# GIT_PS1_SHOWDIRTYSTATE=1
-# GIT_PS1_SHOWUNTRACKEDFILES=1
-# GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_DESCRIBE_STYLE="auto"
+GIT_PS1_HIDE_IF_PWD_IGNORED=1
 branch='$(__git_ps1 "[%s]")'
+if [ ${#branch} -ge 20 ]; then
+	branch=$(printf "%.20s..." $branch)
+fi
 
 # Prompt
 PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─\$ \[$(tput sgr0)\]"
