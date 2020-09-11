@@ -19,10 +19,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-if has('nvim-0.4.3') || has('patch8.0')
+if has('nvim-0.4.3') || (has('patch8.0') && !has('nvim'))
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 endif
-if executable('go') && (has('nvim-0.4.0') || has('patch8.0.1453'))
+if executable('go') && (has('nvim-0.4.0') || (has('patch8.0.1453') && !has('nvim')))
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 endif
 Plug 'easymotion/vim-easymotion'
