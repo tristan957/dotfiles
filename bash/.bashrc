@@ -175,5 +175,5 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
 	if pgrep -x ssh-agent &> /dev/null; then
 		kill $(pgrep -x ssh-agent | xargs)
 	fi
-	eval $(ssh-agent -s) 2>&1 > /dev/null
+	eval $(ssh-agent -s) &> /dev/null
 fi
