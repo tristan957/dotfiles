@@ -79,7 +79,7 @@ GIT_PS1_STATESEPARATOR=" "
 branch='$(__git_ps1 "[%s]")'
 
 # Prompt
-PS1="\[$(tput setaf 51)\]$(tput bold)┌── \[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W] \[$(tput setaf 39)\]${branch}\n\[$(tput setaf 51)\]\[$(tput bold)\]└─\$ \[$(tput sgr0)\]"
+PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W] \[$(tput setaf 39)\]${branch}\[$(tput sgr0)\]\n\[$(tput bold)\]\$ \[$(tput sgr0)\]"
 PS2="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
 PS3="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
 PS4="\[$(tput setaf 51)\]$(tput bold)└─\$ \[$(tput sgr0)\]"
