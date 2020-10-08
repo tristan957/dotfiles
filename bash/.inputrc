@@ -19,3 +19,11 @@ set expand-tilde on
 "\b": kill-whole-line # Ctrl-backspace
 "\ed": backward-kill-word # Alt-d
 "\eD": shell-kill-word # Alt-D
+
+$if mode=vi
+set keymap vi-command
+Control-l: clear-screen
+
+set keymap vi-insert
+Control-l: clear-screen
+$endif
