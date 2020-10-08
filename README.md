@@ -18,6 +18,8 @@ This repository uses GNU `stow` to manage `dotfiles`.
 * tmux
 * vim
 * terraform
+* readline
+* libedit
 
 The above is a list of packages `stow` can be used on. That syntax looks like
 `stow {package}`.
