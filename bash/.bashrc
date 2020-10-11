@@ -59,12 +59,6 @@ BASH_DIR=$(dirname $(readlink -f "${HOME}/.bashrc"))
 
 #------------------------------------------------------------------------------
 
-# Homebrew Bash Completion
-
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-#------------------------------------------------------------------------------
-
 # Prompt
 
 # Git branch for prompt
@@ -112,24 +106,36 @@ export GPG_TTY=$(tty)
 # Export a hidden GOPATH
 export GOPATH="${HOME}/.go"
 
-# Add pip executables to PATH
-LOCALBIN="${HOME}/.local/bin"
+# Add Go executables to PATH
+if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
+	PATH="${PATH}:${GOPATH}/bin"
+fi
+
+# Add local executables to PATH
+if [[ "${PATH}" != *"${HOME}/.local/bin"* ]]; then
+	PATH="${PATH}:${HOME}/.local/bin"
+fi
 
 # Add Rust executables to PATH
-RUSTBIN="${HOME}/.cargo/bin"
+if [[ "${PATH}" != *"${HOME}/.cargo/bin"* ]]; then
+	PATH="${PATH}:${HOME}/.cargo/bin"
+fi
 
 # Add Yarn executables to PATH
-YARNBIN="${HOME}/.yarn/bin"
+if [[ "${PATH}" != *"${HOME}/.yarn/bin"* ]]; then
+	PATH="${PATH}:${HOME}/.yarn/bin"
+fi
 
 # Add snap executables to PATH
-SNAPBIN="/var/lib/snapd/snap/bin"
+if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
+	PATH="${PATH}:/var/lib/snapd/snap/bin"
+fi
 
-# Get Linuxbrew prefix
-# if [[ $OS != $OS_MAC* ]]; then
-# 	LINUXBREWPREFIX="${HOME}/.linuxbrew"
-# fi
-
-export PATH="${PATH}:${LOCALBIN}:${GOPATH}/bin:${RUSTBIN}:${YARNBIN}:${SNAPBIN}"
+# Add deno executables to PATH
+DENO_INSTALL="${HOME}/.deno"
+if [[ "${PATH}" != *"${DENO_INSTALL}/bin"* ]]; then
+	PATH="${PATH}:${DENO_INSTALL}/bin"
+fi
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
