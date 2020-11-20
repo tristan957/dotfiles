@@ -96,6 +96,24 @@ PS4="$(tput bold)> \[$(tput sgr0)\]"
 
 # Environment Variables
 
+# XDG User Directories
+# $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
+# non-essential runtime files and other file objects (such as sockets, named
+# pipes, ...) should be stored. The directory MUST be owned by the user, and
+# he MUST be the only one having read and write access to it. Its Unix access
+# mode MUST be 0700.
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_DESKTOP_DIR="${HOME}/Desktop"
+export XDG_DOCUMENTS_DIR="${HOME}/Documents"
+export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
+export XDG_MUSIC_DIR="${HOME}/Music"
+export XDG_PICTURES_DIR="${HOME}/Pictures"
+export XDG_PUBLICSHARE_DIR="${HOME}/Public"
+export XDG_TEMPLATES_DIR="${HOME}/Templates"
+export XDG_VIDEOS_DIR="${HOME}/Videos"
+
 # Set default terminal text editor
 if type "nvim" > /dev/null 2>&1; then
 	export EDITOR="nvim"
@@ -122,6 +140,8 @@ export DENO_DIR="${HOME}/.local/deno"
 export DENO_INSTALL_ROOT="${DENO_DIR}/bin"
 export CARGO_HOME="${HOME}/.local/cargo"
 export RUSTUP_HOME="${HOME}/.local/rustup"
+export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
+export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
@@ -155,24 +175,6 @@ fi
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
-
-# XDG User Directories
-# $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
-# non-essential runtime files and other file objects (such as sockets, named
-# pipes, ...) should be stored. The directory MUST be owned by the user, and
-# he MUST be the only one having read and write access to it. Its Unix access
-# mode MUST be 0700.
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_DESKTOP_DIR="${HOME}/Desktop"
-export XDG_DOCUMENTS_DIR="${HOME}/Documents"
-export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
-export XDG_MUSIC_DIR="${HOME}/Music"
-export XDG_PICTURES_DIR="${HOME}/Pictures"
-export XDG_PUBLICSHARE_DIR="${HOME}/Public"
-export XDG_TEMPLATES_DIR="${HOME}/Templates"
-export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
