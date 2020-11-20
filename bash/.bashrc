@@ -142,6 +142,7 @@ export CARGO_HOME="${HOME}/.local/cargo"
 export RUSTUP_HOME="${HOME}/.local/rustup"
 export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
 export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
+export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
@@ -175,8 +176,6 @@ fi
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
-
-export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
 # HTTP Proxy
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
