@@ -118,11 +118,19 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export GPG_TTY=$(tty)
 
 # Export a hidden GOPATH
-export GOPATH="${HOME}/.go"
+export GOPATH="${HOME}/.local/go"
+
+export DENO_DIR="${HOME}/.local/deno"
+export DENO_INSTALL_ROOT="${DENO_DIR}/bin"
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
 	PATH="${PATH}:${GOPATH}/bin"
+fi
+
+# Add Deno executables to PATH
+if [[ "${PATH}" != *"${DENO_DIR}/bin"* ]]; then
+	PATH="${PATH}:${DENO_DIR}/bin"
 fi
 
 # Add local executables to PATH
@@ -143,12 +151,6 @@ fi
 # Add snap executables to PATH
 if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
 	PATH="${PATH}:/var/lib/snapd/snap/bin"
-fi
-
-# Add deno executables to PATH
-DENO_INSTALL="${HOME}/.deno"
-if [[ "${PATH}" != *"${DENO_INSTALL}/bin"* ]]; then
-	PATH="${PATH}:${DENO_INSTALL}/bin"
 fi
 
 # Bash History Control
