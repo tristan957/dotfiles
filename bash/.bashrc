@@ -117,11 +117,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Forget about "unable to sign commit" errors
 export GPG_TTY=$(tty)
 
-# Export a hidden GOPATH
 export GOPATH="${HOME}/.local/go"
-
 export DENO_DIR="${HOME}/.local/deno"
 export DENO_INSTALL_ROOT="${DENO_DIR}/bin"
+export CARGO_HOME="${HOME}/.local/cargo"
+export RUSTUP_HOME="${HOME}/.local/rustup"
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
@@ -139,8 +139,8 @@ if [[ "${PATH}" != *"${HOME}/.local/bin"* ]]; then
 fi
 
 # Add Rust executables to PATH
-if [[ "${PATH}" != *"${HOME}/.cargo/bin"* ]]; then
-	PATH="${PATH}:${HOME}/.cargo/bin"
+if [[ "${PATH}" != *"${CARGO_HOME}/bin"* ]]; then
+	PATH="${PATH}:${CARGO_HOME}/bin"
 fi
 
 # Add Yarn executables to PATH
