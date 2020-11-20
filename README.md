@@ -26,8 +26,7 @@ The above is a list of packages `stow` can be used on. That syntax looks like
 
 ## Bash Prompt
 
-![Bash Prompt (insert)](prompt-ins.png?raw=true "Bash Prompt (insert)")
-![Bash Prompt (command)](prompt-cmd.png?raw=true "Bash Prompt (command)")
+![Bash Prompt (insert)](prompt.png?raw=true "Bash Prompt")
 
 From left to right:
 
@@ -40,5 +39,4 @@ From left to right:
 
 2nd line:
 
-* marker for `vi` mode: ● for insert and ○ for command
 * root/user
