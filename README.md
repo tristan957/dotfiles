@@ -20,6 +20,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 * terraform
 * readline
 * libedit
+* yarn
 
 The above is a list of packages `stow` can be used on. That syntax looks like
 `stow {package}`.
