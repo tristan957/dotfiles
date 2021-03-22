@@ -64,12 +64,12 @@ BASH_DIR=$(dirname $(readlink -f "${HOME}/.bashrc"))
 # Git branch for prompt
 if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
 	source "${BASH_DIR}/git-prompt.sh"
-	GIT_PS1_SHOWDIRTYSTATE=1
-	GIT_PS1_SHOWSTASHSTATE=1
-	GIT_PS1_SHOWUNTRACKEDFILES=1
+	# GIT_PS1_SHOWDIRTYSTATE=1
+	# GIT_PS1_SHOWSTASHSTATE=1
+	# GIT_PS1_SHOWUNTRACKEDFILES=1
 	GIT_PS1_SHOWUPSTREAM="auto"
 	GIT_PS1_DESCRIBE_STYLE="auto"
-	GIT_PS1_HIDE_IF_PWD_IGNORED=1
+	# GIT_PS1_HIDE_IF_PWD_IGNORED=1
 	GIT_PS1_STATESEPARATOR=" "
 	branch='$(__git_ps1 " \[$(tput setaf 39)\][%s]")'
 fi
