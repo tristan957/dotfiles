@@ -136,8 +136,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export GPG_TTY=$(tty)
 
 export GOPATH="${HOME}/.local/go"
-export DENO_DIR="${HOME}/.local/deno"
-export DENO_INSTALL_ROOT="${DENO_DIR}/bin"
+export DENO_INSTALL_ROOT="${HOME}/.local/deno"
+export DENO_DIR="${XDG_CACHE_HOME}/deno"
 export CARGO_HOME="${HOME}/.local/cargo"
 export RUSTUP_HOME="${HOME}/.local/rustup"
 export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
@@ -150,8 +150,8 @@ if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
 fi
 
 # Add Deno executables to PATH
-if [[ "${PATH}" != *"${DENO_DIR}/bin"* ]]; then
-	PATH="${PATH}:${DENO_DIR}/bin"
+if [[ "${PATH}" != *"${DENO_INSTALL_ROOT}/bin"* ]]; then
+	PATH="${PATH}:${DENO_INSTALL_ROOT}/bin"
 fi
 
 # Add local executables to PATH
