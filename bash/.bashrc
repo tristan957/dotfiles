@@ -150,8 +150,8 @@ if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
 fi
 
 # Add Deno executables to PATH
-if [[ "${PATH}" != *"${DENO_INSTALL_ROOT}/bin"* ]]; then
-	PATH="${PATH}:${DENO_INSTALL_ROOT}/bin"
+if [[ "${PATH}" != *"${DENO_INSTALL}/bin"* ]]; then
+	PATH="${PATH}:${DENO_INSTALL}/bin"
 fi
 
 # Add local executables to PATH
