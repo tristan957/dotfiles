@@ -136,7 +136,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export GPG_TTY=$(tty)
 
 export GOPATH="${HOME}/.local/go"
-export DENO_INSTALL_ROOT="${HOME}/.local/deno"
+export DENO_INSTALL="${HOME}/.local/deno"
 export DENO_DIR="${XDG_CACHE_HOME}/deno"
 export CARGO_HOME="${HOME}/.local/cargo"
 export RUSTUP_HOME="${HOME}/.local/rustup"
