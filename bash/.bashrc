@@ -135,11 +135,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Forget about "unable to sign commit" errors
 export GPG_TTY=$(tty)
 
-export GOPATH="${HOME}/.local/go"
-export DENO_INSTALL="${HOME}/.local/deno"
+export GOPATH="${XDG_DATA_HOME}/go"
+export DENO_INSTALL="${XDG_DATA_HOME}/deno"
 export DENO_DIR="${XDG_CACHE_HOME}/deno"
-export CARGO_HOME="${HOME}/.local/cargo"
-export RUSTUP_HOME="${HOME}/.local/rustup"
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
 export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
