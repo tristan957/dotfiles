@@ -5,9 +5,9 @@
 """"""""
 
 " plug.vim initialization
-if has('nvim') && empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if has('nvim') && empty(glob(stdpath('data') . '/site/autoload/plug.vim'))
+  exe 'silent !curl -fLo ' . stdpath('data') . '/nvim/site/autoload/plug.vim --create-dirs'
+    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 elseif empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -15,7 +15,7 @@ elseif empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -154,3 +154,7 @@ augroup END
 """""""""""""""""""
 " Custom Commands
 """""""""""""""""""
+
+if has('nvim')
+  lua require("tristan957")
+endif
