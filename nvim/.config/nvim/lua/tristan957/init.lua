@@ -10,19 +10,6 @@ vim.cmd(
 	]]
 )
 
--- Seems like vim-plug doesn't correctly add lua-based plugins to the rtp
-vim.cmd(
-	[[
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/popup.nvim'
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/plenary.nvim'
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/telescope.nvim'
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/telescope-fzf-native.nvim'
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/nvim-treesitter'
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/nvim-lspconfig'
-		let &runtimepath .= ',' . stdpath('data') . '/plugged/git-worktree.nvim'
-	]]
-)
-
 require('tristan957.tree-sitter')
 require('tristan957.lsp')
 require('tristan957.telescope')
