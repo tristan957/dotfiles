@@ -1,14 +1,15 @@
-local function on_attach(client, bufnr)
-end
+local function on_attach(client, bufnr) end
 
-require('lspconfig').rust_analyzer.setup {
+require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
-}
+})
 
-require('lspconfig').clangd.setup{
+require("lspconfig").clangd.setup({
 	on_attach = on_attach,
-}
+})
 
-require('lspconfig').gopls.setup{
+require("lspconfig").gopls.setup({
 	on_attach = on_attach,
-}
+})
+
+require("lspconfig").sumneko_lua.setup({})

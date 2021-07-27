@@ -28,14 +28,24 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'lifepillar/vim-solarized8'
 Plug 'itchyny/lightline.vim'
-if has('nvim-0.5.0')
+if has('nvim-0.5')
   Plug 'ThePrimeagen/git-worktree.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  if has('nvim-0.6')
+      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  else
+      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate', 'branch': '0.5-compat' }
+      Plug 'nvim-treesitter/nvim-treesitter-textobjects', { 'do': ':TSUpdate', 'branch': '0.5-compat' }
+  endif
+  Plug 'nvim-treesitter/playground'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'folke/trouble.nvim'
 else
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
