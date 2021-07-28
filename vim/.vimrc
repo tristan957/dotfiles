@@ -1,21 +1,29 @@
 " http://vimdoc.sourceforge.net/htmldoc/options.html
 
+if has('nvim')
+  let cache_dir=stdpath('cache')
+  let data_dir=stdpath('data')
+else
+  " VIM is a naughty boy using ~/.vim/. Teach it to play nice.
+  let cache_dir=$XDG_CACHE_HOME . '/vim'
+  let data_dir=$XDG_DATA_HOME . '/vim'
+  let &runtimepath.=',' . data_dir
+endif
+
 """"""""
 " Plug
 """"""""
 
 " plug.vim initialization
 if has('nvim') && empty(glob(stdpath('data') . '/site/autoload/plug.vim'))
-  exe 'silent !curl -fLo ' . stdpath('data') . '/nvim/site/autoload/plug.vim --create-dirs'
-    \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  exe 'silent !curl -fLo ' . data_dir . '/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-elseif empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+elseif empty(glob(data_dir . '/autoload/plug.vim'))
+  exe 'silent !curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : $XDG_DATA_HOME . '/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -117,7 +125,7 @@ set softtabstop=4 " how many spaces a tab is when editing
 set tabstop=4 " how many spaces a tab is when viewing
 set termguicolors
 set textwidth=100 " maximum width of text that is being inserted
-set undodir=~/.cache/vim/undodir " remember to create directory
+let &undodir=cache_dir . '/undo'
 set undofile
 set updatetime=50
 set wildmenu " visual autocomplete for command menu
