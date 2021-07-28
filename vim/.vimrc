@@ -19,20 +19,22 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-if executable('go') && (has('nvim-0.4.0') || (has('patch8.0.1453') && !has('nvim')))
+if (executable('go') && (has('nvim-0.4.0')) || ((has('patch8.0.1453') && !has('nvim'))))
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 endif
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
-Plug 'lifepillar/vim-solarized8'
 Plug 'itchyny/lightline.vim'
+Plug 'chrisbra/unicode.vim', { 'do': ':call unicode#Download(1)' }
 if has('nvim-0.5')
   Plug 'ThePrimeagen/git-worktree.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-project.nvim'
+  Plug 'folke/todo-comments.nvim'
   if has('nvim-0.6')
       Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
       Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -60,7 +62,7 @@ let mapleader=" "
 " Shortcuts
 """""""""""""
 
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <SPACE> <Nop>
 nnoremap <leader>ogf :GFiles<CR>
 nnoremap <leader>of :Files<CR>
