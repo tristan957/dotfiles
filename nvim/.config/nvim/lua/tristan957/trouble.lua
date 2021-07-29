@@ -6,10 +6,10 @@ require("trouble").setup({
 	signs = {
 		-- icons / text used for a diagnostic
 		error = "E",
-		other = "O",
+		other = "o",
 		warning = "W",
-		hint = "H",
-		information = "I",
+		hint = "?",
+		information = "i",
 	},
 	use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 })

@@ -34,9 +34,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
-Plug 'itchyny/lightline.vim'
-Plug 'chrisbra/unicode.vim', { 'do': ':call unicode#Download(1)' }
+Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 if has('nvim-0.5')
+  Plug 'nvim-lua/lsp-status.nvim'
+  Plug 'hoob3rt/lualine.nvim'
   Plug 'ThePrimeagen/git-worktree.nvim'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -57,6 +58,7 @@ if has('nvim-0.5')
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'folke/trouble.nvim'
 else
+  Plug 'itchyny/lightline.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 endif
