@@ -3,5 +3,10 @@
 		"editor.insertSpaces": false,
 		"editor.tabSize": 2,
 		"editor.formatOnSave": true,
-	}
+	},
+	"Lua.diagnostics.globals": ["vim"],
+	"Lua.workspace.library": [
+		"/usr/share/nvim/runtime",
+		"~/.local/share/nvim"
+	],
 }
