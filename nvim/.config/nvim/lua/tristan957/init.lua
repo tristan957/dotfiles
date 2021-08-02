@@ -5,6 +5,7 @@ require("tristan957.telescope")
 require("tristan957.nvim-compe")
 require("tristan957.gitsigns")
 require("tristan957.trouble")
+require("tristan957.rust-tools")
 
 vim.cmd(
 	[[

@@ -57,6 +57,8 @@ if has('nvim-0.5')
   Plug 'hrsh7th/nvim-compe'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'folke/trouble.nvim'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'simrat39/rust-tools.nvim'
 else
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
