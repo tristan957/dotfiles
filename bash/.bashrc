@@ -1,39 +1,10 @@
-# If not running interactively, do nothing
-case $- in
-	*i*) ;;
-	*) return;;
-esac
 
-#------------------------------------------------------------------------------
 
 # Shell Options
 
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
-
-#------------------------------------------------------------------------------
-
-# Distro-specific Defaults
-
-# Solus-specific
-if [ -f /usr/share/defaults/etc/profile ]; then
-	source /usr/share/defaults/etc/profile
-fi
-
-# Fedora-specific
-if [ -f /etc/bashrc ]; then
-	source /etc/bashrc
-fi
-
-# Ubuntu-specific
-if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		source /usr/share/bash-completion/bash_completion
-	elif [ -f /etc/bash_completion ]; then
-		source /etc/bash_completion
-	fi
-fi
 
 #------------------------------------------------------------------------------
 
