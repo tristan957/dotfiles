@@ -30,7 +30,6 @@ Plug 'tpope/vim-surround'
 if (executable('go') && (has('nvim-0.4.0')) || ((has('patch8.0.1453') && !has('nvim'))))
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 endif
-Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
@@ -73,16 +72,26 @@ let mapleader=" "
 """""""""""""
 " Shortcuts
 """""""""""""
-
+inoremap <CR> <C-G>u<CR>
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+inoremap ; ;<C-g>u
+inoremap <bar> <bar><C-g>u
+nnoremap n nzzzv
+nnoremap N Nzzzv
 nnoremap <leader>gs :Git<CR>
 nnoremap <SPACE> <Nop>
-nnoremap <leader>ogf :GFiles<CR>
-nnoremap <leader>of :Files<CR>
+if !has('nvim')
+  nnoremap <leader>ogf :GFiles<CR>
+  nnoremap <leader>of :Files<CR>
+endif
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
-vnoremap J :m '<+1<CR>gv=gv " move line up
+vnoremap J :m '>+1<CR>gv=gv " move line up
 vnoremap K :m '<-2<CR>gv=gv " move line down
 
 """"""""""""
@@ -103,6 +112,7 @@ set incsearch " search as characters are entered
 set laststatus=2 " always show the status bar
 set lazyredraw " redraw only when we need to
 set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
+set magic
 set number " show line numbers
 set ruler " show the line and column number of the cursor position, separated by a comma
 set nobackup " some language servers have issues with backup files, see coc.nvim#649
