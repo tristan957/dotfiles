@@ -59,6 +59,8 @@ if has('nvim-0.5')
   Plug 'mfussenegger/nvim-dap'
   Plug 'simrat39/rust-tools.nvim'
 else
+  let g:fzf_command_prefix = 'Fzf'
+
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -85,8 +87,8 @@ nnoremap N Nzzzv
 nnoremap <leader>gs :Git<CR>
 nnoremap <SPACE> <Nop>
 if !has('nvim')
-  nnoremap <leader>ogf :GFiles<CR>
-  nnoremap <leader>of :Files<CR>
+  nnoremap <leader>p :FzfGFiles<CR>
+  nnoremap <leader><S-p> :FzfFiles<CR>
 endif
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
