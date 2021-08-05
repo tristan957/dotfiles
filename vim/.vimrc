@@ -75,7 +75,8 @@ let mapleader=" "
 """""""""""""
 " Shortcuts
 """""""""""""
-inoremap <CR> <C-G>u<CR>
+" This is commented out because it messes with enter on nvim-compe
+" inoremap <CR> <C-G>u<CR>
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap ! !<C-g>u
@@ -94,8 +95,8 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
-vnoremap J :m '>+1<CR>gv=gv " move line up
-vnoremap K :m '<-2<CR>gv=gv " move line down
+vnoremap <silent> J :m '>+1<CR>gv=gv " move line up
+vnoremap <silent> K :m '<-2<CR>gv=gv " move line down
 
 """"""""""""
 " Settings
