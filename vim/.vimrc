@@ -25,16 +25,16 @@ endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : $XDG_DATA_HOME . '/plugged')
 
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-if (executable('go') && (has('nvim-0.4.0')) || ((has('patch8.0.1453') && !has('nvim'))))
-  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
-endif
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 if has('nvim-0.5')
+  Plug 'folke/zen-mode.nvim'
+  Plug 'kabouzeid/nvim-lspinstall'
   Plug 'nvim-lua/lsp-status.nvim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'ThePrimeagen/git-worktree.nvim'
@@ -105,7 +105,7 @@ set autoindent " new lines inherit the indentation of previous lines
 set autoread " relaod files changed outside of Vim
 set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
 set cmdheight=2 " give more space for displaying messages
-set colorcolumn=80 " colorcolumn at 80
+set colorcolumn=80,100,120
 set completeopt=menuone,noinsert,noselect
 set confirm " display confirmation dialog when closing unsaved file
 set cursorline " highlight the current line
