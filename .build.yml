@@ -5,7 +5,7 @@ packages:
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
 tasks:
-  - formatting: |
+  - format: |
       cd dotfiles
       cargo install stylua
       ~/.cargo/bin/stylua --check .

@@ -9,6 +9,7 @@ shopt -s globstar
 # Alii
 
 if [ -f ~/.bash_aliases ]; then
+	# shellcheck source=bash/.bash_aliases
 	source ~/.bash_aliases
 fi
 
@@ -17,6 +18,7 @@ fi
 # Functions
 
 if [ -f ~/.bash_functions ]; then
+	# shellcheck source=bash/.bash_functions
 	source ~/.bash_functions
 fi
 
@@ -24,7 +26,7 @@ fi
 
 # Local Variables
 
-BASH_DIR=$(dirname $(readlink -f "${HOME}/.bashrc"))
+BASH_DIR=$(dirname "$(readlink -f "${HOME}/.bashrc")")
 
 #------------------------------------------------------------------------------
 
@@ -36,10 +38,11 @@ if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
 	# GIT_PS1_SHOWDIRTYSTATE=1
 	# GIT_PS1_SHOWSTASHSTATE=1
 	# GIT_PS1_SHOWUNTRACKEDFILES=1
-	GIT_PS1_SHOWUPSTREAM="auto"
-	GIT_PS1_DESCRIBE_STYLE="auto"
+	# GIT_PS1_SHOWUPSTREAM="auto"
+	# GIT_PS1_DESCRIBE_STYLE="auto"
 	# GIT_PS1_HIDE_IF_PWD_IGNORED=1
-	GIT_PS1_STATESEPARATOR=" "
+	# GIT_PS1_STATESEPARATOR=" "
+	# shellcheck disable=SC2016
 	branch='$(__git_ps1 " \[$(tput setaf 39)\][%s]")'
 fi
 
@@ -47,10 +50,10 @@ function __prompt_extras() {
 	PROMPT_EXTRAS=""
 	# Python virtual environments are so fun
 	if [[ -n ${VIRTUAL_ENV+x} ]]; then
-		PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 105)[$(basename ${VIRTUAL_ENV})]"
+		PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
 	fi
 
-	echo -ne $PROMPT_EXTRAS
+	echo -ne "$PROMPT_EXTRAS"
 }
 
 PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]${branch} \$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]● \$ \[$(tput sgr0)\]"
@@ -146,38 +149,16 @@ fi
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
 
-# HTTP Proxy
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
-	if ping -q -c 1 proxy-web.micron.com &> /dev/null; then
-		export http_proxy=proxy-web.micron.com:80
-		export HTTP_PROXY=$http_proxy
-		export https_proxy=$http_proxy
-		export HTTPS_PROXY=$https_proxy
-	fi
-fi
-
-#------------------------------------------------------------------------------
-
-# Windows Subsystem for Linux
-
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null; then
-	# SSH Agent
-	# This should be removable in Windows v2004 with WSL2 since systemd is
-	# supported (sudo systemctl enable --now (?) ssh).
-	if pgrep -x ssh-agent &> /dev/null; then
-		kill $(pgrep -x ssh-agent | xargs)
-	fi
-	eval $(ssh-agent -s) &> /dev/null
-fi
-
 #------------------------------------------------------------------------------
 
 # Bash Completion
 
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		# shellcheck disable=SC1091
 		. /usr/share/bash-completion/bash_completion
 	elif [ -f /etc/bash_completion ]; then
+		# shellcheck disable=SC1091
 		. /etc/bash_completion
 	fi
 fi

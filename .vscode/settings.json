@@ -9,4 +9,15 @@
 		"/usr/share/nvim/runtime",
 		"~/.local/share/nvim"
 	],
+	"shellcheck.useWorkspaceRootAsCwd": true,
+	"shellcheck.customArgs": [
+		"--shell",
+		"bash",
+		"--source-path",
+		"bash",
+		"-x"
+	],
+	"files.associations": {
+		".bash*": "shellscript",
+	}
 }
