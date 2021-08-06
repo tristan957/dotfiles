@@ -7,10 +7,8 @@ require("tristan957.gitsigns")
 require("tristan957.trouble")
 require("tristan957.rust-tools")
 
-vim.cmd(
-	[[
+vim.cmd([[
 		set foldmethod=expr
 		set foldexpr=nvim_treesitter#foldexpr()
 		set nofoldenable
-	]]
-)
+	]])
