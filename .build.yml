@@ -11,4 +11,4 @@ tasks:
       ~/.cargo/bin/stylua --check .
   - lint: |
       cd dotfiles
-      shellcheck --shell bash --source-path bash -x bash/.bashrc
+      shellcheck --shell bash --source-path bash -x bash/.bashrc install.sh
