@@ -1,5 +1,3 @@
-
-
 # Shell Options
 
 shopt -s histappend
