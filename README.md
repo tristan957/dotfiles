@@ -1,3 +1,5 @@
+[![builds.sr.ht status](https://builds.sr.ht/~tristan957/dotfiles.svg)](https://builds.sr.ht/~tristan957/dotfiles?)
+
 # dotfiles
 
 These are my personal configuration files.
