@@ -56,7 +56,7 @@ function __prompt_extras() {
 	echo -ne "$PROMPT_EXTRAS"
 }
 
-PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]${branch} \$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]● \$ \[$(tput sgr0)\]"
+PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]${branch}\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]● \$ \[$(tput sgr0)\]"
 PS2="$(tput bold)> \[$(tput sgr0)\]"
 PS3="$(tput bold)> \[$(tput sgr0)\]"
 PS4="$(tput bold)> \[$(tput sgr0)\]"
