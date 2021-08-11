@@ -85,7 +85,8 @@ require("lspconfig").clangd.setup({
 		"compile_commands.json",
 		"compile_flags.txt",
 		".git",
-		"build/compile_commands.json"
+		"build/compile_commands.json",
+		"*build*/compile_commands.json"
 	),
 	on_attach = on_attach,
 })
