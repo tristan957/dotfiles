@@ -5,9 +5,10 @@
 		"editor.formatOnSave": true,
 	},
 	"Lua.diagnostics.globals": ["vim"],
+	"Lua.runtime.version": "LuaJIT",
 	"Lua.workspace.library": [
 		"/usr/share/nvim/runtime",
-		"~/.local/share/nvim"
+		"~/.local/share/nvim",
 	],
 	"shellcheck.useWorkspaceRootAsCwd": true,
 	"shellcheck.customArgs": [
@@ -19,5 +20,5 @@
 	],
 	"files.associations": {
 		".bash*": "shellscript",
-	}
+	},
 }

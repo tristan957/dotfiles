@@ -1,4 +1,5 @@
 local lsp_status = require("lsp-status")
+local util = require("lspconfig.util")
 
 lsp_status.config({
 	indicator_errors = "E",
@@ -41,7 +42,11 @@ local configs = {
 					globals = { "vim" },
 				},
 				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
+					checkThirdParty = false,
+					library = {
+						vim.fn.expand("$VIMRUNTIME"),
+						vim.fn.stdpath("data"),
+					},
 				},
 			},
 		},
@@ -65,5 +70,22 @@ require("lspinstall").post_install_hook = function()
 end
 
 require("lspconfig").clangd.setup({
+	cmd = {
+		"clangd",
+		"--header-insertion=never",
+		"--compile-commands-dir=" .. os.getenv("PWD") .. "/build",
+		"--all-scopes-completion=false",
+		"--completion-style=bundled",
+		"--cross-file-rename",
+		"--enable-config",
+		"--pch-storage=disk",
+		"--header-insertion-decorators",
+	},
+	root_dir = util.root_pattern(
+		"compile_commands.json",
+		"compile_flags.txt",
+		".git",
+		"build/compile_commands.json"
+	),
 	on_attach = on_attach,
 })
