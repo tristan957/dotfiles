@@ -68,6 +68,9 @@ PS4="$(tput bold)> \[$(tput sgr0)\]"
 
 # Environment Variables
 
+# Nix, stop it
+export NIX_INSTALLER_NO_MODIFY_PROFILE=1
+
 # XDG User Directories
 # $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
 # non-essential runtime files and other file objects (such as sockets, named
@@ -155,10 +158,8 @@ HISTCONTROL="ignoredups:ignorespace"
 
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		# shellcheck disable=SC1091
 		. /usr/share/bash-completion/bash_completion
 	elif [ -f /etc/bash_completion ]; then
-		# shellcheck disable=SC1091
 		. /etc/bash_completion
 	fi
 fi
