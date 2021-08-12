@@ -25,6 +25,7 @@ endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : $XDG_DATA_HOME . '/plugged')
 
+Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
