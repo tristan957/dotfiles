@@ -30,44 +30,11 @@ local function on_attach(client, bufnr)
 	lsp_status.on_attach(client)
 end
 
-local configs = {
-	lua = { -- sumneko_lua
-		settings = {
-			Lua = {
-				runtime = {
-					version = "LuaJIT",
-					path = { "lua/?.lua", "lua/?/init.lua" },
-				},
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					checkThirdParty = false,
-					library = {
-						vim.fn.expand("$VIMRUNTIME"),
-						vim.fn.stdpath("data"),
-					},
-				},
-			},
-		},
-		on_attach = on_attach,
+require("lspconfig").bashls.setup({
+	cmd_env = {
+		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.subr)",
 	},
-}
-
-local function setup_servers()
-	require("lspinstall").setup()
-	local servers = require("lspinstall").installed_servers()
-	for _, server in pairs(servers) do
-		require("lspconfig")[server].setup(configs[server] or { on_attach = on_attach })
-	end
-end
-
-setup_servers()
-
-require("lspinstall").post_install_hook = function()
-	setup_servers()
-	vim.cmd("bufdo e")
-end
+})
 
 require("lspconfig").clangd.setup({
 	cmd = {
@@ -88,5 +55,38 @@ require("lspconfig").clangd.setup({
 		"build/compile_commands.json",
 		"*build*/compile_commands.json"
 	),
+	on_attach = on_attach,
+})
+
+require("lspconfig").sumneko_lua.setup({
+	cmd = { "lua-language-server" },
+	settings = {
+		Lua = {
+			runtime = {
+				version = "LuaJIT",
+				path = {
+					"?.lua",
+					"?/init.lua",
+					"?/?.lua",
+					"lua/?.lua",
+					"lua/?/init.lua",
+				},
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.fn.expand("$VIMRUNTIME"),
+					vim.fn.stdpath("data"),
+				},
+				preloadFileSize = 200,
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
 	on_attach = on_attach,
 })
