@@ -25,6 +25,7 @@ endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : $XDG_DATA_HOME . '/plugged')
 
+Plug 'LnL7/vim-nix'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
@@ -35,7 +36,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 if has('nvim-0.5')
   Plug 'folke/zen-mode.nvim'
-  Plug 'kabouzeid/nvim-lspinstall'
   Plug 'nvim-lua/lsp-status.nvim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'ThePrimeagen/git-worktree.nvim'
