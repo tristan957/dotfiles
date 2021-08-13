@@ -25,8 +25,11 @@ endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : $XDG_DATA_HOME . '/plugged')
 
-Plug 'LnL7/vim-nix'
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'hashivim/vim-terraform', { 'for': 'hcl' }
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
 Plug 'tmux-plugins/vim-tmux'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -44,6 +47,7 @@ if has('nvim-0.5')
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-project.nvim'
   Plug 'folke/todo-comments.nvim'
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   if has('nvim-0.6')
       Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
       Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -58,7 +62,7 @@ if has('nvim-0.5')
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'folke/trouble.nvim'
   Plug 'mfussenegger/nvim-dap'
-  Plug 'simrat39/rust-tools.nvim'
+  Plug 'simrat39/rust-tools.nvim', { 'for': 'rust' }
 else
   let g:fzf_command_prefix = 'Fzf'
 
@@ -168,14 +172,8 @@ highlight ColorColumn ctermbg=237 guibg=#3C3836
 
 filetype plugin on " allow Vim to recognize the file type
 
-" C
-autocmd FileType c setlocal noexpandtab tabstop=4 softtabstop=0
-" C++
-autocmd FileType cpp setlocal noexpandtab tabstop=4 softtabstop=0
 " JSON
 autocmd FileType json syntax match Comment +\/\/.\+$+
-" Rust
-autocmd FileType rust setlocal noexpandtab tabstop=4 softtabstop=0
 
 """"""""""""""""
 " Auto-behaviors
