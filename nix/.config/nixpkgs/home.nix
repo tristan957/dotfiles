@@ -27,8 +27,8 @@
 
   home.packages = [
     pkgs.neovim-nightly
-	pkgs.nodePackages.bash-language-server
-	pkgs.gopls
-	pkgs.sumneko-lua-language-server
+    pkgs.nodePackages.bash-language-server
+    pkgs.gopls
+    pkgs.sumneko-lua-language-server
   ];
 }
