@@ -71,6 +71,8 @@ PS4="$(tput bold)> \[$(tput sgr0)\]"
 # Nix, stop it
 export NIX_INSTALLER_NO_MODIFY_PROFILE=1
 
+export NNN_OPTS="eEH"
+
 export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 
 # XDG User Directories
