@@ -16,7 +16,6 @@ endif
 
 " plug.vim initialization
 if has('nvim') && empty(glob(data_dir . '/site/autoload/plug.vim'))
-  echo 'hello'
   exe 'silent !curl -fLo ' . data_dir . '/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 elseif empty(glob(data_dir . '/autoload/plug.vim'))
@@ -24,7 +23,7 @@ elseif empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin(has('nvim') ? data_dir . '/plugged' : data_dir . '/plugged')
+call plug#begin($XDG_DATA_HOME . 'vim-plug')
 
 function! Cond(cond, ...)
   let opts = get(a:000, 0, {})
