@@ -9,6 +9,7 @@
 	"Lua.workspace.library": [
 		"/usr/share/nvim/runtime",
 		"~/.local/share/nvim",
+		"~/.local/share/vim-plug",
 	],
 	"shellcheck.useWorkspaceRootAsCwd": true,
 	"shellcheck.customArgs": [
