@@ -6,8 +6,7 @@ if has('nvim')
 else
   " VIM is a naughty boy using ~/.vim/. Teach it to play nice.
   let cache_dir=$XDG_CACHE_HOME . '/vim'
-  let data_dir=$XDG_DATA_HOME . '/vim'
-  let &runtimepath.=',' . data_dir
+  let data_dir='~/.vim'
 endif
 
 """"""""

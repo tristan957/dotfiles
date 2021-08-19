@@ -1,3 +1,4 @@
 /tmux/.tmux/plugins/
 /tmux/.tmux/resurrect/
 /vim/.vim/.netrwhist
+/vim/.vim/autoload/plug.vim
