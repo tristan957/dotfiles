@@ -23,8 +23,14 @@ elseif empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : $XDG_DATA_HOME . '/plugged')
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : data_dir . '/plugged')
 
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'hashivim/vim-terraform', { 'for': 'hcl' }
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
@@ -37,40 +43,43 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'gruvbox-community/gruvbox'
 Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
-if has('nvim-0.5')
-  Plug 'folke/zen-mode.nvim'
-  Plug 'nvim-lua/lsp-status.nvim'
-  Plug 'hoob3rt/lualine.nvim'
-  Plug 'ThePrimeagen/git-worktree.nvim'
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-project.nvim'
-  Plug 'folke/todo-comments.nvim'
-  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-  if has('nvim-0.6')
-      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  else
-      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate', 'branch': '0.5-compat' }
-      Plug 'nvim-treesitter/nvim-treesitter-textobjects', { 'do': ':TSUpdate', 'branch': '0.5-compat' }
-  endif
-  Plug 'nvim-treesitter/playground'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'lewis6991/gitsigns.nvim'
-  Plug 'folke/trouble.nvim'
-  Plug 'mfussenegger/nvim-dap'
-  Plug 'simrat39/rust-tools.nvim', { 'for': 'rust' }
-else
-  let g:fzf_command_prefix = 'Fzf'
+Plug 'kevinoid/vim-jsonc'
 
-  Plug 'itchyny/lightline.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'stsewd/fzf-checkout.vim'
+" Neovim-specific
+Plug 'folke/zen-mode.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-lua/lsp-status.nvim', Cond(has('nvim-0.5'))
+Plug 'hoob3rt/lualine.nvim', Cond(has('nvim-0.5'))
+Plug 'ThePrimeagen/git-worktree.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-lua/popup.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-lua/plenary.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-telescope/telescope.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-telescope/telescope-project.nvim', Cond(has('nvim-0.5'))
+Plug 'folke/todo-comments.nvim', Cond(has('nvim-0.5'))
+Plug 'JoosepAlviste/nvim-ts-context-commentstring', Cond(has('nvim-0.5'))
+if has('nvim-0.6') " TODO: how to determine running Neovim master?
+  Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim-0.6'), { 'do': ':TSUpdate' })
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects', Cond(has('nvim-0.6'), { 'do': ':TSUpdate' })
+elseif has('nvim-0.5')
+  Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim-0.5'), { 'do': ':TSUpdate', 'branch': '0.5-compat' })
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects', Cond(has('nvim-0.5'), { 'do': ':TSUpdate', 'branch': '0.5-compat' })
 endif
+Plug 'nvim-treesitter/playground', Cond(has('nvim-0.5'))
+Plug 'neovim/nvim-lspconfig', Cond(has('nvim-0.5'))
+Plug 'nvim-telescope/telescope-fzf-native.nvim', Cond(has('nvim-0.5'), { 'do': 'make' })
+Plug 'hrsh7th/nvim-compe', Cond(has('nvim-0.5'))
+Plug 'lewis6991/gitsigns.nvim', Cond(has('nvim-0.5'))
+Plug 'folke/trouble.nvim', Cond(has('nvim-0.5'))
+Plug 'mfussenegger/nvim-dap', Cond(has('nvim-0.5'))
+Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'), { 'for': 'rust' })
+
+" Vim-specific
+if !has('nvim')
+  let g:fzf_command_prefix = 'Fzf'
+endif
+Plug 'itchyny/lightline.vim', Cond(!has('nvim'))
+Plug 'junegunn/fzf', Cond(!has('nvim'), { 'do': { -> fzf#install() } })
+Plug 'junegunn/fzf.vim', Cond(!has('nvim'))
+Plug 'stsewd/fzf-checkout.vim', Cond(!has('nvim'))
 
 call plug#end()
 
@@ -92,10 +101,6 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <leader>gs :Git<CR>
 nnoremap <SPACE> <Nop>
-if !has('nvim')
-  nnoremap <leader>p :FzfGFiles<CR>
-  nnoremap <leader><S-p> :FzfFiles<CR>
-endif
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
@@ -159,6 +164,9 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
@@ -171,9 +179,6 @@ highlight ColorColumn ctermbg=237 guibg=#3C3836
 """""""""""""""""""""""""""""""
 
 filetype plugin on " allow Vim to recognize the file type
-
-" JSON
-autocmd FileType json syntax match Comment +\/\/.\+$+
 
 """"""""""""""""
 " Auto-behaviors
