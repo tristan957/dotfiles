@@ -45,6 +45,7 @@ Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 Plug 'kevinoid/vim-jsonc'
 
 " Neovim-specific
+Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
 Plug 'folke/zen-mode.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/lsp-status.nvim', Cond(has('nvim-0.5'))
 Plug 'hoob3rt/lualine.nvim', Cond(has('nvim-0.5'))
