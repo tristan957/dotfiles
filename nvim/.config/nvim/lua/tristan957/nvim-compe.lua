@@ -14,3 +14,16 @@ require("compe").setup({
 		emoji = true,
 	},
 })
+
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-c>",
+	"compe#close('<C-c>')",
+	{ noremap = true, silent = true, expr = true }
+)
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-Space>",
+	"compe#complete()",
+	{ noremap = true, silent = true, expr = true }
+)

@@ -28,7 +28,7 @@ end
 
 vim.api.nvim_set_keymap(
 	"v",
-	"<Leader>rt",
-	"<Esc><Cmd>lua M.refactors()<CR>",
-	{ noremap = true, silent = true, expr = false }
+	"<Leader>r",
+	"<esc><cmd>lua M.refactors()<CR>",
+	{ noremap = true, silent = true }
 )
