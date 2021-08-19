@@ -4,6 +4,6 @@ let g:lightline = {
   \             [ 'gitstatus', 'readonly', 'filename', 'modified' ] ]
   \ },
   \ 'component_function': {
-  \   'gitstatus': 'FugitiveStatusline',
+  \   'gitstatus': 'FugitiveHead',
   \ },
 \ }
