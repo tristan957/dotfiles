@@ -61,6 +61,8 @@ require("lspconfig").clangd.setup({
 	on_attach = on_attach,
 })
 
+require("lspconfig").gopls.setup({})
+
 require("lspconfig").sumneko_lua.setup({
 	cmd = { "lua-language-server" },
 	settings = {

@@ -29,7 +29,6 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'hashivim/vim-terraform', { 'for': 'hcl' }
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
@@ -45,6 +44,7 @@ Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 Plug 'kevinoid/vim-jsonc'
 
 " Neovim-specific
+Plug 'ray-x/go.nvim', Cond(has('nvim-0.5'), { 'for': ['go', 'gomod'] })
 Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
 Plug 'folke/zen-mode.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/lsp-status.nvim', Cond(has('nvim-0.5'))
@@ -76,6 +76,7 @@ Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'), { 'for': 'rust' })
 if !has('nvim')
   let g:fzf_command_prefix = 'Fzf'
 endif
+Plug 'fatih/vim-go', Cond(!has('nvim-0.5'), { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] })
 Plug 'itchyny/lightline.vim', Cond(!has('nvim'))
 Plug 'junegunn/fzf', Cond(!has('nvim'), { 'do': { -> fzf#install() } })
 Plug 'junegunn/fzf.vim', Cond(!has('nvim'))
@@ -163,9 +164,6 @@ if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
 
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'

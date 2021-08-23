@@ -1,5 +1,6 @@
 require("tristan957.git-worktree")
 require("tristan957.gitsigns")
+require("tristan957.go")
 require("tristan957.lsp")
 require("tristan957.lualine")
 require("tristan957.nvim-compe")
