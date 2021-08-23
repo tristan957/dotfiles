@@ -1,6 +1,6 @@
 require("todo-comments").setup({
 	keywords = {
-		TODO = { icon = "ℹ️", color = "info" },
-		FIX = { icon = "🛠️", color = "error", alt = { "FIXME" } },
+		TODO = { icon = "T", color = "info" },
+		FIX = { icon = "F", color = "error", alt = { "FIXME" } },
 	},
 })
