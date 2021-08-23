@@ -63,6 +63,7 @@ elseif has('nvim-0.5')
   Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim-0.5'), { 'do': ':TSUpdate', 'branch': '0.5-compat' })
   Plug 'nvim-treesitter/nvim-treesitter-textobjects', Cond(has('nvim-0.5'), { 'branch': '0.5-compat' })
 endif
+Plug 'jose-elias-alvarez/null-ls.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-treesitter/playground', Cond(has('nvim-0.5'))
 Plug 'neovim/nvim-lspconfig', Cond(has('nvim-0.5'))
 Plug 'nvim-telescope/telescope-fzf-native.nvim', Cond(has('nvim-0.5'), { 'do': 'make' })
