@@ -173,22 +173,11 @@ set background=dark
 
 highlight ColorColumn ctermbg=237 guibg=#3C3836
 
-"""""""""""""""""""""""""""""""
-" File Type Specific Settings
-"""""""""""""""""""""""""""""""
-
 filetype plugin on " allow Vim to recognize the file type
 
 """"""""""""""""
 " Auto-behaviors
 """"""""""""""""
-
-" Toggle relativenumber in certain situations
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave " set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter " set norelativenumber
-augroup END
 
 " Trim whitespace upon writing buffer
 fun! TrimWhitespace()
@@ -200,6 +189,8 @@ endfun
 augroup tristan957
   autocmd!
   autocmd BufWritePre * :call TrimWhitespace()
+	autocmd BufEnter,FocusGained,InsertLeave * :set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter * :set norelativenumber
 augroup END
 
 """""""""""""""""""
