@@ -112,8 +112,10 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <leader>gs :Git<CR>
 nnoremap <SPACE> <Nop>
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap [t :tabprevious<CR>
+nnoremap ]t :tabnext<CR>
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " move current tab left
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
 vnoremap <silent> J :m '>+1<CR>gv=gv " move line up
