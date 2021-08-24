@@ -4,8 +4,14 @@ require("telescope").setup({
 	defaults = {
 		color_devicons = true,
 		mappings = {
-			i = { ["<M-t>"] = trouble.open_with_trouble },
-			n = { ["<M-t>"] = trouble.open_with_trouble },
+			i = {
+				["<M-t>"] = trouble.open_with_trouble,
+				["<C-u>"] = false,
+			},
+			n = {
+				["<M-t>"] = trouble.open_with_trouble,
+				["<C-u>"] = false,
+			},
 		},
 	},
 	extensions = {
