@@ -37,6 +37,7 @@ require("lspconfig").bashls.setup({
 	cmd_env = {
 		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.subr)",
 	},
+	on_attach = on_attach,
 })
 
 require("lspconfig").clangd.setup({
@@ -73,9 +74,12 @@ require("lspconfig").gopls.setup({
 			},
 		},
 	},
+	on_attach = on_attach,
 })
 
-require("lspconfig").rust_analyzer.setup({})
+require("lspconfig").rust_analyzer.setup({
+	on_attach = on_attach,
+})
 
 require("lspconfig").sumneko_lua.setup({
 	cmd = { "lua-language-server" },
