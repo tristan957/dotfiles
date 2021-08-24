@@ -1,3 +1,4 @@
+require("tristan957.dapui")
 require("tristan957.git-worktree")
 require("tristan957.gitsigns")
 require("tristan957.go")

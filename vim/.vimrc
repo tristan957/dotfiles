@@ -71,6 +71,7 @@ Plug 'hrsh7th/nvim-compe', Cond(has('nvim-0.5'))
 Plug 'lewis6991/gitsigns.nvim', Cond(has('nvim-0.5'))
 Plug 'folke/trouble.nvim', Cond(has('nvim-0.5'))
 Plug 'mfussenegger/nvim-dap', Cond(has('nvim-0.5'))
+Plug 'rcarriga/nvim-dap-ui', Cond(has('nvim-0.5'))
 Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'), { 'for': 'rust' })
 
 " Vim-specific
