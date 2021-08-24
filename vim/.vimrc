@@ -29,33 +29,46 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'gruvbox-community/gruvbox'
 Plug 'hashivim/vim-terraform', { 'for': 'hcl' }
+Plug 'kevinoid/vim-jsonc'
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'gruvbox-community/gruvbox'
-Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
-Plug 'kevinoid/vim-jsonc'
 
 " Neovim-specific
-Plug 'ray-x/go.nvim', Cond(has('nvim-0.5'), { 'for': ['go', 'gomod'] })
-Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
 Plug 'folke/zen-mode.nvim', Cond(has('nvim-0.5'))
-Plug 'nvim-lua/lsp-status.nvim', Cond(has('nvim-0.5'))
+Plug 'folke/todo-comments.nvim', Cond(has('nvim-0.5'))
+Plug 'folke/trouble.nvim', Cond(has('nvim-0.5'))
 Plug 'hoob3rt/lualine.nvim', Cond(has('nvim-0.5'))
-Plug 'ThePrimeagen/git-worktree.nvim', Cond(has('nvim-0.5'))
+Plug 'hrsh7th/nvim-compe', Cond(has('nvim-0.5'))
+" Change from nvim-compe to this when it becomes stable
+" Plug 'hrsh7th/cmp-buffer', Cond(has('nvim-0.5'))
+" Plug 'hrsh7th/cmp-calc', Cond(has('nvim-0.5'))
+" Plug 'hrsh7th/cmp-emoji', Cond(has('nvim-0.5'))
+" Plug 'hrsh7th/cmp-nvim-lsp', Cond(has('nvim-0.5'))
+" Plug 'hrsh7th/cmp-nvim-lua', Cond(has('nvim-0.5'))
+" Plug 'hrsh7th/cmp-path', Cond(has('nvim-0.5'))
+" Plug 'hrsh7th/nvim-cmp', Cond(has('nvim-0.5'))
+Plug 'JoosepAlviste/nvim-ts-context-commentstring', Cond(has('nvim-0.5'))
+Plug 'jose-elias-alvarez/null-ls.nvim', Cond(has('nvim-0.5'))
+Plug 'lewis6991/gitsigns.nvim', Cond(has('nvim-0.5'))
+Plug 'mfussenegger/nvim-dap', Cond(has('nvim-0.5'))
+Plug 'neovim/nvim-lspconfig', Cond(has('nvim-0.5'))
+Plug 'nvim-lua/lsp-status.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/popup.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/plenary.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-telescope/telescope.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-telescope/telescope-fzf-native.nvim', Cond(has('nvim-0.5'), { 'do': 'make' })
 Plug 'nvim-telescope/telescope-project.nvim', Cond(has('nvim-0.5'))
-Plug 'folke/todo-comments.nvim', Cond(has('nvim-0.5'))
-Plug 'JoosepAlviste/nvim-ts-context-commentstring', Cond(has('nvim-0.5'))
+Plug 'nvim-treesitter/playground', Cond(has('nvim-0.5'))
 if has('nvim-0.6') " TODO: how to determine running Neovim master?
   Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim-0.6'), { 'do': ':TSUpdate' })
   Plug 'nvim-treesitter/nvim-treesitter-textobjects', Cond(has('nvim-0.6'))
@@ -63,16 +76,11 @@ elseif has('nvim-0.5')
   Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim-0.5'), { 'do': ':TSUpdate', 'branch': '0.5-compat' })
   Plug 'nvim-treesitter/nvim-treesitter-textobjects', Cond(has('nvim-0.5'), { 'branch': '0.5-compat' })
 endif
-Plug 'jose-elias-alvarez/null-ls.nvim', Cond(has('nvim-0.5'))
-Plug 'nvim-treesitter/playground', Cond(has('nvim-0.5'))
-Plug 'neovim/nvim-lspconfig', Cond(has('nvim-0.5'))
-Plug 'nvim-telescope/telescope-fzf-native.nvim', Cond(has('nvim-0.5'), { 'do': 'make' })
-Plug 'hrsh7th/nvim-compe', Cond(has('nvim-0.5'))
-Plug 'lewis6991/gitsigns.nvim', Cond(has('nvim-0.5'))
-Plug 'folke/trouble.nvim', Cond(has('nvim-0.5'))
-Plug 'mfussenegger/nvim-dap', Cond(has('nvim-0.5'))
+Plug 'ray-x/go.nvim', Cond(has('nvim-0.5'), { 'for': ['go', 'gomod'] })
 Plug 'rcarriga/nvim-dap-ui', Cond(has('nvim-0.5'))
 Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'), { 'for': 'rust' })
+Plug 'ThePrimeagen/git-worktree.nvim', Cond(has('nvim-0.5'))
+Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
 
 " Vim-specific
 if !has('nvim')
