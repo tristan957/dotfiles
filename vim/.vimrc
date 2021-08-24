@@ -207,7 +207,3 @@ augroup END
 """""""""""""""""""
 " Custom Commands
 """""""""""""""""""
-
-if has('nvim')
-  lua require("tristan957")
-endif
