@@ -61,7 +61,21 @@ require("lspconfig").clangd.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").gopls.setup({})
+-- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
+require("lspconfig").gopls.setup({
+	settings = {
+		gopls = {
+			analyses = {
+				fieldalignment = true,
+				nilness = true,
+				unusedparams = true,
+				unusedwrite = true,
+			},
+		},
+	},
+})
+
+require("lspconfig").rust_analyzer.setup({})
 
 require("lspconfig").sumneko_lua.setup({
 	cmd = { "lua-language-server" },
