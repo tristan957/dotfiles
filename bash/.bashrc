@@ -174,5 +174,7 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 
-	find "${XDG_DATA_HOME}/bash-completion/completions" -type f -exec bash -c 'f="$1"; source $f' shell {} \;
+	if [ -d "${XDG_DATA_HOME}/bash-completion/completions" ]; then
+		find "${XDG_DATA_HOME}/bash-completion/completions" -type f -exec bash -c 'f="$1"; source $f' shell {} \;
+	fi
 fi
