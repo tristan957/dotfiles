@@ -6,11 +6,9 @@ require("telescope").setup({
 		mappings = {
 			i = {
 				["<M-t>"] = trouble.open_with_trouble,
-				["<C-u>"] = false,
 			},
 			n = {
 				["<M-t>"] = trouble.open_with_trouble,
-				["<C-u>"] = false,
 			},
 		},
 	},
@@ -30,7 +28,7 @@ require("telescope").load_extension("git_worktree")
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader><S-p>",
-	"<cmd>lua require('telescope.builtin').find_files()<cr>",
+	"<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
@@ -54,7 +52,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>fb",
-	"<cmd>lua require('telescope.builtin').file_browser({ hidden = true })<cr>",
+	"<cmd>lua require('telescope.builtin').file_browser({ hidden = true, dir_icon = '>' })<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
