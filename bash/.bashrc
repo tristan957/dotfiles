@@ -1,3 +1,8 @@
+# I am not really sure if this is the best place for the interactive check, but
+# at least it stops gnome-shell from segfaulting due to the XDG_CONFIG_DIRS code
+# later in this file.
+[[ $- != *i* ]] && return
+
 # Shell Options
 
 shopt -s histappend
@@ -154,38 +159,38 @@ export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
-	PATH="${PATH}:${GOPATH}/bin"
+	PATH="${GOPATH}/bin:${PATH}"
 fi
 
 # Add Deno executables to PATH
 if [[ "${PATH}" != *"${DENO_INSTALL}/bin"* ]]; then
-	PATH="${PATH}:${DENO_INSTALL}/bin"
+	PATH="${DENO_INSTALL}/bin:${PATH}"
 fi
 
 # Add local executables to PATH
 if [[ "${PATH}" != *"${HOME}/.local/bin"* ]]; then
-	PATH="${PATH}:${HOME}/.local/bin"
+	PATH="${HOME}/.local/bin:${PATH}"
 fi
 
 # Add Rust executables to PATH
 if [[ "${PATH}" != *"${CARGO_HOME}/bin"* ]]; then
-	PATH="${PATH}:${CARGO_HOME}/bin"
+	PATH="${CARGO_HOME}/bin:${PATH}"
 fi
 
 # Add Yarn executables to PATH
 if [[ "${PATH}" != *"${HOME}/.yarn/bin"* ]]; then
-	PATH="${PATH}:${HOME}/.yarn/bin"
+	PATH="${HOME}/.yarn/bin:${PATH}"
 fi
 
 # Add snap executables to PATH
 if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
-	PATH="${PATH}:/var/lib/snapd/snap/bin"
+	PATH="/var/lib/snapd/snap/bin:${PATH}"
 fi
 
 if type "rustup" > /dev/null 2>&1; then
 	rustup_nightly_toolchain=$(rustup toolchain list | cut -d ' ' -f 1 | grep nightly-"$(arch)")
-	if [[ "${PATH}" != *"${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin" ]]; then
-		PATH="${PATH}:${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin"
+	if [[ "${PATH}" != *"${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin"* ]]; then
+		PATH="${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin:${PATH}"
 	fi
 fi
 
