@@ -76,14 +76,10 @@ export NNN_OPTS="eEH"
 export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 
 # XDG User Directories
-# $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
-# non-essential runtime files and other file objects (such as sockets, named
-# pipes, ...) should be stored. The directory MUST be owned by the user, and
-# he MUST be the only one having read and write access to it. Its Unix access
-# mode MUST be 0700.
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.var"
 export XDG_DESKTOP_DIR="${HOME}/Desktop"
 export XDG_DOCUMENTS_DIR="${HOME}/Documents"
 export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
@@ -92,6 +88,39 @@ export XDG_PICTURES_DIR="${HOME}/Pictures"
 export XDG_PUBLICSHARE_DIR="${HOME}/Public"
 export XDG_TEMPLATES_DIR="${HOME}/Templates"
 export XDG_VIDEOS_DIR="${HOME}/Videos"
+
+# $XDG_RUNTIME_DIR defines the base directory relative to which user-specific
+# non-essential runtime files and other file objects (such as sockets, named
+# pipes, ...) should be stored. The directory MUST be owned by the user, and
+# he MUST be the only one having read and write access to it. Its Unix access
+# mode MUST be 0700.
+if [ -z "${XDG_RUNTIME_DIR}" ]; then
+	export XDG_RUNTIME_DIR="/run/user/${UID}"
+
+	if [ ! -d $XDG_RUNTIME_DIR ]; then
+		mkdir $XDG_RUNTIME_DIR
+	fi
+fi
+if [[ $(stat -c '%a' $XDG_RUNTIME_DIR) != "700" ]]; then
+	chmod 0700 $XDG_RUNTIME_DIR
+fi
+
+if [ -z "${XDG_CONFIG_DIRS}" ]; then
+	export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:/etc"
+else
+	if [[ "${XDG_CONFIG_DIRS}" != *"${XDG_CONFIG_HOME}"* ]]; then
+		export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:${XDG_CONFIG_DIRS}"
+	fi
+fi
+
+if [ -z "${XDG_DATA_DIRS}" ]; then
+	export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
+else
+	# ending ':' because of Flatpak local exports in ~/.local/share/flaptak/exports/share
+	if [[ "${XDG_DATA_DIRS}" != *"${XDG_DATA_HOME}:"* ]]; then
+		export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
+	fi
+fi
 
 # Set default terminal text editor
 if type "nvim" > /dev/null 2>&1; then
