@@ -13,7 +13,7 @@ M = {}
 M.refactors = function()
 	local opts = require("telescope.themes").get_cursor()
 	require("telescope.pickers").new(opts, {
-		prompt_title = "refactors",
+		prompt_title = "Refactors",
 		finder = require("telescope.finders").new_table({
 			results = require("refactoring").get_refactors(),
 		}),
