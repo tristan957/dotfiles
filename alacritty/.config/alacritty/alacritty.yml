@@ -10,4 +10,4 @@ shell:
   program: /bin/bash
   args:
     - -c
-    - tmux
+    - tmux new
