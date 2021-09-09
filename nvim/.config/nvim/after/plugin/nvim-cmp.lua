@@ -8,7 +8,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "emoji" },
-		{ nane = "calc" },
+		{ name = "calc" },
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
@@ -22,13 +22,13 @@ cmp.setup({
 			-- fancy icons and a name of kind
 			-- vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
 
-			-- set a name for each source
 			vim_item.menu = ({
 				buffer = "[Buffer]",
+				path = "[Path]",
 				nvim_lsp = "[LSP]",
-				luasnip = "[LuaSnip]",
 				nvim_lua = "[Lua]",
-				latex_symbols = "[Latex]",
+				emoji = "[Emoji]",
+				calc = "[Calc]",
 			})[entry.source.name]
 			return vim_item
 		end,
