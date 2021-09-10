@@ -196,6 +196,8 @@ fi
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
+HISTSIZE=10000
+HISTTIMEFORMAT="%FT%T%z :: "
 
 #------------------------------------------------------------------------------
 
