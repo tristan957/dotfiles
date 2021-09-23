@@ -1,6 +1,10 @@
 local lsp_status = require("lsp-status")
 local util = require("lspconfig.util")
 
+local capabilities = require("cmp_nvim_lsp").update_capabilities(
+	vim.lsp.protocol.make_client_capabilities()
+)
+
 lsp_status.config({
 	indicator_errors = "E",
 	indicator_warnings = "W",
@@ -37,6 +41,7 @@ require("lspconfig").bashls.setup({
 	cmd_env = {
 		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.subr)",
 	},
+	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
@@ -59,6 +64,7 @@ require("lspconfig").clangd.setup({
 		"build/compile_commands.json",
 		"*build*/compile_commands.json"
 	),
+	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
@@ -74,10 +80,12 @@ require("lspconfig").gopls.setup({
 			},
 		},
 	},
+	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 require("lspconfig").rust_analyzer.setup({
+	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
@@ -111,6 +119,7 @@ require("lspconfig").sumneko_lua.setup({
 			},
 		},
 	},
+	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
