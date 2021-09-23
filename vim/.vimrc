@@ -42,6 +42,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
+Plug 'ziglang/zig.vim'
 
 " Neovim-specific
 Plug 'folke/zen-mode.nvim', Cond(has('nvim-0.5'))
