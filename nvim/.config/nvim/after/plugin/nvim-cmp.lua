@@ -15,7 +15,7 @@ cmp.setup({
 		["<C-c>"] = cmp.mapping.close(),
 		["<C-space>"] = cmp.mapping.complete(),
 	},
-	preselect = cmp.PreselectMode.Item,
+	preselect = cmp.PreselectMode.None,
 	formatting = {
 		deprecated = true,
 		format = function(entry, vim_item)
