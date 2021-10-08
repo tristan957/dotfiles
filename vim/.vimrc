@@ -75,9 +75,9 @@ elseif has('nvim-0.5')
   Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim-0.5'), { 'do': ':TSUpdate', 'branch': '0.5-compat' })
   Plug 'nvim-treesitter/nvim-treesitter-textobjects', Cond(has('nvim-0.5'), { 'branch': '0.5-compat' })
 endif
-Plug 'ray-x/go.nvim', Cond(has('nvim-0.5'), { 'for': ['go', 'gomod'] })
+Plug 'ray-x/go.nvim', Cond(has('nvim-0.5'))
 Plug 'rcarriga/nvim-dap-ui', Cond(has('nvim-0.5'))
-Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'), { 'for': 'rust' })
+Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'))
 Plug 'ThePrimeagen/git-worktree.nvim', Cond(has('nvim-0.5'))
 Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
 
