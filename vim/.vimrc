@@ -48,7 +48,6 @@ Plug 'ziglang/zig.vim'
 Plug 'folke/zen-mode.nvim', Cond(has('nvim-0.5'))
 Plug 'folke/todo-comments.nvim', Cond(has('nvim-0.5'))
 Plug 'folke/trouble.nvim', Cond(has('nvim-0.5'))
-Plug 'hoob3rt/lualine.nvim', Cond(has('nvim-0.5'))
 Plug 'hrsh7th/cmp-buffer', Cond(has('nvim-0.5'))
 Plug 'hrsh7th/cmp-calc', Cond(has('nvim-0.5'))
 Plug 'hrsh7th/cmp-emoji', Cond(has('nvim-0.5'))
@@ -58,12 +57,14 @@ Plug 'hrsh7th/cmp-path', Cond(has('nvim-0.5'))
 Plug 'hrsh7th/nvim-cmp', Cond(has('nvim-0.5'))
 Plug 'JoosepAlviste/nvim-ts-context-commentstring', Cond(has('nvim-0.5'))
 Plug 'jose-elias-alvarez/null-ls.nvim', Cond(has('nvim-0.5'))
+Plug 'L3MON4D3/LuaSnip', Cond(has('nvim-0.5'))
 Plug 'lewis6991/gitsigns.nvim', Cond(has('nvim-0.5'))
 Plug 'mfussenegger/nvim-dap', Cond(has('nvim-0.5'))
 Plug 'neovim/nvim-lspconfig', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/lsp-status.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/popup.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-lua/plenary.nvim', Cond(has('nvim-0.5'))
+Plug 'nvim-lualine/lualine.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-telescope/telescope.nvim', Cond(has('nvim-0.5'))
 Plug 'nvim-telescope/telescope-fzf-native.nvim', Cond(has('nvim-0.5'), { 'do': 'make' })
 Plug 'nvim-telescope/telescope-project.nvim', Cond(has('nvim-0.5'))
@@ -77,6 +78,7 @@ elseif has('nvim-0.5')
 endif
 Plug 'ray-x/go.nvim', Cond(has('nvim-0.5'))
 Plug 'rcarriga/nvim-dap-ui', Cond(has('nvim-0.5'))
+Plug 'saadparwaiz1/cmp_luasnip', Cond(has('nvim-0.5'))
 Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'))
 Plug 'ThePrimeagen/git-worktree.nvim', Cond(has('nvim-0.5'))
 Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
@@ -128,7 +130,7 @@ set autoread " relaod files changed outside of Vim
 set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
 set cmdheight=2 " give more space for displaying messages
 set colorcolumn=80,100,120
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,noinsert,noselect,preview
 set confirm " display confirmation dialog when closing unsaved file
 set cursorline " highlight the current line
 set encoding=UTF-8
