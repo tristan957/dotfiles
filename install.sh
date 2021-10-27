@@ -22,10 +22,14 @@ while getopts ":dp:" o; do
 	esac
 done
 
+if [ "${#packages[@]}" -eq 0 ]; then
+	packages+=("bash" "git" "libedit" "nvim" "readline" "terraform" "tmux" "vim" "yarn")
+fi
+
 for p in "${packages[@]}"; do
 	if [ $dry_run -eq 1 ]; then
 		echo Installing "$p" "(dry run)"
-		stow --no --dir "$SCRIPT_DIR" --restow "$p"
+		stow --no --dir "$SCRIPT_DIR" --restow "$p" 2>/dev/null
 	else
 		echo Installing "$p"
 		stow --dir "$SCRIPT_DIR" --restow "$p"
