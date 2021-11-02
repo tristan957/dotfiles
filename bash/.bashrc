@@ -31,7 +31,7 @@ fi
 
 # Local Variables
 
-BASH_DIR=$(dirname "$(readlink -f "${HOME}/.bashrc")")
+BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 
 #------------------------------------------------------------------------------
 
