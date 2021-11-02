@@ -13,18 +13,18 @@ shopt -s globstar
 
 # Alii
 
-if [ -f ~/.bash_aliases ]; then
+if [ -f "${HOME}/.bash_aliases" ]; then
 	# shellcheck source=bash/.bash_aliases
-	source ~/.bash_aliases
+	. "${HOME}/.bash_aliases"
 fi
 
 #------------------------------------------------------------------------------
 
 # Functions
 
-if [ -f ~/.bash_functions ]; then
+if [ -f "${HOME}/.bash_functions" ]; then
 	# shellcheck source=bash/.bash_functions
-	source ~/.bash_functions
+	. "${HOME}/.bash_functions"
 fi
 
 #------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ BASH_DIR=$(dirname "$(readlink -f "${HOME}/.bashrc")")
 
 # Git branch for prompt
 if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
-	source "${BASH_DIR}/git-prompt.sh"
+	. "${BASH_DIR}/git-prompt.sh"
 	# GIT_PS1_SHOWDIRTYSTATE=1
 	# GIT_PS1_SHOWSTASHSTATE=1
 	# GIT_PS1_SHOWUNTRACKEDFILES=1
