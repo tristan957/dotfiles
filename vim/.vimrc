@@ -81,7 +81,7 @@ Plug 'rcarriga/nvim-dap-ui', Cond(has('nvim-0.5'))
 Plug 'saadparwaiz1/cmp_luasnip', Cond(has('nvim-0.5'))
 Plug 'simrat39/rust-tools.nvim', Cond(has('nvim-0.5'))
 Plug 'ThePrimeagen/git-worktree.nvim', Cond(has('nvim-0.5'))
-Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
+" Plug 'ThePrimeagen/refactoring.nvim', Cond(has('nvim-0.5'))
 
 " Vim-specific
 if !has('nvim')
