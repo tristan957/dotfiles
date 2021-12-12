@@ -22,5 +22,6 @@
 	"files.associations": {
 		".bash*": "shellscript",
 		"work.config": "properties",
+		"ignore": "ignore",
 	},
 }
