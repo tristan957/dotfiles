@@ -127,6 +127,29 @@ else
 	fi
 fi
 
+# I hate software that thinks it is special.
+# https://wiki.archlinux.org/title/XDG_Base_Directory
+export GDBHISTFILE="${XDG_DATA_HOME}/gdb/history"
+# ipython can die in a hole for this: https://github.com/ipython/ipython/pull/4457
+export IPYTHONDIR="${XDG_CONFIG_HOME}/jupyter"
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}/jupyter"
+export TERMINFO="${XDG_DATA_HOME}/terminfo"
+export TERMINFO_DIRS="${XDG_DATA_HOME}/terminfo:/usr/share/terminfo"
+export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export PSQL_HISTORY="${XDG_STATE_HOME}/psql_history"
+export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
+export GOPATH="${XDG_DATA_HOME}/go"
+export DENO_INSTALL="${XDG_DATA_HOME}/deno"
+export DENO_DIR="${XDG_CACHE_HOME}/deno"
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
+export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
+export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
+export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
+export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
+
 # Set default terminal text editor
 if command -v "nvim" > /dev/null 2>&1; then
 	export EDITOR="nvim"
@@ -147,15 +170,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Forget about "unable to sign commit" errors
 export GPG_TTY=$(tty)
-
-export GOPATH="${XDG_DATA_HOME}/go"
-export DENO_INSTALL="${XDG_DATA_HOME}/deno"
-export DENO_DIR="${XDG_CACHE_HOME}/deno"
-export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
-export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
-export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
-export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then

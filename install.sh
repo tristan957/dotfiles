@@ -23,7 +23,7 @@ while getopts ":dp:" o; do
 done
 
 if [ "${#packages[@]}" -eq 0 ]; then
-	packages+=("bash" "git" "libedit" "nvim" "readline" "terraform" "tmux" "vim" "yarn")
+	packages+=("bash" "gdb" "git" "libedit" "npm" "nvim" "readline" "terraform" "tmux" "vim" "yarn")
 fi
 
 for p in "${packages[@]}"; do
