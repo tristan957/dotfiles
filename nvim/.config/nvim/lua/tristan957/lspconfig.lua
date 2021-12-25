@@ -8,7 +8,7 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
 lsp_status.config({
 	indicator_errors = "E",
 	indicator_warnings = "W",
-	indicator_info = "i",
+	indicator_info = "I",
 	indicator_hint = "?",
 	indicator_ok = "ok",
 	status_symbol = "",
