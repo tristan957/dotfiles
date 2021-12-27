@@ -2,7 +2,7 @@ require("nvim-treesitter.configs").setup({
 	context_commentstring = {
 		enable = true,
 	},
-	ensure_installed = "maintained",
+	ensure_installed = require("nvim-treesitter.parsers").maintained_parsers(),
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
