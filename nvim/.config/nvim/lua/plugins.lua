@@ -17,6 +17,7 @@ require("packer").startup(function(use)
 	use({
 		"chrisbra/unicode.vim",
 		run = ":call unicode#download(1)",
+		disable = true, -- cannot call the run function
 	})
 
 	use({ "dart-lang/dart-vim-plugin", ft = { "dart" } })
@@ -79,7 +80,7 @@ require("packer").startup(function(use)
 		"nvim-neorg/neorg",
 		after = { "nvim-treesitter/nvim-tresitter" },
 		requires = { { "nvim-lua/plenary.nvim" } },
-		disable = true, -- when th grammar is supported by upstream nvim-treesitter
+		disable = true, -- when the grammar is supported by upstream nvim-treesitter
 		config = function()
 			require("tristan957.neorg")
 		end,
