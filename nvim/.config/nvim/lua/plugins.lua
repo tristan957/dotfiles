@@ -14,9 +14,7 @@ end
 vim.cmd("packadd packer.nvim")
 
 require("packer").startup(function(use)
-	use({
-		"folke/trouble.nvim",
-	})
+	use({ "folke/trouble.nvim" })
 
 	use({
 		"folke/todo-comments.nvim",
@@ -26,9 +24,7 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"folke/zen-mode.nvim",
-	})
+	use({ "folke/zen-mode.nvim" })
 
 	use({
 		"hrsh7th/nvim-cmp",
@@ -50,17 +46,11 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"JoosepAlviste/nvim-ts-context-commentstring",
-	})
+	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-	})
+	use({ "jose-elias-alvarez/null-ls.nvim" })
 
-	use({
-		"L3MON4D3/LuaSnip",
-	})
+	use({ "L3MON4D3/LuaSnip" })
 
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -70,9 +60,7 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"mfussenegger/nvim-dap",
-	})
+	use({ "mfussenegger/nvim-dap" })
 
 	use({
 		"nvim-neorg/neorg",
@@ -95,13 +83,9 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"nvim-lua/lsp-status.nvim",
-	})
+	use({ "nvim-lua/lsp-status.nvim" })
 
-	use({
-		"nvim-lua/popup.nvim",
-	})
+	use({ "nvim-lua/popup.nvim" })
 
 	use({
 		"nvim-lua/plenary.nvim",
@@ -184,6 +168,8 @@ require("packer").startup(function(use)
 			require("tristan957.refactoring")
 		end,
 	})
+
+	use({ "wbthomason/packer.nvim" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
