@@ -7,6 +7,7 @@ local trouble = require("trouble.providers.telescope")
 
 require("telescope").setup({
 	defaults = {
+		disable_devicons = true,
 		color_devicons = true,
 		mappings = {
 			i = {
@@ -19,8 +20,9 @@ require("telescope").setup({
 		},
 	},
 	pickers = {
+		find_files = themes.get_dropdown({ previewer = false, prompt_title = "Files", hidden = true }),
+		file_browser = themes.get_dropdown({ previewer = false, dir_icon = "📁", hidden = true }),
 		git_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
-		find_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
 	},
 	extensions = {
 		fzf = {
@@ -47,12 +49,6 @@ end
 
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader><S-p>",
-	"<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>",
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
 	"<leader>p",
 	"<cmd>lua require('tristan957.telescope').project_files()<cr>",
 	{ noremap = true, silent = true }
@@ -72,7 +68,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>fb",
-	"<cmd>lua require('telescope.builtin').file_browser({ hidden = true, dir_icon = '>' })<cr>",
+	"<cmd>lua require('telescope.builtin').file_browser()<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
