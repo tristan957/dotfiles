@@ -13,50 +13,43 @@ endif
 " Plug
 """"""""
 
-" plug.vim initialization
-if has('nvim') && empty(glob(data_dir . '/site/autoload/plug.vim'))
-  exe 'silent !curl -fLo ' . data_dir . '/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-elseif empty(glob(data_dir . '/autoload/plug.vim'))
-  exe 'silent !curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin($XDG_DATA_HOME . '/vim-plug')
-
-function! Cond(cond, ...)
-  let opts = get(a:000, 0, {})
-  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
-endfunction
-
-Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'gruvbox-community/gruvbox'
-Plug 'hashivim/vim-terraform', { 'for': 'hcl' }
-Plug 'kevinoid/vim-jsonc'
-Plug 'LnL7/vim-nix', { 'for': 'nix' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-surround'
-Plug 'ziglang/zig.vim', { 'for': 'zig' }
-
-" Vim-specific
 if !has('nvim')
+  if empty(glob(data_dir . '/autoload/plug.vim'))
+    exe 'silent !curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+
+  call plug#begin($XDG_DATA_HOME . '/vim-plug')
+
+  function! Cond(cond, ...)
+    let opts = get(a:000, 0, {})
+    return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+  endfunction
+
+  Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
+  Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'gruvbox-community/gruvbox'
+  Plug 'kevinoid/vim-jsonc'
+  Plug 'LnL7/vim-nix', { 'for': 'nix' }
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'tmux-plugins/vim-tmux'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-obsession'
+  Plug 'tpope/vim-surround'
+  Plug 'ziglang/zig.vim', { 'for': 'zig' }
+
   let g:fzf_command_prefix = 'Fzf'
-endif
-Plug 'fatih/vim-go', Cond(!has('nvim-0.5'), { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] })
-Plug 'itchyny/lightline.vim', Cond(!has('nvim'))
-Plug 'junegunn/fzf', Cond(!has('nvim'), { 'do': { -> fzf#install() } })
-Plug 'junegunn/fzf.vim', Cond(!has('nvim'))
-Plug 'stsewd/fzf-checkout.vim', Cond(!has('nvim'))
 
-call plug#end()
+  Plug 'fatih/vim-go', Cond(!has('nvim'), { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] })
+  Plug 'itchyny/lightline.vim', Cond(!has('nvim'))
+  Plug 'junegunn/fzf', Cond(!has('nvim'), { 'do': { -> fzf#install() } })
+  Plug 'junegunn/fzf.vim', Cond(!has('nvim'))
+  Plug 'stsewd/fzf-checkout.vim', Cond(!has('nvim'))
 
-if has('nvim-0.5')
+  call plug#end()
+else
   lua require('plugins')
 endif
 

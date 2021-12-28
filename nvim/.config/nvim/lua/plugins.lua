@@ -14,6 +14,15 @@ end
 vim.cmd("packadd packer.nvim")
 
 require("packer").startup(function(use)
+	use({
+		"chrisbra/unicode.vim",
+		run = ":call unicode#download(1)",
+	})
+
+	use({ "dart-lang/dart-vim-plugin", ft = { "dart" } })
+
+	use({ "editorconfig/editorconfig-vim" })
+
 	use({ "folke/trouble.nvim" })
 
 	use({
@@ -25,6 +34,8 @@ require("packer").startup(function(use)
 	})
 
 	use({ "folke/zen-mode.nvim" })
+
+	use({ "gruvbox-community/gruvbox" })
 
 	use({
 		"hrsh7th/nvim-cmp",
@@ -49,6 +60,8 @@ require("packer").startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	use({ "jose-elias-alvarez/null-ls.nvim" })
+
+	use({ "kevinoid/vim-jsonc" })
 
 	use({ "L3MON4D3/LuaSnip" })
 
@@ -143,6 +156,8 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	use({ "rust-lang/rust.vim", ft = { "rust" } })
+
 	use({
 		"simrat39/rust-tools.nvim",
 		ft = { "rust" },
@@ -168,6 +183,18 @@ require("packer").startup(function(use)
 			require("tristan957.refactoring")
 		end,
 	})
+
+	use({ "tmux-plugins/vim-tmux", ft = "tmux" })
+
+	use({ "tpope/vim-commentary" })
+
+	use({ "tpope/vim-fugitive" })
+
+	use({ "tpope/vim-obsession" })
+
+	use({ "tpope/vim-surround" })
+
+	use({ "ziglang/zig.vim", ft = { "zig" } })
 
 	use({ "wbthomason/packer.nvim" })
 
