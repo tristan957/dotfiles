@@ -14,11 +14,7 @@ end
 vim.cmd("packadd packer.nvim")
 
 require("packer").startup(function(use)
-	use({
-		"chrisbra/unicode.vim",
-		run = ":call unicode#download(1)",
-		disable = true, -- cannot call the run function
-	})
+	use({ "chrisbra/unicode.vim" })
 
 	use({ "dart-lang/dart-vim-plugin", ft = { "dart" } })
 
