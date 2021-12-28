@@ -34,6 +34,14 @@ local function on_attach(client, bufnr)
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
+	if client.resolved_capabilities.goto_definition then
+		buf_set_option("tagfunc", "v:lua.vim.lsp.tagfunc")
+	end
+
+	if client.resolved_capabilities.document_formatting then
+		buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr")
+	end
+
 	lsp_status.on_attach(client)
 end
 
@@ -49,7 +57,6 @@ require("lspconfig").clangd.setup({
 	cmd = {
 		"clangd",
 		"--header-insertion=never",
-		"--compile-commands-dir=" .. os.getenv("PWD") .. "/build",
 		"--all-scopes-completion=false",
 		"--completion-style=bundled",
 		"--cross-file-rename",

@@ -1,3 +1,8 @@
+local M = {}
+
+local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
 local trouble = require("trouble.providers.telescope")
 
 require("telescope").setup({
@@ -6,11 +11,16 @@ require("telescope").setup({
 		mappings = {
 			i = {
 				["<M-t>"] = trouble.open_with_trouble,
+				["<esc>"] = actions.close,
 			},
 			n = {
 				["<M-t>"] = trouble.open_with_trouble,
 			},
 		},
+	},
+	pickers = {
+		git_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
+		find_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
 	},
 	extensions = {
 		fzf = {
@@ -19,14 +29,21 @@ require("telescope").setup({
 			override_file_sorter = true,
 			case_mode = "smart_case",
 		},
-		["ui-select"] = require("telescope.themes").get_dropdown({}),
-		packer = require("telescope.themes").get_ivy({}),
+		["ui-select"] = themes.get_dropdown({}),
+		packer = themes.get_ivy({}),
 	},
 })
 
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("packer")
+
+M.project_files = function()
+	local ok = pcall(builtin.git_files, {})
+	if not ok then
+		builtin.find_files({ hidden = true })
+	end
+end
 
 vim.api.nvim_set_keymap(
 	"n",
@@ -37,7 +54,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>p",
-	"<cmd>lua require('telescope.builtin').git_files()<cr>",
+	"<cmd>lua require('tristan957.telescope').project_files()<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
@@ -136,3 +153,5 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua require('telescope.builtin').man_pages()<cr>",
 	{ noremap = true, silent = true }
 )
+
+return M
