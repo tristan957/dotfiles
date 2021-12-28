@@ -56,7 +56,12 @@ require("packer").startup(function(use)
 
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
-	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("tristan957.null-ls")
+		end,
+	})
 
 	use({ "kevinoid/vim-jsonc" })
 
