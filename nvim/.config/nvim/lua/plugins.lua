@@ -98,6 +98,14 @@ require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("tristan957.comment")
+		end,
+		requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
+	})
+
 	use({ "nvim-lua/lsp-status.nvim" })
 
 	use({ "nvim-lua/popup.nvim" })
@@ -135,6 +143,7 @@ require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	})
 
 	use({
@@ -187,8 +196,6 @@ require("packer").startup(function(use)
 	})
 
 	use({ "tmux-plugins/vim-tmux", ft = "tmux" })
-
-	use({ "tpope/vim-commentary" })
 
 	use({ "tpope/vim-fugitive" })
 
