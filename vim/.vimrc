@@ -127,7 +127,7 @@ set termguicolors
 set textwidth=100 " maximum width of text that is being inserted
 let &undodir=cache_dir . '/undo'
 set undofile
-set updatetime=50
+set updatetime=250
 set wildmenu " visual autocomplete for command menu
 
 let g:netrw_banner=0

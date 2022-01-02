@@ -8,8 +8,7 @@
 	"Lua.runtime.version": "LuaJIT",
 	"Lua.workspace.library": [
 		"/usr/share/nvim/runtime",
-		"~/.local/share/nvim",
-		"~/.local/share/vim-plug",
+		"~/.local/share/nvim/site/pack/packer/start",
 	],
 	"shellcheck.useWorkspaceRootAsCwd": true,
 	"shellcheck.customArgs": [
