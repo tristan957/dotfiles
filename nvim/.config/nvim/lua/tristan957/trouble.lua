@@ -16,7 +16,7 @@ require("trouble").setup({
 
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>d",
+	"<leader>dt",
 	"<cmd>:TroubleToggle<cr>",
 	{ noremap = true, silent = true }
 )

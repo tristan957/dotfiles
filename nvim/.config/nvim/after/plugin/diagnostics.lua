@@ -1,7 +1,13 @@
 vim.diagnostic.config({
 	virtual_text = false,
 	signs = true,
+	source = "always",
 	float = { border = "single" },
 })
 
-vim.cmd([[au CursorHold * lua vim.diagnostic.open_float(0,{scope = "cursor"})]])
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>df",
+	'<cmd>:lua vim.diagnostic.open_float(nil, {scope = "cursor"})<cr>',
+	{ noremap = true }
+)
