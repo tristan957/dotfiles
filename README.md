@@ -8,15 +8,20 @@ These are my personal configuration files.
 
 This repository uses GNU `stow` to manage `dotfiles`.
 
+* alacritty
 * bash
-* solus
+* foot
+* gdb
+* git
+* libedit
+* npm
+* nvim
+* readline
 * ssh
+* sway
+* terraform
 * tmux
 * vim
-* nvim
-* terraform
-* readline
-* libedit
 * yarn
 
 The above is a list of packages `stow` can be used on. That syntax looks like
