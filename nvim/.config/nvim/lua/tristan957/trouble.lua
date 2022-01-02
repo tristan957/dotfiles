@@ -8,7 +8,7 @@ require("trouble").setup({
 		error = "E",
 		other = "O",
 		warning = "W",
-		hint = "?",
+		hint = "H",
 		information = "I",
 	},
 	use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
