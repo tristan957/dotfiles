@@ -1,3 +1,5 @@
+local extract_highlight_colors = require("lualine.utils.utils").extract_highlight_colors
+
 require("lualine").setup({
 	options = {
 		icons_enabled = false,
@@ -16,10 +18,10 @@ require("lualine").setup({
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
 				diagnostics_color = {
-					error = "DiagnosticError",
-					warn = "DiagnosticWarn",
-					info = "DiagnosticInfo",
-					hint = "DiagnosticHint",
+					error = { fg = extract_highlight_colors("DiagnosticError", "fg") },
+					warn = { fg = extract_highlight_colors("DiagnosticWarn", "fg") },
+					info = { fg = extract_highlight_colors("DiagnosticInfo", "fg") },
+					hint = { fg = extract_highlight_colors("DiagnosticHint", "fg") },
 				},
 				sections = { "error", "warn", "info", "hint" },
 				symbols = { error = "E", warn = "W", info = "I", hint = "H" },
