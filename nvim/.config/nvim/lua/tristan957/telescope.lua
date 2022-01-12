@@ -21,10 +21,10 @@ require("telescope").setup({
 	},
 	pickers = {
 		find_files = themes.get_dropdown({ previewer = false, prompt_title = "Files", hidden = true }),
-		file_browser = themes.get_dropdown({ previewer = false, dir_icon = "📁", hidden = true }),
 		git_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
 	},
 	extensions = {
+		file_browser = themes.get_dropdown({ previewer = false, dir_icon = "📁", hidden = true }),
 		fzf = {
 			fuzzy = true,
 			override_generic_sorter = false,
@@ -36,9 +36,10 @@ require("telescope").setup({
 	},
 })
 
+require("telescope").load_extension("file_browser")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("ui-select")
 require("telescope").load_extension("packer")
+require("telescope").load_extension("ui-select")
 
 M.project_files = function()
 	local ok = pcall(builtin.git_files, {})
@@ -68,7 +69,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>fb",
-	"<cmd>lua require('telescope.builtin').file_browser()<cr>",
+	"<cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(

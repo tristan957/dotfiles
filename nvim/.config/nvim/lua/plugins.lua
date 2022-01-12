@@ -131,10 +131,11 @@ require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			requires = {
 				{ "nvim-lua/plenary.nvim" },
+				{ "nvim-telescope/telescope-file-browser.nvim" },
 				{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+				{ "nvim-telescope/telescope-packer.nvim" },
 				{ "nvim-telescope/telescope-project.nvim" },
 				{ "nvim-telescope/telescope-ui-select.nvim" },
-				{ "nvim-telescope/telescope-packer.nvim" },
 			},
 			config = function()
 				require("tristan957.telescope")
