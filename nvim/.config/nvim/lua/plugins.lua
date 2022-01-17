@@ -174,6 +174,14 @@ require("packer").startup({
 			end,
 		})
 
+		use({
+			"rcarriga/nvim-notify",
+			requires = { "nvim-telescope/telescope.nvim" },
+			config = function()
+				require("tristan957.notify")
+			end,
+		})
+
 		use({ "rust-lang/rust.vim", ft = { "rust" } })
 
 		use({
