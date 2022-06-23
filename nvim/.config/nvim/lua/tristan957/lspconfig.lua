@@ -64,13 +64,6 @@ require("lspconfig").clangd.setup({
 		"--pch-storage=disk",
 		"--header-insertion-decorators",
 	},
-	root_dir = util.root_pattern(
-		"compile_commands.json",
-		"compile_flags.txt",
-		".git",
-		"build/compile_commands.json",
-		"*build*/compile_commands.json"
-	),
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
