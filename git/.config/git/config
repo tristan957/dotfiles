@@ -16,5 +16,11 @@
 	program = gpg2
 [init]
 	defaultBranch = master
+[sendemail]
+	confirm = always
+	smtpEncryption = starttls
+	smtpServer = 127.0.0.1
+	smtpUser = tristan@partin.io
+	smtpServerPort = 1025
 [includeIf "gitdir/i:~/Projects/work/"]
 	path = work.config
