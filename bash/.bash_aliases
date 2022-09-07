@@ -13,3 +13,5 @@ alias fgrep="fgrep --color=auto"
 
 # shellcheck disable=2139
 alias wget="wget --hsts-file=${XDG_CACHE_HOME}/wget-hsts"
+
+alias fold-email="cat <<EOF | fold --width 72 --spaces"
