@@ -1,9 +1,6 @@
 local lsp_status = require("lsp-status")
-local util = require("lspconfig.util")
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(
-	vim.lsp.protocol.make_client_capabilities()
-)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lsp_status.config({
 	indicator_errors = "E",
@@ -34,11 +31,11 @@ local function on_attach(client, bufnr)
 
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	if client.resolved_capabilities.goto_definition then
+	if client.server_capabilities.goto_definition then
 		buf_set_option("tagfunc", "v:lua.vim.lsp.tagfunc")
 	end
 
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.document_formatting then
 		buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr")
 	end
 
