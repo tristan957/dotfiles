@@ -92,6 +92,7 @@ set completeopt=menu,noinsert,noselect,preview
 set confirm " display confirmation dialog when closing unsaved file
 set cursorline " highlight the current line
 set encoding=UTF-8
+set expandtab
 set hidden " TextEdit might fail if hidden is not set
 set hlsearch " highlight matches
 set incsearch " search as characters are entered
