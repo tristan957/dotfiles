@@ -16,18 +16,14 @@ vim.cmd("packadd packer.nvim")
 require("packer").startup({
 	function(use)
 		use({ "chrisbra/unicode.vim" })
-
 		use({ "dart-lang/dart-vim-plugin", ft = { "dart" } })
-
 		use({ "editorconfig/editorconfig-vim" })
-
 		use({
 			"folke/trouble.nvim",
 			config = function()
 				require("tristan957.trouble")
 			end,
 		})
-
 		use({
 			"folke/todo-comments.nvim",
 			requires = { { "nvim-lua/plenary.nvim" } },
@@ -35,11 +31,8 @@ require("packer").startup({
 				require("tristan957.todo-comments")
 			end,
 		})
-
 		use({ "folke/zen-mode.nvim" })
-
 		use({ "gruvbox-community/gruvbox" })
-
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {
@@ -64,20 +57,15 @@ require("packer").startup({
 				require("tristan957.cmp")
 			end,
 		})
-
 		use({ "JoosepAlviste/nvim-ts-context-commentstring" })
-
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			config = function()
 				require("tristan957.null-ls")
 			end,
 		})
-
 		use({ "kevinoid/vim-jsonc" })
-
 		use({ "L3MON4D3/LuaSnip" })
-
 		use({
 			"lewis6991/gitsigns.nvim",
 			requires = { { "nvim-lua/plenary.nvim" } },
@@ -85,9 +73,7 @@ require("packer").startup({
 				require("tristan957.gitsigns")
 			end,
 		})
-
 		use({ "mfussenegger/nvim-dap" })
-
 		use({
 			"nvim-neorg/neorg",
 			after = { "nvim-treesitter/nvim-tresitter" },
@@ -97,7 +83,6 @@ require("packer").startup({
 				require("tristan957.neorg")
 			end,
 		})
-
 		use({
 			"neovim/nvim-lspconfig",
 			requires = {
@@ -108,7 +93,6 @@ require("packer").startup({
 				require("tristan957.lspconfig")
 			end,
 		})
-
 		use({
 			"numToStr/Comment.nvim",
 			config = function()
@@ -116,22 +100,15 @@ require("packer").startup({
 			end,
 			requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		})
-
 		use({ "nvim-lua/lsp-status.nvim" })
-
 		use({ "nvim-lua/popup.nvim" })
-
-		use({
-			"nvim-lua/plenary.nvim",
-		})
-
+		use({ "nvim-lua/plenary.nvim" })
 		use({
 			"nvim-lualine/lualine.nvim",
 			config = function()
 				require("tristan957.lualine")
 			end,
 		})
-
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = {
@@ -146,23 +123,19 @@ require("packer").startup({
 				require("tristan957.telescope")
 			end,
 		})
-
 		use({
 			"nvim-treesitter/playground",
 			requires = { { "nvim-treesitter/nvim-treesitter" } },
 		})
-
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
 			requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		})
-
 		use({
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			requires = { { "nvim-treesitter/nvim-treesitter" } },
 		})
-
 		use({
 			"ray-x/go.nvim",
 			ft = { "go", "gomod" },
@@ -170,7 +143,6 @@ require("packer").startup({
 				require("tristan957.go")
 			end,
 		})
-
 		use({
 			"rcarriga/nvim-dap-ui",
 			requires = { { "mfussenegger/nvim-dap" } },
@@ -178,7 +150,6 @@ require("packer").startup({
 				require("tristan957.dap-ui")
 			end,
 		})
-
 		use({
 			"rcarriga/nvim-notify",
 			requires = { "nvim-telescope/telescope.nvim" },
@@ -186,9 +157,7 @@ require("packer").startup({
 				require("tristan957.notify")
 			end,
 		})
-
 		use({ "rust-lang/rust.vim", ft = { "rust" } })
-
 		use({
 			"simrat39/rust-tools.nvim",
 			ft = { "rust" },
@@ -196,14 +165,12 @@ require("packer").startup({
 				require("tristan957.rust-tools")
 			end,
 		})
-
 		use({
 			"ThePrimeagen/git-worktree.nvim",
 			config = function()
 				require("tristan957.git-worktree")
 			end,
 		})
-
 		use({
 			"ThePrimeagen/refactoring.nvim",
 			requires = {
@@ -214,18 +181,19 @@ require("packer").startup({
 				require("tristan957.refactoring")
 			end,
 		})
-
 		use({ "tmux-plugins/vim-tmux", ft = "tmux" })
-
 		use({ "tpope/vim-fugitive" })
-
 		use({ "tpope/vim-obsession" })
-
 		use({ "tpope/vim-surround" })
-
 		use({ "ziglang/zig.vim", ft = { "zig" } })
-
 		use({ "wbthomason/packer.nvim" })
+		use({
+			"williamboman/mason.nvim",
+			config = function()
+				require("tristan957.mason")
+			end,
+		})
+		use({ "williamboman/mason-lspconfig.nvim", required = { { "williamboman/mason.nvim" } } })
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		-- Put this at the end after all plugins

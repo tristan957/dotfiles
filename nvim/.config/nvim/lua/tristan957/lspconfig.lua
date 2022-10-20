@@ -42,6 +42,34 @@ local function on_attach(client, bufnr)
 	lsp_status.on_attach(client)
 end
 
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"awk_ls",
+		"bashls",
+		"clangd",
+		"cmake",
+		"cssls",
+		"denols",
+		"dockerls",
+		"gopls",
+		"html",
+		"jdtls",
+		"jsonls",
+		"rust_analyzer",
+		"sumneko_lua",
+		"terraformls",
+		"vimls",
+		"yamlls",
+		"zls",
+	},
+	automatic_installation = true,
+})
+
+require("lspconfig").awk_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 require("lspconfig").bashls.setup({
 	cmd_env = {
 		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.subr)",
@@ -65,6 +93,21 @@ require("lspconfig").clangd.setup({
 	on_attach = on_attach,
 })
 
+require("lspconfig").cmake.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").cssls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").dockerls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
 require("lspconfig").gopls.setup({
 	settings = {
@@ -77,6 +120,21 @@ require("lspconfig").gopls.setup({
 			},
 		},
 	},
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").html.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").jdtls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").jsonls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -116,6 +174,21 @@ require("lspconfig").sumneko_lua.setup({
 			},
 		},
 	},
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").terraformls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").vimls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").yamlls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
