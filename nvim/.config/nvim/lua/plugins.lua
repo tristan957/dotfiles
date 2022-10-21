@@ -19,6 +19,10 @@ require("packer").startup({
 		use({ "dart-lang/dart-vim-plugin", ft = { "dart" } })
 		use({ "editorconfig/editorconfig-vim" })
 		use({
+			"EdenEast/nightfox.nvim",
+			config = function() end,
+		})
+		use({
 			"folke/trouble.nvim",
 			config = function()
 				require("tristan957.trouble")
@@ -29,6 +33,12 @@ require("packer").startup({
 			requires = { { "nvim-lua/plenary.nvim" } },
 			config = function()
 				require("tristan957.todo-comments")
+			end,
+		})
+		use({
+			"folke/tokyonight.nvim",
+			config = function()
+				require("tristan957.tokyonight")
 			end,
 		})
 		use({ "folke/zen-mode.nvim" })
@@ -125,16 +135,26 @@ require("packer").startup({
 		})
 		use({
 			"nvim-treesitter/playground",
-			requires = { { "nvim-treesitter/nvim-treesitter" } },
+			requires = { "nvim-treesitter/nvim-treesitter" },
 		})
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
 			requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
+			config = function()
+				require("tristan957.tree-sitter")
+			end,
 		})
 		use({
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			requires = { { "nvim-treesitter/nvim-treesitter" } },
+			requires = { "nvim-treesitter/nvim-treesitter" },
+		})
+		use({
+			"olimorris/onedarkpro.nvim",
+			config = function()
+				require("tristan957.onedarkpro")
+				vim.cmd("colorscheme onedarkpro")
+			end,
 		})
 		use({
 			"ray-x/go.nvim",

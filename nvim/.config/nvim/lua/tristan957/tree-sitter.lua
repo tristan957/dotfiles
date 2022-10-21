@@ -3,7 +3,7 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 		enable_autocmd = false,
 	},
-	ensure_installed = require("nvim-treesitter.parsers").maintained_parsers(),
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
@@ -18,6 +18,8 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
+
+print("hello")
 
 vim.cmd([[
 		set foldmethod=expr

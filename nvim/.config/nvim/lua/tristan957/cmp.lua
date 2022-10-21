@@ -17,9 +17,9 @@ local sources = {
 cmp.setup({
 	autocomplete = cmp.TriggerEvent.TextChanged,
 	sources = {
-		{ name = "buffer" },
 		{ name = "calc" },
 		{ name = "emoji" },
+		{ name = "path" },
 		{ name = "git" },
 		{ name = "luasnip" },
 		{ name = "neorg" },
@@ -27,7 +27,7 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" },
 		{ name = "omni" },
-		{ name = "path" },
+		{ name = "buffer" },
 	},
 	mapping = {
 		["<CR>"] = {
