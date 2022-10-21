@@ -6,4 +6,7 @@ require("onedarkpro").setup({
 		underline = false,
 		undercurl = false,
 	},
+	highlights = {
+		["@property.meson"] = { fg = "${white}" },
+	},
 })
