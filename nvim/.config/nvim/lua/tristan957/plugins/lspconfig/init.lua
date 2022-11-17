@@ -1,3 +1,4 @@
+local lspconfig = require("lspconfig")
 local lsp_status = require("lsp-status")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -65,12 +66,12 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
-require("lspconfig").awk_ls.setup({
+lspconfig.awk_ls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").bashls.setup({
+lspconfig.bashls.setup({
 	cmd_env = {
 		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command|.subr)",
 	},
@@ -78,7 +79,7 @@ require("lspconfig").bashls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").clangd.setup({
+lspconfig.clangd.setup({
 	cmd = {
 		"clangd",
 		"--header-insertion=never",
@@ -93,23 +94,23 @@ require("lspconfig").clangd.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").cmake.setup({
+lspconfig.cmake.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").cssls.setup({
+lspconfig.cssls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").dockerls.setup({
+lspconfig.dockerls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
-require("lspconfig").gopls.setup({
+lspconfig.gopls.setup({
 	settings = {
 		gopls = {
 			analyses = {
@@ -124,27 +125,27 @@ require("lspconfig").gopls.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").html.setup({
+lspconfig.html.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").jdtls.setup({
+lspconfig.jdtls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").jsonls.setup({
+lspconfig.jsonls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").rust_analyzer.setup({
+lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
 	cmd = { "lua-language-server" },
 	settings = {
 		Lua = {
@@ -178,22 +179,22 @@ require("lspconfig").sumneko_lua.setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").terraformls.setup({
+lspconfig.terraformls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").vimls.setup({
+lspconfig.vimls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").yamlls.setup({
+lspconfig.yamlls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-require("lspconfig").zls.setup({
+lspconfig.zls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

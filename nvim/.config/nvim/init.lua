@@ -1,7 +1,7 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	PACKER_BOOTSTRAP = vim.fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -25,20 +25,20 @@ require("packer").startup({
 		use({
 			"folke/trouble.nvim",
 			config = function()
-				require("tristan957.trouble")
+				require("tristan957.plugins.trouble")
 			end,
 		})
 		use({
 			"folke/todo-comments.nvim",
 			requires = { { "nvim-lua/plenary.nvim" } },
 			config = function()
-				require("tristan957.todo-comments")
+				require("tristan957.plugins.todo-comments")
 			end,
 		})
 		use({
 			"folke/tokyonight.nvim",
 			config = function()
-				require("tristan957.tokyonight")
+				require("tristan957.plugins.tokyonight")
 			end,
 		})
 		use({ "folke/zen-mode.nvim" })
@@ -64,33 +64,34 @@ require("packer").startup({
 				},
 			},
 			config = function()
-				require("tristan957.cmp")
+				require("tristan957.plugins.cmp")
 			end,
 		})
 		use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
+			disable = true,
 			config = function()
-				require("tristan957.null-ls")
+				require("tristan957.plugins.null-ls")
 			end,
 		})
 		use({ "kevinoid/vim-jsonc" })
 		use({ "L3MON4D3/LuaSnip" })
 		use({
 			"lewis6991/gitsigns.nvim",
-			requires = { { "nvim-lua/plenary.nvim" } },
+			requires = { "nvim-lua/plenary.nvim" },
 			config = function()
-				require("tristan957.gitsigns")
+				require("tristan957.plugins.gitsigns")
 			end,
 		})
 		use({ "mfussenegger/nvim-dap" })
 		use({
 			"nvim-neorg/neorg",
 			after = { "nvim-treesitter/nvim-tresitter" },
-			requires = { { "nvim-lua/plenary.nvim" } },
-			disable = true, -- when the grammar is supported by upstream nvim-treesitter
+			requires = { "nvim-lua/plenary.nvim" },
+			disable = true,
 			config = function()
-				require("tristan957.neorg")
+				require("tristan957.plugins.neorg")
 			end,
 		})
 		use({
@@ -100,13 +101,13 @@ require("packer").startup({
 				{ "nvim-lua/lsp-status.nvim" },
 			},
 			config = function()
-				require("tristan957.lspconfig")
+				require("tristan957.plugins.lspconfig")
 			end,
 		})
 		use({
 			"numToStr/Comment.nvim",
 			config = function()
-				require("tristan957.comment")
+				require("tristan957.plugins.comment")
 			end,
 			requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		})
@@ -116,8 +117,9 @@ require("packer").startup({
 		use({
 			"nvim-lualine/lualine.nvim",
 			config = function()
-				require("tristan957.lualine")
+				require("tristan957.plugins.lualine")
 			end,
+			requires = { "olimorris/onedarkpro.nvim" },
 		})
 		use({
 			"nvim-telescope/telescope.nvim",
@@ -130,7 +132,7 @@ require("packer").startup({
 				{ "nvim-telescope/telescope-ui-select.nvim" },
 			},
 			config = function()
-				require("tristan957.telescope")
+				require("tristan957.plugins.telescope")
 			end,
 		})
 		use({
@@ -142,7 +144,7 @@ require("packer").startup({
 			run = ":TSUpdate",
 			requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
 			config = function()
-				require("tristan957.tree-sitter")
+				require("tristan957.plugins.treesitter")
 			end,
 		})
 		use({
@@ -152,7 +154,7 @@ require("packer").startup({
 		use({
 			"olimorris/onedarkpro.nvim",
 			config = function()
-				require("tristan957.onedarkpro")
+				require("tristan957.plugins.onedarkpro")
 				vim.cmd("colorscheme onedarkpro")
 			end,
 		})
@@ -160,21 +162,21 @@ require("packer").startup({
 			"ray-x/go.nvim",
 			ft = { "go", "gomod" },
 			config = function()
-				require("tristan957.go")
+				require("tristan957.plugins.go")
 			end,
 		})
 		use({
 			"rcarriga/nvim-dap-ui",
-			requires = { { "mfussenegger/nvim-dap" } },
+			requires = { "mfussenegger/nvim-dap" },
 			config = function()
-				require("tristan957.dap-ui")
+				require("tristan957.plugins.dap-ui")
 			end,
 		})
 		use({
 			"rcarriga/nvim-notify",
 			requires = { "nvim-telescope/telescope.nvim" },
 			config = function()
-				require("tristan957.notify")
+				require("tristan957.plugins.notify")
 			end,
 		})
 		use({ "rust-lang/rust.vim", ft = { "rust" } })
@@ -182,23 +184,23 @@ require("packer").startup({
 			"simrat39/rust-tools.nvim",
 			ft = { "rust" },
 			config = function()
-				require("tristan957.rust-tools")
+				require("tristan957.plugins.rust-tools")
 			end,
 		})
 		use({
 			"ThePrimeagen/git-worktree.nvim",
 			config = function()
-				require("tristan957.git-worktree")
+				require("tristan957.plugins.git-worktree")
 			end,
 		})
 		use({
 			"ThePrimeagen/refactoring.nvim",
 			requires = {
-				{ "nvim-lua/plenary.nvim" },
-				{ "nvim-treesitter/nvim-treesitter" },
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
 			},
 			config = function()
-				require("tristan957.refactoring")
+				require("tristan957.plugins.refactoring")
 			end,
 		})
 		use({ "tmux-plugins/vim-tmux", ft = "tmux" })
@@ -210,10 +212,10 @@ require("packer").startup({
 		use({
 			"williamboman/mason.nvim",
 			config = function()
-				require("tristan957.mason")
+				require("tristan957.plugins.mason")
 			end,
 		})
-		use({ "williamboman/mason-lspconfig.nvim", required = { { "williamboman/mason.nvim" } } })
+		use({ "williamboman/mason-lspconfig.nvim", required = { "williamboman/mason.nvim" } })
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		-- Put this at the end after all plugins

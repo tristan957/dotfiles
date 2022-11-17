@@ -1,57 +1,48 @@
 " http://vimdoc.sourceforge.net/htmldoc/options.html
 
-if has('nvim')
-  let cache_dir=stdpath('cache')
-  let data_dir=stdpath('data')
-else
-  " VIM is a naughty boy using ~/.vim/. Teach it to play nice.
-  let cache_dir=$XDG_CACHE_HOME . '/vim'
-  let data_dir='~/.vim'
-endif
+" VIM is a naughty boy using ~/.vim/. Teach it to play nice.
+let cache_dir=$XDG_CACHE_HOME . '/vim'
+let data_dir='~/.vim'
 
 """"""""
 " Plug
 """"""""
 
-if !has('nvim')
-  if empty(glob(data_dir . '/autoload/plug.vim'))
-    exe 'silent !curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  endif
-
-  call plug#begin($XDG_DATA_HOME . '/vim-plug')
-
-  function! Cond(cond, ...)
-    let opts = get(a:000, 0, {})
-    return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
-  endfunction
-
-  Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
-  Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'gruvbox-community/gruvbox'
-  Plug 'kevinoid/vim-jsonc'
-  Plug 'LnL7/vim-nix', { 'for': 'nix' }
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'tmux-plugins/vim-tmux'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-obsession'
-  Plug 'tpope/vim-surround'
-  Plug 'ziglang/zig.vim', { 'for': 'zig' }
-
-  let g:fzf_command_prefix = 'Fzf'
-
-  Plug 'fatih/vim-go', Cond(!has('nvim'), { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] })
-  Plug 'itchyny/lightline.vim', Cond(!has('nvim'))
-  Plug 'junegunn/fzf', Cond(!has('nvim'), { 'do': { -> fzf#install() } })
-  Plug 'junegunn/fzf.vim', Cond(!has('nvim'))
-  Plug 'stsewd/fzf-checkout.vim', Cond(!has('nvim'))
-
-  call plug#end()
-else
-  lua require('plugins')
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  exe 'silent !curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+call plug#begin($XDG_DATA_HOME . '/vim-plug')
+
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
+Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'kevinoid/vim-jsonc'
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-surround'
+Plug 'ziglang/zig.vim', { 'for': 'zig' }
+
+let g:fzf_command_prefix = 'Fzf'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] }
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+
+call plug#end()
 
 syntax enable " enable syntax highlighting
 let mapleader=" "
@@ -84,7 +75,7 @@ vnoremap <silent> K :m '<-2<CR>gv=gv " move line down
 " Settings
 """"""""""""
 set autoindent " new lines inherit the indentation of previous lines
-set autoread " relaod files changed outside of Vim
+set autoread " reload files changed outside of Vim
 set backspace=indent,eol,start " influences the working of <BS>, <Del>, CTRL-W and CTRL-U in insert mode
 set cmdheight=2 " give more space for displaying messages
 set colorcolumn=80,100,120
@@ -99,29 +90,29 @@ set incsearch " search as characters are entered
 set laststatus=2 " always show the status bar
 set lazyredraw " redraw only when we need to
 set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
+set list
+set listchars=space:·,tab:→-←
 set magic
-set number " show line numbers
-set ruler " show the line and column number of the cursor position, separated by a comma
 set nobackup " some language servers have issues with backup files, see coc.nvim#649
 set noerrorbells " no sounds please vim
-set noexpandtab " use tabs instead of spaces
-set nohlsearch " no highlight on search
 set noshowmode " don't show the mode since we are already using the statusbar
+set noswapfile
 set nowrap " do not wrap
 set nowritebackup " some language servers have issues with backup files, see coc.nvim#649
-set noswapfile
 set nu " show current line number instead of 0
+set number " show line numbers
 set relativenumber " show relative line numbering
+set ruler " show the line and column number of the cursor position, separated by a comma
 set scrolloff=5 " start scrolling X lines from bottom or top
 set secure " no autocmd, shell, or write commands can be run in .exrc files
-set signcolumn=yes " always show the signcolumn
 set shiftwidth=4 " number of spaces to use for each step of (auto)indent
 set shortmess+=c " don't pass messages to |ins-completion-menu|
 set showbreak=++++  " what to show when line breaks
 " set showcmd " show the last run command
 set showmatch " highlight matching brackets
-set smartindent " smart autoindenting when starting a new line
+set signcolumn=yes " always show the signcolumn
 set smarttab " a <Tab> in front of a line inserts blanks according to 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places
+set smartindent " smart autoindenting when starting a new line
 set softtabstop=4 " how many spaces a tab is when editing
 set tabstop=4 " how many spaces a tab is when viewing
 set termguicolors
@@ -131,14 +122,10 @@ set undofile
 set updatetime=250
 set wildmenu " visual autocomplete for command menu
 
-if has('nvim-0.7')
-	set laststatus=3
-endif
-
 let g:netrw_banner=0
 if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
 let g:gruvbox_contrast_dark='hard'
@@ -164,8 +151,8 @@ endfun
 augroup tristan957
   autocmd!
   autocmd BufWritePre * :call TrimWhitespace()
-	autocmd BufEnter,FocusGained,InsertLeave * :set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter * :set norelativenumber
+  autocmd BufEnter,FocusGained,InsertLeave * :set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter * :set norelativenumber
 augroup END
 
 """""""""""""""""""

@@ -51,7 +51,7 @@ end
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>p",
-	"<cmd>lua require('tristan957.telescope').project_files()<cr>",
+	"<cmd>lua require('tristan957.plugins.telescope').project_files()<cr>",
 	{ noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
