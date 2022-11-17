@@ -1,14 +1,13 @@
 image: alpine/edge
 packages:
-  - cargo
+  - stylua
   - shellcheck
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
 tasks:
   - format: |
       cd dotfiles
-      cargo install stylua
-      ~/.cargo/bin/stylua --check .
+      stylua --check .
   - lint: |
       cd dotfiles
       shellcheck --shell bash --source-path bash -x bash/.bashrc install.sh
