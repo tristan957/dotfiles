@@ -104,6 +104,12 @@ lspconfig.cssls.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.denols.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
 lspconfig.dockerls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -182,6 +188,12 @@ lspconfig.sumneko_lua.setup({
 lspconfig.terraformls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+})
+
+lspconfig.tsserver.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern("package.json"),
 })
 
 lspconfig.vimls.setup({
