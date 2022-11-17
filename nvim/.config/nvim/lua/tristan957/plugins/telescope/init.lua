@@ -6,34 +6,34 @@ local themes = require("telescope.themes")
 local trouble = require("trouble.providers.telescope")
 
 require("telescope").setup({
-	defaults = {
-		disable_devicons = true,
-		color_devicons = true,
-		mappings = {
-			i = {
-				["<M-t>"] = trouble.open_with_trouble,
-				["<esc>"] = actions.close,
-			},
-			n = {
-				["<M-t>"] = trouble.open_with_trouble,
-			},
-		},
-	},
-	pickers = {
-		find_files = themes.get_dropdown({ previewer = false, prompt_title = "Files", hidden = true }),
-		git_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
-	},
-	extensions = {
-		file_browser = themes.get_dropdown({ previewer = false, dir_icon = "📁", hidden = true }),
-		fzf = {
-			fuzzy = true,
-			override_generic_sorter = false,
-			override_file_sorter = true,
-			case_mode = "smart_case",
-		},
-		["ui-select"] = themes.get_dropdown({}),
-		packer = themes.get_ivy({}),
-	},
+  defaults = {
+    disable_devicons = true,
+    color_devicons = true,
+    mappings = {
+      i = {
+        ["<M-t>"] = trouble.open_with_trouble,
+        ["<esc>"] = actions.close,
+      },
+      n = {
+        ["<M-t>"] = trouble.open_with_trouble,
+      },
+    },
+  },
+  pickers = {
+    find_files = themes.get_dropdown({ previewer = false, prompt_title = "Files", hidden = true }),
+    git_files = themes.get_dropdown({ previewer = false, prompt_title = "Files" }),
+  },
+  extensions = {
+    file_browser = themes.get_dropdown({ previewer = false, dir_icon = "📁", hidden = true }),
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
+    ["ui-select"] = themes.get_dropdown({}),
+    packer = themes.get_ivy({}),
+  },
 })
 
 require("telescope").load_extension("file_browser")
@@ -42,113 +42,113 @@ require("telescope").load_extension("packer")
 require("telescope").load_extension("ui-select")
 
 M.project_files = function()
-	local ok = pcall(builtin.git_files, {})
-	if not ok then
-		builtin.find_files({ hidden = true })
-	end
+  local ok = pcall(builtin.git_files, {})
+  if not ok then
+    builtin.find_files({ hidden = true })
+  end
 end
 
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>p",
-	"<cmd>lua require('tristan957.plugins.telescope').project_files()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>p",
+  "<cmd>lua require('tristan957.plugins.telescope').project_files()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>op",
-	"<cmd>lua require('telescope.builtin').oldfiles()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>op",
+  "<cmd>lua require('telescope.builtin').oldfiles()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>s",
-	"<cmd>lua require('telescope.builtin').grep_string()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>s",
+  "<cmd>lua require('telescope.builtin').grep_string()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fb",
-	"<cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>fb",
+  "<cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vb",
-	"<cmd>lua require('telescope.builtin').buffers()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vb",
+  "<cmd>lua require('telescope.builtin').buffers()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vm",
-	"<cmd>lua require('telescope.builtin').marks()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vm",
+  "<cmd>lua require('telescope.builtin').marks()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vr",
-	"<cmd>lua require('telescope.builtin').registers()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vr",
+  "<cmd>lua require('telescope.builtin').registers()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vh",
-	"<cmd>lua require('telescope.builtin').help_tags()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vh",
+  "<cmd>lua require('telescope.builtin').help_tags()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vl",
-	"<cmd>lua require('telescope.builtin').loc_list()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vl",
+  "<cmd>lua require('telescope.builtin').loc_list()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vq",
-	"<cmd>lua require('telescope.builtin').quickfix()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vq",
+  "<cmd>lua require('telescope.builtin').quickfix()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vsh",
-	"<cmd>lua require('telescope.builtin').search_history()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vsh",
+  "<cmd>lua require('telescope.builtin').search_history()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>vch",
-	"<cmd>lua require('telescope.builtin').command_history()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>vch",
+  "<cmd>lua require('telescope.builtin').command_history()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>gc",
-	"<cmd>lua require('telescope.builtin').git_commits()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>gc",
+  "<cmd>lua require('telescope.builtin').git_commits()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>gbc",
-	"<cmd>lua require('telescope.builtin').git_bcommits()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>gbc",
+  "<cmd>lua require('telescope.builtin').git_bcommits()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>gb",
-	"<cmd>lua require('telescope.builtin').git_branches()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>gb",
+  "<cmd>lua require('telescope.builtin').git_branches()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>gt",
-	"<cmd>lua require('telescope.builtin').git_stashes()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>gt",
+  "<cmd>lua require('telescope.builtin').git_stashes()<cr>",
+  { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>mp",
-	"<cmd>lua require('telescope.builtin').man_pages()<cr>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>mp",
+  "<cmd>lua require('telescope.builtin').man_pages()<cr>",
+  { noremap = true, silent = true }
 )
 
 return M
