@@ -24,3 +24,7 @@
 	smtpServerPort = 1025
 [includeIf "gitdir/i:~/Projects/work/"]
 	path = work.config
+[notes]
+	displayRef = refs/notes/*
+[remote "origin"]
+	fetch = +refs/notes/*:refs/notes/*
