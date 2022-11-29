@@ -2,17 +2,7 @@ local lspconfig = require("lspconfig")
 local lsp_status = require("lsp-status")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-lsp_status.config({
-  indicator_errors = "E",
-  indicator_warnings = "W",
-  indicator_info = "I",
-  indicator_hint = "?",
-  indicator_ok = "ok",
-  status_symbol = "",
-})
-
-lsp_status.register_progress()
+vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...)

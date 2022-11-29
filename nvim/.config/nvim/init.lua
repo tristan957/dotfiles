@@ -15,6 +15,8 @@ vim.cmd("packadd packer.nvim")
 
 require("packer").startup({
   function(use)
+    use({ "nvim-lua/popup.nvim" })
+    use({ "nvim-lua/plenary.nvim" })
     use({ "chrisbra/unicode.vim" })
     use({ "dart-lang/dart-vim-plugin", ft = { "dart" } })
     use({ "editorconfig/editorconfig-vim" })
@@ -86,20 +88,14 @@ require("packer").startup({
     })
     use({ "mfussenegger/nvim-dap" })
     use({
-      "nvim-neorg/neorg",
-      after = { "nvim-treesitter/nvim-tresitter" },
-      requires = { "nvim-lua/plenary.nvim" },
-      disable = true,
+      "nvim-lua/lsp-status.nvim",
       config = function()
-        require("tristan957.plugins.neorg")
+        require("tristan957.plugins.lsp-status")
       end,
     })
     use({
       "neovim/nvim-lspconfig",
-      requires = {
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "nvim-lua/lsp-status.nvim" },
-      },
+      after = { "cmp-nvim-lsp", "lsp-status.nvim" },
       config = function()
         require("tristan957.plugins.lspconfig")
       end,
@@ -111,15 +107,19 @@ require("packer").startup({
       end,
       requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
     })
-    use({ "nvim-lua/lsp-status.nvim" })
-    use({ "nvim-lua/popup.nvim" })
-    use({ "nvim-lua/plenary.nvim" })
+    use({
+      "olimorris/onedarkpro.nvim",
+      config = function()
+        require("tristan957.plugins.onedarkpro")
+        vim.cmd("colorscheme onedarkpro")
+      end,
+    })
     use({
       "nvim-lualine/lualine.nvim",
       config = function()
         require("tristan957.plugins.lualine")
       end,
-      requires = { "olimorris/onedarkpro.nvim" },
+      after = { "onedarkpro.nvim" },
     })
     use({
       "nvim-telescope/telescope.nvim",
@@ -152,10 +152,12 @@ require("packer").startup({
       requires = { "nvim-treesitter/nvim-treesitter" },
     })
     use({
-      "olimorris/onedarkpro.nvim",
+      "nvim-neorg/neorg",
+      after = { "nvim-tresitter" },
+      requires = { "nvim-lua/plenary.nvim" },
+      disable = true,
       config = function()
-        require("tristan957.plugins.onedarkpro")
-        vim.cmd("colorscheme onedarkpro")
+        require("tristan957.plugins.neorg")
       end,
     })
     use({
