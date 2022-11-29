@@ -15,7 +15,9 @@ local sources = {
 }
 
 cmp.setup({
-  autocomplete = cmp.TriggerEvent.TextChanged,
+  completion = {
+    autocomplete = { cmp.TriggerEvent.TextChanged },
+  },
   sources = {
     { name = "calc" },
     { name = "emoji" },
@@ -65,7 +67,6 @@ cmp.setup({
     end,
   },
   formatting = {
-    deprecated = true,
     format = function(entry, vim_item)
       local detail = entry:get_completion_item().detail
 
