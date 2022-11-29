@@ -39,7 +39,7 @@ cmp.setup({
       i = cmp.mapping.close(),
     },
     ["<C-space>"] = {
-      i = cmp.mapping.complete({ reason = "manual" }),
+      i = cmp.mapping.complete({ reason = cmp.ContextReason.Manual }),
     },
     ["<Down>"] = {
       i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
