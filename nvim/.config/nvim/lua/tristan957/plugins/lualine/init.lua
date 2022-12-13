@@ -3,7 +3,7 @@ local extract_highlight_colors = require("lualine.utils.utils").extract_highligh
 require("lualine").setup({
   options = {
     icons_enabled = false,
-    theme = "onedarkpro",
+    theme = "onedark_vivid",
     component_separators = { left = "|", right = "|" },
     section_separators = { left = "", right = "" },
   },

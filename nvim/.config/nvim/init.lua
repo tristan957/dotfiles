@@ -111,7 +111,7 @@ require("packer").startup({
       "olimorris/onedarkpro.nvim",
       config = function()
         require("tristan957.plugins.onedarkpro")
-        vim.cmd("colorscheme onedarkpro")
+        vim.cmd("colorscheme onedark_vivid")
       end,
     })
     use({

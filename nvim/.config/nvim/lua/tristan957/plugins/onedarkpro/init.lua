@@ -1,5 +1,4 @@
 require("onedarkpro").setup({
-  dark_theme = "onedark_vivid",
   options = {
     bold = false,
     cursorline = true,
