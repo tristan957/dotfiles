@@ -12,6 +12,7 @@ local sources = {
   nvim_lsp = "[LSP]",
   nvim_lua = "[Lua]",
   path = "[Path]",
+  git = "[Git]",
 }
 
 cmp.setup({
