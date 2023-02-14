@@ -47,7 +47,7 @@ require("mason-lspconfig").setup({
     "jdtls",
     "jsonls",
     "rust_analyzer",
-    "sumneko_lua",
+    "lua_ls",
     "terraformls",
     "vimls",
     "yamlls",
@@ -141,7 +141,7 @@ lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   cmd = { "lua-language-server" },
   settings = {
     Lua = {
