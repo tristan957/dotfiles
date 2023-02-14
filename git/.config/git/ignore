@@ -1,4 +1,5 @@
 .cache/clangd
 .envrc
+.nfs*
 .vscode/
 compile_commands.json
