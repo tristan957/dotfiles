@@ -14,8 +14,8 @@ shopt -s globstar
 # Alii
 
 if [ -f "${HOME}/.bash_aliases" ]; then
-	# shellcheck source=bash/.bash_aliases
-	. "${HOME}/.bash_aliases"
+    # shellcheck source=bash/.bash_aliases
+    . "${HOME}/.bash_aliases"
 fi
 
 #-------------------------------------------------------------------------------
@@ -23,8 +23,8 @@ fi
 # Functions
 
 if [ -f "${HOME}/.bash_functions" ]; then
-	# shellcheck source=bash/.bash_functions
-	. "${HOME}/.bash_functions"
+    # shellcheck source=bash/.bash_functions
+    . "${HOME}/.bash_functions"
 fi
 
 #-------------------------------------------------------------------------------
@@ -39,26 +39,26 @@ BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 
 # Git branch for prompt
 if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
-	. "${BASH_DIR}/git-prompt.sh"
-	# GIT_PS1_SHOWDIRTYSTATE=1
-	# GIT_PS1_SHOWSTASHSTATE=1
-	# GIT_PS1_SHOWUNTRACKEDFILES=1
-	GIT_PS1_SHOWUPSTREAM="auto"
-	GIT_PS1_DESCRIBE_STYLE="auto"
-	# GIT_PS1_HIDE_IF_PWD_IGNORED=1
-	# GIT_PS1_STATESEPARATOR=" "
-	# shellcheck disable=SC2016
-	branch='$(__git_ps1 " \[$(tput setaf 39)\][%s]")'
+    . "${BASH_DIR}/git-prompt.sh"
+    # GIT_PS1_SHOWDIRTYSTATE=1
+    # GIT_PS1_SHOWSTASHSTATE=1
+    # GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWUPSTREAM="auto"
+    GIT_PS1_DESCRIBE_STYLE="auto"
+    # GIT_PS1_HIDE_IF_PWD_IGNORED=1
+    # GIT_PS1_STATESEPARATOR=" "
+    # shellcheck disable=SC2016
+    branch='$(__git_ps1 " \[$(tput setaf 39)\][%s]")'
 fi
 
 function __prompt_extras() {
-	PROMPT_EXTRAS=""
-	# Python virtual environments are so fun
-	if [[ -n ${VIRTUAL_ENV+x} ]]; then
-		PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
-	fi
+    PROMPT_EXTRAS=""
+    # Python virtual environments are so fun
+    if [[ -n ${VIRTUAL_ENV+x} ]]; then
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
+    fi
 
-	echo -ne "$PROMPT_EXTRAS"
+    echo -ne "$PROMPT_EXTRAS"
 }
 
 PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]${branch}\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]+ \$ \[$(tput sgr0)\]"
@@ -101,31 +101,31 @@ export XDG_VIDEOS_DIR="${HOME}/Videos"
 # he MUST be the only one having read and write access to it. Its Unix access
 # mode MUST be 0700.
 if [ -z "${XDG_RUNTIME_DIR}" ]; then
-	export XDG_RUNTIME_DIR="/run/user/${UID}"
+    export XDG_RUNTIME_DIR="/run/user/${UID}"
 
-	if [ ! -d $XDG_RUNTIME_DIR ]; then
-		mkdir $XDG_RUNTIME_DIR
-	fi
+    if [ ! -d $XDG_RUNTIME_DIR ]; then
+        mkdir $XDG_RUNTIME_DIR
+    fi
 fi
 if [[ $(stat -c '%a' $XDG_RUNTIME_DIR) != "700" ]]; then
-	chmod 0700 $XDG_RUNTIME_DIR
+    chmod 0700 $XDG_RUNTIME_DIR
 fi
 
 if [ -z "${XDG_CONFIG_DIRS}" ]; then
-	export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:/etc"
+    export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:/etc"
 else
-	if [[ "${XDG_CONFIG_DIRS}" != *"${XDG_CONFIG_HOME}"* ]]; then
-		export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:${XDG_CONFIG_DIRS}"
-	fi
+    if [[ "${XDG_CONFIG_DIRS}" != *"${XDG_CONFIG_HOME}"* ]]; then
+        export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:${XDG_CONFIG_DIRS}"
+    fi
 fi
 
 if [ -z "${XDG_DATA_DIRS}" ]; then
-	export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
+    export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
 else
-	# ending ':' because of Flatpak local exports in ~/.local/share/flaptak/exports/share
-	if [[ "${XDG_DATA_DIRS}" != *"${XDG_DATA_HOME}:"* ]]; then
-		export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
-	fi
+    # ending ':' because of Flatpak local exports in ~/.local/share/flaptak/exports/share
+    if [[ "${XDG_DATA_DIRS}" != *"${XDG_DATA_HOME}:"* ]]; then
+        export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
+    fi
 fi
 
 # I hate software that thinks it is special.
@@ -141,7 +141,7 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PSQL_HISTORY="${XDG_STATE_HOME}/psql_history"
 export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
 if [ -f "${XDG_CONFIG_HOME}/ripgrep/config" ]; then
-	export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
+    export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 fi
 export GOPATH="${XDG_DATA_HOME}/go"
 export DENO_INSTALL="${XDG_DATA_HOME}/deno"
@@ -152,22 +152,22 @@ export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
 export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 if [ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]; then
-	export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
+    export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 fi
 
 # Set default terminal text editor
 if command -v "nvim" > /dev/null 2>&1; then
-	export EDITOR="nvim"
-	export GIT_EDITOR="nvim"
-	export VISUAL="nvim"
+    export EDITOR="nvim"
+    export GIT_EDITOR="nvim"
+    export VISUAL="nvim"
 elif command -v "vim" > /dev/null 2>&1; then
-	export EDITOR="vim"
-	export GIT_EDITOR="vim"
-	export VISUAL="vim"
+    export EDITOR="vim"
+    export GIT_EDITOR="vim"
+    export VISUAL="vim"
 else
-	export EDITOR="nano"
-	export GIT_EDITOR="nano"
-	export VISUAL="nano"
+    export EDITOR="nano"
+    export GIT_EDITOR="nano"
+    export VISUAL="nano"
 fi
 
 # Python virtual environments should stop messing with PS1
@@ -178,39 +178,39 @@ export GPG_TTY=$(tty)
 
 # Add Go executables to PATH
 if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
-	PATH="${GOPATH}/bin:${PATH}"
+    PATH="${GOPATH}/bin:${PATH}"
 fi
 
 # Add Deno executables to PATH
 if [[ "${PATH}" != *"${DENO_INSTALL}/bin"* ]]; then
-	PATH="${DENO_INSTALL}/bin:${PATH}"
+    PATH="${DENO_INSTALL}/bin:${PATH}"
 fi
 
 # Add local executables to PATH
 if [[ "${PATH}" != *"${HOME}/.local/bin"* ]]; then
-	PATH="${HOME}/.local/bin:${PATH}"
+    PATH="${HOME}/.local/bin:${PATH}"
 fi
 
 # Add Rust executables to PATH
 if [[ "${PATH}" != *"${CARGO_HOME}/bin"* ]]; then
-	PATH="${CARGO_HOME}/bin:${PATH}"
+    PATH="${CARGO_HOME}/bin:${PATH}"
 fi
 
 # Add Yarn executables to PATH
 if [[ "${PATH}" != *"${HOME}/.yarn/bin"* ]]; then
-	PATH="${HOME}/.yarn/bin:${PATH}"
+    PATH="${HOME}/.yarn/bin:${PATH}"
 fi
 
 # Add snap executables to PATH
 if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
-	PATH="/var/lib/snapd/snap/bin:${PATH}"
+    PATH="/var/lib/snapd/snap/bin:${PATH}"
 fi
 
 if type "rustup" > /dev/null 2>&1; then
-	rustup_nightly_toolchain=$(rustup toolchain list | cut -d ' ' -f 1 | grep nightly-"$(arch)")
-	if [[ "${PATH}" != *"${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin"* ]]; then
-		PATH="${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin:${PATH}"
-	fi
+    rustup_nightly_toolchain=$(rustup toolchain list | cut -d ' ' -f 1 | grep nightly-"$(arch)")
+    if [[ "${PATH}" != *"${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin"* ]]; then
+        PATH="${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin:${PATH}"
+    fi
 fi
 
 # Bash History Control
@@ -227,19 +227,19 @@ export GOTELEMETRY=off
 # Bash Completion
 
 if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		. /usr/share/bash-completion/bash_completion
-	elif [ -f /etc/bash_completion ]; then
-		. /etc/bash_completion
-	fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 
-	if [ -d "${XDG_DATA_HOME}/bash-completion/completions" ]; then
-		find "${XDG_DATA_HOME}/bash-completion/completions" -type f -exec bash -c 'f="$1"; source $f' shell {} \;
-	fi
+    if [ -d "${XDG_DATA_HOME}/bash-completion/completions" ]; then
+        find "${XDG_DATA_HOME}/bash-completion/completions" -type f -exec bash -c 'f="$1"; source $f' shell {} \;
+    fi
 fi
 
 #-------------------------------------------------------------------------------
 
 if command -v "direnv" > /dev/null 2>&1; then
-	eval "$(direnv hook bash)"
+    eval "$(direnv hook bash)"
 fi
