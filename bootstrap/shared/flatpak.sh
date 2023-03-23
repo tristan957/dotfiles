@@ -3,7 +3,7 @@ function flatpak_add_remotes() {
         https://nightly.gnome.org/gnome-nightly.flatpakrepo
 }
 
-function flatpak_install_apps() {
+function flatpak_install_applications() {
     # Flathub
     flatpak install --user flathub \
         ch.protonmail.protonmail-bridge \
@@ -22,10 +22,18 @@ function flatpak_install_apps() {
         org.gnome.design.IconLibrary \
         org.gnome.design.Lorem \
         org.gnome.design.SymbolicPreview \
+        org.signal.Signal \
         us.zoom.Zoom
 
     # GNOME Nightly
     flatpak install --user gnome-nightly \
         org.gnome.Adwaita1.Demo \
-        org.gnome.Builder.Devel
+        org.gnome.Builder.Devel \
+        org.gnome.Sdk.Debug//master \
+        org.gtk.Demo4
+}
+
+function flatpak_setup() {
+    flatpak_add_remotes
+    flatpak_install_applications
 }
