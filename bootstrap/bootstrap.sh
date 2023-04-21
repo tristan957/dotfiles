@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-. ./shared/deno.sh
-. ./shared/flatpak.sh
-. ./shared/gdb.sh
-. ./shared/rustup.sh
-. ./shared/stow.sh
+mkdir -p "$XDG_DATA_HOME/bash-completion/completions"
+
+dir=$(dirname "${BASH_SOURCE[0]}")
+. "$dir/shared/deno.sh"
+. "$dir/shared/flatpak.sh"
+. "$dir/shared/gdb.sh"
+. "$dir/shared/rustup.sh"
+. "$dir/shared/stow.sh"
 
 os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 # shellcheck disable=SC1090
@@ -15,3 +18,4 @@ stow_setup
 deno_setup
 flatpak_setup
 rustup_setup
+distro_setup

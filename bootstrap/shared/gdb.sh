@@ -1,4 +1,4 @@
 function gdb_setup() {
-    mkdir "$XDG_CACHE_HOME/gdb"
+    mkdir -p "$XDG_CACHE_HOME/gdb"
     touch "$XDG_CACHE_HOME/gdb/history"
 }

@@ -1,11 +1,13 @@
 function flatpak_add_remotes() {
+    flatpak remote-add --if-not-exists --user flathub \
+        https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-add --if-not-exists --user gnome-nightly \
         https://nightly.gnome.org/gnome-nightly.flatpakrepo
 }
 
 function flatpak_install_applications() {
     # Flathub
-    flatpak install --user flathub \
+    flatpak install --user --assumeyes flathub \
         ch.protonmail.protonmail-bridge \
         com.belmoussaoui.Obfuscate \
         com.bitwarden.desktop \
@@ -26,7 +28,7 @@ function flatpak_install_applications() {
         us.zoom.Zoom
 
     # GNOME Nightly
-    flatpak install --user gnome-nightly \
+    flatpak install --user --assumeyes gnome-nightly \
         org.gnome.Adwaita1.Demo \
         org.gnome.Builder.Devel \
         org.gnome.Sdk.Debug//master \

@@ -1,5 +1,6 @@
 function stow_setup() {
-    pushd ./dotfiles 2>&/dev/null || exit
+    dir=$(dirname "$(dirname "$(dirname "$(realpath "${BASH_SOURCE[0]}")")")")
+    pushd "$dir" > /dev/null 2>&1 || exit
 
     stow --restow \
         alacritty \
@@ -18,5 +19,5 @@ function stow_setup() {
         vim \
         yarn
 
-    popd 2>&/dev/null || exit
+    popd >/dev/null 2>&1 || exit
 }
