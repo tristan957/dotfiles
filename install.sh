@@ -36,6 +36,6 @@ for p in "${packages[@]}"; do
 	fi
 	status=$?
 	if [ $status -ne 0 ]; then
-		exit $?
+		exit $status
 	fi
 done

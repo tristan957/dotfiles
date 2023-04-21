@@ -10,4 +10,5 @@ tasks:
       stylua --check .
   - lint: |
       cd dotfiles
-      shellcheck --shell bash --source-path bash -x bash/.bashrc install.sh
+      shellcheck --shell bash --source-path bash -x bash/.bashrc \
+        $(find . -name "*.sh" -print | grep --invert-match -F "git-prompt.sh" | xargs)

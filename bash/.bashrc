@@ -107,8 +107,8 @@ if [ -z "${XDG_RUNTIME_DIR}" ]; then
         mkdir $XDG_RUNTIME_DIR
     fi
 fi
-if [[ $(stat -c '%a' $XDG_RUNTIME_DIR) != "700" ]]; then
-    chmod 0700 $XDG_RUNTIME_DIR
+if [[ $(stat -c '%a' "$XDG_RUNTIME_DIR") != "700" ]]; then
+    chmod 0700 "$XDG_RUNTIME_DIR"
 fi
 
 if [ -z "${XDG_CONFIG_DIRS}" ]; then
