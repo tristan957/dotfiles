@@ -9,6 +9,7 @@ function flatpak_install_applications() {
     # Flathub
     flatpak install --user --assumeyes flathub \
         ch.protonmail.protonmail-bridge \
+        com.belmoussaoui.Decoder \
         com.belmoussaoui.Obfuscate \
         com.bitwarden.desktop \
         com.discordapp.Discord \
