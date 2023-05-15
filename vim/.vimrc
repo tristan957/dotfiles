@@ -21,22 +21,18 @@ function! Cond(cond, ...)
 endfunction
 
 Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'kevinoid/vim-jsonc'
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
-Plug 'ziglang/zig.vim', { 'for': 'zig' }
 
 let g:fzf_command_prefix = 'Fzf'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': ['go', 'gomod'] }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
