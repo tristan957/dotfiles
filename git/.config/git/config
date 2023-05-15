@@ -22,9 +22,9 @@
 	smtpServer = 127.0.0.1
 	smtpUser = tristan@partin.io
 	smtpServerPort = 1025
-[includeIf "gitdir/i:~/Projects/work/"]
-	path = work.config
 [notes]
 	displayRef = refs/notes/*
 [remote "origin"]
 	fetch = +refs/notes/*:refs/notes/*
+[includeIf "gitdir:~/Projects/work/"]
+	path = work.config
