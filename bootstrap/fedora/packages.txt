@@ -19,6 +19,7 @@ flatpak-builder
 gcc-c++
 gh
 gimp
+git
 git-email
 glib2-devel
 gnome-console
