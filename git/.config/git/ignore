@@ -1,3 +1,4 @@
+/outgoing/
 .cache/clangd
 .envrc
 .nfs*

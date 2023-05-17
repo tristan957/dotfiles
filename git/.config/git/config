@@ -16,6 +16,11 @@
 	program = gpg2
 [init]
 	defaultBranch = master
+[format]
+	numbered = auto
+	outputDirectory = outgoing
+	coverLetter = auto
+	coverFromDescription = auto
 [sendemail]
 	confirm = always
 	smtpEncryption = starttls
