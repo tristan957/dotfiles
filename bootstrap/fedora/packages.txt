@@ -1,4 +1,5 @@
 1Password
+1password-cli
 ShellCheck
 bat
 bear
