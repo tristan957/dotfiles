@@ -20,6 +20,9 @@
 	],
 	"files.associations": {
 		".bash*": "shellscript",
+		"forward_as_body": "gotmpl",
+		"new_message": "gotmpl",
+		"quoted_reply": "gotmpl",
 		"work.config": "properties",
 		"ignore": "ignore",
 	},
