@@ -206,13 +206,6 @@ if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
     PATH="/var/lib/snapd/snap/bin:${PATH}"
 fi
 
-if type "rustup" > /dev/null 2>&1; then
-    rustup_nightly_toolchain=$(rustup toolchain list | cut -d ' ' -f 1 | grep nightly-"$(arch)")
-    if [[ "${PATH}" != *"${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin"* ]]; then
-        PATH="${RUSTUP_HOME}/toolchains/${rustup_nightly_toolchain}/bin:${PATH}"
-    fi
-fi
-
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
 HISTSIZE=10000
