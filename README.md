@@ -11,6 +11,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - aerc
 - alacritty
 - bash
+- bat
 - foot
 - gdb
 - git
