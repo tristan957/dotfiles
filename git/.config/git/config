@@ -22,6 +22,8 @@
 	coverLetter = auto
 	coverFromDescription = auto
 [sendemail]
+	aliasesFile = ~/.config/git/aliases
+	aliasFileType = mutt
 	confirm = always
 	smtpEncryption = starttls
 	smtpServer = 127.0.0.1

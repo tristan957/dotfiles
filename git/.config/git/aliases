@@ -1,0 +1,6 @@
+# aerc
+alias aerc-devel ~rjarry/aerc-devel@lists.sr.ht
+alias aerc-discuss ~rjarry/aerc-discuss@lists.sr.ht
+
+# Postgres
+alias pgsql-hackers pgsql-hackers@postgresql.org
