@@ -17,10 +17,11 @@
 [init]
 	defaultBranch = master
 [format]
+	coverFromDescription = auto
+	coverLetter = auto
 	numbered = auto
 	outputDirectory = outgoing
-	coverLetter = auto
-	coverFromDescription = auto
+	signatureFile = ~/.config/git/signatures/personal.txt
 [sendemail]
 	aliasesFile = ~/.config/git/aliases
 	aliasFileType = mutt
