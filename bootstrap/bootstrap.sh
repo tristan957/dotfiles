@@ -3,6 +3,7 @@
 set -e
 set -o pipefail
 
+rm "$HOME/.bash"*
 mkdir -p "$XDG_DATA_HOME/bash-completion/completions"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
