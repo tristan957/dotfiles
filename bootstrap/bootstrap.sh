@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -o pipefail
+
 mkdir -p "$XDG_DATA_HOME/bash-completion/completions"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
