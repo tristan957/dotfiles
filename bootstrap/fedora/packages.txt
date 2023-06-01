@@ -1,4 +1,4 @@
-1Password
+1password
 1password-cli
 ShellCheck
 bat
