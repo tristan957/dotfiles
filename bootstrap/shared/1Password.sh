@@ -3,5 +3,5 @@ function 1Password_completions {
 }
 
 function 1Password_setup {
-    1password_completions
+    1Password_completions
 }
