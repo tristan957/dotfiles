@@ -3,8 +3,10 @@ function stow_setup() {
     pushd "$dir" > /dev/null 2>&1 || exit
 
     stow --restow \
+        aerc \
         alacritty \
         bash \
+        bat \
         foot \
         gdb \
         git \
