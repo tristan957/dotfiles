@@ -25,6 +25,7 @@ function flatpak_install_applications() {
         org.gnome.design.IconLibrary \
         org.gnome.design.Lorem \
         org.gnome.design.SymbolicPreview \
+        org.gtk.Gtk3theme.Adwaita-dark \
         org.signal.Signal \
         us.zoom.Zoom
 
