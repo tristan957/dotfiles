@@ -21,6 +21,8 @@ function flatpak_install_applications() {
         com.valvesoftware.Steam \
         de.haeckerfelix.Fragments \
         io.github.realmazharhussain.GdmSettings \
+        org.gnome.Loupe \
+        org.gnome.Snapshot \
         org.gnome.design.Contrast \
         org.gnome.design.IconLibrary \
         org.gnome.design.Lorem \
