@@ -59,7 +59,7 @@ def on_response(response: int, results: dbus.Dictionary) -> None:
             for (dirpath, _, filenames) in os.walk(path):
                 for name in filenames:
                     print(os.path.join(dirpath, name))
-        elif os.path.islink():
+        elif os.path.islink(path):
             print_path(os.path.realpath(path))
         else:
             print(path)
