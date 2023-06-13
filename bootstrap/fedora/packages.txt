@@ -18,6 +18,7 @@ distrobox
 epiphany
 fd-find
 flatpak-builder
+fzf
 gcc-c++
 gh
 gimp
