@@ -15,6 +15,7 @@ codespell
 dconf-editor
 direnv
 distrobox
+dotnet-sdk-7.0
 epiphany
 fd-find
 flatpak-builder

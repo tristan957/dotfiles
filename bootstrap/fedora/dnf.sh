@@ -26,6 +26,7 @@ function dnf_add_repos() {
 
 function dnf_install_packages() {
     xargs sudo dnf install -y < "$dir/packages.txt"
+    xargs sudo dnf install -y < "$dir/work.txt"
 
     # Proprietary codec bs
     sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} \
