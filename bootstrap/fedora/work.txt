@@ -1,0 +1,15 @@
+bison
+clang
+cmake
+flex
+libcurl-devel
+libseccomp-devel
+openssl-devel
+perl
+postgresql
+postgresql-contrib
+protobuf-compiler
+protobuf-devel
+readline-devel
+uuid-devel
+zlib-devel
