@@ -18,6 +18,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - libedit
 - npm
 - nvim
+- programs
 - readline
 - ssh
 - sway
