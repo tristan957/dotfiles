@@ -32,13 +32,11 @@ require("telescope").setup({
       case_mode = "smart_case",
     },
     ["ui-select"] = themes.get_dropdown({}),
-    packer = themes.get_ivy({}),
   },
 })
 
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("packer")
 require("telescope").load_extension("ui-select")
 
 M.project_files = function()

@@ -28,7 +28,6 @@ require("lualine").setup({
         always_visible = false,
         update_in_insert = true,
       },
-      require("lsp-status").status,
     },
   },
 })

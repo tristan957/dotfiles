@@ -1,8 +1,6 @@
 local lspconfig = require("lspconfig")
-local lsp_status = require("lsp-status")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-vim.tbl_extend("keep", capabilities, lsp_status.capabilities)
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...)
@@ -29,8 +27,6 @@ local function on_attach(client, bufnr)
   if client.server_capabilities.document_formatting then
     buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr")
   end
-
-  lsp_status.on_attach(client)
 end
 
 require("mason-lspconfig").setup({
@@ -46,8 +42,8 @@ require("mason-lspconfig").setup({
     "html",
     "jdtls",
     "jsonls",
-    "rust_analyzer",
     "lua_ls",
+    "rust_analyzer",
     "terraformls",
     "vimls",
     "yamlls",
@@ -171,6 +167,11 @@ lspconfig.lua_ls.setup({
       },
     },
   },
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig.swift_mesonls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
