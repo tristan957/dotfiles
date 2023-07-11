@@ -1,10 +1,14 @@
 image: alpine/edge
 packages:
-  - stylua
+  - reuse
   - shellcheck
+  - stylua
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
 tasks:
+  - reuse: |
+      cd dotfiles
+      reuse lint
   - format: |
       cd dotfiles
       stylua --check .

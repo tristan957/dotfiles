@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: tristan.partin.io
+Upstream-Contact: Tristan Partin <tristan@partin.io>
+Source: https://git.sr.ht/~tristan957/dotfiles
+
+Files: *
+Copyright: Tristan Partin <tristan@partin.io>
+License: Unlicense
+
+Files: bash/git-prompt.sh
+Copyright: 2006,2007 Shawn O. Pearce <spearce@spearce.org>
+License: GPL-2.0-only
