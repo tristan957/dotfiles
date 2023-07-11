@@ -8,6 +8,8 @@ function dnf_add_repos() {
     # Hashicorp
     sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
+    sudo dnf copr enable -y jcwasmx86/Swift-MesonLSP
+
     # RPM Fusion
     sudo dnf install -y \
        "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
