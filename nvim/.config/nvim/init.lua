@@ -14,7 +14,6 @@ end
 vim.opt.rtp:prepend(lazy_path)
 
 require("lazy").setup({
-  -- { "nvim-lua/popup.nvim" },
   { "chrisbra/unicode.vim" },
   { "dart-lang/dart-vim-plugin", ft = { "dart" } },
   { "editorconfig/editorconfig-vim" },
