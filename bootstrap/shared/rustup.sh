@@ -3,8 +3,8 @@ function rustup_download() {
 }
 
 function rustup_completions() {
-    rustup completions bash cargo > "${XDG_DATA_HOME}/bash-completion/completions/cargo"
-    rustup completions bash rustup > "${XDG_DATA_HOME}/bash-completion/completions/rustup"
+    rustup completions bash cargo >"${XDG_DATA_HOME}/bash-completion/completions/cargo"
+    rustup completions bash rustup >"${XDG_DATA_HOME}/bash-completion/completions/rustup"
 }
 
 function rustup_setup() {

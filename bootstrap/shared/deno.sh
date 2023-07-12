@@ -3,7 +3,7 @@ function deno_download() {
 }
 
 function deno_completions() {
-    deno completions bash > "${XDG_DATA_HOME}/bash-completion/completions/deno"
+    deno completions bash >"${XDG_DATA_HOME}/bash-completion/completions/deno"
 }
 
 function deno_setup() {

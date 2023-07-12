@@ -2,6 +2,7 @@ image: alpine/edge
 packages:
   - reuse
   - shellcheck
+  - shfmt
   - stylua
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
@@ -9,7 +10,10 @@ tasks:
   - reuse: |
       cd dotfiles
       reuse lint
-  - format: |
+  - shfmt: |
+      cd dotfiles
+      ./scripts/shfmt.sh
+  - stylua: |
       cd dotfiles
       stylua --check .
   - lint: |

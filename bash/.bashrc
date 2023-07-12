@@ -156,11 +156,11 @@ if [ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]; then
 fi
 
 # Set default terminal text editor
-if command -v "nvim" > /dev/null 2>&1; then
+if command -v "nvim" >/dev/null 2>&1; then
     export EDITOR="nvim"
     export GIT_EDITOR="nvim"
     export VISUAL="nvim"
-elif command -v "vim" > /dev/null 2>&1; then
+elif command -v "vim" >/dev/null 2>&1; then
     export EDITOR="vim"
     export GIT_EDITOR="vim"
     export VISUAL="vim"
@@ -233,6 +233,6 @@ fi
 
 #-------------------------------------------------------------------------------
 
-if command -v "direnv" > /dev/null 2>&1; then
+if command -v "direnv" >/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi

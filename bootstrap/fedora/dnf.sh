@@ -8,13 +8,14 @@ function dnf_add_repos() {
     # Hashicorp
     sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
+    # Swift-MesonLSP
     sudo dnf copr enable -y jcwasmx86/Swift-MesonLSP
 
     # RPM Fusion
     sudo dnf install -y \
-       "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
+        "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
     sudo dnf install -y \
-       "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+        "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
 
     # VSCode
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -27,8 +28,8 @@ function dnf_add_repos() {
 }
 
 function dnf_install_packages() {
-    xargs sudo dnf install -y < "$dir/packages.txt"
-    xargs sudo dnf install -y < "$dir/work.txt"
+    xargs sudo dnf install -y <"$dir/packages.txt"
+    xargs sudo dnf install -y <"$dir/work.txt"
 
     # Proprietary codec bs
     sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} \

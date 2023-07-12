@@ -4,6 +4,10 @@
 		"editor.tabSize": 2,
 		"editor.formatOnSave": true,
 	},
+	"[shellscript]": {
+		"files.eol": "\n",
+		"editor.formatOnSave": true,
+	},
 	"Lua.diagnostics.globals": ["vim"],
 	"Lua.runtime.version": "LuaJIT",
 	"Lua.workspace.library": [
