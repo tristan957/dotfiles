@@ -146,12 +146,11 @@ require("lazy").setup({
   },
   {
     "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      config = function()
-        require("tristan957.plugins.dap-ui")
-      end,
-    },
+    cmd = "DapContinue",
+    dependencies = { "rcarriga/nvim-dap-ui" },
+    config = function()
+      require("tristan957.plugins.dap-ui")
+    end,
   },
   { "nvim-lua/plenary.nvim" },
   {
@@ -171,10 +170,10 @@ require("lazy").setup({
   },
   {
     "nvim-lualine/lualine.nvim",
+    dependencies = { "onedarkpro.nvim" },
     config = function()
       require("tristan957.plugins.lualine")
     end,
-    dependencies = { "onedarkpro.nvim" },
   },
   {
     "nvim-neorg/neorg",
@@ -247,9 +246,7 @@ require("lazy").setup({
   {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
+    dependencies = { "neovim/nvim-lspconfig" },
     config = function()
       require("tristan957.plugins.rust-tools")
     end,
