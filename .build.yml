@@ -1,6 +1,7 @@
 image: alpine/edge
 packages:
   - reuse
+  - ruff
   - shellcheck
   - shfmt
   - stylua
@@ -10,6 +11,9 @@ tasks:
   - reuse: |
       cd dotfiles
       reuse lint
+  - ruff: |
+      cd dotfiles
+      ./scripts/ruff.sh
   - shfmt: |
       cd dotfiles
       ./scripts/shfmt.sh
