@@ -14,13 +14,12 @@ tasks:
   - ruff: |
       cd dotfiles
       ./scripts/ruff.sh
+  - shellcheck: |
+      cd dotfiles
+      ./scripts/shellcheck.sh
   - shfmt: |
       cd dotfiles
       ./scripts/shfmt.sh
   - stylua: |
       cd dotfiles
       stylua --check .
-  - lint: |
-      cd dotfiles
-      shellcheck --shell bash --source-path bash -x bash/.bashrc \
-        $(find . -name "*.sh" -print | grep --invert-match -F "git-prompt.sh" | xargs)
