@@ -82,7 +82,10 @@ require("lazy").setup({
   { "dart-lang/dart-vim-plugin", ft = { "dart" } },
   { "editorconfig/editorconfig-vim" },
   { "EdenEast/nightfox.nvim" },
-  { "folke/neodev.nvim" },
+  {
+    "folke/neodev.nvim",
+    lazy = true,
+  },
   {
     "folke/trouble.nvim",
     config = function()
@@ -91,7 +94,6 @@ require("lazy").setup({
   },
   {
     "folke/todo-comments.nvim",
-    lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("tristan957.plugins.todo-comments")
@@ -155,7 +157,10 @@ require("lazy").setup({
   { "nvim-lua/plenary.nvim" },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "cmp-nvim-lsp" },
+    dependencies = {
+        "cmp-nvim-lsp",
+        "folke/neodev.nvim",
+    },
     config = function()
       require("tristan957.plugins.lspconfig")
     end,
