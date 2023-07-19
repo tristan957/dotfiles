@@ -1,1 +1,1 @@
-vim.o.textwidth = 72
+vim.opt_local.textwidth = 72
