@@ -87,7 +87,7 @@ set laststatus=2 " always show the status bar
 set lazyredraw " redraw only when we need to
 set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
 set list
-set listchars=space:·,tab:→-←
+set listchars=space:·,multispace:···•,tab:>-
 set magic
 set nobackup " some language servers have issues with backup files, see coc.nvim#649
 set noerrorbells " no sounds please vim
