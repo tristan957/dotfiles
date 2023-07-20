@@ -59,6 +59,7 @@ neovim
 ninja-build
 nnn
 nodejs
+pandoc
 parallel
 pax-utils
 podman-compose
