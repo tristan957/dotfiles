@@ -212,6 +212,13 @@ HISTCONTROL="ignoredups:ignorespace"
 HISTSIZE=1000000
 HISTTIMEFORMAT="%FT%T%z: "
 
+# LESS
+export LESS=cJ
+export LESSHISTSIZE=1000000
+if command -v "pygmentize" >/dev/null 2>&1; then
+    export LESSOPEN="| pygmentize -O style=one-dark %s"
+fi
+
 # Golang
 export GOPROXY=direct
 export GOTELEMETRY=off
