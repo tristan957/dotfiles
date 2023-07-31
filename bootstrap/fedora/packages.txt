@@ -1,6 +1,7 @@
 1password
 1password-cli
 ShellCheck
+Swift-MesonLSP
 bat
 bear
 black
@@ -71,6 +72,7 @@ python3-flake8
 python3-isort
 python3-mypy
 python3-pip
+python3-pygments
 reuse
 ripgrep
 samurai
@@ -78,7 +80,7 @@ scdoc
 shfmt
 stow
 strace
-Swift-MesonLSP
+sysprof
 terraform
 terraform-ls
 thunderbird
