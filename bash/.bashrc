@@ -209,8 +209,8 @@ fi
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
-HISTSIZE=10000
-HISTTIMEFORMAT="%FT%T%z :: "
+HISTSIZE=1000000
+HISTTIMEFORMAT="%FT%T%z: "
 
 # Golang
 export GOPROXY=direct
