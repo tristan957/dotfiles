@@ -131,13 +131,6 @@ require("lazy").setup({
       require("tristan957.plugins.cmp")
     end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    enabled = false,
-    config = function()
-      require("tristan957.plugins.null-ls")
-    end,
-  },
   { "kevinoid/vim-jsonc", ft = "jsonc" },
   { "L3MON4D3/LuaSnip", event = "InsertEnter" },
   {
