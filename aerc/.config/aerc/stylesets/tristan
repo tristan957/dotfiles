@@ -1,73 +1,59 @@
-*error.bold=true
-*error.fg=red
-*warning.fg=yellow
-*success.fg=green
+*error.bold = true
+*error.fg = red
+*warning.bold = true
+*warning.fg = yellow
+*success.bold = true
+*success.fg = green
 
-completion_default.selected.bg=#4a4a4a
-completion_pill.reverse=true
+completion_default.selected.bg = #4a4a4a
+completion_pill.reverse = true
 
-default.selected.bold=true
-default.selected.fg=white
-default.selected.bg=#4a4a4a
+default.selected.bold = true
+default.selected.fg = white
+default.selected.bg = #4a4a4a
 
-border.bg=#7FFFD4
+border.bg = #7FFFD4
 
-dirlist*.selected.bg=#4a4a4a
-dirlist*.selected.fg=white
-dirlist*.selected.bold=true
+dirlist*.selected.bg = #4a4a4a
+dirlist*.selected.fg = white
+dirlist*.selected.bold =true
 
-header.bold=true
-header.fg=#7FFFD4
+header.bold = true
+header.fg = #7FFFD4
 
-msglist_unread.fg=#ffffff
-msglist_unread.bold=true
-msglist_deleted.fg=#666666
-msglist_*.selected.bg=#4a4a4a
-msglist_marked.fg=#000000
-msglist_marked.bg=#7FFFD4
-msglist_marked.selected.fg=#7FFFD4
-msglist_marked.selected.bg=#4a4a4a
-msglist_result.fg=#000000
-msglist_result.bg=#7FFFD4
-msglist_result.selected.fg=#7FFFD4
-msglist_result.selected.bg=#4a4a4a
+msglist_unread.fg = #ffffff
+msglist_unread.bold = true
+msglist_deleted.fg = #666666
+msglist_*.selected.bg = #4a4a4a
+msglist_marked.fg = #000000
+msglist_marked.bg = #7FFFD4
+msglist_marked.selected.fg = #7FFFD4
+msglist_marked.selected.bg = #4a4a4a
+msglist_result.fg = #000000
+msglist_result.bg = #7FFFD4
+msglist_result.selected.fg = #7FFFD4
+msglist_result.selected.bg = #4a4a4a
 
-selector_focused.bold=true
-selector_focused.bg=#4a4a4a
-selector_focused.fg=white
-selector_chooser.bold=true
-selector_chooser.bg=#4a4a4a
-selector_chooser.fg=white
+selector_focused.bold = true
+selector_focused.bg = #4a4a4a
+selector_focused.fg = white
+selector_chooser.bold = true
+selector_chooser.bg = #4a4a4a
+selector_chooser.fg = white
 
-statusline_default.bg=#7FFFD4
-statusline_default.fg=#000000
-statusline_error.bg=red
-statusline_error.fg=black
-statusline_success.bg=green
-statusline_success.fg=black
+statusline_default.bg = #7FFFD4
+statusline_default.fg = #000000
+statusline_error.bg = red
+statusline_error.fg = black
+statusline_success.bg = green
+statusline_success.fg = black
 
-tab.bg=white
-tab.fg=black
-tab.selected.fg=black
-tab.selected.bg=#7FFFD4
-tab.selected.bold=true
+tab.bg = white
+tab.fg = black
+tab.selected.fg = black
+tab.selected.bg = #7FFFD4
+tab.selected.bold = true
 
-title.bg=#7FFFD4
-title.fg=black
-title.bold=true
-
-#[viewer]
-#url.fg=#ffffaf
-#url.underline=true
-#header.fg=#af87ff
-#signature.fg=#af87ff
-#diff_meta.fg=#ffffff
-#diff_meta.bold=true
-#diff_chunk.fg=#00cdcd
-#diff_add.fg=#00cd00
-#diff_del.fg=#cd0000
-#quote_1.fg=#5fafff
-#quote_2.fg=#ff8700
-#quote_3.fg=#af87ff
-#quote_4.fg=#ff5fd7
-#quote_x.fg=#808080
+title.bg = #7FFFD4
+title.fg = black
+title.bold = true
