@@ -43,6 +43,7 @@ require("mason-lspconfig").setup({
     "jdtls",
     "jsonls",
     "lua_ls",
+    "ruff_lsp",
     "rust_analyzer",
     "terraformls",
     "vimls",
@@ -128,6 +129,11 @@ lspconfig.jdtls.setup({
 })
 
 lspconfig.jsonls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig.ruff_lsp.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
