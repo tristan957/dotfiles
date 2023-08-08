@@ -101,7 +101,6 @@ set relativenumber " show relative line numbering
 set ruler " show the line and column number of the cursor position, separated by a comma
 set scrolloff=5 " start scrolling X lines from bottom or top
 set secure " no autocmd, shell, or write commands can be run in .exrc files
-set shiftwidth=4 " number of spaces to use for each step of (auto)indent
 set shortmess+=c " don't pass messages to |ins-completion-menu|
 set showbreak=++++  " what to show when line breaks
 " set showcmd " show the last run command
