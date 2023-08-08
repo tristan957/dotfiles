@@ -11,6 +11,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/aerc.sh"
 . "$dir/shared/bitwarden.sh"
 . "$dir/shared/deno.sh"
+. "$dir/shared/dconf.sh"
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
 . "$dir/shared/rustup.sh"
@@ -22,6 +23,7 @@ os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 
 flatpak_setup
 distro_setup
+dconf_setup
 bitwarden_setup
 1Password_setup
 gdb_setup
