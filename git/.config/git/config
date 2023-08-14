@@ -33,3 +33,5 @@
 	fetch = +refs/notes/*:refs/notes/*
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
+[protocol "file"]
+	allow = always
