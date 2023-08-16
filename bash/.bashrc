@@ -4,34 +4,15 @@
 [[ $- != *i* ]] && return
 
 # Shell Options
-
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
-#-------------------------------------------------------------------------------
-
-# Alii
-
-if [ -f "${HOME}/.bash_aliases" ]; then
-    # shellcheck source=bash/.bash_aliases
-    . "${HOME}/.bash_aliases"
-fi
-
-#-------------------------------------------------------------------------------
-
-# Functions
-
-if [ -f "${HOME}/.bash_functions" ]; then
-    # shellcheck source=bash/.bash_functions
-    . "${HOME}/.bash_functions"
-fi
-
-#-------------------------------------------------------------------------------
-
-# Local Variables
-
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+
+# Include some auxiliary files to keep this clean
+. "${BASH_DIR}/.bash_aliases"
+. "${BASH_DIR}/.bash_functions"
 
 #-------------------------------------------------------------------------------
 
