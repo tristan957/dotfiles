@@ -2,6 +2,7 @@ bison
 clang
 cmake
 flex
+kubernetes-client
 libcurl-devel
 libseccomp-devel
 openssl-devel

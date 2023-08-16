@@ -2,6 +2,7 @@
 1password-cli
 ShellCheck
 Swift-MesonLSP
+ansible
 bat
 bear
 black
