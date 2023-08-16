@@ -37,22 +37,22 @@ BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 
 # Prompt
 
-# Git branch for prompt
-if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
-    . "${BASH_DIR}/git-prompt.sh"
-    # GIT_PS1_SHOWDIRTYSTATE=1
-    # GIT_PS1_SHOWSTASHSTATE=1
-    # GIT_PS1_SHOWUNTRACKEDFILES=1
-    GIT_PS1_SHOWUPSTREAM="auto"
-    GIT_PS1_DESCRIBE_STYLE="auto"
-    # GIT_PS1_HIDE_IF_PWD_IGNORED=1
-    # GIT_PS1_STATESEPARATOR=" "
-    # shellcheck disable=SC2016
-    branch='$(__git_ps1 " \[$(tput setaf 39)\][%s]")'
-fi
-
 function __prompt_extras() {
     PROMPT_EXTRAS=""
+
+    # Git branch for prompt
+    if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
+        . "${BASH_DIR}/git-prompt.sh"
+        # GIT_PS1_SHOWDIRTYSTATE=1
+        # GIT_PS1_SHOWSTASHSTATE=1
+        # GIT_PS1_SHOWUNTRACKEDFILES=1
+        GIT_PS1_SHOWUPSTREAM="auto"
+        GIT_PS1_DESCRIBE_STYLE="auto"
+        # GIT_PS1_HIDE_IF_PWD_IGNORED=1
+        # GIT_PS1_STATESEPARATOR=" "
+        # shellcheck disable=SC2016
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(tput setaf 39)[%s]")"
+    fi
 
     # Python virtual environments are so fun
     if [[ -n ${VIRTUAL_ENV+x} ]]; then
@@ -72,7 +72,7 @@ function __prompt_extras() {
     echo -ne "$PROMPT_EXTRAS"
 }
 
-PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]${branch}\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]+ \$ \[$(tput sgr0)\]"
+PS1="$(tput bold)\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]+ \$ \[$(tput sgr0)\]"
 PS2="$(tput bold)> \[$(tput sgr0)\]"
 PS3="$(tput bold)> \[$(tput sgr0)\]"
 PS4="$(tput bold)> \[$(tput sgr0)\]"
