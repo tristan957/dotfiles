@@ -21,8 +21,8 @@ BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 function __prompt_extras() {
     PROMPT_EXTRAS=""
 
-    # Git branch for prompt
-    if [[ -f "${BASH_DIR}/git-prompt.sh" ]]; then
+    # Git information for prompt
+    if git rev-parse >/dev/null 2>&1; then
         . "${BASH_DIR}/git-prompt.sh"
         # GIT_PS1_SHOWDIRTYSTATE=1
         # GIT_PS1_SHOWSTASHSTATE=1
