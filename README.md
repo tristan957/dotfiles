@@ -24,6 +24,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - readline
 - ssh
 - sway
+- teleport
 - terraform
 - tmux
 - vim

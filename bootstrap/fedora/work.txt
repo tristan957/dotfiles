@@ -11,5 +11,6 @@ postgresql-contrib
 protobuf-compiler
 protobuf-devel
 readline-devel
+teleport
 uuid-devel
 zlib-devel
