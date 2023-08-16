@@ -53,9 +53,20 @@ fi
 
 function __prompt_extras() {
     PROMPT_EXTRAS=""
+
     # Python virtual environments are so fun
     if [[ -n ${VIRTUAL_ENV+x} ]]; then
         PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
+    fi
+
+    # kubectl current context/namespace
+    if command -v "kubectl" >/dev/null 2>&1; then
+        kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+        kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
+        # shellcheck disable=SC2181
+        if [[ $? -eq 0 ]]; then
+            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 14)[${kubectl_curr_ns:-default} > $kubectl_curr_ctx]"
+        fi
     fi
 
     echo -ne "$PROMPT_EXTRAS"

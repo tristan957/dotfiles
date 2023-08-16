@@ -23,3 +23,6 @@ fi
 
 # shellcheck disable=2086,2139,2154,2183
 alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
+
+# Clear the current kubectl context
+alias kubeclr="kubectl config unset current-context"
