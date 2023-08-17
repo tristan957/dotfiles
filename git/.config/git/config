@@ -31,7 +31,13 @@
 	displayRef = refs/notes/*
 [remote "origin"]
 	fetch = +refs/notes/*:refs/notes/*
-[includeIf "gitdir:~/Projects/work/"]
-	path = work.config
 [protocol "file"]
 	allow = always
+[trailer "sign"]
+	key = Signed-off-by
+[trailer "review"]
+	key = Reviewed-by
+[trailer "test"]
+	key = Tested-by
+[includeIf "gitdir:~/Projects/work/"]
+	path = work.config
