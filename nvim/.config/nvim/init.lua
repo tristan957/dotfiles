@@ -42,6 +42,7 @@ vim.o.relativenumber = true
 vim.o.ruler = true
 vim.o.scrolloff = 5
 vim.o.secure = true
+vim.o.shiftwidth = 4
 vim.o.showbreak = "++++"
 vim.o.showmatch = true
 vim.o.showmode = false
