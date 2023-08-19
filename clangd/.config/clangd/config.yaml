@@ -1,2 +1,4 @@
+# https://clangd.llvm.org
+
 Diagnostics:
   UnusedIncludes: Strict
