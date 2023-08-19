@@ -7,15 +7,20 @@ function stow_setup() {
         alacritty \
         bash \
         bat \
+        cargo \
+        clangd \
         foot \
         gdb \
         git \
+        less \
         libedit \
         npm \
         nvim \
+        programs \
         readline \
         ssh \
         sway \
+        teleport \
         terraform \
         tmux \
         vim \
