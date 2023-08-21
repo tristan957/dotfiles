@@ -21,6 +21,7 @@ function flatpak_install_applications() {
         com.valvesoftware.Steam \
         de.haeckerfelix.Fragments \
         io.github.realmazharhussain.GdmSettings \
+        io.podman_desktop.PodmanDesktop \
         org.gnome.Loupe \
         org.gnome.Snapshot \
         org.gnome.design.Contrast \
