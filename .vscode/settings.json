@@ -2,7 +2,8 @@
 	"[lua]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
-		"editor.formatOnSave": true,
+		// "editor.formatOnSave": true,
+		"editor.defaultFormatter": "JohnnyMorganz.stylua",
 	},
 	"[shellscript]": {
 		"files.eol": "\n",

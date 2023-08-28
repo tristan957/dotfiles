@@ -80,6 +80,13 @@ vim.api.nvim_set_keymap(
 require("lazy").setup({
   { "chrisbra/unicode.vim" },
   { "dart-lang/dart-vim-plugin", ft = { "dart" } },
+  {
+    "echasnovski/mini.indentscope",
+    event = "BufEnter",
+    config = function()
+      require("tristan957.plugins.mini-indentscope")
+    end,
+  },
   { "editorconfig/editorconfig-vim" },
   { "EdenEast/nightfox.nvim" },
   {
@@ -151,8 +158,8 @@ require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "cmp-nvim-lsp",
-        "folke/neodev.nvim",
+      "cmp-nvim-lsp",
+      "folke/neodev.nvim",
     },
     config = function()
       require("tristan957.plugins.lspconfig")
