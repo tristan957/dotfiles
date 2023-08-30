@@ -1,6 +1,8 @@
 bison
 clang
 cmake
+docbook-style-xsl
+docbook-xml
 flex
 kubernetes-client
 libcurl-devel
