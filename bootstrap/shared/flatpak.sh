@@ -20,6 +20,7 @@ function flatpak_install_applications() {
         com.spotify.Client \
         com.valvesoftware.Steam \
         de.haeckerfelix.Fragments \
+        dev.geopjr.Tuba \
         io.github.realmazharhussain.GdmSettings \
         io.podman_desktop.PodmanDesktop \
         org.gnome.Loupe \
