@@ -1,0 +1,14 @@
+# https://wiki.archlinux.org/title/Tmux
+
+[Unit]
+Description=Start tmux in detached session
+
+[Service]
+Type=forking
+ExecStart=tmux new-session -s %u -d
+ExecStop=tmux kill-session -t %u
+Restart=always
+WorkingDirectory=~
+
+[Install]
+WantedBy=default.target
