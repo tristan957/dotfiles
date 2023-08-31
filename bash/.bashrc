@@ -217,6 +217,27 @@ fi
 export GOPROXY=direct
 export GOTELEMETRY=off
 
+# Pass along some environment variables to tmux
+if [ -n "${TMUX}" ]; then
+    tmux set-environment XDG_CONFIG_HOME "$XDG_CONFIG_HOME"
+    tmux set-environment XDG_CACHE_HOME "$XDG_CACHE_HOME"
+    tmux set-environment XDG_DATA_HOME "$XDG_DATA_HOME"
+    tmux set-environment XDG_STATE_HOME "$XDG_STATE_HOME"
+    tmux set-environment XDG_DESKTOP_DIR "$XDG_DESKTOP_DIR"
+    tmux set-environment XDG_DOCUMENTS_DIR "$XDG_DOCUMENTS_DIR"
+    tmux set-environment XDG_DOWNLOAD_DIR "$XDG_DOWNLOAD_DIR"
+    tmux set-environment XDG_MUSIC_DIR "$XDG_MUSIC_DIR"
+    tmux set-environment XDG_PICTURES_DIR "$XDG_PICTURES_DIR"
+    tmux set-environment XDG_PUBLICSHARE_DIR "$XDG_PUBLICSHARE_DIR"
+    tmux set-environment XDG_TEMPLATES_DIR "$XDG_TEMPLATES_DIR"
+    tmux set-environment XDG_VIDEOS_DIR "$XDG_VIDEOS_DIR"
+    tmux set-environment XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR"
+    tmux set-environment XDG_CONFIG_DIRS "$XDG_CONFIG_DIRS"
+    tmux set-environment XDG_DATA_DIRS "$XDG_DATA_DIRS"
+
+    tmux set-environment PATH "$PATH"
+fi
+
 #-------------------------------------------------------------------------------
 
 # Bash Completion
