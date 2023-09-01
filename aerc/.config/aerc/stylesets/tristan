@@ -16,7 +16,7 @@ border.bg = #7FFFD4
 
 dirlist*.selected.bg = #4a4a4a
 dirlist*.selected.fg = white
-dirlist*.selected.bold =true
+dirlist*.selected.bold = true
 
 header.bold = true
 header.fg = #7FFFD4

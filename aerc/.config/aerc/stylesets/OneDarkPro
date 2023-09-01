@@ -1,0 +1,90 @@
+# chalky: #e5c07b
+# coral: #e06c75
+# dark: #5c6370
+# error: #f44747
+# fountainBlue: #56b6c2
+# green: #98c379
+# invalid: #ffffff
+# lightDark: #7f848e
+# lightWhite: #abb2bf
+# malibu: #61afef
+# purple: #c678dd
+# whiskey: #d19a66
+# deepRed: #be5046
+
+*error.bold = true
+*error.fg = #f44747
+*warning.bold = true
+*warning.fg = #e5c07b
+*success.bold = true
+*success.fg = #89ca78
+
+default.bg = #282c34
+
+*.selected.bg = #3d4350
+
+border.bg = #5c6370
+
+completion_default.bg = #1c2126
+completion_default.selected.bold = true
+completion_gutter.bg = #5c6370
+completion_pill.bg = #ef596f
+
+dirlist*.selected.bold = true
+
+header.bg = #282c34
+header.bold = true
+header.fg = #d19a66
+
+msglist_deleted.fg = #7f848e
+msglist_gutter.bg = #5c6370
+msglist_marked.bg = #d55fde
+msglist_marked.fg = #000000
+msglist_marked.selected.bg = #d781de
+msglist_pill.bg = #ef596f
+msglist_result.bg = #61afef
+msglist_result.fg = #000000
+msglist_result.selected.bg = #8bc2ef
+msglist_unread.bold = true
+
+selector_chooser.bg = #1c2126
+selector_chooser.bold = true
+selector_default.bg = #1c2126
+selector_focused.bg = #000000
+selector_focused.fg = #2bbac5
+selector_focused.bold = true
+
+statusline_default.bg = #5c6370
+statusline_default.bold = true
+statusline_default.fg = #ffffff
+statusline_error.bg = #f44747
+statusline_error.fg = #000000
+statusline_success.bg = #89ca78
+statusline_success.fg = #000000
+
+tab.bg = #e5c07b
+tab.fg = #000000
+tab.selected.fg = #000000
+tab.selected.bg = #89ca78
+tab.selected.bold = true
+
+title.bg = #d19a66
+title.bold = true
+title.fg = #000000
+
+[viewer]
+diff_meta.fg=#e5c07b
+diff_chunk.fg=#61afef
+diff_chunk_func.fg=#d55fde
+diff_add.fg=#89ca78
+diff_del.fg=#ef596f
+header.bold=true
+header.fg=#d19a66
+signature.fg=#7f848e
+quote_1.fg=#e5c07b
+quote_2.fg=#61afef
+quote_3.fg=#d19a66
+quote_4.fg=#ef596f
+quote_x.fg=#abb2bf
+url.fg=#2bbac5
+url.underline=true
