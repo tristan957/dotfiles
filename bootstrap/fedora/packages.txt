@@ -36,6 +36,7 @@ gnome-firmware
 gnome-sound-recorder
 gnome-tweaks
 golang
+gron
 gtk4-devel
 hut
 java-latest-openjdk
