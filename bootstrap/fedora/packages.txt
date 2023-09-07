@@ -47,6 +47,7 @@ llvm
 lollypop
 maven
 meson
+miller
 mold
 moreutils
 neovim
