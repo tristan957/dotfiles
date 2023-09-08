@@ -36,11 +36,13 @@ This repository uses GNU `stow` to manage `dotfiles`.
 The above is a list of packages `stow(8)` can be used on. That syntax looks like
 `stow {package}`.
 
-## Bash Prompt
+## Terminal
 
-![Bash Prompt (insert)](prompt.png?raw=true "Bash Prompt")
+![Terminal with bash and tmux running to showcase style](terminal.png "Terminal")
 
-From left to right:
+### Bash
+
+`PS0` from left to right:
 
 - return code of previous command
 - number of jobs currently managed by the shell
@@ -51,4 +53,14 @@ From left to right:
 
 2nd line:
 
-- root/user
+- root/user (`#` or `$`)
+
+### tmux
+
+Statusline from left to right:
+
+- session
+- window list
+- hostname
+- date
+- 24-hr time
