@@ -2,13 +2,17 @@
 
 [Unit]
 Description=Start tmux in detached session
+After=graphical-session.target
 
 [Service]
 Type=forking
 ExecStart=tmux new-session -s %u -d
 ExecStop=tmux kill-session -t %u
+# Are both of these necessary? I don't know...
+Environment="COLORTERM=truecolor"
+Environment="TERM=xterm-256color"
 Restart=always
 WorkingDirectory=~
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
