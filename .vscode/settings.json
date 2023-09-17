@@ -30,4 +30,5 @@
 		"work.config": "properties",
 		"ignore": "ignore",
 	},
+	"shellformat.flag": "-indent 4"
 }
