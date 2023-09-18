@@ -21,10 +21,12 @@ function stow_setup() {
         readline \
         ssh \
         sway \
+        systemd \
         teleport \
         terraform \
         tmux \
         vim \
+        vscodium \
         yarn
 
     popd >/dev/null 2>&1 || exit
