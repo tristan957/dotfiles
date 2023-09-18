@@ -130,7 +130,6 @@ export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-export PSQL_HISTORY="${XDG_CACHE_HOME}/psql_history"
 export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
 if [ -f "${XDG_CONFIG_HOME}/ripgrep/config" ]; then
     export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"

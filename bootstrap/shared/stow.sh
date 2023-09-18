@@ -17,6 +17,7 @@ function stow_setup() {
         npm \
         nvim \
         programs \
+        psql \
         readline \
         ssh \
         sway \
