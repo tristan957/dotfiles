@@ -22,6 +22,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - npm
 - nvim
 - programs
+- psql
 - readline
 - ssh
 - sway
