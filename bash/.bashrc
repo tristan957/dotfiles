@@ -137,16 +137,18 @@ export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
 if [ -f "${XDG_CONFIG_HOME}/ripgrep/config" ]; then
     export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 fi
+export GOBIN="${HOME}/.local/bin"
+export GOMODCACHE="${XDG_CACHE_HOME}/go"
 export GOPATH="${XDG_DATA_HOME}/go"
 export DENO_INSTALL="${HOME}/local/bin/deno"
 export DENO_DIR="${XDG_CACHE_HOME}/deno"
 # cargo and rustup are way too annoying with this
-export CARGO_HOME="${HOME}/.cargo"
-export RUSTUP_HOME="${HOME}/.rustup"
+export CARGO_HOME="${HOME}/.opt/cargo"
+export RUSTUP_HOME="${HOME}/.opt/rustup"
 export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
 export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 # Teleport, wtf dog. Allow me to split config and state :(.
-# export TELEPORT_HOME="${XDG_CONFIG_HOME}/tsh"
+export TELEPORT_HOME="${HOME}/opt/tsh"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 if [ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]; then
     export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"

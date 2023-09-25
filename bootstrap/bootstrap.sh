@@ -5,6 +5,7 @@ set -o pipefail
 
 rm "$HOME/.bash"*
 mkdir -p "$XDG_DATA_HOME/bash-completion/completions"
+mkdir -p "$HOME/.opt"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/1Password.sh"
