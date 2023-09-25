@@ -8,6 +8,9 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
+# Add to shell history after every command
+# PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 
 # Include some auxiliary files to keep this clean
