@@ -12,6 +12,9 @@
 # whiskey: #d19a66
 # deepRed: #be5046
 
+*.default = true
+*.normal = true
+
 *error.bold = true
 *error.fg = #f44747
 *warning.bold = true
@@ -23,9 +26,9 @@ default.bg = #282c34
 
 *.selected.bg = #3d4350
 
-border.bg = #5c6370
+border.fg = #5C6370
 
-completion_default.bg = #1c2126
+completion_default.bg = #22252C
 completion_default.selected.bold = true
 completion_gutter.bg = #5c6370
 completion_pill.bg = #ef596f
@@ -47,6 +50,10 @@ msglist_result.fg = #000000
 msglist_result.selected.bg = #8bc2ef
 msglist_unread.bold = true
 
+part_filename.selected.bold = true
+part_switcher.bg = #22252C
+part_mimetype.selected.bold = true
+
 selector_chooser.bg = #1c2126
 selector_chooser.bold = true
 selector_default.bg = #1c2126
@@ -54,9 +61,8 @@ selector_focused.bg = #000000
 selector_focused.fg = #2bbac5
 selector_focused.bold = true
 
-statusline_default.bg = #5c6370
-statusline_default.bold = true
-statusline_default.fg = #ffffff
+statusline_default.bg = #22252C
+statusline_default.fg = #9DA5B4
 statusline_error.bg = #f44747
 statusline_error.fg = #000000
 statusline_success.bg = #89ca78
@@ -68,7 +74,7 @@ tab.selected.fg = #000000
 tab.selected.bg = #89ca78
 tab.selected.bold = true
 
-title.bg = #d19a66
+title.bg = #d55fde
 title.bold = true
 title.fg = #000000
 
