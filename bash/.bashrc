@@ -12,6 +12,7 @@ shopt -s globstar
 # PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+DOTFILES_DIR=$(dirname "$BASH_DIR")
 
 # Include some auxiliary files to keep this clean
 . "${BASH_DIR}/.bash_aliases"
@@ -154,6 +155,7 @@ export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 if [ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]; then
     export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 fi
+export PYTHONSTARTUP="$DOTFILES_DIR/python/startup.py"
 
 # Set default terminal text editor
 if command -v "nvim" >/dev/null 2>&1; then
