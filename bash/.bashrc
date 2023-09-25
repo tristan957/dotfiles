@@ -146,6 +146,7 @@ export DENO_DIR="${XDG_CACHE_HOME}/deno"
 export CARGO_HOME="${HOME}/.opt/cargo"
 export RUSTUP_HOME="${HOME}/.opt/rustup"
 export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
+export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 # Teleport, wtf dog. Allow me to split config and state :(.
 export TELEPORT_HOME="${HOME}/opt/tsh"
