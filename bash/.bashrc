@@ -212,7 +212,7 @@ HISTTIMEFORMAT="%FT%T%z: "
 export LESS=RcJ
 export LESSHISTSIZE=1000000
 if command -v "pygmentize" >/dev/null 2>&1; then
-    export LESSOPEN="| pygmentize -O style=one-dark %s"
+    export LESSOPEN="| pygmentize -O style=one-dark %s 2>/dev/null"
 fi
 
 # Golang
