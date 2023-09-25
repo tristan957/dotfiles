@@ -3,6 +3,7 @@
 " VIM is a naughty boy using ~/.vim/. Teach it to play nice.
 let cache_dir=$XDG_CACHE_HOME . '/vim'
 let data_dir='~/.vim'
+let state_dir=$XDG_STATE_HOME . '/vim'
 
 """"""""
 " Plug
@@ -116,6 +117,7 @@ set textwidth=100 " maximum width of text that is being inserted
 let &undodir=cache_dir . '/undo'
 set undofile
 set updatetime=250
+set viminfofile=state_dir . '/info'
 set wildmenu " visual autocomplete for command menu
 
 let g:netrw_banner=0
