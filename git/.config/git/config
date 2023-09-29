@@ -1,6 +1,7 @@
 [user]
 	name = Tristan Partin
 	email = tristan@partin.io
+	signingkey = CC000B6D725FAEB6E8CEE5FD5AD0476101F9899D
 [alias]
 	lg = !"git lg1"
 	lg1 = !"git lg1-specific --all"
@@ -11,6 +12,10 @@
 	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 [init]
 	defaultBranch = master
+[commit]
+	gpgsign = false
+[gpg]
+	program = gpg2
 [format]
 	coverFromDescription = auto
 	coverLetter = auto
