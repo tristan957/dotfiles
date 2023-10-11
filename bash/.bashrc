@@ -150,7 +150,7 @@ export NUGET_PACKAGES="${XDG_CACHE_HOME}/nuget"
 export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 # Teleport, wtf dog. Allow me to split config and state :(.
-export TELEPORT_HOME="${HOME}/opt/tsh"
+export TELEPORT_HOME="${HOME}/.opt/tsh"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
 if [ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]; then
     export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
