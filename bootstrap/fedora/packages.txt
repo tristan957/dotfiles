@@ -61,6 +61,7 @@ podman-compose
 podman-docker
 powershell
 pylint
+python3-dnf-plugin-versionlock
 python3-flake8
 python3-isort
 python3-mypy
