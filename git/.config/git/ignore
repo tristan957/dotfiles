@@ -1,3 +1,4 @@
+/.clangd
 /outgoing/
 .cache/clangd
 .envrc
