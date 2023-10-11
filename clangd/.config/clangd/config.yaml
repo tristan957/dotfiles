@@ -2,3 +2,8 @@
 
 Diagnostics:
   UnusedIncludes: Strict
+
+If:
+  PathMatch: ".*\/postgresql\/.*\\.h"
+CompileFlags:
+  Add: ["-include", "postgres.h"]
