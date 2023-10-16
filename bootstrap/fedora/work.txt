@@ -28,6 +28,7 @@ postgresql-contrib
 protobuf-compiler
 protobuf-devel
 readline-devel
+sysbench
 systemd-devel
 systemtap-sdt-devel
 tcl-devel
