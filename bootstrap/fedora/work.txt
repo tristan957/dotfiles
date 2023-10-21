@@ -9,6 +9,7 @@ fop
 krb5-devel
 kubernetes-client
 libcurl-devel
+libpq-devel
 libseccomp-devel
 libselinux-devel
 libuuid-devel
@@ -26,6 +27,7 @@ perl
 postgresql
 postgresql-contrib
 postgresql-server
+postgresql-server-devel
 protobuf-compiler
 protobuf-devel
 readline-devel
