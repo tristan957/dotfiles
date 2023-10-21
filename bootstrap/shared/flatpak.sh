@@ -15,6 +15,7 @@ function flatpak_install_applications() {
         com.discordapp.Discord \
         com.github.finefindus.eyedropper \
         com.mojang.Minecraft \
+        com.protonvpn.www \
         com.rafaelmardojai.SharePreview \
         com.slack.Slack \
         com.spotify.Client \

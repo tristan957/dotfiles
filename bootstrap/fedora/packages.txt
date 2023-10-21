@@ -60,6 +60,7 @@ pax-utils
 podman-compose
 podman-docker
 powershell
+protonvpn-cli
 pylint
 python3-dnf-plugin-versionlock
 python3-flake8
