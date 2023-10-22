@@ -57,6 +57,7 @@ nodejs
 pandoc
 parallel
 pax-utils
+pre-commit
 podman-compose
 podman-docker
 powershell
