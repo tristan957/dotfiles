@@ -71,13 +71,16 @@ python3-pip
 python3-pygments
 qemu
 qemu-kvm
+remove-retired-packages
 reuse
 ripgrep
+rpmconf
 samurai
 scdoc
 shfmt
 stow
 strace
+symlinks
 sysprof
 terraform
 terraform-ls
