@@ -21,6 +21,7 @@ llvm-devel
 lz4
 lz4-devel
 openldap-devel
+openssl
 openssl-devel
 pam-devel
 perl
