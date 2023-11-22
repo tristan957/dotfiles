@@ -1,5 +1,3 @@
-dir=$(dirname "${BASH_SOURCE[0]}")
-
 function dnf_add_repos() {
     # 1Password
     sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
@@ -35,6 +33,8 @@ function dnf_add_repos() {
 }
 
 function dnf_install_packages() {
+    local dir=$(dirname "${BASH_SOURCE[0]}")
+
     xargs sudo dnf install -y <"$dir/packages.txt"
     xargs sudo dnf install -y <"$dir/work.txt"
 

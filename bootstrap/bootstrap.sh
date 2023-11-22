@@ -3,8 +3,15 @@
 set -e
 set -o pipefail
 
-rm "$HOME/.bash"*
-mkdir -p "$XDG_DATA_HOME/bash-completion/completions"
+for f in "$HOME/.bash"*; do
+	# if we are a symlink, we most likely already stowed
+	if [ -h "$f" ]; then
+		continue
+	else
+		rm "$f"
+	fi
+done
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions"
 mkdir -p "$HOME/.opt"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
