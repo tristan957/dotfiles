@@ -3,13 +3,12 @@ bison
 clang
 cmake
 docbook-style-xsl
-docbook-xml
+docbook-dtds
 flex
 fop
 krb5-devel
 kubernetes-client
 libcurl-devel
-libpq-devel
 libseccomp-devel
 libselinux-devel
 libuuid-devel
