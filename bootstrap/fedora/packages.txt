@@ -3,7 +3,7 @@
 ShellCheck
 Swift-MesonLSP
 ansible
-az
+azure-cli
 bat
 bear
 black
