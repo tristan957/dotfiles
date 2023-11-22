@@ -3,3 +3,5 @@
 !/.vscode/
 /systemd/.config/systemd/user/*
 !/systemd/.config/systemd/user/*.service
+/cargo/.opt/cargo/*
+!/cargo/.opt/config.toml
