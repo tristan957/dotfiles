@@ -51,8 +51,11 @@ msglist_result.selected.bg = #8bc2ef
 msglist_unread.bold = true
 
 part_filename.selected.bold = true
-part_switcher.bg = #22252C
+part_filename.bg = #22252C
+part_mimetype.fg = #9DA5B4
+part_mimetype.bg = #22252C
 part_mimetype.selected.bold = true
+part_switcher.bg = #22252C
 
 selector_chooser.bg = #1c2126
 selector_chooser.bold = true
