@@ -23,6 +23,7 @@ dotnet-sdk-7.0
 epiphany
 fd-find
 flatpak-builder
+fractal
 fzf
 gcc-c++
 gh
@@ -45,6 +46,7 @@ libreoffice
 lldb
 llvm
 lollypop
+loupe
 maven
 meson
 miller
@@ -78,6 +80,7 @@ rpmconf
 samurai
 scdoc
 shfmt
+snapshot
 stow
 strace
 symlinks
