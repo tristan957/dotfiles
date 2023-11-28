@@ -5,9 +5,17 @@
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "JohnnyMorganz.stylua",
 	},
+	"[markdown]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"[shellscript]": {
 		"files.eol": "\n",
 		"editor.formatOnSave": true,
+	},
+	"[yaml]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"Lua.diagnostics.globals": ["vim"],
 	"Lua.runtime.version": "LuaJIT",
