@@ -1,4 +1,5 @@
 /.clangd
+/node_modules/
 /outgoing/
 .cache/clangd
 .envrc
