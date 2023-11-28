@@ -5,6 +5,7 @@ packages:
   - shellcheck
   - shfmt
   - stylua
+  - yarn
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
 tasks:
