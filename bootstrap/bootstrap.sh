@@ -24,11 +24,13 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/gdb.sh"
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
+. "$dir/shared/systemd.sh"
 
 os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 # shellcheck disable=SC1090
 . "./$os/distro.sh"
 
+systemd_setup
 flatpak_setup
 distro_setup
 dconf_setup
