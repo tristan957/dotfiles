@@ -8,9 +8,6 @@ After=graphical-session.target
 Type=forking
 ExecStart=tmux new-session -s %u -d
 ExecStop=tmux kill-session -t %u
-# Are both of these necessary? I don't know...
-Environment="COLORTERM=truecolor"
-Environment="TERM=xterm-256color"
 Restart=always
 WorkingDirectory=~
 
