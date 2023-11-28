@@ -1,8 +1,4 @@
 require("nvim-treesitter.configs").setup({
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
   ensure_installed = "all",
   highlight = {
     enable = true,
@@ -18,6 +14,8 @@ require("nvim-treesitter.configs").setup({
     },
   },
 })
+
+vim.g.skip_ts_context_commentstring_module = true
 
 vim.cmd([[
   set foldmethod=expr
