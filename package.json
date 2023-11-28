@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "markdownlint:check": "markdownlint-cli2 '**/*.md' !cargo/.opt/cargo !node_modules",
+    "prettier:check": "prettier --config .prettierrc.yml --check '**/*.{md,yaml,yml}'",
+    "prettier:format": "prettier --config .prettierrc.yml --write '**/*.{md,yaml,yml}'"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.8.1",
+    "prettier": "^3.1.0"
+  }
+}

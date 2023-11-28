@@ -1,4 +1,9 @@
+<!-- prettier-ignore-start -->
+
+<!-- markdownlint-disable-next-line MD041 -->
 [![builds.sr.ht status](https://builds.sr.ht/~tristan957/dotfiles.svg)](https://builds.sr.ht/~tristan957/dotfiles?)
+
+<!-- prettier-ignore-end -->
 
 # dotfiles
 

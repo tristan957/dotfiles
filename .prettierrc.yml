@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: CC0-1.0
+#
+# SPDX-FileCopyrightText: 2023 Tristan Partin <tristan@partin.io>
+
+printWidth: 80
+useTabs: false
+proseWrap: always

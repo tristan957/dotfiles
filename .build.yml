@@ -23,3 +23,12 @@ tasks:
   - stylua: |
       cd dotfiles
       stylua --check .
+  - yarn: |
+      cd dotfiles
+      yarn
+  - prettier: |
+      cd dotfiles
+      yarn run prettier:check
+  - markdownlint: |
+      cd dotfiles
+      yarn run markdownlint:check
