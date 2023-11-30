@@ -68,6 +68,10 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " 
 vnoremap <silent> J :m '>+1<CR>gv=gv " move line up
 vnoremap <silent> K :m '<-2<CR>gv=gv " move line down
 
+" Similar to o or O without entering insert mode
+nmap oo o<Esc>
+nmap OO O<Esc>
+
 """"""""""""
 " Settings
 """"""""""""
@@ -114,6 +118,7 @@ set softtabstop=4 " how many spaces a tab is when editing
 set tabstop=4 " how many spaces a tab is when viewing
 set termguicolors
 set textwidth=100 " maximum width of text that is being inserted
+set timeoutlen=200
 let &undodir=cache_dir . '/undo'
 set undofile
 set updatetime=250

@@ -53,6 +53,7 @@ vim.o.softtabstop = 4
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.textwidth = 100
+vim.o.timeoutlen = 200
 vim.o.undofile = true
 vim.o.updatetime = 250
 vim.o.wildmenu = true
