@@ -70,13 +70,6 @@ vim.diagnostic.config({
   float = { border = "single" },
 })
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>df",
-  '<cmd>:lua vim.diagnostic.open_float(nil, {scope = "cursor"})<cr>',
-  { noremap = true }
-)
-
 require("lazy").setup({
   { "chrisbra/unicode.vim" },
   { "dart-lang/dart-vim-plugin", ft = { "dart" } },
@@ -303,3 +296,6 @@ require("lazy").setup({
     },
   },
 })
+
+-- Setup global keymaps
+require("tristan957.keymaps")
