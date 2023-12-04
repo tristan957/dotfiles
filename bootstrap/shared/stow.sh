@@ -14,6 +14,7 @@ function stow_setup() {
         git \
         less \
         libedit \
+        meson \
         npm \
         nvim \
         programs \

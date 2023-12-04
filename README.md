@@ -24,6 +24,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - git
 - less
 - libedit
+- meson
 - npm
 - nvim
 - programs
