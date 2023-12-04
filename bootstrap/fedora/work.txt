@@ -19,6 +19,15 @@ libzstd-devel
 llvm-devel
 lz4
 lz4-devel
+mingw64-curl
+mingw64-icu
+mingw64-libxml2
+mingw64-llvm
+mingw64-openssl
+mingw64-readline
+mingw64-tcl
+mingw64-zlib
+mingw64-zstd
 openldap-devel
 openssl
 openssl-devel
