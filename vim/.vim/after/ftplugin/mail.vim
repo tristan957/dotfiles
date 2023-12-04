@@ -1,3 +1,3 @@
-setlocal formatoptions=1jnwtcql
+setlocal formatoptions=1jnwtcql/r
 setlocal noexpandtab
 setlocal textwidth=72
