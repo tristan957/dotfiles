@@ -50,6 +50,7 @@ loupe
 maven
 meson
 miller
+mingw64-gcc
 mold
 moreutils
 neovim
