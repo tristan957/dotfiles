@@ -96,6 +96,8 @@ trurl
 uncrustify
 vim-enhanced
 vlc
+wine-core
+wine-mono
 wl-clipboard
 yarnpkg
 zig
