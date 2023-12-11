@@ -1,0 +1,5 @@
+command = tmux
+command-arg = new
+command-arg = -A
+
+font-family = Cascadia Mono

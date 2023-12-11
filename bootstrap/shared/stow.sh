@@ -12,6 +12,7 @@ function stow_setup() {
         foot \
         gdb \
         git \
+        ghostty \
         less \
         libedit \
         meson \
