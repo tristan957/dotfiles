@@ -1,7 +1,7 @@
-# I am not really sure if this is the best place for the interactive check, but
-# at least it stops gnome-shell from segfaulting due to the XDG_CONFIG_DIRS code
-# later in this file.
-[[ $- != *i* ]] && return
+# I am not really sure if this is the best place for the interactive check. If
+# this is uncommented, gnome-shell won't load desktop files located in
+# ~/.local/share/applications.
+# [[ $- != *i* ]] && return
 
 # Shell Options
 shopt -s histappend
@@ -96,10 +96,10 @@ export XDG_VIDEOS_DIR="${HOME}/Videos"
 # pipes, ...) should be stored. The directory MUST be owned by the user, and
 # he MUST be the only one having read and write access to it. Its Unix access
 # mode MUST be 0700.
-if [ -z "${XDG_RUNTIME_DIR}" ]; then
+if [[ -z "${XDG_RUNTIME_DIR}" ]]; then
     export XDG_RUNTIME_DIR="/run/user/${UID}"
 
-    if [ ! -d $XDG_RUNTIME_DIR ]; then
+    if [[ ! -d $XDG_RUNTIME_DIR ]]; then
         mkdir $XDG_RUNTIME_DIR
     fi
 fi
@@ -107,15 +107,16 @@ if [[ $(stat -c '%a' "$XDG_RUNTIME_DIR") != "700" ]]; then
     chmod 0700 "$XDG_RUNTIME_DIR"
 fi
 
-if [ -z "${XDG_CONFIG_DIRS}" ]; then
-    export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:/etc"
-else
-    if [[ "${XDG_CONFIG_DIRS}" != *"${XDG_CONFIG_HOME}"* ]]; then
-        export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:${XDG_CONFIG_DIRS}"
-    fi
-fi
+# If this is uncommented, GDM won't launch gnome-shell. I have no clue...
+# if [[ -z "${XDG_CONFIG_DIRS}" ]]; then
+#    export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:/etc"
+# else
+#    if [[ "${XDG_CONFIG_DIRS}" != *"${XDG_CONFIG_HOME}"* ]]; then
+#        export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}:${XDG_CONFIG_DIRS}"
+#    fi
+# fi
 
-if [ -z "${XDG_DATA_DIRS}" ]; then
+if [[ -z "${XDG_DATA_DIRS}" ]]; then
     export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_DIRS}"
 else
     # ending ':' because of Flatpak local exports in ~/.local/share/flaptak/exports/share
@@ -229,13 +230,13 @@ export GOTELEMETRY=off
 # Bash Completion
 
 if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
         . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
+    elif [[ -f /etc/bash_completion ]]; then
         . /etc/bash_completion
     fi
 
-    if [ -d "${XDG_DATA_HOME}/bash-completion/completions" ]; then
+    if [[ -d "${XDG_DATA_HOME}/bash-completion/completions" ]]; then
         find "${XDG_DATA_HOME}/bash-completion/completions" -type f -exec bash -c 'f="$1"; source $f' shell {} \;
     fi
 fi
