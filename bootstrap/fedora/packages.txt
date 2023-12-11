@@ -42,7 +42,11 @@ gtk4-devel
 hut
 java-latest-openjdk
 jq
+json-glib-devel
+libadwaita-devel
+libportal-devel
 libreoffice
+libsoup-devel
 lldb
 llvm
 lollypop
