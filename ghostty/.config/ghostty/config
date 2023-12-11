@@ -2,4 +2,5 @@ command = tmux
 command-arg = new
 command-arg = -A
 
+confirm-close-surface = false
 font-family = Cascadia Mono
