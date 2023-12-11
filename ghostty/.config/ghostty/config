@@ -4,3 +4,10 @@ command-arg = -A
 
 confirm-close-surface = false
 font-family = Cascadia Mono
+font-size = 10
+
+window-padding-x = 0
+window-padding-y = 0
+
+window-height = 24
+window-width = 80
