@@ -31,7 +31,6 @@ gimp
 git
 git-email
 glib2-devel
-gnome-console
 gnome-extensions-app
 gnome-firmware
 gnome-sound-recorder
