@@ -40,6 +40,9 @@ function flatpak_install_applications() {
         org.gnome.Builder.Devel \
         org.gnome.Sdk.Debug//master \
         org.gtk.Demo4
+
+    flatpak install --user --from \
+        https://nightly.gnome.org/repo/appstream/org.gnome.Prompt.Devel.flatpakref
 }
 
 function flatpak_setup() {
