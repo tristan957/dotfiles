@@ -1,6 +1,4 @@
-command = tmux
-command-arg = new
-command-arg = -A
+command = tmux new -A
 
 confirm-close-surface = false
 font-family = Cascadia Mono
