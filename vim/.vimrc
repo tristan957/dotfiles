@@ -92,7 +92,7 @@ set laststatus=2 " always show the status bar
 set lazyredraw " redraw only when we need to
 set linebreak " wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
 set list
-set listchars=space:·,multispace:···•,tab:>-
+set listchars='space:·,tab:⭢ '
 set magic
 set nobackup " some language servers have issues with backup files, see coc.nvim#649
 set noerrorbells " no sounds please vim
@@ -118,7 +118,6 @@ set softtabstop=4 " how many spaces a tab is when editing
 set tabstop=4 " how many spaces a tab is when viewing
 set termguicolors
 set textwidth=100 " maximum width of text that is being inserted
-set timeoutlen=200
 let &undodir=cache_dir . '/undo'
 set undofile
 set updatetime=250
