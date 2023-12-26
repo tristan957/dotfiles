@@ -1,10 +1,18 @@
 require("onedarkpro").setup({
-  options = {
-    bold = false,
-    cursorline = true,
-    italic = false,
-    underline = false,
-    undercurl = false,
+  styles = {
+    types = "NONE",
+    methods = "NONE",
+    numbers = "NONE",
+    strings = "NONE",
+    comments = "NONE",
+    keywords = "NONE",
+    constants = "NONE",
+    functions = "NONE",
+    operators = "NONE",
+    variables = "NONE",
+    parameters = "NONE",
+    conditionals = "NONE",
+    virtual_text = "NONE",
   },
   highlights = {
     ["@property.meson"] = { fg = "${white}" },
