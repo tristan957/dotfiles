@@ -88,24 +88,24 @@ vim.keymap.set("n", "<leader>q", builtin.quickfix, { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>r", builtin.registers, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>sh", builtin.search_history, { noremap = true, silent = true })
 
-local find_files = function()
-  local function is_git_repo()
-    vim.fn.system("git rev-parse --is-inside-work-tree")
-    return vim.v.shell_error == 0
-  end
+-- We cache the results of "git rev-parse"
+-- Process creation is expensive in Windows, so this reduces latency
+local is_inside_work_tree = {}
 
-  local function get_git_root()
-    local dot_git_path = vim.fn.finddir(".git", ".;")
-    return vim.fn.fnamemodify(dot_git_path, ":h")
-  end
-
+local project_files = function()
   local opts = {}
-  if is_git_repo() then
-    opts = {
-      cwd = get_git_root(),
-    }
+
+  local cwd = vim.fn.getcwd()
+  if is_inside_work_tree[cwd] == nil then
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    is_inside_work_tree[cwd] = vim.v.shell_error == 0
   end
-  require("telescope.builtin").find_files(opts)
+
+  if is_inside_work_tree[cwd] then
+    builtin.git_files(vim.tbl_extend("force", opts, { show_untracked = true }))
+  else
+    builtin.find_files(vim.tbl_extend("force", opts, { hidden = true }))
+  end
 end
 
-vim.keymap.set("n", "<leader><leader>", find_files, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader><leader>", project_files, { noremap = true, silent = true })
