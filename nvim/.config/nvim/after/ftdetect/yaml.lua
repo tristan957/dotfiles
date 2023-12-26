@@ -3,5 +3,5 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     ".clang-format",
     ".clang-tidy",
   },
-  command = "set filetype=sh",
+  command = "set filetype=yaml",
 })
