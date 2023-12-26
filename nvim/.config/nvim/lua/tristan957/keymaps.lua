@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap(
+vim.keymap.set(
   "n",
   "<leader>df",
   '<cmd>:lua vim.diagnostic.open_float(nil, {scope = "cursor"})<cr>',
@@ -6,5 +6,5 @@ vim.api.nvim_set_keymap(
 )
 
 -- Similar to o or O without entering insert mode
-vim.api.nvim_set_keymap("n", "oo", "o<Esc>", {})
-vim.api.nvim_set_keymap("n", "OO", "O<Esc>", {})
+vim.keymap.set("n", "oo", "o<Esc>")
+vim.keymap.set("n", "OO", "O<Esc>")

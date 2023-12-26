@@ -43,6 +43,7 @@ vim.o.ruler = true
 vim.o.scrolloff = 5
 vim.o.secure = true
 vim.o.shiftwidth = 4
+vim.o.shortmess = vim.o.shortmess .. "Ic"
 vim.o.showbreak = "++++"
 vim.o.showmatch = true
 vim.o.showmode = false
@@ -75,6 +76,34 @@ require("lazy").setup({
   { "dart-lang/dart-vim-plugin", ft = { "dart" } },
   { "editorconfig/editorconfig-vim" },
   { "EdenEast/nightfox.nvim" },
+  {
+    'echasnovski/mini.ai',
+    version = false,
+    config = function()
+      require("tristan957.plugins.mini-ai")
+    end
+  },
+  {
+    'echasnovski/mini.files',
+    version = false,
+    config = function()
+      require("tristan957.plugins.mini-files")
+    end
+  },
+  { 
+    'echasnovski/mini.hipatterns',
+    version = false,
+    config = function()
+      require("tristan957.plugins.mini-hipatterns")
+    end
+  },
+  { 
+    'echasnovski/mini.move',
+    version = false,
+    config = function()
+      require("tristan957.plugins.mini-move")
+    end
+  },
   {
     "folke/neodev.nvim",
     lazy = true,
@@ -179,7 +208,6 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-file-browser.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-project.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },

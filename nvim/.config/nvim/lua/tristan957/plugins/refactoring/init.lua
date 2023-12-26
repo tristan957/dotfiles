@@ -9,8 +9,7 @@ local function refactor(prompt_bufnr)
   refactoring.refactor(content.value)
 end
 
-M = {}
-M.refactors = function()
+vim.keymap.set("v", "<leader>e", function()
   local opts = require("telescope.themes").get_cursor()
   require("telescope.pickers")
     .new(opts, {
@@ -26,11 +25,4 @@ M.refactors = function()
       end,
     })
     :find()
-end
-
-vim.api.nvim_set_keymap(
-  "v",
-  "<Leader>r",
-  "<esc><cmd>lua M.refactors()<CR>",
-  { noremap = true, silent = true }
-)
+end, { noremap = true, silent = true })
