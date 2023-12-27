@@ -35,6 +35,7 @@ gnome-extensions-app
 gnome-firmware
 gnome-sound-recorder
 gnome-tweaks
+go-task
 golang
 gron
 gtk4-devel
@@ -42,6 +43,7 @@ hut
 java-latest-openjdk
 jq
 json-glib-devel
+just
 libadwaita-devel
 libportal-devel
 libreoffice
