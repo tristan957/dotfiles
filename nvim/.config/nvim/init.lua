@@ -68,7 +68,7 @@ vim.diagnostic.config({
   virtual_text = false,
   signs = true,
   source = true,
-  float = { border = "single" },
+  float = { border = "rounded" },
 })
 
 require("lazy").setup({
@@ -90,14 +90,14 @@ require("lazy").setup({
       require("tristan957.plugins.mini-files")
     end
   },
-  { 
+  {
     'echasnovski/mini.hipatterns',
     version = false,
     config = function()
       require("tristan957.plugins.mini-hipatterns")
     end
   },
-  { 
+  {
     'echasnovski/mini.move',
     version = false,
     config = function()
@@ -327,3 +327,6 @@ require("lazy").setup({
 
 -- Setup global keymaps
 require("tristan957.keymaps")
+
+-- Setup autocommands
+require("tristan957.autocmds")
