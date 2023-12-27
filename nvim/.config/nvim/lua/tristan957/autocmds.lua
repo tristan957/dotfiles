@@ -1,6 +1,9 @@
+local group = vim.api.nvim_create_augroup("tristan957", { clear = true })
+
 -- Remove trailing whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
+  group = group,
   callback = function()
     local view = vim.fn.winsaveview()
     vim.cmd([[%s/\s\+$//e]])
@@ -12,6 +15,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 local empty_line = vim.regex("^$")
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
+  group = group,
   callback = function(ev)
     local view = vim.fn.winsaveview()
 
