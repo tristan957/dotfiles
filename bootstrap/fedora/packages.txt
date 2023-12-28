@@ -52,6 +52,7 @@ lldb
 llvm
 lollypop
 loupe
+lynx
 maven
 meson
 miller
