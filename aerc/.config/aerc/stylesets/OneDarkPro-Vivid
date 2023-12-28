@@ -71,8 +71,8 @@ statusline_error.fg = #000000
 statusline_success.bg = #89ca78
 statusline_success.fg = #000000
 
-tab.bg = #e5c07b
-tab.fg = #000000
+tab.bg = #22252C
+tab.fg = #abb2bf
 tab.selected.fg = #000000
 tab.selected.bg = #89ca78
 tab.selected.bold = true
