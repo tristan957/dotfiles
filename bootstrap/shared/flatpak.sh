@@ -41,6 +41,9 @@ function flatpak_install_applications() {
         org.gnome.Prompt.Devel \
         org.gnome.Sdk.Debug//master \
         org.gtk.Demo4
+
+    # Valent
+    flatpak install --user --from https://valent.andyholmes.ca/valent.flatpakref
 }
 
 function flatpak_setup() {
