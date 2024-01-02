@@ -5,6 +5,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   group = group,
   callback = function()
+    -- If we ask for trailing whitespace, respect it
+    if string.find(vim.bo.formatoptions, "w") == nil then
+      return
+    end
+
     local view = vim.fn.winsaveview()
     vim.cmd([[%s/\s\+$//e]])
     vim.fn.winrestview(view)
