@@ -5,3 +5,5 @@ end, { noremap = true, silent = true })
 -- Similar to o or O without entering insert mode
 vim.keymap.set("n", "oo", "o<Esc>")
 vim.keymap.set("n", "OO", "O<Esc>")
+
+vim.keymap.set("n", "<M-S-u>", "<cmd>nohl<CR>")
