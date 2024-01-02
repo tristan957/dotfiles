@@ -18,6 +18,7 @@ code
 codium
 codespell
 dconf-editor
+delve
 direnv
 distrobox
 dotnet-sdk-7.0
