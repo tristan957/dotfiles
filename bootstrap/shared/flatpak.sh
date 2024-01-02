@@ -38,11 +38,9 @@ function flatpak_install_applications() {
     flatpak install --user --assumeyes gnome-nightly \
         org.gnome.Adwaita1.Demo \
         org.gnome.Builder.Devel \
+        org.gnome.Prompt.Devel \
         org.gnome.Sdk.Debug//master \
         org.gtk.Demo4
-
-    flatpak install --user --from \
-        https://nightly.gnome.org/repo/appstream/org.gnome.Prompt.Devel.flatpakref
 }
 
 function flatpak_setup() {
