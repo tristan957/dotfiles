@@ -225,6 +225,7 @@ export LESSHISTSIZE=1000000
 if command -v "pygmentize" >/dev/null 2>&1; then
     export LESSOPEN="| pygmentize -O style=one-dark %s 2>/dev/null"
 fi
+export PAGER=less
 
 # Golang
 export GOPROXY=direct
