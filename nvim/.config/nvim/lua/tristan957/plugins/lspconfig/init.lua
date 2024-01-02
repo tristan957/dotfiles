@@ -130,12 +130,7 @@ lspconfig.jsonls.setup({
   on_attach = on_attach,
 })
 
-lspconfig.ruff_lsp.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-lspconfig.rust_analyzer.setup({
+lspconfig.lemminx.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
@@ -177,6 +172,16 @@ lspconfig.lua_ls.setup({
   end
   return true
   end
+})
+
+lspconfig.ruff_lsp.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig.rust_analyzer.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 lspconfig.swift_mesonls.setup({
