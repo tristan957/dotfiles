@@ -209,6 +209,11 @@ if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
     PATH="/var/lib/snapd/snap/bin:${PATH}"
 fi
 
+# Add my Zig nightly to PATH
+if [[ "${PATH}" != *"${HOME}/.opt/zig"* ]]; then
+    PATH="${HOME}/.opt/zig:${PATH}"
+fi
+
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
 HISTSIZE=1000000
