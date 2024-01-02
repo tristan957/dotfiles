@@ -23,6 +23,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - gdb
 - git
 - ghostty
+- glow
 - less
 - libedit
 - meson

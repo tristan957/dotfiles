@@ -13,6 +13,7 @@ function stow_setup() {
         gdb \
         git \
         ghostty \
+        glow \
         less \
         libedit \
         meson \
