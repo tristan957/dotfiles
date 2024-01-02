@@ -39,6 +39,8 @@
 	fetch = +refs/notes/*:refs/notes/*
 [protocol "file"]
 	allow = always
+[merge]
+	conflictStyle = zdiff3
 [trailer "sign"]
 	key = Signed-off-by
 [trailer "review"]
