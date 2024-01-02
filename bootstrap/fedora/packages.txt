@@ -9,6 +9,7 @@ bear
 black
 buildah
 cascadia-fonts-all
+catimg
 chromium
 clang
 clang-tools-extra
