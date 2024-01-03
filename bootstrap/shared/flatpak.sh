@@ -6,41 +6,13 @@ function flatpak_add_remotes() {
 }
 
 function flatpak_install_applications() {
+    local dir=$(dirname "${BASH_SOURCE[0]}")
+
     # Flathub
-    flatpak install --user --assumeyes flathub \
-        ch.protonmail.protonmail-bridge \
-        com.belmoussaoui.Decoder \
-        com.belmoussaoui.Obfuscate \
-        com.bitwarden.desktop \
-        com.discordapp.Discord \
-        com.github.finefindus.eyedropper \
-        com.mojang.Minecraft \
-        com.protonvpn.www \
-        com.rafaelmardojai.SharePreview \
-        com.slack.Slack \
-        com.spotify.Client \
-        com.valvesoftware.Steam \
-        de.haeckerfelix.Fragments \
-        dev.geopjr.Tuba \
-        io.github.realmazharhussain.GdmSettings \
-        io.podman_desktop.PodmanDesktop \
-        org.gnome.Loupe \
-        org.gnome.Snapshot \
-        org.gnome.design.Contrast \
-        org.gnome.design.IconLibrary \
-        org.gnome.design.Lorem \
-        org.gnome.design.SymbolicPreview \
-        org.gtk.Gtk3theme.Adwaita-dark \
-        org.signal.Signal \
-        us.zoom.Zoom
+    xargs flatpak install --user --assumeyes flathub <"$dir/flatpak/flathub.txt"
 
     # GNOME Nightly
-    flatpak install --user --assumeyes gnome-nightly \
-        org.gnome.Adwaita1.Demo \
-        org.gnome.Builder.Devel \
-        org.gnome.Prompt.Devel \
-        org.gnome.Sdk.Debug//master \
-        org.gtk.Demo4
+    xargs flatpak install --user --assumeyes gnome-nightly <"$dir/flatpak/gnome-nightly.txt"
 
     # Valent
     flatpak install --user --from https://valent.andyholmes.ca/valent.flatpakref
