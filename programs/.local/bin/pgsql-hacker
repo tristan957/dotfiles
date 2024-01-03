@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import argparse
+from typing import TYPE_CHECKING, cast
+
+
+if TYPE_CHECKING:
+
+    class Args(argparse.Namespace):
+        flat: bool
+        msgid: str
+
+
+NORMAL_URL = "https://www.postgresql.org/message-id"
+FLAT_URL = "https://www.postgresql.org/message-id/flat"
+
+
+def main():
+    parser = argparse.ArgumentParser(add_help=True)
+    parser.add_argument("msgid", help="Message-Id to print URL of")
+    parser.add_argument(
+        "-f",
+        "--flat",
+        default=False,
+        action="store_true",
+        help="Generate the flat URL variant",
+    )
+    args = cast("Args", parser.parse_args())
+
+    if args.flat:
+        print(f"{FLAT_URL}/{args.msgid}")
+    else:
+        print(f"{NORMAL_URL}/{args.msgid}")
+
+
+if __name__ == "__main__":
+    main()
