@@ -78,6 +78,7 @@ pylint
 python3-dnf-plugin-versionlock
 python3-flake8
 python3-isort
+python3-language-server
 python3-mypy
 python3-pip
 python3-pygments
