@@ -262,14 +262,6 @@ require("lazy").setup({
   },
   { "rust-lang/rust.vim", ft = { "rust" } },
   {
-    "simrat39/rust-tools.nvim",
-    ft = { "rust" },
-    dependencies = { "neovim/nvim-lspconfig" },
-    config = function()
-      require("tristan957.plugins.rust-tools")
-    end,
-  },
-  {
     "ThePrimeagen/refactoring.nvim",
     lazy = true,
     dependencies = {
