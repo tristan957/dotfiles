@@ -72,8 +72,6 @@ PS4="\[$(tput bold)\]+ \[$(tput sgr0)\]"
 # Nix, stop it
 export NIX_INSTALLER_NO_MODIFY_PROFILE=1
 
-export HOMEBREW_PREFIX="${HOME}/.opt/linuxbrew"
-
 # nnn options
 export NNN_OPTS="eEH"
 
@@ -211,10 +209,6 @@ if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
     PATH="/var/lib/snapd/snap/bin:${PATH}"
 fi
 
-if [[ "${PATH}" != *"${HOMEBREW_PREFIX}/bin"* ]]; then
-    PATH="${HOMEBREW_PREFIX}/bin:${PATH}"
-fi
-
 # Add my Zig nightly to PATH
 if [[ "${PATH}" != *"${HOME}/.opt/zig"* ]]; then
     PATH="${HOME}/.opt/zig:${PATH}"
@@ -236,6 +230,14 @@ export PAGER=less
 # Golang
 export GOPROXY=direct
 export GOTELEMETRY=off
+
+# Homebrew
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
 
 #-------------------------------------------------------------------------------
 
