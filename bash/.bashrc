@@ -72,6 +72,8 @@ PS4="\[$(tput bold)\]+ \[$(tput sgr0)\]"
 # Nix, stop it
 export NIX_INSTALLER_NO_MODIFY_PROFILE=1
 
+export HOMEBREW_PREFIX="${HOME}/.opt/linuxbrew"
+
 # nnn options
 export NNN_OPTS="eEH"
 
@@ -207,6 +209,10 @@ fi
 # Add snap executables to PATH
 if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
     PATH="/var/lib/snapd/snap/bin:${PATH}"
+fi
+
+if [[ "${PATH}" != *"${HOMEBREW_PREFIX}/bin"* ]]; then
+    PATH="${HOMEBREW_PREFIX}/bin:${PATH}"
 fi
 
 # Add my Zig nightly to PATH
