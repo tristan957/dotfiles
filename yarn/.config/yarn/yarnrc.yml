@@ -1,4 +1,2 @@
-# Yarn is being a good boy so far
-# cacheFolder: ${XDG_CACHE_HOME}/.cache/yarn
-# pnpUnpluggedFolder: ${XDG_DATA_HOME}/yarn/unplugged
-# virtualFolder: ${XDG_DATA_HOME}/yarn/$$virtual
+cacheFolder: "${XDG_CACHE_HOME:-${HOME}/.cache}/yarn"
+globalFolder: "${HOME}/.opt/yarn"
