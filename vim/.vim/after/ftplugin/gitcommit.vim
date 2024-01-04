@@ -1,2 +1,2 @@
-set formatoptions=1jnwtcql/r
+set formatoptions=1jntcql/r
 set noexpandtab
