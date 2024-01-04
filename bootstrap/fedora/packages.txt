@@ -40,6 +40,7 @@ gnome-sound-recorder
 gnome-tweaks
 go-task
 golang
+golang-x-tools-gopls
 gron
 gtk4-devel
 hut
