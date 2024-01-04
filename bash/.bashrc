@@ -232,12 +232,14 @@ export GOPROXY=direct
 export GOTELEMETRY=off
 
 # Homebrew
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
-export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+    export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
+    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew";
+    export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin${PATH+:$PATH}";
+    export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
+    export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
+fi
 
 #-------------------------------------------------------------------------------
 
