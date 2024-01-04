@@ -11,6 +11,7 @@ for f in "$HOME/.bash"*; do
         rm "$f"
     fi
 done
+
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions"
 mkdir -p "$HOME/.opt"
 
@@ -22,6 +23,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/dconf.sh"
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
+. "$dir/shared/homebrew.sh"
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
 . "$dir/shared/systemd.sh"
@@ -41,3 +43,4 @@ stow_setup
 aerc_setup
 deno_setup
 rustup_setup
+homebrew_setup

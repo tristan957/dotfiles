@@ -1,0 +1,11 @@
+ansible-language-server
+bash-language-server
+dockerfile-language-server
+gopls
+jdtls
+lua-language-server
+ruff
+ruff-lsp
+sql-language-server
+typescript-language-server
+yaml-language-server
