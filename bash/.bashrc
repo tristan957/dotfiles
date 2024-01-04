@@ -136,13 +136,13 @@ export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
 export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
-if [ -f "${XDG_CONFIG_HOME}/ripgrep/config" ]; then
+if [[ -f "${XDG_CONFIG_HOME}/ripgrep/config" ]]; then
     export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 fi
 export GOBIN="${HOME}/.local/bin"
 export GOMODCACHE="${XDG_CACHE_HOME}/go"
 export GOPATH="${XDG_DATA_HOME}/go"
-export DENO_INSTALL="${HOME}/local/bin/deno"
+export DENO_INSTALL="${HOME}/.opt/deno"
 export DENO_DIR="${XDG_CACHE_HOME}/deno"
 # cargo and rustup are way too annoying with this
 export CARGO_HOME="${HOME}/.opt/cargo"
@@ -153,7 +153,7 @@ export YARN_RC_FILENAME="${XDG_CONFIG_HOME}/yarn/yarnrc.yml"
 # Teleport, wtf dog. Allow me to split config and state :(.
 export TELEPORT_HOME="${HOME}/.opt/tsh"
 export TF_CLI_CONFIG_FILE="${XDG_CONFIG_HOME}/terraform/terraformrc"
-if [ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]; then
+if [[ -f "${XDG_CONFIG_HOME}/wget/wgetrc" ]]; then
     export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 fi
 export PYTHONSTARTUP="$DOTFILES_DIR/python/startup.py"
@@ -167,6 +167,10 @@ elif command -v "vim" >/dev/null 2>&1; then
     export EDITOR="vim"
     export GIT_EDITOR="vim"
     export VISUAL="vim"
+elif command -v "vi" >/dev/null 2>&1; then
+    export EDITOR="vi"
+    export GIT_EDITOR="vi"
+    export VISUAL="vi"
 else
     export EDITOR="nano"
     export GIT_EDITOR="nano"
@@ -219,13 +223,13 @@ HISTCONTROL="ignoredups:ignorespace"
 HISTSIZE=1000000
 HISTTIMEFORMAT="%FT%T%z: "
 
-# LESS
+# less
+export PAGER=less
 export LESS=RcJ
 export LESSHISTSIZE=1000000
 if command -v "pygmentize" >/dev/null 2>&1; then
     export LESSOPEN="| pygmentize -O style=one-dark %s 2>/dev/null"
 fi
-export PAGER=less
 
 # Golang
 export GOPROXY=direct
@@ -250,10 +254,6 @@ if ! shopt -oq posix; then
         . /usr/share/bash-completion/bash_completion
     elif [[ -f /etc/bash_completion ]]; then
         . /etc/bash_completion
-    fi
-
-    if [[ -d "${XDG_DATA_HOME}/bash-completion/completions" ]]; then
-        find "${XDG_DATA_HOME}/bash-completion/completions" -type f -exec bash -c 'f="$1"; source $f' shell {} \;
     fi
 fi
 
