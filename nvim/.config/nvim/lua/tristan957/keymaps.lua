@@ -1,6 +1,9 @@
-vim.keymap.set("n", "<leader>df", function()
+vim.keymap.set("n", "<leader>e", function()
   vim.diagnostic.open_float(nil, { scope = "cursor" })
-end, { noremap = true, silent = true })
+end, { silent = true })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_next, { silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- Similar to o or O without entering insert mode
 vim.keymap.set("n", "oo", "o<Esc>")
