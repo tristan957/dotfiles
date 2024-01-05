@@ -72,13 +72,22 @@ vim.diagnostic.config({
 })
 
 require("lazy").setup({
-  { "chrisbra/unicode.vim" },
-  { "dart-lang/dart-vim-plugin", ft = { "dart" } },
-  { "editorconfig/editorconfig-vim" },
-  { "EdenEast/nightfox.nvim" },
+  {
+    "chrisbra/unicode.vim",
+    event = "VeryLazy",
+  },
+  {
+    "dart-lang/dart-vim-plugin",
+    event = "VeryLazy",
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = true,
+  },
   {
     'echasnovski/mini.ai',
     version = false,
+    event = "VeryLazy",
     config = function()
       require("tristan957.plugins.mini-ai")
     end
@@ -86,6 +95,7 @@ require("lazy").setup({
   {
     'echasnovski/mini.files',
     version = false,
+    event = "BufEnter",
     config = function()
       require("tristan957.plugins.mini-files")
     end
@@ -93,6 +103,7 @@ require("lazy").setup({
   {
     'echasnovski/mini.hipatterns',
     version = false,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("tristan957.plugins.mini-hipatterns")
     end
@@ -100,6 +111,7 @@ require("lazy").setup({
   {
     'echasnovski/mini.move',
     version = false,
+    event = "VeryLazy",
     config = function()
       require("tristan957.plugins.mini-move")
     end
@@ -110,6 +122,7 @@ require("lazy").setup({
   },
   {
     "folke/trouble.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("tristan957.plugins.trouble")
     end,
@@ -117,17 +130,22 @@ require("lazy").setup({
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("tristan957.plugins.todo-comments")
     end,
   },
   {
     "folke/tokyonight.nvim",
+    lazy = true,
     config = function()
       require("tristan957.plugins.tokyonight")
     end,
   },
-  { "folke/zen-mode.nvim", cmd = "ZenMode" },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+  },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -148,15 +166,18 @@ require("lazy").setup({
         dependencies = { "L3MON4D3/LuaSnip" },
       },
     },
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     config = function()
       require("tristan957.plugins.cmp")
     end,
   },
-  { "kevinoid/vim-jsonc", ft = "jsonc" },
-  { "L3MON4D3/LuaSnip", event = "InsertEnter" },
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+  },
   {
     "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("tristan957.plugins.gitsigns")
     end,
@@ -169,13 +190,17 @@ require("lazy").setup({
       require("tristan957.plugins.dap-ui")
     end,
   },
-  { "nvim-lua/plenary.nvim" },
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = true,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "cmp-nvim-lsp",
       "folke/neodev.nvim",
     },
+    event = "VeryLazy",
     config = function()
       require("tristan957.plugins.lspconfig")
     end,
@@ -191,6 +216,7 @@ require("lazy").setup({
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "onedarkpro.nvim" },
+    event = "UIEnter",
     config = function()
       require("tristan957.plugins.lualine")
     end,
@@ -200,6 +226,7 @@ require("lazy").setup({
     build = ":Neorg sync-parsers",
     enabled = false,
     dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+    ft = "norg",
     config = function()
       require("tristan957.plugins.neorg")
     end,
@@ -212,6 +239,7 @@ require("lazy").setup({
       { "nvim-telescope/telescope-project.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
+    event = "VeryLazy",
     config = function()
       require("tristan957.plugins.telescope")
     end,
@@ -223,6 +251,7 @@ require("lazy").setup({
       "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("tristan957.plugins.treesitter")
     end,
@@ -234,10 +263,11 @@ require("lazy").setup({
   },
   {
     "olimorris/onedarkpro.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      require("tristan957.plugins.onedarkpro")
       vim.cmd("colorscheme onedark_vivid")
+      require("tristan957.plugins.onedarkpro")
     end,
   },
   {
@@ -254,13 +284,12 @@ require("lazy").setup({
   },
   {
     "rcarriga/nvim-notify",
-    lazy = true,
     dependencies = { "nvim-telescope/telescope.nvim" },
+    event = "VeryLazy",
     config = function()
       require("tristan957.plugins.notify")
     end,
   },
-  { "rust-lang/rust.vim", ft = { "rust" } },
   {
     "ThePrimeagen/refactoring.nvim",
     lazy = true,
@@ -272,19 +301,27 @@ require("lazy").setup({
       require("tristan957.plugins.refactoring")
     end,
   },
-  { "tmux-plugins/vim-tmux", ft = "tmux" },
-  { "tpope/vim-fugitive" },
-  { "tpope/vim-obsession" },
-  { "tpope/vim-surround" },
-  { "ziglang/zig.vim", ft = { "zig" } },
+  {
+    "tmux-plugins/vim-tmux",
+    ft = "tmux",
+  },
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+  },
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
+    event = "VeryLazy",
     config = function()
       require("tristan957.plugins.mason")
     end,
   },
-  { "williamboman/mason-lspconfig.nvim", dependencies = { "williamboman/mason.nvim" } },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    event = "VeryLazy",
+  },
 }, {
   dev = {
     path = "~/Projects",
