@@ -6,4 +6,5 @@ end, { noremap = true, silent = true })
 vim.keymap.set("n", "oo", "o<Esc>")
 vim.keymap.set("n", "OO", "O<Esc>")
 
+vim.keymap.set("n", "Z", "<cmd>ZenMode<CR>")
 vim.keymap.set("n", "<M-S-u>", "<cmd>nohl<CR>")
