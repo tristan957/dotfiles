@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = group,
   callback = function()
     -- If we ask for trailing whitespace, respect it
-    if string.find(vim.bo.formatoptions, "w") == nil then
+    if string.find(vim.bo.formatoptions, "w") ~= nil then
       return
     end
 
