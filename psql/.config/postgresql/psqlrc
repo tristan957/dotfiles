@@ -1,5 +1,5 @@
 \pset null '(null)'
 
 \set HISTCONTROL ignoreboth
-\set HISTFILE `echo $XDG_CACHE_HOME/psql_history`
+\set HISTFILE `echo $XDG_STATE_HOME/postgresql/psql_history`
 \set HISTSIZE 1000000

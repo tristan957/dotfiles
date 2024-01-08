@@ -245,6 +245,12 @@ if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
     export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
 fi
 
+# Postgres
+export PSQL_HISTORY="$XDG_STATE_HOME/postgresql/psql_history"
+export PSQLRC="$XDG_CONFIG_HOME/postgresql/psqlrc"
+export PGPASSFILE="$XDG_CONFIG_HOME/postgresql/pgpass"
+export PGSERVICEFILE="$XDG_CONFIG_HOME/postgresql/pg_service.conf"
+
 #-------------------------------------------------------------------------------
 
 # Bash Completion

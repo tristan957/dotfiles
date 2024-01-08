@@ -12,7 +12,9 @@ for f in "$HOME/.bash"*; do
     fi
 done
 
+mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/postgresql/completions"
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions"
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/postgresql/completions"
 mkdir -p "$HOME/.opt"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
