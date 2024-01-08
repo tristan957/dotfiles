@@ -199,6 +199,7 @@ require("lazy").setup({
     dependencies = {
       "cmp-nvim-lsp",
       "folke/neodev.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
     event = "VeryLazy",
     config = function()
@@ -320,7 +321,7 @@ require("lazy").setup({
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
-    event = "VeryLazy",
+    lazy = true,
   },
 }, {
   dev = {

@@ -16,6 +16,7 @@ local servers = {
   "lua_ls",
   "ruff_lsp",
   "swift_mesonls",
+  "taplo",
   "terraformls",
   "tsserver",
   "vimls",
@@ -29,7 +30,7 @@ end
 
 require("mason-lspconfig").setup({
   ensure_installed = vim.tbl_filter(on_system, servers),
-  automatic_installation = true,
+  automatic_installation = false,
 })
 
 lspconfig.awk_ls.setup({
@@ -150,6 +151,10 @@ lspconfig.rust_analyzer.setup({
 })
 
 lspconfig.swift_mesonls.setup({
+  capabilities = capabilities,
+})
+
+lspconfig.taplo.setup({
   capabilities = capabilities,
 })
 
