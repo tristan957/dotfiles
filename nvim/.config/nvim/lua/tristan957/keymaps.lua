@@ -11,3 +11,6 @@ vim.keymap.set("n", "OO", "O<Esc>")
 
 vim.keymap.set("n", "Z", "<cmd>ZenMode<CR>")
 vim.keymap.set("n", "<M-S-u>", "<cmd>nohl<CR>")
+
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>")
