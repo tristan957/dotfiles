@@ -14,6 +14,7 @@ local servers = {
   "jdtls",
   "lemminx",
   "lua_ls",
+  "marksman",
   "ruff_lsp",
   "swift_mesonls",
   "taplo",
@@ -140,6 +141,10 @@ lspconfig.lua_ls.setup({
       end
   return true
   end
+})
+
+lspconfig.marksman.setup({
+  capabilities = capabilities,
 })
 
 lspconfig.ruff_lsp.setup({
