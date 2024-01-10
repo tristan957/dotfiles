@@ -2,7 +2,7 @@
 
 " VIM is a naughty boy using ~/.vim/. Teach it to play nice.
 let cache_dir=$XDG_CACHE_HOME . '/vim'
-let data_dir='~/.vim'
+let data_dir=$HOME . '/.vim'
 let state_dir=$XDG_STATE_HOME . '/vim'
 
 """"""""
@@ -95,6 +95,7 @@ set list
 set listchars='space:·,tab:⭢ '
 set magic
 set nobackup " some language servers have issues with backup files, see coc.nvim#649
+set nocompatible
 set noerrorbells " no sounds please vim
 set noshowmode " don't show the mode since we are already using the statusbar
 set noswapfile
@@ -121,7 +122,7 @@ set textwidth=100 " maximum width of text that is being inserted
 let &undodir=cache_dir . '/undo'
 set undofile
 set updatetime=250
-set viminfofile=state_dir . '/info'
+let &viminfofile=state_dir . '/info'
 set wildmenu " visual autocomplete for command menu
 
 let g:netrw_banner=0
