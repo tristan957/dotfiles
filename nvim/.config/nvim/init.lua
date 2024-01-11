@@ -22,6 +22,10 @@ vim.o.confirm = true
 vim.o.cursorline = true
 vim.o.encoding = "UTF-8"
 vim.o.expandtab = true
+if vim.fn.executable("rg") == 1 then
+  vim.o.grepprg = "rg --vimgrep --no-heading "
+  vim.o.grepfmt = "%f:%l:%c:%m"
+end
 vim.o.hidden = true
 vim.o.hlsearch = true
 vim.o.incsearch = true
