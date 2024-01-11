@@ -40,7 +40,6 @@ vim.o.noerrorbells = true
 vim.o.noswapfile = true
 vim.o.nowrap = true
 vim.o.nowritebackup = true
-vim.o.nu = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.ruler = true
