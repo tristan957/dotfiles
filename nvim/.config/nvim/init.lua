@@ -41,6 +41,7 @@ vim.o.noswapfile = true
 vim.o.nowrap = true
 vim.o.nowritebackup = true
 vim.o.number = true
+vim.o.path = vim.o.path .. "**"
 vim.o.relativenumber = true
 vim.o.ruler = true
 vim.o.scrolloff = 5

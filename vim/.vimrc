@@ -103,6 +103,7 @@ set nowrap " do not wrap
 set nowritebackup " some language servers have issues with backup files, see coc.nvim#649
 set nu " show current line number instead of 0
 set number " show line numbers
+set path+=**
 set relativenumber " show relative line numbering
 set ruler " show the line and column number of the cursor position, separated by a comma
 set scrolloff=5 " start scrolling X lines from bottom or top
