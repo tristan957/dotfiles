@@ -281,8 +281,8 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme onedark_vivid")
       require("tristan957.plugins.onedarkpro")
+      vim.cmd("colorscheme onedark_vivid")
     end,
   },
   {
