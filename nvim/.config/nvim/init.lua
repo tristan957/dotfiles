@@ -124,6 +124,10 @@ require("lazy").setup({
     end
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    lazy = true,
+  },
+  {
     "folke/neodev.nvim",
     lazy = true,
   },
