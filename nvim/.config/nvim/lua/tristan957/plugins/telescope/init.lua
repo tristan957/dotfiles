@@ -22,12 +22,10 @@ telescope.setup({
       previewer = false,
     },
     find_files = {
-      previewer = false,
       prompt_title = "Files",
       hidden = true,
     },
     git_files = {
-      previewer = false,
       prompt_title = "Files",
     },
   },
