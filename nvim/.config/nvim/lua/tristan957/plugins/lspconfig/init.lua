@@ -34,6 +34,12 @@ require("mason-lspconfig").setup({
   automatic_installation = false,
 })
 
+-- Customize floating windows
+vim.lsp.handlers["textDocument/hover"] =
+  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] =
+  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
 local group = vim.api.nvim_create_augroup("tristan957/lspconfig", { clear = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
