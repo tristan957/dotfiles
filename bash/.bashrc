@@ -127,13 +127,13 @@ fi
 
 # I hate software that thinks it is special.
 # https://wiki.archlinux.org/title/XDG_Base_Directory
-export GDBHISTFILE="${XDG_CACHE_HOME}/gdb/history"
+export GDBHISTFILE="${XDG_STATE_HOME}/gdb/history"
 # ipython can die in a hole for this: https://github.com/ipython/ipython/pull/4457
 export IPYTHONDIR="${XDG_CONFIG_HOME}/jupyter"
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}/jupyter"
 export TERMINFO="${XDG_DATA_HOME}/terminfo"
 export TERMINFO_DIRS="${TERMINFO}:/usr/share/terminfo"
-export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
+export NODE_REPL_HISTORY="${XDG_STATE_HOME}/node_repl_history"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export PYLINTHOME="${XDG_CACHE_HOME}/pylint"
 if [[ -f "${XDG_CONFIG_HOME}/ripgrep/config" ]]; then

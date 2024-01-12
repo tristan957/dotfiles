@@ -15,6 +15,7 @@ done
 mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/postgresql/completions"
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions"
 mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/postgresql/completions"
+mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/postgresql"
 mkdir -p "$HOME/.opt"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
