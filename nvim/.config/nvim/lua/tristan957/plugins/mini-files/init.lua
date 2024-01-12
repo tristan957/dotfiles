@@ -33,7 +33,10 @@ local map_split = function(buf_id, lhs, close_on_file, direction)
   vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
 end
 
+local group = vim.api.nvim_create_augroup("tristan957/mini-files", { clear = true })
+
 vim.api.nvim_create_autocmd("User", {
+  group = group,
   pattern = "MiniFilesBufferCreate",
   callback = function(args)
     local buf_id = args.data.buf_id
