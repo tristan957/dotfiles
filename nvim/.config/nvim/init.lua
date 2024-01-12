@@ -171,6 +171,7 @@ require("lazy").setup({
       { "hrsh7th/cmp-omni" },
       { "hrsh7th/cmp-path" },
       { "nvim-neorg/neorg" },
+      { "onsails/lspkind.nvim" },
       { "petertriho/cmp-git", dependencies = "nvim-lua/plenary.nvim" },
       {
         "saadparwaiz1/cmp_luasnip",
@@ -343,30 +344,7 @@ require("lazy").setup({
     path = "~/Projects",
   },
   ui = {
-    border = "single",
-    icons = {
-      cmd = "c ",
-      config = "",
-      event = "e ",
-      ft = "ft ",
-      init = "",
-      import = "i ",
-      keys = "k ",
-      lazy = "l ",
-      loaded = "●",
-      not_loaded = "○",
-      plugin = "p ",
-      runtime = "r ",
-      source = "s ",
-      start = "* ",
-      task = "t ",
-      list = {
-        "●",
-        "➜",
-        "★",
-        "‒",
-      },
-    },
+    border = "rounded",
   },
 })
 

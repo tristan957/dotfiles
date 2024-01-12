@@ -2,6 +2,7 @@ local cmp = require("cmp")
 local cmp_git = require("cmp_git")
 local feedkeys = require("cmp.utils.feedkeys")
 local keymap = require("cmp.utils.keymap")
+local lspkind = require("lspkind")
 
 local sources = {
   buffer = "[Buffer]",
@@ -68,18 +69,14 @@ cmp.setup({
     end,
   },
   formatting = {
-    format = function(entry, vim_item)
-      local detail = entry:get_completion_item().detail
-
-      if detail == nil then
-        vim_item.menu = sources[entry.source.name]
-      else
-        vim_item.menu = sources[entry.source.name] .. " " .. detail
-      end
-
-      return vim_item
-    end,
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      show_labelDetails = true,
+    }),
   },
+  view = {
+    entries = "custom",
+  }
 })
 
 cmp_git.setup({})

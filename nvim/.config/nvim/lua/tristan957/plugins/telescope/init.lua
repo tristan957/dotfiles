@@ -6,7 +6,6 @@ local trouble = require("trouble.providers.telescope")
 
 telescope.setup({
   defaults = {
-    disable_devicons = true,
     color_devicons = true,
     mappings = {
       i = {
