@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local schemastore = require("schemastore")
 
 local servers = {
   "awk_ls",
@@ -125,6 +126,14 @@ lspconfig.jdtls.setup({
 
 lspconfig.jsonls.setup({
   capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = schemastore.json.schemas(),
+      validate = {
+        enable = true,
+      },
+    },
+  },
 })
 
 lspconfig.lemminx.setup({
@@ -202,6 +211,15 @@ lspconfig.vimls.setup({
 
 lspconfig.yamlls.setup({
   capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
 })
 
 lspconfig.zls.setup({

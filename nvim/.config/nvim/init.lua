@@ -81,6 +81,10 @@ vim.diagnostic.config({
 -- https://github.com/pmizio/typescript-tools.nvim
 require("lazy").setup({
   {
+    "b0o/schemastore.nvim",
+    lazy = true,
+	},
+  {
     "chrisbra/unicode.vim",
     event = "VeryLazy",
   },
