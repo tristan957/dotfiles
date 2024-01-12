@@ -9,6 +9,6 @@ trouble.setup({
 vim.keymap.set(
   "n",
   "<leader>dt",
-  "<cmd>:TroubleToggle<cr>",
+  "<cmd>TroubleToggle<CR>",
   { noremap = true, silent = true }
 )
