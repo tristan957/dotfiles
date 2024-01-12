@@ -69,7 +69,7 @@ vim.cmd("filetype plugin on")
 vim.cmd("syntax enable")
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   signs = true,
   source = true,
   float = { border = "rounded" },
