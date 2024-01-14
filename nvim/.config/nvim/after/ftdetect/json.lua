@@ -1,9 +1,8 @@
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = {
-    "hse.conf",
-    "kvdb.conf",
-    "kvdb.meta",
-    "kvdb.pid",
+vim.filetype.add({
+  filename = {
+    ["hse.conf"] = "json",
+    ["kvdb.conf"] = "json",
+    ["kvdb.meta"] = "json",
+    ["kvdb.pid"] = "json",
   },
-  command = "set filetype=json",
 })

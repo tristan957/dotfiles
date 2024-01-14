@@ -1,7 +1,6 @@
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = {
-    "accounts.conf",
-    "aerc.conf",
+vim.filetype.add({
+  filename = {
+    ["accounts.conf"] = "ini",
+    ["aerc.conf"] = "ini",
   },
-  command = "set filetype=ini",
 })

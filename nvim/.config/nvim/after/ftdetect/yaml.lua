@@ -1,7 +1,6 @@
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = {
-    ".clang-format",
-    ".clang-tidy",
+vim.filetype.add({
+  filename = {
+    [".clang-format"] = "yaml",
+    [".clang-tidy"] = "yaml",
   },
-  command = "set filetype=yaml",
 })
