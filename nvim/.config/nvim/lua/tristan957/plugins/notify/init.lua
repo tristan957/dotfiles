@@ -1,16 +1,14 @@
-local notify = require("notify")
+---@type LazySpec
+return {
+  "rcarriga/nvim-notify",
+  event = "UIEnter",
+  config = function()
+    local notify = require("notify")
 
-notify.setup({
-  stages = "fade",
-  icons = {
-    ERROR = "E",
-    WARN = "W",
-    INFO = "I",
-    DEBUG = "D",
-    TRACE = "T",
-  },
-})
+    notify.setup({
+      stages = "fade",
+    })
 
-vim.notify = notify
-
-require("telescope").load_extension("notify")
+    vim.notify = notify
+  end,
+}
