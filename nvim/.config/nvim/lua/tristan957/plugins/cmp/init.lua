@@ -19,6 +19,7 @@ return {
         "nvim-lua/plenary.nvim",
       }
     },
+    "rcarriga/cmp-dap",
     {
       "saadparwaiz1/cmp_luasnip",
       dependencies = {
@@ -106,6 +107,12 @@ return {
       }, {
         { name = "buffer" },
       }),
+    })
+
+    cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+      sources = {
+        { name = "dap" },
+      },
     })
 
     cmp.setup.cmdline(":", {
