@@ -65,9 +65,6 @@ vim.o.writebackup = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-vim.cmd("filetype plugin on")
-vim.cmd("syntax enable")
-
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
