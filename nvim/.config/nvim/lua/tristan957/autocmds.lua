@@ -1,12 +1,28 @@
 local group = vim.api.nvim_create_augroup("tristan957", { clear = true })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
+  pattern = "*",
+  group = group,
+  callback = function()
+    vim.wo.relativenumber = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
+  pattern = "*",
+  group = group,
+  callback = function()
+    vim.wo.relativenumber = false
+  end,
+})
+
 -- Remove trailing whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   group = group,
-  callback = function()
+  callback = function(ev)
     -- If we ask for trailing whitespace, respect it
-    if string.find(vim.bo.formatoptions, "w") ~= nil then
+    if string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil then
       return
     end
 
