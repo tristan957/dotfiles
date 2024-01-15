@@ -139,7 +139,15 @@ return {
       capabilities = capabilities,
       settings = {
         json = {
-          schemas = schemastore.json.schemas(),
+          schemas = schemastore.json.schemas({
+            extras = {
+              {
+                name = "LuaLS Settings",
+                url = "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+                fileMatch = { ".luarc.json", ".luarc.jsonc" },
+              },
+            },
+          }),
           validate = {
             enable = true,
           },
@@ -166,7 +174,10 @@ return {
       capabilities = capabilities,
       on_init = function(client)
         local path = client.workspace_folders[1].name
-        if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+        if
+          not vim.loop.fs_stat(path .. "/.luarc.json")
+          and not vim.loop.fs_stat(path .. "/.luarc.jsonc")
+        then
           client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
             Lua = {
               globals = {
