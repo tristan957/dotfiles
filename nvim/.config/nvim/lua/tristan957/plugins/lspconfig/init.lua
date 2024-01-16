@@ -68,6 +68,8 @@ return {
         vim.keymap.set("n", "<C-S-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "gOi", vim.lsp.buf.incoming_calls, opts)
+        vim.keymap.set("n", "gOo", vim.lsp.buf.outgoing_calls, opts)
       end,
     })
 

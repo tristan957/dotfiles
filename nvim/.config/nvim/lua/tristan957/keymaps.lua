@@ -31,6 +31,11 @@ vim.keymap.set("n", "<Esc>", function()
       return false
     end
 
+    local buf = vim.api.nvim_win_get_buf(w)
+    if vim.tbl_contains({ "minifiles", "TelescopePrompt" }, vim.bo[buf].filetype) then
+      return false
+    end
+
     local config = vim.api.nvim_win_get_config(w)
     return config.relative ~= ""
   end, vim.api.nvim_list_wins())
