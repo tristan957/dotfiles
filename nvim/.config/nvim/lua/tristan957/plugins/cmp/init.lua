@@ -19,7 +19,12 @@ return {
         "nvim-lua/plenary.nvim",
       }
     },
-    "rcarriga/cmp-dap",
+    {
+      "rcarriga/cmp-dap",
+      dependencies = {
+        "mfussenegger/nvim-dap",
+      },
+    },
     {
       "saadparwaiz1/cmp_luasnip",
       dependencies = {
