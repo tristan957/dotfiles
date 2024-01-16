@@ -99,6 +99,7 @@ shfmt
 snapshot
 stow
 strace
+swift-lang
 symlinks
 sysprof
 terraform
