@@ -13,54 +13,54 @@ end
 
 vim.opt.rtp:prepend(lazy_path)
 
-vim.o.autoindent = true
-vim.o.autoread = true
-vim.o.background = "dark"
-vim.o.backup = false
-vim.o.cmdheight = 2
-vim.o.colorcolumn = "80,100,120"
-vim.o.confirm = true
-vim.o.cursorline = true
-vim.o.encoding = "UTF-8"
-vim.o.errorbells = false
-vim.o.expandtab = true
+vim.opt.autoindent = true
+vim.opt.autoread = true
+vim.opt.background = "dark"
+vim.opt.backup = false
+vim.opt.cmdheight = 2
+vim.opt.colorcolumn = { 80, 100, 120 }
+vim.opt.confirm = true
+vim.opt.cursorline = true
+vim.opt.encoding = "UTF-8"
+vim.opt.errorbells = false
+vim.opt.expandtab = true
 if vim.fn.executable("rg") == 1 then
-  vim.o.grepprg = "rg --vimgrep --no-heading "
-  vim.o.grepformat = "%f:%l:%c:%m"
+  vim.opt.grepprg = "rg --vimgrep --no-heading "
+  vim.opt.grepformat = "%f:%l:%c:%m"
 end
-vim.o.hidden = true
-vim.o.hlsearch = true
-vim.o.incsearch = true
-vim.o.laststatus = 3
-vim.o.lazyredraw = true
-vim.o.linebreak = true
-vim.o.list = true
-vim.o.listchars = "space:·,tab:⭢ "
-vim.o.magic = true
-vim.o.number = true
-vim.o.path = vim.o.path .. "**"
-vim.o.relativenumber = true
-vim.o.ruler = true
-vim.o.scrolloff = 5
-vim.o.secure = true
-vim.o.shiftwidth = 4
-vim.o.shortmess = vim.o.shortmess .. "Ic"
-vim.o.showbreak = "++++"
-vim.o.showmatch = true
-vim.o.showmode = false
-vim.o.signcolumn = "yes"
-vim.o.smarttab = true
-vim.o.smartindent = true
-vim.o.softtabstop = 4
-vim.o.swapfile = false
-vim.o.tabstop = 4
-vim.o.termguicolors = true
-vim.o.textwidth = 100
-vim.o.undofile = true
-vim.o.updatetime = 250
-vim.o.wildmenu = true
-vim.o.wrap = false
-vim.o.writebackup = false
+vim.opt.hidden = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.laststatus = 3
+vim.opt.lazyredraw = true
+vim.opt.linebreak = true
+vim.opt.list = true
+vim.opt.listchars = { space = "·", tab = "⭢ " }
+vim.opt.magic = true
+vim.opt.number = true
+vim.opt.path:append("**")
+vim.opt.relativenumber = true
+vim.opt.ruler = true
+vim.opt.scrolloff = 5
+vim.opt.secure = true
+vim.opt.shiftwidth = 4
+vim.opt.shortmess:append("Ic")
+vim.opt.showbreak = "++++"
+vim.opt.showmatch = true
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
+vim.opt.smarttab = true
+vim.opt.smartindent = true
+vim.opt.softtabstop = 4
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.textwidth = 100
+vim.opt.undofile = true
+vim.opt.updatetime = 250
+vim.opt.wildmenu = true
+vim.opt.wrap = false
+vim.opt.writebackup = false
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
