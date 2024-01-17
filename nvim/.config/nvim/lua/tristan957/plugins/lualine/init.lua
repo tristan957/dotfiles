@@ -36,7 +36,10 @@ return {
             "fileformat",
             icons_enabled = false,
           },
-          "filetype",
+          {
+            "filetype",
+            icons_enabled = false,
+          },
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
