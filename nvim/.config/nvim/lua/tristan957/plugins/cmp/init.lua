@@ -40,6 +40,12 @@ return {
     local keymap = require("cmp.utils.keymap")
     local lspkind = require("lspkind")
 
+    local window = cmp.config.window.bordered({
+      border = "rounded",
+      side_padding = 0,
+      winhighlight = "CursorLine:Visual,Search:None",
+    })
+
     cmp.setup({
       completion = {
         autocomplete = { cmp.TriggerEvent.TextChanged },
@@ -99,9 +105,13 @@ return {
           show_labelDetails = true,
         }),
       },
+      window = {
+        completion = window,
+        documentation = window,
+      },
       view = {
         entries = "custom",
-      }
+      },
     })
 
     cmp_git.setup({})
