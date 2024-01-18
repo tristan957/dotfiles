@@ -12,6 +12,7 @@ return {
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local schemastore = require("schemastore")
+    local Path = require("plenary.path")
 
     local servers = {
       "awk_ls",
@@ -175,10 +176,11 @@ return {
       },
       capabilities = capabilities,
       on_init = function(client)
-        local path = client.workspace_folders[1].name
+        local path = Path:new(client.workspace_folders[1].name)
+
         if
-          not vim.loop.fs_stat(path .. "/.luarc.json")
-          and not vim.loop.fs_stat(path .. "/.luarc.jsonc")
+          not path:joinpath(".luarc.json"):exists()
+          and not path:joinpath(".luarc.jsonc"):exists()
         then
           client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
             Lua = {
