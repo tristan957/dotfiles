@@ -28,6 +28,7 @@ return {
       "lemminx",
       "lua_ls",
       "marksman",
+      "pyright",
       "ruff_lsp",
       "swift_mesonls",
       "taplo",
@@ -205,6 +206,34 @@ return {
 
     lspconfig.marksman.setup({
       capabilities = capabilities,
+    })
+
+    -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
+    lspconfig.pyright.setup({
+      capabilities = capabilities,
+      settings = {
+        python = {
+          analysis = {
+            autoImportCompletions = true,
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+      on_init = function(client)
+        local path = Path:new(client.workspace_folders[1].name)
+
+        if path:joinpath("poetry.lock"):exists() and vim.fn.executable("poetry") then
+          client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
+            python = {
+              venvPath = vim.fn.system("poetry env info --path"),
+            },
+          })
+
+          client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+        end
+      end,
     })
 
     lspconfig.ruff_lsp.setup({
