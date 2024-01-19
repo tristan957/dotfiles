@@ -17,7 +17,7 @@ return {
       "petertriho/cmp-git",
       dependencies = {
         "nvim-lua/plenary.nvim",
-      }
+      },
     },
     {
       "rcarriga/cmp-dap",
@@ -36,15 +36,22 @@ return {
   config = function()
     local cmp = require("cmp")
     local cmp_git = require("cmp_git")
-    local feedkeys = require("cmp.utils.feedkeys")
-    local keymap = require("cmp.utils.keymap")
     local lspkind = require("lspkind")
+    local luasnip = require("luasnip")
 
     local window = cmp.config.window.bordered({
       border = "rounded",
       side_padding = 0,
       winhighlight = "CursorLine:Visual,Search:None",
     })
+
+    local has_words_before = function()
+      unpack = unpack or table.unpack
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0
+        and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s")
+          == nil
+    end
 
     cmp.setup({
       completion = {
@@ -71,7 +78,7 @@ return {
         ["<C-c>"] = cmp.mapping({
           i = cmp.mapping.close(),
         }),
-        ["<C-space>"] = cmp.mapping({
+        ["<C-Space>"] = cmp.mapping({
           i = cmp.mapping.complete({ reason = cmp.ContextReason.Manual }),
         }),
         ["<Down>"] = cmp.mapping({
@@ -81,10 +88,28 @@ return {
           i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
         }),
         ["<C-n>"] = cmp.mapping({
-          i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          i = function()
+            if cmp.visible() then
+              cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              cmp.complete()
+            end
+          end,
         }),
         ["<C-p>"] = cmp.mapping({
-          i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+          i = function()
+            if cmp.visible() then
+              cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+              cmp.complete()
+            end
+          end,
+        }),
+        ["<C-d>"] = cmp.mapping({
+          i = cmp.mapping.scroll_docs(-4),
+        }),
+        ["<C-f>"] = cmp.mapping({
+          i = cmp.mapping.scroll_docs(4),
         }),
         ["<C-y>"] = cmp.mapping({
           i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
@@ -92,6 +117,26 @@ return {
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
         }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       },
       preselect = cmp.PreselectMode.None,
       snippet = {
@@ -130,53 +175,67 @@ return {
       },
     })
 
+    local cmdline_mappings = {
+      ["<Tab>"] = cmp.mapping({
+        c = function()
+          if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end,
+      }),
+      ["<S-Tab>"] = cmp.mapping({
+        c = function()
+          if cmp.visible() then
+            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end,
+      }),
+      ["<C-n>"] = cmp.mapping({
+        c = function()
+          if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end,
+      }),
+      ["<C-p>"] = cmp.mapping({
+        c = function()
+          if cmp.visible() then
+            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end,
+      }),
+      ["<C-e>"] = cmp.mapping({
+        c = cmp.mapping.abort(),
+      }),
+      ["<C-y>"] = cmp.mapping({
+        c = cmp.mapping.confirm({ select = false }),
+      }),
+      ["<C-z>"] = cmp.mapping({
+        c = function()
+          if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+          else
+            cmp.complete()
+          end
+        end,
+      }),
+    }
+
     cmp.setup.cmdline(":", {
       sources = cmp.config.sources({
         { name = "cmdline" },
       }, {
         { name = "path" },
       }),
-      mapping = {
-        ["<Tab>"] = cmp.mapping({
-          c = function()
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              feedkeys.call(keymap.t("<C-z>"), "n")
-            end
-          end,
-        }),
-        ["<S-Tab>"] = cmp.mapping({
-          c = function()
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              feedkeys.call(keymap.t("<C-z>"), "n")
-            end
-          end,
-        }),
-        ["<C-n>"] = cmp.mapping({
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              fallback()
-            end
-          end,
-        }),
-        ["<C-p>"] = cmp.mapping({
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              fallback()
-            end
-          end,
-        }),
-        ["<C-e>"] = cmp.mapping({
-          c = cmp.mapping.close(),
-        }),
-      },
+      mapping = cmdline_mappings,
     })
 
     cmp.setup.cmdline({ "/", "?" }, {
@@ -185,47 +244,7 @@ return {
       }, {
         { name = "nvim_lsp_document_symbol" },
       }),
-      mapping = {
-        ["<Tab>"] = cmp.mapping({
-          c = function()
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              feedkeys.call(keymap.t("<C-z>"), "n")
-            end
-          end,
-        }),
-        ["<S-Tab>"] = cmp.mapping({
-          c = function()
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              feedkeys.call(keymap.t("<C-z>"), "n")
-            end
-          end,
-        }),
-        ["<C-n>"] = cmp.mapping({
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              fallback()
-            end
-          end,
-        }),
-        ["<C-p>"] = cmp.mapping({
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              fallback()
-            end
-          end,
-        }),
-        ["<C-e>"] = cmp.mapping({
-          c = cmp.mapping.close(),
-        }),
-      },
+      mapping = cmdline_mappings,
     })
   end,
 }
