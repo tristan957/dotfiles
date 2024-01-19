@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import pathlib
+import sys
+from typing import cast, TYPE_CHECKING
+
+if TYPE_CHECKING:
+
+    class Args(argparse.Namespace):
+        compdb_dir: pathlib.Path
+        workspace_dir: pathlib.Path
+        quiet: bool
+
+
+def printed_path(path: pathlib.Path) -> pathlib.Path:
+    cwd = os.getcwd()
+    if compdb_symlink.is_relative_to(cwd):
+        return compdb_symlink.relative_to(cwd)
+    return path
+
+
+parser = argparse.ArgumentParser("Change the current compilation database")
+parser.add_argument(
+    "compdb_dir",
+    type=pathlib.Path,
+    help="directory containing a compliation database",
+)
+parser.add_argument(
+    "workspace_dir",
+    type=pathlib.Path,
+    default=pathlib.Path(os.getcwd()),
+    nargs="?",
+    help="path to workspace directory",
+)
+parser.add_argument(
+    "-q", "--quiet", action="store_true", default=False, help="Silence output"
+)
+args = cast("Args", parser.parse_args())
+
+compdb_file = args.compdb_dir / "compile_commands.json"
+if not compdb_file.exists():
+    print(f"Compilation database ({compdb_file}) does not exist", file=sys.stderr)
+    exit(1)
+compdb_symlink = args.workspace_dir / "compile_commands.json"
+
+try:
+    if compdb_symlink.exists():
+        compdb_symlink.unlink()
+
+    compdb_symlink.symlink_to(compdb_file)
+    if not args.quiet:
+        ppath = printed_path(compdb_symlink)
+        print(f"Successfully created symlink ({ppath} -> {compdb_file})")
+except Exception as e:
+    if not args.quiet:
+        ppath = printed_path(compdb_symlink)
+        print(
+            f"Failed to create symlink ({ppath} -> {compdb_file}): {str(e)}",
+            file=sys.stderr,
+        )
