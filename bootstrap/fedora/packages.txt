@@ -116,3 +116,4 @@ wine-mono
 wl-clipboard
 yarnpkg
 zig
+zoxide
