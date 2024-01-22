@@ -11,9 +11,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lspconfig = require("lspconfig")
+    local lspconfig_windows = require("lspconfig.ui.windows")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local schemastore = require("schemastore")
     local Path = require("plenary.path")
+
+    lspconfig_windows.default_options.border = "rounded"
 
     local servers = {
       "awk_ls",
