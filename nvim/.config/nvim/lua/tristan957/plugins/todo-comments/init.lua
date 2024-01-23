@@ -9,6 +9,12 @@ return {
   config = function()
     local todo_comments = require("todo-comments")
 
-    todo_comments.setup()
+    todo_comments.setup({
+      keywords = {
+        NEON = {
+          color = "info",
+        },
+      },
+    })
   end,
 }
