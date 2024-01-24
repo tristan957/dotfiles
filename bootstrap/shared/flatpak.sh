@@ -5,6 +5,11 @@ function flatpak_add_remotes() {
         https://nightly.gnome.org/gnome-nightly.flatpakrepo
 }
 
+function flatpak_create_overrides() {
+    # Electron applications
+    flatpak override --user --socket=wayland com.slack.Slack
+}
+
 function flatpak_install_applications() {
     local dir=$(dirname "${BASH_SOURCE[0]}")
 
@@ -21,4 +26,5 @@ function flatpak_install_applications() {
 function flatpak_setup() {
     flatpak_add_remotes
     flatpak_install_applications
+    flatpak_create_overrides
 }
