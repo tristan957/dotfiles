@@ -119,7 +119,6 @@ set smartindent " smart autoindenting when starting a new line
 set softtabstop=4 " how many spaces a tab is when editing
 set tabstop=4 " how many spaces a tab is when viewing
 set termguicolors
-set textwidth=100 " maximum width of text that is being inserted
 let &undodir=cache_dir . '/undo'
 set undofile
 set updatetime=250

@@ -55,7 +55,6 @@ vim.opt.softtabstop = 4
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
-vim.opt.textwidth = 100
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmenu = true
