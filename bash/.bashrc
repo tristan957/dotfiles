@@ -265,6 +265,17 @@ fi
 
 #-------------------------------------------------------------------------------
 
+# direnv
+
 if command -v "direnv" >/dev/null 2>&1; then
     eval "$(direnv hook bash)"
+fi
+
+#-------------------------------------------------------------------------------
+
+# zoxide
+
+if command -v "zoxide" >/dev/null 2>&1; then
+    export _ZO_ECHO=1
+    eval "$(zoxide init bash)"
 fi
