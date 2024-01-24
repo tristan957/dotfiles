@@ -1,9 +1,16 @@
 local group = vim.api.nvim_create_augroup("tristan957", { clear = true })
 
+local relativenumber_ignore_fts = {
+  "minifiles-help",
+}
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   pattern = "*",
   group = group,
-  callback = function()
+  callback = function(ev)
+    if vim.tbl_contains(relativenumber_ignore_fts, vim.bo[ev.buf].filetype) then
+      return
+    end
+
     vim.wo.relativenumber = true
   end,
 })
@@ -11,7 +18,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   pattern = "*",
   group = group,
-  callback = function()
+  callback = function(ev)
+    if vim.tbl_contains(relativenumber_ignore_fts, vim.bo[ev.buf].filetype) then
+      return
+    end
+
     vim.wo.relativenumber = false
   end,
 })
