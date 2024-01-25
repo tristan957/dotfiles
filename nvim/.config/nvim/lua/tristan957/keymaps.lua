@@ -40,11 +40,21 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "oo", "o<Esc>", { desc = "Enter newline below cursor" })
 vim.keymap.set("n", "OO", "O<Esc>", { desc = "Enter newline above cursor" })
 
-vim.keymap.set("n", "Z", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode" })
-vim.keymap.set("n", "<M-S-u>", "<cmd>nohl<CR>", { desc = "Turn off search highlighting" })
+vim.keymap.set("n", "Z", vim.cmd.ZenMode, { desc = "Toggle zen mode" })
+vim.keymap.set("n", "<M-S-u>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
 
-vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Go to next quickfix item" })
-vim.keymap.set("n", "[q", "<cmd>cprev<CR>", { desc = "Go to previous quickfix item" })
+local function toggle_qf()
+  local orig = vim.fn.winnr("$")
+  vim.cmd.cwindow()
+  local new = vim.fn.winnr("$")
+
+  if orig == new then
+    vim.cmd.cclose()
+  end
+end
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Go to next quickfix item" })
+vim.keymap.set("n", "[q", vim.cmd.cprevious, { desc = "Go to previous quickfix item" })
+vim.keymap.set("n", "\\q", toggle_qf, { desc = "Toggle the quickfix list" })
 
 vim.keymap.set("n", "<Esc>", function()
   local windows_to_close = vim.tbl_filter(function(w)
