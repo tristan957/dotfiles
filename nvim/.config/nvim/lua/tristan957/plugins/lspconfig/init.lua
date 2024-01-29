@@ -67,8 +67,6 @@ return {
 
         local opts = { buffer = ev.buf }
 
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gDt", vim.lsp.buf.type_definition, opts)
