@@ -1,20 +1,3 @@
-vim.keymap.set("n", "<leader>e", function()
-  vim.diagnostic.open_float(nil, { scope = "cursor" })
-end, { silent = true, desc = "Open diagnostic in floating window" })
-vim.keymap.set(
-  "n",
-  "[d",
-  vim.diagnostic.goto_next,
-  { silent = true, desc = "Go to next diagnostic" }
-)
-vim.keymap.set(
-  "n",
-  "]d",
-  vim.diagnostic.goto_next,
-  { silent = true, desc = "Go to previous diagnostic" }
-)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
-
 -- These don't currently work if selection includes the top or bottom lines.
 -- vim.keymap.set("v", "<M-k>", ":m '>+1<CR>gv=gv", { desc = "Move selection up" })
 -- vim.keymap.set("v", "<M-j>", ":m '<-2<CR>gv=gv", { desc = "Move selection down" })
@@ -40,41 +23,7 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "oo", "o<Esc>", { desc = "Enter newline below cursor" })
 vim.keymap.set("n", "OO", "O<Esc>", { desc = "Enter newline above cursor" })
 
-vim.keymap.set("n", "Z", vim.cmd.ZenMode, { desc = "Toggle zen mode" })
 vim.keymap.set({ "i", "n" }, "<M-S-u>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
-
-local function toggle_qf()
-  local orig = vim.fn.winnr("$")
-  vim.cmd.cwindow()
-  local new = vim.fn.winnr("$")
-
-  if orig == new then
-    vim.cmd.cclose()
-  end
-end
-
-local function cnext_wrap()
-  local idx = vim.fn.getqflist({ idx = 0 }).idx
-
-  if idx == vim.tbl_count(vim.fn.getqflist()) then
-    vim.cmd.cfirst()
-  else
-    vim.cmd.cnext()
-  end
-end
-
-local function cprevious_wrap()
-  local idx = vim.fn.getqflist({ idx = 0 }).idx
-
-  if idx == 1 then
-    vim.cmd.clast()
-  else
-    vim.cmd.cprevious()
-  end
-end
-vim.keymap.set("n", "]q", cnext_wrap, { desc = "Go to next quickfix item" })
-vim.keymap.set("n", "[q", cprevious_wrap, { desc = "Go to previous quickfix item" })
-vim.keymap.set("n", "\\q", toggle_qf, { desc = "Toggle the quickfix list" })
 
 vim.keymap.set("n", "<Esc>", function()
   local windows_to_close = vim.tbl_filter(function(w)
@@ -95,3 +44,6 @@ vim.keymap.set("n", "<Esc>", function()
     pcall(vim.api.nvim_win_close, w, false)
   end
 end, { desc = "Close irregular windows" })
+
+require("tristan957.keymaps.diagnostics")
+require("tristan957.keymaps.quickfix")
