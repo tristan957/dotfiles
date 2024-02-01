@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>e", function()
+vim.keymap.set("n", "\\d", function()
   vim.diagnostic.open_float(nil, { scope = "cursor" })
 end, { silent = true, desc = "Open diagnostic in floating window" })
 
@@ -18,7 +18,14 @@ vim.keymap.set(
 
 vim.keymap.set(
   "n",
-  "<space>q",
-  vim.diagnostic.toqflist,
+  "|dq",
+  vim.diagnostic.setqflist,
   { desc = "Send diagnostics to quickfix list" }
+)
+
+vim.keymap.set(
+  "n",
+  "|dl",
+  vim.diagnostic.setloclist,
+  { desc = "Send diagnostics to location list" }
 )
