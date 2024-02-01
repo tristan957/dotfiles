@@ -52,8 +52,28 @@ local function toggle_qf()
     vim.cmd.cclose()
   end
 end
-vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Go to next quickfix item" })
-vim.keymap.set("n", "[q", vim.cmd.cprevious, { desc = "Go to previous quickfix item" })
+
+local function cnext_wrap()
+  local idx = vim.fn.getqflist({ idx = 0 }).idx
+
+  if idx == vim.tbl_count(vim.fn.getqflist()) then
+    vim.cmd.cfirst()
+  else
+    vim.cmd.cnext()
+  end
+end
+
+local function cprevious_wrap()
+  local idx = vim.fn.getqflist({ idx = 0 }).idx
+
+  if idx == 1 then
+    vim.cmd.clast()
+  else
+    vim.cmd.cprevious()
+  end
+end
+vim.keymap.set("n", "]q", cnext_wrap, { desc = "Go to next quickfix item" })
+vim.keymap.set("n", "[q", cprevious_wrap, { desc = "Go to previous quickfix item" })
 vim.keymap.set("n", "\\q", toggle_qf, { desc = "Toggle the quickfix list" })
 
 vim.keymap.set("n", "<Esc>", function()
