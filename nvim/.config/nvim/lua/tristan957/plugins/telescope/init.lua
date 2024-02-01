@@ -26,10 +26,18 @@ return {
         mappings = {
           i = {
             ["<M-t>"] = trouble.open_with_trouble,
-            ["<esc>"] = actions.close,
+            ["<C-l>"] = actions.send_selected_to_loclist,
+            ["<M-l>"] = actions.send_to_loclist,
+            ["<C-S-l>"] = actions.add_to_loclist,
+            ["<C-S-q>"] = actions.add_to_qflist,
+            ["<Esc>"] = actions.close,
           },
           n = {
             ["<M-t>"] = trouble.open_with_trouble,
+            ["<C-l>"] = actions.send_selected_to_loclist,
+            ["<M-l>"] = actions.send_to_loclist,
+            ["<C-S-l>"] = actions.add_to_loclist,
+            ["<C-S-q>"] = actions.add_to_qflist,
           },
         },
       },
