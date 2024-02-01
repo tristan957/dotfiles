@@ -41,7 +41,7 @@ vim.keymap.set("n", "oo", "o<Esc>", { desc = "Enter newline below cursor" })
 vim.keymap.set("n", "OO", "O<Esc>", { desc = "Enter newline above cursor" })
 
 vim.keymap.set("n", "Z", vim.cmd.ZenMode, { desc = "Toggle zen mode" })
-vim.keymap.set("n", "<M-S-u>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
+vim.keymap.set({ "i", "n" }, "<M-S-u>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
 
 local function toggle_qf()
   local orig = vim.fn.winnr("$")
