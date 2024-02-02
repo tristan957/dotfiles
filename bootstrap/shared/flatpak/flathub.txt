@@ -4,6 +4,7 @@ com.belmoussaoui.Obfuscate
 com.bitwarden.desktop
 com.discordapp.Discord
 com.github.finefindus.eyedropper
+com.github.marhkb.Pods
 com.mojang.Minecraft
 com.protonvpn.www
 com.rafaelmardojai.SharePreview
@@ -12,6 +13,7 @@ com.spotify.Client
 com.valvesoftware.Steam
 de.haeckerfelix.Fragments
 dev.geopjr.Tuba
+dev.skynomads.Seabird
 io.github.realmazharhussain.GdmSettings
 io.podman_desktop.PodmanDesktop
 org.freedesktop.Bustle
@@ -23,5 +25,6 @@ org.gnome.design.IconLibrary
 org.gnome.design.Lorem
 org.gnome.design.SymbolicPreview
 org.gtk.Gtk3theme.Adwaita-dark
+org.nickvision.money
 org.signal.Signal
 us.zoom.Zoom
