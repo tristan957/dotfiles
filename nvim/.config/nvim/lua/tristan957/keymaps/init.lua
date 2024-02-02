@@ -45,5 +45,6 @@ vim.keymap.set("n", "<Esc>", function()
   end
 end, { desc = "Close irregular windows" })
 
+require("tristan957.keymaps.buffers")
 require("tristan957.keymaps.diagnostics")
 require("tristan957.keymaps.quickfix")
