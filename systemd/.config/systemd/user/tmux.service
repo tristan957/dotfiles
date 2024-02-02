@@ -10,6 +10,7 @@ ExecStart=tmux new-session -s %u -d
 ExecStop=tmux kill-session -t %u
 # Seems necessary for color support
 Environment="COLORTERM=truecolor"
+Environment="TERM=xterm-256color"
 Restart=always
 WorkingDirectory=~
 
