@@ -49,3 +49,6 @@
 	key = Tested-by
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
+[rerere]
+	autoUpdate = true
+	enabled = true
