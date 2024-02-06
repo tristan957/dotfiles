@@ -50,9 +50,15 @@ jq
 json-glib-devel
 just
 libadwaita-devel
+libasan
+libasan-static
+liblsan
+liblsan-static
 libportal-devel
 libreoffice
 libsoup-devel
+libtsan
+libtsan-static
 lldb
 llvm
 lollypop
