@@ -26,7 +26,7 @@ default.bg = #282c34
 
 *.selected.bg = #3d4350
 
-border.fg = #5C6370
+border.fg = #89ca78
 
 completion_default.bg = #22252C
 completion_default.selected.bold = true
