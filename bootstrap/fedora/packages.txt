@@ -46,6 +46,7 @@ gtk4-devel
 htop
 hut
 java-latest-openjdk
+jc
 jq
 json-glib-devel
 just
