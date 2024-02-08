@@ -15,7 +15,6 @@ de.haeckerfelix.Fragments
 dev.geopjr.Tuba
 dev.skynomads.Seabird
 io.github.realmazharhussain.GdmSettings
-io.podman_desktop.PodmanDesktop
 org.freedesktop.Bustle
 org.gnome.Fractal
 org.gnome.Loupe
