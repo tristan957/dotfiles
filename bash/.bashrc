@@ -225,7 +225,7 @@ HISTTIMEFORMAT="%FT%T%z: "
 
 # less
 export PAGER=less
-export LESS=RcJ
+export LESS=Rc
 export LESSHISTSIZE=1000000
 if command -v "pygmentize" >/dev/null 2>&1; then
     export LESSOPEN="| pygmentize -O style=one-dark %s 2>/dev/null"
