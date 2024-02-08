@@ -3,6 +3,7 @@
 ShellCheck
 Swift-MesonLSP
 ansible
+asciinema
 azure-cli
 bat
 bear
