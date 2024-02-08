@@ -1,6 +1,7 @@
 local group = vim.api.nvim_create_augroup("tristan957", { clear = true })
 
 local relativenumber_ignore_fts = {
+  "minifiles",
   "minifiles-help",
 }
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
