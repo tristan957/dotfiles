@@ -2,7 +2,8 @@
 Name=OneDark-Vivid
 
 Background=#282c34
-# Foreground=#abb2bf # I prefer white
+# Foreground = #abb2bf
+Foreground=#ffffff # I prefer white
 
 Color0=#282c34
 Color8=#5c6370

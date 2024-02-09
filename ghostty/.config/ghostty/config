@@ -1,6 +1,8 @@
 # Theme from onedarkpro.nvim (olimorris is a great person)
 background = #282c34
-# foreground = #abb2bf # I prefer white...
+# I prefer white...
+# foreground = #abb2bf
+foreground = #ffffff
 
 palette = 0=#282c34
 palette = 8=#5c6370
