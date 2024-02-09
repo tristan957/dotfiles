@@ -12,6 +12,9 @@ function dconf_load {
     dconf load /org/gnome/TextEditor/ <"$dir/dconf/org/gnome/TextEditor/settings.ini"
     dconf load /org/gnome/tweaks/ <"$dir/dconf/org/gnome/tweaks/settings.ini"
     dconf load /org/gnome/Weather/ <"$dir/dconf/org/gnome/Weather/settings.ini"
+
+    dconf load /org/gtk/Settings/ <"$dir/dconf/org/gtk/settings.ini"
+    dconf load /org/gtk/gtk4/Settings/ <"$dir/dconf/org/gtk/gtk4/settings.ini"
 }
 
 function dconf_setup {
