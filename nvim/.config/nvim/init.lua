@@ -61,6 +61,7 @@ vim.opt.wildmenu = true
 vim.opt.wrap = false
 vim.opt.writebackup = false
 
+vim.g.c_syntax_for_h = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 

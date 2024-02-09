@@ -125,6 +125,7 @@ set updatetime=250
 let &viminfofile=state_dir . '/info'
 set wildmenu " visual autocomplete for command menu
 
+let g:c_syntax_for_h = 1
 let g:netrw_banner=0
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
