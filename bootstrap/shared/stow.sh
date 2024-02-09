@@ -24,7 +24,6 @@ function stow_setup() {
         readline \
         ssh \
         sway \
-        systemd \
         teleport \
         terraform \
         tmux \
