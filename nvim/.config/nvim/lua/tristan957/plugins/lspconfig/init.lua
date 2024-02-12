@@ -8,7 +8,7 @@ return {
     "ray-x/lsp_signature.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
   config = function()
     local lspconfig = require("lspconfig")
     local lspconfig_windows = require("lspconfig.ui.windows")
