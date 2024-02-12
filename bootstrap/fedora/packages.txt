@@ -8,6 +8,7 @@ azure-cli
 bat
 bear
 black
+blueprint-compiler
 btop
 buildah
 cascadia-fonts-all
