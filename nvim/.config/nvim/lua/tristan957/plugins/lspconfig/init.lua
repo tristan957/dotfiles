@@ -260,6 +260,20 @@ return {
 
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          check = {
+            extraArgs = {
+              "--target-dir=target/analyzer",
+            },
+          },
+          server = {
+            extraEnv = {
+              CARGO_TARGET_DIR = "target/analyzer",
+            },
+          },
+        },
+      },
     })
 
     lspconfig.swift_mesonls.setup({
