@@ -62,6 +62,16 @@ return {
         git_files = {
           prompt_title = "Files",
         },
+        marks = {
+          mappings = {
+            i = {
+              ["<M-d>"] = actions.delete_mark + actions.move_to_top,
+            },
+            n = {
+              ["<M-d>"] = actions.delete_mark + actions.move_to_top,
+            },
+          },
+        },
       },
       extensions = {
         fzf = {
