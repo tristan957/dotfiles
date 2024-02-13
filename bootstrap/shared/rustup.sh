@@ -11,5 +11,5 @@ function rustup_setup() {
     rustup_download
     rustup_completions
 
-    rustup component add rust-src rust-analyzer
+    rustup component add rust-src
 }

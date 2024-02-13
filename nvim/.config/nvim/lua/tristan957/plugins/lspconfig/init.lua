@@ -34,6 +34,7 @@ return {
       "marksman",
       "pyright",
       "ruff_lsp",
+      "rust_analyzer",
       "swift_mesonls",
       "taplo",
       "terraformls",
