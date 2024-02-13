@@ -45,6 +45,16 @@ return {
         builtin = {
           previewer = false,
         },
+        buffers = {
+          mappings = {
+            i = {
+              ["<M-d>"] = actions.delete_buffer + actions.move_to_top,
+            },
+            n = {
+              ["<M-d>"] = actions.delete_buffer + actions.move_to_top,
+            },
+          },
+        },
         find_files = {
           prompt_title = "Files",
           hidden = true,
