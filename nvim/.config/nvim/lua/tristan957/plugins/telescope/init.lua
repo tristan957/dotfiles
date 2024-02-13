@@ -129,6 +129,7 @@ return {
     vim.keymap.set("n", "<leader>q", builtin.quickfix, { noremap = true, silent = true })
     vim.keymap.set("n", "<leader>r", builtin.registers, { noremap = true, silent = true })
     vim.keymap.set("n", "<leader>sh", builtin.search_history, { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>t", builtin.tagstack)
 
     -- We cache the results of "git rev-parse"
     -- Process creation is expensive in Windows, so this reduces latency
