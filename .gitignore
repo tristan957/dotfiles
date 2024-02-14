@@ -2,7 +2,5 @@
 /vim/.vim/.netrwhist
 /vim/.vim/autoload/plug.vim
 !/.vscode/
-/systemd/.config/systemd/user/*
-!/systemd/.config/systemd/user/*.service
 /cargo/.opt/cargo/*
 !/cargo/.opt/config.toml
