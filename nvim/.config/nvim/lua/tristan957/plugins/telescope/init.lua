@@ -25,19 +25,23 @@ return {
         color_devicons = true,
         mappings = {
           i = {
+            ["<C-s>"] = actions.cycle_previewers_next,
+            ["<C-a>"] = actions.cycle_previewers_prev,
+            ["<M-t>"] = trouble.open_with_trouble,
+            ["<C-l>"] = actions.send_selected_to_loclist,
+            ["<M-l>"] = actions.send_to_loclist,
+            ["<C-S-l>"] = actions.add_to_loclist,
+            ["<C-S-q>"] = actions.add_to_qflist,
+          },
+          n = {
+            ["<C-s>"] = actions.cycle_previewers_next,
+            ["<C-a>"] = actions.cycle_previewers_prev,
             ["<M-t>"] = trouble.open_with_trouble,
             ["<C-l>"] = actions.send_selected_to_loclist,
             ["<M-l>"] = actions.send_to_loclist,
             ["<C-S-l>"] = actions.add_to_loclist,
             ["<C-S-q>"] = actions.add_to_qflist,
             ["<Esc>"] = actions.close,
-          },
-          n = {
-            ["<M-t>"] = trouble.open_with_trouble,
-            ["<C-l>"] = actions.send_selected_to_loclist,
-            ["<M-l>"] = actions.send_to_loclist,
-            ["<C-S-l>"] = actions.add_to_loclist,
-            ["<C-S-q>"] = actions.add_to_qflist,
           },
         },
       },
@@ -88,58 +92,70 @@ return {
     telescope.load_extension("notify")
     telescope.load_extension("ui-select")
 
-    vim.keymap.set("n", "<leader>a", builtin.autocommands, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>b", builtin.buffers, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>p", builtin.builtin, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>c", builtin.commands, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>ch", builtin.command_history, { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Open buffer" })
+    vim.keymap.set("n", "<leader>p", builtin.builtin, { desc = "Open builtin picker" })
+    vim.keymap.set("n", "<leader>c", builtin.command_history, { desc = "View command history" })
     vim.keymap.set(
       "n",
       "<leader>f",
       builtin.current_buffer_fuzzy_find,
-      { noremap = true, silent = true }
+      { desc = "Search in current buffer" }
     )
-    vim.keymap.set("n", "<leader>w", builtin.diagnostics, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>gc", builtin.git_commits, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>gbc", builtin.git_bcommits, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>gb", builtin.git_branches, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>gt", builtin.git_stash, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>s", builtin.grep_string, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>h", builtin.help_tags, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>j", builtin.jumplist, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>k", builtin.keymaps, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>F", builtin.live_grep, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>l", builtin.loclist, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>D", builtin.lsp_definitions, { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>w", builtin.diagnostics, { desc = "View diagnostics" })
+    vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "View commits" })
+    vim.keymap.set(
+      "n",
+      "<leader>gbc",
+      builtin.git_bcommits,
+      { desc = "View current buffer commits" }
+    )
+    vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "View git branches" })
+    vim.keymap.set("n", "<leader>gt", builtin.git_stash, { desc = "View git stash" })
+    vim.keymap.set(
+      "n",
+      "<leader>s",
+      builtin.grep_string,
+      { desc = "Search for string under the cursor" }
+    )
+    vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "View help tags" })
+    vim.keymap.set("n", "<leader>j", builtin.jumplist, { desc = "View jumplist" })
+    vim.keymap.set("n", "<leader>k", builtin.keymaps, { desc = "View keymaps" })
+    vim.keymap.set("n", "<leader>F", builtin.live_grep, { desc = "Search for string" })
+    vim.keymap.set("n", "<leader>l", builtin.loclist, { desc = "View location list" })
+    vim.keymap.set("n", "<leader>D", builtin.lsp_definitions, { desc = "View definitions" })
     vim.keymap.set(
       "n",
       "<leader>2",
       builtin.lsp_document_symbols,
-      { noremap = true, silent = true }
+      { desc = "View document symbols" }
     )
-    vim.keymap.set("n", "<leader>I", builtin.lsp_implementations, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>i", builtin.lsp_incoming_calls, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>o", builtin.lsp_outgoing_calls, { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>I", builtin.lsp_implementations, { desc = "View implementations" })
+    vim.keymap.set("n", "<leader>i", builtin.lsp_incoming_calls, { desc = "View incoming calls" })
+    vim.keymap.set("n", "<leader>o", builtin.lsp_outgoing_calls, { desc = "View outgoing calls" })
     vim.keymap.set(
       "n",
       "<leader>T",
       builtin.lsp_type_definitions,
-      { noremap = true, silent = true }
+      { desc = "View type definitions" }
     )
     vim.keymap.set(
       "n",
       "<leader>@",
       builtin.lsp_dynamic_workspace_symbols,
-      { noremap = true, silent = true }
+      { desc = "View workspace symbols" }
     )
-    vim.keymap.set("n", "<leader>mp", builtin.man_pages, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>m", builtin.marks, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>op", builtin.oldfiles, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>qh", builtin.quickfixhistory, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>q", builtin.quickfix, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>r", builtin.registers, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>sh", builtin.search_history, { noremap = true, silent = true })
-    vim.keymap.set("n", "<leader>t", builtin.tagstack)
+    vim.keymap.set("n", "<leader>mp", function()
+      -- Note that mandb might need to be run, like if new man pages are added
+      -- to $HOME/local/share/man.
+      builtin.man_pages({ sections = { "ALL" } })
+    end, { desc = "Open man pages" })
+    vim.keymap.set("n", "<leader>m", builtin.marks, { desc = "View marks" })
+    vim.keymap.set("n", "<leader>qh", builtin.quickfixhistory, { desc = "View quickfix history" })
+    vim.keymap.set("n", "<leader>q", builtin.quickfix, { desc = "View quickfix list" })
+    vim.keymap.set("n", "<leader>r", builtin.registers, { desc = "View registers" })
+    vim.keymap.set("n", "<leader>R", builtin.resume, { desc = "Resume last picker" })
+    vim.keymap.set("n", "<leader>sh", builtin.search_history, { desc = "Open search history" })
+    vim.keymap.set("n", "<leader>t", builtin.tagstack, { desc = "Open tagstack" })
 
     -- We cache the results of "git rev-parse"
     -- Process creation is expensive in Windows, so this reduces latency
@@ -161,6 +177,6 @@ return {
       end
     end
 
-    vim.keymap.set("n", "<leader><leader>", project_files, { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader><leader>", project_files, { desc = "Open project files" })
   end,
 }
