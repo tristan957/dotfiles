@@ -1,0 +1,9 @@
+[Unit]
+Description=Regenerate XDG_DATA_HOME man page database
+
+[Service]
+Type=oneshot
+ExecStart=sh -c 'mandb "$XDG_DATA_HOME/man"'
+
+[Install]
+WantedBy=default.target

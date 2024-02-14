@@ -1,5 +1,8 @@
 function systemd_enable() {
-    systemd --user enable --now tmux
+    systemd --user enable --now \
+        mandb.service \
+        mandb.timer \
+        tmux.service
 }
 
 function systemd_setup() {

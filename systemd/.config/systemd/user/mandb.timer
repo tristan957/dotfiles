@@ -1,0 +1,8 @@
+[Unit]
+Description=Run mandb on a schedule
+
+[Timer]
+OnUnitActiveSec=1day
+
+[Install]
+WantedBy=timers.target
