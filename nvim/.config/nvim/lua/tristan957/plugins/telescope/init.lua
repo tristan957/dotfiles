@@ -84,7 +84,11 @@ return {
           override_file_sorter = true,
           case_mode = "smart_case",
         },
-        ["ui-select"] = themes.get_dropdown({}),
+        ["ui-select"] = {
+          themes.get_dropdown({
+            layout_strategy = "cursor",
+          }),
+        },
       },
     })
 
