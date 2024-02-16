@@ -67,13 +67,13 @@ return {
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gDt", vim.lsp.buf.type_definition, opts)
+        vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<C-S-k>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "gOi", vim.lsp.buf.incoming_calls, opts)
-        vim.keymap.set("n", "gOo", vim.lsp.buf.outgoing_calls, opts)
+        vim.keymap.set("n", "<C-K>", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "|I", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "|r", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "|i", vim.lsp.buf.incoming_calls, opts)
+        vim.keymap.set("n", "|o", vim.lsp.buf.outgoing_calls, opts)
 
         vim.keymap.set({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, opts)
       end,
