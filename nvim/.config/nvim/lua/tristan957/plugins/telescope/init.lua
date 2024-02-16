@@ -52,10 +52,10 @@ return {
         buffers = {
           mappings = {
             i = {
-              ["<M-d>"] = actions.delete_buffer + actions.move_to_top,
+              ["<M-d>"] = actions.delete_buffer,
             },
             n = {
-              ["<M-d>"] = actions.delete_buffer + actions.move_to_top,
+              ["<M-d>"] = actions.delete_buffer,
             },
           },
         },
@@ -69,10 +69,10 @@ return {
         marks = {
           mappings = {
             i = {
-              ["<M-d>"] = actions.delete_mark + actions.move_to_top,
+              ["<M-d>"] = actions.delete_mark,
             },
             n = {
-              ["<M-d>"] = actions.delete_mark + actions.move_to_top,
+              ["<M-d>"] = actions.delete_mark,
             },
           },
         },
