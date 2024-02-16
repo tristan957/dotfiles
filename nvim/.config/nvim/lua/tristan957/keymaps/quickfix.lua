@@ -13,6 +13,10 @@ end
 local function cnext_wrap()
   local total = vim.tbl_count(vim.fn.getqflist())
 
+  if total == 0 then
+    return
+  end
+
   utils.vcountify(function()
     local qflist = vim.fn.getqflist({ idx = 0 })
 
@@ -25,6 +29,12 @@ local function cnext_wrap()
 end
 
 local function cprevious_wrap()
+  local total = vim.tbl_count(vim.fn.getqflist())
+
+  if total == 0 then
+    return
+  end
+
   utils.vcountify(function()
     local qflist = vim.fn.getqflist({ idx = 0 })
 
