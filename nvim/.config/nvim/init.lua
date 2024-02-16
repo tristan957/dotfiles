@@ -63,7 +63,7 @@ vim.opt.writebackup = false
 
 vim.g.c_syntax_for_h = true
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = " "
 
 vim.diagnostic.config({
   virtual_text = true,
