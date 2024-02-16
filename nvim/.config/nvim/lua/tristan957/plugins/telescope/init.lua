@@ -27,20 +27,20 @@ return {
           i = {
             ["<C-s>"] = actions.cycle_previewers_next,
             ["<C-a>"] = actions.cycle_previewers_prev,
-            ["<M-t>"] = trouble.open_with_trouble,
+            ["<A-t>"] = trouble.open_with_trouble,
             ["<C-l>"] = actions.send_selected_to_loclist,
-            ["<M-l>"] = actions.send_to_loclist,
-            ["<C-S-l>"] = actions.add_to_loclist,
-            ["<C-S-q>"] = actions.add_to_qflist,
+            ["<A-l>"] = actions.send_to_loclist,
+            ["<C-L>"] = actions.add_to_loclist,
+            ["<C-Q>"] = actions.add_to_qflist,
           },
           n = {
             ["<C-s>"] = actions.cycle_previewers_next,
             ["<C-a>"] = actions.cycle_previewers_prev,
-            ["<M-t>"] = trouble.open_with_trouble,
+            ["<A-t>"] = trouble.open_with_trouble,
             ["<C-l>"] = actions.send_selected_to_loclist,
-            ["<M-l>"] = actions.send_to_loclist,
-            ["<C-S-l>"] = actions.add_to_loclist,
-            ["<C-S-q>"] = actions.add_to_qflist,
+            ["<A-l>"] = actions.send_to_loclist,
+            ["<C-L>"] = actions.add_to_loclist,
+            ["<C-Q>"] = actions.add_to_qflist,
             ["<Esc>"] = actions.close,
           },
         },
@@ -69,10 +69,10 @@ return {
         marks = {
           mappings = {
             i = {
-              ["<M-d>"] = actions.delete_mark,
+              ["<A-d>"] = actions.delete_mark,
             },
             n = {
-              ["<M-d>"] = actions.delete_mark,
+              ["<A-d>"] = actions.delete_mark,
             },
           },
         },
