@@ -5,7 +5,6 @@ return {
     "b0o/schemastore.nvim",
     "cmp-nvim-lsp",
     "folke/neodev.nvim",
-    "ray-x/lsp_signature.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
   event = "VeryLazy",
@@ -64,8 +63,6 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = group,
       callback = function(ev)
-        local lsp_signature = require("lsp_signature")
-
         local opts = { buffer = ev.buf }
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -78,18 +75,7 @@ return {
         vim.keymap.set("n", "gOi", vim.lsp.buf.incoming_calls, opts)
         vim.keymap.set("n", "gOo", vim.lsp.buf.outgoing_calls, opts)
 
-        local filetype = vim.bo[ev.buf].filetype
-        if filetype ~= "c" then
-          lsp_signature.on_attach({
-            doc_lines = 0,
-            floating_window = true,
-            handler_opts = {
-              border = "rounded",
-            },
-            hint_enable = false,
-            hint_prefix = "",
-          }, ev.buf)
-        end
+        vim.keymap.set({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, opts)
       end,
     })
 
