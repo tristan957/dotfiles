@@ -1,7 +1,7 @@
 function systemd_enable() {
     systemd --user enable --now \
         mandb.service \
-        mandb.timer \
+        mandb.path \
         tmux.service
 }
 
