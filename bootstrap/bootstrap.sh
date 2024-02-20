@@ -21,6 +21,7 @@ mkdir -p "$HOME/.opt"
 dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/1Password.sh"
 . "$dir/shared/aerc.sh"
+. "$dir/shared/bash-completion.sh"
 . "$dir/shared/bitwarden.sh"
 . "$dir/shared/deno.sh"
 . "$dir/shared/dconf.sh"
@@ -47,3 +48,4 @@ aerc_setup
 deno_setup
 rustup_setup
 homebrew_setup
+bash_completion_setup
