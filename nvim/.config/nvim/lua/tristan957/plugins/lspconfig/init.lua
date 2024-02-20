@@ -76,6 +76,31 @@ return {
         vim.keymap.set("n", "|o", vim.lsp.buf.outgoing_calls, opts)
 
         vim.keymap.set({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, opts)
+
+        -- If more than one formatter, use selection
+        vim.keymap.set({ "n", "v" }, "|f", function()
+          local clients = vim.lsp.get_clients({ bufnr = ev.buf })
+          local formatters = {}
+
+          for _, c in pairs(clients) do
+            if c.server_capabilities.documentFormattingProvider then
+              table.insert(formatters, c.name)
+            end
+          end
+
+          if #formatters > 1 then
+            vim.ui.select(formatters, { prompt = "Select a formatter" }, function(_, choice)
+              if not choice then
+                vim.notify(vim.log.levels.WARN, "No formatter selected")
+                return
+              end
+
+              vim.lsp.buf.format({ async = true, name = formatters[choice] })
+            end)
+          else
+            vim.lsp.buf.format({ async = true, name = formatters[1] })
+          end
+        end, opts)
       end,
     })
 
