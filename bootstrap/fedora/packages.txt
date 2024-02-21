@@ -47,6 +47,7 @@ gron
 gtk4-devel
 htop
 hut
+info
 java-latest-openjdk
 jc
 jq
