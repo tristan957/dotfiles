@@ -31,6 +31,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
 . "$dir/shared/systemd.sh"
+. "$dir/shared/tmux.sh"
 
 os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 # shellcheck disable=SC1090
@@ -49,3 +50,4 @@ deno_setup
 rustup_setup
 homebrew_setup
 bash_completion_setup
+tmux_setup
