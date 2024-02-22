@@ -9,6 +9,7 @@ return {
   },
   event = "VeryLazy",
   config = function()
+    local lemminx_config = require("lspconfig.server_configurations.lemminx").default_config
     local lspconfig = require("lspconfig")
     local lspconfig_windows = require("lspconfig.ui.windows")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -189,6 +190,7 @@ return {
     })
 
     lspconfig.lemminx.setup({
+      filetypes = { unpack(lemminx_config.filetypes), "sgml" },
       capabilities = capabilities,
     })
 
