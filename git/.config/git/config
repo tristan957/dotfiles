@@ -21,6 +21,7 @@
 [format]
 	coverFromDescription = auto
 	coverLetter = auto
+	notes = true
 	numbered = auto
 	outputDirectory = outgoing
 	signatureFile = ~/.config/git/signatures/personal.txt
@@ -36,6 +37,7 @@
 	helper = "!git-credential-bw --session "$(gpg2 --decrypt --quiet "$XDG_CONFIG_HOME/bitwarden/session-key.txt")" --bitwarden 'flatpak run --command=bw com.bitwarden.desktop'"
 [notes]
 	displayRef = refs/notes/*
+	rewriteMode = concatenate
 [remote "origin"]
 	fetch = +refs/notes/*:refs/notes/*
 [protocol "file"]
