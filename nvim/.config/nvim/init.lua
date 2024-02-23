@@ -43,7 +43,7 @@ vim.opt.relativenumber = true
 vim.opt.ruler = true
 vim.opt.scrolloff = 5
 vim.opt.secure = true
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 0
 vim.opt.shortmess:append("Ic")
 vim.opt.showbreak = "++++"
 vim.opt.showmatch = true
