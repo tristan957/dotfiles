@@ -77,6 +77,9 @@ export NNN_OPTS="eEH"
 
 export LS_COLORS="${LS_COLORS}:di=1:ex=4:ow=1:"
 
+# See jq(1)
+export JQ_COLORS="0;33:0;33:0;33:0;33:0;32:0;39:0;39"
+
 # XDG User Directories
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
