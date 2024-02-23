@@ -124,7 +124,15 @@ return {
     vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "View help tags" })
     vim.keymap.set("n", "<leader>j", builtin.jumplist, { desc = "View jumplist" })
     vim.keymap.set("n", "<leader>k", builtin.keymaps, { desc = "View keymaps" })
-    vim.keymap.set("n", "<leader>F", builtin.live_grep, { desc = "Search for string" })
+    vim.keymap.set("n", "<leader>F", function()
+      builtin.live_grep({
+        additional_args = { "--hidden" },
+        glob_pattern = {
+          "!.git",
+          "!node_modules",
+        },
+      })
+    end, { desc = "Search for string" })
     vim.keymap.set("n", "<leader>l", builtin.loclist, { desc = "View location list" })
     vim.keymap.set("n", "<leader>D", builtin.lsp_definitions, { desc = "View definitions" })
     vim.keymap.set(
