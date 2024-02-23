@@ -28,7 +28,7 @@ return {
     })
 
     context.setup({
-      separator = "━",
+      separator = "─",
       on_attach = function(bufnr)
         return true
       end,
@@ -38,6 +38,7 @@ return {
     vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr"
     vim.wo.foldenable = false
 
+    vim.keymap.set("n", "\\C", context.toggle, { desc = "Toggle context" })
     vim.keymap.set("n", "[C", function()
       context.go_to_context(vim.v.count1)
     end, { silent = true, desc = "Jump to context" })
