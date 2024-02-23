@@ -8,6 +8,17 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    require("go").setup({})
+    local go = require("go")
+
+    go.setup()
+
+    local group = vim.api.nvim_create_augroup("tristan957/go", { clear = true })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = group,
+      pattern = "*.go",
+      callback = function()
+        require("go.format").goimport()
+      end
+    })
   end,
 }
