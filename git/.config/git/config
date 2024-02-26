@@ -12,12 +12,10 @@
 	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 	where-was-i = branch --sort=-creatordate
-[init]
-	defaultBranch = master
 [commit]
 	gpgsign = false
-[gpg]
-	program = gpg2
+[credential]
+	helper = "!git-credential-bw --session "$(gpg2 --decrypt --quiet "$XDG_CONFIG_HOME/bitwarden/session-key.txt")" --bitwarden 'flatpak run --command=bw com.bitwarden.desktop'"
 [format]
 	coverFromDescription = auto
 	coverLetter = auto
@@ -25,6 +23,25 @@
 	numbered = auto
 	outputDirectory = outgoing
 	signatureFile = ~/.config/git/signatures/personal.txt
+[gpg]
+	program = gpg2
+[init]
+	defaultBranch = master
+[merge]
+	autoStash = true
+	conflictStyle = zdiff3
+[notes]
+	displayRef = refs/notes/*
+	rewriteMode = concatenate
+[protocol "file"]
+	allow = always
+[rebase]
+	autoStash = true
+[remote "origin"]
+	fetch = +refs/notes/*:refs/notes/*
+[rerere]
+	autoUpdate = true
+	enabled = true
 [sendemail]
 	aliasesFile = ~/.config/git/aliases
 	aliasFileType = mutt
@@ -33,17 +50,6 @@
 	smtpServer = 127.0.0.1
 	smtpUser = tristan@partin.io
 	smtpServerPort = 1025
-[credential]
-	helper = "!git-credential-bw --session "$(gpg2 --decrypt --quiet "$XDG_CONFIG_HOME/bitwarden/session-key.txt")" --bitwarden 'flatpak run --command=bw com.bitwarden.desktop'"
-[notes]
-	displayRef = refs/notes/*
-	rewriteMode = concatenate
-[remote "origin"]
-	fetch = +refs/notes/*:refs/notes/*
-[protocol "file"]
-	allow = always
-[merge]
-	conflictStyle = zdiff3
 [trailer "sign"]
 	key = Signed-off-by
 [trailer "review"]
@@ -52,6 +58,3 @@
 	key = Tested-by
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
-[rerere]
-	autoUpdate = true
-	enabled = true
