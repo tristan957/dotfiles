@@ -34,6 +34,7 @@ gh
 gimp
 git
 git-email
+git-extras
 glib2-devel
 glow
 gnome-extensions-app
