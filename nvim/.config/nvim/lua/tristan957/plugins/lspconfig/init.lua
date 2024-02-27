@@ -64,6 +64,7 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = group,
       callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local opts = { buffer = ev.buf }
 
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -80,7 +81,7 @@ return {
 
         -- If more than one formatter, use selection
         vim.keymap.set({ "n", "v" }, "|f", function()
-          local clients = vim.lsp.get_clients({ bufnr = ev.buf })
+          local clients = vim.lsp.get_active_clients({ bufnr = ev.buf })
           local formatters = {}
 
           for _, c in pairs(clients) do
