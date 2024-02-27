@@ -50,16 +50,16 @@ return {
         autocomplete = { cmp.TriggerEvent.TextChanged },
       },
       sources = cmp.config.sources({
-        { name = "calc" },
-        { name = "emoji" },
-        { name = "path" },
-        { name = "git" },
-        { name = "luasnip" },
-        { name = "neorg" },
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
-        { name = "omni" },
+        { name = "neorg" },
+        { name = "luasnip" },
+        { name = "path" },
         { name = "buffer" },
+        { name = "calc" },
+        { name = "emoji" },
+        { name = "git" },
+        { name = "omni" },
       }),
       mapping = {
         ["<CR>"] = cmp.mapping({
