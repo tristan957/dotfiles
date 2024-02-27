@@ -14,9 +14,29 @@
 	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 	where-was-i = branch --sort=-creatordate
 [commit]
+	cleanup = scissors
 	gpgsign = false
+	verbose = true
+[core]
+	autoclrf = false
+	pager = delta
 [credential]
 	helper = "!git-credential-bw --session "$(gpg2 --decrypt --quiet "$XDG_CONFIG_HOME/bitwarden/session-key.txt")" --bitwarden 'flatpak run --command=bw com.bitwarden.desktop'"
+# https://dandavison.github.io/delta/
+[delta]
+	hyperlinks = true
+	hyperlinks-file-link-format = "{path}:{line}"
+	navigate = true
+	side-by-side = true
+	syntax-theme = TwoDark
+	unobtrusive-line-numbers = true
+[diff]
+	algorithm = histogram
+	colorMoved = true
+	submodule = log
+[fetch]
+	prune = true
+	prunetags = true
 [format]
 	coverFromDescription = auto
 	coverLetter = auto
@@ -28,6 +48,10 @@
 	program = gpg2
 [init]
 	defaultBranch = master
+[interactive]
+	diffFilter = delta --color-only
+[log]
+	date = iso-local
 [merge]
 	autoStash = true
 	conflictStyle = zdiff3
@@ -36,8 +60,12 @@
 	rewriteMode = concatenate
 [protocol "file"]
 	allow = always
+[pull]
+	rebase = true
 [rebase]
+	autosquash = true
 	autoStash = true
+	updateRefs = true
 [remote "origin"]
 	fetch = +refs/notes/*:refs/notes/*
 [rerere]
@@ -51,6 +79,8 @@
 	smtpServer = 127.0.0.1
 	smtpUser = tristan@partin.io
 	smtpServerPort = 1025
+[status]
+	submoduleSummary = true
 [trailer "sign"]
 	key = Signed-off-by
 [trailer "review"]

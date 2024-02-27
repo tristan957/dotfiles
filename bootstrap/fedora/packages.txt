@@ -33,6 +33,7 @@ gcc-c++
 gh
 gimp
 git
+git-delta
 git-email
 git-extras
 glib2-devel
