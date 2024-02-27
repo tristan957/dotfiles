@@ -30,6 +30,7 @@ if vim.fn.executable("rg") == 1 then
 end
 vim.opt.hidden = true
 vim.opt.hlsearch = true
+vim.opt.inccommand = "split"
 vim.opt.incsearch = true
 vim.opt.laststatus = 3
 vim.opt.lazyredraw = true
