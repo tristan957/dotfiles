@@ -103,6 +103,35 @@ return {
             vim.lsp.buf.format({ async = true, name = formatters[1] })
           end
         end, opts)
+
+        if client and client.server_capabilities.documentHighlightProvider then
+          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            buffer = ev.buf,
+            callback = vim.lsp.buf.document_highlight,
+          })
+
+          vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+            buffer = ev.buf,
+            callback = vim.lsp.buf.clear_references,
+          })
+        end
+
+        if client.server_capabilities.documentHighlightProvider then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = ev.buf,
+            callback = function()
+              vim.lsp.buf.format({
+                bufnr = ev.buf,
+                id = client.id,
+                filter = function(c)
+                  return vim.tbl_contains({
+                    "rust_analyzer",
+                  }, c.name)
+                end,
+              })
+            end,
+          })
+        end
       end,
     })
 
