@@ -67,6 +67,10 @@ return {
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local opts = { buffer = ev.buf }
 
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+        vim.bo[ev.buf].tagfunc = "v:lua.vim.lsp.tagfunc"
+        vim.bo[ev.buf].formatexpr = "v:lua.vim.lsp.formatexpr"
+
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
