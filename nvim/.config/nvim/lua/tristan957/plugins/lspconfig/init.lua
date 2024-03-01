@@ -1,3 +1,11 @@
+---@param client lsp.Client
+---@return boolean
+local function server_should_format(client)
+  return vim.tbl_contains({
+    "rust_analyzer",
+  }, client.name)
+end
+
 ---@type LazySpec
 return {
   "neovim/nvim-lspconfig",
@@ -91,7 +99,7 @@ return {
           local formatters = {}
 
           for _, c in pairs(clients) do
-            if c.server_capabilities.documentFormattingProvider then
+            if c.server_capabilities.documentFormattingProvider and server_should_format(c) then
               table.insert(formatters, c.name)
             end
           end
@@ -122,18 +130,13 @@ return {
           })
         end
 
-        if client.server_capabilities.documentHighlightProvider then
+        if client.server_capabilities.documentFormattingProvider and server_should_format(client) then
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = ev.buf,
             callback = function()
               vim.lsp.buf.format({
                 bufnr = ev.buf,
                 id = client.id,
-                filter = function(c)
-                  return vim.tbl_contains({
-                    "rust_analyzer",
-                  }, c.name)
-                end,
               })
             end,
           })
