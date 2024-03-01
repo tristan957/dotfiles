@@ -44,6 +44,8 @@ return {
       "zls",
     }
 
+    ---@param s string
+    ---@return boolean
     local on_system = function(s)
       return vim.fn.executable(lspconfig[s].document_config.default_config.cmd[1]) ~= 1
     end
@@ -241,6 +243,7 @@ return {
         },
       },
       capabilities = capabilities,
+      ---@param client lsp.Client
       on_init = function(client)
         local path = Path:new(client.workspace_folders[1].name)
 
@@ -290,6 +293,7 @@ return {
           },
         },
       },
+      ---@param client lsp.Client
       on_init = function(client)
         local path = Path:new(client.workspace_folders[1].name)
 
