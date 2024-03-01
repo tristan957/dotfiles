@@ -158,7 +158,7 @@ return {
     )
     vim.keymap.set("n", "<leader>mp", function()
       -- Note that mandb might need to be run, like if new man pages are added
-      -- to $HOME/local/share/man.
+      -- to $XDG_DATA_HOME/man.
       builtin.man_pages({ sections = { "ALL" } })
     end, { desc = "Open man pages" })
     vim.keymap.set("n", "<leader>m", builtin.marks, { desc = "View marks" })
