@@ -28,6 +28,7 @@ dotnet-sdk-7.0
 epiphany
 fd-find
 flatpak-builder
+fswatch
 fzf
 gcc-c++
 gh
