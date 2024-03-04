@@ -23,7 +23,10 @@
 vim.keymap.set("n", "oo", "o<Esc>", { desc = "Enter newline below cursor" })
 vim.keymap.set("n", "OO", "O<Esc>", { desc = "Enter newline above cursor" })
 
-vim.keymap.set({ "i", "n" }, "<M-S-u>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
+vim.keymap.set({ "i", "n" }, "<A-U>", function()
+  vim.cmd.nohlsearch()
+  vim.cmd.redraw()
+end, { desc = "Turn off search highlighting" })
 
 vim.keymap.set("n", "<Esc>", function()
   local windows_to_close = vim.tbl_filter(function(w)
