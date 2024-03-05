@@ -66,9 +66,9 @@ return {
 
     -- Customize floating windows
     vim.lsp.handlers["textDocument/hover"] =
-      vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+        vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
     vim.lsp.handlers["textDocument/signatureHelp"] =
-      vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+        vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
     local group = vim.api.nvim_create_augroup("tristan957/lspconfig", { clear = true })
 
@@ -151,7 +151,9 @@ return {
           })
         end
 
-        if client.server_capabilities.documentFormattingProvider and server_should_format(client) then
+        if
+            client.server_capabilities.documentFormattingProvider and server_should_format(client)
+        then
           vim.api.nvim_create_autocmd("BufWritePre", {
             desc = "Format on save",
             buffer = ev.buf,
@@ -273,8 +275,8 @@ return {
         local path = Path:new(client.workspace_folders[1].name)
 
         if
-          not path:joinpath(".luarc.json"):exists()
-          and not path:joinpath(".luarc.jsonc"):exists()
+            not path:joinpath(".luarc.json"):exists()
+            and not path:joinpath(".luarc.jsonc"):exists()
         then
           client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
             Lua = {
