@@ -275,31 +275,27 @@ return {
         local path = Path:new(client.workspace_folders[1].name)
 
         if
-            not path:joinpath(".luarc.json"):exists()
-            and not path:joinpath(".luarc.jsonc"):exists()
+            path:joinpath(".luarc.json"):exists()
+            or path:joinpath(".luarc.jsonc"):exists()
         then
-          client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
-            Lua = {
-              globals = {
-                "vim",
-              },
-              runtime = {
-                version = "LuaJIT",
-              },
-              workspace = {
-                checkThirdParty = false,
-                library = {
-                  "${3rd}/luv/library",
-                  unpack(vim.api.nvim_get_runtime_file("", true)),
-                },
-              },
-            },
-          })
-
-          client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+          return
         end
 
-        return true
+        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+          globals = {
+            "vim",
+          },
+          runtime = {
+            version = "LuaJIT",
+          },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              "${3rd}/luv/library",
+              unpack(vim.api.nvim_get_runtime_file("", true)),
+            },
+          },
+        })
       end,
     })
 
@@ -325,13 +321,9 @@ return {
         local path = Path:new(client.workspace_folders[1].name)
 
         if path:joinpath("poetry.lock"):exists() and vim.fn.executable("poetry") then
-          client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
-            python = {
-              venvPath = vim.fn.system("poetry env info --path"),
-            },
+          client.config.settings.python = vim.tbl_deep_extend("force", client.config.settings.python, {
+            venvPath = vim.fn.system("poetry env info --path"),
           })
-
-          client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
         end
       end,
     })
