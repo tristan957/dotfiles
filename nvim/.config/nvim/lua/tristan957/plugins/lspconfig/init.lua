@@ -264,7 +264,7 @@ return {
             version = "LuaJIT",
           },
           workspace = {
-            checkThirdParty = "Disable",
+            checkThirdParty = false,
             preloadFileSize = 200,
           },
         },
