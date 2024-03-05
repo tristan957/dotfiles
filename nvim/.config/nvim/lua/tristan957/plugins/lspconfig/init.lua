@@ -120,11 +120,13 @@ return {
 
         if client and client.server_capabilities.documentHighlightProvider then
           vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            desc = "Highlight <cword> references",
             buffer = ev.buf,
             callback = vim.lsp.buf.document_highlight,
           })
 
           vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+            desc = "Clean <cword> reference highlights",
             buffer = ev.buf,
             callback = vim.lsp.buf.clear_references,
           })
@@ -132,6 +134,7 @@ return {
 
         if client.server_capabilities.documentFormattingProvider and server_should_format(client) then
           vim.api.nvim_create_autocmd("BufWritePre", {
+            desc = "Format on save",
             buffer = ev.buf,
             callback = function()
               vim.lsp.buf.format({

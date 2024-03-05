@@ -1,9 +1,9 @@
 local group = vim.api.nvim_create_augroup("tristan957", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
-  pattern = "*",
+  desc = "Turn on relative number when focused",
   group = group,
-  callback = function(ev)
+  callback = function()
     if not vim.wo.number then
       return
     end
@@ -13,9 +13,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
-  pattern = "*",
+  desc = "Turn off relative number when focus lost",
   group = group,
-  callback = function(ev)
+  callback = function()
     if not vim.wo.number then
       return
     end
@@ -24,9 +24,8 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter" }, {
   end,
 })
 
--- Remove trailing whitespace
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+  desc = "Remove trailing whitespace",
   group = group,
   callback = function(ev)
     -- If we ask for trailing whitespace, respect it
@@ -40,10 +39,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Remove extra trailing newlines
 local empty_line = vim.regex("^$")
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+  desc = "Remove extra trailing newlines",
   group = group,
   callback = function(ev)
     local view = vim.fn.winsaveview()
