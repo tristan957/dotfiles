@@ -17,6 +17,7 @@ vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.background = "dark"
 vim.opt.backup = false
+vim.opt.breakindent = true
 vim.opt.cmdheight = 2
 vim.opt.colorcolumn = { 80, 100, 120 }
 vim.opt.confirm = true
