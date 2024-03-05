@@ -9,7 +9,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp-signature-help",
-    "hrsh7th/cmp-omni",
     "hrsh7th/cmp-path",
     "nvim-neorg/neorg",
     "onsails/lspkind.nvim",
