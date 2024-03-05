@@ -12,7 +12,6 @@ return {
       end,
     },
     "rcarriga/nvim-notify",
-    "ThePrimeagen/refactoring.nvim",
   },
   event = "VimEnter",
   config = function()
