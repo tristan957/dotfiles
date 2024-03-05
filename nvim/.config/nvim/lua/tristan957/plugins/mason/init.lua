@@ -3,7 +3,7 @@ return {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
-    event = "VeryLazy",
+    event = "VimEnter",
     config = function()
       local mason = require("mason")
 

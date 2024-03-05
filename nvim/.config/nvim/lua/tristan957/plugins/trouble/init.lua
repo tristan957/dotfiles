@@ -4,7 +4,7 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  event = "VeryLazy",
+  event = "VimEnter",
   config = function()
     local trouble = require("trouble")
 

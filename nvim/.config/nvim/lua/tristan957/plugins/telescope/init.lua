@@ -14,7 +14,7 @@ return {
     "rcarriga/nvim-notify",
     "ThePrimeagen/refactoring.nvim",
   },
-  event = "VeryLazy",
+  event = "VimEnter",
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")

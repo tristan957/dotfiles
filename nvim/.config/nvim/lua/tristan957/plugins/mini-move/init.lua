@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   'echasnovski/mini.move',
-  event = "VeryLazy",
+  event = "VimEnter",
   config = function()
     require('mini.move').setup({})
   end
