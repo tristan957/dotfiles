@@ -13,6 +13,7 @@ return {
     "b0o/schemastore.nvim",
     "cmp-nvim-lsp",
     "folke/neodev.nvim",
+    "nvim-telescope/telescope.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
   event = "VeryLazy",
@@ -74,27 +75,45 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = group,
       callback = function(ev)
+        local builtin = require("telescope.builtin")
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        local opts = { buffer = ev.buf }
 
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
         vim.bo[ev.buf].tagfunc = "v:lua.vim.lsp.tagfunc"
         vim.bo[ev.buf].formatexpr = "v:lua.vim.lsp.formatexpr"
 
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<C-K>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "|I", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "|r", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "|i", vim.lsp.buf.incoming_calls, opts)
-        vim.keymap.set("n", "|o", vim.lsp.buf.outgoing_calls, opts)
+        local map = function(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
+        end
 
-        vim.keymap.set({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, opts)
+        map("n", "gd", builtin.lsp_definitions, "Goto definitions")
+        map("n", "gD", vim.lsp.buf.declaration, "Goto declarations")
+        map("n", "gy", builtin.lsp_type_definitions, "Goto type definitions")
+        map("n", "gl", builtin.lsp_implementations, "Show implementations")
+        map("n", "g]", builtin.lsp_references, "Show references")
+        -- Telescope's implementation doesn't take you to the line number.
+        -- https://github.com/nvim-telescope/telescope.nvim/issues/2939
+        map("n", "g(", vim.lsp.buf.incoming_calls, "Show incoming calls")
+        map("n", "g)", vim.lsp.buf.outgoing_calls, "Show outgoing calls")
+        map("n", "K", vim.lsp.buf.hover, "Show hover documentation")
+        map("n", "<C-K>", vim.lsp.buf.signature_help, "Show signature help")
+        map("n", "|r", vim.lsp.buf.rename, "Rename")
+        map({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, "View code actions")
+        map(
+          "n",
+          "<leader>/",
+          builtin.lsp_document_symbols,
+          "Search document symbols"
+        )
+        map(
+          "n",
+          "<leader>@",
+          builtin.lsp_dynamic_workspace_symbols,
+          "Search workspace symbols"
+        )
 
         -- If more than one formatter, use selection
-        vim.keymap.set({ "n", "v" }, "|f", function()
+        map({ "n", "v" }, "|f", function()
           local clients = vim.lsp.get_active_clients({ bufnr = ev.buf })
           local formatters = {}
 
@@ -116,7 +135,7 @@ return {
           else
             vim.lsp.buf.format({ async = true, name = formatters[1] })
           end
-        end, opts)
+        end, "Format code")
 
         if client and client.server_capabilities.documentHighlightProvider then
           vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {

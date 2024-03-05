@@ -134,28 +134,6 @@ return {
       })
     end, { desc = "Search for string" })
     vim.keymap.set("n", "<leader>l", builtin.loclist, { desc = "View location list" })
-    vim.keymap.set("n", "<leader>D", builtin.lsp_definitions, { desc = "View definitions" })
-    vim.keymap.set(
-      "n",
-      "<leader>2",
-      builtin.lsp_document_symbols,
-      { desc = "View document symbols" }
-    )
-    vim.keymap.set("n", "<leader>I", builtin.lsp_implementations, { desc = "View implementations" })
-    vim.keymap.set("n", "<leader>i", builtin.lsp_incoming_calls, { desc = "View incoming calls" })
-    vim.keymap.set("n", "<leader>o", builtin.lsp_outgoing_calls, { desc = "View outgoing calls" })
-    vim.keymap.set(
-      "n",
-      "<leader>T",
-      builtin.lsp_type_definitions,
-      { desc = "View type definitions" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>@",
-      builtin.lsp_dynamic_workspace_symbols,
-      { desc = "View workspace symbols" }
-    )
     vim.keymap.set("n", "<leader>mp", function()
       -- Note that mandb might need to be run, like if new man pages are added
       -- to $XDG_DATA_HOME/man.
