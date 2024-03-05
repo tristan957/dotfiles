@@ -48,6 +48,45 @@ return {
     cmp.setup({
       completion = {
         autocomplete = { cmp.TriggerEvent.TextChanged },
+        completeopt = "menu,menuone,noinsert",
+      },
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          show_labelDetails = true,
+        }),
+      },
+      mapping = {
+        ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<C-y>"] = cmp.mapping({
+          i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+        }),
+        ["<C-Space>"] = cmp.mapping({
+          i = cmp.mapping.complete({ reason = cmp.ContextReason.Manual }),
+        }),
+        ["<C-c>"] = cmp.mapping({
+          i = cmp.mapping.close(),
+        }),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-l>"] = cmp.mapping(function()
+          if luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          end
+        end, { "i", "s" }),
+        ["<C-h>"] = cmp.mapping(function()
+          if luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          end
+        end, { "i", "s" }),
+      },
+      preselect = cmp.PreselectMode.None,
+      snippet = {
+        expand = function(args)
+          require("luasnip").lsp_expand(args.body)
+        end,
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -60,85 +99,6 @@ return {
       }, {
         { name = "buffer" },
       }),
-      mapping = {
-        ["<CR>"] = cmp.mapping({
-          i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-          s = cmp.mapping.confirm({ select = true }),
-          c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-        }),
-        ["<C-c>"] = cmp.mapping({
-          i = cmp.mapping.close(),
-        }),
-        ["<C-Space>"] = cmp.mapping({
-          i = cmp.mapping.complete({ reason = cmp.ContextReason.Manual }),
-        }),
-        ["<Down>"] = cmp.mapping({
-          i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-        }),
-        ["<Up>"] = cmp.mapping({
-          i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-        }),
-        ["<C-n>"] = cmp.mapping({
-          i = function()
-            if cmp.visible() then
-              cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              cmp.complete()
-            end
-          end,
-        }),
-        ["<C-p>"] = cmp.mapping({
-          i = function()
-            if cmp.visible() then
-              cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              cmp.complete()
-            end
-          end,
-        }),
-        ["<C-d>"] = cmp.mapping({
-          i = cmp.mapping.scroll_docs(-4),
-        }),
-        ["<C-f>"] = cmp.mapping({
-          i = cmp.mapping.scroll_docs(4),
-        }),
-        ["<C-y>"] = cmp.mapping({
-          i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-        }),
-        ["<C-e>"] = cmp.mapping({
-          i = cmp.mapping.abort(),
-        }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      },
-      preselect = cmp.PreselectMode.None,
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-      formatting = {
-        format = lspkind.cmp_format({
-          mode = "symbol_text",
-          show_labelDetails = true,
-        }),
-      },
       window = {
         completion = window,
         documentation = window,
