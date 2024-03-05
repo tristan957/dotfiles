@@ -62,6 +62,9 @@ return {
             },
           },
         },
+        current_buffer_fuzzy_find = {
+          previewer = false,
+        },
         find_files = {
           prompt_title = "Files",
           hidden = true,
