@@ -52,14 +52,13 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
-        { name = "neorg" },
         { name = "luasnip" },
         { name = "path" },
-        { name = "buffer" },
-        { name = "calc" },
-        { name = "emoji" },
         { name = "git" },
-        { name = "omni" },
+        { name = "emoji" },
+        { name = "calc" },
+      }, {
+        { name = "buffer" },
       }),
       mapping = {
         ["<CR>"] = cmp.mapping({
@@ -151,6 +150,12 @@ return {
 
     cmp_git.setup({})
 
+    cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+      sources = {
+        { name = "dap" },
+      },
+    })
+
     cmp.setup.filetype("gitcommit", {
       sources = cmp.config.sources({
         { name = "git" },
@@ -159,10 +164,17 @@ return {
       }),
     })
 
-    cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-      sources = {
-        { name = "dap" },
-      },
+    cmp.setup.filetype("neorg", {
+      { name = "nvim_lsp" },
+      { name = "nvim_lsp_signature_help" },
+      { name = "neorg" },
+      { name = "luasnip" },
+      { name = "path" },
+      { name = "git" },
+      { name = "emoji" },
+      { name = "calc" },
+    }, {
+      { name = "buffer" },
     })
 
     local cmdline_mappings = {
