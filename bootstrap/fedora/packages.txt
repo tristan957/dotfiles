@@ -110,6 +110,7 @@ samurai
 scdoc
 shfmt
 snapshot
+steam-devices
 stow
 strace
 swift-lang
