@@ -97,7 +97,7 @@ return {
         map("n", "g)", vim.lsp.buf.outgoing_calls, "Show outgoing calls")
         map("n", "K", vim.lsp.buf.hover, "Show hover documentation")
         map("n", "<C-K>", vim.lsp.buf.signature_help, "Show signature help")
-        map("n", "|r", vim.lsp.buf.rename, "Rename")
+        map("n", "<A-r>", vim.lsp.buf.rename, "Rename")
         map({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, "View code actions")
         map(
           "n",
