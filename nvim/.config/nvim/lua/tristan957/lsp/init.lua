@@ -108,4 +108,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.api.nvim_create_user_command("LspLog", function()
+  vim.cmd.tabnew(vim.lsp.get_log_path())
+end, {
+  desc = "Opens the Nvim LSP client log",
+})
+
 require("tristan957.lsp.handlers")
