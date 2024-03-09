@@ -68,6 +68,9 @@ vim.opt.writebackup = false
 vim.g.c_syntax_for_h = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.markdown_fenced_languages = {
+  "ts=typescript", -- Because of Deno's language server
+}
 
 vim.diagnostic.config({
   virtual_text = true,
