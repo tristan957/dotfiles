@@ -97,3 +97,5 @@ require("tristan957.keymaps")
 
 -- Setup autocommands
 require("tristan957.autocmds")
+
+require("tristan957.lsp")
