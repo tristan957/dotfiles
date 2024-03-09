@@ -228,10 +228,6 @@ return {
       capabilities = capabilities,
     })
 
-    lspconfig.jdtls.setup({
-      capabilities = capabilities,
-    })
-
     lspconfig.jsonls.setup({
       capabilities = capabilities,
       settings = {
