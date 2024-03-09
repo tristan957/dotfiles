@@ -51,18 +51,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<C-K>", vim.lsp.buf.signature_help, "Show signature help")
     map("n", "<A-r>", vim.lsp.buf.rename, "Rename")
     map({ "n", "v" }, "<A-.>", vim.lsp.buf.code_action, "View code actions")
-    map(
-      "n",
-      "<leader>/",
-      builtin.lsp_document_symbols,
-      "Search document symbols"
-    )
-    map(
-      "n",
-      "<leader>@",
-      builtin.lsp_dynamic_workspace_symbols,
-      "Search workspace symbols"
-    )
+    map("n", "<leader>/", builtin.lsp_document_symbols, "Search document symbols")
+    map("n", "<leader>@", builtin.lsp_dynamic_workspace_symbols, "Search workspace symbols")
 
     -- If more than one formatter, use selection
     map({ "n", "v" }, "|f", function()
@@ -103,9 +93,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    if
-        client.server_capabilities.documentFormattingProvider and server_should_format(client)
-    then
+    if client.server_capabilities.documentFormattingProvider and server_should_format(client) then
       vim.api.nvim_create_autocmd("BufWritePre", {
         desc = "Format on save",
         buffer = ev.buf,
