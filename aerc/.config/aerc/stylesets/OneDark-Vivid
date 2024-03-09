@@ -37,7 +37,7 @@ dirlist*.selected.bold = true
 
 header.bg = #282c34
 header.bold = true
-header.fg = #d19a66
+header.fg = #2bbac5
 
 msglist_deleted.fg = #7f848e
 msglist_gutter.bg = #5c6370
@@ -45,6 +45,9 @@ msglist_marked.bg = #d55fde
 msglist_marked.fg = #000000
 msglist_marked.selected.bg = #d781de
 msglist_pill.bg = #ef596f
+msglist_answered.bold = true
+msglist_answered.fg = #D5D9DF
+msglist_read.fg = #abb2bf
 msglist_result.bg = #61afef
 msglist_result.fg = #000000
 msglist_result.selected.bg = #8bc2ef
@@ -79,22 +82,22 @@ tab.selected.bold = true
 
 title.bg = #22252C
 title.bold = true
-title.fg = #000000
+title.fg = #abb2bf
 
 [viewer]
 *.default=true
 *.normal=true
-diff_meta.fg = #e5c07b
+diff_meta.fg = #d19a66
 diff_chunk.fg = #61afef
 diff_chunk_func.fg = #d55fde
 diff_add.fg = #89ca78
 diff_del.fg = #ef596f
 header.bold = true
-header.fg = #d19a66
+header.fg = #2bbac5
 quote_1.fg = #7f848e
 quote_2.fg = #ef596f
 quote_3.fg = #d19a66
-quote_4.fg = #d55fde
+quote_4.fg = #e5c07b
 quote_x.fg = #abb2bf
 signature.fg = #e5c07b
 url.fg = #2bbac5
