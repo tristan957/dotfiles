@@ -20,7 +20,7 @@ function flatpak_install_applications() {
     xargs flatpak install --user --assumeyes gnome-nightly <"$dir/flatpak/gnome-nightly.txt"
 
     # Valent
-    flatpak install --user --from https://valent.andyholmes.ca/valent.flatpakref
+    flatpak install --user --assumeyes --from https://valent.andyholmes.ca/valent.flatpakref
 }
 
 function flatpak_setup() {

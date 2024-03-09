@@ -1,8 +1,7 @@
 function systemd_enable() {
-    systemd --user enable --now \
+    systemctl --user enable --now \
         mandb.service \
-        mandb.path \
-        tmux.service
+        mandb.path
 }
 
 function systemd_setup() {
