@@ -7,7 +7,7 @@ return {
     "folke/neodev.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   config = function()
     local lemminx_config = require("lspconfig.server_configurations.lemminx").default_config

@@ -8,21 +8,21 @@ end
 
 local group = vim.api.nvim_create_augroup("tristan957/lsp", { clear = true })
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = group,
-  callback = function(ev)
-    local utils = require("tristan957.lsp.utils")
-
-    local servers = utils.servers(ev.buf)
-
-    for _, s in pairs(servers) do
-      local config = require("tristan957.lsp.config." .. s)
-      config = vim.tbl_deep_extend("force", utils.default_config, config)
-
-      pcall(vim.lsp.start, config, { bufnr = ev.buf })
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = group,
+--   callback = function(ev)
+--     local utils = require("tristan957.lsp.utils")
+--
+--     local servers = utils.servers(ev.buf)
+--
+--     for _, s in pairs(servers) do
+--       local config = require("tristan957.lsp.config." .. s)
+--       config = vim.tbl_deep_extend("force", utils.default_config, config)
+--
+--       pcall(vim.lsp.start, config, { bufnr = ev.buf })
+--     end
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
@@ -108,10 +108,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.api.nvim_create_user_command("LspLog", function()
-  vim.cmd.tabnew(vim.lsp.get_log_path())
-end, {
-  desc = "Opens the Nvim LSP client log",
-})
+-- vim.api.nvim_create_user_command("LspLog", function()
+--   vim.cmd.tabnew(vim.lsp.get_log_path())
+-- end, {
+--   desc = "Opens the Nvim LSP client log",
+-- })
 
 require("tristan957.lsp.handlers")
