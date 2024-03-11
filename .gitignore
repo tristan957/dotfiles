@@ -4,3 +4,4 @@
 !/.vscode/
 /cargo/.opt/cargo/*
 !/cargo/.opt/config.toml
+*.target.wants/
