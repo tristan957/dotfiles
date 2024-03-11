@@ -1,3 +1,30 @@
+local ignore_these = {
+  ".cache",
+  ".DS_Store",
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".pytest_cache",
+  ".ruff_cache",
+  ".svn",
+  "__pycache__",
+  "CVS",
+  "node_modules",
+  "target",
+}
+
+---@param prefix string
+---@param entries string[]
+---@return string[]
+local function prepend(prefix, entries)
+  local arr = {}
+  for _, e in ipairs(entries) do
+    table.insert(arr, prefix .. e)
+  end
+
+  return arr
+end
+
 ---@type LazySpec
 return {
   "nvim-telescope/telescope.nvim",
@@ -63,11 +90,9 @@ return {
           previewer = false,
         },
         find_files = {
-          prompt_title = "Files",
           hidden = true,
         },
         git_files = {
-          prompt_title = "Files",
         },
         marks = {
           mappings = {
@@ -124,10 +149,7 @@ return {
     vim.keymap.set("n", "<leader>F", function()
       builtin.live_grep({
         additional_args = { "--hidden" },
-        glob_pattern = {
-          "!.git",
-          "!node_modules",
-        },
+        glob_pattern = prepend("!", ignore_these),
       })
     end, { desc = "Search for string" })
     vim.keymap.set("n", "<leader>l", builtin.loclist, { desc = "View location list" })
@@ -144,26 +166,18 @@ return {
     vim.keymap.set("n", "<leader>sh", builtin.search_history, { desc = "Open search history" })
     vim.keymap.set("n", "<leader>t", builtin.tagstack, { desc = "Open tagstack" })
 
-    -- We cache the results of "git rev-parse"
-    -- Process creation is expensive in Windows, so this reduces latency
-    local is_inside_work_tree = {}
-
-    local project_files = function()
-      local opts = {}
-
-      local cwd = vim.fn.getcwd()
-      if is_inside_work_tree[cwd] == nil then
-        vim.fn.system("git rev-parse --is-inside-work-tree")
-        is_inside_work_tree[cwd] = vim.v.shell_error == 0
-      end
-
-      if is_inside_work_tree[cwd] then
-        builtin.git_files(vim.tbl_extend("force", opts, { show_untracked = true }))
-      else
-        builtin.find_files(vim.tbl_extend("force", opts, { hidden = true }))
-      end
-    end
-
-    vim.keymap.set("n", "<leader><leader>", project_files, { desc = "Open project files" })
+    vim.keymap.set("n", "<leader><leader>", function()
+      builtin.find_files({
+        find_command = function()
+          return {
+            "rg",
+            "--files",
+            "--color",
+            "never",
+            unpack(prepend("--iglob=!", ignore_these)),
+          }
+        end
+      })
+    end, { desc = "Find files" })
   end,
 }
