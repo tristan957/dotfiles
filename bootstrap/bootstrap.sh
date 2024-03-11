@@ -37,6 +37,7 @@ os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 # shellcheck disable=SC1090
 . "$dir/$os/distro.sh"
 
+stow_setup
 systemd_setup
 flatpak_setup
 distro_setup
@@ -44,7 +45,6 @@ dconf_setup
 bitwarden_setup
 1Password_setup
 gdb_setup
-stow_setup
 aerc_setup
 deno_setup
 rustup_setup
