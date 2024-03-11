@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+    >&2 echo "Requires 2 arguments, needle and haystack"
+    exit 2
+fi
+
+case "$2" in (*$1*)
+    exit 0
+esac
+
+exit 1
