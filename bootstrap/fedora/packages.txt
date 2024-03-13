@@ -1,7 +1,6 @@
 1password
 1password-cli
 ShellCheck
-Swift-MesonLSP
 ansible
 asciinema
 azure-cli
@@ -74,6 +73,7 @@ luarocks
 lynx
 maven
 meson
+mesonlsp
 miller
 mingw64-gcc
 mkosi
