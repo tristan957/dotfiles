@@ -59,7 +59,6 @@ return {
             ["<A-l>"] = actions.send_to_loclist,
             ["<C-L>"] = actions.add_to_loclist,
             ["<C-Q>"] = actions.add_to_qflist,
-            ["<C-u>"] = false,
           },
           n = {
             ["<C-s>"] = actions.cycle_previewers_next,
