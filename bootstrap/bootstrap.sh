@@ -27,6 +27,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/dconf.sh"
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
+. "$dir/shared/github.sh"
 . "$dir/shared/homebrew.sh"
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
@@ -51,3 +52,4 @@ rustup_setup
 homebrew_setup
 bash_completion_setup
 tmux_setup
+github_setup
