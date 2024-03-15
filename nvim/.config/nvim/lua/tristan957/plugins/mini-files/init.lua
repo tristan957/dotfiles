@@ -47,10 +47,10 @@ return {
       callback = function(args)
         local buf_id = args.data.buf_id
 
-        map_split(buf_id, "gs", false, "belowright horizontal")
-        map_split(buf_id, "gS", true, "belowright horizontal")
-        map_split(buf_id, "gv", false, "belowright vertical")
-        map_split(buf_id, "gV", true, "belowright vertical")
+        map_split(buf_id, "<C-x>", false, "belowright horizontal")
+        map_split(buf_id, "<C-X>", true, "belowright horizontal")
+        map_split(buf_id, "<C-v>", false, "belowright vertical")
+        map_split(buf_id, "<C-V>", true, "belowright vertical")
       end,
     })
   end
