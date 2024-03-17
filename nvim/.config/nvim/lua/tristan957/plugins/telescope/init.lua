@@ -10,6 +10,7 @@ local ignore_these = {
   "__pycache__",
   "CVS",
   "node_modules",
+  "po",
   "target",
 }
 
