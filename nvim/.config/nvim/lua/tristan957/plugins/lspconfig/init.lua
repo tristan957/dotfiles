@@ -181,6 +181,10 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.mesonlsp.setup({
+      capabilities = capabilities,
+    })
+
     -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
     lspconfig.pyright.setup({
       capabilities = capabilities,
@@ -227,10 +231,6 @@ return {
           },
         },
       },
-    })
-
-    lspconfig.swift_mesonls.setup({
-      capabilities = capabilities,
     })
 
     lspconfig.taplo.setup({
