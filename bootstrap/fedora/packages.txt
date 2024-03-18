@@ -39,6 +39,7 @@ git-email
 git-extras
 glib2-devel
 glow
+glslc
 gnome-extensions-app
 gnome-firmware
 gnome-sound-recorder
@@ -47,6 +48,7 @@ go-task
 golang
 golang-x-tools-gopls
 gron
+gstreamer1-plugins-bad-free-devel
 gtk4-devel
 htop
 hut
@@ -59,13 +61,17 @@ just
 libadwaita-devel
 libasan
 libasan-static
+libdrm-devel
+libepoxy-devel
 liblsan
 liblsan-static
 libportal-devel
 libreoffice
+libsass-devel
 libsoup-devel
 libtsan
 libtsan-static
+libxkbcommon-devel
 lldb
 llvm
 lollypop
@@ -108,6 +114,7 @@ reuse
 ripgrep
 rpmconf
 samurai
+sassc
 scdoc
 shfmt
 snapshot
@@ -127,6 +134,8 @@ trurl
 uncrustify
 vim-enhanced
 vlc
+vulkan-devel
+wayland-protocols-devel
 wine-core
 wine-mono
 wl-clipboard
