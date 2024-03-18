@@ -2,6 +2,7 @@
 ---@return boolean
 local function server_should_format(client)
   return vim.tbl_contains({
+    "clangd",
     "rust_analyzer",
   }, client.name)
 end
@@ -43,10 +44,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gy", builtin.lsp_type_definitions, "Goto type definitions")
     map("n", "gl", builtin.lsp_implementations, "Show implementations")
     map("n", "g]", builtin.lsp_references, "Show references")
-    -- Telescope's implementation doesn't take you to the line number.
-    -- https://github.com/nvim-telescope/telescope.nvim/issues/2939
-    map("n", "g(", vim.lsp.buf.incoming_calls, "Show incoming calls")
-    map("n", "g)", vim.lsp.buf.outgoing_calls, "Show outgoing calls")
+    map("n", "g(", builtin.lsp_incoming_calls, "Show incoming calls")
+    map("n", "g)", builtin.lsp_outgoing_calls, "Show outgoing calls")
     map("n", "K", vim.lsp.buf.hover, "Show hover documentation")
     map("n", "<C-K>", vim.lsp.buf.signature_help, "Show signature help")
     map("n", "<A-r>", vim.lsp.buf.rename, "Rename")
