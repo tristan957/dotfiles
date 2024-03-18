@@ -6,7 +6,3 @@ Source: https://git.sr.ht/~tristan957/dotfiles
 Files: *
 Copyright: Tristan Partin <tristan@partin.io>
 License: CC0-1.0
-
-Files: bash/git-prompt.sh
-Copyright: 2006,2007 Shawn O. Pearce <spearce@spearce.org>
-License: GPL-2.0-only

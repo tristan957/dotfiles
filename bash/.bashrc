@@ -27,14 +27,19 @@ function __prompt_extras() {
 
     # Git information for prompt
     if git rev-parse >/dev/null 2>&1; then
-        . "${BASH_DIR}/git-prompt.sh"
+        if [[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
+            source /usr/share/git-core/contrib/completion/git-prompt.sh
+        fi
+
         # GIT_PS1_SHOWDIRTYSTATE=1
         # GIT_PS1_SHOWSTASHSTATE=1
         # GIT_PS1_SHOWUNTRACKEDFILES=1
-        GIT_PS1_SHOWUPSTREAM="auto"
-        GIT_PS1_DESCRIBE_STYLE="auto"
         # GIT_PS1_HIDE_IF_PWD_IGNORED=1
         # GIT_PS1_STATESEPARATOR=" "
+        # shellcheck disable=SC2034
+        GIT_PS1_SHOWUPSTREAM="auto"
+        # shellcheck disable=SC2034
+        GIT_PS1_DESCRIBE_STYLE="auto"
         # shellcheck disable=SC2016
         PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(tput setaf 39)[%s]")"
     fi
