@@ -1,7 +1,5 @@
-# I am not really sure if this is the best place for the interactive check. If
-# this is uncommented, gnome-shell won't load desktop files located in
-# ~/.local/share/applications.
-# [[ $- != *i* ]] && return
+# Don't run if it's not an interactive shell
+[[ $- != *i* ]] && return
 
 # Shell Options
 shopt -s histappend
