@@ -30,6 +30,7 @@ flatpak-builder
 fswatch
 fzf
 gcc-c++
+gettext-envsubst
 gh
 gimp
 git
