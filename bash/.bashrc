@@ -8,8 +8,6 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
-# Add to shell history after every command
-# PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 
@@ -19,7 +17,7 @@ source "$BASH_DIR/.bash_functions"
 
 #-------------------------------------------------------------------------------
 
-# Prompt
+# Bash Settings
 
 function __prompt_extras() {
     PROMPT_EXTRAS=""
@@ -69,11 +67,16 @@ PS4='$(tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(tput sgr0)  
 # How many directories to show
 # PROMPT_DIRTRIM=1
 
+# Add to shell history after every command
+# PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+HISTCONTROL="ignoredups:ignorespace"
+HISTSIZE=1000000
+HISTTIMEFORMAT="%FT%T%z: "
+
 #-------------------------------------------------------------------------------
 
 # Environment Variables
-
-# https://wiki.archlinux.org/title/XDG_Base_Directory
 
 # Set default terminal text editor
 if command -v "nvim" >/dev/null 2>&1; then
@@ -96,11 +99,6 @@ fi
 
 # Forget about "unable to sign commit" errors
 export GPG_TTY=$(tty)
-
-# Bash History Control
-HISTCONTROL="ignoredups:ignorespace"
-HISTSIZE=1000000
-HISTTIMEFORMAT="%FT%T%z: "
 
 #-------------------------------------------------------------------------------
 
