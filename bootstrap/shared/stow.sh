@@ -31,6 +31,7 @@ function stow_setup() {
         tmux \
         vim \
         vscodium \
+        wget \
         yarn
 
     popd >/dev/null 2>&1 || exit

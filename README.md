@@ -41,6 +41,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - tmux
 - vim
 - vscodium
+- wget
 - yarn
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like
