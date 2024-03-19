@@ -32,6 +32,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - programs
 - psql
 - readline
+- ripgrep
 - ssh
 - sway
 - systemd

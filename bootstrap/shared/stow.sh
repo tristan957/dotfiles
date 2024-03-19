@@ -22,6 +22,7 @@ function stow_setup() {
         programs \
         psql \
         readline \
+        ripgrep \
         ssh \
         sway \
         systemd \
