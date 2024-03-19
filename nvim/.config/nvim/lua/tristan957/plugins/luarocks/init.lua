@@ -5,6 +5,6 @@ return {
   config = function()
     local luarocks = require("luarocks")
 
-    luarocks.setup()
+    luarocks.setup({})
   end,
 }
