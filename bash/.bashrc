@@ -15,8 +15,8 @@ BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 DOTFILES_DIR=$(dirname "$BASH_DIR")
 
 # Include some auxiliary files to keep this clean
-. "${BASH_DIR}/.bash_aliases"
-. "${BASH_DIR}/.bash_functions"
+source "$BASH_DIR/.bash_aliases"
+source "$BASH_DIR/.bash_functions"
 
 #-------------------------------------------------------------------------------
 
@@ -185,79 +185,13 @@ else
     export VISUAL="nano"
 fi
 
-# Python virtual environments should stop messing with PS1
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
 # Forget about "unable to sign commit" errors
 export GPG_TTY=$(tty)
-
-# Add Go executables to PATH
-if [[ "${PATH}" != *"${GOPATH}/bin"* ]]; then
-    PATH="${GOPATH}/bin:${PATH}"
-fi
-
-# Add Deno executables to PATH
-if [[ "${PATH}" != *"${DENO_INSTALL}/bin"* ]]; then
-    PATH="${DENO_INSTALL}/bin:${PATH}"
-fi
-
-# Add local executables to PATH
-if [[ "${PATH}" != *"${HOME}/.local/bin"* ]]; then
-    PATH="${HOME}/.local/bin:${PATH}"
-fi
-
-# Add Rust executables to PATH
-if [[ "${PATH}" != *"${CARGO_HOME}/bin"* ]]; then
-    PATH="${CARGO_HOME}/bin:${PATH}"
-fi
-
-# Add Yarn executables to PATH
-if [[ "${PATH}" != *"${HOME}/.yarn/bin"* ]]; then
-    PATH="${HOME}/.yarn/bin:${PATH}"
-fi
-
-# Add snap executables to PATH
-if [[ "${PATH}" != *"/var/lib/snapd/snap/bin"* ]]; then
-    PATH="/var/lib/snapd/snap/bin:${PATH}"
-fi
-
-# Add my Zig nightly to PATH
-if [[ "${PATH}" != *"${HOME}/.opt/zig"* ]]; then
-    PATH="${HOME}/.opt/zig:${PATH}"
-fi
 
 # Bash History Control
 HISTCONTROL="ignoredups:ignorespace"
 HISTSIZE=1000000
 HISTTIMEFORMAT="%FT%T%z: "
-
-# less
-export PAGER=less
-export LESS=Rc
-export LESSHISTSIZE=1000000
-if command -v "pygmentize" >/dev/null 2>&1; then
-    export LESSOPEN="| pygmentize -O style=one-dark %s 2>/dev/null"
-fi
-
-# Golang
-export GOPROXY=direct
-export GOTELEMETRY=off
-
-# Homebrew
-if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
-    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-    export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
-    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew";
-    export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin${PATH+:$PATH}";
-    export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
-    export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
-fi
-
-# Postgres
-export PSQL_HISTORY="$XDG_STATE_HOME/postgresql/psql_history"
-export PSQLRC="$XDG_CONFIG_HOME/postgresql/psqlrc"
-export PGPASSFILE="$XDG_CONFIG_HOME/postgresql/pgpass"
-export PGSERVICEFILE="$XDG_CONFIG_HOME/postgresql/pg_service.conf"
 
 #-------------------------------------------------------------------------------
 
@@ -265,9 +199,9 @@ export PGSERVICEFILE="$XDG_CONFIG_HOME/postgresql/pg_service.conf"
 
 if ! shopt -oq posix; then
     if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-        . /usr/share/bash-completion/bash_completion
+        source /usr/share/bash-completion/bash_completion
     elif [[ -f /etc/bash_completion ]]; then
-        . /etc/bash_completion
+        source /etc/bash_completion
     fi
 fi
 
