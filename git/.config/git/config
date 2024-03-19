@@ -4,6 +4,9 @@
 	signingkey = CC000B6D725FAEB6E8CEE5FD5AD0476101F9899D
 [alias]
 	c = commit
+	d = diff
+	dc = diff --cached
+	l = log --oneline
 	s = status
 	lg = !"git lg1"
 	lg1 = !"git lg1-specific --all"
