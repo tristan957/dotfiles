@@ -94,6 +94,7 @@ nodejs
 pandoc
 parallel
 pax-utils
+pipx
 podman-compose
 podman-docker
 powershell
