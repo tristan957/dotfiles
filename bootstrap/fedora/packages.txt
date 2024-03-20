@@ -34,6 +34,7 @@ gettext-envsubst
 gh
 gimp
 git
+git-absorb
 git-annex
 git-delta
 git-email
