@@ -21,6 +21,7 @@ codium
 codespell
 dconf-editor
 delve
+difftastic
 direnv
 distrobox
 dotnet-sdk-7.0
