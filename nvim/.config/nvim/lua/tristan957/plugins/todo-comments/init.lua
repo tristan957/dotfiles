@@ -5,7 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
   },
-  event = "VimEnter",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local todo_comments = require("todo-comments")
 

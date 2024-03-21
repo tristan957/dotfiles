@@ -41,7 +41,7 @@ return {
     },
     "rcarriga/nvim-notify",
   },
-  event = "VimEnter",
+  event = "VeryLazy",
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")

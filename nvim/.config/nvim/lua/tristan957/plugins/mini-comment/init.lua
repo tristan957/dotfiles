@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.comment",
-  event = "BufEnter",
+  event = "VeryLazy",
   config = function()
     local comment = require("mini.comment")
 

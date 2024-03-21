@@ -4,17 +4,17 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  event = "VimEnter",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local trouble = require("trouble")
 
     trouble.setup({
       icons = true,
-      indent_lines = true, -- add an indent guide below the fold icons
+      indent_lines = true,
       win_config = {
         border = "rounded",
       },
-      use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
+      use_diagnostic_signs = true,
     })
 
     vim.keymap.set("n", "\\t", vim.cmd.TroubleToggle, { silent = true })
