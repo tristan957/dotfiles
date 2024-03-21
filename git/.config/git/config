@@ -36,7 +36,13 @@
 [diff]
 	algorithm = histogram
 	colorMoved = true
+	external = difft
 	submodule = log
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true
 	prunetags = true
@@ -52,7 +58,7 @@
 [init]
 	defaultBranch = master
 [interactive]
-	diffFilter = delta --color-only
+	diffFilter = delta --color-only --features=interactive
 [log]
 	date = iso-local
 [merge]
@@ -61,6 +67,8 @@
 [notes]
 	displayRef = refs/notes/*
 	rewriteMode = concatenate
+[pager]
+	difftool = true
 [protocol "file"]
 	allow = always
 [pull]
