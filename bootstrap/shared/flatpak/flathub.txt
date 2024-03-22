@@ -19,6 +19,7 @@ org.freedesktop.Bustle
 org.gnome.Fractal
 org.gnome.Loupe
 org.gnome.Snapshot
+org.gnome.design.AppIconPreview
 org.gnome.design.Contrast
 org.gnome.design.IconLibrary
 org.gnome.design.Lorem
