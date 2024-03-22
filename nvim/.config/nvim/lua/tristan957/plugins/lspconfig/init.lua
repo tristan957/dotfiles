@@ -68,6 +68,10 @@ return {
       },
     })
 
+    lspconfig.blueprint_ls.setup({
+      capabilities = capabilities,
+    })
+
     lspconfig.clangd.setup({
       cmd = {
         "clangd",
