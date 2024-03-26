@@ -124,7 +124,6 @@ samurai
 sassc
 scdoc
 shfmt
-snapshot
 steam-devices
 stow
 strace
