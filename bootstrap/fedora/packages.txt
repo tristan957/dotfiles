@@ -60,6 +60,7 @@ java-latest-openjdk
 jc
 jq
 json-glib-devel
+jsonrpc-glib-devel
 just
 libadwaita-devel
 libasan
