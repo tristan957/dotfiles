@@ -66,6 +66,7 @@ just
 libadwaita-devel
 libasan
 libasan-static
+libdex-devel
 libdrm-devel
 libepoxy-devel
 liblsan
