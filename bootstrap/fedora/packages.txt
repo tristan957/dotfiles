@@ -71,6 +71,7 @@ libdrm-devel
 libepoxy-devel
 liblsan
 liblsan-static
+libpeas-devel
 libportal-devel
 libreoffice
 libsass-devel
