@@ -16,6 +16,7 @@ dev.geopjr.Tuba
 dev.skynomads.Seabird
 io.github.realmazharhussain.GdmSettings
 org.freedesktop.Bustle
+org.gnome.dspy
 org.gnome.Fractal
 org.gnome.Loupe
 org.gnome.Snapshot
