@@ -24,6 +24,7 @@ delve
 difftastic
 direnv
 distrobox
+dnf-plugin-system-upgrade
 dotnet-sdk-7.0
 epiphany
 fd-find
