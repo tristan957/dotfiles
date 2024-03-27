@@ -20,33 +20,7 @@
 -- vim.keymap.set("v", "<M-h>", move_horizontally("<gv"), { desc = "Move selection rightward" })
 
 -- Similar to o or O without entering insert mode
-vim.keymap.set("n", "oo", "o<Esc>", { desc = "Enter newline below cursor" })
-vim.keymap.set("n", "OO", "O<Esc>", { desc = "Enter newline above cursor" })
-
-vim.keymap.set({ "i", "n" }, "<A-U>", function()
-  vim.cmd.nohlsearch()
-  vim.cmd.redraw()
-end, { desc = "Turn off search highlighting" })
-
-vim.keymap.set("n", "<Esc>", function()
-  local windows_to_close = vim.tbl_filter(function(w)
-    if w == vim.api.nvim_get_current_win() then
-      return false
-    end
-
-    local buf = vim.api.nvim_win_get_buf(w)
-    if vim.tbl_contains({ "minifiles", "TelescopePrompt" }, vim.bo[buf].filetype) then
-      return false
-    end
-
-    local config = vim.api.nvim_win_get_config(w)
-    return config.relative ~= ""
-  end, vim.api.nvim_list_wins())
-
-  for _, w in ipairs(windows_to_close) do
-    pcall(vim.api.nvim_win_close, w, false)
-  end
-end, { desc = "Close irregular windows" })
+vim.keymap.set({ "i", "n" }, "<A-U>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
 
 require("tristan957.keymaps.buffers")
 require("tristan957.keymaps.diagnostics")
