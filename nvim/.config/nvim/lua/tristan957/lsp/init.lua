@@ -1,12 +1,3 @@
----@param client lsp.Client
----@return boolean
-local function server_should_format(client)
-  return vim.tbl_contains({
-    "clangd",
-    "rust_analyzer",
-  }, client.name)
-end
-
 local group = vim.api.nvim_create_augroup("tristan957/lsp", { clear = true })
 
 -- vim.api.nvim_create_autocmd("FileType", {
@@ -29,6 +20,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
     local builtin = require("telescope.builtin")
+    local formatting = require("tristan957.lsp.formatting")
+
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -55,26 +48,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- If more than one formatter, use selection
     map({ "n", "v" }, "|f", function()
-      local clients = vim.lsp.get_active_clients({ bufnr = ev.buf })
-      local formatters = {}
+      local clients = {}
+      local choices = {}
 
-      for _, c in pairs(clients) do
-        if c.server_capabilities.documentFormattingProvider and server_should_format(c) then
-          table.insert(formatters, c.name)
+      for _, c in pairs(vim.lsp.get_active_clients({ bufnr = ev.buf })) do
+        if c.server_capabilities.documentFormattingProvider then
+          table.insert(clients, c)
+          table.insert(choices, c.name)
         end
       end
 
-      if #formatters > 1 then
-        vim.ui.select(formatters, { prompt = "Select a formatter" }, function(_, choice)
+      if #choices > 1 then
+        vim.ui.select(choices, { prompt = "Select a formatter" }, function(_, choice)
           if not choice then
             vim.notify(vim.log.levels.WARN, "No formatter selected")
             return
           end
 
-          vim.lsp.buf.format({ async = true, name = formatters[choice] })
+          formatting.format(clients[choice], ev.buf, { async = true })
         end)
       else
-        vim.lsp.buf.format({ async = true, name = formatters[1] })
+        formatting.format(clients[1], ev.buf, { async = true })
       end
     end, "Format code")
 
@@ -92,15 +86,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    if client.server_capabilities.documentFormattingProvider and server_should_format(client) then
+    if client.server_capabilities.documentFormattingProvider then
       vim.api.nvim_create_autocmd("BufWritePre", {
         desc = "Format on save",
         buffer = ev.buf,
         callback = function()
-          vim.lsp.buf.format({
-            bufnr = ev.buf,
-            id = client.id,
-          })
+          formatting.format(client, ev.buf, { async = true })
         end,
       })
     end
