@@ -18,7 +18,7 @@ function stow_setup() {
         libedit \
         meson \
         npm \
-        nvim \
+        neovim \
         programs \
         psql \
         readline \

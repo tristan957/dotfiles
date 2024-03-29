@@ -27,8 +27,8 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - less
 - libedit
 - meson
+- neovim
 - npm
-- nvim
 - programs
 - psql
 - readline
