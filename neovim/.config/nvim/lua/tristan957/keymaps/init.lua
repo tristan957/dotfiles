@@ -19,7 +19,20 @@
 -- vim.keymap.set("v", "<M-l>", move_horizontally(">gv"), { desc = "Move selection rightward" })
 -- vim.keymap.set("v", "<M-h>", move_horizontally("<gv"), { desc = "Move selection rightward" })
 
--- Similar to o or O without entering insert mode
+-- https://superuser.com/a/607168
+vim.keymap.set(
+  "n",
+  "]<Space>",
+  ':<C-u>put =repeat(nr2char(10), v:count)<Bar>execute "\'[-1"<CR>',
+  { desc = "Add newlines above cursor", silent = true }
+)
+vim.keymap.set(
+  "n",
+  "]<Space>",
+  ':<C-u>put!=repeat(nr2char(10), v:count)<Bar>execute "\']+1"<CR>',
+  { desc = "Add newlines beneath cursor", silent = true }
+)
+
 vim.keymap.set({ "i", "n" }, "<A-U>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
 
 require("tristan957.keymaps.buffers")
