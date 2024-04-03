@@ -28,31 +28,35 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Remove trailing whitespace",
   group = group,
   callback = function(ev)
+    if not vim.bo[ev.buf].modifiable then
+      return
+    end
+
     -- If we ask for trailing whitespace, respect it
     if string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil then
       return
     end
 
-    local view = vim.fn.winsaveview()
-    vim.cmd([[%s/\s\+$//e]])
-    vim.fn.winrestview(view)
+    local curpos = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[keeppatterns %s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, curpos)
   end,
 })
 
-local empty_line = vim.regex("^$")
 vim.api.nvim_create_autocmd("BufWritePre", {
   desc = "Remove extra trailing newlines",
   group = group,
   callback = function(ev)
-    local view = vim.fn.winsaveview()
-
-    local line = vim.fn.line("$") - 1
-    while empty_line:match_line(ev.buf, line) ~= nil do
-      vim.cmd("$d")
-      line = line - 1
+    if not vim.bo[ev.buf].modifiable then
+      return
     end
 
-    vim.fn.winrestview(view)
+    local n_lines = vim.api.nvim_buf_line_count(ev.buf)
+    local last_nonblank = vim.fn.prevnonblank(n_lines)
+
+    if last_nonblank < n_lines then
+      vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {})
+    end
   end,
 })
 
@@ -61,5 +65,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = group,
   callback = function()
     vim.highlight.on_yank()
-  end
+  end,
 })
