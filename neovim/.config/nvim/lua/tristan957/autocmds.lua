@@ -1,3 +1,5 @@
+local MiniTrailspace = require("mini.trailspace")
+
 local group = vim.api.nvim_create_augroup("tristan957", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
@@ -37,9 +39,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       return
     end
 
-    local curpos = vim.api.nvim_win_get_cursor(0)
-    vim.cmd([[keeppatterns %s/\s\+$//e]])
-    vim.api.nvim_win_set_cursor(0, curpos)
+    MiniTrailspace.trim()
   end,
 })
 
@@ -51,12 +51,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       return
     end
 
-    local n_lines = vim.api.nvim_buf_line_count(ev.buf)
-    local last_nonblank = vim.fn.prevnonblank(n_lines)
-
-    if last_nonblank < n_lines then
-      vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {})
-    end
+    MiniTrailspace.trim_last_lines()
   end,
 })
 
