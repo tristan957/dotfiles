@@ -33,6 +33,10 @@ command = tmux new-session -A -t T -s t
 confirm-close-surface = false
 
 font-family = Cascadia Mono PL
+# Disable ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 font-size = 10
 
 window-padding-x = 0
