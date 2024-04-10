@@ -65,10 +65,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
             return
           end
 
-          formatting.format(clients[choice], ev.buf, { async = true })
+          formatting.format(clients[choice], ev.buf, true, { async = true })
         end)
       else
-        formatting.format(clients[1], ev.buf, { async = true })
+        formatting.format(clients[1], ev.buf, true, { async = true })
       end
     end, "Format code")
 
@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         desc = "Format on save",
         buffer = ev.buf,
         callback = function()
-          formatting.format(client, ev.buf, { async = true })
+          formatting.format(client, ev.buf, false, { async = true })
         end,
       })
     end

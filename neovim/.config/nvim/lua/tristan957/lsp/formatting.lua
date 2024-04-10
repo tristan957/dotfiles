@@ -15,8 +15,9 @@ local markers = {
 
 ---@param client lsp.Client | string
 ---@param bufnr number
+---@param force boolean If marker is not found,
 ---@param opts table
-M.format = function(client, bufnr, opts)
+M.format = function(client, bufnr, force, opts)
   if markers[client.name] == nil then
     return
   end
@@ -28,29 +29,37 @@ M.format = function(client, bufnr, opts)
 
   local parents = Path:new(vim.fn.bufname(bufnr)):parents()
 
-  for _, c in ipairs(parents) do
-    local p = Path:new(c)
+  -- Try and find a marker between our parents and the CWD
+  local found = false
+  if not force then
+    for _, c in ipairs(parents) do
+      local p = Path:new(c)
 
-    for _, m in ipairs(markers[client.name]) do
-      if p:joinpath(m):exists() then
-        if type(client) == "string" then
-          opts["name"] = client
-        else
-          opts["id"] = client.id
+      for _, m in ipairs(markers[client.name]) do
+        if p:joinpath(m):exists() then
+          found = true
+          break
         end
+      end
 
-        vim.lsp.buf.format({
-          bufnr = bufnr,
-          unpack(opts),
-        })
-
-        return
+      -- Don't try to read higher than the CWD
+      if c == cwd then
+        break
       end
     end
+  end
 
-    if c == cwd then
-      break
+  if force or found then
+    if type(client) == "string" then
+      opts["name"] = client
+    else
+      opts["id"] = client.id
     end
+
+    vim.lsp.buf.format({
+      bufnr = bufnr,
+      unpack(opts),
+    })
   end
 end
 
