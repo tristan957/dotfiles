@@ -99,3 +99,5 @@ require("tristan957.keymaps")
 require("tristan957.autocmds")
 
 require("tristan957.lsp")
+
+vim.cmd.packadd("cfilter")
