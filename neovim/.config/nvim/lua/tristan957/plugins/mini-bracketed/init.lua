@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.bracketed",
+  event = "VeryLazy",
   config = function()
     local MiniBracketed = require("mini.bracketed")
 
