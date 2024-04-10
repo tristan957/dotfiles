@@ -3,8 +3,15 @@ return {
   "echasnovski/mini.comment",
   event = "VeryLazy",
   config = function()
-    local comment = require("mini.comment")
+    local MiniComment = require("mini.comment")
 
-    comment.setup()
-  end
+    MiniComment.setup({
+      options = {
+        custom_commentstring = function()
+          return require("ts_context_commentstring").calculate_commentstring()
+            or vim.bo.commentstring
+        end,
+      },
+    })
+  end,
 }
