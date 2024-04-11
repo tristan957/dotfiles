@@ -1,4 +1,6 @@
-local utils = require("tristan957.keymaps.utils")
+local utils = require("tristan957.utils")
+
+local group = vim.api.nvim_create_augroup("tristan957/quickfix", { clear = true })
 
 local function toggle_qflist()
   local orig = vim.fn.winnr("$")
@@ -121,3 +123,19 @@ vim.keymap.set("n", "|l", function()
   vim.fn.setloclist(window, {}, "r")
   vim.cmd.lclose()
 end, { desc = "Clear the location list" })
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  desc = "Automatically open quickfix window",
+  group = group,
+  pattern = "[^l]*",
+  nested = true,
+  callback = "cwindow",
+})
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  desc = "Automatically open loclist window",
+  group = group,
+  pattern = "l*",
+  nested = true,
+  callback = "lwindow",
+})

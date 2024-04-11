@@ -1,3 +1,7 @@
+local MiniTrailspace = require("mini.trailspace")
+
+local group = vim.api.nvim_create_augroup("tristan957/whitespace", { clear = true })
+
 -- These don't currently work if selection includes the top or bottom lines.
 -- vim.keymap.set("v", "<M-k>", ":m '>+1<CR>gv=gv", { desc = "Move selection up" })
 -- vim.keymap.set("v", "<M-j>", ":m '<-2<CR>gv=gv", { desc = "Move selection down" })
@@ -22,7 +26,7 @@
 -- https://superuser.com/a/607168
 vim.keymap.set(
   "n",
-  "]<Space>",
+  "[<Space>",
   ':<C-u>put =repeat(nr2char(10), v:count)<Bar>execute "\'[-1"<CR>',
   { desc = "Add newlines above cursor", silent = true }
 )
@@ -33,8 +37,31 @@ vim.keymap.set(
   { desc = "Add newlines beneath cursor", silent = true }
 )
 
-vim.keymap.set({ "i", "n" }, "<A-U>", vim.cmd.nohlsearch, { desc = "Turn off search highlighting" })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Remove trailing whitespace",
+  group = group,
+  callback = function(ev)
+    if not vim.bo[ev.buf].modifiable then
+      return
+    end
 
-require("tristan957.keymaps.buffers")
-require("tristan957.keymaps.diagnostics")
-require("tristan957.keymaps.quickfix")
+    -- If we ask for trailing whitespace, respect it
+    if string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil then
+      return
+    end
+
+    MiniTrailspace.trim()
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Remove extra trailing newlines",
+  group = group,
+  callback = function(ev)
+    if not vim.bo[ev.buf].modifiable then
+      return
+    end
+
+    MiniTrailspace.trim_last_lines()
+  end,
+})

@@ -92,12 +92,6 @@ require("lazy").setup("plugins", {
   },
 })
 
--- Setup global keymaps
-require("tristan957.keymaps")
-
--- Setup autocommands
-require("tristan957.autocmds")
-
-require("tristan957.lsp")
-
 vim.cmd.packadd("cfilter")
+
+require("tristan957")

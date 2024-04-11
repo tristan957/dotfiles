@@ -1,3 +1,8 @@
-local M = {}
-
-return M
+require("tristan957.buffers")
+require("tristan957.diagnostics")
+require("tristan957.linenumbers")
+require("tristan957.lsp")
+require("tristan957.quickfix")
+require("tristan957.search")
+require("tristan957.whitespace")
+require("tristan957.yank")
