@@ -83,7 +83,7 @@ vim.diagnostic.config({
 -- https://github.com/mrcjkb/rustaceanvim
 -- https://github.com/mfussenegger/nvim-jdtls
 -- https://github.com/pmizio/typescript-tools.nvim
-require("lazy").setup("tristan957.plugins", {
+require("lazy").setup("plugins", {
   dev = {
     path = table.concat({ os.getenv("HOME"), "Projects" }, "/"),
   },
