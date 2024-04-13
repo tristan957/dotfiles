@@ -57,7 +57,23 @@ function __prompt_extras() {
     echo -ne "$PROMPT_EXTRAS"
 }
 
-PS1="\[$(tput bold)\]\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\H] \[$(tput setaf 214)\][\W]\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]+ \$ \[$(tput sgr0)\]"
+# I could add the container application here:
+#   - docker(container)
+#   - podman(container)
+#   - toolbox(container)
+#
+# But the only time I should see my prompt in a container is with Toolbox or
+# Distrobox, so should be all good.
+function __prompt_host() {
+    if [[ -f /run/.toolboxenv ]] || [[ -f /run/.distroboxenv ]]; then
+        sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
+    else
+        # Equivalent of \H
+        hostname
+    fi
+}
+
+PS1="\[$(tput bold)\]\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\$(__prompt_host)] \[$(tput setaf 214)\][\W]\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]+ \$ \[$(tput sgr0)\]"
 PS2="\[$(tput bold)\]> \[$(tput sgr0)\]"
 PS3="\[$(tput bold)\]#? \[$(tput sgr0)\]"
 PS4='$(tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(tput sgr0)   '
