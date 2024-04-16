@@ -43,7 +43,8 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 function dnf_install_packages() {
     local dir=$(dirname "${BASH_SOURCE[0]}")
 
-    xargs sudo dnf install -y <"$dir/packages.txt"
+    xargs sudo dnf remove -y <"$dir/packages/remove.txt"
+    xargs sudo dnf install -y <"$dir/packages/install.txt"
     xargs sudo dnf install -y <"$dir/work.txt"
 
     # Proprietary codec bs

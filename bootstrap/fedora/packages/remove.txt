@@ -1,0 +1,4 @@
+cheese
+gnome-terminal
+loupe
+snapshot
