@@ -22,6 +22,7 @@ return {
     local servers = {
       "awk_ls",
       "bashls",
+      "basedpyright",
       "clangd",
       "cmake",
       "cssls",
@@ -57,6 +58,32 @@ return {
 
     lspconfig.awk_ls.setup({
       capabilities = capabilities,
+    })
+
+    -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
+    lspconfig.basedpyright.setup({
+      capabilities = capabilities,
+      settings = {
+        python = {
+          analysis = {
+            autoImportCompletions = true,
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+      ---@param client lsp.Client
+      on_init = function(client)
+        local path = Path:new(client.workspace_folders[1].name)
+
+        if path:joinpath("poetry.lock"):exists() and vim.fn.executable("poetry") then
+          client.config.settings.python =
+            vim.tbl_deep_extend("force", client.config.settings.python, {
+              venvPath = vim.fn.system("poetry env info --path"),
+            })
+        end
+      end,
     })
 
     lspconfig.bashls.setup({
@@ -191,6 +218,7 @@ return {
 
     -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
     lspconfig.pyright.setup({
+      autostart = false,
       capabilities = capabilities,
       settings = {
         python = {
