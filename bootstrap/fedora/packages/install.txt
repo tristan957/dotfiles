@@ -92,6 +92,7 @@ mingw64-gcc
 mkosi
 mold
 moreutils
+mozilla-openh264
 neovim
 ninja-build
 nnn
