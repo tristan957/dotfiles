@@ -2,6 +2,8 @@
 	name = Tristan Partin
 	email = tristan@partin.io
 	signingkey = CC000B6D725FAEB6E8CEE5FD5AD0476101F9899D
+[advice]
+	skippedCherryPicks = false
 [alias]
 	c = commit
 	d = diff
