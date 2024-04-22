@@ -129,7 +129,7 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   group = group,
   pattern = "[^l]*",
   nested = true,
-  callback = "cwindow",
+  command = "cwindow",
 })
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
@@ -137,5 +137,5 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   group = group,
   pattern = "l*",
   nested = true,
-  callback = "lwindow",
+  command = "lwindow",
 })
