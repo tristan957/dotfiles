@@ -63,6 +63,7 @@ jq
 json-glib-devel
 jsonrpc-glib-devel
 just
+kitty-kitten
 libadwaita-devel
 libasan
 libasan-static
