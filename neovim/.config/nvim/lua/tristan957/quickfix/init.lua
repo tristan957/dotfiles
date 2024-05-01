@@ -52,7 +52,7 @@ vim.keymap.set("n", "[Q", vim.cmd.colder, { desc = "Go to older quickfix list" }
 vim.keymap.set("n", "]Q", vim.cmd.cnewer, { desc = "Go to newer quickfix list" })
 vim.keymap.set("n", "]q", cnext_wrap, { desc = "Go to next quickfix item" })
 vim.keymap.set("n", "[q", cprevious_wrap, { desc = "Go to previous quickfix item" })
-vim.keymap.set("n", "\\q", toggle_qflist, { desc = "Toggle the quickfix list" })
+vim.keymap.set("n", "<C-W>y", toggle_qflist, { desc = "Toggle the quickfix list" })
 vim.keymap.set("n", "|q", function()
   vim.fn.setqflist({}, "r")
   vim.cmd.cclose()
@@ -116,7 +116,7 @@ vim.keymap.set("n", "[L", vim.cmd.lolder, { desc = "Go to older location list" }
 vim.keymap.set("n", "]L", vim.cmd.lnewer, { desc = "Go to newer location list" })
 vim.keymap.set("n", "]l", lnext_wrap, { desc = "Go to next location list item" })
 vim.keymap.set("n", "[l", lprevious_wrap, { desc = "Go to previous location list item" })
-vim.keymap.set("n", "\\l", toggle_loclist, { desc = "Toggle the location list" })
+vim.keymap.set("n", "<C-W>Y", toggle_loclist, { desc = "Toggle the location list" })
 vim.keymap.set("n", "|l", function()
   local window = vim.api.nvim_get_current_win()
 

@@ -1,4 +1,4 @@
-vim.keymap.set("n", "\\d", function()
+vim.keymap.set("n", "<C-W>d", function()
   vim.diagnostic.open_float(nil, { scope = "cursor" })
 end, { silent = true, desc = "Open diagnostic in floating window" })
 
