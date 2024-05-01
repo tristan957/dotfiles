@@ -1,3 +1,4 @@
 set debuginfod enabled on
 set history save on
 set history size 1000000
+set pagination off
