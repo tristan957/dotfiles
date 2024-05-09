@@ -1,4 +1,3 @@
-ch.protonmail.protonmail-bridge
 com.belmoussaoui.Decoder
 com.belmoussaoui.Obfuscate
 com.bitwarden.desktop
