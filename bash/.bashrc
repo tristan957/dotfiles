@@ -119,12 +119,15 @@ export GPG_TTY=$(tty)
 # Bash Completion
 
 if ! shopt -oq posix; then
-    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-        source /usr/share/bash-completion/bash_completion
-    elif [[ -f /etc/bash_completion ]]; then
-        source /etc/bash_completion
-    fi
+    source /usr/share/bash-completion/bash_completion 2>/dev/null
+    source /etc/bash_completion 2>/dev/null
 fi
+
+#-------------------------------------------------------------------------------
+
+# fzf
+
+source /usr/share/fzf/shell/key-bindings.bash 2>/dev/null
 
 #-------------------------------------------------------------------------------
 
