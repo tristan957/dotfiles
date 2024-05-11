@@ -38,9 +38,7 @@
 [diff]
 	algorithm = histogram
 	colorMoved = true
-	dstPrefix = incoming/
 	external = difft
-	srcPrefix = ./
 	submodule = log
 	tool = difftastic
 [difftool]
