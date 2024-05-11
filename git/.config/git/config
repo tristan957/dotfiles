@@ -88,10 +88,10 @@
 	aliasesFile = ~/.config/git/aliases
 	aliasFileType = mutt
 	confirm = always
-	smtpEncryption = starttls
-	smtpServer = 127.0.0.1
+	smtpEncryption = ssl
+	smtpServer = smtp.fastmail.com
 	smtpUser = tristan@partin.io
-	smtpServerPort = 1025
+	smtpServerPort = 465
 [status]
 	submoduleSummary = true
 [trailer "sign"]
