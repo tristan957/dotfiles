@@ -46,18 +46,28 @@ function dnf_install_packages() {
     xargs sudo dnf remove -y <"$dir/packages/remove.txt"
     xargs sudo dnf install -y <"$dir/packages/install.txt"
     xargs sudo dnf install -y <"$dir/work.txt"
+}
 
-    # Proprietary codec bs
-    sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} \
-        gstreamer1-plugin-openh264 \
-        gstreamer1-libav \
-        --exclude=gstreamer1-plugins-bad-free-devel
-    sudo dnf install -y lame\* --exclude=lame-devel
-    sudo dnf group upgrade -y --with-optional Multimedia
+# Proprietary codec bs
+# https://rpmfusion.org/Howto/Multimedia
+function dnf_proprietary_multimedia() {
+    sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+    sudo dnf groupupdate multimedia \
+        --setopt="install_weak_deps=False" \
+        --exclude=PackageKit-gstreamer-plugin
+    sudo dnf groupupdate sound-and-video
+    # Intel
+    sudo dnf install intel-media-driver
+    # AMD
+    sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+    sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+    sudo dnf install rpmfusion-free-release-tainted
+    sudo dnf install libdvdcss
 }
 
 function dnf_setup() {
     dnf_add_repos
     sudo dnf upgrade -y
     dnf_install_packages
+    dnf_proprietary_multimedia
 }

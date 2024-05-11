@@ -22,7 +22,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/1Password.sh"
 . "$dir/shared/aerc.sh"
 . "$dir/shared/bash-completion.sh"
-. "$dir/shared/bitwarden.sh"
+# . "$dir/shared/bitwarden.sh"
 . "$dir/shared/deno.sh"
 . "$dir/shared/dconf.sh"
 . "$dir/shared/flatpak.sh"
@@ -44,7 +44,7 @@ systemd_setup
 flatpak_setup
 distro_setup
 dconf_setup
-bitwarden_setup
+# bitwarden_setup
 1Password_setup
 gdb_setup
 aerc_setup
