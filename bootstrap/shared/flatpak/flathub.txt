@@ -1,7 +1,6 @@
 app.devsuite.Ptyxis
 com.belmoussaoui.Decoder
 com.belmoussaoui.Obfuscate
-com.bitwarden.desktop
 com.discordapp.Discord
 com.github.finefindus.eyedropper
 com.github.marhkb.Pods
