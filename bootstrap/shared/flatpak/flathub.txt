@@ -1,3 +1,4 @@
+app.devsuite.Ptyxis
 com.belmoussaoui.Decoder
 com.belmoussaoui.Obfuscate
 com.bitwarden.desktop
