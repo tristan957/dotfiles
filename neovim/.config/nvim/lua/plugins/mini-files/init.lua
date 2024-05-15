@@ -39,7 +39,7 @@ return {
       vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
     end
 
-    local group = vim.api.nvim_create_augroup("tristan957/mini.files", { clear = true })
+    local group = vim.api.nvim_create_augroup("tristan957_MiniFiles", { clear = true })
 
     vim.api.nvim_create_autocmd("User", {
       group = group,

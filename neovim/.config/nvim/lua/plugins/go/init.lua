@@ -12,7 +12,7 @@ return {
 
     go.setup()
 
-    local group = vim.api.nvim_create_augroup("tristan957/go", { clear = true })
+    local group = vim.api.nvim_create_augroup("tristan957_go", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = group,
       pattern = "*.go",

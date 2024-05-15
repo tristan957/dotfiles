@@ -1,4 +1,4 @@
-local group = vim.api.nvim_create_augroup("tristan957/linenumbers", { clear = true })
+local group = vim.api.nvim_create_augroup("tristan957_linenumbers", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave" }, {
   desc = "Turn on relative number when focused",

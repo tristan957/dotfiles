@@ -1,4 +1,4 @@
-local group = vim.api.nvim_create_augroup("tristan957/lsp", { clear = true })
+local group = vim.api.nvim_create_augroup("tristan957_lsp", { clear = true })
 
 -- vim.api.nvim_create_autocmd("FileType", {
 --   group = group,

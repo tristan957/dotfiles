@@ -1,6 +1,6 @@
 local utils = require("tristan957.utils")
 
-local group = vim.api.nvim_create_augroup("tristan957/quickfix", { clear = true })
+local group = vim.api.nvim_create_augroup("tristan957_quickfix", { clear = true })
 
 local function toggle_qflist()
   local orig = vim.fn.winnr("$")

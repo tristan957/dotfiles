@@ -1,4 +1,4 @@
-local group = vim.api.nvim_create_augroup("tristan957/yank", { clear = true })
+local group = vim.api.nvim_create_augroup("tristan957_yank", { clear = true })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking text",

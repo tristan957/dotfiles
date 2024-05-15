@@ -7,7 +7,7 @@ return {
 
     MiniTrailspace.setup()
 
-    local group = vim.api.nvim_create_augroup("tristan957/mini.trailspace", { clear = true })
+    local group = vim.api.nvim_create_augroup("tristan957_MiniTrailspace", { clear = true })
     vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "InsertLeave" }, {
       desc = "Stop highlighting trailing white space",
       group = group,

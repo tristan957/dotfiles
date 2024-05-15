@@ -1,6 +1,6 @@
 local MiniTrailspace = require("mini.trailspace")
 
-local group = vim.api.nvim_create_augroup("tristan957/whitespace", { clear = true })
+local group = vim.api.nvim_create_augroup("tristan957_whitespace", { clear = true })
 
 -- These don't currently work if selection includes the top or bottom lines.
 -- vim.keymap.set("v", "<M-k>", ":m '>+1<CR>gv=gv", { desc = "Move selection up" })
