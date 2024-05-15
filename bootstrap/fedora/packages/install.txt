@@ -28,6 +28,7 @@ dnf-plugin-system-upgrade
 dotnet-sdk-7.0
 epiphany
 fd-find
+figlet
 flatpak-builder
 fswatch
 fzf
