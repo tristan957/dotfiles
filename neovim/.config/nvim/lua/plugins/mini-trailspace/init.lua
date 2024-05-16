@@ -13,9 +13,17 @@ return {
       group = group,
       callback = function(ev)
         if not vim.bo[ev.buf].modifiable then
+          MiniTrailspace.unhighlight()
           return
         end
 
+        if vim.b[ev.buf].minitrailspace_disable then
+          MiniTrailspace.unhighlight()
+          return
+        end
+
+        -- We should unhighlight in the case where we have allowed trailing
+        -- whitespace
         local should_disable = string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil
         vim.b[ev.buf].minitrailspace_disable = should_disable
         if should_disable then
