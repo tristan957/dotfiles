@@ -24,7 +24,6 @@
 	verbose = true
 [core]
 	autoclrf = false
-	pager = delta
 [credential]
 	helper = "!git-credential-bw --session "$(gpg2 --decrypt --quiet "$XDG_CONFIG_HOME/bitwarden/session-key.txt")" --bitwarden 'flatpak run --command=bw com.bitwarden.desktop'"
 # https://dandavison.github.io/delta/
