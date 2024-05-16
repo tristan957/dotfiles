@@ -3,6 +3,7 @@ function stow_setup() {
     pushd "$dir" >/dev/null 2>&1 || exit
 
     stow --restow \
+        1password \
         aerc \
         alacritty \
         bash \

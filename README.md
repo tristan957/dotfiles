@@ -13,6 +13,7 @@ These are my personal configuration files.
 
 This repository uses GNU `stow` to manage `dotfiles`.
 
+- 1password
 - aerc
 - alacritty
 - bash
