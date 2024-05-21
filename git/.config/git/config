@@ -25,7 +25,7 @@
 [core]
 	autoclrf = false
 [credential]
-	helper = "!git-credential-bw --session "$(gpg2 --decrypt --quiet "$XDG_CONFIG_HOME/bitwarden/session-key.txt")" --bitwarden 'flatpak run --command=bw com.bitwarden.desktop'"
+	helper = "!git-credential-op --account=my.1password.com --vault=Personal git-send-email"
 # https://dandavison.github.io/delta/
 [delta]
 	hyperlinks = true
