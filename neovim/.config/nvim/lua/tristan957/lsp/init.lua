@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local formatting = require("tristan957.lsp.formatting")
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    assert(client ~= nil)
 
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
     vim.bo[ev.buf].tagfunc = "v:lua.vim.lsp.tagfunc"
@@ -52,7 +53,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       local clients = {}
       local choices = {}
 
-      for _, c in pairs(vim.lsp.get_active_clients({ bufnr = ev.buf })) do
+      for _, c in pairs(vim.lsp.get_clients({ bufnr = ev.buf })) do
         if c.server_capabilities.documentFormattingProvider then
           table.insert(clients, c)
           table.insert(choices, c.name)

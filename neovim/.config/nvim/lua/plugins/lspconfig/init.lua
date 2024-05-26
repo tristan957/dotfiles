@@ -73,7 +73,7 @@ return {
           },
         },
       },
-      ---@param client lsp.Client
+      ---@param client vim.lsp.Client
       on_init = function(client)
         local path = Path:new(client.workspace_folders[1].name)
 
@@ -182,7 +182,7 @@ return {
         },
       },
       capabilities = capabilities,
-      ---@param client lsp.Client
+      ---@param client vim.lsp.Client
       on_init = function(client)
         local path = Path:new(client.workspace_folders[1].name)
 
@@ -230,7 +230,7 @@ return {
           },
         },
       },
-      ---@param client lsp.Client
+      ---@param client vim.lsp.Client
       on_init = function(client)
         local path = Path:new(client.workspace_folders[1].name)
 

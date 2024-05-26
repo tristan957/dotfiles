@@ -13,7 +13,7 @@ local markers = {
   }
 }
 
----@param client lsp.Client | string
+---@param client vim.lsp.Client
 ---@param bufnr number
 ---@param force boolean If marker is not found,
 ---@param opts table
@@ -22,7 +22,7 @@ M.format = function(client, bufnr, force, opts)
     return
   end
 
-  local cwd = vim.uv.cwd()
+  local cwd = vim.loop.cwd()
   if cwd == nil then
     return
   end

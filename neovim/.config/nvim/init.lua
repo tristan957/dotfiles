@@ -25,13 +25,9 @@ vim.opt.cursorline = true
 vim.opt.encoding = "UTF-8"
 vim.opt.errorbells = false
 vim.opt.expandtab = true
-if vim.fn.executable("rg") == 1 then
-  vim.opt.grepprg = "rg --vimgrep --no-heading "
-  vim.opt.grepformat = "%f:%l:%c:%m"
-end
 vim.opt.hidden = true
 vim.opt.hlsearch = true
-vim.opt.inccommand = "split"
+vim.opt.inccommand = "nosplit"
 vim.opt.incsearch = true
 vim.opt.laststatus = 3
 vim.opt.lazyredraw = true

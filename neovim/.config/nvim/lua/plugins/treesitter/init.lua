@@ -29,7 +29,7 @@ return {
 
     context.setup({
       separator = "─",
-      on_attach = function(bufnr)
+      on_attach = function()
         return true
       end,
     })

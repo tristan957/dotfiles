@@ -1,10 +1,8 @@
 ---@type LazySpec
 return {
-  "JoosepAlviste/nvim-ts-context-commentstring",
-  lazy = true,
+  "folke/ts-comments.nvim",
+  event = "VeryLazy",
   config = function()
-    require("ts_context_commentstring").setup({
-      enable_autocmd = false,
-    })
+    require("ts-comments").setup()
   end,
 }
