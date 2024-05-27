@@ -84,6 +84,10 @@ vim.diagnostic.config({
 -- https://github.com/mfussenegger/nvim-jdtls
 -- https://github.com/pmizio/typescript-tools.nvim
 require("lazy").setup("plugins", {
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
   dev = {
     path = table.concat({ os.getenv("HOME"), "Projects" }, "/"),
   },
