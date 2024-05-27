@@ -62,6 +62,7 @@ return {
 
     -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
     lspconfig.basedpyright.setup({
+      autostart = false,
       capabilities = capabilities,
       settings = {
         python = {
