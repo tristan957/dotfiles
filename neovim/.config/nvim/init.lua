@@ -30,6 +30,8 @@ vim.opt.hidden = true
 vim.opt.hlsearch = true
 vim.opt.inccommand = "nosplit"
 vim.opt.incsearch = true
+vim.opt.joinspaces = false
+vim.opt.jumpoptions = { "view" }
 vim.opt.laststatus = 3
 vim.opt.lazyredraw = true
 vim.opt.linebreak = true
@@ -47,6 +49,7 @@ vim.opt.shortmess:append("Ic")
 vim.opt.showbreak = "++++"
 vim.opt.showmatch = true
 vim.opt.showmode = false
+vim.opt.sidescrolloff = 5
 vim.opt.signcolumn = "yes"
 vim.opt.smarttab = true
 vim.opt.smartindent = true
@@ -64,7 +67,7 @@ vim.opt.writebackup = false
 
 vim.g.c_syntax_for_h = true
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 vim.g.markdown_fenced_languages = {
   "ts=typescript", -- Because of Deno's language server
 }
