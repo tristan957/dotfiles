@@ -91,6 +91,9 @@ require("lazy").setup("plugins", {
   dev = {
     path = table.concat({ os.getenv("HOME"), "Projects" }, "/"),
   },
+  install = {
+    colorscheme = { "default" },
+  },
   ui = {
     border = "rounded",
   },
