@@ -24,19 +24,12 @@ return {
         "mfussenegger/nvim-dap",
       },
     },
-    {
-      "saadparwaiz1/cmp_luasnip",
-      dependencies = {
-        "L3MON4D3/LuaSnip",
-      },
-    },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   config = function()
     local cmp = require("cmp")
     local cmp_git = require("cmp_git")
     local lspkind = require("lspkind")
-    local luasnip = require("luasnip")
 
     local window = cmp.config.window.bordered({
       border = "rounded",
@@ -71,20 +64,20 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<C-l>"] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
+          if vim.snippet.active({ direction = 1 }) then
+            vim.snippet.jump(1)
           end
         end, { "i", "s" }),
         ["<C-h>"] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
+          if vim.snippet.active({ direction = -1 }) then
+            vim.snippet.jump(-1)
           end
         end, { "i", "s" }),
       },
       preselect = cmp.PreselectMode.None,
       snippet = {
         expand = function(args)
-          require("luasnip").lsp_expand(args.body)
+          vim.snippet.expand(args.body)
         end,
       },
       sorting = {
@@ -105,7 +98,6 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
-        { name = "luasnip" },
         { name = "path" },
         { name = "git" },
         { name = "emoji" },
@@ -142,7 +134,6 @@ return {
       { name = "nvim_lsp" },
       { name = "nvim_lsp_signature_help" },
       { name = "neorg" },
-      { name = "luasnip" },
       { name = "path" },
       { name = "git" },
       { name = "emoji" },
