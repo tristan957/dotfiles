@@ -27,6 +27,9 @@ return {
       highlights = {
         ["@property.meson"] = { fg = "${white}" },
       },
+      options = {
+        cursorline = vim.opt.cursorline,
+      },
     })
 
     vim.cmd.colorscheme("onedark_vivid")

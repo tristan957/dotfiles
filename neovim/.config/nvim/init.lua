@@ -22,6 +22,7 @@ vim.opt.cmdheight = 2
 vim.opt.colorcolumn = { 80, 100, 120 }
 vim.opt.confirm = true
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = { "line" }
 vim.opt.encoding = "UTF-8"
 vim.opt.errorbells = false
 vim.opt.expandtab = true
