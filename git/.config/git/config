@@ -8,6 +8,8 @@
 	c = commit
 	d = diff
 	dc = diff --cached
+	dt = difftool
+	dtc = difftool --cached
 	l = log --oneline
 	s = status
 	lg = !"git lg1"
@@ -37,11 +39,11 @@
 [diff]
 	algorithm = histogram
 	colorMoved = true
-	external = difft
 	submodule = log
 	tool = difftastic
 [difftool]
 	prompt = false
+# https://difftastic.wilfred.me.uk/git.html
 [difftool "difftastic"]
 	cmd = difft "$LOCAL" "$REMOTE"
 [fetch]
