@@ -1,6 +1,6 @@
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazy_path) then
+if not vim.uv.fs_stat(lazy_path) then
   vim.fn.system({
     "git",
     "clone",
@@ -58,7 +58,6 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
-vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmenu = true

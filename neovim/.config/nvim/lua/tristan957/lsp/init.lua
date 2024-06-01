@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
     local builtin = require("telescope.builtin")
+    -- local trouble = require("trouble")
     local formatting = require("tristan957.lsp.formatting")
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -40,7 +41,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gr", builtin.lsp_references, "Show references")
     map("n", "g(", builtin.lsp_incoming_calls, "Show incoming calls")
     map("n", "g)", builtin.lsp_outgoing_calls, "Show outgoing calls")
-    map("n", "K", vim.lsp.buf.hover, "Show hover documentation")
     map({ "i", "n" }, "<C-S>", vim.lsp.buf.signature_help, "Show signature help")
     map("n", "crn", vim.lsp.buf.rename, "Rename")
     map("n", "crr", vim.lsp.buf.code_action, "View code actions")
@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       local choices = {}
 
       for _, c in pairs(vim.lsp.get_clients({ bufnr = ev.buf })) do
-        if c.server_capabilities.documentFormattingProvider then
+        if c.supports_method(vim.lsp.protocol.Methods.textDocument_formatting) then
           table.insert(clients, c)
           table.insert(choices, c.name)
         end
@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end
     end, "Format code")
 
-    if client and client.server_capabilities.documentHighlightProvider then
+    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
       vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
         desc = "Highlight <cword> references",
         buffer = ev.buf,
@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    if client.server_capabilities.documentFormattingProvider then
+    if client.supports_method(vim.lsp.protocol.Methods.textDocument_formatting) then
       vim.api.nvim_create_autocmd("BufWritePre", {
         desc = "Format on save",
         buffer = ev.buf,

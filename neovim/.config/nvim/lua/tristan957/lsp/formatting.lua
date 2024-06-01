@@ -1,5 +1,3 @@
-local Path = require("plenary.path")
-
 local M = {}
 
 ---@type { [string]: string[] }
@@ -22,34 +20,9 @@ M.format = function(client, bufnr, force, opts)
     return
   end
 
-  local cwd = vim.loop.cwd()
-  if cwd == nil then
-    return
-  end
+  local dir = vim.fs.root(0, markers[client.name])
 
-  local parents = Path:new(vim.fn.bufname(bufnr)):parents()
-
-  -- Try and find a marker between our parents and the CWD
-  local found = false
-  if not force then
-    for _, c in ipairs(parents) do
-      local p = Path:new(c)
-
-      for _, m in ipairs(markers[client.name]) do
-        if p:joinpath(m):exists() then
-          found = true
-          break
-        end
-      end
-
-      -- Don't try to read higher than the CWD
-      if c == cwd then
-        break
-      end
-    end
-  end
-
-  if force or found then
+  if force or dir ~= nil then
     if type(client) == "string" then
       opts["name"] = client
     else

@@ -9,14 +9,12 @@ return {
     local trouble = require("trouble")
 
     trouble.setup({
-      icons = true,
-      indent_lines = true,
-      win_config = {
+      indent_guides = true,
+      ---@type trouble.Window.opts
+      win = {
         border = "rounded",
+        position = "bottom",
       },
-      use_diagnostic_signs = true,
     })
-
-    vim.keymap.set("n", "\\t", vim.cmd.TroubleToggle, { silent = true })
   end,
 }

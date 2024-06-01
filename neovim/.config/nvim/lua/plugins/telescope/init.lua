@@ -46,7 +46,8 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
-    local trouble = require("trouble.providers.telescope")
+
+    local open_with_trouble = require("trouble.sources.telescope").open
 
     telescope.setup({
       defaults = {
@@ -55,7 +56,7 @@ return {
           i = {
             ["<C-s>"] = actions.cycle_previewers_next,
             ["<C-a>"] = actions.cycle_previewers_prev,
-            ["<A-t>"] = trouble.open_with_trouble,
+            ["<C-t>"] = open_with_trouble,
             ["<A-l>"] = actions.send_selected_to_loclist + actions.open_loclist,
             ["<C-l>"] = actions.send_to_loclist + actions.open_loclist,
             ["<C-L>"] = actions.add_to_loclist + actions.open_loclist,
@@ -66,7 +67,7 @@ return {
           n = {
             ["<C-s>"] = actions.cycle_previewers_next,
             ["<C-a>"] = actions.cycle_previewers_prev,
-            ["<A-t>"] = trouble.open_with_trouble,
+            ["<C-t>"] = open_with_trouble,
             ["<A-l>"] = actions.send_selected_to_loclist + actions.open_loclist,
             ["<C-l>"] = actions.send_to_loclist + actions.open_loclist,
             ["<C-L>"] = actions.add_to_loclist + actions.open_loclist,
