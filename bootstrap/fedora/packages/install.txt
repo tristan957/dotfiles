@@ -134,6 +134,7 @@ strace
 swift-lang
 symlinks
 sysprof
+systemtap-sdt-devel
 terraform
 terraform-ls
 thunderbird
