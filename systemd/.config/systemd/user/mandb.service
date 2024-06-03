@@ -1,5 +1,5 @@
 [Unit]
-Description=Regenerate XDG_DATA_HOME man page database
+Description=Regenerate $XDG_DATA_HOME/man/ page database
 
 [Service]
 Type=oneshot

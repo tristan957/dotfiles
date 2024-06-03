@@ -1,5 +1,5 @@
 [Unit]
-Description=Watch for changes in XDG_DATA_HOME/man
+Description=Watch for changes in $XDG_DATA_HOME/man/
 
 [Path]
 MakeDirectory=true

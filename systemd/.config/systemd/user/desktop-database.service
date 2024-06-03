@@ -1,5 +1,5 @@
 [Unit]
-Description=Update XDG_DATA_HOME/applications desktop database
+Description=Update $XDG_DATA_HOME/applications/ desktop database
 
 [Service]
 Type=oneshot
