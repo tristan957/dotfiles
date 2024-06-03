@@ -116,7 +116,7 @@ export GPG_TTY=$(tty)
 
 #-------------------------------------------------------------------------------
 
-# Aliases
+# Aliases/Functions
 
 # Octal Permissions
 alias permissions="stat -c '%a %n'"
