@@ -94,7 +94,7 @@
 	smtpUser = tristan@partin.io
 	smtpServerPort = 465
 [status]
-	submoduleSummary = true
+	submoduleSummary = false
 [trailer "sign"]
 	key = Signed-off-by
 [trailer "review"]
