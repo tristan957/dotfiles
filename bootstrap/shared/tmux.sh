@@ -5,7 +5,8 @@ function tmux_create_history() {
 
 function tmux_setup_systemd() {
     systemctl --user enable --now \
-        tmux.service
+        tmux-server.service \
+        tmux-session.service
 }
 
 function tmux_setup() {

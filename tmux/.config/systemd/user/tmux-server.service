@@ -1,7 +1,7 @@
 # https://wiki.archlinux.org/title/Tmux
 
 [Unit]
-Description=Start tmux in detached session
+Description=Start tmux server
 After=graphical-session.target
 
 [Service]
@@ -9,10 +9,10 @@ Type=forking
 ExecStart=tmux start-server
 ExecStop=tmux kill-server
 # Seems necessary for color support
-Environment="COLORTERM=truecolor"
-Environment="TERM=xterm-256color"
-Restart=always
+Environment=COLORTERM=truecolor
+Environment=TERM=xterm-256color
+Restart=on-failure
 WorkingDirectory=~
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=default.target
