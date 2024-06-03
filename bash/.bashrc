@@ -17,7 +17,7 @@ source "$BASH_DIR/.bash_functions"
 # Bash Settings
 
 function __prompt_extras() {
-    PROMPT_EXTRAS=""
+    PROMPT_EXTRAS=''
 
     # Git information for prompt
     if git rev-parse >/dev/null 2>&1; then
@@ -31,9 +31,9 @@ function __prompt_extras() {
         # GIT_PS1_HIDE_IF_PWD_IGNORED=1
         # GIT_PS1_STATESEPARATOR=" "
         # shellcheck disable=SC2034
-        GIT_PS1_SHOWUPSTREAM="auto"
+        GIT_PS1_SHOWUPSTREAM='auto'
         # shellcheck disable=SC2034
-        GIT_PS1_DESCRIBE_STYLE="auto"
+        GIT_PS1_DESCRIBE_STYLE='auto'
         # shellcheck disable=SC2016
         PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(tput setaf 39)[%s]")"
     fi
@@ -83,32 +83,32 @@ PS4='$(tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(tput sgr0)  
 # Add to shell history after every command
 # PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
-HISTCONTROL="ignoredups:ignorespace"
+HISTCONTROL='ignoredups:ignorespace'
 HISTSIZE=1000000
-HISTTIMEFORMAT="%FT%T%z: "
+HISTTIMEFORMAT='%FT%T%z: '
 
 #-------------------------------------------------------------------------------
 
 # Environment Variables
 
 # Set default terminal text editor
-if command -v "nvim" >/dev/null 2>&1; then
-    export EDITOR="nvim"
-    export GIT_EDITOR="nvim"
+if command -v 'nvim' >/dev/null 2>&1; then
+    export EDITOR='nvim'
+    export GIT_EDITOR='nvim'
     export MANPAGER='nvim +Man!'
-    export VISUAL="nvim"
-elif command -v "vim" >/dev/null 2>&1; then
-    export EDITOR="vim"
-    export GIT_EDITOR="vim"
-    export VISUAL="vim"
-elif command -v "vi" >/dev/null 2>&1; then
-    export EDITOR="vi"
-    export GIT_EDITOR="vi"
-    export VISUAL="vi"
+    export VISUAL='nvim'
+elif command -v 'vim' >/dev/null 2>&1; then
+    export EDITOR='vim'
+    export GIT_EDITOR='vim'
+    export VISUAL='vim'
+elif command -v 'vi' >/dev/null 2>&1; then
+    export EDITOR='vi'
+    export GIT_EDITOR='vi'
+    export VISUAL='vi'
 else
-    export EDITOR="nano"
-    export GIT_EDITOR="nano"
-    export VISUAL="nano"
+    export EDITOR='nano'
+    export GIT_EDITOR='nano'
+    export VISUAL='nano'
 fi
 
 # Forget about "unable to sign commit" errors
@@ -122,22 +122,22 @@ export GPG_TTY=$(tty)
 alias permissions="stat -c '%a %n'"
 
 # ls folder color
-alias ls="ls -v --indicator-style=slash --color=auto"
+alias ls='ls -v --indicator-style=slash --color=auto'
 
 # Apply colors to commands
-alias diff="diff --color=auto"
-alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-alias fgrep="fgrep --color=auto"
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # shellcheck disable=2139
 alias wget="wget --hsts-file=${XDG_CACHE_HOME}/wget-hsts"
 
-alias fold-email="cat <<EOF | fold --width 72 --spaces"
+alias fold-email='cat <<EOF | fold --width 72 --spaces'
 
-if ! type "bw" >/dev/null 2>&1; then
-    if type "flatpak" >/dev/null 2>&1; then
-        alias bw="flatpak run --command=bw com.bitwarden.desktop"
+if ! type 'bw' >/dev/null 2>&1; then
+    if type 'flatpak' >/dev/null 2>&1; then
+        alias bw='flatpak run --command=bw com.bitwarden.desktop'
     fi
 fi
 
@@ -145,10 +145,10 @@ fi
 alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
 
 # Clear the current kubectl context
-alias kubeclr="kubectl config unset current-context"
+alias kubeclr='kubectl config unset current-context'
 
 # Shut the copyright notice up
-alias gdb="gdb --quiet"
+alias gdb='gdb --quiet'
 
 zz() {
     zoxide query --interactive "$1"
@@ -173,7 +173,7 @@ source /usr/share/fzf/shell/key-bindings.bash 2>/dev/null
 
 # direnv
 
-if command -v "direnv" >/dev/null 2>&1; then
+if command -v 'direnv' >/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
 
@@ -181,7 +181,7 @@ fi
 
 # zoxide
 
-if command -v "zoxide" >/dev/null 2>&1; then
+if command -v 'zoxide' >/dev/null 2>&1; then
     export _ZO_ECHO=1
     eval "$(zoxide init bash)"
 fi
