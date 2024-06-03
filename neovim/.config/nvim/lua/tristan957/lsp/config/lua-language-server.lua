@@ -1,8 +1,6 @@
 local Path = require("plenary.path")
 local utils = require("tristan957.lsp.utils")
 
-require("neodev")
-
 return {
   cmd = { "lua-language-server" },
   root_dir = utils.root_dir({

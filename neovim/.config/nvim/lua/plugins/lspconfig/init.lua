@@ -4,7 +4,6 @@ return {
   dependencies = {
     "b0o/schemastore.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    "folke/neodev.nvim",
     "williamboman/mason-lspconfig.nvim",
   },
   enabled = true,
