@@ -6,12 +6,6 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
-BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
-
-# Include some auxiliary files to keep this clean
-source "$BASH_DIR/.bash_aliases"
-source "$BASH_DIR/.bash_functions"
-
 #-------------------------------------------------------------------------------
 
 # Bash Settings
