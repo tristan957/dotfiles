@@ -95,6 +95,7 @@ mkosi
 mold
 moreutils
 mozilla-openh264
+mullvad-vpn
 neovim
 ninja-build
 nnn

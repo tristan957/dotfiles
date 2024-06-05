@@ -17,6 +17,9 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
     # Microsoft
     curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
 
+    # Mullvad
+    sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo
+
     # RPM Fusion
     sudo dnf install -y \
         "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
