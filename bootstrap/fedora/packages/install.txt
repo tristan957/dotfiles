@@ -25,7 +25,7 @@ difftastic
 direnv
 distrobox
 dnf-plugin-system-upgrade
-dotnet-sdk-7.0
+dotnet-sdk-8.0
 epiphany
 fd-find
 figlet
