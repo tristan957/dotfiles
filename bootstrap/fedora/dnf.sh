@@ -1,4 +1,7 @@
 function dnf_add_repos() {
+    distro=$(grep ^ID /etc/os-release | cut -d = -f 2)
+    version=$(grep ^VERSION_ID /etc/os-release | cut -d = -f 2)
+
     # 1Password
     sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
     sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
@@ -15,7 +18,9 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
     sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
     # Microsoft
-    curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
+    curl -sSL -O "https://packages.microsoft.com/config/$distro/$version/packages-microsoft-prod.rpm"
+    sudo rpm -i ./packages-microsoft-prod.rpm
+    rm ./packages-microsoft-prod.rpm
 
     # Mullvad
     sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo
