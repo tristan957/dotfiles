@@ -39,6 +39,8 @@ font-feature = -liga
 font-feature = -dlig
 font-size = 10
 
+linux-cgroup = always
+
 window-padding-x = 0
 window-padding-y = 0
 window-height = 24
