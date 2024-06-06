@@ -143,6 +143,7 @@ alias kubeclr='kubectl config unset current-context'
 
 # Shut the copyright notice up
 alias gdb='gdb --quiet'
+alias rust-gdb='rust-gdb --quiet'
 
 zz() {
     zoxide query --interactive "$1"
