@@ -24,6 +24,16 @@ return {
         "mfussenegger/nvim-dap",
       },
     },
+    {
+      dir = vim.fn.stdpath("config") --[[@as string]] .. "/lua/tristan957/cmp-carddav",
+      config = function()
+        local cmp_carddav = require("cmp-carddav")
+
+        cmp_carddav.setup({
+          section = "Personal",
+        })
+      end
+    },
   },
   event = { "InsertEnter", "CmdlineEnter" },
   config = function()
@@ -127,6 +137,17 @@ return {
         { name = "git" },
       }, {
         { name = "buffer" },
+      }),
+    })
+
+    cmp.setup.filetype("mail", {
+      sources = cmp.config.sources({
+        { name = "carddav" },
+      }, {
+        { name = "buffer" },
+        { name = "path" },
+        { name = "emoji" },
+        { name = "calc" },
       }),
     })
 
