@@ -26,6 +26,7 @@ return {
     },
     {
       dir = vim.fn.stdpath("config") --[[@as string]] .. "/lua/tristan957/cmp-carddav",
+      enabled = false,
       config = function()
         local cmp_carddav = require("cmp-carddav")
 
