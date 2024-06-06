@@ -145,9 +145,7 @@ alias kubeclr='kubectl config unset current-context'
 alias gdb='gdb --quiet'
 alias rust-gdb='rust-gdb --quiet'
 
-zz() {
-    zoxide query --interactive "$1"
-}
+alias zz='zoxide query --interactive'
 
 #-------------------------------------------------------------------------------
 
