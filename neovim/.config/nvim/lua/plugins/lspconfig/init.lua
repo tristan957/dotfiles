@@ -51,7 +51,7 @@ return {
     end
 
     require("mason-lspconfig").setup({
-      ensure_installed = vim.iter(servers):filter(on_system),
+      ensure_installed = vim.iter(servers):filter(on_system):totable(),
       automatic_installation = false,
     })
 
