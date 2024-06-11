@@ -1,5 +1,3 @@
-# https://wiki.archlinux.org/title/Tmux
-
 [Unit]
 Description=Start tmux server
 After=graphical-session.target
@@ -12,7 +10,7 @@ ExecStop=tmux kill-server
 Environment=COLORTERM=truecolor
 Environment=TERM=xterm-256color
 Restart=on-failure
-WorkingDirectory=~
+WorkingDirectory=%h
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
