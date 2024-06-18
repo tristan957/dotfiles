@@ -70,6 +70,7 @@ kitty-kitten
 libadwaita-devel
 libasan
 libasan-static
+libcamera-tools
 libdex-devel
 libdrm-devel
 libepoxy-devel
