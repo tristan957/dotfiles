@@ -58,6 +58,7 @@ gtk4-devel
 htop
 hut
 info
+inotify-tools
 java-latest-openjdk
 jc
 jq
