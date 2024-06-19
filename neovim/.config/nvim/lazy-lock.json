@@ -47,7 +47,6 @@
   "pkl-neovim": { "branch": "main", "commit": "a0ae099c7eb926150ee0a126b1dd78086edbe3fc" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "refactoring.nvim": { "branch": "master", "commit": "e6b10b2346bd7e469a5f17099775ad906da153ae" },
-  "rest.nvim": { "branch": "main", "commit": "c7944769dc489b9e4bc493e40820c2818eab2569" },
   "schemastore.nvim": { "branch": "main", "commit": "35f36c50b9f1e1e916d0e3f004cb48dffd2bf737" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9ef21b2e6bb6ebeaf349a0781745549bbb870d27" },
   "telescope.nvim": { "branch": "master", "commit": "c392f1b78eaaf870ca584bd698e78076ed301b26" },
