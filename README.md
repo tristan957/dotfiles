@@ -21,13 +21,13 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - cargo
 - clangd
 - dir_colors
+- editline
 - foot
 - gdb
 - git
 - ghostty
 - glow
 - less
-- libedit
 - meson
 - neovim
 - npm

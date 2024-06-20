@@ -10,13 +10,13 @@ function stow_setup() {
         bat \
         cargo \
         clangd \
+        editline \
         foot \
         gdb \
         git \
         ghostty \
         glow \
         less \
-        libedit \
         meson \
         npm \
         neovim \
