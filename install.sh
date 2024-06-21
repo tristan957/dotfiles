@@ -29,40 +29,40 @@ while getopts ":dp:" o; do
 done
 
 if [ "${#packages[@]}" -eq 0 ]; then
-    packages+=( \
-        "aerc" \
-        "bash" \
-        "bat" \
-        "clangd" \
-        "deno" \
-        "difftastic" \
-        "dir_colors" \
-        "dotnet" \
-        "editline" \
-        "gdb" \
-        "git" \
-        "glow" \
-        "go" \
-        "jq" \
-        "jupyter" \
-        "kubernetes" \
-        "less" \
-        "meson" \
-        "neovim" \
-        "nix" \
-        "nnn" \
-        "nodejs" \
-        "postgresql" \
-        "programs" \
-        "python" \
-        "readline" \
-        "ripgrep" \
-        "rust" \
-        "ssh" \
-        "terraform" \
-        "tmux" \
-        "vim" \
-        "wget" \
+    packages+=(
+        "aerc"
+        "bash"
+        "bat"
+        "clangd"
+        "deno"
+        "difftastic"
+        "dir_colors"
+        "dotnet"
+        "editline"
+        "gdb"
+        "git"
+        "glow"
+        "go"
+        "jq"
+        "jupyter"
+        "kubernetes"
+        "less"
+        "meson"
+        "neovim"
+        "nix"
+        "nnn"
+        "nodejs"
+        "postgresql"
+        "programs"
+        "python"
+        "readline"
+        "ripgrep"
+        "rust"
+        "ssh"
+        "terraform"
+        "tmux"
+        "vim"
+        "wget"
         "xdg"
     )
 fi
