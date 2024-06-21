@@ -2,6 +2,9 @@
 /vim/.vim/.netrwhist
 /vim/.vim/autoload/plug.vim
 !/.vscode/
-/cargo/.opt/cargo/*
-!/cargo/.opt/config.toml
+/rust/.opt/cargo/*
+!/rust/.opt/config.toml
+*.service.requires/
+*.service.wants/
+*.target.requires/
 *.target.wants/

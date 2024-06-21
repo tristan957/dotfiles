@@ -8,32 +8,46 @@ function stow_setup() {
         alacritty \
         bash \
         bat \
-        cargo \
         clangd \
+        deno \
+        difftastic \
+        dir_colors \
+        dotnet \
         editline \
+        electron \
         foot \
         gdb \
-        git \
         ghostty \
+        git \
         glow \
+        go \
+        jq \
+        jupyter \
+        kubernetes \
         less \
         meson \
-        npm \
+        neon \
         neovim \
+        nix \
+        nnn \
+        nodejs \
+        postgresql \
         programs \
-        psql \
+        python \
         readline \
         ripgrep \
+        rust \
         ssh \
         sway \
         systemd \
         teleport \
+        terminfo \
         terraform \
         tmux \
         vim \
         vscodium \
         wget \
-        yarn
+        xdg
 
     popd >/dev/null 2>&1 || exit
 }
