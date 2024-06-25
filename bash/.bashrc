@@ -2,8 +2,9 @@
 [[ $- != *i* ]] && return
 
 # Shell Options
-shopt -s histappend
 shopt -s checkwinsize
+shopt -s failglob
+shopt -s histappend
 shopt -s globstar
 
 #-------------------------------------------------------------------------------
