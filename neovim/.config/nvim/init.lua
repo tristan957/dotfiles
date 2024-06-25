@@ -93,6 +93,9 @@ require("lazy").setup("plugins", {
   install = {
     colorscheme = { "default" },
   },
+  rocks = {
+    enabled = true,
+  },
   ui = {
     border = "rounded",
   },
