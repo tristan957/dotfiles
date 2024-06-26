@@ -93,18 +93,32 @@ function dnf_install_packages() {
 # Proprietary codec bs
 # https://rpmfusion.org/Howto/Multimedia
 function dnf_proprietary_multimedia() {
+    # Switch to the full ffmpeg
     sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-    sudo dnf groupupdate multimedia \
+
+    # Install additional codecs
+    sudo dnf update @multimedia \
         --setopt="install_weak_deps=False" \
         --exclude=PackageKit-gstreamer-plugin
-    sudo dnf groupupdate sound-and-video
-    # Intel
+    sudo dnf update @sound-and-video
+
+    # Intel hardware accelerated codecs
     sudo dnf install intel-media-driver
-    # AMD
+
+    # AMD hardware accelerated codecs
     sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
     sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+
+    # NVIDIA hardware accelerated codecs
+    # I don't own NVIDIA, but if I did...
+    # sudo dnf install libva-nvidia-driver
+
+    # Play a DVD
     sudo dnf install rpmfusion-free-release-tainted
     sudo dnf install libdvdcss
+
+    sudo dnf install rpmfusion-nonfree-release-tainted
+    sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
 }
 
 function dnf_setup() {
