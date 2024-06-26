@@ -23,6 +23,18 @@ gpgcheck=1
 gpgkey=https://repo.charm.sh/yum/gpg.key' |
         sudo tee /etc/yum.repos.d/charm.repo
 
+    # Grafana (https://rpm.grafana.com/)
+    echo '[grafana]
+name=Grafana
+baseurl=https://rpm.grafana.com
+repo_gpgcheck=1
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.grafana.com/gpg.key
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt' |
+        sudo tee /etc/yum.repos.d/grafana.repo
+
     # Hashicorp
     sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
