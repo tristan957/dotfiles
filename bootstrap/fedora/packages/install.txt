@@ -71,6 +71,7 @@ libadwaita-devel
 libasan
 libasan-static
 libcamera-tools
+libdb-devel
 libdex-devel
 libdrm-devel
 libepoxy-devel
