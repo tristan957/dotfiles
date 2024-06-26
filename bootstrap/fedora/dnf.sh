@@ -48,9 +48,9 @@ sslcacert=/etc/pki/tls/certs/ca-bundle.crt' |
 
     # RPM Fusion
     sudo dnf install -y \
-        "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
+        "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$version.noarch.rpm"
     sudo dnf install -y \
-        "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+        "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$version.noarch.rpm"
 
     # Swift-MesonLSP
     sudo dnf copr enable -y jcwasmx86/Swift-MesonLSP
