@@ -127,7 +127,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # shellcheck disable=2139
-alias wget="wget --hsts-file=${XDG_CACHE_HOME}/wget-hsts"
+alias wget="wget --hsts-file=${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"
 
 alias fold-email='cat <<EOF | fold --width 72 --spaces'
 
