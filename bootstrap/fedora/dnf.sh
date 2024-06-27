@@ -79,7 +79,7 @@ repo_gpgcheck=1
 gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg' |
         sudo tee /etc/yum.repos.d/vscodium.repo
 
-    sudo dnf group update -y core
+    sudo dnf update -y @core
 }
 
 function dnf_install_packages() {
