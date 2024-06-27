@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.trailspace",
-  event = { "BufRead", "BufNewFile" },
+  event = { "FileType" },
   config = function()
     local MiniTrailspace = require("mini.trailspace")
 
