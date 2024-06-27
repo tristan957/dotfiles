@@ -5,6 +5,7 @@
 shopt -s checkwinsize
 shopt -s failglob
 shopt -s histappend
+shopt -s hostcomplete
 shopt -s globstar
 
 #-------------------------------------------------------------------------------
