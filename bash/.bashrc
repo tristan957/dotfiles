@@ -149,6 +149,11 @@ alias rust-gdb='rust-gdb --quiet'
 
 alias zz='zoxide query --interactive'
 
+# Pull new history from the HISTFILE
+alias hpull='history -r'
+# Push new history to the HISTFILE
+alias hpush='history -a'
+
 #-------------------------------------------------------------------------------
 
 # Bash Completion
