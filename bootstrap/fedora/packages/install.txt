@@ -134,6 +134,7 @@ samurai
 sassc
 scdoc
 shfmt
+socat
 steam-devices
 stow
 strace
