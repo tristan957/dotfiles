@@ -51,7 +51,6 @@ gnome-sound-recorder
 gnome-tweaks
 go-task
 golang
-golang-x-tools-gopls
 gron
 gstreamer1-plugins-bad-free-devel
 gstreamer1-plugins-base-tools
