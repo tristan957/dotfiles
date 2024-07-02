@@ -21,6 +21,7 @@ function stow_setup() {
         git \
         glow \
         go \
+        info \
         jq \
         jupyter \
         kubernetes \

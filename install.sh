@@ -43,6 +43,7 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "git"
         "glow"
         "go"
+        "info"
         "jq"
         "jupyter"
         "kubernetes"
