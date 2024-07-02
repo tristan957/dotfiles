@@ -1,6 +1,11 @@
 # Don't run if it's not an interactive shell
 [[ $- != *i* ]] && return
 
+# Ghostty bash shell integration support
+if [[ -n "${GHOSTTY_RESOURCES_DIR}" ]]; then
+    source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
+
 # Shell Options
 shopt -s checkwinsize
 shopt -s failglob
