@@ -146,6 +146,7 @@ terraform
 terraform-ls
 thunderbird
 tmux
+tokei
 toolbox
 transmission-gtk
 trurl
