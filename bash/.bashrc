@@ -2,9 +2,11 @@
 [[ $- != *i* ]] && return
 
 # Ghostty bash shell integration support
-if [[ -n "${GHOSTTY_RESOURCES_DIR}" ]]; then
-    source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
-fi
+# if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
+#     # shellcheck disable=SC2034
+#     GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
+#     source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+# fi
 
 # Shell Options
 shopt -s checkwinsize
