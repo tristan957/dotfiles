@@ -41,6 +41,9 @@ font-size = 10
 
 linux-cgroup = always
 
+# This doesn't seem to work with tmux?
+# shell-integration = bash
+
 window-padding-x = 0
 window-padding-y = 0
 window-height = 24
