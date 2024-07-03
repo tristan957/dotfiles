@@ -63,6 +63,7 @@ function __prompt_extras() {
 #   - docker(container)
 #   - podman(container)
 #   - toolbox(container)
+#   - distrobox(container)
 #
 # But the only time I should see my prompt in a container is with Toolbox or
 # Distrobox, so should be all good.
