@@ -3,6 +3,8 @@ return {
   "echasnovski/mini.move",
   event = "VeryLazy",
   config = function()
-    require("mini.move").setup({})
+    local MiniMove = require("mini.move")
+
+    MiniMove.setup({})
   end,
 }

@@ -3,8 +3,8 @@ return {
   "echasnovski/mini.align",
   event = "VeryLazy",
   config = function()
-    local align = require("mini.align")
+    local MiniAlign = require("mini.align")
 
-    align.setup()
+    MiniAlign.setup()
   end
 }

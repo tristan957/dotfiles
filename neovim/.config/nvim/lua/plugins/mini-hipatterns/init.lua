@@ -3,9 +3,9 @@ return {
   "echasnovski/mini.hipatterns",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local mini_hipatterns = require('mini.hipatterns')
+    local MiniHipatterns = require('mini.hipatterns')
 
-    mini_hipatterns.setup({
+    MiniHipatterns.setup({
       highlighters = {
         fixme = nil,
         hack = nil,
@@ -13,7 +13,7 @@ return {
         note = nil,
 
         -- Highlight hex color strings (`#rrggbb`) using that color
-        hex_color = mini_hipatterns.gen_highlighter.hex_color(),
+        hex_color = MiniHipatterns.gen_highlighter.hex_color(),
       },
     })
   end

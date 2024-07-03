@@ -2,6 +2,8 @@ return {
   "echasnovski/mini.ai",
   event = "VeryLazy",
   config = function()
-    require("mini.ai").setup({})
+    local MiniAi = require("mini.ai")
+
+    MiniAi.setup({})
   end,
 }

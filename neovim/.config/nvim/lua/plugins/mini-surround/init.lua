@@ -3,8 +3,8 @@ return {
   "echasnovski/mini.surround",
   event = "VeryLazy",
   config = function()
-    local surround = require("mini.surround")
+    local MiniSurround = require("mini.surround")
 
-    surround.setup()
+    MiniSurround.setup()
   end,
 }
