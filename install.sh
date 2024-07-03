@@ -65,6 +65,7 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "vim"
         "wget"
         "xdg"
+        "zoxide"
     )
 fi
 

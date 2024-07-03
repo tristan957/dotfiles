@@ -48,7 +48,8 @@ function stow_setup() {
         vim \
         vscodium \
         wget \
-        xdg
+        xdg \
+        zoxide
 
     popd >/dev/null 2>&1 || exit
 }
