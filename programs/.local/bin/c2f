@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import argparse
+
+from typing import TYPE_CHECKING, cast
+
+if TYPE_CHECKING:
+
+    class Args(argparse.Namespace):
+        exact: bool
+        celsius: float
+
+
+PARSER = argparse.ArgumentParser(description="Convert Celsius to Farenheit")
+PARSER.add_argument(
+    "-e",
+    "--exact",
+    action="store_true",
+    default=False,
+    help="print the exact value instead of truncating",
+)
+PARSER.add_argument("celsius", type=float, help="Temperature in Celsius")
+ARGS = cast("Args", PARSER.parse_args())
+
+F = ARGS.celsius * 9 / 5 + 32
+
+if ARGS.exact or F.is_integer():
+    print(int(F))
+else:
+    print(f"{F:.2f}")
