@@ -35,6 +35,9 @@ sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt' |
         sudo tee /etc/yum.repos.d/grafana.repo
 
+    # Hare
+    sudo dnf copr enable mroche/hare
+
     # Hashicorp
     sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
