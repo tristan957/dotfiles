@@ -149,6 +149,7 @@ alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e
 
 # Clear the current kubectl context
 alias kubeclr='kubectl config unset current-context'
+alias kubens='kubectl config set-context --current --namespace'
 
 # Shut the copyright notice up
 alias gdb='gdb --quiet'
