@@ -58,6 +58,7 @@ gstreamer1-plugins-base-tools
 gtk4-devel
 gum
 hare
+helm
 htop
 hut
 info
