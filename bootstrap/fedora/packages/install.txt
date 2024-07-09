@@ -134,6 +134,7 @@ reuse
 ripgrep
 rlwrap
 rpmconf
+ruby
 samurai
 sassc
 scdoc
