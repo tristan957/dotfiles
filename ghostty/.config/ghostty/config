@@ -28,9 +28,23 @@ palette = 14=#4bced8
 palette = 7=#abb2bf
 palette = 15=#c8cdd5
 
-command = tmux attach-session -t t
+clipboard-paste-bracketed-safe = true
+clipboard-paste-protection = true
+clipboard-trim-trailing-spaces = true
+
+# command = tmux attach-session -t t
+
+copy-on-select = true
 
 confirm-close-surface = false
+
+cursor-click-to-move = true
+cursor-style = block
+cursor-style-blink =
+
+desktop-notifications = true
+
+focus-follows-mouse = false
 
 font-family = Cascadia Mono PL
 # Disable ligatures
@@ -39,12 +53,29 @@ font-feature = -liga
 font-feature = -dlig
 font-size = 10
 
+gtk-adwaita = true
+
+keybind = super+ctrl+\=new_split:right
+keybind = ctrl+shift+o=unbind
+keybind = super+ctrl+-=new_split:down
+keybind = ctrl+shift+e=unbind
+
+link-url = true
+
 linux-cgroup = always
 
-# This doesn't seem to work with tmux?
-# shell-integration = bash
+mouse-hide-while-typing = false
 
-window-padding-x = 0
-window-padding-y = 0
+selection-invert-fg-bg = true
+
+# This doesn't seem to work with tmux?
+shell-integration = bash
+shell-integration-features = no-cursor,sudo,title
+
+window-decoration = true
 window-height = 24
+window-inherit-font-size = true
+window-inherit-working-directory = true
+window-padding-x = 0
+window-padding-y = 2
 window-width = 80
