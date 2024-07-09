@@ -50,7 +50,7 @@ function __prompt_extras() {
         kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
         # shellcheck disable=SC2181
         if [[ $? -eq 0 ]]; then
-            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 14)[${kubectl_curr_ns:-default} > $kubectl_curr_ctx]"
+            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
         fi
     fi
 
