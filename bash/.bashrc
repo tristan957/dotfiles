@@ -19,15 +19,13 @@ shopt -s globstar
 
 # Bash Settings
 
+source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
+
 function __prompt_extras() {
     PROMPT_EXTRAS=''
 
     # Git information for prompt
-    if git rev-parse >/dev/null 2>&1; then
-        if [[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
-            source /usr/share/git-core/contrib/completion/git-prompt.sh
-        fi
-
+    if git rev-parse >/dev/null 2>&1 && type -t __git_ps1 &>/dev/null; then
         # GIT_PS1_SHOWDIRTYSTATE=1
         # GIT_PS1_SHOWSTASHSTATE=1
         # GIT_PS1_SHOWUNTRACKEDFILES=1
