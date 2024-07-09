@@ -19,6 +19,7 @@ cmake
 code
 codium
 codespell
+compat-lua
 dconf-editor
 delve
 difftastic
