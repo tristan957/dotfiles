@@ -138,8 +138,8 @@ alias wget="wget --hsts-file=${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"
 
 alias fold-email='cat <<EOF | fold --width 72 --spaces'
 
-if ! type 'bw' >/dev/null 2>&1; then
-    if type 'flatpak' >/dev/null 2>&1; then
+if ! type -t 'bw' >/dev/null 2>&1; then
+    if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop >/dev/null 2>&1; then
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
     fi
 fi
