@@ -23,7 +23,7 @@ function __prompt_extras() {
     PROMPT_EXTRAS=''
 
     # Git information for prompt
-    if git rev-parse >/dev/null 2>&1 && type -t __git_ps1 &>/dev/null; then
+    if git rev-parse >/dev/null 2>&1 && command -v __git_ps1 &>/dev/null; then
         # GIT_PS1_SHOWDIRTYSTATE=1
         # GIT_PS1_SHOWSTASHSTATE=1
         # GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -136,7 +136,7 @@ alias wget="wget --hsts-file=${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"
 
 alias fold-email='cat <<EOF | fold --width 72 --spaces'
 
-if ! type -t 'bw' >/dev/null 2>&1; then
+if ! command -v 'bw' >/dev/null 2>&1; then
     if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop >/dev/null 2>&1; then
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
     fi
