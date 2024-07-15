@@ -1,5 +1,9 @@
 /.clangd
 /.DS_Store
+/.mypy_cache/
+/.ruff_cache/
+/.zig-cache/
+/__pycache__/
 /node_modules/
 /outgoing/
 .cache/clangd
