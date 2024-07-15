@@ -61,14 +61,16 @@ return {
 
     -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
     lspconfig.basedpyright.setup({
-      autostart = false,
       capabilities = capabilities,
       settings = {
-        python = {
+        basedpyright = {
           analysis = {
             autoImportCompletions = true,
             autoSearchPaths = true,
-            diagnosticMode = "workspace",
+            diagnosticMode = "openFilesOnly",
+            diagnosticSeverityOverrides = {
+               reportUnusedCallResult = false,
+            },
             useLibraryCodeForTypes = true,
           },
         },
@@ -78,8 +80,8 @@ return {
         local path = Path:new(client.workspace_folders[1].name)
 
         if path:joinpath("poetry.lock"):exists() and vim.fn.executable("poetry") then
-          client.config.settings.python =
-            vim.tbl_deep_extend("force", client.config.settings.python, {
+          client.config.settings.basedpyright =
+            vim.tbl_deep_extend("force", client.config.settings.basedpyright, {
               venvPath = vim.fn.system("poetry env info --path"),
             })
         end
