@@ -170,7 +170,7 @@ fi
 
 # fzf
 
-source /usr/share/fzf/shell/key-bindings.bash 2>/dev/null
+eval "$(fzf --bash 2>/dev/null)"
 
 #-------------------------------------------------------------------------------
 
