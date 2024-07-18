@@ -124,6 +124,9 @@ alias bc='bc --quiet'
 
 alias zz='zoxide query --interactive'
 
+# Pull new history
+alias hpull='history merge'
+
 if command --query direnv
     direnv hook fish | source
 end
