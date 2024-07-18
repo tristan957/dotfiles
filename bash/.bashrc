@@ -20,21 +20,23 @@ shopt -s globstar
 # Bash Settings
 
 source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
+have_git_ps1=$(command -v __git_ps1 &>/dev/null; echo $?)
 
 function __prompt_extras() {
     PROMPT_EXTRAS=''
 
     # Git information for prompt
-    if git rev-parse >/dev/null 2>&1 && command -v __git_ps1 &>/dev/null; then
-        # GIT_PS1_SHOWDIRTYSTATE=1
-        # GIT_PS1_SHOWSTASHSTATE=1
-        # GIT_PS1_SHOWUNTRACKEDFILES=1
+    if git rev-parse &>/dev/null && [[ $have_git_ps1 -eq 0 ]]; then
+        # GIT_PS1_COMPRESSSPARSESTATE=1
         # GIT_PS1_HIDE_IF_PWD_IGNORED=1
-        # GIT_PS1_STATESEPARATOR=" "
-        # shellcheck disable=SC2034
-        GIT_PS1_SHOWUPSTREAM='auto'
-        # shellcheck disable=SC2034
-        GIT_PS1_DESCRIBE_STYLE='auto'
+        # GIT_PS1_OMITSPARSESTATE=1
+        # GIT_PS1_SHOWDIRTYSTATE=1
+        # GIT_PS1_SHOWUNTRACKEDFILES=1
+        GIT_PS1_DESCRIBE_STYLE='branch'
+        GIT_PS1_SHOWCONFLICTSTATE='yes'
+        GIT_PS1_SHOWSTASHSTATE=1
+        GIT_PS1_SHOWUPSTREAM='verbose'
+        GIT_PS1_STATESEPARATOR=' '
         # shellcheck disable=SC2016
         PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(tput setaf 39)[%s]")"
     fi
