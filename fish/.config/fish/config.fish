@@ -32,9 +32,9 @@ function prompt_extras
     end
 
     if command --query "kubectl"
-        set -l kubectl_curr_ns (kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
         set -l kubectl_curr_ctx (kubectl config current-context 2>/dev/null)
         if test $status -eq 0
+            set -l kubectl_curr_ns (kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
             set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 14) \b[$kubectl_curr_ctx > $kubectl_curr_ns]"
         end
     end

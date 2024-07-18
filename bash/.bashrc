@@ -47,13 +47,11 @@ function __prompt_extras() {
     fi
 
     # kubectl current context/namespace
-    if command -v "kubectl" >/dev/null 2>&1; then
+    kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
+    # shellcheck disable=SC2181
+    if [[ $? -eq 0 ]]; then
         kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
-        kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
-        # shellcheck disable=SC2181
-        if [[ $? -eq 0 ]]; then
-            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
-        fi
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
     fi
 
     echo -ne "$PROMPT_EXTRAS"
@@ -180,14 +178,11 @@ source /usr/share/fzf/shell/key-bindings.bash 2>/dev/null
 
 # direnv
 
-if command -v 'direnv' >/dev/null 2>&1; then
-    eval "$(direnv hook bash)"
-fi
+eval "$(direnv hook bash 2>/dev/null)"
+
 
 #-------------------------------------------------------------------------------
 
 # zoxide
 
-if command -v 'zoxide' >/dev/null 2>&1; then
-    eval "$(zoxide init bash)"
-fi
+eval "$(zoxide init bash 2>/dev/null)"
