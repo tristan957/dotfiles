@@ -22,7 +22,7 @@ end
 function __prompt_extras
     set -l PROMPT_EXTRAS ''
 
-    if git rev-parse --quiet
+    if git rev-parse --quiet &>/dev/null
         set PROMPT_EXTRAS "$PROMPT_EXTRAS $(fish_vcs_prompt "$(tput setaf 39) \b[%s]")"
     end
 

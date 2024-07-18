@@ -26,7 +26,7 @@ function __prompt_extras() {
     PROMPT_EXTRAS=''
 
     # Git information for prompt
-    if git rev-parse &>/dev/null && [[ $have_git_ps1 -eq 0 ]]; then
+    if git rev-parse --quiet &>/dev/null && [[ $have_git_ps1 -eq 0 ]]; then
         # GIT_PS1_COMPRESSSPARSESTATE=1
         # GIT_PS1_HIDE_IF_PWD_IGNORED=1
         # GIT_PS1_OMITSPARSESTATE=1
