@@ -32,6 +32,7 @@ function __prompt_extras() {
         # GIT_PS1_OMITSPARSESTATE=1
         # GIT_PS1_SHOWDIRTYSTATE=1
         # GIT_PS1_SHOWUNTRACKEDFILES=1
+        # shellcheck disable=SC2034
         GIT_PS1_DESCRIBE_STYLE='branch'
         GIT_PS1_SHOWCONFLICTSTATE='yes'
         GIT_PS1_SHOWSTASHSTATE=1
