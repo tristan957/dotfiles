@@ -89,6 +89,40 @@ else
     set -gx VISUAL nano
 end
 
+# Octal Permissions
+alias permissions="stat -c '%a %n'"
+
+# ls folder color
+alias ls='ls -v --indicator-style=slash --color=auto'
+
+# Apply colors to commands
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+if command --query 'bw'
+    if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop &>/dev/null
+        alias bw='flatpak run --command=bw com.bitwarden.desktop'
+    end
+end
+
+# shellcheck disable=2139
+alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+
+alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
+
+# Clear the current kubectl context
+alias kubeclr='kubectl config unset current-context'
+alias kubens='kubectl config set-context --current --namespace'
+
+# Shut the copyright notice up
+alias gdb='gdb --quiet'
+alias rust-gdb='rust-gdb --quiet'
+alias bc='bc --quiet'
+
+alias zz='zoxide query --interactive'
+
 if command --query direnv
     direnv hook fish | source
 end
