@@ -42,6 +42,23 @@ function __prompt_extras
     echo -ne "$PROMPT_EXTRAS"
 end
 
+# I could add the container application here:
+#   - docker(container)
+#   - podman(container)
+#   - toolbox(container)
+#   - distrobox(container)
+#
+# But the only time I should see my prompt in a container is with Toolbox or
+# Distrobox, so should be all good.
+set CONTAINER (test -f /run/.containerenv; echo $status)
+function __prompt_host
+    if test $CONTAINER -eq 0
+        sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
+    else
+        hostname
+    end
+end
+
 function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
@@ -50,7 +67,7 @@ function fish_prompt
         set user_char '#'
     end
 
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(jobs --pid | wc --lines) $(__prompt_time)] $(tput setaf 76) \b[$USER@$(hostname)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
+    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(jobs --pid | wc --lines) $(__prompt_time)] $(tput setaf 76) \b[$USER@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
 end
 
 if command --query nvim
