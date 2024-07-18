@@ -12,7 +12,7 @@ set -U __fish_git_prompt_showcolorhints
 set -U __fish_git_prompt_showdirtystate
 set -g __fish_git_prompt_showstashstate 1
 set -U __fish_git_prompt_showuntrackedfiles
-set -g __fish_git_prompt_showupstream 'verbose'
+set -g __fish_git_prompt_showupstream 'verbose name'
 set -g __fish_git_prompt_char_stateseparator ' '
 
 function __prompt_time

@@ -39,7 +39,7 @@ function __prompt_extras() {
         # shellcheck disable=SC2034
         GIT_PS1_SHOWSTASHSTATE=1
         # shellcheck disable=SC2034
-        GIT_PS1_SHOWUPSTREAM='verbose'
+        GIT_PS1_SHOWUPSTREAM='verbose name'
         # shellcheck disable=SC2034
         GIT_PS1_STATESEPARATOR=' '
         # shellcheck disable=SC2016
