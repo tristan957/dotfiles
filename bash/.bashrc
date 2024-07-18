@@ -3,6 +3,8 @@
 
 # Ghostty bash shell integration support
 if [[ -n "$GHOSTTY_RESOURCES_DIR" ]] && [[ $SHLVL -gt 1 ]]; then
+    # shellcheck disable=SC2034
+    GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
     source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
 fi
 
