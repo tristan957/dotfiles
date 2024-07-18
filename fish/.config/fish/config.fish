@@ -52,3 +52,26 @@ function fish_prompt
 
     echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(jobs --pid | wc --lines) $(prompt_time)] $(tput setaf 76) \b[$USER@$(hostname)] $(tput setaf 214) \b[$cwd]$(prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
 end
+
+if command --query nvim
+    set -gx EDITOR nvim
+    set -gx MANPAGER 'nvim +Man!'
+    set -gx VISUAL nvim
+else if command --query vim
+    set -gx EDITOR vim
+    set -gx VISUAL vim
+else if command --query vi
+    set -gx EDITOR vi
+    set -gx VISUAL vi
+else
+    set -gx EDITOR nano
+    set -gx VISUAL nano
+end
+
+if command --query direnv
+    direnv hook fish | source
+end
+
+if command --query zoxide
+    zoxide init fish | source
+end
