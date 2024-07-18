@@ -15,11 +15,11 @@ set -U __fish_git_prompt_showuntrackedfiles
 set -g __fish_git_prompt_showupstream 'verbose'
 set -g __fish_git_prompt_char_stateseparator ' '
 
-function prompt_time
+function __prompt_time
     echo -n (date +%H:%M:%S)
 end
 
-function prompt_extras
+function __prompt_extras
     set -l PROMPT_EXTRAS ''
 
     if git rev-parse --quiet
@@ -50,7 +50,7 @@ function fish_prompt
         set user_char '#'
     end
 
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(jobs --pid | wc --lines) $(prompt_time)] $(tput setaf 76) \b[$USER@$(hostname)] $(tput setaf 214) \b[$cwd]$(prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
+    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(jobs --pid | wc --lines) $(__prompt_time)] $(tput setaf 76) \b[$USER@$(hostname)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
 end
 
 if command --query nvim
