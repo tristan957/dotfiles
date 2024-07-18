@@ -133,7 +133,7 @@ alias fgrep='fgrep --color=auto'
 alias wget="wget --hsts-file=${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"
 
 if ! command -v 'bw' >/dev/null 2>&1; then
-    if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop >/dev/null 2>&1; then
+    if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop &>/dev/null; then
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
     fi
 fi
