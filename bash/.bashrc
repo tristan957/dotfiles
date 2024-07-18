@@ -131,9 +131,6 @@ alias ls='ls -v --indicator-style=slash --color=auto'
 
 # Apply colors to commands
 alias diff='diff --color=auto'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 
 # shellcheck disable=2139
 alias wget="wget --hsts-file=${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"

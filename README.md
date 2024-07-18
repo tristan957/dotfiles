@@ -32,6 +32,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - git
 - glow
 - go
+- grep
 - info
 - jq
 - jupyter

@@ -22,6 +22,7 @@ function stow_setup() {
         git \
         glow \
         go \
+        grep \
         info \
         jq \
         jupyter \
