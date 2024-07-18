@@ -59,6 +59,10 @@ function __prompt_host
     end
 end
 
+function __prompt_jobs
+    jobs --pid | wc --lines
+end
+
 function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
@@ -67,7 +71,7 @@ function fish_prompt
         set user_char '#'
     end
 
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(jobs --pid | wc --lines) $(__prompt_time)] $(tput setaf 76) \b[$USER@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
+    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$USER@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
 end
 
 if command --query nvim
