@@ -127,6 +127,10 @@ alias zz='zoxide query --interactive'
 # Pull new history
 alias hpull='history merge'
 
+ if command --query fzf
+     fzf --fish | source
+ end
+
 if command --query direnv
     direnv hook fish | source
 end
