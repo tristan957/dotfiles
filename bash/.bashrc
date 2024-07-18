@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 # Ghostty bash shell integration support
-if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
+if [[ -n "$GHOSTTY_RESOURCES_DIR" ]] && [[ $SHLVL -gt 1 ]]; then
     source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
 fi
 
