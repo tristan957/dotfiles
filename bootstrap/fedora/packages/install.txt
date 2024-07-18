@@ -30,6 +30,7 @@ dotnet-sdk-8.0
 epiphany
 fd-find
 figlet
+fish
 flatpak-builder
 fswatch
 fzf
