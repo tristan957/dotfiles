@@ -110,7 +110,8 @@ end
 # shellcheck disable=2139
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
-alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
+# How to port this to fish
+# alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
 
 # Clear the current kubectl context
 alias kubeclr='kubectl config unset current-context'
