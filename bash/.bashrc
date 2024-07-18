@@ -34,9 +34,13 @@ function __prompt_extras() {
         # GIT_PS1_SHOWUNTRACKEDFILES=1
         # shellcheck disable=SC2034
         GIT_PS1_DESCRIBE_STYLE='branch'
+        # shellcheck disable=SC2034
         GIT_PS1_SHOWCONFLICTSTATE='yes'
+        # shellcheck disable=SC2034
         GIT_PS1_SHOWSTASHSTATE=1
+        # shellcheck disable=SC2034
         GIT_PS1_SHOWUPSTREAM='verbose'
+        # shellcheck disable=SC2034
         GIT_PS1_STATESEPARATOR=' '
         # shellcheck disable=SC2016
         PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(tput setaf 39)[%s]")"
