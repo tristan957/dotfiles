@@ -65,9 +65,9 @@ function __prompt_extras() {
 #
 # But the only time I should see my prompt in a container is with Toolbox or
 # Distrobox, so should be all good.
-in_container=$([[ -f /run/.toolboxenv ]] || [[ -f /run/.distroboxenv ]]; echo $?)
+CONTAINER=$([[ -f /run/.containerenv ]]; echo $?)
 function __prompt_host() {
-    if [[ $in_container -eq 0 ]]; then
+    if [[ $CONTAINER -eq 0 ]]; then
         sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
     else
         # Equivalent of \H
