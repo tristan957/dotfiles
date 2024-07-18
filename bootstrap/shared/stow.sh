@@ -15,6 +15,7 @@ function stow_setup() {
         dotnet \
         editline \
         electron \
+        fish \
         foot \
         gdb \
         ghostty \

@@ -25,6 +25,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - dotnet
 - editline
 - electron
+- fish
 - foot
 - gdb
 - ghostty
