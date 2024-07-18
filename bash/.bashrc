@@ -99,20 +99,16 @@ HISTTIMEFORMAT='%FT%T%z: '
 # Set default terminal text editor
 if command -v 'nvim' >/dev/null 2>&1; then
     export EDITOR='nvim'
-    export GIT_EDITOR='nvim'
     export MANPAGER='nvim +Man!'
     export VISUAL='nvim'
 elif command -v 'vim' >/dev/null 2>&1; then
     export EDITOR='vim'
-    export GIT_EDITOR='vim'
     export VISUAL='vim'
 elif command -v 'vi' >/dev/null 2>&1; then
     export EDITOR='vi'
-    export GIT_EDITOR='vi'
     export VISUAL='vi'
 else
     export EDITOR='nano'
-    export GIT_EDITOR='nano'
     export VISUAL='nano'
 fi
 
