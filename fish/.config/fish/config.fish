@@ -104,7 +104,6 @@ if command --query 'bw'
     end
 end
 
-# shellcheck disable=2139
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 # How to port this to fish
