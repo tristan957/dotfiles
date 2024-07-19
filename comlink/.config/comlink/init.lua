@@ -10,5 +10,5 @@ comlink.connect({
   user = "tristan957",
   nick = "tristan957",
   real_name = "Tristan Partin",
-  pass = pass,
+  password = pass,
 })
