@@ -11,7 +11,7 @@ alias ls='ls -v --indicator-style=slash --color=auto'
 # Apply colors to commands
 alias diff='diff --color=auto'
 
-if command --query 'bw'
+if ! command --query 'bw' && command --query 'flatpak'
     if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop &>/dev/null
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
     end
