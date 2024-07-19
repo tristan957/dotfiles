@@ -20,7 +20,10 @@ shopt -s hostcomplete
 # Bash Settings
 
 source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
-have_git_ps1=$(command -v __git_ps1 &>/dev/null; echo $?)
+have_git_ps1=$(
+    command -v __git_ps1 &>/dev/null
+    echo $?
+)
 
 function __prompt_extras() {
     PROMPT_EXTRAS=''
@@ -71,7 +74,10 @@ function __prompt_extras() {
 # But the only time I should see my prompt in a container is with Toolbox or
 # Distrobox, so should be all good.
 # shellcheck disable=SC2319
-CONTAINER=$([[ -f /run/.containerenv ]]; echo $?)
+CONTAINER=$(
+    [[ -f /run/.containerenv ]]
+    echo $?
+)
 function __prompt_host() {
     if [[ $CONTAINER -eq 0 ]]; then
         sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
@@ -180,7 +186,6 @@ eval "$(fzf --bash 2>/dev/null)"
 # direnv
 
 eval "$(direnv hook bash 2>/dev/null)"
-
 
 #-------------------------------------------------------------------------------
 
