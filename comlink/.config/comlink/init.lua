@@ -1,7 +1,7 @@
 local comlink = require("comlink")
 
 local proc = assert(io.popen("op --account my.1password.com read op://Personal/chat.sr.ht/credential", "r"))
-local pass = proc:read("*l")
+local password = proc:read("*l")
 proc:close()
 
 comlink.connect({
@@ -10,5 +10,8 @@ comlink.connect({
   user = "tristan957",
   nick = "tristan957",
   real_name = "Tristan Partin",
-  password = pass,
+  password = password,
 })
+
+comlink.bind("ctrl+j", "next-channel")
+comlink.bind("ctrl+k", "prev-channel")
