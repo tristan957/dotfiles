@@ -24,6 +24,7 @@ function stow_setup() {
         glow \
         go \
         grep \
+        hut \
         info \
         jq \
         jupyter \

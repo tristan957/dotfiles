@@ -1,0 +1,3 @@
+instance sr.ht {
+    access-token-cmd op --account my.1password.com read op://Personal/hut/credential
+}
