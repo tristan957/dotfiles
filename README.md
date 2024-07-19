@@ -19,6 +19,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - bash
 - bat
 - clangd
+- comlink
 - deno
 - difftastic
 - dir_colors

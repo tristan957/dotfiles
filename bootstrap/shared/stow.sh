@@ -9,6 +9,7 @@ function stow_setup() {
         bash \
         bat \
         clangd \
+        comlink \
         deno \
         difftastic \
         dir_colors \
