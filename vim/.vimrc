@@ -23,7 +23,7 @@ endfunction
 
 Plug 'chrisbra/unicode.vim', { 'do': { -> unicode#Download(1) } }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'gruvbox-community/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
 Plug 'tmux-plugins/vim-tmux'
@@ -67,10 +67,6 @@ nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR> " m
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR> " move current tab right
 vnoremap <silent> J :m '>+1<CR>gv=gv " move line up
 vnoremap <silent> K :m '<-2<CR>gv=gv " move line down
-
-" Similar to o or O without entering insert mode
-nmap oo o<Esc>
-nmap OO O<Esc>
 
 """"""""""""
 " Settings
@@ -132,12 +128,10 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_invert_selection='0'
-colorscheme gruvbox
+colorscheme onedark
 set background=dark
 
-highlight ColorColumn ctermbg=237 guibg=#3C3836
+highlight ColorColumn ctermbg=237 guibg=#2E333C
 
 filetype plugin on " allow Vim to recognize the file type
 
