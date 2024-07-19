@@ -1,6 +1,6 @@
 vim.filetype.add({
-  filename = {
-    ["accounts.conf"] = "ini",
-    ["aerc.conf"] = "ini",
+  pattern = {
+    [".*config/aerc/accounts.conf"] = "ini",
+    [".*config/aerc/aerc.conf"] = "ini",
   },
 })
