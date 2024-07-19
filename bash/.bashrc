@@ -92,16 +92,6 @@ PS2="\[$(tput bold)\]> \[$(tput sgr0)\]"
 PS3="\[$(tput bold)\]#? \[$(tput sgr0)\]"
 PS4='$(tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(tput sgr0)   '
 
-# How many directories to show
-# PROMPT_DIRTRIM=1
-
-# Add to shell history after every command
-# PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-
-HISTCONTROL='ignoredups:ignorespace'
-HISTSIZE=1000000
-HISTTIMEFORMAT='%FT%T%z: '
-
 #-------------------------------------------------------------------------------
 
 # Environment Variables
