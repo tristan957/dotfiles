@@ -46,6 +46,8 @@ git-delta
 git-email
 git-extras
 glib2-devel
+glibc
+glibc-static
 glow
 glslc
 gnome-extensions-app
