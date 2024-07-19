@@ -32,6 +32,7 @@ clipboard-paste-bracketed-safe = true
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
 
+command = fish
 # command = tmux attach-session -t t
 
 copy-on-select = true
@@ -69,7 +70,7 @@ mouse-hide-while-typing = false
 selection-invert-fg-bg = true
 
 # This doesn't seem to work with tmux?
-shell-integration = bash
+shell-integration = detect
 shell-integration-features = no-cursor,sudo,title
 
 window-decoration = true
