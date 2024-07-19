@@ -6,6 +6,8 @@
 /__pycache__/
 /node_modules/
 /outgoing/
+/target/
+/zig-out/
 .cache/clangd
 .envrc
 .nfs*
