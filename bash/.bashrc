@@ -76,13 +76,8 @@ function __prompt_extras() {
 #
 # But the only time I should see my prompt in a container is with Toolbox or
 # Distrobox, so should be all good.
-# shellcheck disable=SC2319
-CONTAINER=$(
-    [[ -f /run/.containerenv ]]
-    echo $?
-)
 function __prompt_host() {
-    if [[ $CONTAINER -eq 0 ]]; then
+    if [[ -n "$container" ]]; then
         sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
     else
         # Equivalent of \H
