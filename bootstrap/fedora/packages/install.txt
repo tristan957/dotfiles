@@ -94,7 +94,6 @@ libtsan-static
 libxkbcommon-devel
 lldb
 llvm
-lollypop
 luarocks
 lynx
 maven
@@ -168,5 +167,6 @@ wine-core
 wine-mono
 wl-clipboard
 yarnpkg
+yt-dlp
 zig
 zoxide
