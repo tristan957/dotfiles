@@ -110,8 +110,6 @@ else
     export VISUAL='nano'
 fi
 
-# Forget about "unable to sign commit" errors
-export GPG_TTY=$(tty)
 # Why would we be here?
 #
 # systemd now manages my environment variables, which is pretty great, minus
