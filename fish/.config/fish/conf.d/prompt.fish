@@ -48,7 +48,7 @@ end
 # But the only time I should see my prompt in a container is with Toolbox or
 # Distrobox, so should be all good.
 function __prompt_host
-    if test $container -eq 0
+    if test -n $container
         sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
     else
         hostname
