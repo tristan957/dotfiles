@@ -1,6 +1,9 @@
 # Don't run if it's not an interactive shell
 [[ $- != *i* ]] && return
 
+BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+DOTFILES_DIR=$(dirname "$BASH_DIR")
+
 # Ghostty bash shell integration support
 if [[ -n "$GHOSTTY_RESOURCES_DIR" ]] && [[ $SHLVL -gt 1 ]]; then
     # shellcheck disable=SC2034
@@ -114,6 +117,27 @@ fi
 
 # Forget about "unable to sign commit" errors
 export GPG_TTY=$(tty)
+# Why would we be here?
+#
+# systemd now manages my environment variables, which is pretty great, minus
+# some issues. One of these issues is that in an environment that isn't loaded
+# by systemd, the environment variables aren't available. Here are some
+# examples:
+#   - Toolbx
+#   - Distrobox
+#
+# So what can we do?
+#
+# Use a set of whitelisted environment variables from the systemd environment
+# and import them here. Toolbx and Distrobox will import their own environment
+# variables, so lets ignore those, and others.
+if [[ "$SYSTEMD_ENVIRONMENT_LOADED" -ne 1 ]]; then
+    # shellcheck disable=SC2046
+    export $(systemctl --user show-environment |
+        grep --extended-regexp \
+            "$(printf '^(%s)=' " \
+                $(grep --extended-regexp --invert-match '^(#|$)' "$DOTFILES_DIR/systemd/whitelisted-env.conf" | tr '\n' '|')")")
+fi
 
 #-------------------------------------------------------------------------------
 
