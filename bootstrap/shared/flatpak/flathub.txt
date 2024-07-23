@@ -1,5 +1,6 @@
 app.devsuite.Ptyxis
 app.devsuite.Manuals
+app.drey.KeyRack
 com.belmoussaoui.Decoder
 com.belmoussaoui.Obfuscate
 com.discordapp.Discord
