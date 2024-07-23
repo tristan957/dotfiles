@@ -139,6 +139,7 @@ reuse
 ripgrep
 rlwrap
 rpmconf
+rr
 ruby
 samurai
 sassc
