@@ -28,6 +28,7 @@ distrobox
 dnf-plugin-system-upgrade
 dotnet-sdk-8.0
 epiphany
+eza
 fd-find
 figlet
 fish
