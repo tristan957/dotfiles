@@ -173,6 +173,9 @@ alias hpull='history -r'
 # Push new history to the HISTFILE
 alias hpush='history -a'
 
+# terminfo is so lame
+alias toolbox='env TERM=xterm-256color toolbox'
+
 #-------------------------------------------------------------------------------
 
 # Bash Completion
