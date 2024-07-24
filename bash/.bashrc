@@ -125,11 +125,11 @@ fi
 # and import them here. Toolbx and Distrobox will import their own environment
 # variables, so lets ignore those, and others.
 if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
-    # shellcheck disable=SC2046
-    export $(systemctl --user show-environment |
+    eval "$(systemctl --user show-environment |
         grep --extended-regexp \
-            "$(printf '^(%s)=' " \
-                $(grep --extended-regexp --invert-match '^(#|$)' "$DOTFILES_DIR/systemd/whitelisted-env.conf" | tr '\n' '|')")")
+            "$(printf '^(%s)=' \
+                "$(grep --extended-regexp --invert-match '^(#|$)' "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
+                    tr '\n' '|')")")"
 fi
 
 #-------------------------------------------------------------------------------
