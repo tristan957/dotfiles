@@ -70,7 +70,7 @@ mouse-hide-while-typing = false
 selection-invert-fg-bg = true
 
 # This doesn't seem to work with tmux?
-shell-integration = detect
+shell-integration = bash
 shell-integration-features = no-cursor,sudo,title
 
 window-decoration = true
