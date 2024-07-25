@@ -8,7 +8,7 @@ DOTFILES_DIR=$(dirname "$BASH_DIR")
 if [[ -n "$GHOSTTY_RESOURCES_DIR" ]] && [[ $SHLVL -gt 1 ]]; then
     # shellcheck disable=SC2034
     GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
-    source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+    builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
 fi
 
 # Shell Options
@@ -181,8 +181,8 @@ alias toolbox='env TERM=xterm-256color toolbox'
 # Bash Completion
 
 if ! shopt -oq posix; then
-    source /usr/share/bash-completion/bash_completion 2>/dev/null
-    source /etc/bash_completion 2>/dev/null
+    builtin source /usr/share/bash-completion/bash_completion 2>/dev/null
+    builtin source /etc/bash_completion 2>/dev/null
 fi
 
 #-------------------------------------------------------------------------------
