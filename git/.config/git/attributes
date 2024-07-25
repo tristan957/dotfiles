@@ -1,0 +1,22 @@
+# https://git-scm.com/docs/gitattributes#_defining_a_custom_hunk_header
+
+*.bash diff=bash
+*.c diff=cpp
+*.cc diff=cpp
+*.cpp diff=cpp
+*.cs diff=csharp
+*.css diff=css
+*.go diff=golang
+*.h diff=cpp
+*.hpp diff=cpp
+*.html diff=html
+*.java diff=java
+*.kt diff=kotlin
+*.md diff=markdown
+*.pl diff=perl
+*.php diff=php
+*.py diff=python
+*.rb diff=ruby
+*.rs diff=rust
+*.sh diff=bash
+*.xhtml diff=html
