@@ -20,78 +20,6 @@ shopt -s hostcomplete
 
 #-------------------------------------------------------------------------------
 
-# Bash Settings
-
-source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
-have_git_ps1=$(
-    command -v __git_ps1 &>/dev/null
-    echo $?
-)
-
-function __prompt_extras() {
-    PROMPT_EXTRAS=''
-
-    # Git information for prompt
-    if git rev-parse --quiet &>/dev/null && [[ $have_git_ps1 -eq 0 ]]; then
-        # GIT_PS1_COMPRESSSPARSESTATE=1
-        # GIT_PS1_HIDE_IF_PWD_IGNORED=1
-        # GIT_PS1_OMITSPARSESTATE=1
-        # GIT_PS1_SHOWDIRTYSTATE=1
-        # GIT_PS1_SHOWUNTRACKEDFILES=1
-        # shellcheck disable=SC2034
-        GIT_PS1_DESCRIBE_STYLE='branch'
-        # shellcheck disable=SC2034
-        GIT_PS1_SHOWCONFLICTSTATE='yes'
-        # shellcheck disable=SC2034
-        GIT_PS1_SHOWSTASHSTATE=1
-        # shellcheck disable=SC2034
-        GIT_PS1_SHOWUPSTREAM='verbose name'
-        # shellcheck disable=SC2034
-        GIT_PS1_STATESEPARATOR=' '
-        # shellcheck disable=SC2016
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(tput setaf 39)[%s]")"
-    fi
-
-    # Python virtual environments are so fun
-    if [[ -n ${VIRTUAL_ENV+x} ]]; then
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
-    fi
-
-    # kubectl current context/namespace
-    kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
-    # shellcheck disable=SC2181
-    if [[ $? -eq 0 ]]; then
-        kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
-    fi
-
-    echo -ne "$PROMPT_EXTRAS"
-}
-
-# I could add the container application here:
-#   - docker(container)
-#   - podman(container)
-#   - toolbox(container)
-#   - distrobox(container)
-#
-# But the only time I should see my prompt in a container is with Toolbox or
-# Distrobox, so should be all good.
-function __prompt_host() {
-    if [[ -n "$container" ]]; then
-        sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
-    else
-        # Equivalent of \H
-        hostname
-    fi
-}
-
-PS1="\[$(tput bold)\]\[$(tput setaf 208)\][\$? \j \t] \[$(tput setaf 76)\][\u@\$(__prompt_host)] \[$(tput setaf 214)\][\W]\$(__prompt_extras)\[$(tput sgr0)\]\n\[$(tput bold)\]+ \$ \[$(tput sgr0)\]"
-PS2="\[$(tput bold)\]> \[$(tput sgr0)\]"
-PS3="\[$(tput bold)\]#? \[$(tput sgr0)\]"
-PS4='$(tput sgr0)$(tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(tput sgr0)   '
-
-#-------------------------------------------------------------------------------
-
 # Environment Variables
 
 # Set default terminal text editor
@@ -131,6 +59,82 @@ if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
                 "$(grep --extended-regexp --invert-match '^(#|$)' "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
                     tr '\n' '|')")")"
 fi
+
+#-------------------------------------------------------------------------------
+
+# Bash Settings
+
+source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
+have_git_ps1=$(
+    command -v __git_ps1 &>/dev/null
+    echo $?
+)
+
+function __tput() {
+    tput "$@" 2>/dev/null
+}
+
+function __prompt_extras() {
+    PROMPT_EXTRAS=''
+
+    # Git information for prompt
+    if git rev-parse --quiet &>/dev/null && [[ $have_git_ps1 -eq 0 ]]; then
+        # GIT_PS1_COMPRESSSPARSESTATE=1
+        # GIT_PS1_HIDE_IF_PWD_IGNORED=1
+        # GIT_PS1_OMITSPARSESTATE=1
+        # GIT_PS1_SHOWDIRTYSTATE=1
+        # GIT_PS1_SHOWUNTRACKEDFILES=1
+        # shellcheck disable=SC2034
+        GIT_PS1_DESCRIBE_STYLE='branch'
+        # shellcheck disable=SC2034
+        GIT_PS1_SHOWCONFLICTSTATE='yes'
+        # shellcheck disable=SC2034
+        GIT_PS1_SHOWSTASHSTATE=1
+        # shellcheck disable=SC2034
+        GIT_PS1_SHOWUPSTREAM='verbose name'
+        # shellcheck disable=SC2034
+        GIT_PS1_STATESEPARATOR=' '
+        # shellcheck disable=SC2016
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(__tput setaf 39)[%s]")"
+    fi
+
+    # Python virtual environments are so fun
+    if [[ -n ${VIRTUAL_ENV+x} ]]; then
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
+    fi
+
+    # kubectl current context/namespace
+    kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
+    # shellcheck disable=SC2181
+    if [[ $? -eq 0 ]]; then
+        kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
+    fi
+
+    echo -ne "$PROMPT_EXTRAS"
+}
+
+# I could add the container application here:
+#   - docker(container)
+#   - podman(container)
+#   - toolbox(container)
+#   - distrobox(container)
+#
+# But the only time I should see my prompt in a container is with Toolbox or
+# Distrobox, so should be all good.
+function __prompt_host() {
+    if [[ -n "$container" ]]; then
+        sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
+    else
+        # Equivalent of \H
+        hostname
+    fi
+}
+
+PS1="\[$(__tput bold)\]\[$(__tput setaf 208)\][\$? \j \t] \[$(__tput setaf 76)\][\u@\$(__prompt_host)] \[$(__tput setaf 214)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]+ \$ \[$(__tput sgr0)\]"
+PS2="\[$(__tput bold)\]> \[$(__tput sgr0)\]"
+PS3="\[$(__tput bold)\]#? \[$(__tput sgr0)\]"
+PS4='$(__tput sgr0)$(__tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(__tput sgr0)   '
 
 #-------------------------------------------------------------------------------
 
