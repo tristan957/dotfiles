@@ -58,6 +58,10 @@ if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
             "$(printf '^(%s)=' \
                 "$(grep --extended-regexp --invert-match '^(#|$)' "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
                     tr '\n' '|')")")"
+
+    for envvar in $(systemctl --user show-environment | cut -d= -f1); do
+        export "$envvar=${!envvar}"
+    done
 fi
 
 #-------------------------------------------------------------------------------
@@ -176,9 +180,6 @@ alias zz='zoxide query --interactive'
 alias hpull='history -r'
 # Push new history to the HISTFILE
 alias hpush='history -a'
-
-# terminfo is so lame
-alias toolbox='env TERM=xterm-256color toolbox'
 
 #-------------------------------------------------------------------------------
 
