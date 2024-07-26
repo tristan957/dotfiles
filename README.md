@@ -59,6 +59,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - terminfo
 - terraform
 - tmux
+- toolbox
 - vim
 - vscodium
 - wget

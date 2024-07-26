@@ -49,6 +49,7 @@ function stow_setup() {
         terminfo \
         terraform \
         tmux \
+        toolbox \
         vim \
         vscodium \
         wget \
