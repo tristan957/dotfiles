@@ -14,7 +14,6 @@ return {
     local lspconfig_windows = require("lspconfig.ui.windows")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local schemastore = require("schemastore")
-    local Path = require("plenary.path")
 
     lspconfig_windows.default_options.border = "rounded"
 
@@ -77,9 +76,9 @@ return {
       },
       ---@param client vim.lsp.Client
       on_init = function(client)
-        local path = Path:new(client.workspace_folders[1].name)
+        local path = client.workspace_folders[1].name
 
-        if path:joinpath("poetry.lock"):exists() and vim.fn.executable("poetry") then
+        if vim.fn.filereadable(vim.fs.joinpath(path, "poetry.lock")) == 1 and vim.fn.executable("poetry") then
           client.config.settings.basedpyright =
             vim.tbl_deep_extend("force", client.config.settings.basedpyright, {
               venvPath = vim.fn.system("poetry env info --path"),
@@ -186,9 +185,9 @@ return {
       capabilities = capabilities,
       ---@param client vim.lsp.Client
       on_init = function(client)
-        local path = Path:new(client.workspace_folders[1].name)
+        local path = client.workspace_folders[1].name
 
-        if path:joinpath(".luarc.json"):exists() or path:joinpath(".luarc.jsonc"):exists() then
+        if vim.fn.filereadable(vim.fs.joinpath(path, ".luarc.json")) == 1 then
           return
         end
 
@@ -234,9 +233,9 @@ return {
       },
       ---@param client vim.lsp.Client
       on_init = function(client)
-        local path = Path:new(client.workspace_folders[1].name)
+        local path = client.workspace_folders[1].name
 
-        if path:joinpath("poetry.lock"):exists() and vim.fn.executable("poetry") then
+        if vim.fn.filereadable(vim.fs.joinpath(path, "poetry.lock")) == 1 and vim.fn.executable("poetry") then
           client.config.settings.python =
             vim.tbl_deep_extend("force", client.config.settings.python, {
               venvPath = vim.fn.system("poetry env info --path"),
