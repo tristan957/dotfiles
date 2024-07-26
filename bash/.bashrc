@@ -53,15 +53,18 @@ fi
 # and import them here. Toolbx and Distrobox will import their own environment
 # variables, so lets ignore those, and others.
 if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
-    eval "$(systemctl --user show-environment |
-        grep --extended-regexp \
-            "$(printf '^(%s)=' \
-                "$(grep --extended-regexp --invert-match '^(#|$)' "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
-                    tr '\n' '|')")")"
+    whitelisted_env="$(systemctl --user show-environment |
+            grep --extended-regexp \
+                "$(printf '^(%s)=' \
+                    "$(grep --extended-regexp --invert-match '^(#|$)' \
+                        "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
+                            tr '\n' '|')")")"
 
-    for envvar in $(systemctl --user show-environment | cut -d= -f1); do
+    eval "$whitelisted_env"
+
+    while IFS= read -r envvar; do
         export "$envvar=${!envvar}"
-    done
+    done < <(cut -d= -f1 <<<"$whitelisted_env")
 fi
 
 #-------------------------------------------------------------------------------
