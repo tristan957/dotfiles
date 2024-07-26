@@ -13,5 +13,5 @@ comlink.connect({
   password = password,
 })
 
-comlink.bind("ctrl+j", "next-channel")
-comlink.bind("ctrl+k", "prev-channel")
+comlink.bind("ctrl+alt+j", "next-channel")
+comlink.bind("ctrl+alt+k", "prev-channel")
