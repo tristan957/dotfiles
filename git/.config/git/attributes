@@ -1,6 +1,9 @@
 # https://git-scm.com/docs/gitattributes#_defining_a_custom_hunk_header
 
 *.bash diff=bash
+*/.bash_logout diff=bash
+*/.bash_profile diff=bash
+*/.bashrc diff=bash
 *.c diff=cpp
 *.cc diff=cpp
 *.cpp diff=cpp
