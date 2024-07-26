@@ -145,6 +145,7 @@ ruby
 samurai
 sassc
 scdoc
+sequoia-sq
 shfmt
 socat
 steam-devices
