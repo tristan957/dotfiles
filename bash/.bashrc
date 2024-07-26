@@ -54,11 +54,11 @@ fi
 # variables, so lets ignore those, and others.
 if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
     whitelisted_env="$(systemctl --user show-environment |
-            grep --extended-regexp \
-                "$(printf '^(%s)=' \
-                    "$(grep --extended-regexp --invert-match '^(#|$)' \
-                        "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
-                            tr '\n' '|')")")"
+        grep --extended-regexp \
+            "$(printf '^(%s)=' \
+                "$(grep --extended-regexp --invert-match '^(#|$)' \
+                    "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
+                    tr '\n' '|')")")"
 
     eval "$whitelisted_env"
 
