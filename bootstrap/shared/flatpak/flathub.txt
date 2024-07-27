@@ -1,4 +1,3 @@
-app.devsuite.Ptyxis
 app.devsuite.Manuals
 app.drey.KeyRack
 com.belmoussaoui.Decoder

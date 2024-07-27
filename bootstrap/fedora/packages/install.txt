@@ -123,6 +123,7 @@ podman-docker
 powershell
 pre-commit
 protonvpn-cli
+ptyxis
 pylint
 python3-devel
 python3-dnf-plugin-versionlock
