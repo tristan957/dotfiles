@@ -14,6 +14,7 @@ return {
     local lspconfig_windows = require("lspconfig.ui.windows")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local schemastore = require("schemastore")
+    local xdg = require("tristan957.xdg")
 
     lspconfig_windows.default_options.border = "rounded"
 
@@ -203,6 +204,7 @@ return {
           workspace = {
             checkThirdParty = false,
             library = {
+              vim.fs.joinpath(xdg.data_home(), "comlink"),
               "${3rd}/luv/library",
               unpack(vim.api.nvim_get_runtime_file("", true)),
             },
