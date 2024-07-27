@@ -90,6 +90,9 @@ require("lazy").setup("plugins", {
   dev = {
     path = table.concat({ os.getenv("HOME"), "Projects" }, "/"),
   },
+  diff = {
+    cmd = "git",
+  },
   install = {
     colorscheme = { "default" },
   },
