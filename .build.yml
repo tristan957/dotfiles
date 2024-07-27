@@ -1,5 +1,6 @@
 image: alpine/edge
 packages:
+  - luacheck
   - reuse
   - ruff
   - shellcheck
@@ -12,6 +13,9 @@ tasks:
   - reuse: |
       cd dotfiles
       reuse lint
+  - luacheck: |
+      cd dotfiles
+      luacheck .
   - ruff: |
       cd dotfiles
       ./scripts/ruff.sh
