@@ -48,6 +48,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - nodejs
 - postgresql
 - programs
+- ptyxis
 - python
 - readline
 - ripgrep

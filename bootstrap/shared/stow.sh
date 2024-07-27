@@ -38,6 +38,7 @@ function stow_setup() {
         nodejs \
         postgresql \
         programs \
+        ptyxis \
         python \
         readline \
         ripgrep \
