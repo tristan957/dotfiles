@@ -78,7 +78,7 @@ return {
       on_init = function(client)
         local path = client.workspace_folders[1].name
 
-        if vim.fn.filereadable(vim.fs.joinpath(path, "poetry.lock")) == 1 and vim.fn.executable("poetry") then
+        if vim.uv.fs_stat((vim.fs.joinpath(path, "poetry.lock"))) and vim.fn.executable("poetry") then
           client.config.settings.basedpyright =
             vim.tbl_deep_extend("force", client.config.settings.basedpyright, {
               venvPath = vim.fn.system("poetry env info --path"),
@@ -187,8 +187,10 @@ return {
       on_init = function(client)
         local path = client.workspace_folders[1].name
 
-        if vim.fn.filereadable(vim.fs.joinpath(path, ".luarc.json")) == 1 then
-          return
+        for _, file in ipairs({ ".luarc.json", ".luarc.jsonc" }) do
+          if vim.uv.fs_stat(vim.fs.joinpath(path, file)) then
+            return
+          end
         end
 
         client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
@@ -235,7 +237,7 @@ return {
       on_init = function(client)
         local path = client.workspace_folders[1].name
 
-        if vim.fn.filereadable(vim.fs.joinpath(path, "poetry.lock")) == 1 and vim.fn.executable("poetry") then
+        if vim.uv.fs_stat(vim.fs.joinpath(path, "poetry.lock")) and vim.fn.executable("poetry") then
           client.config.settings.python =
             vim.tbl_deep_extend("force", client.config.settings.python, {
               venvPath = vim.fn.system("poetry env info --path"),
