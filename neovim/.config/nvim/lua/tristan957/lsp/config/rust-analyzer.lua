@@ -1,8 +1,7 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "rust-analyzer" },
-  root_dir = utils.root_dir({ "Cargo.toml", "rust-project.json" }),
+  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       check = {

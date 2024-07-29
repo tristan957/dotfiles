@@ -1,4 +1,4 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
   cmd = {
@@ -11,10 +11,11 @@ return {
     "--pch-storage=disk",
     "--header-insertion-decorators",
   },
-  root_dir = utils.root_dir({
+  capabilities = capabilities,
+  root_dir = vim.fs.root(vim.env.PWD, {
+    "compile_commands.json",
     ".clangd",
     ".clang-tidy",
     ".clang-format",
-    "compile_commands.json",
   }),
 }

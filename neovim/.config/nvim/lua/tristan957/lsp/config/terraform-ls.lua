@@ -1,6 +1,5 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "terraform-ls", "serve" },
-  root_dir = utils.root_dir({ ".terraform" }),
+  capabilities = capabilities,
 }

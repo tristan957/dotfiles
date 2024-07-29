@@ -1,3 +1,5 @@
+local capabilities = require("tristan957.lsp").capabilities
+
 return {
-  cmd = { "typst-lsp" },
+  capabilities = capabilities,
 }

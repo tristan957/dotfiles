@@ -1,7 +1,5 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "typescript-language-server", "--stdio" },
-  root_dir = utils.root_dir({ "tsconfig.json", "package.json", "jsconfig.json" }),
-  init_options = { hostInfo = "neovim" },
+  capabilities = capabilities,
 }

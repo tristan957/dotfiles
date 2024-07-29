@@ -1,8 +1,8 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
+-- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
 return {
-  cmd = { "gopls" },
-  root_dir = utils.root_dir({ "go.mod", "go.work" }),
+  capabilities = capabilities,
   settings = {
     gopls = {
       analyses = {

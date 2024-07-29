@@ -1,6 +1,5 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "marksman", "server" },
-  root_dir = utils.root_dir({ ".marksman.toml" }),
+  capabilities = capabilities,
 }

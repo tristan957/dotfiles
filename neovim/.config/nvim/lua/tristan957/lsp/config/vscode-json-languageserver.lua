@@ -1,10 +1,8 @@
+local capabilities = require("tristan957.lsp").capabilities
 local schemastore = require("schemastore")
 
 return {
-  cmd = { "vscode-json-language-server", "--stdio" },
-  init_options = {
-    provideFormatter = true,
-  },
+  capabilities = capabilities,
   settings = {
     json = {
       schemas = schemastore.json.schemas({

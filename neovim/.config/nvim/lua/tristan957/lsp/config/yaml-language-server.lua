@@ -1,7 +1,8 @@
+local capabilities = require("tristan957.lsp").capabilities
 local schemastore = require("schemastore")
 
 return {
-  cmd = { "yaml-language-server", "--stdio" },
+  capabilities = capabilities,
   settings = {
     yaml = {
       schemaStore = {

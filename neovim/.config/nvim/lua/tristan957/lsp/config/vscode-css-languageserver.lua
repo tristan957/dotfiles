@@ -1,20 +1,5 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "vscode-css-language-server", "--stdio" },
-  init_options = {
-    provideFormatter = true,
-  },
-  root_dir = utils.root_dir({ "package.json" }),
-  settings = {
-    css = {
-      validate = true,
-    },
-    scss = {
-      validate = true,
-    },
-    less = {
-      validate = true,
-    },
-  },
+  capabilities = capabilities,
 }

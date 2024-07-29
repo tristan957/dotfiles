@@ -1,6 +1,5 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "ruff-lsp" },
-  root_dir = utils.root_dir({ "pyproject.toml", "setup.py", "ruff.toml" }),
+  capabilities = capabilities,
 }

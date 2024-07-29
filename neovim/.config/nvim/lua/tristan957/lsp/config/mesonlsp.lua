@@ -1,6 +1,5 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
 
 return {
-  cmd = { "mesonlsp", "--lsp" },
-  root_dir = utils.root_dir({ "meson.options", "meson_options.txt" }),
+  capabilities = capabilities,
 }

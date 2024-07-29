@@ -1,6 +1,10 @@
-local utils = require("tristan957.lsp.utils")
+local capabilities = require("tristan957.lsp").capabilities
+local default_config = require("lspconfig.server_configurations.lemminx").default_config
 
 return {
-  cmd = { "lemminx" },
-  root_dir = utils.root_dir(),
+  capabilities = capabilities,
+  filetypes = {
+    "sgml",
+    unpack(default_config.filetypes)
+  },
 }
