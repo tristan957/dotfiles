@@ -5,8 +5,7 @@ local proc =
 local password = proc:read("*l")
 proc:close()
 
----@diagnostic disable-next-line:unused-local
-local client = comlink.connect({
+comlink.connect({
   server = "chat.sr.ht",
   tls = true,
   user = "tristan957",
