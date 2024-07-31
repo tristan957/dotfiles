@@ -11,6 +11,8 @@ return {
     MiniIcons.setup({
       style = "glyph",
     })
+
+    MiniIcons.tweak_lsp_kind("prepend")
   end,
   init = function()
     package.preload["nvim-web-devicons"] = function()

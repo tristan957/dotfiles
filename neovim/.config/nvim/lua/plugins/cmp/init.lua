@@ -11,7 +11,6 @@ return {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-path",
     "nvim-neorg/neorg",
-    "onsails/lspkind.nvim",
     {
       "petertriho/cmp-git",
       dependencies = {
@@ -40,7 +39,6 @@ return {
   config = function()
     local cmp = require("cmp")
     local cmp_git = require("cmp_git")
-    local lspkind = require("lspkind")
 
     local window = cmp.config.window.bordered({
       border = "rounded",
@@ -54,10 +52,15 @@ return {
         completeopt = "menu,menuone,noinsert",
       },
       formatting = {
-        format = lspkind.cmp_format({
-          mode = "symbol_text",
-          show_labelDetails = true,
-        }),
+        ---@param _ cmp.Entry
+        ---@param vim_item vim.CompletedItem
+        ---@return vim.CompletedItem
+        format = function(_, vim_item)
+          local icon, hl = require("mini.icons").get("lsp", vim_item.kind)
+          vim_item.kind = icon .. " " .. vim_item.kind
+          vim_item.kind_hl_group = hl
+          return vim_item
+        end,
       },
       mapping = {
         ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
