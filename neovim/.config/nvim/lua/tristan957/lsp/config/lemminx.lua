@@ -5,6 +5,6 @@ return {
   capabilities = capabilities,
   filetypes = {
     "sgml",
-    unpack(default_config.filetypes)
+    table.unpack(default_config.filetypes)
   },
 }

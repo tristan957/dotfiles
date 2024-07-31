@@ -180,7 +180,7 @@ return {
             "--files",
             "--color",
             "never",
-            unpack(prepend("--iglob=!", ignore_these)),
+            table.unpack(prepend("--iglob=!", ignore_these)),
           }
         end
       })

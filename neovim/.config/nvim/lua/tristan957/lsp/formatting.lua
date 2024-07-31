@@ -28,7 +28,7 @@ M.format = function(client, bufnr, force, opts)
     if markers then
       vim.lsp.buf.format({
         bufnr = bufnr,
-        unpack(opts),
+        table.unpack(opts),
       })
     end
 
@@ -41,7 +41,7 @@ M.format = function(client, bufnr, force, opts)
   if force or dir ~= nil then
     vim.lsp.buf.format({
       bufnr = bufnr,
-      unpack(opts),
+      table.unpack(opts),
     })
   end
 end
