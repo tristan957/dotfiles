@@ -3,4 +3,4 @@ Description=Update $XDG_DATA_HOME/applications/ desktop database
 
 [Service]
 Type=oneshot
-ExecStart=update-desktop-database "${XDG_DATA_HOME}"
+ExecStart=update-desktop-database "${XDG_DATA_HOME}/applications"
