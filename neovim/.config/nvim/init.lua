@@ -1,4 +1,4 @@
-local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazy_path = vim.fs.joinpath(vim.fn.stdpath("data") --[[@as string]], "lazy", "lazy.nvim")
 
 if not vim.uv.fs_stat(lazy_path) then
   vim.fn.system({
