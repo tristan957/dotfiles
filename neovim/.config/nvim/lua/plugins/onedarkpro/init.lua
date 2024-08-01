@@ -3,7 +3,7 @@ return {
   "olimorris/onedarkpro.nvim",
   lazy = false,
   priority = 1000,
-  -- dev = true,
+  dev = false,
   config = function()
     local onedarkpro = require("onedarkpro")
 
