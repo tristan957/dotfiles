@@ -25,6 +25,7 @@ return {
         virtual_text = "NONE",
       },
       highlights = {
+        ["@lsp.typemod.variable.global.lua"] = { link = "@lsp.typemod.variable.defaultLibrary.lua" },
         ["@property.meson"] = { fg = "${white}" },
       },
       options = {
