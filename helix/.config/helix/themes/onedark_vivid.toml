@@ -1,0 +1,17 @@
+inherits = "onedark"
+
+[palette]
+yellow = "#E5C07B"
+blue = "#61AFEF"
+red = "#EF596F"
+purple = "#D55FDE"
+green = "#89CA78"
+gold = "#D19A66"
+cyan = "#2BBAC5"
+white = "#ABB2BF"
+black = "#282C34"
+light-black = "#2C323C"
+gray = "#3E4452"
+faint-gray = "#3B4048"
+light-gray = "#5C6370"
+linenr = "#4B5263"

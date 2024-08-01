@@ -1,0 +1,33 @@
+# https://docs.helix-editor.com/editor.html
+
+theme = "onedark_vivid"
+
+[editor]
+color-modes = true
+cursorline = true
+cursorcolumn = false
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+
+[editor.statusline]
+mode.insert = "INSERT"
+mode.normal = "NORMAL"
+mode.select = "SELECT"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+
+[editor.whitespace.characters]
+space = "·"
+tab = "⭢"
