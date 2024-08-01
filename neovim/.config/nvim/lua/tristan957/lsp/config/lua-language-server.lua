@@ -1,5 +1,4 @@
 local capabilities = require("tristan957.lsp").capabilities
-local xdg = require("tristan957.xdg")
 
 return {
   settings = {
@@ -36,7 +35,7 @@ return {
       workspace = {
         checkThirdParty = false,
         library = {
-          vim.fs.joinpath(xdg.data_home(), "comlink"),
+          vim.fs.joinpath(vim.fn.stdpath("data") --[[@as string]], "comlink"),
           "${3rd}/luv/library",
           table.unpack(vim.api.nvim_get_runtime_file("", true)),
         },
