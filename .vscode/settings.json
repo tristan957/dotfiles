@@ -3,7 +3,7 @@
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "JohnnyMorganz.stylua",
+		"editor.defaultFormatter": "JohnnyMorganz.stylua"
 	},
 	"[markdown]": {
 		"editor.formatOnSave": true,
@@ -11,7 +11,7 @@
 	},
 	"[shellscript]": {
 		"files.eol": "\n",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[yaml]": {
 		"editor.formatOnSave": true,
@@ -20,7 +20,7 @@
 	"Lua.diagnostics.globals": ["vim"],
 	"Lua.runtime.version": "LuaJIT",
 	"Lua.workspace.library": [
-		"/usr/share/nvim/runtime",
+		"/usr/share/nvim/runtime"
 	],
 	"shellcheck.useWorkspaceRootAsCwd": true,
 	"shellcheck.customArgs": [
@@ -36,7 +36,7 @@
 		"new_message": "gotmpl",
 		"quoted_reply": "gotmpl",
 		"work.config": "properties",
-		"ignore": "ignore",
+		"ignore": "ignore"
 	},
 	"shellformat.flag": "-indent 4"
 }
