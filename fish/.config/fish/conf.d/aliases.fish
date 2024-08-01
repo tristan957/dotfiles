@@ -6,7 +6,7 @@ end
 alias permissions="stat -c '%a %n'"
 
 # ls folder color
-alias ls='ls -v --indicator-style=slash --color=auto'
+alias ls='ls -v --hyperlink --indicator-style=slash --color=auto'
 
 # Apply colors to commands
 alias diff='diff --color=auto'
