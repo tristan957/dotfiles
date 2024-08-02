@@ -20,6 +20,30 @@ hidden = false
 display-messages = true
 
 [editor.statusline]
+left = [
+    "mode",
+    "spinner",
+    "version-control",
+    "file-modification-indicator",
+    "diagnostics",
+    "read-only-indicator",
+]
+center = [
+    "file-name",
+]
+right = [
+    "file-encoding",
+    "separator",
+    "file-line-ending",
+    "separator",
+    "file-type",
+    "separator",
+    "spacer",
+    "position-percentage",
+    "spacer",
+    "separator",
+    "position",
+]
 mode.insert = "INSERT"
 mode.normal = "NORMAL"
 mode.select = "SELECT"
