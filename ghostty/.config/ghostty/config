@@ -74,6 +74,8 @@ selection-invert-fg-bg = true
 shell-integration = bash
 shell-integration-features = no-cursor,sudo,title
 
+unfocused-split-opacity = 1
+
 window-decoration = true
 window-height = 24
 window-inherit-font-size = true
