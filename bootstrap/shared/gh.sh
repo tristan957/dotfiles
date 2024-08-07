@@ -1,7 +1,7 @@
-function github_login {
+function gh_login {
     gh auth login --hostname github.com --web --git-protocol https
 }
 
-function github_setup {
-    github_login
+function gh_setup {
+    gh_login
 }

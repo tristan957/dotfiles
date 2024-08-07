@@ -27,7 +27,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/dconf.sh"
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
-. "$dir/shared/github.sh"
+. "$dir/shared/gh.sh"
 . "$dir/shared/glab.sh"
 . "$dir/shared/grub.sh"
 . "$dir/shared/homebrew.sh"
@@ -54,6 +54,6 @@ rustup_setup
 homebrew_setup
 bash_completion_setup
 tmux_setup
-github_setup
+gh_setup
 glab_setup
 grub_setup
