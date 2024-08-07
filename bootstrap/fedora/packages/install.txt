@@ -46,6 +46,7 @@ git-annex
 git-delta
 git-email
 git-extras
+glab
 glib2-devel
 glibc
 glibc-static
