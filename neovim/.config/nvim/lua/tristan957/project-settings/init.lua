@@ -1,8 +1,8 @@
 local M = {}
 
----@class Opts
----@field fs_root string?
----@field rtps_root string?
+---@class (exact) Opts
+---@field fs_root string? Filesystem root to elide when patch matching
+---@field rtps_root string? Root of the various project runtimepaths
 local default_opts = {
   fs_root = nil,
   rtps_root = nil,
@@ -10,6 +10,7 @@ local default_opts = {
 
 ---@param opts Opts
 M.setup = function(opts)
+  opts = vim.tbl_deep_extend("force", default_opts, opts)
   if opts.fs_root == nil or opts.rtps_root == nil then
     return
   end
