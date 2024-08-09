@@ -21,10 +21,16 @@ local function format(cmdline)
     return
   end
 
+  -- bold
   local s = string.gsub(cmdline, "%*%*(.+)%*%*", "\x02%1\x02")
+  -- italics
   s = string.gsub(s, "%*(.+)%*", "\x1D%1\x1D")
+  -- strikethrough
   s = string.gsub(s, "~(.+)~", "\x1E%1\x1E")
+  -- underline
   s = string.gsub(s, "_(.+)_", "\x1F%1\x1F")
+  -- monospace
+  s = string.gsub(s, "`(.+)`", "\x11%1\x11")
 
   channel:send_msg(s)
 end
