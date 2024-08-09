@@ -1,0 +1,17 @@
+#!/bin/sh
+
+case "$AERC_ACCOUNT" in
+    "Personal")
+        case "$AERC_FOLDER" in
+            "PostgreSQL/hackers")
+                cat "$HOME/.config/aerc/signatures/work.txt"
+                ;;
+            *)
+                cat "$HOME/.config/aerc/signatures/personal.txt"
+                ;;
+        esac
+        ;;
+    "Work")
+        cat "$HOME/.config/aerc/signatures/work.txt"
+        ;;
+esac
