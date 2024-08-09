@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if command -v sq >/dev/null 2>&1; then
+    exec sq inspect </dev/stdin
+else
+    exec gpg --list-keys </dev/stdin
+fi
