@@ -59,7 +59,7 @@
 	numbered = auto
 	outputDirectory = outgoing
 	signOff = true
-	signatureFile = ~/.config/git/signatures/personal.txt
+	signatureFile = ~/.config/git/signatures/personal
 [gpg]
 	program = gpg2
 [init]
