@@ -80,6 +80,7 @@ window-decoration = true
 window-height = 24
 window-inherit-font-size = true
 window-inherit-working-directory = true
+window-padding-color = extended
 window-padding-x = 4
 window-padding-y = 4
 window-width = 80
