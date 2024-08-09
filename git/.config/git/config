@@ -25,6 +25,7 @@
 [commit]
 	cleanup = scissors
 	gpgsign = false
+	template = ~/.config/git/templates/personal
 	verbose = true
 [core]
 	autoclrf = false
@@ -57,6 +58,7 @@
 	notes = true
 	numbered = auto
 	outputDirectory = outgoing
+	signOff = true
 	signatureFile = ~/.config/git/signatures/personal.txt
 [gpg]
 	program = gpg2
