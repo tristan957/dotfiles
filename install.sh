@@ -15,16 +15,16 @@ dry_run=0
 
 while getopts ":dp:" o; do
     case $o in
-    d) dry_run=1 ;;
-    p) packages+=("$OPTARG") ;;
-    :)
-        echo "'$1' requires an argument" >&2
-        exit 1
-        ;;
-    ?)
-        echo "Unknown flag '$1'" >&2
-        exit 1
-        ;;
+        d) dry_run=1 ;;
+        p) packages+=("$OPTARG") ;;
+        :)
+            echo "'$1' requires an argument" >&2
+            exit 1
+            ;;
+        ?)
+            echo "Unknown flag '$1'" >&2
+            exit 1
+            ;;
     esac
 done
 

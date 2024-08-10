@@ -4,7 +4,7 @@ files=$(find . -name "*.sh" -type f \
     -not -path "./rust/.opt/cargo/*")
 
 # shellcheck disable=SC2086
-shfmt --diff --language-dialect bash --indent 4 \
+shfmt --case-indent --diff --language-dialect bash --indent 4 \
     aerc/.local/bin/aerc-signature \
     bash/.bashrc \
     bash/.bash_logout \
