@@ -1,9 +1,9 @@
 #!/bin/sh
 
 case "$AERC_ACCOUNT" in
-    "Personal")
+    Personal)
         case "$AERC_FOLDER" in
-            "PostgreSQL/hackers")
+            PostgreSQL/hackers)
                 cat "$HOME/.config/aerc/signatures/work.txt"
                 ;;
             *)
@@ -11,7 +11,7 @@ case "$AERC_ACCOUNT" in
                 ;;
         esac
         ;;
-    "Work")
+    Work)
         cat "$HOME/.config/aerc/signatures/work.txt"
         ;;
 esac
