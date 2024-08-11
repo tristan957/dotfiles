@@ -68,6 +68,9 @@ linux-cgroup = always
 
 mouse-hide-while-typing = false
 
+resize-overlay = always
+resize-overlay-position = bottom-right
+
 selection-invert-fg-bg = true
 
 # This doesn't seem to work with tmux?
