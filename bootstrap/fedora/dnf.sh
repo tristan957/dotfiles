@@ -35,6 +35,16 @@ sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt' |
         sudo tee /etc/yum.repos.d/grafana.repo
 
+    # Google Cloud CLI (https://cloud.google.com/sdk/docs/install#rpm)
+    echo '[google-cloud-cli]
+name=Google Cloud CLI
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el9-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
+        sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo
+
     # Hare
     sudo dnf copr enable mroche/hare
 

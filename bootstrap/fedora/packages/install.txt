@@ -59,6 +59,7 @@ gnome-tweaks
 go-task
 golang
 google-chrome-stable
+google-cloud-cli
 gron
 gstreamer1-plugins-bad-free-devel
 gstreamer1-plugins-base-tools
