@@ -11,7 +11,12 @@ return {
 
     local toggle = function()
       if not MiniFiles.close() then
-        MiniFiles.open(vim.api.nvim_buf_get_name(0))
+        local name = vim.api.nvim_buf_get_name(0)
+        if vim.fn.filereadable(name) == 1 then
+          MiniFiles.open(name)
+        else
+          MiniFiles.open()
+        end
       end
     end
 
