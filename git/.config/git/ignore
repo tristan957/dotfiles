@@ -10,6 +10,9 @@
 /zig-out/
 .cache/clangd
 .envrc
+.exrc
 .nfs*
+.nvim.lua
+.nvimrc
 .vscode/
 compile_commands.json
