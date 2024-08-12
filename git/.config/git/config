@@ -8,6 +8,7 @@
 	skippedCherryPicks = false
 [alias]
 	c = commit
+	conflicts = diff --name-only --diff-filter=U
 	d = diff
 	dc = diff --cached
 	dt = difftool
