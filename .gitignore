@@ -3,6 +3,7 @@
 /node_modules/
 /vim/.vim/.netrwhist
 /vim/.vim/autoload/plug.vim
+/vim/.vim/autoload/plug.vim.old
 !/.vscode/
 /rust/.opt/cargo/*
 !/rust/.opt/config.toml
