@@ -15,7 +15,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 
 - 1password
 - aerc
-- alacritty
 - bash
 - bat
 - clangd
@@ -27,7 +26,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - editline
 - electron
 - fish
-- foot
 - gdb
 - ghostty
 - git

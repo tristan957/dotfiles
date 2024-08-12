@@ -5,7 +5,6 @@ function stow_setup() {
     stow --restow \
         1password \
         aerc \
-        alacritty \
         bash \
         bat \
         clangd \
@@ -17,7 +16,6 @@ function stow_setup() {
         editline \
         electron \
         fish \
-        foot \
         gdb \
         ghostty \
         git \
