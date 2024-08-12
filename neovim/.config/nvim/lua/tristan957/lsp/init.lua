@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       if #choices > 1 then
         vim.ui.select(choices, { prompt = "Select a formatter" }, function(_, choice)
           if not choice then
-            vim.notify(vim.log.levels.WARN, "No formatter selected")
+            vim.notify("No formatter selected", vim.log.levels.WARN)
             return
           end
 
