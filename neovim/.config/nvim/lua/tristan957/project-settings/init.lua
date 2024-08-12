@@ -26,7 +26,11 @@ M.setup = function(opts)
 
   local rtp = vim.fs.joinpath(opts.rtps_root, project)
   if vim.fn.isdirectory(rtp) == 1 then
+    vim.notify("Appending ".. rtp .. " to runtimepath", vim.log.levels.INFO)
     vim.opt.runtimepath:append(rtp)
+    package.path = package.path .. ";" .. rtp .. "/?.lua;" .. rtp .. "/?/init.lua;"
+    require("project")
+    vim.secure.trust({ action = "allow", bufnr = 0 })
   end
 end
 
