@@ -89,7 +89,7 @@ require("lazy").setup("plugins", {
     notify = false,
   },
   dev = {
-    path = table.concat({ os.getenv("HOME"), "Projects" }, "/"),
+    path = vim.fs.joinpath(vim.env.HOME, "Projects"),
   },
   diff = {
     cmd = "git",
