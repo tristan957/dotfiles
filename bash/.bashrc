@@ -1,6 +1,8 @@
 # Don't run if it's not an interactive shell
 [[ $- != *i* ]] && return
 
+builtin source "/etc/bashrc" 2>/dev/null
+
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 DOTFILES_DIR=$(dirname "$BASH_DIR")
 
@@ -190,15 +192,6 @@ alias zz='zoxide query --interactive'
 alias hpull='history -r'
 # Push new history to the HISTFILE
 alias hpush='history -a'
-
-#-------------------------------------------------------------------------------
-
-# Bash Completion
-
-if ! shopt -oq posix; then
-    builtin source /usr/share/bash-completion/bash_completion 2>/dev/null
-    builtin source /etc/bash_completion 2>/dev/null
-fi
 
 #-------------------------------------------------------------------------------
 
