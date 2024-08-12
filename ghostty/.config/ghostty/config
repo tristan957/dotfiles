@@ -68,7 +68,7 @@ linux-cgroup = always
 
 mouse-hide-while-typing = false
 
-resize-overlay = always
+resize-overlay = after-first
 resize-overlay-position = bottom-right
 
 selection-invert-fg-bg = true
