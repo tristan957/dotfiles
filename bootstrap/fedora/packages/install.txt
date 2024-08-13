@@ -21,6 +21,7 @@ codium
 codespell
 compat-lua
 dconf-editor
+ddcutil
 delve
 difftastic
 direnv
