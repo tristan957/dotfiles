@@ -1,5 +1,6 @@
 org.gnome.Adwaita1.Demo
 org.gnome.Builder.Devel
+org.gnome.Ptyxis.Devel
 org.gnome.Sdk.Docs//master
 org.gnome.Sdk.Debug//master
 org.gtk.Demo4
