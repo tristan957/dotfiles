@@ -26,6 +26,8 @@ return {
       },
       highlights = {
         ["@constant.builtin.lua"] = { fg = "${orange}" },
+        ["diffAdded"] = { link = "@diff.plus" },
+        ["diffRemoved"] = { link = "@diff.minus" },
         ["@keyword.operator.lua"] = { link = "@keyword.lua" },
         ["@lsp.typemod.variable.global.lua"] = { link = "@lsp.typemod.variable.defaultLibrary.lua" },
         ["@property.meson"] = { fg = "${white}" },
