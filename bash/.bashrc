@@ -152,6 +152,16 @@ GIT_COMPLETION_SHOW_ALL=1
 # shellcheck disable=SC2034
 GIT_COMPLETION_IGNORE_CASE=1
 
+HISTCONTROL='ignoredups:ignorespace'
+HISTSIZE=1000000
+HISTTIMEFORMAT='%FT%T%z: '
+
+# How many directories to show
+# PROMPT_DIRTRIM=1
+
+# Add to shell history after every command
+# PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 #-------------------------------------------------------------------------------
 
 # Aliases/Functions
