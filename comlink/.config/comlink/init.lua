@@ -36,6 +36,3 @@ local function format(cmdline)
 end
 
 comlink.add_command("fmt", format)
-
-comlink.bind("ctrl+alt+j", "next-channel")
-comlink.bind("ctrl+alt+k", "prev-channel")
