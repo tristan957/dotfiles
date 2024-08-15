@@ -1,9 +1,9 @@
 /fish/.config/fish/fish_variables
 /glab/.config/glab-cli/config.yml
 /node_modules/
-/vim/.vim/.netrwhist
-/vim/.vim/autoload/plug.vim
-/vim/.vim/autoload/plug.vim.old
+/vim/.config/vim/.netrwhist
+/vim/.config/vim/autoload/plug.vim
+/vim/.config/vim/autoload/plug.vim.old
 !/.vscode/
 /rust/.opt/cargo/*
 !/rust/.opt/config.toml
