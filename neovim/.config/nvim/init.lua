@@ -48,6 +48,8 @@ vim.opt.secure = true
 vim.opt.shiftwidth = 0
 vim.opt.shortmess:append("Ic")
 vim.opt.showbreak = "++++"
+vim.opt.showcmd = true
+vim.opt.showcmdloc = "last"
 vim.opt.showmatch = true
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 5

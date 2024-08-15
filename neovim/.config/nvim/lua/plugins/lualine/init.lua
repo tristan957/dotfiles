@@ -10,10 +10,9 @@ return {
 
     lualine.setup({
       options = {
+        globalstatus = true,
         icons_enabled = true,
-        theme = "onedark_vivid",
-        -- component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
+        theme = "auto",
       },
       sections = {
         lualine_b = {
@@ -21,7 +20,10 @@ return {
           "diff",
         },
         lualine_c = {
-          "filename",
+          {
+            "filename",
+            path = 0,
+          },
           {
             "diagnostics",
             sources = { "nvim_diagnostic" },
@@ -31,6 +33,11 @@ return {
           },
         },
         lualine_x = {
+          -- {
+          --   "%S",
+          --   separator = "",
+          --   draw_empty = true,
+          -- },
           "encoding",
           {
             "fileformat",
@@ -43,6 +50,14 @@ return {
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
+      },
+      extensions = {
+        "fugitive",
+        "lazy",
+        "man",
+        "mason",
+        "quickfix",
+        "trouble",
       },
     })
   end,
