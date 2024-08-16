@@ -2,7 +2,7 @@
 
 " VIM is a naughty boy using ~/.vim/. Teach it to play nice.
 let cache_dir=$XDG_CACHE_HOME . '/vim'
-let data_dir=$HOME . '/.vim'
+let data_dir=$XDG_DATA_HOME . '/vim'
 let state_dir=$XDG_STATE_HOME . '/vim'
 
 """"""""
