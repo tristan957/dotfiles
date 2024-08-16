@@ -60,6 +60,7 @@ vim.filetype.add({
     [".*config/aerc/aerc.conf"] = "ini",
     [".*config/aerc/templates/.*"] = "aerc-template",
     [".*config/git/.*.config"] = "gitconfig",
+    [".*config/ghostty/config"] = "confini",
     [".*config/hut/config"] = "scfg",
   },
 })
