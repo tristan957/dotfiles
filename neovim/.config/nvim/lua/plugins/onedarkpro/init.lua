@@ -26,6 +26,7 @@ return {
       },
       highlights = {
         ["@constant.builtin.lua"] = { fg = "${orange}" },
+        ["@string.special.url"] = { fg = "${blue}", italic = false, underline = true },
         ["@keyword.operator.lua"] = { link = "@keyword.lua" },
         ["@lsp.typemod.variable.global.lua"] = { link = "@lsp.typemod.variable.defaultLibrary.lua" },
         ["@property.meson"] = { fg = "${white}" },
