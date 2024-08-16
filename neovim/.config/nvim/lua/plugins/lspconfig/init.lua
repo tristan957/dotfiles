@@ -58,6 +58,7 @@ return {
     lspconfig.cmake.setup(require("tristan957.lsp.config.cmake-language-server"))
     lspconfig.cssls.setup(require("tristan957.lsp.config.vscode-css-languageserver"))
     lspconfig.denols.setup(require("tristan957.lsp.config.deno"))
+    lspconfig.gleam.setup(require("tristan957.lsp.config.gleam"))
     lspconfig.gopls.setup(require("tristan957.lsp.config.gopls"))
     lspconfig.html.setup(require("tristan957.lsp.config.vscode-html-languageserver"))
     lspconfig.jsonls.setup(require("tristan957.lsp.config.vscode-json-languageserver"))

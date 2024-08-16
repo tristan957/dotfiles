@@ -23,6 +23,9 @@ gpgcheck=1
 gpgkey=https://repo.charm.sh/yum/gpg.key' |
         sudo tee /etc/yum.repos.d/charm.repo
 
+    # Gleam
+    dnf copr enable frostyx/gleam
+
     # Grafana (https://rpm.grafana.com/)
     echo '[grafana]
 name=Grafana

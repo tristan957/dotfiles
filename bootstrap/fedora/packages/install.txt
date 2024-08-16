@@ -28,7 +28,9 @@ direnv
 distrobox
 dnf-plugin-system-upgrade
 dotnet-sdk-8.0
+elixir
 epiphany
+erlang
 eza
 fd-find
 figlet
@@ -48,6 +50,7 @@ git-delta
 git-email
 git-extras
 glab
+gleam
 glib2-devel
 glibc
 glibc-static
