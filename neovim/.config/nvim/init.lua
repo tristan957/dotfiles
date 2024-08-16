@@ -39,6 +39,7 @@ vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { space = "·", tab = "⭢ " }
 vim.opt.magic = true
+vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.path:append("**")
 vim.opt.relativenumber = true
