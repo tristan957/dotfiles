@@ -203,6 +203,10 @@ alias hpull='history -r'
 # Push new history to the HISTFILE
 alias hpush='history -a'
 
+if command -v 'rlwrap' &>/dev/null; then
+    alias dash='rlwrap dash'
+fi
+
 function 0x0() {
     curl -F "file=@$1" https://0x0.st
 }

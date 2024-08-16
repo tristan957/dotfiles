@@ -36,5 +36,6 @@ alias zz='zoxide query --interactive'
 # Pull new history
 alias hpull='history merge'
 
-# terminfo is so lame
-alias toolbox='env TERM=xterm-256color toolbox'
+if command --query 'rlwrap'
+    alias dash='rlwrap dash'
+end
