@@ -5,12 +5,9 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
+# should these be true
 kubectl exec --stdin=true --tty=true \
-    "$(kubectl get pods --output json |
-        jq --raw-output --arg compute "$1" \
-            '.items[]
-            | select(.metadata.labels["neon/compute-id"] == $compute)
-            | .metadata.name'
-    )" \
+    "$(kubectl get pod --selector "neon/endpoint-id=$1" \
+        --output 'jsonpath={.items[0].metadata.name}')" \
     -- \
     ssh -o "UserKnownHostsFile /dev/null" guest-vm
