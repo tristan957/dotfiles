@@ -149,6 +149,8 @@ rlwrap
 rpmconf
 rr
 ruby
+ruff
+ruff-lsp
 samurai
 sassc
 scdoc
