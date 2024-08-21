@@ -56,6 +56,7 @@ return {
         "lazy",
         "man",
         "mason",
+        "oil",
         "quickfix",
         "trouble",
       },
