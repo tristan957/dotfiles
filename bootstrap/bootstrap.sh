@@ -35,6 +35,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/stow.sh"
 . "$dir/shared/systemd.sh"
 . "$dir/shared/tmux.sh"
+. "$dir/shared/uv.sh"
 
 os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 # shellcheck disable=SC1090
@@ -57,3 +58,4 @@ tmux_setup
 gh_setup
 glab_setup
 grub_setup
+uv_setup
