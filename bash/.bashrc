@@ -1,7 +1,8 @@
+builtin source "/etc/bashrc" 2>/dev/null
+builtin source "$CARGO_HOME/env" 2>/dev/null
+
 # Don't run if it's not an interactive shell
 [[ $- != *i* ]] && return
-
-builtin source "/etc/bashrc" 2>/dev/null
 
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 DOTFILES_DIR=$(dirname "$BASH_DIR")
@@ -210,12 +211,6 @@ fi
 function 0x0() {
     curl -F "file=@$1" https://0x0.st
 }
-
-#-------------------------------------------------------------------------------
-
-# cargo
-
-builtin source "$CARGO_HOME/env" 2>/dev/null
 
 #-------------------------------------------------------------------------------
 
