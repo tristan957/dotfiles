@@ -80,6 +80,6 @@ return {
     lspconfig.vacuum.setup(require("tristan957.lsp.config.vacuum"))
     lspconfig.vimls.setup(require("tristan957.lsp.config.vim-language-server"))
     lspconfig.yamlls.setup(require("tristan957.lsp.config.yaml-language-server"))
-    lspconfig.zls.setup(require("tristan957.lsp.config.yaml-language-server"))
+    lspconfig.zls.setup(require("tristan957.lsp.config.zls"))
   end,
 }
