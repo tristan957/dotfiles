@@ -49,6 +49,7 @@ vim.filetype.add({
     [".vscode/extensions.json"] = "jsonc",
     [".vscode/settings.json"] = "jsonc",
     [".vscode/tasks.json"] = "jsonc",
+    ["dep5"] = "debian-copyright",
     ["devcontainer.json"] = "jsonc",
     ["hse.conf"] = "json",
     ["kvdb.conf"] = "json",
