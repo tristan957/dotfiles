@@ -37,6 +37,7 @@ return {
       "terraformls",
       "tsserver",
       "typst_lsp",
+      "vacuum",
       "vimls",
       "yamlls",
       "zls",
@@ -76,6 +77,7 @@ return {
     lspconfig.terraformls.setup(require("tristan957.lsp.config.terraform-ls"))
     lspconfig.tsserver.setup(require("tristan957.lsp.config.typescript-language-server"))
     lspconfig.typst_lsp.setup(require("tristan957.lsp.config.typst-lsp"))
+    lspconfig.vacuum.setup(require("tristan957.lsp.config.vacuum"))
     lspconfig.vimls.setup(require("tristan957.lsp.config.vim-language-server"))
     lspconfig.yamlls.setup(require("tristan957.lsp.config.yaml-language-server"))
     lspconfig.zls.setup(require("tristan957.lsp.config.yaml-language-server"))
