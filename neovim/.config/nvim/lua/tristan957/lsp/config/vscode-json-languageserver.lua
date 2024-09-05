@@ -3,6 +3,10 @@ local schemastore = require("schemastore")
 
 return {
   capabilities = capabilities,
+  filetypes = {
+    "json",
+    "json.openapi",
+  },
   settings = {
     json = {
       schemas = schemastore.json.schemas({

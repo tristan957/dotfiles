@@ -3,6 +3,10 @@ local schemastore = require("schemastore")
 
 return {
   capabilities = capabilities,
+  filetypes = {
+    "yaml",
+    "yaml.openapi",
+  },
   settings = {
     yaml = {
       schemaStore = {
