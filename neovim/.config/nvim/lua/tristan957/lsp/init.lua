@@ -4,6 +4,8 @@ M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local group = vim.api.nvim_create_augroup("tristan957_lsp", { clear = true })
 
+vim.lsp.set_log_level("OFF")
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
