@@ -7,9 +7,8 @@ return {
 
     MiniMisc.setup_restore_cursor()
 
-    -- Ghostty does this for us
-    local term = vim.env.TERM
-    if term ~= nil and (term ~= "xterm-ghostty" and term ~= "ghostty") then
+    local term_program = vim.env.TERM_PROGRAM
+    if term_program ~= nil and (term_program ~= "vscode") then
       MiniMisc.setup_termbg_sync()
     end
   end,
