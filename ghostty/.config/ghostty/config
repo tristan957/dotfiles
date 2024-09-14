@@ -86,4 +86,5 @@ window-inherit-working-directory = true
 window-padding-color = background
 window-padding-x = 4
 window-padding-y = 4
+window-theme = ghostty
 window-width = 80
