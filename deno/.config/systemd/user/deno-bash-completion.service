@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate deno bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'deno completions bash >"$XDG_DATA_HOME/bash-completion/completions/deno"'

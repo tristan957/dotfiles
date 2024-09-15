@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in ~/.opt/deno/bin/deno
+
+[Path]
+PathChanged=%h/.opt/deno/bin/deno
+
+[Install]
+WantedBy=paths.target

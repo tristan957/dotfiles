@@ -1,12 +1,13 @@
-function deno_download() {
+function deno_download {
     curl -fsSL https://deno.land/x/install/install.sh | sh
 }
 
-function deno_completions() {
-    deno completions bash >"${XDG_DATA_HOME}/bash-completion/completions/deno"
+function deno_bash_completion {
+    systemctl --user enable --now deno-bash-completion.path
+    systemctl --user start deno-bash-completion.service
 }
 
 function deno_setup() {
     deno_download
-    deno_completions
+    deno_bash_completion
 }
