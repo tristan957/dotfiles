@@ -47,7 +47,6 @@ flatpak_setup
 distro_setup
 dconf_setup
 # bitwarden_setup
-1Password_setup
 gdb_setup
 aerc_setup
 deno_setup
