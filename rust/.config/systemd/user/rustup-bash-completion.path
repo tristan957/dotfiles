@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in ~/.opt/cargo/bin/rustup
+
+[Path]
+PathChanged=%h/.opt/cargo/bin/rustup
+
+[Install]
+WantedBy=paths.target

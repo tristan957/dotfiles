@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate cargo bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'rustup completions bash cargo >"$XDG_DATA_HOME/bash-completion/completions/cargo"'

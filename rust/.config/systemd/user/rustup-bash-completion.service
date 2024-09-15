@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate rustup bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'rustup completions bash rustup >"$XDG_DATA_HOME/bash-completion/completions/rustup"'
