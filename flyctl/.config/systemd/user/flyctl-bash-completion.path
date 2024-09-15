@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in ~/.opt/fly/bin/flyctl
+
+[Path]
+PathChanged=%h/.opt/fly/bin/flyctl
+
+[Install]
+WantedBy=paths.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate flyctl bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'flyctl completion bash >"$XDG_DATA_HOME/bash-completion/completions/flyctl"'
