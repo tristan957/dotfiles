@@ -8,7 +8,6 @@ function flyctl_download {
 
 function flyctl_bash_completion {
     systemctl --user enable --now flyctl-bash-completion.path
-    systemctl --user start flyctl-bash-completion.service
 
     # Setup bash-completion for the fly symlink
     pushd "$XDG_DATA_HOME/bash-completion/completions/" >/dev/null 2>&1 || return
