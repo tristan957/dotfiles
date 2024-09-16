@@ -19,8 +19,8 @@ mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/postgresql"
 mkdir -p "$HOME/.opt"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
-. "$dir/shared/1Password.sh"
 . "$dir/shared/aerc.sh"
+. "$dir/shared/asciinema.sh"
 . "$dir/shared/bash-completion.sh"
 # . "$dir/shared/bitwarden.sh"
 . "$dir/shared/deno.sh"
@@ -58,3 +58,4 @@ gh_setup
 glab_setup
 grub_setup
 uv_setup
+asciinema_setup
