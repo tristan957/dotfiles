@@ -16,8 +16,13 @@ function flyctl_bash_completion {
     popd >/dev/null 2>&1 || return
 }
 
+function flyctl_login {
+    flyctl auth login
+}
+
 function flyctl_setup {
     flyctl_download
     flyctl_settings
     flyctl_bash_completion
+    flyctl_login
 }
