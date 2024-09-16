@@ -10,6 +10,9 @@ function rustup_bash_completion {
     systemctl --user enable --now \
         cargo-bash-completion.path \
         rustup-bash-completion.path
+    systemctl --user start \
+        cargo-bash-completion.service \
+        rustup-bash-completion.service
 }
 
 function rustup_setup() {
