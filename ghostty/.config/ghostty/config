@@ -28,6 +28,8 @@ palette = 14=#4bced8
 palette = 7=#abb2bf
 palette = 15=#c8cdd5
 
+adw-toolbar-style = flat
+
 clipboard-paste-bracketed-safe = true
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
