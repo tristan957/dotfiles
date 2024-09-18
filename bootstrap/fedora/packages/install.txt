@@ -26,7 +26,6 @@ delve
 difftastic
 direnv
 distrobox
-dnf-plugin-system-upgrade
 dotnet-sdk-8.0
 elixir
 epiphany
