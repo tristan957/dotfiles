@@ -30,6 +30,8 @@ palette = 15=#c8cdd5
 
 adw-toolbar-style = flat
 
+auto-update = off
+
 clipboard-paste-bracketed-safe = true
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
