@@ -1,5 +1,17 @@
+-- https://www.postgresql.org/docs/current/app-psql.html
+
+\set QUIET 1
+
+\x auto
+
 \pset null '(null)'
+
+\set COMP_KEYWORD_CASE upper
 
 \set HISTCONTROL ignoreboth
 \set HISTFILE `echo $XDG_STATE_HOME/postgresql/psql_history`
 \set HISTSIZE 1000000
+
+\set PROMPT1 '%n@%/%x%R%# '
+
+\unset QUIET
