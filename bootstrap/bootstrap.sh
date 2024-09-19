@@ -5,7 +5,7 @@ set -o pipefail
 
 for f in "$HOME/.bash"*; do
     # if we are a symlink, we most likely already stowed
-    if [[ -h "$f" ]]; then
+    if [[ -L "$f" ]]; then
         continue
     else
         rm "$f"
