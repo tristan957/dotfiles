@@ -15,11 +15,13 @@ return {
   capabilities = capabilities,
   ---@param client vim.lsp.Client
   on_init = function(client)
-    local path = client.workspace_folders[1].name
+    if client.workspace_folders then
+      local path = client.workspace_folders[1].name
 
-    for _, file in ipairs({ ".luarc.json", ".luarc.jsonc" }) do
-      if vim.uv.fs_stat(vim.fs.joinpath(path, file)) then
-        return
+      for _, file in ipairs({ ".luarc.json", ".luarc.jsonc" }) do
+        if vim.uv.fs_stat(vim.fs.joinpath(path, file)) then
+          return
+        end
       end
     end
 
