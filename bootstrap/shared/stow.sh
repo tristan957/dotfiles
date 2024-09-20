@@ -17,6 +17,7 @@ function stow_setup() {
         electron \
         fish \
         flyctl \
+        fzf \
         gdb \
         ghostty \
         git \

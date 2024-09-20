@@ -27,6 +27,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - electron
 - fish
 - flyctl
+- fzf
 - gdb
 - ghostty
 - git

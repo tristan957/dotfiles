@@ -39,6 +39,7 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "dir_colors"
         "dotnet"
         "editline"
+        "fzf"
         "gdb"
         "git"
         "glow"
