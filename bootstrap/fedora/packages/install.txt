@@ -99,6 +99,7 @@ libsass-devel
 libsoup-devel
 libtsan
 libtsan-static
+libvarlink-devel
 libxkbcommon-devel
 lldb
 llvm
