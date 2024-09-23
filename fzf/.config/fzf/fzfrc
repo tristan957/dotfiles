@@ -1,1 +1,2 @@
---color='16'
+--color='16,gutter:#22252C,current-bg:#2E333C'
+--highlight-line
