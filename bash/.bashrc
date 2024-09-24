@@ -147,7 +147,7 @@ PS3="\[$(__tput bold)\]#? \[$(__tput sgr0)\]"
 PS4='$(__tput sgr0)$(__tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(__tput sgr0)   '
 
 # shellcheck disable=SC2034
-GIT_COMPLETION_SHOW_ALL_COMMANDS=1
+# GIT_COMPLETION_SHOW_ALL_COMMANDS=1
 # shellcheck disable=SC2034
 GIT_COMPLETION_SHOW_ALL=1
 # shellcheck disable=SC2034
