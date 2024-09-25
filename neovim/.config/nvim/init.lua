@@ -74,6 +74,7 @@ vim.g.maplocalleader = "\\"
 vim.g.markdown_fenced_languages = {
   "ts=typescript", -- Because of Deno's language server
 }
+vim.g.omni_sql_no_default_maps = 1
 
 vim.diagnostic.config({
   virtual_text = true,
