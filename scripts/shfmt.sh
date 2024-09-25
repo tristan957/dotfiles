@@ -9,5 +9,5 @@ shfmt --case-indent --diff --language-dialect bash --indent 4 \
     bash/.bashrc \
     bash/.bash_logout \
     bash/.bash_profile \
-    programs/.local/bin/gdbwait \
+    programs/.local/bin/dbgwait \
     $files

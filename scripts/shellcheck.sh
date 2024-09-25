@@ -9,5 +9,5 @@ shellcheck --shell bash --source-path bash -x \
     bash/.bashrc \
     bash/.bash_logout \
     bash/.bash_profile \
-    programs/.local/bin/gdbwait \
+    programs/.local/bin/dbgwait \
     $files
