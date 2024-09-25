@@ -1,8 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: dotfiles
-Upstream-Contact: Tristan Partin <tristan@partin.io>
-Source: https://git.sr.ht/~tristan957/dotfiles
-
-Files: *
-Copyright: Tristan Partin <tristan@partin.io>
-License: CC0-1.0

@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: CC0-1.0
+#
+# SPDX-FileCopyrightText: 2024 Tristan Partin <tristan@partin.io>
+
+version = 1
+SPDX-HomePage = "https://git.sr.ht/~tristan957/dotfiles"
+SPDX-PackageName = "dotfiles"
+
+[[annotations]]
+path = "**"
+precedence = "override"
+SPDX-FileCopyrightText = "2023 Tristan Partin <tristan@partin.io>"
+SPDX-License-Identifier = "CC0-1.0"
