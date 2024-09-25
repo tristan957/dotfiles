@@ -101,9 +101,12 @@ gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
 function dnf_install_packages() {
     local dir=$(dirname "${BASH_SOURCE[0]}")
 
-    xargs sudo dnf remove -y <"$dir/packages/remove.txt"
-    xargs sudo dnf install -y <"$dir/packages/install.txt"
-    xargs sudo dnf install -y <"$dir/work.txt"
+    xargs sudo dnf remove -y <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
+        "$dir/packages/remove.txt")"
+    xargs sudo dnf install -y <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
+        "$dir/packages/install.txt")"
+    xargs sudo dnf install -y <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
+        "$dir/packages/work.txt")"
 }
 
 # Proprietary codec bs
