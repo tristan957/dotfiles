@@ -62,7 +62,7 @@ font-size = 10
 gtk-adwaita = true
 
 keybind = super+ctrl+\=new_split:right
-keybind = ctrl+shift+o=unbind
+keybind = ctrl+shift+o=toggle_tab_overview
 keybind = super+ctrl+-=new_split:down
 keybind = ctrl+shift+e=unbind
 
