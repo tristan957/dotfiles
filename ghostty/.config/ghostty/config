@@ -28,7 +28,7 @@ palette = 14=#4bced8
 palette = 7=#abb2bf
 palette = 15=#c8cdd5
 
-adw-toolbar-style = flat
+adw-toolbar-style = raised
 
 auto-update = off
 
