@@ -55,6 +55,7 @@ vim.filetype.add({
     ["kvdb.conf"] = "json",
     ["kvdb.meta"] = "json",
     ["kvdb.pid"] = "json",
+    ["poetry.lock"] = "toml",
   },
   pattern = {
     [".*config/aerc/accounts.conf"] = "ini",
