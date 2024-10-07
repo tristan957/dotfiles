@@ -16,3 +16,4 @@
 .nvimrc
 .vscode/
 compile_commands.json
+pyrightconfig.json
