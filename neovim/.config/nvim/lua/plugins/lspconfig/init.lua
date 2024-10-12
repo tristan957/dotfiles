@@ -35,8 +35,8 @@ return {
       "rust_analyzer",
       "taplo",
       "terraformls",
+      "tinymist",
       "ts_ls",
-      "typst_lsp",
       "vacuum",
       "vimls",
       "yamlls",
@@ -76,7 +76,7 @@ return {
     lspconfig.taplo.setup(require("tristan957.lsp.config.taplo"))
     lspconfig.terraformls.setup(require("tristan957.lsp.config.terraform-ls"))
     lspconfig.ts_ls.setup(require("tristan957.lsp.config.typescript-language-server"))
-    lspconfig.typst_lsp.setup(require("tristan957.lsp.config.typst-lsp"))
+    lspconfig.tinymist.setup(require("tristan957.lsp.config.tinymist"))
     lspconfig.vacuum.setup(require("tristan957.lsp.config.vacuum"))
     lspconfig.vimls.setup(require("tristan957.lsp.config.vim-language-server"))
     lspconfig.yamlls.setup(require("tristan957.lsp.config.yaml-language-server"))
