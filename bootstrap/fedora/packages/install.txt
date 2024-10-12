@@ -79,6 +79,7 @@ java-latest-openjdk
 jc
 jq
 json-glib-devel
+jsonnet
 jsonrpc-glib-devel
 just
 kitty-kitten
