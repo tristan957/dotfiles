@@ -66,6 +66,7 @@ return {
     lspconfig.gopls.setup(require("tristan957.lsp.config.gopls"))
     lspconfig.html.setup(require("tristan957.lsp.config.vscode-html-languageserver"))
     lspconfig.jsonls.setup(require("tristan957.lsp.config.vscode-json-languageserver"))
+    lspconfig.jsonnet_ls.setup(require("tristan957.lsp.config.jsonnet-language-server"))
     lspconfig.lemminx.setup(require("tristan957.lsp.config.lemminx"))
     lspconfig.lua_ls.setup(require("tristan957.lsp.config.lua-language-server"))
     lspconfig.marksman.setup(require("tristan957.lsp.config.marksman"))
