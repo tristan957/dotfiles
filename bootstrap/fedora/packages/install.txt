@@ -23,6 +23,8 @@ compat-lua
 dconf-editor
 ddcutil
 delve
+dhall
+dhall-json
 difftastic
 direnv
 distrobox
