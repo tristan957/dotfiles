@@ -31,7 +31,7 @@ return {
       "marksman",
       "mesonlsp",
       "pyright",
-      "ruff_lsp",
+      "ruff",
       "rust_analyzer",
       "taplo",
       "terraformls",
@@ -72,7 +72,7 @@ return {
     lspconfig.marksman.setup(require("tristan957.lsp.config.marksman"))
     lspconfig.mesonlsp.setup(require("tristan957.lsp.config.mesonlsp"))
     lspconfig.pyright.setup(require("tristan957.lsp.config.pyright"))
-    lspconfig.ruff_lsp.setup(require("tristan957.lsp.config.ruff-lsp"))
+    lspconfig.ruff.setup(require("tristan957.lsp.config.ruff"))
     lspconfig.rust_analyzer.setup(require("tristan957.lsp.config.rust-analyzer"))
     lspconfig.taplo.setup(require("tristan957.lsp.config.taplo"))
     lspconfig.terraformls.setup(require("tristan957.lsp.config.terraform-ls"))
