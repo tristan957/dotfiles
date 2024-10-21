@@ -124,29 +124,6 @@ function __prompt_extras() {
     echo -ne "$PROMPT_EXTRAS"
 }
 
-function __prompt_cwd() {
-    if [[ "$PWD" = "$HOME" ]]; then
-        echo '~'
-        return
-    fi
-
-    git_dir="$(git rev-parse --git-dir 2>/dev/null)"
-    # shellcheck disable=SC2181
-    if [[ $? -ne 0 ]]; then
-        basename "$PWD"
-        return
-    fi
-
-    git_common_dir="$(git rev-parse --git-common-dir 2>/dev/null)"
-    # If true, this is a worktree
-    if [[ "$git_dir" != "$git_common_dir" ]]; then
-        basename "$git_common_dir"
-        return
-    fi
-
-    basename "$PWD"
-}
-
 # I could add the container application here:
 #   - docker(container)
 #   - podman(container)
@@ -164,7 +141,7 @@ function __prompt_host() {
     fi
 }
 
-PS1="\[$(__tput bold)\]\[$(__tput setaf 208)\][\$? \j \t] \[$(__tput setaf 76)\][\u@\$(__prompt_host)] \[$(__tput setaf 214)\][\$(__prompt_cwd)]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]+ \$ \[$(__tput sgr0)\]"
+PS1="\[$(__tput bold)\]\[$(__tput setaf 208)\][\$? \j \t] \[$(__tput setaf 76)\][\u@\$(__prompt_host)] \[$(__tput setaf 214)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]+ \$ \[$(__tput sgr0)\]"
 PS2="\[$(__tput bold)\]> \[$(__tput sgr0)\]"
 PS3="\[$(__tput bold)\]#? \[$(__tput sgr0)\]"
 PS4='$(__tput sgr0)$(__tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(__tput sgr0)   '
