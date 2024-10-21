@@ -51,6 +51,7 @@ function stow_setup() {
         teleport \
         terminfo \
         terraform \
+        testcontainers \
         tmux \
         toolbox \
         vim \
