@@ -1,13 +1,32 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-if [ $# -ne 1 ]; then
+args=("$@")
+
+if [[ $# -lt 1 ]]; then
     echo >&2 'A single argument is required'
     exit 1
 fi
 
+while getopts "" o; do
+    case "${o}" in
+        *)
+            echo 'Invalid option' >&2
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+OPTIND=$((OPTIND - 1))
+
+endpoint="${args[$OPTIND]}"
+shift
+OPTIND=$((OPTIND + 1))
+
+ssh_args=("${args[@]:$OPTIND}")
+
 # should these be true
 kubectl exec --stdin=true --tty=true \
-    "$(kubectl get pod --selector "neon/endpoint-id=$1" \
+    "$(kubectl get pod --selector "neon/endpoint-id=$endpoint" \
         --output 'jsonpath={.items[0].metadata.name}')" \
     -- \
-    ssh -o "UserKnownHostsFile /dev/null" guest-vm
+    ssh -o "UserKnownHostsFile /dev/null" guest-vm ${ssh_args[@]}
