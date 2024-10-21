@@ -6,7 +6,7 @@ local ls_markers = {
     ".clang-format",
   },
   gopls = true,
-  ["rust_analyzer"] = {
+  rust_analyzer = {
     ".rustfmt.toml",
     "rustfmt.toml",
   }
