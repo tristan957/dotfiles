@@ -5,6 +5,7 @@ function stow_setup() {
     stow --restow \
         1password \
         aerc \
+        asdf \
         bash \
         bat \
         clangd \
