@@ -127,6 +127,7 @@ pandoc
 parallel
 pax-utils
 pipx
+pnpm
 podman-compose
 podman-docker
 powershell
