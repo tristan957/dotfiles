@@ -68,13 +68,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
         desc = "Highlight <cword> references",
         buffer = ev.buf,
-        callback = vim.lsp.buf.document_highlight,
+        callback = function()
+          vim.lsp.buf.document_highlight()
+        end,
       })
 
       vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
         desc = "Clean <cword> reference highlights",
         buffer = ev.buf,
-        callback = vim.lsp.buf.clear_references,
+        callback = function()
+          vim.lsp.buf.clear_references()
+        end,
       })
     end
 
