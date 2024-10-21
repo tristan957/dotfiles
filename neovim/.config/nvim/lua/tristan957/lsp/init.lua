@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
     local builtin = require("telescope.builtin")
-    -- local trouble = require("trouble")
     local formatting = require("tristan957.lsp.formatting")
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
