@@ -31,6 +31,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/glab.sh"
 . "$dir/shared/grub.sh"
 . "$dir/shared/homebrew.sh"
+. "$dir/shared/podman.sh"
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
 . "$dir/shared/systemd.sh"
@@ -59,3 +60,4 @@ glab_setup
 grub_setup
 uv_setup
 asciinema_setup
+podman_setup
