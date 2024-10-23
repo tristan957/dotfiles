@@ -24,12 +24,15 @@
 
 default.bg = #282c34
 
-*.selected.bg = #3d4350
+*.selected.bg = #3A404C
 
 border.fg = #89ca78
 
 completion_default.bg = #22252C
 completion_default.selected.bold = true
+completion_description.fg = #ffffff
+completion_description.bg = #131618
+completion_description.selected.bold = true
 completion_gutter.bg = #5c6370
 completion_pill.bg = #ef596f
 
