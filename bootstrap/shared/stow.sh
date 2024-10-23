@@ -45,6 +45,7 @@ function stow_setup() {
         python \
         readline \
         ripgrep \
+        rlwrap \
         rust \
         ssh \
         sway \

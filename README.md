@@ -55,6 +55,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - python
 - readline
 - ripgrep
+- rlwrap
 - rust
 - ssh
 - sway
