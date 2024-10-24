@@ -8,4 +8,12 @@ M.vcountify = function(func, ...)
   end
 end
 
+---Strips trailing newlines in a string
+---@param s string
+---@return string
+M.rstrip = function(s)
+  s, _ = string.gsub(s, "(\n)$", "")
+  return s
+end
+
 return M

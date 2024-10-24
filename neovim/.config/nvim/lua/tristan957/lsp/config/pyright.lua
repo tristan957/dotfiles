@@ -14,15 +14,21 @@ return {
       },
     },
   },
-  ---@param client vim.lsp.Client
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
+  ---@param new_config vim.lsp.ClientConfig
+  ---@param new_root_dir string
+  on_new_config = function(new_config, new_root_dir)
+    local default_config = require("lspconfig.configs.basedpyright").default_config
 
-    if vim.uv.fs_stat(vim.fs.joinpath(path, "poetry.lock")) and vim.fn.executable("poetry") then
-      client.config.settings.python =
-      vim.tbl_deep_extend("force", client.config.settings.python, {
-        venvPath = vim.fn.system("poetry env info --path"),
-      })
+    -- We are already in the virual environment, so skip the setup.
+    if vim.env.VIRTUAL_ENV ~= nil then
+      return
+    end
+
+    if
+      vim.fn.filereadable(vim.fs.joinpath(new_root_dir, "poetry.lock")) == 1
+      and vim.fn.executable("poetry") == 1
+    then
+      new_config.cmd = { "poetry", "run", "--", table.unpack(default_config.cmd) }
     end
   end,
 }
