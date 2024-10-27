@@ -26,6 +26,8 @@
 	message = log --format=%B -n 1
 	upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
 	where-was-i = branch --sort=-creatordate
+[color]
+	ui = true
 [commit]
 	cleanup = scissors
 	gpgsign = false
