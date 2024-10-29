@@ -17,6 +17,7 @@ dev.skynomads.Seabird
 io.bassi.Amberol
 io.github.realmazharhussain.GdmSettings
 io.gitlab.news_flash.NewsFlash
+md.obsidian.Obsidian
 # io.podman_desktop.PodmanDesktop
 org.freedesktop.Bustle
 org.gnome.dspy

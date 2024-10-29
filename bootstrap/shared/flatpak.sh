@@ -9,6 +9,7 @@ function flatpak_create_overrides() {
     # Electron applications
     flatpak override --user --socket=wayland com.slack.Slack
     flatpak override --user --env=SIGNAL_USE_WAYLAND=1 org.signal.Signal
+    flatpak override --user --socket=wayland md.obsidian.Obsidian
 }
 
 function flatpak_install_applications() {
