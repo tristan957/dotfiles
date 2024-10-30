@@ -20,6 +20,7 @@ io.gitlab.news_flash.NewsFlash
 md.obsidian.Obsidian
 # io.podman_desktop.PodmanDesktop
 org.freedesktop.Bustle
+org.gimp.GIMP
 org.gnome.dspy
 org.gnome.Fractal
 org.gnome.Loupe
