@@ -30,7 +30,6 @@ org.gnome.design.Contrast
 org.gnome.design.IconLibrary
 org.gnome.design.Lorem
 org.gnome.design.SymbolicPreview
-org.gtk.Gtk3theme.Adwaita-dark
 org.inkscape.Inkscape
 org.signal.Signal
 us.zoom.Zoom
