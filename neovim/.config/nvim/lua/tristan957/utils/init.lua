@@ -12,7 +12,7 @@ end
 ---@param s string
 ---@return string
 M.rstrip = function(s)
-  s, _ = string.gsub(s, "(\n)$", "")
+  local s, _ = string.gsub(s, "(\n)$", "")
   return s
 end
 
