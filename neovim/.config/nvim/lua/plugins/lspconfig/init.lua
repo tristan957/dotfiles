@@ -8,6 +8,7 @@ return {
   enabled = true,
   event = "VeryLazy",
   config = function()
+    local systemd = require("tristan957.utils.systemd")
     local lspconfig = require("lspconfig")
     local lspconfig_windows = require("lspconfig.ui.windows")
 
@@ -54,33 +55,79 @@ return {
       automatic_installation = false,
     })
 
-    lspconfig.awk_ls.setup(require("tristan957.lsp.config.awk-language-server"))
-    lspconfig.basedpyright.setup(require("tristan957.lsp.config.basedpyright"))
-    lspconfig.bashls.setup(require("tristan957.lsp.config.bash-language-server"))
-    lspconfig.blueprint_ls.setup(require("tristan957.lsp.config.blueprint"))
-    lspconfig.clangd.setup(require("tristan957.lsp.config.clangd"))
-    lspconfig.cmake.setup(require("tristan957.lsp.config.cmake-language-server"))
-    lspconfig.cssls.setup(require("tristan957.lsp.config.vscode-css-languageserver"))
-    lspconfig.denols.setup(require("tristan957.lsp.config.deno"))
-    lspconfig.gleam.setup(require("tristan957.lsp.config.gleam"))
-    lspconfig.gopls.setup(require("tristan957.lsp.config.gopls"))
-    lspconfig.html.setup(require("tristan957.lsp.config.vscode-html-languageserver"))
-    lspconfig.jsonls.setup(require("tristan957.lsp.config.vscode-json-languageserver"))
-    lspconfig.jsonnet_ls.setup(require("tristan957.lsp.config.jsonnet-language-server"))
-    lspconfig.lemminx.setup(require("tristan957.lsp.config.lemminx"))
-    lspconfig.lua_ls.setup(require("tristan957.lsp.config.lua-language-server"))
-    lspconfig.marksman.setup(require("tristan957.lsp.config.marksman"))
-    lspconfig.mesonlsp.setup(require("tristan957.lsp.config.mesonlsp"))
-    lspconfig.pyright.setup(require("tristan957.lsp.config.pyright"))
-    lspconfig.ruff.setup(require("tristan957.lsp.config.ruff"))
-    lspconfig.rust_analyzer.setup(require("tristan957.lsp.config.rust-analyzer"))
-    lspconfig.taplo.setup(require("tristan957.lsp.config.taplo"))
-    lspconfig.terraformls.setup(require("tristan957.lsp.config.terraform-ls"))
-    lspconfig.ts_ls.setup(require("tristan957.lsp.config.typescript-language-server"))
-    lspconfig.tinymist.setup(require("tristan957.lsp.config.tinymist"))
-    lspconfig.vacuum.setup(require("tristan957.lsp.config.vacuum"))
-    lspconfig.vimls.setup(require("tristan957.lsp.config.vim-language-server"))
-    lspconfig.yamlls.setup(require("tristan957.lsp.config.yaml-language-server"))
-    lspconfig.zls.setup(require("tristan957.lsp.config.zls"))
+    ---Wrap the language server command in systemd-run(1)
+    ---@param config lspconfig.Config
+    ---@param ls string
+    ---@return lspconfig.Config
+    local wrap_in_systemd_run = function(ls, config)
+      local pid = vim.fn.getpid()
+
+      ---@type SystemdRunOptions
+      local options = {
+        pipe = true,
+        unit = "neovim[" .. pid .. "]-".. ls,
+        quiet = true,
+        same_dir = true,
+        user = true,
+        description = "A language server (" .. ls .. ") running for Neovim[" .. pid .. "]",
+      }
+
+      ---@type lspconfig.Config?
+      local on_new_config = vim.tbl_get(config, "on_new_config")
+      if on_new_config ~= nil then
+        config.on_new_config = function(new_config, new_root_dir)
+          on_new_config(new_config, new_root_dir)
+
+          local cmd = new_config.cmd
+          ---@cast cmd -function(dispatchers: vim.lsp.rpc.Dispatchers):vim.lsp.rpc.PublicClient
+          new_config.cmd = systemd.wrap_with_run(cmd, options)
+          vim.print(new_config.cmd)
+        end
+      else
+        config.on_new_config = function(new_config, _)
+          local cmd = new_config.cmd
+          ---@cast cmd -function(dispatchers: vim.lsp.rpc.Dispatchers):vim.lsp.rpc.PublicClient
+          new_config.cmd = systemd.wrap_with_run(cmd, options)
+        end
+      end
+
+      return config
+    end
+
+    ---@type { [string]: lspconfig.Config }
+    local configs = {
+      awk_ls = require("tristan957.lsp.config.awk-language-server"),
+      basedpyright = require("tristan957.lsp.config.basedpyright"),
+      bashls = require("tristan957.lsp.config.bash-language-server"),
+      blueprint_ls = require("tristan957.lsp.config.blueprint"),
+      clangd = require("tristan957.lsp.config.clangd"),
+      cmake = require("tristan957.lsp.config.cmake-language-server"),
+      cssls = require("tristan957.lsp.config.vscode-css-languageserver"),
+      denols = require("tristan957.lsp.config.deno"),
+      gleam = require("tristan957.lsp.config.gleam"),
+      gopls = require("tristan957.lsp.config.gopls"),
+      html = require("tristan957.lsp.config.vscode-html-languageserver"),
+      jsonls = require("tristan957.lsp.config.vscode-json-languageserver"),
+      jsonnet_ls = require("tristan957.lsp.config.jsonnet-language-server"),
+      lemminx = require("tristan957.lsp.config.lemminx"),
+      lua_ls = require("tristan957.lsp.config.lua-language-server"),
+      marksman = require("tristan957.lsp.config.marksman"),
+      mesonlsp = require("tristan957.lsp.config.mesonlsp"),
+      pyright = require("tristan957.lsp.config.pyright"),
+      ruff = require("tristan957.lsp.config.ruff"),
+      rust_analyzer = require("tristan957.lsp.config.rust-analyzer"),
+      taplo = require("tristan957.lsp.config.taplo"),
+      terraformls = require("tristan957.lsp.config.terraform-ls"),
+      ts_ls = require("tristan957.lsp.config.typescript-language-server"),
+      tinymist = require("tristan957.lsp.config.tinymist"),
+      vacuum = require("tristan957.lsp.config.vacuum"),
+      vimls = require("tristan957.lsp.config.vim-language-server"),
+      yamlls = require("tristan957.lsp.config.yaml-language-server"),
+      zls = require("tristan957.lsp.config.zls"),
+    }
+
+    for key, config in pairs(configs) do
+      lspconfig[key].setup(wrap_in_systemd_run(key, config))
+    end
   end,
 }
