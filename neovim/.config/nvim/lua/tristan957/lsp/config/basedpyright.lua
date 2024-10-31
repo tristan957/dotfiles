@@ -1,6 +1,7 @@
 local capabilities = require("tristan957.lsp").capabilities
 
--- https://docs.basedpyright.com/dev/configuration/language-server-settings/
+---https://docs.basedpyright.com/dev/configuration/language-server-settings/
+---@type lspconfig.Config
 return {
   capabilities = capabilities,
   settings = {
@@ -16,8 +17,6 @@ return {
       },
     },
   },
-  ---@param new_config vim.lsp.ClientConfig
-  ---@param new_root_dir string
   on_new_config = function(new_config, new_root_dir)
     local default_config = require("lspconfig.configs.basedpyright").default_config
 
