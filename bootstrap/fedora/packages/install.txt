@@ -15,6 +15,7 @@ catimg
 chromium
 clang
 clang-tools-extra
+clean-rpm-gpg-pubkey
 cmake
 code
 codium
