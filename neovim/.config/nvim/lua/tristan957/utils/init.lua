@@ -12,8 +12,8 @@ end
 ---@param s string
 ---@return string
 M.rstrip = function(s)
-  local s, _ = string.gsub(s, "(\n)$", "")
-  return s
+  local stripped, _ = string.gsub(s, "(\n)$", "")
+  return stripped
 end
 
 return M
