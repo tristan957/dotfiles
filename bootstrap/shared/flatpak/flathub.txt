@@ -29,7 +29,6 @@ org.gnome.Snapshot
 org.gnome.design.Contrast
 org.gnome.design.IconLibrary
 org.gnome.design.Lorem
-org.gnome.design.SymbolicPreview
 org.inkscape.Inkscape
 org.signal.Signal
 us.zoom.Zoom
