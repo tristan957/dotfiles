@@ -33,5 +33,9 @@ alias zz='zoxide query --interactive'
 alias hpull='history merge'
 
 if command --query 'rlwrap'
-    alias dash='rlwrap dash'
+    for cmd in dash luajit
+        alias $cmd="rlwrap $cmd"
+    end
 end
+
+alias run0='run0 --background='

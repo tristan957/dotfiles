@@ -201,8 +201,13 @@ alias hpull='history -r'
 alias hpush='history -a'
 
 if command -v 'rlwrap' &>/dev/null; then
-    alias dash='rlwrap dash'
+    for cmd in dash luajit; do
+        # shellcheck disable=2139
+        alias $cmd="rlwrap $cmd"
+    done
 fi
+
+alias run0='run0 --background='
 
 function 0x0() {
     curl -F "file=@$1" https://0x0.st
