@@ -65,7 +65,7 @@ return {
       ---@type SystemdRunOptions
       local options = {
         pipe = true,
-        unit = "neovim[" .. pid .. "]-".. ls,
+        unit = "neovim-" .. pid .. "-" .. ls,
         quiet = true,
         same_dir = true,
         user = true,
