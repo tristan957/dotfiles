@@ -81,7 +81,6 @@ return {
           local cmd = new_config.cmd
           ---@cast cmd -function(dispatchers: vim.lsp.rpc.Dispatchers):vim.lsp.rpc.PublicClient
           new_config.cmd = systemd.wrap_with_run(cmd, options)
-          vim.print(new_config.cmd)
         end
       else
         config.on_new_config = function(new_config, _)
