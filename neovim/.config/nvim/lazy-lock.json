@@ -53,6 +53,7 @@
   "trouble.nvim": { "branch": "main", "commit": "2f3b537f2207ce32f4459f9d56746ee013b5e01b" },
   "ts-comments.nvim": { "branch": "main", "commit": "2002692ad1d3f6518d016550c20c2a890f0cbf0e" },
   "typst.vim": { "branch": "main", "commit": "50e89f481102d5c9ef6990b9f8086c0c7d64bff6" },
+  "vim-browserslist": { "branch": "main", "commit": "c5d73ce0b1503ca6ad3f6dde58a3a49a9d6aa7e3" },
   "vim-fugitive": { "branch": "master", "commit": "d4877e54cef67f5af4f950935b1ade19ed6b7370" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "vim-tmux": { "branch": "master", "commit": "cfe76281efc29890548cf9eedd42ad51c7a1faf0" },
