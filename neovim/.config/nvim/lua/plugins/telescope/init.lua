@@ -39,7 +39,6 @@ return {
         return vim.fn.executable("make") == 1
       end,
     },
-    "rcarriga/nvim-notify",
   },
   event = "VeryLazy",
   config = function()
@@ -122,7 +121,6 @@ return {
     })
 
     telescope.load_extension("fzf")
-    telescope.load_extension("notify")
 
     vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Open buffer" })
     vim.keymap.set("n", "<leader>p", builtin.builtin, { desc = "Open builtin picker" })
