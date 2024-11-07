@@ -5,7 +5,6 @@ return {
     local MiniMisc = require("mini.misc")
 
     MiniMisc.setup()
-
     MiniMisc.setup_restore_cursor()
 
     local term_program = vim.env.TERM_PROGRAM

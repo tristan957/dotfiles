@@ -11,10 +11,5 @@ return {
       "nvim-neotest/nvim-nio",
     },
     event = "VeryLazy",
-    config = function()
-      local dapui = require("dapui")
-
-      dapui.setup()
-    end,
   },
 }

@@ -4,15 +4,12 @@ return {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
     event = "VimEnter",
-    config = function()
-      local mason = require("mason")
-
-      mason.setup({
-        ui = {
-          border = "rounded",
-        },
-      })
-    end,
+    ---@type MasonSettings
+    opts = {
+      ui = {
+        border = "rounded",
+      },
+    },
   },
   {
     "williamboman/mason-lspconfig.nvim",
