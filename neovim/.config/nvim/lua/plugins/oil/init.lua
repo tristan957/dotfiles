@@ -1,21 +1,30 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "stevearc/oil.nvim",
   dependencies = {
     "echasnovski/mini.icons",
   },
-  config = function()
-    local oil = require("oil")
+  event = "VimEnter",
+  ---@type oil.SetupOpts
+  opts = {
+    view_options = {
+      show_hidden = true,
+    },
+  },
+  cmd = { "Oil" },
+  keys = {
+    { "\\\\", "<CMD>Oil<CR>", "n", desc = "Open parent directory" },
+    {
+      "\\|",
+      function()
+        local oil = require("oil")
 
-    oil.setup({
-      view_options = {
-        show_hidden = true,
-      },
-    })
-
-    vim.keymap.set("n", "\\\\", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    vim.keymap.set("n", "\\|", function()
-      oil.open(vim.env.PWD)
-    end, { desc = "Open workspace root directory" })
-  end,
+        oil.open(vim.env.PWD)
+      end,
+      "n",
+      desc = "Open current working directory",
+    },
+  },
 }

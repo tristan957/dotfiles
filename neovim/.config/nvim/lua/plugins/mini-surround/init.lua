@@ -1,5 +1,7 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "echasnovski/mini.surround",
-  event = "VeryLazy",
+  event = { "BufNewFile", "BufReadPre" },
 }

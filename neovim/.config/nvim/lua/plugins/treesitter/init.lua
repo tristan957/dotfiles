@@ -1,3 +1,6 @@
+---@module "lazy"
+---@module "nvim-treesitter"
+
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
@@ -7,26 +10,29 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   event = { "BufReadPre", "BufNewFile" },
-  config = function()
+  ---@type TSConfig
+  ---@diagnostic disable-next-line: missing-fields
+  opts = {
+    ensure_installed = "all",
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = false,
+      disable = { "dockerfile" },
+    },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
+      },
+    },
+  },
+  config = function(_, opts)
     local context = require("treesitter-context")
 
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = "all",
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-        disable = { "dockerfile" },
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
-    })
+    require("nvim-treesitter.configs").setup(opts)
 
     context.setup({
       separator = "─",

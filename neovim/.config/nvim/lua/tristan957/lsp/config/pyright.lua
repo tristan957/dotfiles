@@ -1,10 +1,7 @@
-local capabilities = require("tristan957.lsp").capabilities
-
 ---https://github.com/microsoft/pyright/blob/main/docs/settings.md
 ---@type lspconfig.Config
 return {
   autostart = false,
-  capabilities = capabilities,
   settings = {
     python = {
       analysis = {

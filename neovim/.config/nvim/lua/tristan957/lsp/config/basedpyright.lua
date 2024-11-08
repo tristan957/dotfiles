@@ -1,9 +1,6 @@
-local capabilities = require("tristan957.lsp").capabilities
-
 ---https://docs.basedpyright.com/dev/configuration/language-server-settings/
 ---@type lspconfig.Config
 return {
-  capabilities = capabilities,
   settings = {
     basedpyright = {
       analysis = {

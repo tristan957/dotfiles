@@ -1,3 +1,6 @@
+---@module "lazy"
+---@module "mason"
+
 ---@type LazySpec[]
 return {
   {

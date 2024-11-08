@@ -1,13 +1,45 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "echasnovski/mini.trailspace",
-  event = { "FileType" },
+  event = { "BufNewFile", "BufReadPre" },
   config = function()
     local MiniTrailspace = require("mini.trailspace")
 
     MiniTrailspace.setup()
 
     local group = vim.api.nvim_create_augroup("tristan957_MiniTrailspace", { clear = true })
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      desc = "Remove trailing whitespace",
+      group = group,
+      callback = function(ev)
+        if not vim.bo[ev.buf].modifiable then
+          return
+        end
+
+        -- If we ask for trailing whitespace, respect it
+        if string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil then
+          return
+        end
+
+        MiniTrailspace.trim()
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      desc = "Remove extra trailing newlines",
+      group = group,
+      callback = function(ev)
+        if not vim.bo[ev.buf].modifiable then
+          return
+        end
+
+        MiniTrailspace.trim_last_lines()
+      end,
+    })
+
     vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "InsertLeave" }, {
       desc = "Stop highlighting trailing white space",
       group = group,

@@ -1,3 +1,5 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "nvim-lualine/lualine.nvim",
@@ -5,35 +7,32 @@ return {
     "onedarkpro.nvim",
   },
   event = "UIEnter",
-  config = function()
-    local lualine = require("lualine")
-
-    lualine.setup({
-      options = {
-        globalstatus = true,
-        icons_enabled = true,
-        theme = "auto",
+  opts = {
+    options = {
+      globalstatus = true,
+      icons_enabled = true,
+      theme = "auto",
+    },
+    sections = {
+      lualine_b = {
+        "branch",
+        "diff",
       },
-      sections = {
-        lualine_b = {
-          "branch",
-          "diff",
+      lualine_c = {
+        {
+          "filename",
+          path = 0,
         },
-        lualine_c = {
-          {
-            "filename",
-            path = 0,
-          },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" },
-            sections = { "error", "warn", "info", "hint" },
-            always_visible = false,
-            update_in_insert = true,
-          },
+        {
+          "diagnostics",
+          sources = { "nvim_diagnostic" },
+          sections = { "error", "warn", "info", "hint" },
+          always_visible = false,
+          update_in_insert = true,
         },
-        lualine_x = {
-          -- {
+      },
+      lualine_x = {
+        -- {
           --   "%S",
           --   separator = "",
           --   draw_empty = true,
@@ -60,6 +59,5 @@ return {
         "quickfix",
         "trouble",
       },
-    })
-  end,
+    },
 }

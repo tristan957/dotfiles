@@ -1,5 +1,3 @@
-local capabilities = require("tristan957.lsp").capabilities
-
 ---@type lspconfig.Config
 return {
   cmd = {
@@ -12,5 +10,4 @@ return {
     "--pch-storage=disk",
     "--header-insertion-decorators",
   },
-  capabilities = capabilities,
 }

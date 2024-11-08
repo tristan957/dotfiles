@@ -1,5 +1,12 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "stevearc/dressing.nvim",
-  event = "UIEnter",
+  event = "VeryLazy",
+  opts = {
+    select = {
+      enabled = false,
+    },
+  },
 }

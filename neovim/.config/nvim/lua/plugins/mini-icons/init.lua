@@ -1,13 +1,16 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "echasnovski/mini.icons",
   lazy = true,
-  config = function()
+  opts = {
+    style = "glyph",
+  },
+  config = function(_, opts)
     local MiniIcons = require("mini.icons")
 
-    MiniIcons.setup({
-      style = "glyph",
-    })
+    MiniIcons.setup(opts)
 
     MiniIcons.tweak_lsp_kind("prepend")
   end,

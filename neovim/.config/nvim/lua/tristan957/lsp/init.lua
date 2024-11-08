@@ -1,7 +1,3 @@
-local M = {}
-
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local group = vim.api.nvim_create_augroup("tristan957_lsp", { clear = true })
 
 vim.lsp.set_log_level("OFF")
@@ -9,7 +5,7 @@ vim.lsp.set_log_level("OFF")
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
-    local builtin = require("telescope.builtin")
+    local fzf = require("fzf-lua")
     local formatting = require("tristan957.lsp.formatting")
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -23,19 +19,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
     end
 
-    map("n", "gd", builtin.lsp_definitions, "Goto definitions")
+    map("n", "gd", fzf.lsp_definitions, "Goto definitions")
     map("n", "gD", vim.lsp.buf.declaration, "Goto declarations")
-    map("n", "gy", builtin.lsp_type_definitions, "Goto type definitions")
-    map("n", "gl", builtin.lsp_implementations, "Show implementations")
-    map("n", "gr", builtin.lsp_references, "Show references")
+    map("n", "gy", fzf.lsp_typedefs, "Goto type definitions")
+    map("n", "gl", fzf.lsp_implementations, "Show implementations")
+    map("n", "gr", fzf.lsp_references, "Show references")
     map("n", "g(", "<CMD>Trouble lsp_incoming_calls focus<CR>", "Show incoming calls")
     map("n", "g)", "<CMD>Trouble lsp_outgoing_calls focus<CR>", "Show outgoing calls")
     map({ "i", "n" }, "<C-S>", vim.lsp.buf.signature_help, "Show signature help")
     map("n", "crn", vim.lsp.buf.rename, "Rename")
     map("n", "crr", vim.lsp.buf.code_action, "View code actions")
     map("v", "<C-R>r", vim.lsp.buf.code_action, "View code actions")
-    map("n", "<leader>2", builtin.lsp_document_symbols, "Search document symbols")
-    map("n", "<leader>@", builtin.lsp_dynamic_workspace_symbols, "Search workspace symbols")
+    map("n", "<leader>2", fzf.lsp_document_symbols, "Search document symbols")
+    map("n", "<leader>@", fzf.lsp_workspace_symbols, "Search workspace symbols")
 
     -- If more than one formatter, use selection
     map({ "n", "v" }, "|f", function()
@@ -107,5 +103,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 require("tristan957.lsp.handlers")
-
-return M

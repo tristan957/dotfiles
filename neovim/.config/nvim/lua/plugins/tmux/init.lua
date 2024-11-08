@@ -1,3 +1,5 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "tmux-plugins/vim-tmux",

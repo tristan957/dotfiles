@@ -1,3 +1,5 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "neovim/nvim-lspconfig",
@@ -125,7 +127,10 @@ return {
       zls = require("tristan957.lsp.config.zls"),
     }
 
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     for key, config in pairs(configs) do
+      config.capabilities = capabilities
+
       lspconfig[key].setup(wrap_in_systemd_run(key, config))
     end
   end,

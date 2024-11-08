@@ -1,9 +1,7 @@
-local capabilities = require("tristan957.lsp").capabilities
 local schemastore = require("schemastore")
 
 ---@type lspconfig.Config
 return {
-  capabilities = capabilities,
   filetypes = {
     "json",
     "json.openapi",

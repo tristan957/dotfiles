@@ -1,6 +1,9 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "echasnovski/mini.misc",
+  event = "VimEnter",
   config = function()
     local MiniMisc = require("mini.misc")
 

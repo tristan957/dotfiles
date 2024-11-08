@@ -1,8 +1,5 @@
-local capabilities = require("tristan957.lsp").capabilities
-
 ---@type lspconfig.Config
 return {
-  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       check = {

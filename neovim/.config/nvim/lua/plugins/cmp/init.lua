@@ -1,3 +1,5 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "hrsh7th/nvim-cmp",
@@ -10,21 +12,9 @@ return {
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-path",
-    "nvim-neorg/neorg",
+    "petertriho/cmp-git",
     {
-      "petertriho/cmp-git",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-      },
-    },
-    {
-      "rcarriga/cmp-dap",
-      dependencies = {
-        "mfussenegger/nvim-dap",
-      },
-    },
-    {
-      dir = vim.fn.stdpath("config") --[[@as string]] .. "/lua/tristan957/cmp-carddav",
+      dir = vim.fn.stdpath("config") .. "/lua/tristan957/cmp-carddav",
       enabled = false,
       config = function()
         local cmp_carddav = require("cmp-carddav")
@@ -32,7 +22,7 @@ return {
         cmp_carddav.setup({
           section = "Personal",
         })
-      end
+      end,
     },
   },
   event = { "InsertEnter", "CmdlineEnter" },
@@ -51,10 +41,8 @@ return {
         autocomplete = { cmp.TriggerEvent.TextChanged },
         completeopt = "menu,menuone,noinsert",
       },
+      ---@diagnostic disable-next-line: missing-fields
       formatting = {
-        ---@param _ cmp.Entry
-        ---@param vim_item vim.CompletedItem
-        ---@return vim.CompletedItem
         format = function(_, vim_item)
           local icon, hl = require("mini.icons").get("lsp", vim_item.kind)
           vim_item.kind = icon .. " " .. vim_item.kind
@@ -108,7 +96,7 @@ return {
           cmp.config.compare.length,
           cmp.config.compare.order,
         },
-    },
+      },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
@@ -130,12 +118,6 @@ return {
 
     cmp_git.setup({})
 
-    cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-      sources = {
-        { name = "dap" },
-      },
-    })
-
     cmp.setup.filetype("gitcommit", {
       sources = cmp.config.sources({
         { name = "git" },
@@ -153,18 +135,6 @@ return {
         { name = "emoji" },
         { name = "calc" },
       }),
-    })
-
-    cmp.setup.filetype("neorg", {
-      { name = "nvim_lsp" },
-      { name = "nvim_lsp_signature_help" },
-      { name = "neorg" },
-      { name = "path" },
-      { name = "git" },
-      { name = "emoji" },
-      { name = "calc" },
-    }, {
-      { name = "buffer" },
     })
 
     local cmdline_mappings = {

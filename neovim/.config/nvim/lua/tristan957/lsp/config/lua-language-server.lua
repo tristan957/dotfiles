@@ -1,4 +1,4 @@
-local capabilities = require("tristan957.lsp").capabilities
+---@module "lspconfig"
 
 ---@type lspconfig.Config
 return {
@@ -13,7 +13,6 @@ return {
       },
     },
   },
-  capabilities = capabilities,
   ---@param client vim.lsp.Client
   on_init = function(client)
     if client.workspace_folders then
@@ -39,8 +38,6 @@ return {
         checkThirdParty = false,
         library = {
           vim.fs.joinpath(vim.fn.stdpath("data") --[[@as string]], "comlink"),
-          "${3rd}/luv/library",
-          table.unpack(vim.api.nvim_get_runtime_file("", true)),
         },
       },
     })

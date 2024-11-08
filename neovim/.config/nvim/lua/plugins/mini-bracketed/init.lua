@@ -1,3 +1,5 @@
+---@module "lazy"
+
 ---@type LazySpec
 return {
   "echasnovski/mini.bracketed",
@@ -6,11 +8,11 @@ return {
     local MiniBracketed = require("mini.bracketed")
 
     MiniBracketed.setup({
-      buffer = { suffix = "", options = {} },
+      buffer = { suffix = "b", options = {} },
       comment = { suffix = "c", options = {} },
       conflict = { suffix = "x", options = {} },
       diagnostic = { suffix = "d", options = {} },
-      file = { suffix = "", options = {} },
+      file = { suffix = "f", options = {} },
       indent = { suffix = "i", options = {} },
       jump = { suffix = "", options = {} },
       location = { suffix = "l", options = {} },
