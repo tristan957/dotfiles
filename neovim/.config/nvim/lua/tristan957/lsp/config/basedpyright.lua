@@ -23,7 +23,7 @@ return {
     end
 
     if
-      vim.fn.filereadable(vim.fs.joinpath(new_root_dir, "poetry.lock")) == 1
+      vim.uv.fs_stat(vim.fs.joinpath(new_root_dir, "poetry.lock"))
       and vim.fn.executable("poetry") == 1
     then
       new_config.cmd = { "poetry", "run", "--", table.unpack(default_config.cmd) }

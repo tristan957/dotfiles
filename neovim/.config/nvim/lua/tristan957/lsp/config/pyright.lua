@@ -12,8 +12,6 @@ return {
       },
     },
   },
-  ---@param new_config vim.lsp.ClientConfig
-  ---@param new_root_dir string
   on_new_config = function(new_config, new_root_dir)
     local default_config = require("lspconfig.configs.basedpyright").default_config
 
@@ -23,7 +21,7 @@ return {
     end
 
     if
-      vim.fn.filereadable(vim.fs.joinpath(new_root_dir, "poetry.lock")) == 1
+      vim.uv.fs_stat(vim.fs.joinpath(new_root_dir, "poetry.lock"))
       and vim.fn.executable("poetry") == 1
     then
       new_config.cmd = { "poetry", "run", "--", table.unpack(default_config.cmd) }
