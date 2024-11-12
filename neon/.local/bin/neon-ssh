@@ -22,11 +22,8 @@ endpoint="${args[$OPTIND]}"
 shift
 OPTIND=$((OPTIND + 1))
 
-ssh_args=("${args[@]:$OPTIND}")
-
-# should these be true
 kubectl exec --stdin=true --tty=true \
     "$(kubectl get pod --selector "neon/endpoint-id=$endpoint" \
         --output 'jsonpath={.items[0].metadata.name}')" \
     -- \
-    ssh -o "UserKnownHostsFile /dev/null" guest-vm ${ssh_args[@]}
+    ssh -o 'UserKnownHostsFile /dev/null' -o 'LogLevel ERROR' guest-vm "${args[@]:$OPTIND}"
