@@ -4,4 +4,5 @@
 return {
   "echasnovski/mini.surround",
   event = { "BufNewFile", "BufReadPre" },
+  opts = {},
 }

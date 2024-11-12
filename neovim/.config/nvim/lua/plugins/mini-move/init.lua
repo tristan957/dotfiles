@@ -4,4 +4,5 @@
 return {
   "echasnovski/mini.move",
   event = { "BufNewFile", "BufReadPre" },
+  opts = {},
 }

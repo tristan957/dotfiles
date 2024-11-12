@@ -4,4 +4,5 @@
 return {
   "echasnovski/mini.align",
   event = { "BufNewFile", "BufReadPre" },
+  opts = {},
 }
