@@ -9,6 +9,7 @@
 /target/
 /zig-out/
 .cache/clangd
+.compdb/
 .envrc
 .exrc
 .nfs*
@@ -16,4 +17,5 @@
 .nvimrc
 .vscode/
 compile_commands.json
+compile_commands.*.json
 pyrightconfig.json
