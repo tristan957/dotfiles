@@ -7,10 +7,11 @@ import sys
 from typing import cast, TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from typing import Protocol
 
-    class Args(argparse.Namespace):
-        compdb_dir: pathlib.Path
-        workspace_dir: pathlib.Path
+    class Args(Protocol):
+        compdb: pathlib.Path
+        workspace: pathlib.Path
         quiet: bool
 
 
@@ -23,12 +24,12 @@ def printed_path(path: pathlib.Path) -> pathlib.Path:
 
 parser = argparse.ArgumentParser("Change the current compilation database")
 parser.add_argument(
-    "compdb_dir",
+    "compdb",
     type=pathlib.Path,
-    help="directory containing a compliation database",
+    help="path to a compilation database or a directory containing one",
 )
 parser.add_argument(
-    "workspace_dir",
+    "workspace",
     type=pathlib.Path,
     default=pathlib.Path(os.getcwd()),
     nargs="?",
@@ -39,11 +40,16 @@ parser.add_argument(
 )
 args = cast("Args", parser.parse_args())
 
-compdb_file = args.compdb_dir / "compile_commands.json"
+if args.compdb.is_dir():
+    compdb_file = args.compdb / "compile_commands.json"
+else:
+    compdb_file = args.compdb
+
 if not compdb_file.exists():
     print(f"Compilation database ({compdb_file}) does not exist", file=sys.stderr)
     exit(1)
-compdb_symlink = args.workspace_dir / "compile_commands.json"
+
+compdb_symlink = args.workspace / "compile_commands.json"
 
 try:
     if compdb_symlink.exists():
