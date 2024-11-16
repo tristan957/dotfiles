@@ -41,9 +41,8 @@ return {
       end,
     })
 
-    vim.wo.foldmethod = "expr"
-    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    vim.wo.foldenable = false
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
     vim.keymap.set("n", "<C-w>C", context.toggle, { desc = "Toggle context" })
     vim.keymap.set("n", "[C", function()

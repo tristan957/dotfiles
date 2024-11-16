@@ -27,6 +27,7 @@ vim.opt.encoding = "UTF-8"
 vim.opt.errorbells = false
 vim.opt.expandtab = true
 vim.opt.exrc = true
+vim.opt.foldenable = false
 vim.opt.hidden = true
 vim.opt.hlsearch = true
 vim.opt.inccommand = "nosplit"
