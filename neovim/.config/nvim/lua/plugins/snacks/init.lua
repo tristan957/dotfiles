@@ -6,27 +6,16 @@ return {
   priority = 1000,
   ---@type snacks.Config
   opts = {
-    bigfile = {
-      enabled = false,
-    },
-    debug = {
-      enabled = true,
-    },
-    gitbrowse = {
-      enabled = false,
-    },
     notifier = {
       enabled = true,
       style = "fancy",
     },
-    quickfile = {
-      enabled = false,
-    },
-    statuscolumn = {
-      enabled = true,
-    },
-    words = {
-      enabled = false,
+    styles = {
+      notifier = {
+        wo = {
+          wrap = true,
+        },
+      },
     },
   },
   config = function(_, opts)
