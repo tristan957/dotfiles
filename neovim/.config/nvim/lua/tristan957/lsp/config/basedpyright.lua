@@ -1,3 +1,5 @@
+---@module "lspconfig"
+
 ---https://docs.basedpyright.com/dev/configuration/language-server-settings/
 ---@type lspconfig.Config
 return {

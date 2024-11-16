@@ -1,3 +1,5 @@
+---@module "lspconfig"
+
 ---https://github.com/microsoft/pyright/blob/main/docs/settings.md
 ---@type lspconfig.Config
 return {

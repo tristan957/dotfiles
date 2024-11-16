@@ -1,3 +1,5 @@
+---@module "lspconfig"
+
 local schemastore = require("schemastore")
 
 ---@type lspconfig.Config
