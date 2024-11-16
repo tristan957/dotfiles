@@ -9,12 +9,7 @@ local function chcompdb(opts)
   end)
 end
 
-vim.api.nvim_create_autocmd("Filetype", {
-  pattern = { "c", "cpp" },
-  callback = function(ev)
-    vim.api.nvim_buf_create_user_command(ev.buf, "Chcompdb", chcompdb, {
-      nargs = 1,
-      complete = "file",
-    })
-  end,
+vim.api.nvim_create_user_command("Chcompdb", chcompdb, {
+  nargs = 1,
+  complete = "file",
 })
