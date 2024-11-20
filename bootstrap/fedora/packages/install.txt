@@ -78,6 +78,7 @@ hut
 info
 inotify-tools
 java-latest-openjdk
+java-latest-openjdk-devel
 jc
 jq
 json-glib-devel
