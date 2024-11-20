@@ -159,6 +159,7 @@ ruff
 samurai
 sassc
 scdoc
+sequin
 sequoia-sq
 shfmt
 socat
