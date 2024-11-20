@@ -86,6 +86,7 @@ jsonnet
 jsonrpc-glib-devel
 just
 kitty-kitten
+lazygit
 libadwaita-devel
 libasan
 libasan-static

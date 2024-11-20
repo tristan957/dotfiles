@@ -32,6 +32,7 @@ function stow_setup() {
         jq \
         jupyter \
         kubernetes \
+        lazygit \
         less \
         meson \
         neon \

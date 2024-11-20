@@ -1,0 +1,13 @@
+confirmOnQuit: false
+disableStartupPopups: true
+git:
+  paging:
+    colorArg: always
+    externalDiffCommand: difft --color=always
+    pager: delta --dark --paging=never
+gui:
+  nerdFontsVersion: "3"
+os:
+  editPreset: nvim
+update:
+  method: never

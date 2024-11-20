@@ -54,6 +54,9 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     # Hashicorp
     sudo dnf config-manager --add-repo --assumeyes https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
+    # Lazygit
+    sudo dnf copr enable --assumeyes atim/lazygit
+
     # Microsoft
     curl -sSL -O "https://packages.microsoft.com/config/$distro/$version/packages-microsoft-prod.rpm"
     sudo rpm -i ./packages-microsoft-prod.rpm

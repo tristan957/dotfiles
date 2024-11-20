@@ -6,6 +6,13 @@ return {
   priority = 1000,
   ---@type snacks.Config
   opts = {
+    lazygit = {
+      config = {
+        os = {
+          ["editPreset"] = "nvim-remote",
+        },
+      },
+    },
     notifier = {
       enabled = true,
       style = "fancy",
@@ -22,6 +29,10 @@ return {
     local Snacks = require("snacks")
 
     Snacks.setup(opts)
+
+    vim.api.nvim_create_user_command("Lazygit", function()
+      Snacks.lazygit.open()
+    end, {})
 
     ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
     local progress = vim.defaulttable()
