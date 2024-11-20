@@ -24,7 +24,7 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' |
         sudo tee /etc/yum.repos.d/charm.repo
 
     # Gleam
-    dnf copr enable frostyx/gleam
+    dnf copr enable --assumeyes frostyx/gleam
 
     # Grafana (https://rpm.grafana.com/)
     echo '[grafana]
@@ -49,10 +49,10 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
         sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo
 
     # Hare
-    sudo dnf copr enable mroche/hare
+    sudo dnf copr enable --assumeyes mroche/hare
 
     # Hashicorp
-    sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    sudo dnf config-manager --add-repo --assumeyes https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
     # Microsoft
     curl -sSL -O "https://packages.microsoft.com/config/$distro/$version/packages-microsoft-prod.rpm"
@@ -60,19 +60,19 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     rm ./packages-microsoft-prod.rpm
 
     # Mullvad
-    sudo dnf config-manager --add-repo https://repository.mullvad.net/rpm/stable/mullvad.repo
+    sudo dnf config-manager --add-repo --assumeyes https://repository.mullvad.net/rpm/stable/mullvad.repo
 
     # RPM Fusion
-    sudo dnf install -y \
+    sudo dnf install --assumeyes \
         "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$version.noarch.rpm"
-    sudo dnf install -y \
+    sudo dnf install --assumeyes \
         "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$version.noarch.rpm"
 
     # Swift-MesonLSP
-    sudo dnf copr enable -y jcwasmx86/Swift-MesonLSP
+    sudo dnf copr enable --assumeyes jcwasmx86/Swift-MesonLSP
 
     # Teleport
-    sudo dnf config-manager --add-repo https://rpm.releases.teleport.dev/teleport.repo
+    sudo dnf config-manager --add-repo --assumeyes https://rpm.releases.teleport.dev/teleport.repo
 
     # VSCode
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -95,17 +95,17 @@ repo_gpgcheck=1
 gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg' |
         sudo tee /etc/yum.repos.d/vscodium.repo
 
-    sudo dnf update -y @core
+    sudo dnf update --assumeyes @core
 }
 
 function dnf_install_packages() {
     local dir=$(dirname "${BASH_SOURCE[0]}")
 
-    xargs sudo dnf remove -y <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
+    xargs sudo dnf remove --assumeyes <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
         "$dir/packages/remove.txt")"
-    xargs sudo dnf install -y <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
+    xargs sudo dnf install --assumeyes <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
         "$dir/packages/install.txt")"
-    xargs sudo dnf install -y <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
+    xargs sudo dnf install --assumeyes <<<"$(grep --extended-regexp --invert-match '^(#|$)' \
         "$dir/packages/work.txt")"
 }
 
