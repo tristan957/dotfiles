@@ -39,7 +39,7 @@ clipboard-trim-trailing-spaces = true
 # command = fish
 # command = tmux attach-session -t t
 
-confirm-close-surface = false
+confirm-close-surface = true
 
 copy-on-select = true
 
