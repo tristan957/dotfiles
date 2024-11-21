@@ -8,9 +8,11 @@ BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 DOTFILES_DIR=$(dirname "$BASH_DIR")
 
 # Ghostty bash shell integration support
-if [[ -n "$GHOSTTY_RESOURCES_DIR" ]] && [[ $SHLVL -gt 1 || -n "$container" ]]; then
+if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
     # shellcheck disable=SC2034
     GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
+    # shellcheck disable=SC2034
+    GHOSTTY_SHELL_INTEGRATION_NO_TITLE=1
     builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
 fi
 

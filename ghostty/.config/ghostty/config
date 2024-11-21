@@ -79,7 +79,7 @@ selection-invert-fg-bg = true
 
 # This doesn't seem to work with tmux?
 shell-integration = bash
-shell-integration-features = no-cursor,sudo,title
+shell-integration-features = no-cursor,no-title,sudo
 
 unfocused-split-opacity = 1
 
