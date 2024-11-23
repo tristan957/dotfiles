@@ -183,6 +183,7 @@ uncrustify
 vim-enhanced
 vlc
 vulkan-devel
+w3m
 wayland-protocols-devel
 wine-core
 wine-mono
