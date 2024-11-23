@@ -1,4 +1,5 @@
 app.devsuite.Manuals
+app.devsuite.Ptyxis
 app.drey.KeyRack
 com.belmoussaoui.Decoder
 com.belmoussaoui.Obfuscate
@@ -23,6 +24,7 @@ org.freecad.FreeCAD
 org.freedesktop.Bustle
 org.gimp.GIMP
 org.gnome.dspy
+org.gnome.Builder
 org.gnome.Fractal
 org.gnome.Loupe
 org.gnome.Papers
