@@ -29,7 +29,7 @@ return {
     {
       "<Leader>F",
       function()
-        require("fzf-lua").grep_project()
+        require("fzf-lua").live_grep_native()
       end,
       mode = "n",
       desc = "Find in project",
