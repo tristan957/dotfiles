@@ -1,7 +1,7 @@
 [user]
 	name = Tristan Partin
 	email = tristan@partin.io
-	signingkey = CC000B6D725FAEB6E8CEE5FD5AD0476101F9899D
+	signingkey = CBBFE833EE3249D8EA35D2658F8FFBAF9BD0B0BC
 [absorb]
 	oneFixupPerCommit = false
 	autoStageIfNothingStaged = true
