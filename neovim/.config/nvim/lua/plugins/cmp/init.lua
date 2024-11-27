@@ -146,6 +146,7 @@ return {
       }),
     })
 
+    ---@type cmp.MappingClass
     local cmdline_mappings = {
       ["<Tab>"] = cmp.mapping({
         c = function()
