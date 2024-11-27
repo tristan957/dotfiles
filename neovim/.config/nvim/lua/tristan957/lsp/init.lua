@@ -20,18 +20,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     map("n", "gd", fzf.lsp_definitions, "Goto definitions")
-    map("n", "gD", vim.lsp.buf.declaration, "Goto declarations")
+    map("n", "gD", fzf.lsp_declarations, "Goto declarations")
     map("n", "gy", fzf.lsp_typedefs, "Goto type definitions")
-    map("n", "gl", fzf.lsp_implementations, "Show implementations")
-    map("n", "gr", fzf.lsp_references, "Show references")
+    map("n", "gri", fzf.lsp_implementations, "Show implementations")
+    map("n", "grr", fzf.lsp_references, "Show references")
     map("n", "g(", "<CMD>Trouble lsp_incoming_calls focus<CR>", "Show incoming calls")
     map("n", "g)", "<CMD>Trouble lsp_outgoing_calls focus<CR>", "Show outgoing calls")
-    map({ "i", "n" }, "<C-S>", vim.lsp.buf.signature_help, "Show signature help")
-    map("n", "crn", vim.lsp.buf.rename, "Rename")
-    map("n", "crr", vim.lsp.buf.code_action, "View code actions")
-    map("v", "<C-R>r", vim.lsp.buf.code_action, "View code actions")
-    map("n", "<leader>2", fzf.lsp_document_symbols, "Search document symbols")
-    map("n", "<leader>@", fzf.lsp_workspace_symbols, "Search workspace symbols")
+    map({ "i", "s" }, "<C-S>", vim.lsp.buf.signature_help, "Show signature help")
+    map("n", "grn", vim.lsp.buf.rename, "Rename")
+    map("n", "gra", vim.lsp.buf.code_action, "View code actions")
+    map("n", "gO", fzf.lsp_document_symbols, "Search document symbols")
+    map("n", "<Leader>gO", fzf.lsp_live_workspace_symbols, "Search workspace symbols")
 
     -- If more than one formatter, use selection
     map({ "n", "v" }, "|f", function()
