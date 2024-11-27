@@ -14,7 +14,12 @@ return {
     "hrsh7th/cmp-path",
     "petertriho/cmp-git",
     {
-      dir = vim.fn.stdpath("config") .. "/lua/tristan957/cmp-carddav",
+      dir = vim.fs.joinpath(
+        vim.fn.stdpath("config") --[[@as string]],
+        "lua",
+        "tristan957",
+        "cmp-carddav"
+      ),
       enabled = false,
       config = function()
         local cmp_carddav = require("cmp-carddav")
