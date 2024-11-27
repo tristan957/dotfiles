@@ -70,14 +70,18 @@ return {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<C-l>"] = cmp.mapping(function()
+        ["<Tab>"] = cmp.mapping(function(fallback)
           if vim.snippet.active({ direction = 1 }) then
             vim.snippet.jump(1)
+          else
+            fallback()
           end
         end, { "i", "s" }),
-        ["<C-h>"] = cmp.mapping(function()
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
           if vim.snippet.active({ direction = -1 }) then
             vim.snippet.jump(-1)
+          else
+            fallback()
           end
         end, { "i", "s" }),
       },
