@@ -5,7 +5,6 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "williamboman/mason-lspconfig.nvim",
   },
   enabled = true,
   event = "VeryLazy",
@@ -15,47 +14,6 @@ return {
     local lspconfig_windows = require("lspconfig.ui.windows")
 
     lspconfig_windows.default_options.border = "rounded"
-
-    local servers = {
-      "awk_ls",
-      "basedpyright",
-      "bashls",
-      "blueprint_ls",
-      "clangd",
-      "cmake",
-      "cssls",
-      "denols",
-      "gopls",
-      "html",
-      "jdtls",
-      "jsonls",
-      "lemminx",
-      "lua_ls",
-      "marksman",
-      "mesonlsp",
-      "pyright",
-      "ruff",
-      "rust_analyzer",
-      "taplo",
-      "terraformls",
-      "tinymist",
-      "ts_ls",
-      "vacuum",
-      "vimls",
-      "yamlls",
-      "zls",
-    }
-
-    ---@param s string
-    ---@return boolean
-    local on_system = function(s)
-      return vim.fn.executable(lspconfig[s].document_config.default_config.cmd[1]) ~= 1
-    end
-
-    require("mason-lspconfig").setup({
-      ensure_installed = vim.iter(servers):filter(on_system):totable(),
-      automatic_installation = false,
-    })
 
     ---Wrap the language server command in systemd-run(1)
     ---@param config lspconfig.Config
