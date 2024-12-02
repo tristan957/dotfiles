@@ -1,0 +1,11 @@
+FROM registry.fedoraproject.org/fedora-toolbox:41
+
+RUN dnf install --assumeyes \
+    clang-tools-extra \
+    cmake \
+    direnv \
+    fzf \
+    gdb \
+    lldb \
+    meson \
+    neovim
