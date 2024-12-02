@@ -1,3 +1,4 @@
 cheese
 loupe
+ptyxis
 snapshot
