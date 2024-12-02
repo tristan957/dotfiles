@@ -63,6 +63,7 @@ return {
       cmake = require("tristan957.lsp.config.cmake-language-server"),
       cssls = require("tristan957.lsp.config.vscode-css-languageserver"),
       denols = require("tristan957.lsp.config.deno"),
+      dockerls = require("tristan957.lsp.config.dockerfile-language-server"),
       gleam = require("tristan957.lsp.config.gleam"),
       gopls = require("tristan957.lsp.config.gopls"),
       html = require("tristan957.lsp.config.vscode-html-languageserver"),
