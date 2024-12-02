@@ -87,7 +87,6 @@ return {
       desc = "toggle-fixed-strings",
       header = function(o)
         local flag = "--fixed-strings"
-        vim.print(o.cmd)
         if o.cmd and o.cmd:match(utils.lua_regex_escape(flag)) then
           return "Disable fixed strings"
         else
