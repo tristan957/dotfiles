@@ -1,4 +1,5 @@
 cheese
 loupe
+open-vm-tools-desktop
 ptyxis
 snapshot
