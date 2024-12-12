@@ -6,6 +6,18 @@ return {
   priority = 1000,
   ---@type snacks.Config
   opts = {
+    bigfile = {
+      enabled = false,
+    },
+    dashboard = {
+      enabled = false,
+    },
+    indent = {
+      enabled = false,
+    },
+    input = {
+      enabled = true,
+    },
     lazygit = {
       config = {
         os = {
@@ -17,13 +29,45 @@ return {
       enabled = true,
       style = "fancy",
     },
+    quickfile = {
+      enabled = false,
+    },
+    scroll = {
+      enabled = false,
+    },
+    statuscolumn = {
+      enabled = false,
+    },
     styles = {
+      input = {
+        border = "rounded",
+        title_pos = "center",
+        relative = "editor",
+      },
       notifier = {
         wo = {
           wrap = true,
         },
       },
+      zen = {
+        backdrop = {
+          transparent = false,
+        },
+      },
     },
+    words = {
+      enabled = false,
+    },
+    zen = {
+      toggles = {
+        dim = false,
+      },
+      show = {
+        statusline = true,
+      },
+      win = {},
+      zoom = {},
+    }
   },
   config = function(_, opts)
     local Snacks = require("snacks")
@@ -33,6 +77,8 @@ return {
     vim.api.nvim_create_user_command("Lazygit", function()
       Snacks.lazygit.open()
     end, {})
+
+    vim.keymap.set("n", "ZM", Snacks.zen.zen, { desc = "Open buffer in zen mode" })
 
     ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
     local progress = vim.defaulttable()
