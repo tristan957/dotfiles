@@ -78,22 +78,6 @@ return {
   config = function()
     local fzf = require("fzf-lua")
     local actions = require("fzf-lua.actions")
-    local utils = require("fzf-lua.utils")
-
-    local toggle_fixed_strings = {
-      fn = function(_, opts)
-        actions.toggle_flag(_, vim.tbl_deep_extend("force", opts, { toggle_flag = "--fixed-strings" }))
-      end,
-      desc = "toggle-fixed-strings",
-      header = function(o)
-        local flag = "--fixed-strings"
-        if o.cmd and o.cmd:match(utils.lua_regex_escape(flag)) then
-          return "Disable fixed strings"
-        else
-          return "Enable fixed strings"
-        end
-      end,
-    }
 
     fzf.setup({
       grep = {
@@ -102,7 +86,6 @@ return {
           ["ctrl-q"] = {
             fn = actions.file_edit_or_qf, prefix = "select-all+",
           },
-          ["ctrl-e"] = toggle_fixed_strings,
         },
       },
     })
