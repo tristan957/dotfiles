@@ -16,7 +16,12 @@ return {
     local rg = require("tristan957.utils.rg")
 
     fzf.setup({
-      -- "telescope",
+      "default-title",
+      winopts = {
+        preview = {
+          horizontal = "right:50%",
+        },
+      },
       files = {
         cwd_prompt = false,
         -- Need to remove the command from the arguments
