@@ -8,7 +8,7 @@
 /outgoing/
 /target/
 /zig-out/
-.cache/clangd
+.cache/clangd/
 .compdb/
 .envrc
 .exrc
