@@ -1,0 +1,43 @@
+---@type PickerInterface
+return {
+  buffers = require("telescope.builtin").buffers,
+  builtin = require("telescope.builtin").builtin,
+  command_history = require("telescope.builtin").command_history,
+  diagnostics = require("telescope.builtin").diagnostics,
+  files = require("telescope.builtin").find_files,
+  git_bcommits = require("telescope.builtin").git_bcommits,
+  git_branches = require("telescope.builtin").git_branches,
+  git_commits = require("telescope.builtin").git_commits,
+  git_stash = require("telescope.builtin").git_stash,
+  git_tags = function() end,
+  ---@param globs string[]
+  grep = function(globs)
+    require("telescope.builtin").live_grep({
+      additional_args = { "--hidden" },
+      glob_pattern = globs,
+    })
+  end,
+  help_tags = require("telescope.builtin").help_tags,
+  highlights = require("telescope.builtin").highlights,
+  jumplist = require("telescope.builtin").jumplist,
+  keymaps = require("telescope.builtin").keymaps,
+  loclist = require("telescope.builtin").loclist,
+  loclist_history = function() end,
+  lsp_declarations = require("telescope.builtin").lsp_definitions,
+  lsp_definitions = require("telescope.builtin").lsp_definitions,
+  lsp_document_symbols = require("telescope.builtin").lsp_document_symbols,
+  lsp_implementations = require("telescope.builtin").lsp_implementations,
+  lsp_incoming_calls = require("telescope.builtin").lsp_incoming_calls,
+  lsp_outgoing_calls = require("telescope.builtin").lsp_outgoing_calls,
+  lsp_references = require("telescope.builtin").lsp_references,
+  lsp_type_definitions = require("telescope.builtin").lsp_type_definitions,
+  lsp_workspace_symbols = require("telescope.builtin").lsp_dynamic_workspace_symbols,
+  man_pages = require("telescope.builtin").man_pages,
+  marks = require("telescope.builtin").marks,
+  quickfix = require("telescope.builtin").quickfix,
+  quickfix_history = require("telescope.builtin").quickfixhistory,
+  registers = require("telescope.builtin").registers,
+  resume = require("telescope.builtin").resume,
+  search_history = require("telescope.builtin").search_history,
+  tagstack = require("telescope.builtin").tagstack,
+}

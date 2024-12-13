@@ -16,4 +16,18 @@ M.rstrip = function(s)
   return stripped
 end
 
+---Prepend prefix to all element in a table
+---@param prefix string
+---@param tbl string[]
+---@return string[]
+M.prepend = function(prefix, tbl)
+  local arr = {}
+  for _, e in ipairs(tbl) do
+    table.insert(arr, prefix .. e)
+  end
+
+  return arr
+end
+
+
 return M

@@ -9,82 +9,26 @@ return {
     "echasnovski/mini.icons",
   },
   cmd = { "Fzf", "FzfLua" },
-  keys = {
-    {
-      "<Leader><Leader>",
-      function()
-        require("fzf-lua").files()
-      end,
-      mode = "n",
-      desc = "Open file picker",
-    },
-    {
-      "<Leader>b",
-      function()
-        require("fzf-lua").buffers()
-      end,
-      mode = "n",
-      desc = "Open buffer picker",
-    },
-    {
-      "<Leader>F",
-      function()
-        require("fzf-lua").live_grep_native()
-      end,
-      mode = "n",
-      desc = "Find in project",
-    },
-    {
-      "<Leader>h",
-      function()
-        require("fzf-lua").helptags()
-      end,
-      mode = "n",
-      desc = "Find help tag",
-    },
-    {
-      "<Leader>k",
-      function()
-        require("fzf-lua").keymaps()
-      end,
-      mode = "n",
-      desc = "Search keymaps",
-    },
-    {
-      "<Leader>m",
-      function()
-        require("fzf-lua").marks()
-      end,
-      mode = "n",
-      desc = "Search marks",
-    },
-    {
-      "<Leader>r",
-      function()
-        require("fzf-lua").registers()
-      end,
-      mode = "n",
-      desc = "Search registers",
-    },
-    {
-      "<Leader>R",
-      function()
-        require("fzf-lua").resume()
-      end,
-      mode = "n",
-      desc = "Resume last picker",
-    },
-  },
   config = function()
     local fzf = require("fzf-lua")
     local actions = require("fzf-lua.actions")
+    local fd = require("tristan957.utils.fd")
+    local rg = require("tristan957.utils.rg")
 
     fzf.setup({
+      -- "telescope",
+      files = {
+        cwd_prompt = false,
+        -- Need to remove the command from the arguments
+        rg_opts = table.concat(vim.list_slice(rg.project_files(true), 2), " "),
+        fd_opts = table.concat(vim.list_slice(fd.project_files(true), 2), " "),
+      },
       grep = {
+        rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
         actions = {
-          ["ctrl-r"] = { actions.toggle_ignore },
           ["ctrl-q"] = {
-            fn = actions.file_edit_or_qf, prefix = "select-all+",
+            fn = actions.file_edit_or_qf,
+            prefix = "select-all+",
           },
         },
       },

@@ -5,7 +5,7 @@ vim.lsp.set_log_level("OFF")
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
-    local fzf = require("fzf-lua")
+    local picker = require("tristan957.picker")
     local formatting = require("tristan957.lsp.formatting")
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -19,18 +19,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
     end
 
-    map("n", "gd", fzf.lsp_definitions, "Goto definitions")
-    map("n", "gD", fzf.lsp_declarations, "Goto declarations")
-    map("n", "gy", fzf.lsp_typedefs, "Goto type definitions")
-    map("n", "gri", fzf.lsp_implementations, "Show implementations")
-    map("n", "grr", fzf.lsp_references, "Show references")
-    map("n", "g(", "<CMD>Trouble lsp_incoming_calls focus<CR>", "Show incoming calls")
-    map("n", "g)", "<CMD>Trouble lsp_outgoing_calls focus<CR>", "Show outgoing calls")
+    map("n", "gd", picker.lsp_definitions, "Goto definitions")
+    map("n", "gD", picker.lsp_declarations, "Goto declarations")
+    map("n", "gy", picker.lsp_type_definitions, "Goto type definitions")
+    map("n", "gri", picker.lsp_implementations, "Show implementations")
+    map("n", "grr", picker.lsp_references, "Show references")
+    map("n", "g(", picker.lsp_incoming_calls, "Show incoming calls")
+    map("n", "g)", picker.lsp_outgoing_calls, "Show outgoing calls")
     map({ "i", "s" }, "<C-S>", vim.lsp.buf.signature_help, "Show signature help")
     map("n", "grn", vim.lsp.buf.rename, "Rename")
     map("n", "gra", vim.lsp.buf.code_action, "View code actions")
-    map("n", "gO", fzf.lsp_document_symbols, "Search document symbols")
-    map("n", "<Leader>gO", fzf.lsp_live_workspace_symbols, "Search workspace symbols")
+    map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
+    map("n", "<Leader>gO", picker.lsp_workspace_symbols, "Search workspace symbols")
 
     -- If more than one formatter, use selection
     map({ "n", "v" }, "|f", function()
