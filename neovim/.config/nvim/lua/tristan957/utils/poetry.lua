@@ -1,6 +1,6 @@
-local utils = require("tristan957.utils")
-
 local M = {}
+
+local utils = require("tristan957.utils")
 
 ---Get the cache-dir setting from poetry.
 ---@return string?
@@ -39,10 +39,7 @@ M.python_executable = function()
     return nil
   end
 
-  local path, _ = utils.rstrip(cmd.stdout)
-
-  return path
+  return utils.rstrip(cmd.stdout)
 end
-
 
 return M
