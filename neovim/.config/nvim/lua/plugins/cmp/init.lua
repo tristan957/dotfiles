@@ -13,6 +13,7 @@ return {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-path",
     "petertriho/cmp-git",
+    "rcarriga/cmp-dap",
     {
       dir = vim.fs.joinpath(
         vim.fn.stdpath("config") --[[@as string]],
@@ -46,6 +47,10 @@ return {
         autocomplete = { cmp.TriggerEvent.TextChanged },
         completeopt = "menu,menuone,noinsert",
       },
+      enabled = function()
+        return vim.bo.buftype ~= "prompt"
+          or require("cmp_dap").is_dap_buffer()
+      end,
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
         format = function(_, vim_item)
@@ -126,6 +131,12 @@ return {
     })
 
     cmp_git.setup({})
+
+    require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+      sources = {
+        { name = "dap" },
+      },
+    })
 
     cmp.setup.filetype("gitcommit", {
       sources = cmp.config.sources({
