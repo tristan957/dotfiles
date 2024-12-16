@@ -78,6 +78,7 @@ return {
       rust_analyzer = require("tristan957.lsp.config.rust-analyzer"),
       taplo = require("tristan957.lsp.config.taplo"),
       terraformls = require("tristan957.lsp.config.terraform-ls"),
+      tilt_ls = require("tristan957.lsp.config.tilt"),
       ts_ls = require("tristan957.lsp.config.typescript-language-server"),
       tinymist = require("tristan957.lsp.config.tinymist"),
       vacuum = require("tristan957.lsp.config.vacuum"),
