@@ -16,6 +16,7 @@ return {
     },
   },
   on_new_config = function(new_config, new_root_dir)
+    local poetry = require("tristan957.utils.poetry")
     local default_config = require("lspconfig.configs.basedpyright").default_config
 
     -- We are already in the virual environment, so skip the setup.
@@ -23,10 +24,7 @@ return {
       return
     end
 
-    if
-      vim.uv.fs_stat(vim.fs.joinpath(new_root_dir, "poetry.lock"))
-      and vim.fn.executable("poetry") == 1
-    then
+    if poetry.is_workspace(new_root_dir) and vim.fn.executable("poetry") == 1 then
       new_config.cmd = { "poetry", "run", "--", table.unpack(default_config.cmd) }
     end
   end,

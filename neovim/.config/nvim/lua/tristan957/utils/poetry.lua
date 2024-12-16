@@ -5,7 +5,7 @@ local utils = require("tristan957.utils")
 ---Get the cache-dir setting from poetry.
 ---@return string?
 M.cache_dir = function()
-  local cmd = vim.system({"poetry", "config", "cache-dir"}):wait()
+  local cmd = vim.system({ "poetry", "config", "cache-dir" }):wait()
   if cmd.code ~= 0 then
     return nil
   end
@@ -16,7 +16,7 @@ end
 ---Get the virtualenvs.path setting from poetry.
 ---@return string?
 M.virtualenvs_path = function()
-  local cmd = vim.system({"poetry", "config", "virtualenvs.path"}):wait()
+  local cmd = vim.system({ "poetry", "config", "virtualenvs.path" }):wait()
   if cmd.code ~= 0 then
     return nil
   end
@@ -40,6 +40,13 @@ M.python_executable = function()
   end
 
   return utils.rstrip(cmd.stdout)
+end
+
+---Is the directory a Poetry workspace?
+---@param dir string
+---@return boolean
+M.is_workspace = function(dir)
+  return vim.uv.fs_stat(vim.fs.joinpath(dir, "poetry.lock")) ~= nil
 end
 
 return M
