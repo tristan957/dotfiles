@@ -25,6 +25,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 # . "$dir/shared/bitwarden.sh"
 . "$dir/shared/deno.sh"
 . "$dir/shared/dconf.sh"
+. "$dir/shared/docker.sh"
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
 . "$dir/shared/gh.sh"
@@ -61,3 +62,4 @@ grub_setup
 uv_setup
 asciinema_setup
 podman_setup
+# docker_setup

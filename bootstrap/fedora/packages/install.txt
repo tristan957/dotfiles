@@ -21,6 +21,7 @@ code
 codium
 codespell
 compat-lua
+# containerd
 dconf-editor
 ddcutil
 delve
@@ -29,6 +30,10 @@ dhall-json
 difftastic
 direnv
 distrobox
+# docker-buildx
+# docker-cli
+docker-compose
+# docker-compose-switch
 dotnet-sdk-8.0
 elixir
 epiphany
@@ -116,6 +121,7 @@ mesonlsp
 miller
 mingw64-gcc
 mkosi
+# moby-engine
 mold
 moreutils
 mozilla-openh264
