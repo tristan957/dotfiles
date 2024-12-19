@@ -6,10 +6,11 @@ function flatpak_add_remotes() {
 }
 
 function flatpak_create_overrides() {
-    # Electron applications
+    # Electron applications and Wayland, smh
+    flatpak override --user --socket=wayland com.discordapp.Discord
     flatpak override --user --socket=wayland com.slack.Slack
-    flatpak override --user --env=SIGNAL_USE_WAYLAND=1 org.signal.Signal
     flatpak override --user --socket=wayland md.obsidian.Obsidian
+    flatpak override --user --env=SIGNAL_USE_WAYLAND=1 org.signal.Signal
 }
 
 function flatpak_install_applications() {
