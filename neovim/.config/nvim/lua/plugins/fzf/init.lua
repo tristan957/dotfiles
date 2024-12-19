@@ -7,16 +7,25 @@ return {
   "ibhagwan/fzf-lua",
   dependencies = {
     "echasnovski/mini.icons",
+    "folke/trouble.nvim",
   },
   cmd = { "Fzf", "FzfLua" },
+  event = "VeryLazy",
   config = function()
     local fzf = require("fzf-lua")
     local actions = require("fzf-lua.actions")
     local fd = require("tristan957.utils.fd")
     local rg = require("tristan957.utils.rg")
+    local trouble = require("trouble.sources.fzf")
 
     fzf.setup({
       "default-title",
+      actions = {
+        files = {
+          true,
+          ["ctrl-t"] = trouble.actions.open,
+        },
+      },
       winopts = {
         preview = {
           horizontal = "right:50%",

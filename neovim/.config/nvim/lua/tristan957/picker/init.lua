@@ -34,7 +34,7 @@
 ---@field search_history function()
 ---@field tagstack function()
 
-local M = require("tristan957.picker.telescope")
+local M = require("tristan957.picker.fzf-lua")
 
 vim.keymap.set("n", "<leader>b", M.buffers, { desc = "Open buffer" })
 vim.keymap.set("n", "<leader>c", M.command_history, { desc = "View command history" })
