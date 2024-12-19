@@ -56,7 +56,8 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     sudo dnf copr enable --assumeyes mroche/hare
 
     # Hashicorp
-    sudo dnf config-manager --add-repo --assumeyes https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    sudo dnf config-manager addrepo --assumeyes \
+        --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
     # Lazygit
     sudo dnf copr enable --assumeyes atim/lazygit
@@ -67,7 +68,8 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     rm ./packages-microsoft-prod.rpm
 
     # Mullvad
-    sudo dnf config-manager --add-repo --assumeyes https://repository.mullvad.net/rpm/stable/mullvad.repo
+    sudo dnf config-manager addrepo --assumeyes \
+        --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 
     # RPM Fusion
     sudo dnf install --assumeyes \
@@ -79,7 +81,8 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     sudo dnf copr enable --assumeyes jcwasmx86/Swift-MesonLSP
 
     # Teleport
-    sudo dnf config-manager --add-repo --assumeyes https://rpm.releases.teleport.dev/teleport.repo
+    sudo dnf config-manager addrepo --assumeyes \
+        --from-repofile=https://rpm.releases.teleport.dev/teleport.repo
 
     # VSCode
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
