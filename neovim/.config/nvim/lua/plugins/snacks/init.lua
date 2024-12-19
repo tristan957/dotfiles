@@ -18,13 +18,7 @@ return {
     input = {
       enabled = true,
     },
-    lazygit = {
-      config = {
-        os = {
-          ["editPreset"] = "nvim-remote",
-        },
-      },
-    },
+    lazygit = {},
     notifier = {
       enabled = true,
       style = "fancy",
@@ -44,11 +38,13 @@ return {
         title_pos = "center",
         relative = "editor",
       },
+      ---@diagnostic disable-next-line: missing-fields
       notifier = {
         wo = {
           wrap = true,
         },
       },
+      ---@diagnostic disable-next-line: missing-fields
       zen = {
         backdrop = {
           transparent = false,
