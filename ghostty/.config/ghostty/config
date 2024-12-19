@@ -77,6 +77,7 @@ resize-overlay-position = bottom-right
 
 selection-invert-fg-bg = true
 
+shell-integration = detect
 shell-integration-features = no-cursor,no-title,sudo
 
 unfocused-split-opacity = 1

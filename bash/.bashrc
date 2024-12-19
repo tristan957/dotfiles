@@ -7,15 +7,6 @@ builtin source "$CARGO_HOME/env" 2>/dev/null
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 DOTFILES_DIR=$(dirname "$BASH_DIR")
 
-# Ghostty bash shell integration support
-if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
-    # shellcheck disable=SC2034
-    GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
-    # shellcheck disable=SC2034
-    GHOSTTY_SHELL_INTEGRATION_NO_TITLE=1
-    builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
-fi
-
 # Shell Options
 shopt -s checkwinsize
 shopt -s failglob
