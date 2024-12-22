@@ -11,7 +11,7 @@ return {
     MiniMisc.setup_restore_cursor()
 
     local term_program = vim.env.TERM_PROGRAM
-    if term_program == nil or term_program ~= "vscode" then
+    if not vim.env.NVIM and (term_program == nil or term_program ~= "vscode") then
       MiniMisc.setup_termbg_sync()
     end
   end,
