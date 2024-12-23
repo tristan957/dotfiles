@@ -4,7 +4,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "Saghen/blink.cmp",
   },
   enabled = true,
   event = "VeryLazy",
@@ -87,7 +87,7 @@ return {
       zls = require("tristan957.lsp.config.zls"),
     }
 
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     for key, config in pairs(configs) do
       config.capabilities = capabilities
 
