@@ -31,4 +31,29 @@ M.project_files = function(ignore_largely_irrelevant_paths)
   return cmd
 end
 
+--- rg(1) command which will take a grep expression
+---@param ignore_largely_irrelevant_paths boolean
+---@return string[]
+M.grep = function(ignore_largely_irrelevant_paths)
+  local cmd = {
+    "rg",
+    "--hidden",
+    "--column",
+    "--line-number",
+    "--no-heading",
+    "--color=always",
+    "--smart-case",
+    "--max-columns=4096",
+    "-e",
+  }
+
+  if ignore_largely_irrelevant_paths then
+    vim.iter(fs.largely_irrelevant_paths):each(function(p)
+      table.insert(cmd, 2, string.format("--glob='!%s'", p))
+    end)
+  end
+
+  return cmd
+end
+
 return M

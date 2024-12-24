@@ -38,7 +38,7 @@ return {
         fd_opts = table.concat(vim.list_slice(fd.project_files(true), 2), " "),
       },
       grep = {
-        rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+        rg_opts = table.concat(vim.list_slice(rg.grep(true), 2), " "),
         actions = {
           ["ctrl-q"] = {
             fn = actions.file_edit_or_qf,
