@@ -2,7 +2,7 @@ local M = {}
 
 local fs = require("tristan957.utils.fs")
 
----fd(1) command which will return files in a project
+--- fd(1) command which will return files in a project
 ---@param ignore_largely_irrelevant_paths boolean
 ---@return string[]
 M.project_files = function(ignore_largely_irrelevant_paths)

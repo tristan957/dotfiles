@@ -8,7 +8,7 @@ M.vcountify = function(func, ...)
   end
 end
 
----Strips trailing newlines in a string
+--- Strips trailing newlines in a string
 ---@param s string
 ---@return string
 M.rstrip = function(s)
@@ -16,7 +16,7 @@ M.rstrip = function(s)
   return stripped
 end
 
----Prepend prefix to all element in a table
+--- Prepend prefix to all element in a table
 ---@param prefix string
 ---@param tbl string[]
 ---@return string[]

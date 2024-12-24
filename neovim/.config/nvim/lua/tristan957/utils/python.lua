@@ -1,6 +1,6 @@
 local M = {}
 
----Find the best Python executable for this directory
+--- Find the best Python executable for this directory
 ---@return string
 M.find = function()
   local poetry = require("tristan957.utils.poetry")

@@ -15,7 +15,7 @@ return {
 
     lspconfig_windows.default_options.border = "rounded"
 
-    ---Wrap the language server command in systemd-run(1)
+    --- Wrap the language server command in systemd-run(1)
     ---@param config lspconfig.Config
     ---@param ls string
     ---@return lspconfig.Config
