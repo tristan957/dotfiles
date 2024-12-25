@@ -1,8 +1,6 @@
 ---@module "blink.cmp"
 ---@module "lazy"
 
----@diagnostic disable: missing-fields
-
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
