@@ -11,12 +11,27 @@ return {
   ---@type blink.cmp.Config
   opts = {
     completion = {
+      list = {
+        selection = function(ctx)
+          if ctx.mode == "cmdline" then
+            return "manual"
+          end
+
+          return "preselect"
+        end,
+      },
       menu = {
         border = "none",
       },
     },
     keymap = {
       preset = "default",
+      cmdline = {
+        preset = "default",
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+      },
     },
     signature = {
       enabled = true,
