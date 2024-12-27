@@ -48,8 +48,7 @@ cursor-invert-fg-bg = true
 cursor-style = block
 cursor-style-blink =
 
-# Until the OSC 9 situation is figured out
-desktop-notifications = false
+desktop-notifications = true
 
 focus-follows-mouse = false
 
