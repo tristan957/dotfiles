@@ -59,6 +59,8 @@ vim.filetype.add({
     [".*config/aerc/accounts.conf"] = "ini",
     [".*config/aerc/aerc.conf"] = "ini",
     [".*config/aerc/templates/.*"] = "aerc-template",
+    [".*config/containers/containers.conf"] = "toml",
+    [".*config/containers/containers.conf.d/.*.conf"] = "toml",
     [".*config/git/.*.config"] = "gitconfig",
     [".*config/hut/config"] = "scfg",
     [".vscode/extensions.json"] = "jsonc",
