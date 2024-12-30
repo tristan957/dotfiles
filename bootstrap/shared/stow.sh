@@ -36,6 +36,7 @@ function stow_setup() {
         lazygit \
         less \
         meson \
+        mjmap \
         neon \
         neovim \
         nix \
