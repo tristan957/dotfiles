@@ -125,12 +125,21 @@ return {
       end,
     })
 
-    vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(ev)
+        local ok, _ = pcall(vim.treesitter.get_parser, ev.buf)
+        if not ok then
+          return
+        end
 
-    vim.keymap.set("n", "<C-w>C", context.toggle, { desc = "Toggle context" })
-    vim.keymap.set("n", "[C", function()
-      context.go_to_context(vim.v.count1)
-    end, { silent = true, desc = "Jump to context" })
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+        vim.keymap.set("n", "<C-w>C", context.toggle, { buffer = ev.buf, desc = "Toggle context" })
+        vim.keymap.set("n", "[C", function()
+          context.go_to_context(vim.v.count1)
+        end, { buffer = ev.buf, silent = true, desc = "Jump to context" })
+      end,
+    })
   end,
 }
