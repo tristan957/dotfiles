@@ -185,6 +185,7 @@ toolbox
 transmission-gtk
 trurl
 uncrustify
+valgrind
 vim-enhanced
 vlc
 vulkan-devel
