@@ -9,6 +9,7 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
+  cmd = { "TSInstall", "TSUninstall", "TSUpdate", "TSUpdateSync" },
   event = { "BufReadPre", "BufNewFile" },
   ---@type TSConfig
   ---@diagnostic disable-next-line: missing-fields

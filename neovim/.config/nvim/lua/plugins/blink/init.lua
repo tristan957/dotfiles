@@ -12,16 +12,33 @@ return {
   opts = {
     completion = {
       list = {
-        selection = function(ctx)
-          if ctx.mode == "cmdline" then
-            return "manual"
-          end
-
-          return "preselect"
-        end,
+        selection = {
+          auto_insert = function(ctx)
+            return ctx.mode ~= "cmdline"
+          end,
+          preselect = function(ctx)
+            return ctx.mode ~= "cmdline"
+              and not require("blink.cmp").snippet_active({ direction = 1 })
+          end,
+        },
       },
       menu = {
         border = "none",
+        draw = {
+          components = {
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                return kind_icon
+              end,
+              highlight = function(ctx)
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
+              end,
+            },
+          },
+        },
       },
     },
     keymap = {
@@ -37,13 +54,29 @@ return {
       enabled = true,
     },
     sources = {
-      default = {
-        "lazydev",
-        "lsp",
-        "path",
-        "snippets",
-        "buffer",
-      },
+      default = function()
+        local default = {
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+        }
+
+        if vim.bo.buftype == "lua" then
+          return { "lazydev", table.unpack(default) }
+        end
+
+        local success, node = pcall(vim.treesitter.get_node)
+        if
+          success
+          and node
+          and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
+        then
+          return { "path", "buffer" }
+        end
+
+        return default
+      end,
       providers = {
         lazydev = {
           name = "LazyDev",
