@@ -6,6 +6,7 @@ local ls_markers = {
     ".clang-format",
   },
   gopls = true,
+  terraformls = true,
   rust_analyzer = {
     ".rustfmt.toml",
     "rustfmt.toml",
