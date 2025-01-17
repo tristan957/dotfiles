@@ -1,7 +1,7 @@
 {
   "blink.cmp": { "branch": "main", "commit": "1cc3b1a908fbcfd15451c4772759549724f38524" },
   "dart-vim-plugin": { "branch": "master", "commit": "4bdc04e2540edf90fda2812434c11d19dc04bc8f" },
-  "dropbar.nvim": { "branch": "master", "commit": "a2727839d3648b729a1bf7b9964b44cc03c67e8e" },
+  "dropbar.nvim": { "branch": "master", "commit": "67cb5f42685e6548438ec6f338ca40ddb36cf406" },
   "fzf-lua": { "branch": "main", "commit": "047f6862bb0c9710c06e5432d7ad50da9ea00e46" },
   "kdl.vim": { "branch": "main", "commit": "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5" },
   "lazy.nvim": { "branch": "main", "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a" },
