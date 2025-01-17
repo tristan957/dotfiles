@@ -3,9 +3,6 @@
 ---@type LazySpec
 return {
   "stevearc/oil.nvim",
-  dependencies = {
-    "echasnovski/mini.icons",
-  },
   event = "VimEnter",
   ---@type oil.SetupOpts
   opts = {
