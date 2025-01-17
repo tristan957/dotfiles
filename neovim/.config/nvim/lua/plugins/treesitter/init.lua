@@ -108,7 +108,7 @@ return {
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
-      disable = { "dockerfile" },
+      disable = {},
     },
     incremental_selection = {
       enable = true,
