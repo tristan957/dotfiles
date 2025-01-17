@@ -1,4 +1,3 @@
-builtin source "/etc/bashrc" 2>/dev/null
 builtin source "$CARGO_HOME/env" 2>/dev/null
 
 # Don't run if it's not an interactive shell
@@ -223,3 +222,18 @@ eval "$(direnv hook bash 2>/dev/null)"
 # zoxide
 
 eval "$(zoxide init bash 2>/dev/null)"
+
+#-------------------------------------------------------------------------------
+
+# Shell Integrations
+
+case "$TERM" in
+    *ghostty)
+        # shellcheck disable=SC2034
+        GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
+        builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+        ;;
+    *)
+        # Use system integrations otherwise
+        builtin source "/etc/bashrc" 2>/dev/null
+esac

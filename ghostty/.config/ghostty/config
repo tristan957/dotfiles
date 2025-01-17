@@ -80,8 +80,8 @@ resize-overlay-position = bottom-right
 
 selection-invert-fg-bg = true
 
-shell-integration = detect
-shell-integration-features = no-cursor,no-title,sudo
+shell-integration = none
+shell-integration-features = no-cursor,title,sudo
 
 unfocused-split-opacity = 1
 
