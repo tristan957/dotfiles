@@ -232,8 +232,25 @@ case "$TERM" in
         # shellcheck disable=SC2034
         GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
         builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+
+        SHELL_INTEGRATION=1
         ;;
     *)
-        # Use system integrations otherwise
-        builtin source "/etc/bashrc" 2>/dev/null
+        SHELL_INTEGRATION=0
+        ;;
 esac
+
+# Now, source the system integrations. In the event that they mess with
+# PROMPT_COMMAND and we are using a shell integration, just restore it. On
+# Fedora for instance, they will try and set the title, but it is worthless
+# since Ghostty will just overwrite it.
+
+if [[ $SHELL_INTEGRATION -eq 1 ]]; then
+    OLD_PROMPT_COMMAND="$PROMPT_COMMAND"
+fi
+
+builtin source "/etc/bashrc" 2>/dev/null
+
+if [[ $SHELL_INTEGRATION -eq 1 ]]; then
+    PROMPT_COMMAND="$OLD_PROMPT_COMMAND"
+fi
