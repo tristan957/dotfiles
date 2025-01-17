@@ -25,6 +25,7 @@ return {
       "c",
       "cmake",
       "cpp",
+      "css",
       "csv",
       "desktop",
       "diff",
