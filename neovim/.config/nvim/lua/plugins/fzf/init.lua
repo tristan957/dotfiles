@@ -9,8 +9,16 @@ return {
     "echasnovski/mini.icons",
     "folke/trouble.nvim",
   },
+  lazy = true,
   cmd = { "Fzf", "FzfLua" },
-  event = "VeryLazy",
+  init = function()
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.ui.select = function(...)
+      require("fzf-lua").register_ui_select()
+
+      vim.ui.select(...)
+    end
+  end,
   config = function()
     local fzf = require("fzf-lua")
     local actions = require("fzf-lua.actions")
