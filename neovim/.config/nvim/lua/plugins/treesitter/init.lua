@@ -8,6 +8,10 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-context",
     "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+      "bezhermoso/tree-sitter-ghostty",
+      build = "make nvim_install",
+    },
   },
   cmd = { "TSInstall", "TSUninstall", "TSUpdate", "TSUpdateSync" },
   event = { "BufReadPre", "BufNewFile" },
@@ -28,6 +32,7 @@ return {
       "doxygen",
       "editorconfig",
       "fish",
+      "ghostty",
       "git_config",
       "git_rebase",
       "gitattributes",
