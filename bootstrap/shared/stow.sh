@@ -42,6 +42,7 @@ function stow_setup() {
         nix \
         nnn \
         nodejs \
+        pgrx \
         postgresql \
         programs \
         ptyxis \
