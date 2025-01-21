@@ -229,9 +229,8 @@ eval "$(zoxide init bash 2>/dev/null)"
 
 case "$TERM" in
     *ghostty)
-        # shellcheck disable=SC2034
-        GHOSTTY_SHELL_INTEGRATION_NO_CURSOR=1
-        builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+        # TODO: source this if the eventual environment variable isn't set
+        # builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
 
         SHELL_INTEGRATION=1
         ;;
