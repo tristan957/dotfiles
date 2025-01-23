@@ -9,6 +9,9 @@ require("tristan957.project-settings").setup({
   ),
 })
 
+-- Then setup PATH
+require("tristan957.path")
+
 require("tristan957.buffers")
 require("tristan957.chcompdb")
 require("tristan957.diagnostics")

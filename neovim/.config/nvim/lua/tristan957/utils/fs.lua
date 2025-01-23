@@ -20,4 +20,11 @@ M.largely_irrelevant_paths = {
   "target",
 }
 
+local node_modules = vim.fs.joinpath(vim.env.PWD, "node_modules")
+if vim.fn.isdirectory(node_modules) == 1 then
+  M.node_modules = node_modules
+else
+  M.node_modules = nil
+end
+
 return M
