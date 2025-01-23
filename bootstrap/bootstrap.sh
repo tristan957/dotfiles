@@ -19,11 +19,13 @@ mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/postgresql"
 mkdir -p "$HOME/.opt"
 
 dir=$(dirname "${BASH_SOURCE[0]}")
+. "$dir/shared/1password.sh"
 . "$dir/shared/aerc.sh"
 . "$dir/shared/asciinema.sh"
 . "$dir/shared/bash-completion.sh"
-# . "$dir/shared/bitwarden.sh"
+. "$dir/shared/bitwarden.sh"
 . "$dir/shared/deno.sh"
+. "$dir/shared/desktop-database.sh"
 . "$dir/shared/dconf.sh"
 . "$dir/shared/docker.sh"
 . "$dir/shared/flatpak.sh"
@@ -32,10 +34,10 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/glab.sh"
 . "$dir/shared/grub.sh"
 . "$dir/shared/homebrew.sh"
+. "$dir/shared/mandb.sh"
 . "$dir/shared/podman.sh"
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
-. "$dir/shared/systemd.sh"
 . "$dir/shared/tmux.sh"
 . "$dir/shared/uv.sh"
 
@@ -44,7 +46,9 @@ os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
 . "$dir/$os/distro.sh"
 
 stow_setup
-systemd_setup
+1password_setup
+desktop_database_setup
+mandb_setup
 flatpak_setup
 distro_setup
 dconf_setup

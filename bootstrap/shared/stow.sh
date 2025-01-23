@@ -12,6 +12,7 @@ function stow_setup() {
         comlink \
         containers \
         deno \
+        desktop-database \
         difftastic \
         dir_colors \
         dotnet \
@@ -35,6 +36,7 @@ function stow_setup() {
         kubernetes \
         lazygit \
         less \
+        mandb \
         meson \
         mjmap \
         neon \

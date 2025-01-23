@@ -22,6 +22,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - comlink
 - containers
 - deno
+- desktop-database
 - difftastic
 - dir_colors
 - dotnet
@@ -45,6 +46,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - kubernetes
 - lazygit
 - less
+- mandb
 - meson
 - mjmap
 - neon
