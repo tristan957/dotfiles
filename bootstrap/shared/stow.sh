@@ -62,6 +62,7 @@ function stow_setup() {
         testcontainers \
         tmux \
         toolbox \
+        uv \
         vim \
         vscodium \
         wget \

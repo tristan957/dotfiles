@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in ~/.opt/cargo/bin/uv
+
+[Path]
+PathChanged=%h/.opt/cargo/bin/uv
+
+[Install]
+WantedBy=paths.target

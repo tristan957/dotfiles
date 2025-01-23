@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate uv bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'uv generate-shell-completion bash >"$XDG_DATA_HOME/bash-completion/completions/uv"'

@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate uvx bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'uvx --generate-shell-completion bash >"$XDG_DATA_HOME/bash-completion/completions/uvx"'
