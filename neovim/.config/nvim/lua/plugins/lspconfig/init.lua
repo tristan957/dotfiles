@@ -58,6 +58,7 @@ return {
       awk_ls = require("tristan957.lsp.config.awk-language-server"),
       basedpyright = require("tristan957.lsp.config.basedpyright"),
       bashls = require("tristan957.lsp.config.bash-language-server"),
+      biome = require("tristan957.lsp.config.biome"),
       blueprint_ls = require("tristan957.lsp.config.blueprint"),
       clangd = require("tristan957.lsp.config.clangd"),
       cmake = require("tristan957.lsp.config.cmake-language-server"),
