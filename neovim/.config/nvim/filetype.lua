@@ -64,6 +64,7 @@ vim.filetype.add({
     [".*config/containers/containers.conf.d/.*.conf"] = "toml",
     [".*config/git/.*.config"] = "gitconfig",
     [".*config/hut/config"] = "scfg",
+    [".env.*"] = "sh",
     [".vscode/extensions.json"] = "jsonc",
     [".vscode/settings.json"] = "jsonc",
     [".vscode/tasks.json"] = "jsonc",
