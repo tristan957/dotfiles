@@ -6,7 +6,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
     local picker = require("tristan957.picker")
-    local formatting = require("tristan957.lsp.formatting")
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     assert(client ~= nil)
@@ -31,74 +30,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gra", vim.lsp.buf.code_action, "View code actions")
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
     map("n", "<Leader>gO", picker.lsp_workspace_symbols, "Search workspace symbols")
-
-    -- If more than one formatter, use selection
-    map({ "n", "v" }, "|f", function()
-      local clients = {}
-      local choices = {}
-
-      for _, c in pairs(vim.lsp.get_clients({ bufnr = ev.buf })) do
-        if c.supports_method(vim.lsp.protocol.Methods.textDocument_formatting) then
-          table.insert(clients, c)
-          table.insert(choices, c.name)
-        end
-      end
-
-      if #choices > 1 then
-        vim.ui.select(choices, { prompt = "Select a formatter" }, function(_, choice)
-          if not choice then
-            vim.notify("No formatter selected", vim.log.levels.WARN)
-            return
-          end
-
-          formatting.format(clients[choice], ev.buf, true, { async = true })
-        end)
-      else
-        formatting.format(clients[1], ev.buf, true, { async = true })
-      end
-    end, "Format code")
-
-    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        desc = "Highlight <cword> references",
-        buffer = ev.buf,
-        callback = function()
-          vim.lsp.buf.document_highlight()
-        end,
-      })
-
-      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-        desc = "Clean <cword> reference highlights",
-        buffer = ev.buf,
-        callback = function()
-          vim.lsp.buf.clear_references()
-        end,
-      })
-    end
-
-    if client.supports_method(vim.lsp.protocol.Methods.textDocument_formatting) then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        desc = "Format on save",
-        buffer = ev.buf,
-        callback = function()
-          formatting.format(client, ev.buf, false, { async = true })
-        end,
-      })
-    end
-
-    -- Workaround for https://github.com/neovim/neovim/issues/30985
-    if client.name == "rust_analyzer" then
-      for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
-        local default_diagnostic_handler = vim.lsp.handlers[method]
-        vim.lsp.handlers[method] = function(err, result, context, config)
-          if err ~= nil and err.code == -32802 then
-            return
-          end
-          return default_diagnostic_handler(err, result, context, config)
-        end
-      end
-    end
   end,
 })
 
 require("tristan957.lsp.handlers")
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Format on save",
+  callback = function(ev)
+    local formatting = require("tristan957.lsp.formatting")
+
+    formatting.format(ev.buf)
+  end,
+})
