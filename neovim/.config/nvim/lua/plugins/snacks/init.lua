@@ -24,6 +24,7 @@ return {
       style = "fancy",
     },
     picker = {
+      enabled = false,
       ui_select = false,
     },
     quickfile = {
