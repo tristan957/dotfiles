@@ -4,7 +4,6 @@
 return {
   "folke/snacks.nvim",
   priority = 1000,
-  cmd = "Snacks",
   ---@type snacks.Config
   opts = {
     bigfile = {
