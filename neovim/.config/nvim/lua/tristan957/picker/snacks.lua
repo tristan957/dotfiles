@@ -11,7 +11,9 @@ return {
   command_history = function()
     require("snacks").picker.command_history()
   end,
-  diagnostics = function() end,
+  diagnostics = function()
+    require("snacks").picker.diagnostics()
+  end,
   files = function()
     require("snacks").picker.files({
       hidden = true,
@@ -20,9 +22,15 @@ return {
   git_bcommits = function()
     require("snacks").picker.git_log()
   end,
-  git_branches = function() end,
-  git_commits = function() end,
-  git_stash = function() end,
+  git_branches = function()
+    require("snacks").picker.git_branches()
+  end,
+  git_commits = function()
+    require("snacks").picker.git_log()
+  end,
+  git_stash = function()
+    require("snacks").picker.git_stash()
+  end,
   git_tags = function() end,
   grep = function()
     require("snacks").picker.grep()
@@ -43,7 +51,9 @@ return {
     require("snacks").picker.loclist()
   end,
   loclist_history = function() end,
-  lsp_declarations = function() end,
+  lsp_declarations = function()
+    require("snacks").picker.lsp_declarations()
+  end,
   lsp_definitions = function()
     require("snacks").picker.lsp_definitions()
   end,
