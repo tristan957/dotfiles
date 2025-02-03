@@ -38,7 +38,7 @@ return {
       workspace = {
         checkThirdParty = false,
         library = {
-          vim.fs.joinpath(vim.fn.stdpath("data") --[[@as string]], "comlink"),
+          vim.fs.joinpath(os.getenv("XDG_DATA_HOME"), "comlink", "lua"),
         },
       },
     })
