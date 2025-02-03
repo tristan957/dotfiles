@@ -10,6 +10,7 @@ return {
     opts = {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "snacks.nvim", words = { "Snacks" } },
       },
       enabled = function(root_dir)
         for _, file in ipairs({ ".luarc.json", ".luarc.jsonc" }) do
