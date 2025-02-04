@@ -3,93 +3,110 @@
 ---@type PickerInterface
 return {
   buffers = function()
-    require("snacks").picker.buffers()
+    Snacks.picker.buffers()
   end,
   builtin = function()
-    require("snacks").picker.pick()
+    Snacks.picker.pick()
   end,
   command_history = function()
-    require("snacks").picker.command_history()
+    Snacks.picker.command_history()
   end,
   diagnostics = function()
-    require("snacks").picker.diagnostics()
+    Snacks.picker.diagnostics()
+  end,
+  explorer = function()
+    Snacks.picker.explorer()
   end,
   files = function()
-    require("snacks").picker.files({
+    Snacks.picker.smart({
       hidden = true,
     })
   end,
   git_bcommits = function()
-    require("snacks").picker.git_log()
+    Snacks.picker.git_log()
   end,
   git_branches = function()
-    require("snacks").picker.git_branches()
+    Snacks.picker.git_branches()
   end,
   git_commits = function()
-    require("snacks").picker.git_log()
+    Snacks.picker.git_log()
+  end,
+  git_diff = function()
+    Snacks.picker.git_diff()
   end,
   git_stash = function()
-    require("snacks").picker.git_stash()
+    Snacks.picker.git_stash()
   end,
   git_tags = function() end,
   grep = function()
-    require("snacks").picker.grep()
+    Snacks.picker.grep()
   end,
   help_tags = function()
-    require("snacks").picker.help()
+    Snacks.picker.help()
   end,
   highlights = function()
-    require("snacks").picker.highlights()
+    Snacks.picker.highlights()
+  end,
+  icons = function()
+    Snacks.picker.icons()
   end,
   jumplist = function()
-    require("snacks").picker.jumps()
+    Snacks.picker.jumps()
   end,
   keymaps = function()
-    require("snacks").picker.keymaps()
+    Snacks.picker.keymaps()
   end,
   loclist = function()
-    require("snacks").picker.loclist()
+    Snacks.picker.loclist()
   end,
   loclist_history = function() end,
   lsp_declarations = function()
-    require("snacks").picker.lsp_declarations()
+    Snacks.picker.lsp_declarations()
   end,
   lsp_definitions = function()
-    require("snacks").picker.lsp_definitions()
+    Snacks.picker.lsp_definitions()
   end,
   lsp_document_symbols = function()
-    require("snacks").picker.lsp_symbols()
+    Snacks.picker.lsp_symbols()
   end,
   lsp_implementations = function()
-    require("snacks").picker.lsp_implementations()
+    Snacks.picker.lsp_implementations()
   end,
   lsp_incoming_calls = function() end,
   lsp_outgoing_calls = function() end,
   lsp_references = function()
-    require("snacks").picker.lsp_references()
+    Snacks.picker.lsp_references()
   end,
   lsp_type_definitions = function()
-    require("snacks").picker.lsp_type_definitions()
+    Snacks.picker.lsp_type_definitions()
   end,
-  lsp_workspace_symbols = function() end,
+  lsp_workspace_symbols = function()
+    Snacks.picker.lsp_workspace_symbols()
+  end,
   man_pages = function()
-    require("snacks").picker.man()
+    Snacks.picker.man()
   end,
   marks = function()
-    require("snacks").picker.marks()
+    Snacks.picker.marks()
+  end,
+  notifications = function()
+    Snacks.picker.notifications()
   end,
   quickfix = function()
-    require("snacks").picker.qflist()
+    Snacks.picker.qflist()
   end,
   quickfix_history = function() end,
   registers = function()
-    require("snacks").picker.registers()
+    Snacks.picker.registers()
   end,
   resume = function()
-    require("snacks").picker.resume()
+    Snacks.picker.resume()
   end,
   search_history = function()
-    require("snacks").picker.search_history()
+    Snacks.picker.search_history()
   end,
   tagstack = function() end,
+  todo_comments = function()
+    Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+  end,
 }

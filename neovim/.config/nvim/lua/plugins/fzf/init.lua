@@ -1,7 +1,5 @@
 ---@module "lazy"
 
-vim.api.nvim_create_user_command("Fzf", "FzfLua", { desc = "Alias for FzfLua" })
-
 ---@type LazySpec
 return {
   "ibhagwan/fzf-lua",
@@ -9,9 +7,12 @@ return {
     "echasnovski/mini.icons",
     "folke/trouble.nvim",
   },
+  enabled = false,
   lazy = true,
   cmd = { "Fzf", "FzfLua" },
   init = function()
+    vim.api.nvim_create_user_command("Fzf", "FzfLua", { desc = "Alias for FzfLua" })
+
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(...)
       require("fzf-lua").register_ui_select()
