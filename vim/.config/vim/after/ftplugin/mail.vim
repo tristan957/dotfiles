@@ -1,3 +1,4 @@
+setlocal colorcolumn=72
 setlocal fileformat=dos
 setlocal formatoptions=1jnwtcql/r
 setlocal noexpandtab
