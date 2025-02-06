@@ -9,7 +9,9 @@ return {
   },
   event = { "BufReadPre", "BufNewFile" },
   ---@type TodoOptions
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
+    signs = false,
     keywords = {
       NEON = {
         color = "info",
