@@ -77,13 +77,6 @@ vim.g.markdown_fenced_languages = {
 }
 vim.g.omni_sql_no_default_maps = 1
 
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  source = true,
-  float = { border = "rounded" },
-})
-
 -- TODO: Set these up:
 -- https://github.com/mrcjkb/rustaceanvim
 -- https://github.com/mfussenegger/nvim-jdtls
