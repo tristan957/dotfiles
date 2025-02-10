@@ -12,6 +12,16 @@ return {
     dashboard = {
       enabled = false,
     },
+    gitbrowse = {
+      url_patterns = {
+        ["git.sr.ht"] = {
+          branch = "/tree/{branch}",
+          file = "/tree/{branch}/item/{file}",
+          permalink = "/tree/{commit}/item/{file}#L{line_start}",
+          commit = "/commit/{commit}",
+        },
+      },
+    },
     indent = {
       enabled = false,
     },
@@ -79,6 +89,10 @@ return {
     end, {})
 
     vim.keymap.set("n", "ZM", Snacks.zen.zen, { desc = "Open buffer in zen mode" })
+    vim.keymap.set({ "n", "v" }, "gX", function()
+      ---@diagnostic disable-next-line: missing-fields
+      Snacks.gitbrowse.open({ what = "permalink" })
+    end, { desc = "Open in remote Git host" })
 
     ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
     local progress = vim.defaulttable()
