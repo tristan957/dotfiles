@@ -8,6 +8,7 @@ return {
   event = "VimEnter",
   ---@type MasonSettings
   opts = {
+    log_level = vim.log.levels.OFF,
     ui = {
       border = "rounded",
     },
