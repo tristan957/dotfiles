@@ -37,7 +37,9 @@ return {
   end,
   git_tags = function() end,
   grep = function()
-    Snacks.picker.grep()
+    Snacks.picker.grep({
+      hidden = true,
+    })
   end,
   help_tags = function()
     Snacks.picker.help()
