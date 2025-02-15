@@ -205,6 +205,10 @@ function 0x0() {
     curl -F "file=@$1" https://0x0.st
 }
 
+function tsh-kube-login() {
+    tsh kube ls --format json | jq --raw-output '.[] | .kube_cluster_name' | fzf --bind 'enter:become(tsh kube login {})'
+}
+
 #-------------------------------------------------------------------------------
 
 # fzf
