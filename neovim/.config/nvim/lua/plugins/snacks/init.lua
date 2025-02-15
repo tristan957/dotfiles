@@ -88,6 +88,9 @@ return {
         },
       },
     },
+    image = {
+      enabled = true,
+    },
     indent = {
       enabled = false,
     },
