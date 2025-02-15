@@ -8,8 +8,7 @@ return {
     "nvim-lua/plenary.nvim",
   },
   event = { "BufReadPre", "BufNewFile" },
-  ---@type TodoOptions
-  ---@diagnostic disable-next-line: missing-fields
+  ---@type TodoOptions | {}
   opts = {
     signs = false,
     keywords = {

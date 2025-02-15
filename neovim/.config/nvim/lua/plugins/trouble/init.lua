@@ -6,8 +6,7 @@ return {
   "folke/trouble.nvim",
   lazy = true,
   cmd = "Trouble",
-  ---@type trouble.Config
-  ---@diagnostic disable-next-line: missing-fields
+  ---@type trouble.Config | {}
   opts = {
     indent_guides = true,
     win = {

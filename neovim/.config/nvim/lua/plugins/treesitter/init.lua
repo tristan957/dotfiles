@@ -16,8 +16,7 @@ return {
   },
   cmd = { "TSInstall", "TSUninstall", "TSUpdate", "TSUpdateSync" },
   event = { "BufReadPre", "BufNewFile" },
-  ---@type TSConfig
-  ---@diagnostic disable-next-line: missing-fields
+  ---@type TSConfig | {}
   opts = {
     ensure_installed = {
       "asm",

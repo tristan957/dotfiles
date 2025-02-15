@@ -1,7 +1,6 @@
 ---@module "lspconfig"
 
----@type lspconfig.Config
----@diagnostic disable-next-line: missing-fields
+---@type lspconfig.Config | {}
 return {
   -- Disable deno unless we know for sure that this is a Deno project
   enabled = (function()

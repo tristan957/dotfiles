@@ -2,8 +2,7 @@
 
 local schemastore = require("schemastore")
 
----@type lspconfig.Config
----@diagnostic disable-next-line: missing-fields
+---@type lspconfig.Config | {}
 return {
   filetypes = {
     "yaml",

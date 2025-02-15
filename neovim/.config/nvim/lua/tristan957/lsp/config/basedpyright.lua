@@ -1,8 +1,7 @@
 ---@module "lspconfig"
 
 --- https://docs.basedpyright.com/dev/configuration/language-server-settings/
----@type lspconfig.Config
----@diagnostic disable-next-line: missing-fields
+---@type lspconfig.Config | {}
 return {
   settings = {
     basedpyright = {
