@@ -146,7 +146,7 @@ return {
       },
       win = {},
       zoom = {},
-    }
+    },
   },
   config = function(_, opts)
     local Snacks = require("snacks")
