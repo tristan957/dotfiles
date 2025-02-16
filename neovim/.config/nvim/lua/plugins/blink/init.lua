@@ -41,14 +41,16 @@ return {
         },
       },
     },
-    keymap = {
-      preset = "default",
-      cmdline = {
+    cmdline = {
+      keymap = {
         preset = "default",
         ["<Tab>"] = { "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
       },
+    },
+    keymap = {
+      preset = "default",
     },
     signature = {
       enabled = true,
