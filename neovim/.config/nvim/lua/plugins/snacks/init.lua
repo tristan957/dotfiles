@@ -57,6 +57,12 @@ return {
             action = ":Lazy",
             enabled = package.loaded.lazy ~= nil,
           },
+          {
+            icon = " ",
+            key = "M",
+            desc = "Mason",
+            action = ":Mason",
+          },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
