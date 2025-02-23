@@ -78,6 +78,8 @@ resize-overlay-position = bottom-right
 
 selection-invert-fg-bg = true
 
+split-divider-color = #5c6370
+
 shell-integration = detect
 shell-integration-features = no-cursor,title,sudo
 
