@@ -109,4 +109,7 @@ return {
   todo_comments = function()
     Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
   end,
+  undo = function()
+    Snacks.picker.undo()
+  end,
 }

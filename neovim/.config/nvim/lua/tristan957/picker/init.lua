@@ -38,6 +38,7 @@
 ---@field search_history function()
 ---@field tagstack function()
 ---@field todo_comments function()
+---@field undo function()
 
 local M = require("tristan957.picker.snacks")
 
@@ -66,6 +67,7 @@ vim.keymap.set("n", "<leader>R", M.resume, { desc = "Resume last picker" })
 vim.keymap.set("n", "<leader>sh", M.search_history, { desc = "Open search history" })
 vim.keymap.set("n", "<leader>T", M.tagstack, { desc = "Open tagstack" })
 vim.keymap.set("n", "<leader>t", M.todo_comments, { desc = "Open TODO comments" })
+vim.keymap.set("n", "<leader>u", M.undo, { desc = "Open undo tree" })
 vim.keymap.set("n", "<leader><leader>", M.files, { desc = "Find files" })
 
 return M
