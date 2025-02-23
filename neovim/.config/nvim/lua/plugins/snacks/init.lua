@@ -141,7 +141,7 @@ return {
       },
     },
     words = {
-      enabled = false,
+      enabled = true,
     },
     zen = {
       toggles = {
