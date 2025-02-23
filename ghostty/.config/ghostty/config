@@ -1,7 +1,7 @@
 # Theme from onedarkpro.nvim (olimorris is a great person)
 background = #282c34
 # Value comes from Ptyxis :)
-window-titlebar-background = #353B47
+window-titlebar-background = #303643
 
 # I prefer white...
 # foreground = #abb2bf
