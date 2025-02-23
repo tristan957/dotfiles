@@ -30,16 +30,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gra", vim.lsp.buf.code_action, "View code actions")
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
     map("n", "<Leader>gO", picker.lsp_workspace_symbols, "Search workspace symbols")
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      desc = "Format on save",
+      buffer = ev.buf,
+      callback = function(bwp_ev)
+        local formatting = require("tristan957.lsp.formatting")
+
+        formatting.format(bwp_ev.buf)
+      end,
+    })
   end,
 })
 
 require("tristan957.lsp.handlers")
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  desc = "Format on save",
-  callback = function(ev)
-    local formatting = require("tristan957.lsp.formatting")
-
-    formatting.format(ev.buf)
-  end,
-})
