@@ -13,12 +13,9 @@ return {
     completion = {
       list = {
         selection = {
-          auto_insert = function(ctx)
-            return ctx.mode ~= "cmdline"
-          end,
-          preselect = function(ctx)
-            return ctx.mode ~= "cmdline"
-              and not require("blink.cmp").snippet_active({ direction = 1 })
+          auto_insert = true,
+          preselect = function(_)
+            return not require("blink.cmp").snippet_active({ direction = 1 })
           end,
         },
       },
@@ -42,9 +39,24 @@ return {
       },
     },
     cmdline = {
+      completion = {
+        ghost_text = {
+          enabled = false,
+        },
+        list = {
+          selection = {
+            auto_insert = false,
+            preselect = false,
+          },
+        },
+        menu = {
+          auto_show = true,
+        },
+      },
+      enabled = true,
       keymap = {
         preset = "default",
-        ["<Tab>"] = { "select_next", "fallback" },
+        ["<Tab>"] = { "show", "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
       },
