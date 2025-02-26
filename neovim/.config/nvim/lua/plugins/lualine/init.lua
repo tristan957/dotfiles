@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = true,
   dependencies = {
     "onedarkpro.nvim",
   },

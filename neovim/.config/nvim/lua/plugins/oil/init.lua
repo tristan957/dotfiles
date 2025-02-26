@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "stevearc/oil.nvim",
+  enabled = true,
   event = "VimEnter",
   ---@type oil.SetupOpts
   opts = {

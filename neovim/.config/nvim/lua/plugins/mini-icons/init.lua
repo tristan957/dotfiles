@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.icons",
+  enabled = true,
   lazy = true,
   opts = {
     style = "glyph",

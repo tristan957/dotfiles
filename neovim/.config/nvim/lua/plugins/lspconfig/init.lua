@@ -3,10 +3,10 @@
 ---@type LazySpec
 return {
   "neovim/nvim-lspconfig",
+  enabled = true,
   dependencies = {
     "Saghen/blink.cmp",
   },
-  enabled = true,
   event = "VeryLazy",
   config = function()
     local systemd = require("tristan957.utils.systemd")

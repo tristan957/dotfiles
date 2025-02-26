@@ -3,11 +3,11 @@
 ---@type LazySpec
 return {
   "ibhagwan/fzf-lua",
+  enabled = false,
   dependencies = {
     "echasnovski/mini.icons",
     "folke/trouble.nvim",
   },
-  enabled = false,
   lazy = true,
   cmd = { "Fzf", "FzfLua" },
   init = function()

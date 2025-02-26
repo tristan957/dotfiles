@@ -4,12 +4,20 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
+  enabled = true,
   build = ":TSUpdate",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-context",
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+      enabled = true,
+    },
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      enabled = true,
+    },
     {
       "bezhermoso/tree-sitter-ghostty",
+      enabled = true,
       build = "make nvim_install",
     },
     "apple/pkl-neovim",

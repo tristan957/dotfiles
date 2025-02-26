@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "nvim-telescope/telescope.nvim",
+  enabled = false,
   lazy = true,
   dependencies = {
     "echasnovski/mini.icons",

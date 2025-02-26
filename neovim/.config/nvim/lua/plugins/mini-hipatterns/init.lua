@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.hipatterns",
+  enabled = true,
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local MiniHipatterns = require("mini.hipatterns")

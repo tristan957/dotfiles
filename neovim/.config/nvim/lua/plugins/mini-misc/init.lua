@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "echasnovski/mini.misc",
+  enabled = true,
   event = "VimEnter",
   config = function()
     local MiniMisc = require("mini.misc")
