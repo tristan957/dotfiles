@@ -4,3 +4,4 @@ open-vm-tools-desktop
 ptyxis
 snapshot
 totem
+yelp
