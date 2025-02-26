@@ -149,8 +149,11 @@ return {
 
     context.setup({
       separator = "─",
-      on_attach = function()
-        return true
+      on_attach = function(bufnr)
+        -- Do not attach if there is no treesitter parser for the filetype
+        local ok, _ = pcall(vim.treesitter.get_parser, bufnr)
+
+        return ok
       end,
     })
 
