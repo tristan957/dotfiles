@@ -60,6 +60,7 @@ function stow_setup() {
         terminfo \
         terraform \
         testcontainers \
+        tmpfiles \
         tmux \
         toolbox \
         uv \
