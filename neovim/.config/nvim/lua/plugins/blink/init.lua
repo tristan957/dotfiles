@@ -65,7 +65,7 @@ return {
       preset = "default",
     },
     signature = {
-      enabled = true,
+      enabled = false,
     },
     sources = {
       default = function()
