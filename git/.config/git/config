@@ -30,8 +30,6 @@
 	sort = -committerdate
 [color]
 	ui = auto
-[column]
-	ui = auto
 [commit]
 	cleanup = scissors
 	gpgsign = false
