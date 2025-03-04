@@ -5,6 +5,10 @@ local proc =
 local password = proc:read("*l")
 proc:close()
 
+comlink.setup({
+  markread_on_focus = true,
+})
+
 comlink.connect({
   server = "chat.sr.ht",
   tls = true,
@@ -36,3 +40,5 @@ local function format(cmdline)
 end
 
 comlink.add_command("fmt", format)
+comlink.bind("ctrl+j", "next-channel")
+comlink.bind("ctrl+k", "prev-channel")
