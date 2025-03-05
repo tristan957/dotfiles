@@ -34,7 +34,7 @@ distrobox
 # docker-cli
 docker-compose
 # docker-compose-switch
-dotnet-sdk-8.0
+dotnet-sdk-9.0
 elixir
 epiphany
 erlang
