@@ -35,6 +35,8 @@ local function format(cmdline)
   s = string.gsub(s, "_(.+)_", "\x1F%1\x1F")
   -- monospace
   s = string.gsub(s, "`(.+)`", "\x11%1\x11")
+  -- reverse
+  s = string.gsub(s, "\\(.+)\\", "\x16%1\x16")
 
   channel:send_msg(s)
 end
