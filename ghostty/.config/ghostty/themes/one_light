@@ -1,0 +1,35 @@
+# Theme from onedarkpro.nvim (olimorris is a great person)
+
+background = #fafafa
+# I prefer black...
+# foreground = #6a6a6a
+foreground = #323232
+
+palette = 0=#6a6a6a
+palette = 8=#bebebe
+
+palette = 1=#e05661
+palette = 9=#e88189
+
+palette = 2=#1da912
+palette = 10=#25d717
+
+palette = 3=#eea825
+palette = 11=#f2bb54
+
+palette = 4=#118dc3
+palette = 12=#1caceb
+
+palette = 5=#9a77cf
+palette = 13=#b69ddc
+
+palette = 6=#56b6c2
+palette = 14=#7bc6d0
+
+palette = 7=#fafafa
+palette = 15=#ffffff
+
+split-divider-color = #bebebe
+
+# Value comes from Adwaita :)
+window-titlebar-background = #fafafa

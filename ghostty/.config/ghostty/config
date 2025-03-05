@@ -1,36 +1,3 @@
-# Theme from onedarkpro.nvim (olimorris is a great person)
-background = #282c34
-# Value comes from Ptyxis :)
-window-titlebar-background = #303643
-
-# I prefer white...
-# foreground = #abb2bf
-foreground = #ffffff
-
-palette = 0=#282c34
-palette = 8=#5c6370
-
-palette = 1=#ef596f
-palette = 9=#f38897
-
-palette = 2=#89ca78
-palette = 10=#a9d89d
-
-palette = 3=#e5c07b
-palette = 11=#edd4a6
-
-palette = 4=#61afef
-palette = 12=#8fc6f4
-
-palette = 5=#d55fde
-palette = 13=#e089e7
-
-palette = 6=#2bbac5
-palette = 14=#4bced8
-
-palette = 7=#abb2bf
-palette = 15=#c8cdd5
-
 adw-toolbar-style = raised
 
 auto-update = off
@@ -78,10 +45,10 @@ resize-overlay-position = bottom-right
 
 selection-invert-fg-bg = true
 
-split-divider-color = #5c6370
-
 shell-integration = detect
 shell-integration-features = no-cursor,title,sudo
+
+theme = light:one_light,dark:one_dark_vivid
 
 unfocused-split-opacity = 1
 
