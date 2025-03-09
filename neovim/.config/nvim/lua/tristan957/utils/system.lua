@@ -8,7 +8,7 @@ local M = {}
 ---
 ---@return "dark" | "light"
 M.color_scheme = function()
-  if vim.fn.has("nvim-0.11") then
+  if vim.fn.has("nvim-0.11") == 1 then
     return vim.o.background
   end
 
