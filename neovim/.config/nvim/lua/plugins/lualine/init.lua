@@ -33,7 +33,7 @@ return {
         },
       },
       lualine_x = {
-        -- {
+          -- {
           --   "%S",
           --   separator = "",
           --   draw_empty = true,
