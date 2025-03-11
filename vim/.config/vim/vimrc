@@ -106,7 +106,7 @@ set scrolloff=5 " start scrolling X lines from bottom or top
 set secure " no autocmd, shell, or write commands can be run in .exrc files
 set shiftwidth=0
 set shortmess+=c " don't pass messages to |ins-completion-menu|
-set showbreak=++++  " what to show when line breaks
+set showbreak='+++ '  " what to show when line breaks
 " set showcmd " show the last run command
 set showmatch " highlight matching brackets
 set signcolumn=yes " always show the signcolumn
