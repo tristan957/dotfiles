@@ -23,15 +23,15 @@ return {
     "CodeCompanionCmd",
   },
   keys = {
-    { "<C-s>", "<cmd>CodeCompanionActions<cr>", { "n", "v" }, noremap = true, silent = true },
+    { "<C-`>", "<cmd>CodeCompanionActions<cr>", { "n", "v" }, noremap = true, silent = true },
     {
-      "<Leader>s",
+      "<Leader>`",
       "<cmd>CodeCompanionChat Toggle<cr>",
       { "n", "v" },
       noremap = true,
       silent = true,
     },
-    { "gs", "<cmd>CodeCompanionChat Add<cr>", "v", noremap = true, silent = true },
+    { "g`", "<cmd>CodeCompanionChat Add<cr>", "v", noremap = true, silent = true },
   },
   opts = {
     adapters = {
