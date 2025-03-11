@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
-function CodeCompanionProgress()
+local function CodeCompanionProgress()
   if processing then
     spinner_index = (spinner_index % #spinner_symbols) + 1
     return spinner_symbols[spinner_index] .. " "
@@ -41,7 +41,7 @@ function CodeCompanionProgress()
   return " "
 end
 
-function BufferName()
+local function BufferName()
   return "CodeCompanion"
 end
 
