@@ -52,6 +52,7 @@ return {
         lualine_z = { "location" },
       },
       extensions = {
+        require("plugins.lualine.extensions.codecompanion"),
         "fugitive",
         "lazy",
         "man",

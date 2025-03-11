@@ -50,6 +50,12 @@ return {
               return Snacks.git.get_root() ~= nil
             end,
           },
+          {
+            icon = " ",
+            key = "C",
+            desc = "CodeCompanion",
+            action = ":CodeCompanionChat Toggle",
+          },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           {
             icon = "󰒲 ",
