@@ -91,16 +91,6 @@ return {
         },
       },
     },
-    gitbrowse = {
-      url_patterns = {
-        ["git.sr.ht"] = {
-          branch = "/tree/{branch}",
-          file = "/tree/{branch}/item/{file}",
-          permalink = "/tree/{commit}/item/{file}#L{line_start}",
-          commit = "/commit/{commit}",
-        },
-      },
-    },
     image = {
       enabled = true,
     },
