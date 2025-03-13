@@ -77,6 +77,7 @@ return {
       pyright = require("tristan957.lsp.config.pyright"),
       ruff = require("tristan957.lsp.config.ruff"),
       rust_analyzer = require("tristan957.lsp.config.rust-analyzer"),
+      systemd_ls = require("tristan957.lsp.config.systemd-language-server"),
       taplo = require("tristan957.lsp.config.taplo"),
       terraformls = require("tristan957.lsp.config.terraform-ls"),
       tilt_ls = require("tristan957.lsp.config.tilt"),
