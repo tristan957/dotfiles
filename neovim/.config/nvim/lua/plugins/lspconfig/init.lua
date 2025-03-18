@@ -67,6 +67,7 @@ return {
       dockerls = require("tristan957.lsp.config.dockerfile-language-server"),
       gleam = require("tristan957.lsp.config.gleam"),
       gopls = require("tristan957.lsp.config.gopls"),
+      harper_ls = require("tristan957.lsp.config.harper-ls"),
       html = require("tristan957.lsp.config.vscode-html-languageserver"),
       jsonls = require("tristan957.lsp.config.vscode-json-languageserver"),
       jsonnet_ls = require("tristan957.lsp.config.jsonnet-language-server"),
