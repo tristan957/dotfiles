@@ -41,6 +41,7 @@ vim.opt.list = true
 vim.opt.listchars = { space = "·", tab = "⭢ " }
 vim.opt.magic = true
 vim.opt.mouse = ""
+vim.opt.mousescroll = "ver:1,hor:6"
 vim.opt.number = true
 vim.opt.path:append("**")
 vim.opt.relativenumber = true
