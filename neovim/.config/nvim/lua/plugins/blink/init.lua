@@ -76,10 +76,6 @@ return {
           "buffer",
         }
 
-        if vim.bo.buftype == "lua" then
-          return { "lazydev", table.unpack(default) }
-        end
-
         local success, node = pcall(vim.treesitter.get_node)
         if
           success
@@ -91,6 +87,9 @@ return {
 
         return default
       end,
+      per_filetype = {
+        lua = { "lazydev" },
+      },
       providers = {
         lazydev = {
           name = "LazyDev",
