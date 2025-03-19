@@ -28,6 +28,7 @@ function stow_setup() {
         glow \
         go \
         grep \
+        harper \
         helix \
         hut \
         info \
