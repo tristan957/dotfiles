@@ -127,6 +127,7 @@ mold
 moreutils
 mozilla-openh264
 mullvad-vpn
+muon-meson
 neovim
 ninja-build
 nnn
