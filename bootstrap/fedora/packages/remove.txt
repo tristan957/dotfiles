@@ -1,5 +1,11 @@
 cheese
+gnome-boxes
+gnome-calculator
 gnome-calendar
+gnome-clocks
+gnome-contacts
+gnome-maps
+gnome-weather
 loupe
 open-vm-tools-desktop
 ptyxis
