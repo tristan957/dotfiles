@@ -119,7 +119,6 @@ luarocks
 lynx
 maven
 meson
-mesonlsp
 miller
 mingw64-gcc
 mkosi

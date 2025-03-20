@@ -82,9 +82,6 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     sudo dnf install --assumeyes \
         "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$version.noarch.rpm"
 
-    # Swift-MesonLSP
-    sudo dnf copr enable --assumeyes jcwasmx86/Swift-MesonLSP
-
     # Teleport
     sudo dnf config-manager addrepo --assumeyes \
         --from-repofile=https://rpm.releases.teleport.dev/teleport.repo
