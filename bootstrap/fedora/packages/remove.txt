@@ -4,6 +4,7 @@ loupe
 open-vm-tools-desktop
 ptyxis
 rhythmbox
+simplescan
 snapshot
 totem
 yelp
