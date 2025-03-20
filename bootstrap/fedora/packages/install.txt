@@ -82,6 +82,7 @@ helm
 hexyl
 htop
 hut
+hyperfine
 info
 inotify-tools
 java-latest-openjdk
