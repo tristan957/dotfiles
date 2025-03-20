@@ -74,7 +74,6 @@ return {
       lemminx = require("tristan957.lsp.config.lemminx"),
       lua_ls = require("tristan957.lsp.config.lua-language-server"),
       marksman = require("tristan957.lsp.config.marksman"),
-      mesonlsp = require("tristan957.lsp.config.mesonlsp"),
       muon = require("tristan957.lsp.config.muon"),
       pyright = require("tristan957.lsp.config.pyright"),
       ruff = require("tristan957.lsp.config.ruff"),
