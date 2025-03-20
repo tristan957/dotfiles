@@ -3,6 +3,7 @@ gnome-calendar
 loupe
 open-vm-tools-desktop
 ptyxis
+rhythmbox
 snapshot
 totem
 yelp
