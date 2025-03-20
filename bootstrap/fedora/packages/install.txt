@@ -79,6 +79,7 @@ gum
 hare
 helix
 helm
+hexyl
 htop
 hut
 info
