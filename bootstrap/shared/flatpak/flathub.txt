@@ -29,6 +29,7 @@ org.gnome.Calculator
 org.gnome.Calendar
 org.gnome.clocks
 org.gnome.Contacts
+org.gnome.Decibels
 org.gnome.Fractal
 org.gnome.Loupe
 org.gnome.Maps
