@@ -1,4 +1,5 @@
 cheese
+gnome-calendar
 loupe
 open-vm-tools-desktop
 ptyxis

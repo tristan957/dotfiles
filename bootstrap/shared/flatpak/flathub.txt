@@ -25,6 +25,7 @@ org.freedesktop.Bustle
 org.gimp.GIMP
 org.gnome.dspy
 org.gnome.Builder
+org.gnome.Calendar
 org.gnome.Fractal
 org.gnome.Loupe
 org.gnome.Papers
