@@ -35,4 +35,5 @@ org.gnome.design.IconLibrary
 org.gnome.design.Lorem
 org.inkscape.Inkscape
 org.signal.Signal
+page.tesk.Refine
 us.zoom.Zoom
