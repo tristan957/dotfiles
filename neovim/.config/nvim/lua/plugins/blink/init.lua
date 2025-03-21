@@ -85,11 +85,19 @@ return {
           return { "path", "buffer" }
         end
 
+        if vim.bo.filetype == "lua" then
+          return {
+            "lazydev",
+            table.unpack(default),
+          }
+        end
+
         return default
       end,
-      per_filetype = {
-        lua = { "lazydev" },
-      },
+      -- For whatever reason, this does not work :^(
+      -- per_filetype = {
+      --   lua = { "lazydev" },
+      -- },
       providers = {
         lazydev = {
           name = "LazyDev",
