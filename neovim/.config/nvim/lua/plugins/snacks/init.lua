@@ -5,152 +5,161 @@ return {
   "folke/snacks.nvim",
   enabled = true,
   priority = 1000,
-  ---@type snacks.Config
-  opts = {
-    bigfile = {
-      enabled = false,
-    },
-    dashboard = {
-      enabled = true,
-      preset = {
-        header = [[
+  opts = function(_, _)
+    local in_git_repo = Snacks.git.get_root() ~= nil
+
+    ---@type snacks.Config
+    return {
+      bigfile = {
+        enabled = false,
+      },
+      dashboard = {
+        enabled = true,
+        preset = {
+          header = [[
 ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
 ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
 ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
 ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-        ---@type snacks.dashboard.Item[]
-        keys = {
-          {
-            icon = " ",
-            key = "f",
-            desc = "Find File",
-            action = ":lua Snacks.picker.smart()",
+          ---@type snacks.dashboard.Item[]
+          keys = {
+            {
+              icon = " ",
+              key = "f",
+              desc = "Find File",
+              action = ":lua Snacks.picker.smart()",
+            },
+            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+            {
+              icon = " ",
+              key = "g",
+              desc = "Find Text",
+              action = ":lua Snacks.dashboard.pick('live_grep')",
+            },
+            {
+              icon = " ",
+              key = "r",
+              desc = "Recent Files",
+              action = ":lua Snacks.dashboard.pick('oldfiles')",
+            },
+            {
+              icon = " ",
+              key = "G",
+              desc = "Git",
+              action = ":Git",
+              enabled = in_git_repo,
+            },
+            {
+              icon = " ",
+              key = "b",
+              desc = "Checkout Branch",
+              action = ":lua Snacks.picker.git_branches()",
+              enabled = in_git_repo,
+            },
+            {
+              icon = " ",
+              key = "C",
+              desc = "CodeCompanion",
+              action = ":CodeCompanionChat Toggle",
+            },
+            { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+            {
+              icon = "󰒲 ",
+              key = "L",
+              desc = "Lazy",
+              action = ":Lazy",
+              enabled = package.loaded.lazy ~= nil,
+            },
+            {
+              icon = " ",
+              key = "M",
+              desc = "Mason",
+              action = ":Mason",
+            },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+        },
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup", padding = 1 },
           {
-            icon = " ",
-            key = "g",
-            desc = "Find Text",
-            action = ":lua Snacks.dashboard.pick('live_grep')",
-          },
-          {
-            icon = " ",
-            key = "r",
-            desc = "Recent Files",
-            action = ":lua Snacks.dashboard.pick('oldfiles')",
-          },
-          {
-            icon = " ",
-            key = "b",
-            desc = "Checkout Branch",
-            action = ":lua Snacks.picker.git_branches()",
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
             enabled = function()
               return Snacks.git.get_root() ~= nil
             end,
+            cmd = "git status --short --branch --renames",
+            padding = 1,
+            ttl = 5 * 60,
+            indent = 3,
           },
-          {
-            icon = " ",
-            key = "C",
-            desc = "CodeCompanion",
-            action = ":CodeCompanionChat Toggle",
-          },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          {
-            icon = "󰒲 ",
-            key = "L",
-            desc = "Lazy",
-            action = ":Lazy",
-            enabled = package.loaded.lazy ~= nil,
-          },
-          {
-            icon = " ",
-            key = "M",
-            desc = "Mason",
-            action = ":Mason",
-          },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
-      sections = {
-        { section = "header" },
-        { section = "keys", gap = 1, padding = 1 },
-        { section = "startup", padding = 1 },
-        {
-          icon = " ",
-          title = "Git Status",
-          section = "terminal",
-          enabled = function()
-            return Snacks.git.get_root() ~= nil
-          end,
-          cmd = "git status --short --branch --renames",
-          padding = 1,
-          ttl = 5 * 60,
-          indent = 3,
-        },
+      image = {
+        enabled = true,
       },
-    },
-    image = {
-      enabled = true,
-    },
-    indent = {
-      enabled = false,
-    },
-    input = {
-      enabled = true,
-    },
-    lazygit = {},
-    notifier = {
-      enabled = true,
-      style = "fancy",
-    },
-    picker = {
-      enabled = true,
-      ui_select = true,
-    },
-    quickfile = {
-      enabled = false,
-    },
-    scroll = {
-      enabled = false,
-    },
-    statuscolumn = {
-      enabled = false,
-    },
-    styles = {
+      indent = {
+        enabled = false,
+      },
       input = {
-        border = "rounded",
-        title_pos = "center",
-        relative = "editor",
+        enabled = true,
       },
-      ---@diagnostic disable-next-line: missing-fields
+      lazygit = {},
       notifier = {
-        wo = {
-          wrap = true,
+        enabled = true,
+        style = "fancy",
+      },
+      picker = {
+        enabled = true,
+        ui_select = true,
+      },
+      quickfile = {
+        enabled = false,
+      },
+      scroll = {
+        enabled = false,
+      },
+      statuscolumn = {
+        enabled = false,
+      },
+      styles = {
+        input = {
+          border = "rounded",
+          title_pos = "center",
+          relative = "editor",
+        },
+        ---@diagnostic disable-next-line: missing-fields
+        notifier = {
+          wo = {
+            wrap = true,
+          },
+        },
+        ---@diagnostic disable-next-line: missing-fields
+        zen = {
+          backdrop = {
+            transparent = false,
+          },
         },
       },
-      ---@diagnostic disable-next-line: missing-fields
+      words = {
+        enabled = true,
+      },
       zen = {
-        backdrop = {
-          transparent = false,
+        toggles = {
+          dim = false,
         },
+        show = {
+          statusline = true,
+        },
+        win = {},
+        zoom = {},
       },
-    },
-    words = {
-      enabled = true,
-    },
-    zen = {
-      toggles = {
-        dim = false,
-      },
-      show = {
-        statusline = true,
-      },
-      win = {},
-      zoom = {},
-    },
-  },
+    }
+  end,
   config = function(_, opts)
     local Snacks = require("snacks")
 
