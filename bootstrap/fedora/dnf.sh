@@ -110,6 +110,11 @@ gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
     sudo dnf update --assumeyes @core
 }
 
+function dnf_remove_repos() {
+    # Why does Fedora install this by default
+    sudo dnf copr remove phracek/PyCharm
+}
+
 function dnf_install_packages() {
     local dir=$(dirname "${BASH_SOURCE[0]}")
 
@@ -154,6 +159,7 @@ function dnf_proprietary_multimedia() {
 
 function dnf_setup() {
     dnf_add_repos
+    dnf_remove_repos
     sudo dnf upgrade -y
     dnf_install_packages
     dnf_proprietary_multimedia
