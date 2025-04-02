@@ -35,6 +35,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/grub.sh"
 . "$dir/shared/homebrew.sh"
 . "$dir/shared/mandb.sh"
+. "$dir/shared/mise.sh"
 . "$dir/shared/podman.sh"
 . "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
@@ -66,4 +67,5 @@ grub_setup
 uv_setup
 asciinema_setup
 podman_setup
+mise_setup
 # docker_setup
