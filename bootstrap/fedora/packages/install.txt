@@ -74,6 +74,7 @@ gron
 gstreamer1-plugins-bad-free-devel
 gstreamer1-plugins-base-tools
 gtk4-devel
+gtk4-devel-tools
 gum
 hare
 helix
