@@ -2,6 +2,8 @@ adw-toolbar-style = raised
 
 auto-update = off
 
+bell-features = no-system
+
 clipboard-paste-bracketed-safe = true
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
