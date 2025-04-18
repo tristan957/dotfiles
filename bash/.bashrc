@@ -62,6 +62,11 @@ if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
     done < <(cut -d= -f1 <<<"$whitelisted_env")
 fi
 
+# Temporary hack for Fedora 41
+if [[ -d "$HOME/.opt/nvim/bin" ]]; then
+    PATH="$HOME/.opt/nvim/bin:$PATH"
+fi
+
 #-------------------------------------------------------------------------------
 
 # Bash Settings
