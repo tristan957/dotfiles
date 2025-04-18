@@ -1,7 +1,5 @@
----@module "lspconfig"
-
 --- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
----@type lspconfig.Config | {}
+---@type vim.lsp.Config
 return {
   settings = {
     gopls = {

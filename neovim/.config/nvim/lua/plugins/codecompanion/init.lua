@@ -38,7 +38,15 @@ return {
       anthropic = function()
         return require("codecompanion.adapters").extend("anthropic", {
           env = {
-            api_key = "cmd:op --account my.1password.com read op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
+            api_key = vim
+              .system({
+                "op",
+                "--account",
+                "my.1password.com",
+                "read",
+                "op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
+              })
+              :wait().stdout,
           },
         })
       end,

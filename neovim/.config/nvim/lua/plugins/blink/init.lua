@@ -88,7 +88,7 @@ return {
         if vim.bo.filetype == "lua" then
           return {
             "lazydev",
-            table.unpack(default),
+            unpack(default),
           }
         end
 

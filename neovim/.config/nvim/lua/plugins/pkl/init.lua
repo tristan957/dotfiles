@@ -6,6 +6,6 @@ return {
   enabled = true,
   ft = "pkl",
   build = function()
-    require("pkl-neovim.internal").init()
+    require("pkl-neovim").init()
   end,
 }

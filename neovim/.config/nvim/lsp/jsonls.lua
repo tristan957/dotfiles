@@ -1,8 +1,6 @@
----@module "lspconfig"
-
 local schemastore = require("schemastore")
 
----@type lspconfig.Config | {}
+---@type vim.lsp.Config
 return {
   filetypes = {
     "json",

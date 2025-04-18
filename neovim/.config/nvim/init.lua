@@ -20,6 +20,7 @@ vim.opt.backup = false
 vim.opt.breakindent = true
 vim.opt.cmdheight = 2
 vim.opt.colorcolumn = { 80, 100, 120 }
+vim.opt.completeopt:append({"noselect", "fuzzy"})
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = { "line" }
@@ -64,9 +65,11 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
+vim.opt.tabclose = "uselast"
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmenu = true
+vim.opt.winborder = "solid"
 vim.opt.wrap = false
 vim.opt.writebackup = false
 
@@ -78,10 +81,6 @@ vim.g.markdown_fenced_languages = {
 }
 vim.g.omni_sql_no_default_maps = 1
 
--- TODO: Set these up:
--- https://github.com/mrcjkb/rustaceanvim
--- https://github.com/mfussenegger/nvim-jdtls
--- https://github.com/pmizio/typescript-tools.nvim
 require("lazy").setup("plugins", {
   change_detection = {
     enabled = false,

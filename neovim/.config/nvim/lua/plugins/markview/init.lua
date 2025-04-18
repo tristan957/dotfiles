@@ -5,5 +5,12 @@
 return {
   "OXY2DEV/markview.nvim",
   lazy = true,
+  dependencies = {
+    "echasnovski/mini.icons",
+    "nvim-treesitter/nvim-treesitter",
+    "Saghen/blink.cmp",
+  },
+  cmd = "Markview",
+  ---@type mkv.config
   opts = {},
 }

@@ -35,35 +35,7 @@ return {
       ["@property.meson"] = { fg = "${white}" },
     },
     options = {
-      cursorline = vim.opt.cursorline,
+      cursorline = vim.o.cursorline,
     },
   },
-  config = function(_, opts)
-    local onedarkpro = require("onedarkpro")
-
-    onedarkpro.setup(opts)
-
-    local toggle = Snacks.toggle.new({
-      name = "Light theme",
-      get = function()
-        return vim.g.colors_name == "onelight"
-      end,
-      set = function(state)
-        if state then
-          vim.cmd.colorscheme("onelight")
-        else
-          vim.cmd.colorscheme("onedark_vivid")
-        end
-      end,
-    })
-
-    toggle:set(vim.o.background == "light")
-
-    vim.api.nvim_create_autocmd("OptionSet", {
-      pattern = "background",
-      callback = function(_)
-        toggle:set(vim.v.option_new == "light")
-      end,
-    })
-  end,
 }

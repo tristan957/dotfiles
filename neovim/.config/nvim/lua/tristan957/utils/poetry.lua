@@ -58,7 +58,7 @@ M.run = function(cmd)
       "poetry",
       "run",
       "--",
-      table.unpack(cmd),
+      unpack(cmd),
     })
     :wait()
 end

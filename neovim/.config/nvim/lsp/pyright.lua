@@ -1,7 +1,5 @@
----@module "lspconfig"
-
 --- https://github.com/microsoft/pyright/blob/main/docs/settings.md
----@type lspconfig.Config | {}
+---@type vim.lsp.Config
 return {
   autostart = false,
   settings = {
@@ -14,17 +12,17 @@ return {
       },
     },
   },
-  on_new_config = function(new_config, new_root_dir)
+  before_init = function(_, config)
     local poetry = require("tristan957.utils.poetry")
-    local default_config = require("lspconfig.configs.basedpyright").default_config
+    local default_config = require("lspconfig.configs.pyright").default_config
 
-    -- We are already in the virual environment, so skip the setup.
+    -- We are already in the virtual environment, so skip the setup.
     if vim.env.VIRTUAL_ENV ~= nil then
       return
     end
 
-    if poetry.is_workspace(new_root_dir) and vim.fn.executable("poetry") == 1 then
-      new_config.cmd = { "poetry", "run", "--", table.unpack(default_config.cmd) }
+    if poetry.is_workspace(vim.uv.cwd() --[[@as string]]) and vim.fn.executable("poetry") == 1 then
+      config.cmd = { "poetry", "run", "--", unpack(default_config.cmd) }
     end
   end,
 }

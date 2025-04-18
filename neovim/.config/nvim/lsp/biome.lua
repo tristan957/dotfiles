@@ -1,5 +1,3 @@
----@module "lspconfig"
-
 local enabled = vim.fn.filereadable("biome.json") == 1
 
 if not enabled then
@@ -10,7 +8,7 @@ if not enabled then
   end
 end
 
----@type lspconfig.Config | {}
+---@type vim.lsp.Config
 return {
   enabled = enabled,
 }

@@ -1,8 +1,6 @@
----@module "lspconfig"
-
 local schemastore = require("schemastore")
 
----@type lspconfig.Config | {}
+---@type vim.lsp.Config
 return {
   filetypes = {
     "yaml",
@@ -19,7 +17,7 @@ return {
           "container-compose.yml",
           "container-compose.yaml",
         },
-        table.unpack(schemastore.yaml.schemas()),
+        unpack(schemastore.yaml.schemas()),
       },
     },
   },

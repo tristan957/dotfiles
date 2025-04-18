@@ -61,7 +61,7 @@ M.wrap_with_run = function(cmd, options)
     table.insert(wrapper, "--pty")
   end
 
-  return vim.iter({ wrapper, "--", table.unpack(cmd) }):flatten():totable()
+  return vim.iter({ wrapper, "--", unpack(cmd) }):flatten():totable()
 end
 
 return M

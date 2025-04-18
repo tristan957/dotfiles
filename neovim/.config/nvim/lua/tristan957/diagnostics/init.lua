@@ -1,7 +1,4 @@
 vim.diagnostic.config({
-  float = {
-    border = "solid",
-  },
   -- Instead of using the sign column for diagnostic information, highlight the
   -- line numbers.
   signs = {
@@ -19,7 +16,9 @@ vim.diagnostic.config({
     },
   },
   severity_sort = true,
-  virtual_text = true,
+  virtual_lines = {
+    current_line = true,
+  },
 })
 
 vim.keymap.set(
