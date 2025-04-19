@@ -225,25 +225,33 @@ function tsh-kube-login() {
 
 # fzf
 
-eval "$(fzf --bash 2>/dev/null)"
+if command -v 'fzf' &>/dev/null; then
+    eval "$(fzf --bash 2>/dev/null)"
+fi
 
 #-------------------------------------------------------------------------------
 
 # direnv
 
-eval "$(direnv hook bash 2>/dev/null)"
+if command -v 'direnv' &>/dev/null; then
+    eval "$(direnv hook bash 2>/dev/null)"
+fi
 
 #-------------------------------------------------------------------------------
 
 # zoxide
 
-eval "$(zoxide init bash 2>/dev/null)"
+if command -v 'zoxide' &>/dev/null; then
+    eval "$(zoxide init bash 2>/dev/null)"
+fi
 
 #-------------------------------------------------------------------------------
 
 # mise
 
-eval "$(mise activate bash 2>/dev/null)"
+if command -v 'mise' &>/dev/null; then
+    eval "$(mise activate bash 2>/dev/null)"
+fi
 
 #-------------------------------------------------------------------------------
 
