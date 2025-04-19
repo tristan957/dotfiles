@@ -100,6 +100,7 @@ libadwaita-devel
 libasan
 libasan-static
 libcamera-tools
+libcurl-devel
 libdb-devel
 libdex-devel
 libdrm-devel
