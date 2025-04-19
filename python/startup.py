@@ -17,7 +17,7 @@ try:
     readline.read_history_file(HISTFILE)
     h_len = readline.get_current_history_length()
 except FileNotFoundError:
-    open(HISTFILE, 'wb').close()
+    open(HISTFILE, "wb").close()
     h_len = 0
 
 def save(prev_h_len: int, histfile: None | bytes | os.PathLike[bytes] | str | os.PathLike[str]):
