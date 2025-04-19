@@ -77,6 +77,11 @@ have_git_ps1=$(
     echo $?
 )
 
+have_kubectl=$(
+    command -v kubectl &>/dev/null
+    echo $?
+)
+
 function __tput() {
     tput "$@" 2>/dev/null
 }
@@ -111,11 +116,13 @@ function __prompt_extras() {
     fi
 
     # kubectl current context/namespace
-    kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
-    # shellcheck disable=SC2181
-    if [[ $? -eq 0 ]]; then
-        kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
+    if [[ $have_kubectl -eq 0 ]]; then
+        kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
+        # shellcheck disable=SC2181
+        if [[ $? -eq 0 ]]; then
+            kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
+        fi
     fi
 
     echo -ne "$PROMPT_EXTRAS"
