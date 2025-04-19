@@ -18,7 +18,8 @@ tasks:
       luacheck .
   - ruff: |
       cd dotfiles
-      ./scripts/ruff.sh
+      ruff check --diff .
+      ruff format --diff .
   - shellcheck: |
       cd dotfiles
       ./scripts/shellcheck.sh
