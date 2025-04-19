@@ -7,7 +7,6 @@ docbook-dtds
 flex
 fop
 krb5-devel
-kubernetes-client
 libcurl-devel
 libseccomp-devel
 libselinux-devel
