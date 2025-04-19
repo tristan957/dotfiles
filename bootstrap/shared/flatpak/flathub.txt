@@ -14,7 +14,6 @@ com.spotify.Client
 com.valvesoftware.Steam
 de.haeckerfelix.Fragments
 dev.geopjr.Tuba
-dev.skynomads.Seabird
 io.bassi.Amberol
 io.github.realmazharhussain.GdmSettings
 io.gitlab.news_flash.NewsFlash
