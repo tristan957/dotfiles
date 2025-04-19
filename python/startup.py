@@ -4,7 +4,10 @@ import atexit
 import os
 import readline
 
-STATE_DIR = os.getenv("XDG_STATE_HOME", os.path.join(os.getenv("HOME"), ".var"))
+HOME = os.getenv("HOME")
+assert HOME
+
+STATE_DIR = os.getenv("XDG_STATE_HOME", os.path.join(HOME, ".var"))
 PYTHON_STATE_DIR = os.path.join(STATE_DIR, "python")
 HISTFILE = os.path.join(PYTHON_STATE_DIR, "history")
 
