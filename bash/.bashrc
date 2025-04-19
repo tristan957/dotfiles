@@ -18,14 +18,14 @@ shopt -s hostcomplete
 # Environment Variables
 
 # Set default terminal text editor
-if command -v 'nvim' >/dev/null 2>&1; then
+if command -v 'nvim' &>/dev/null; then
     export EDITOR='nvim'
     export MANPAGER='nvim +Man!'
     export VISUAL='nvim'
-elif command -v 'vim' >/dev/null 2>&1; then
+elif command -v 'vim' &>/dev/null; then
     export EDITOR='vim'
     export VISUAL='vim'
-elif command -v 'vi' >/dev/null 2>&1; then
+elif command -v 'vi' &>/dev/null; then
     export EDITOR='vi'
     export VISUAL='vi'
 else
