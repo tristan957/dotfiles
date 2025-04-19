@@ -20,9 +20,14 @@ except FileNotFoundError:
     open(HISTFILE, "wb").close()
     h_len = 0
 
-def save(prev_h_len: int, histfile: None | bytes | os.PathLike[bytes] | str | os.PathLike[str]):
+
+def save(
+    prev_h_len: int,
+    histfile: None | bytes | os.PathLike[bytes] | str | os.PathLike[str],
+):
     new_h_len = readline.get_current_history_length()
     readline.set_history_length(1000)
     readline.append_history_file(new_h_len - prev_h_len, histfile)
+
 
 atexit.register(save, h_len, HISTFILE)
