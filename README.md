@@ -49,6 +49,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - less
 - mandb
 - meson
+- mise
 - mjmap
 - neon
 - neovim

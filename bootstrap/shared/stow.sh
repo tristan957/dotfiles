@@ -39,6 +39,7 @@ function stow_setup() {
         less \
         mandb \
         meson \
+        mise \
         mjmap \
         neon \
         neovim \
