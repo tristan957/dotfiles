@@ -114,6 +114,8 @@ libsass-devel
 libsoup-devel
 libtsan
 libtsan-static
+libubsan
+libubsan-static
 libvarlink-devel
 libxkbcommon-devel
 lldb
