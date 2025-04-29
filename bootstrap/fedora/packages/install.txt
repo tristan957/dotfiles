@@ -22,7 +22,6 @@ code
 codium
 codespell
 compat-lua
-# containerd
 dconf-editor
 ddcutil
 delve
@@ -31,10 +30,11 @@ dhall-json
 difftastic
 direnv
 distrobox
-# docker-buildx
-# docker-cli
-docker-compose
-# docker-compose-switch
+docker-buildx-plugin
+docker-ce
+docker-ce-cli
+docker-compose-plugin
+containerd.io
 dotnet-sdk-9.0
 elixir
 epiphany

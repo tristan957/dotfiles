@@ -32,6 +32,10 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' |
     curl -fsSl https://pkg.cloudflare.com/cloudflared-ascii.repo |
         sudo tee /etc/yum.repos.d/cloudflared.repo
 
+    # Docker
+    sudo dnf config-manager addrepo \
+        --from-repofile='https://download.docker.com/linux/fedora/docker-ce.repo'
+
     # Gleam
     dnf copr enable --assumeyes frostyx/gleam
 
