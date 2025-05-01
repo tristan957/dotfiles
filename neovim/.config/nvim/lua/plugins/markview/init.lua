@@ -4,6 +4,7 @@
 ---@type LazySpec
 return {
   "OXY2DEV/markview.nvim",
+  enabled = true,
   lazy = true,
   dependencies = {
     "echasnovski/mini.icons",
