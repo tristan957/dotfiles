@@ -15,7 +15,6 @@ vim.opt.runtimepath:prepend(lazy_path)
 
 vim.opt.autoindent = true
 vim.opt.autoread = true
-vim.opt.background = require("tristan957.utils.system").color_scheme()
 vim.opt.backup = false
 vim.opt.breakindent = true
 vim.opt.cmdheight = 2

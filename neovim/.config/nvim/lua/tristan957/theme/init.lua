@@ -18,8 +18,6 @@ M.setup = function()
     end,
   })
 
-  toggle:set(vim.o.background == "light")
-
   vim.api.nvim_create_autocmd("OptionSet", {
     pattern = "background",
     callback = function(_)
