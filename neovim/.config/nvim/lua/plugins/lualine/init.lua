@@ -4,9 +4,6 @@
 return {
   "nvim-lualine/lualine.nvim",
   enabled = true,
-  dependencies = {
-    "onedarkpro.nvim",
-  },
   event = "UIEnter",
   opts = {
     options = {
@@ -53,6 +50,7 @@ return {
     },
     extensions = {
       require("plugins.lualine.extensions.codecompanion"),
+      require("plugins.lualine.extensions.snacks_dashboard"),
       "fugitive",
       "lazy",
       "man",

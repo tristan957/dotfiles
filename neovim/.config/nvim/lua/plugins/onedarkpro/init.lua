@@ -4,9 +4,6 @@
 return {
   "olimorris/onedarkpro.nvim",
   enabled = true,
-  dependencies = {
-    "folke/snacks.nvim",
-  },
   lazy = false,
   priority = 500,
   dev = false,
