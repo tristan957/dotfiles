@@ -98,7 +98,7 @@ require("lazy").setup("plugins", {
     enabled = true,
   },
   ui = {
-    border = "rounded",
+    border = vim.o.winborder,
   },
 })
 

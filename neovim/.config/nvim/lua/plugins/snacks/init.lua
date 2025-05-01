@@ -128,7 +128,7 @@ return {
       },
       styles = {
         input = {
-          border = "rounded",
+          border = vim.o.winborder,
           title_pos = "center",
           relative = "editor",
         },

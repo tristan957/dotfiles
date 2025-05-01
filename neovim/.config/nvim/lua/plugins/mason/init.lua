@@ -11,7 +11,7 @@ return {
   opts = {
     log_level = vim.log.levels.OFF,
     ui = {
-      border = "rounded",
+      border = vim.o.winborder,
     },
   },
 }
