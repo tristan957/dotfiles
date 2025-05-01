@@ -13,7 +13,6 @@
   "mini.align": { "branch": "main", "commit": "2b42ac0be7d570c2208f9e334ecef13453cd222d" },
   "mini.bracketed": { "branch": "main", "commit": "cd77e1e498a561a0f11b41a650caa1ba3a6a3fcc" },
   "mini.diff": { "branch": "main", "commit": "7e268d0241255abaa07b8aa0ddff028f7315fe21" },
-  "mini.hipatterns": { "branch": "main", "commit": "e5083df391171dc9d8172645606f8496d9443374" },
   "mini.icons": { "branch": "main", "commit": "397ed3807e96b59709ef3292f0a3e253d5c1dc0a" },
   "mini.misc": { "branch": "main", "commit": "52bf20e952a26820c25776c7b594f64b7a6dcb66" },
   "mini.move": { "branch": "main", "commit": "4fe4a855fee53c66b0f3255a4b54ddc2ae6b308c" },
