@@ -4,7 +4,7 @@
 return {
   "folke/snacks.nvim",
   enabled = true,
-  priority = 1000,
+  priority = 500,
   opts = function(_, _)
     local in_git_repo = Snacks.git.get_root() ~= nil
 

@@ -5,7 +5,7 @@ return {
   "olimorris/onedarkpro.nvim",
   enabled = true,
   lazy = false,
-  priority = 500,
+  priority = 1000,
   dev = false,
   opts = {
     caching = true,
