@@ -33,101 +33,105 @@ return {
     },
     { "g`", "<cmd>CodeCompanionChat Add<cr>", "v", noremap = true, silent = true },
   },
-  opts = {
-    adapters = {
-      anthropic = function()
-        return require("codecompanion.adapters").extend("anthropic", {
-          env = {
-            api_key = vim
-              .system({
-                "op",
-                "--account",
-                "my.1password.com",
-                "read",
-                "op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
-              })
-              :wait().stdout,
-          },
-        })
-      end,
-    },
-    chat = {
-      slash_commands = {
-        ["file"] = {
-          callback = "strategies.chat.slash_commands.file",
-          description = "Select a file using Telescope",
-          opts = {
-            provider = "snacks",
-            contains_code = true,
-          },
-        },
-      },
-    },
-    display = {
-      action_palette = {
-        provider = "default",
+  opts = function(_, _)
+    local utils = require("tristan957.utils")
+
+    return {
+      adapters = {
+        anthropic = function()
+          return require("codecompanion.adapters").extend("anthropic", {
+            env = {
+              api_key = utils.rstrip(vim
+                .system({
+                  "op",
+                  "--account",
+                  "my.1password.com",
+                  "read",
+                  "op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
+                })
+                :wait().stdout),
+            },
+          })
+        end,
       },
       chat = {
-        follow = true,
-        icons = {
-          pinned_buffer = " ",
-          watched_buffer = " ",
-        },
-        window = {
-          layout = "vertical",
-          position = nil,
-          relative = "editor",
-          width = 0.5,
-          opts = {
-            breakindent = true,
-            cursorcolumn = false,
-            cursorline = false,
-            foldcolumn = "0",
-            linebreak = true,
-            list = false,
-            numberwidth = 1,
-            signcolumn = "no",
-            spell = false,
-            wrap = true,
+        slash_commands = {
+          ["file"] = {
+            callback = "strategies.chat.slash_commands.file",
+            description = "Select a file using Telescope",
+            opts = {
+              provider = "snacks",
+              contains_code = true,
+            },
           },
         },
       },
-      inline = {
-        layout = "vertical",
+      display = {
+        action_palette = {
+          provider = "default",
+        },
+        chat = {
+          follow = true,
+          icons = {
+            pinned_buffer = " ",
+            watched_buffer = " ",
+          },
+          window = {
+            layout = "vertical",
+            position = nil,
+            relative = "editor",
+            width = 0.5,
+            opts = {
+              breakindent = true,
+              cursorcolumn = false,
+              cursorline = false,
+              foldcolumn = "0",
+              linebreak = true,
+              list = false,
+              numberwidth = 1,
+              signcolumn = "no",
+              spell = false,
+              wrap = true,
+            },
+          },
+        },
+        inline = {
+          layout = "vertical",
+        },
+        opts = {
+          show_default_actions = true,
+          show_default_prompt_library = true,
+        },
       },
       opts = {
-        show_default_actions = true,
-        show_default_prompt_library = true,
+        log_level = "TRACE",
       },
-    },
-    opts = {
-      log_level = "ERROR",
-    },
-    strategies = {
-      chat = {
-        adapter = "anthropic",
-        keymaps = {
-          send = {
-            modes = { n = "<CR>", i = "<C-s>" },
+      strategies = {
+        chat = {
+          adapter = "anthropic",
+          keymaps = {
+            send = {
+              modes = { n = "<CR>", i = "<C-s>" },
+            },
+            close = {
+              modes = { n = "<C-c>", i = "<C-c>" },
+            },
           },
-          close = {
-            modes = { n = "<C-c>", i = "<C-c>" },
+        },
+        inline = {
+          adapter = "anthropic",
+          keymaps = {
+            accept_change = {
+              modes = { n = "ga" },
+              description = "Accept the suggested change",
+            },
+            reject_change = {
+              modes = { n = "gr" },
+              description = "Reject the suggested change",
+            },
           },
         },
       },
-      inline = {
-        adapter = "anthropic",
-        keymaps = {
-          accept_change = {
-            modes = { n = "ga" },
-            description = "Accept the suggested change",
-          },
-          reject_change = {
-            modes = { n = "gr" },
-            description = "Reject the suggested change",
-          },
-        },
-      },
-    },
-  },
+    }
+  end,
 }
