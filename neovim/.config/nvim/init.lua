@@ -68,7 +68,7 @@ vim.opt.tabclose = "uselast"
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmenu = true
-vim.opt.winborder = "solid"
+vim.opt.winborder = "single"
 vim.opt.wrap = false
 vim.opt.writebackup = false
 
