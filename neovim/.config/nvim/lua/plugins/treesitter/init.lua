@@ -21,6 +21,7 @@ return {
       build = "make nvim_install",
     },
     "apple/pkl-neovim",
+    "OXY2DEV/markview.nvim",
   },
   cmd = { "TSInstall", "TSUninstall", "TSUpdate", "TSUpdateSync" },
   event = { "BufReadPre", "BufNewFile" },
