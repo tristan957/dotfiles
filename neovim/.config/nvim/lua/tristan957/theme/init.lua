@@ -4,6 +4,8 @@ M.DARK_THEME = "onedark_vivid"
 M.LIGHT_THEME = "onelight"
 
 M.setup = function()
+  vim.cmd.colorscheme(M.DARK_THEME)
+
   vim.api.nvim_create_autocmd("OptionSet", {
     pattern = "background",
     callback = function(_)
