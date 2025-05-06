@@ -1,15 +1,24 @@
+local system = require("tristan957.utils.system")
+
 local M = {}
 
 M.DARK_THEME = "onedark_vivid"
 M.LIGHT_THEME = "onelight"
 
+--- Set the theme
+---
+---@param theme "light" | "dark"
+local function set_theme(theme)
+  vim.cmd.colorscheme(theme == "light" and M.LIGHT_THEME or M.DARK_THEME)
+end
+
 M.setup = function()
-  vim.cmd.colorscheme(M.DARK_THEME)
+  set_theme(system.color_scheme())
 
   vim.api.nvim_create_autocmd("OptionSet", {
     pattern = "background",
     callback = function(_)
-      vim.cmd.colorscheme(vim.o.background == "light" and M.LIGHT_THEME or M.DARK_THEME)
+      set_theme(vim.o.background)
     end,
   })
 end

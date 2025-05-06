@@ -4,14 +4,8 @@ local M = {}
 ---
 --- https://flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.Settings.html
 ---
---- On Neovim 0.11, vim.o.background is kept in sync by Neovim itself.
----
 ---@return "dark" | "light"
 M.color_scheme = function()
-  -- if vim.fn.has("nvim-0.11") == 1 then
-  --   return vim.o.background
-  -- end
-
   local cmd = vim
     .system({
       "busctl",
