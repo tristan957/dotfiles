@@ -16,6 +16,7 @@ vim.lsp.enable({
   "gleam",
   "gopls",
   "harperls",
+  "helm_ls",
   "html",
   "jsonls",
   -- "jsonnet_ls",
