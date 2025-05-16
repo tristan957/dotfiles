@@ -70,5 +70,8 @@ vim.filetype.add({
     [".vscode/tasks.json"] = "jsonc",
     ["openapi.*%.ya?ml"] = "yaml.openapi",
     ["openapi.*%.json"] = "json.openapi",
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.txt"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
   },
 })
