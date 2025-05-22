@@ -25,6 +25,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - desktop-database
 - difftastic
 - dir_colors
+- direnv
 - dotnet
 - editline
 - electron

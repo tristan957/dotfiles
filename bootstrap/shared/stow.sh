@@ -15,6 +15,7 @@ function stow_setup() {
         desktop-database \
         difftastic \
         dir_colors \
+        direnv \
         dotnet \
         editline \
         electron \
