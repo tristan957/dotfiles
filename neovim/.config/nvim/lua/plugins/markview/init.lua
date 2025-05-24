@@ -18,20 +18,14 @@ return {
         "markdown",
       },
       callbacks = {
-        on_attach = function(_, wins)
-          vim.iter(wins):each(function(winid)
-            vim.wo[winid].list = false
-          end)
+        on_attach = function(_, _)
+            vim.opt_local.list = false
         end,
-        on_detach = function(_, wins)
-          vim.iter(wins):each(function(winid)
-            vim.wo[winid].list = true
-          end)
+        on_detach = function(_, _)
+            vim.opt_local.list = true
         end,
-        on_mode_change = function(_, wins, mode)
-          vim.iter(wins):each(function(winid)
-            vim.wo[winid].list = mode == "i"
-          end)
+        on_mode_change = function(_, _, mode)
+            vim.opt_local.list = mode == "i"
         end,
       },
       ignore_buftypes = {},
