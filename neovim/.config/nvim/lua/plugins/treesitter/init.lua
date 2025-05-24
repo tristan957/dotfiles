@@ -5,6 +5,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   enabled = true,
+  branch = "main",
   build = ":TSUpdate",
   dependencies = {
     {
@@ -106,14 +107,14 @@ return {
       "requirements",
       "robots",
       "rust",
-      "scfg",
+      -- "scfg",
       "scss",
       "sql",
       "ssh_config",
       "starlark",
       "strace",
       "superhtml",
-      "swift",
+      -- "swift",
       "tmux",
       "toml",
       "tsv",
