@@ -5,29 +5,18 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   enabled = true,
+  branch = "main",
   build = ":TSUpdate",
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter-context",
-      enabled = true,
-    },
-    {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      enabled = true,
-    },
-    {
-      "bezhermoso/tree-sitter-ghostty",
-      enabled = true,
-      build = "make nvim_install",
-    },
     "apple/pkl-neovim",
-    "OXY2DEV/markview.nvim",
+    "bezhermoso/tree-sitter-ghostty",
   },
-  cmd = { "TSInstall", "TSUninstall", "TSUpdate", "TSUpdateSync" },
-  event = { "BufReadPre", "BufNewFile" },
   ---@type TSConfig | {}
-  opts = {
-    ensure_installed = {
+  opts = {},
+  config = function(_, _)
+    require("nvim-treesitter").setup()
+
+    local ensure_installed = {
       "asm",
       "bash",
       "blueprint",
@@ -106,14 +95,15 @@ return {
       "requirements",
       "robots",
       "rust",
-      "scfg",
+      -- "scfg",
       "scss",
       "sql",
       "ssh_config",
       "starlark",
       "strace",
       "superhtml",
-      "swift",
+      -- Deprecated
+      -- "swift",
       "tmux",
       "toml",
       "tsv",
@@ -127,51 +117,26 @@ return {
       "zig",
       "ziggy",
       "ziggy_schema",
-    },
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-      disable = {},
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
-      },
-    },
-  },
-  config = function(_, opts)
-    local context = require("treesitter-context")
+    }
 
-    require("nvim-treesitter.configs").setup(opts)
-
-    context.setup({
-      separator = "─",
-      on_attach = function(bufnr)
-        -- Do not attach if there is no treesitter parser for the filetype
-        local ok, _ = pcall(vim.treesitter.get_parser, bufnr)
-
-        return ok
-      end,
-    })
+    require("nvim-treesitter").install(vim
+      .iter(ensure_installed)
+      :filter(function(parser)
+        return not vim.tbl_contains(require("nvim-treesitter.config").installed_parsers(), parser)
+      end)
+      :totable())
 
     vim.api.nvim_create_autocmd("FileType", {
+      group = require("tristan957.treesitter").augroup,
       callback = function(ev)
         local ok, _ = pcall(vim.treesitter.get_parser, ev.buf)
         if not ok then
           return
         end
 
+        vim.bo[ev.buf].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-
-        vim.keymap.set("n", "<C-w>C", context.toggle, { buffer = ev.buf, desc = "Toggle context" })
-        vim.keymap.set("n", "[C", function()
-          context.go_to_context(vim.v.count1)
-        end, { buffer = ev.buf, silent = true, desc = "Jump to context" })
       end,
     })
   end,

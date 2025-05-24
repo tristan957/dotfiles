@@ -3,7 +3,8 @@
 ---@type LazySpec
 return {
   "apple/pkl-neovim",
-  enabled = true,
+  -- Needs to be updated to make use of the nvim-treesitter main branch
+  enabled = false,
   ft = "pkl",
   build = function()
     require("pkl-neovim").init()
