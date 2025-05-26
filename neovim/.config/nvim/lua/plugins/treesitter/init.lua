@@ -13,8 +13,8 @@ return {
   },
   ---@type TSConfig | {}
   opts = {},
-  config = function(_, _)
-    require("nvim-treesitter").setup()
+  config = function(_, opts)
+    require("nvim-treesitter").setup(opts)
 
     local ensure_installed = {
       "asm",
