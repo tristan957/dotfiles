@@ -6,7 +6,13 @@ return {
   enabled = true,
   event = { "BufNewFile", "BufReadPre" },
   dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      cond = function()
+        return vim.fn.executable("make") == 1
+      end,
+    },
   },
   opts = {
     bar = {
