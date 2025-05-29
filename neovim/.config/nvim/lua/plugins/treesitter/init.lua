@@ -122,7 +122,7 @@ return {
     require("nvim-treesitter").install(vim
       .iter(ensure_installed)
       :filter(function(parser)
-        return not vim.tbl_contains(require("nvim-treesitter.config").installed_parsers(), parser)
+        return not vim.tbl_contains(require("nvim-treesitter.config").get_installed("parsers"), parser)
       end)
       :totable())
 
