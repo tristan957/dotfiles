@@ -21,6 +21,7 @@ vim.lsp.enable({
   "jqls",
   "jsonls",
   "jsonnet_ls",
+  "kcl",
   "lemminx",
   "lua_ls",
   "marksman",

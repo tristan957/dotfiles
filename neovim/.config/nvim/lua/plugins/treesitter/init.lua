@@ -64,6 +64,7 @@ return {
       "jsonnet",
       "just",
       "kconfig",
+      "kcl",
       "kdl",
       "lua",
       "luap",

@@ -39,6 +39,7 @@ vim.filetype.add({
 
       return "c"
     end,
+    k = "kcl",
     out = "output",
     plist = "xml",
     scfg = "scfg",
