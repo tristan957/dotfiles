@@ -15,8 +15,7 @@ return {
   opts = {},
   config = function(_, opts)
     require("nvim-treesitter").setup(opts)
-
-    local ensure_installed = {
+    require("nvim-treesitter").install({
       "asm",
       "bash",
       "blueprint",
@@ -117,14 +116,9 @@ return {
       "zig",
       "ziggy",
       "ziggy_schema",
-    }
-
-    require("nvim-treesitter").install(vim
-      .iter(ensure_installed)
-      :filter(function(parser)
-        return not vim.tbl_contains(require("nvim-treesitter.config").get_installed("parsers"), parser)
-      end)
-      :totable())
+    }, {
+      summary = false,
+    } --[[@as InstallOptions]])
 
     vim.api.nvim_create_autocmd("FileType", {
       group = require("tristan957.treesitter").augroup,
