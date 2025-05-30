@@ -19,7 +19,7 @@ vim.lsp.enable({
   "helm_ls",
   "html",
   "jsonls",
-  -- "jsonnet_ls",
+  "jsonnet_ls",
   "lemminx",
   "lua_ls",
   "marksman",
