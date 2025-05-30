@@ -26,7 +26,7 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       group = require("tristan957.treesitter").augroup,
       callback = function(ev)
-        local ok, _ = pcall(vim.treesitter.get_parser, ev.buf)
+        local ok, _ = vim.treesitter.language.add(vim.bo[ev.buf].filetype)
         if not ok then
           return
         end
