@@ -32,9 +32,14 @@ font-feature = -dlig
 font-size = 10
 
 keybind = super+ctrl+\=new_split:right
-keybind = ctrl+shift+o=toggle_tab_overview
 keybind = super+ctrl+-=new_split:down
+# GTK Inspector
+keybind = ctrl+shift+d=ignore
 keybind = ctrl+shift+e=unbind
+# GTK Inspector
+keybind = ctrl+shift+i=ignore
+keybind = ctrl+shift+o=toggle_tab_overview
+keybind = ctrl+alt+shift+i=inspector:toggle
 
 link-url = true
 
