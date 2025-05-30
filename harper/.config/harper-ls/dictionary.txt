@@ -1,3 +1,6 @@
 JWT
-Postgres
+JWTs
+TODO
 canonicalized
+compute's
+postgres
