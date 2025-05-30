@@ -18,6 +18,7 @@ vim.lsp.enable({
   "harper_ls",
   "helm_ls",
   "html",
+  "jqls",
   "jsonls",
   "jsonnet_ls",
   "lemminx",
