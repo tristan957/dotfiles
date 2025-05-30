@@ -11,7 +11,7 @@ return {
   opts = {
     indent_guides = true,
     win = {
-      border = vim.o.winborder,
+      border = "none",
       position = "bottom",
     },
   },
