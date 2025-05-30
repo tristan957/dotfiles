@@ -15,7 +15,7 @@ vim.lsp.enable({
   "dockerls",
   "gleam",
   "gopls",
-  "harperls",
+  "harper_ls",
   "helm_ls",
   "html",
   "jsonls",
