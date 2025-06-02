@@ -55,6 +55,7 @@ return {
       "http",
       "ini",
       "java",
+      "javadoc",
       "javascript",
       "jq",
       "jsdoc",
