@@ -25,12 +25,8 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       group = require("tristan957.treesitter").augroup,
+      pattern = require("tristan957.treesitter").get_filetypes(),
       callback = function(ev)
-        local ok, _ = vim.treesitter.language.add(vim.bo[ev.buf].filetype)
-        if not ok then
-          return
-        end
-
         vim.keymap.set("n", "<C-w>C", context.toggle, { buffer = ev.buf, desc = "Toggle context" })
         vim.keymap.set("n", "[C", function()
           context.go_to_context(vim.v.count1)
