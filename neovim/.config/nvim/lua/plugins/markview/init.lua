@@ -18,14 +18,21 @@ return {
         "markdown",
       },
       callbacks = {
-        on_attach = function(_, _)
-            vim.opt_local.list = false
+        on_attach = function(_, wins)
+          for win in ipairs(wins) do
+            vim.wo[win].list = false
+          end
         end,
-        on_detach = function(_, _)
-            vim.opt_local.list = true
+        on_detach = function(_, wins)
+          for win in ipairs(wins) do
+            vim.wo[win].list = true
+          end
         end,
-        on_mode_change = function(_, _, mode)
-            vim.opt_local.list = mode == "i"
+        on_mode_change = function(_, wins, mode)
+          local list = mode == "i"
+          for win in ipairs(wins) do
+            vim.wo[win].list = list
+          end
         end,
       },
       ignore_buftypes = {},
