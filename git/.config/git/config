@@ -105,7 +105,7 @@
 	aliasesFile = ~/.config/git/aliases
 	aliasFileType = mutt
 	confirm = always
-	sendmailcmd = mjmap
+	sendmailCmd = mjmap
 	smtpEncryption = ssl
 	smtpServer = smtp.fastmail.com
 	smtpUser = tristan@partin.io
