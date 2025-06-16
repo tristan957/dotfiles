@@ -2,10 +2,23 @@ local M = {}
 
 --- Get the current system color-scheme
 ---
+--- On Linux:
 --- https://flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.Settings.html
 ---
 ---@return "dark" | "light"
 M.color_scheme = function()
+  if vim.fn.has("mac") then
+    local utils = require("tristan957.utils")
+
+    local cmd = vim.system({"defaults", "read", "-g", "AppleInterfaceStyle"}):wait()
+
+    if cmd.code ~= 0 then
+      return "light"
+    end
+
+    return utils.rstrip(cmd.stdout) == "Dark" and "dark" or "light"
+  end
+
   local cmd = vim
     .system({
       "busctl",
