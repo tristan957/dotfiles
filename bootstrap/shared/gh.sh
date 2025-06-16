@@ -3,5 +3,9 @@ function gh_login {
 }
 
 function gh_setup {
+    if ! command -v gh &>/dev/null; then
+        builtin return
+    fi
+
     gh_login
 }

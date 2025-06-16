@@ -123,3 +123,5 @@
 	key = Tested-by
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
+[github]
+	username = tristan-partin_data

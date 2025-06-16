@@ -18,12 +18,12 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - asdf
 - bash
 - bat
+- cargo
 - clangd
 - comlink
 - containers
 - deno
 - desktop-database
-- difftastic
 - dir_colors
 - direnv
 - dotnet
@@ -41,6 +41,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - grep
 - harper
 - helix
+- homebrew
 - hut
 - info
 - jq
@@ -48,7 +49,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - kubernetes
 - lazygit
 - less
-- mandb
+- man
 - meson
 - mise
 - mjmap
@@ -56,7 +57,8 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - neovim
 - nix
 - nnn
-- nodejs
+- node
+- npm
 - pgrx
 - postgresql
 - programs
@@ -65,20 +67,21 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - readline
 - ripgrep
 - rlwrap
-- rust
+- rustup
 - ssh
 - sway
 - systemd
 - teleport
-- terminfo
 - terraform
+- testcontainers
 - tmpfiles
 - tmux
 - toolbox
+- uv
 - vim
 - vscodium
-- wget
 - xdg
+- yarn
 - zoxide
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like

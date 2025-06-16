@@ -3,18 +3,18 @@
 set -e
 set -o pipefail
 
+IS_MACOS=$([[ "$(uname -s)" == 'Darwin' ]] && echo 1 || echo 0)
+
 for f in "$HOME/.bash"*; do
     # if we are a symlink, we most likely already stowed
     if [[ -L "$f" ]]; then
         continue
     else
-        rm "$f"
+        rm -rf "$f"
     fi
 done
 
-mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/postgresql/completions"
-mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions"
-mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/postgresql/completions"
+mkdir -p "${XDG_STATE_HOME:-$HOME/.var}"
 mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/postgresql"
 mkdir -p "$HOME/.opt"
 
@@ -22,11 +22,9 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/1password.sh"
 . "$dir/shared/aerc.sh"
 . "$dir/shared/asciinema.sh"
-. "$dir/shared/bash-completion.sh"
-. "$dir/shared/bitwarden.sh"
+. "$dir/shared/dconf.sh"
 . "$dir/shared/deno.sh"
 . "$dir/shared/desktop-database.sh"
-. "$dir/shared/dconf.sh"
 . "$dir/shared/docker.sh"
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
@@ -43,24 +41,32 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/tmux.sh"
 . "$dir/shared/uv.sh"
 
-os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
-# shellcheck disable=SC1090
-. "$dir/$os/distro.sh"
+if [[ $IS_MACOS -eq 1 ]]; then
+    . "$dir/macos/system.sh"
+else
+    os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
+    # shellcheck disable=SC1090
+    . "$dir/$os/system.sh"
+fi
 
 stow_setup
+
+# Source all other bash config files
+for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do
+    builtin source "$f" 2>/dev/null
+done
+
 1password_setup
 desktop_database_setup
 mandb_setup
 flatpak_setup
-distro_setup
+system_setup
 dconf_setup
-# bitwarden_setup
 gdb_setup
 aerc_setup
 deno_setup
 rustup_setup
 homebrew_setup
-bash_completion_setup
 tmux_setup
 gh_setup
 glab_setup

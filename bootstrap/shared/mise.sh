@@ -3,5 +3,7 @@ function mise_install {
 }
 
 function mise_setup {
-    mise_install
+    if ! command -v mise &>/dev/null; then
+        mise_install
+    fi
 }

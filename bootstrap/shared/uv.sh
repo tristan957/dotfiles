@@ -5,10 +5,16 @@ function uv_enable_units() {
 }
 
 function uv_install() {
-    curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --no-modify-path
+    curl -LsSf https://astral.sh/uv/install.sh | env UV_NO_MODIFY_PATH=1 -- \
+        sh -s
 }
 
 function uv_setup() {
-    uv_install
-    uv_enable_units
+    if ! command -v uv &>/dev/null; then
+        uv_install
+    fi
+
+    if command -v systemctl &>/dev/null; then
+        uv_enable_units
+    fi
 }

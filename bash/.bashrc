@@ -1,10 +1,15 @@
-builtin source "$CARGO_HOME/env" 2>/dev/null
-
-# Don't run if it's not an interactive shell
-[[ $- != *i* ]] && return
-
+IS_INTERACTIVE=$([[ $- == *i* ]] && echo 1 || echo 0)
+IS_MACOS=$([[ "$(uname -s)" == 'Darwin' ]] && echo 1 || echo 0)
 BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
 DOTFILES_DIR=$(dirname "$BASH_DIR")
+
+# Source all other bash config files
+for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do
+    builtin source "$f" 2>/dev/null
+done
+
+# Don't run if it's not an interactive shell
+[[ $IS_INTERACTIVE -eq 0 ]] && builtin return
 
 # Shell Options
 shopt -s checkwinsize
@@ -13,65 +18,18 @@ shopt -s globstar
 shopt -s histappend
 shopt -s hostcomplete
 
-#-------------------------------------------------------------------------------
-
-# Environment Variables
-
-# Set default terminal text editor
-if command -v 'nvim' &>/dev/null; then
-    export EDITOR='nvim'
-    export MANPAGER='nvim +Man!'
-    export VISUAL='nvim'
-elif command -v 'vim' &>/dev/null; then
-    export EDITOR='vim'
-    export VISUAL='vim'
-elif command -v 'vi' &>/dev/null; then
-    export EDITOR='vi'
-    export VISUAL='vi'
-else
-    export EDITOR='nano'
-    export VISUAL='nano'
-fi
-
-# Why would we be here?
-#
-# systemd now manages my environment variables, which is pretty great, minus
-# some issues. One of these issues is that in an environment that isn't loaded
-# by systemd, the environment variables aren't available. Here are some
-# examples:
-#   - Toolbx
-#   - Distrobox
-#
-# So what can we do?
-#
-# Use a set of whitelisted environment variables from the systemd environment
-# and import them here. Toolbx and Distrobox will import their own environment
-# variables, so lets ignore those, and others.
-if [[ "$SYSTEMD_USER_ENVIRONMENT_LOADED" -ne 1 ]]; then
-    whitelisted_env="$(systemctl --user show-environment |
-        grep --extended-regexp \
-            "$(printf '^(%s)=' \
-                "$(grep --extended-regexp --invert-match '^(#|$)' \
-                    "$DOTFILES_DIR/systemd/whitelisted-env.conf" |
-                    tr '\n' '|')")")"
-
-    eval "$whitelisted_env"
-
-    while IFS= read -r envvar; do
-        export "$envvar=${!envvar}"
-    done < <(cut -d= -f1 <<<"$whitelisted_env")
-fi
-
 # Temporary hack for Fedora 41
 if [[ -d "$HOME/.opt/nvim/bin" ]]; then
-    PATH="$HOME/.opt/nvim/bin:$PATH"
+    export PATH="$HOME/.opt/nvim/bin:$PATH"
 fi
 
 #-------------------------------------------------------------------------------
 
-# Bash Settings
+# We sourced the script in the bash completion sourcing above for macOS
+if [[ $IS_MACOS -eq 0 ]]; then
+    source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
+fi
 
-source /usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
 have_git_ps1=$(
     command -v __git_ps1 &>/dev/null
     echo $?
@@ -211,7 +169,9 @@ if command -v 'rlwrap' &>/dev/null; then
     done
 fi
 
-alias run0='run0 --background='
+if command -v 'run0' &>/dev/null; then
+    alias run0='run0 --background'
+fi
 
 function 0x0() {
     curl -F "file=@$1" https://0x0.st
@@ -282,10 +242,18 @@ esac
 
 if [[ $SHELL_INTEGRATION -eq 1 ]]; then
     OLD_PROMPT_COMMAND="$PROMPT_COMMAND"
+    OLD_PS1="$PS1"
+    OLD_PS2="$PS2"
+    OLD_PS3="$PS3"
+    OLD_PS4="$PS4"
 fi
 
 builtin source "/etc/bashrc" 2>/dev/null
 
 if [[ $SHELL_INTEGRATION -eq 1 ]]; then
     PROMPT_COMMAND="$OLD_PROMPT_COMMAND"
+    PS1="$OLD_PS1"
+    PS2="$OLD_PS2"
+    PS3="$OLD_PS3"
+    PS4="$OLD_PS4"
 fi

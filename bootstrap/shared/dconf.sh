@@ -18,5 +18,9 @@ function dconf_load {
 }
 
 function dconf_setup {
+    if ! command -v dconf &>/dev/null; then
+        return
+    fi
+
     dconf_load
 }

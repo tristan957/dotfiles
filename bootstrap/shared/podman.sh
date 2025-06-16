@@ -1,6 +1,6 @@
 # Useful for testcontainers :'(
 function podman_enable_socket {
-    systemct --user enable --now podman.socket
+    systemctl --user enable --now podman.socket
 }
 
 function podman_silence_docker_warning {
@@ -8,6 +8,10 @@ function podman_silence_docker_warning {
 }
 
 function podman_setup {
+    if [[ $IS_MACOS -eq 1 ]]; then
+        builtin return
+    fi
+
     podman_enable_socket
     podman_silence_docker_warning
 }

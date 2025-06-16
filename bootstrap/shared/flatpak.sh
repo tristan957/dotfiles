@@ -29,6 +29,10 @@ function flatpak_install_applications() {
 }
 
 function flatpak_setup() {
+    if ! command -v flatpak &>/dev/null; then
+        builtin return
+    fi
+
     flatpak_add_remotes
     flatpak_install_applications
     flatpak_create_overrides

@@ -1,5 +1,5 @@
 function aerc_permissions {
-    chmod 600 "$XDG_CONFIG_HOME/aerc/accounts.conf"
+    chmod 600 "${XDG_CONFIG_HOME:-$HOME/.config}/aerc/accounts.conf"
 }
 
 function aerc_setup {

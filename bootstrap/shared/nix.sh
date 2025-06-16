@@ -3,5 +3,9 @@ function nix_install {
 }
 
 function nix_setup {
+    if [[ $WORK -eq 1 ]]; then
+        builtin return
+    fi
+
     nix_install
 }

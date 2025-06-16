@@ -8,6 +8,10 @@ function docker_add_me_to_group {
 }
 
 function docker_setup {
+    if [[ $IS_MACOS -eq 1 ]]; then
+        builtin return
+    fi
+
     docker_enable
     docker_add_me_to_group
 }

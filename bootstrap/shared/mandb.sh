@@ -3,5 +3,7 @@ function mandb_enable_unit() {
 }
 
 function mandb_setup() {
-    mandb_enable_unit
+    if command -v systemctl &>/dev/null; then
+        mandb_enable_unit
+    fi
 }

@@ -11,5 +11,8 @@ function tmux_setup_systemd() {
 
 function tmux_setup() {
     tmux_create_history
-    tmux_setup_systemd
+
+    if command -v systemctl &>/dev/null; then
+        tmux_setup_systemd
+    fi
 }

@@ -3,7 +3,7 @@ function rustup_download() {
 }
 
 function rustup_add_components {
-    rustup component add rust-src
+    "$CARGO_HOME/bin/rustup" component add rust-src
 }
 
 function rustup_bash_completion {
@@ -16,7 +16,13 @@ function rustup_bash_completion {
 }
 
 function rustup_setup() {
-    rustup_download
+    if ! command -v rustup &>/dev/null; then
+        rustup_download
+    fi
+
     rustup_add_components
-    rustup_bash_completion
+
+    if command -v systemctl &>/dev/null; then
+        rustup_bash_completion
+    fi
 }
