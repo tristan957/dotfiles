@@ -2,7 +2,7 @@ adw-toolbar-style = raised
 
 auto-update = off
 
-bell-features = no-system
+bell-features = no-audio,no-system,no-title
 
 clipboard-paste-bracketed-safe = true
 clipboard-paste-protection = true
