@@ -2,9 +2,11 @@ cheese
 gnome-boxes
 gnome-calculator
 gnome-calendar
+gnome-classic-session
 gnome-clocks
 gnome-contacts
 gnome-maps
+gnome-session-xsession
 gnome-weather
 loupe
 open-vm-tools-desktop
