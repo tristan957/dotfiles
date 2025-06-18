@@ -29,6 +29,10 @@ function flatpak_install_applications() {
 }
 
 function flatpak_setup() {
+    if [[ "$XDG_SESSION_TYPE" == tty ]] then
+        builtin return
+    fi
+
     if ! command -v flatpak &>/dev/null; then
         builtin return
     fi
