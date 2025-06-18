@@ -11,6 +11,7 @@ font-cascadia-code-pl
 font-cascadia-mono
 font-cascadia-mono-nf
 font-cascadia-mono-pl
+fzf
 gh
 git
 git-annex
