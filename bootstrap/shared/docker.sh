@@ -8,7 +8,7 @@ function docker_add_me_to_group {
 }
 
 function docker_setup {
-    if [[ $IS_MACOS -eq 1 ]]; then
+    if [[ $IS_MACOS -eq 1 || -d "$HOME/.arca" ]]; then
         builtin return
     fi
 
