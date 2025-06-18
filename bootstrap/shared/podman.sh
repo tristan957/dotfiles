@@ -8,7 +8,7 @@ function podman_silence_docker_warning {
 }
 
 function podman_setup {
-    if [[ $IS_MACOS -eq 1 ]]; then
+    if [[ $WORK -eq 1 || $IS_MACOS -eq 1 ]]; then
         builtin return
     fi
 
