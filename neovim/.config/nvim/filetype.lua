@@ -63,6 +63,7 @@ vim.filetype.add({
     [".*config/aerc/templates/.*"] = "aerc-template",
     [".*config/containers/containers.conf"] = "toml",
     [".*config/containers/containers.conf.d/.*.conf"] = "toml",
+    [".*config/environment.d/.*.conf"] = "systemd",
     [".*config/git/.*.config"] = "gitconfig",
     [".*config/hut/config"] = "scfg",
     [".env.*"] = "sh",
