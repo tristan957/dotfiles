@@ -7,7 +7,7 @@ local M = {}
 ---
 ---@return "dark" | "light"
 M.color_scheme = function()
-  if vim.fn.has("mac") then
+  if vim.uv.os_uname().sysname == "darwin" then
     local utils = require("tristan957.utils")
 
     local cmd = vim.system({"defaults", "read", "-g", "AppleInterfaceStyle"}):wait()
