@@ -22,7 +22,6 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/1password.sh"
 . "$dir/shared/aerc.sh"
 . "$dir/shared/asciinema.sh"
-. "$dir/shared/dconf.sh"
 . "$dir/shared/deno.sh"
 . "$dir/shared/desktop-database.sh"
 . "$dir/shared/docker.sh"
@@ -61,7 +60,6 @@ desktop_database_setup
 mandb_setup
 flatpak_setup
 system_setup
-dconf_setup
 gdb_setup
 aerc_setup
 deno_setup
