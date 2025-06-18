@@ -21,8 +21,20 @@ function flyctl_login {
 }
 
 function flyctl_setup {
-    flyctl_download
-    flyctl_settings
-    flyctl_bash_completion
+    if [[ $WORK -eq 1 ]]; then
+        builtin return
+    fi
+
+    # If we already have it, we probably got it from a package manager or
+    # previous bootstrap script invocation
+    if ! command -v flyctl &>/dev/null; then
+        flyctl_download
+        flyctl_settings
+    fi
+
+    if command -v systemctl &>/dev/null; then
+        flyctl_bash_completion
+    fi
+
     flyctl_login
 }
