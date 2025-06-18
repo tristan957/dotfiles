@@ -1,0 +1,5 @@
+bison
+flex
+ripgrep
+stow
+tmux
