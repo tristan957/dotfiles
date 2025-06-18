@@ -3,9 +3,11 @@ function desktop_database_enable_unit() {
 }
 
 function desktop_database_setup() {
-    if [[ $IS_MACOS -eq 1 ]]; then
+    if [[ $IS_MACOS -eq 1 || "$XDG_SESSION_TYPE" == tty ]]; then
         builtin return
     fi
 
-    desktop_database_enable_unit
+    if command -v systemctl &>/dev/null && command -v update-desktop-database &>/dev/null; then
+        desktop_database_enable_unit
+    fi
 }
