@@ -9,9 +9,7 @@ function deno_bash_completion {
 
 function deno_setup() {
     if ! comamnd -v deno &>/dev/null; then
-        if [[ $WORK -eq 0 ]]; then
-            deno_download
-        fi
+        deno_download
     fi
 
     if command -v systemctl &>/dev/null; then
