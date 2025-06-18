@@ -1,7 +1,5 @@
 IS_INTERACTIVE=$([[ $- == *i* ]] && echo 1 || echo 0)
 IS_MACOS=$([[ "$(uname -s)" == 'Darwin' ]] && echo 1 || echo 0)
-BASH_DIR=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
-DOTFILES_DIR=$(dirname "$BASH_DIR")
 
 # Source all other bash config files
 for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do
