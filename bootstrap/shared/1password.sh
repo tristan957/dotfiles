@@ -3,7 +3,7 @@ function 1password_enable_unit() {
 }
 
 function 1password_setup() {
-    if command -v systemctl &>/dev/null; then
+    if command -v systemctl &>/dev/null && command -v 1password &>/dev/null; then
         1password_enable_unit
     fi
 }
