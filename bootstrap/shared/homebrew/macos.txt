@@ -25,6 +25,8 @@ neovim
 nodejs
 ripgrep
 rlwrap
+shellcheck
+shfmt
 stow
 uv
 zoxide
