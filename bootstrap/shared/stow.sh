@@ -12,6 +12,7 @@ function stow_setup() {
         clangd
         comlink
         containers
+        deno
         dir_colors
         direnv
         dotnet
@@ -83,7 +84,6 @@ function stow_setup() {
         )
     else
         packages+=(
-            deno
             glab
             nix
             ssh
