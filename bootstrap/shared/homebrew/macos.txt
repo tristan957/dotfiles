@@ -56,6 +56,7 @@ reuse
 ripgrep
 rlwrap
 ruff
+sequin
 shellcheck
 shfmt
 stow
