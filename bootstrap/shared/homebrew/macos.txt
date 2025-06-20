@@ -30,6 +30,7 @@ gron
 gum
 helm
 helix
+hexyl
 htop
 jj
 jq
