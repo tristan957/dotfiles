@@ -8,6 +8,7 @@ coreutils
 deno
 difftastic
 direnv
+fish
 fd
 flex
 font-cascadia-code
