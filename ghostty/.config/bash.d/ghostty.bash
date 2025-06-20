@@ -1,3 +1,4 @@
 if [[ $IS_MACOS -eq 1 && -v GHOSTTY_RESOURCES_DIR ]]; then
-    builtin source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+    GHOSTTY_RESOURCES_DIR_PARENT="$(dirname "$GHOSTTY_RESOURCES_DIR")"
+    builtin source "$GHOSTTY_RESOURCES_DIR_PARENT/bash-completion/completions/ghostty.bash"
 fi
