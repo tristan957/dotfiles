@@ -57,6 +57,7 @@ reuse
 ripgrep
 rlwrap
 ruff
+scdoc
 sequin
 sequoia-sq
 shellcheck
