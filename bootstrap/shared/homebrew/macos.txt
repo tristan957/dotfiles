@@ -57,6 +57,7 @@ ripgrep
 rlwrap
 ruff
 sequin
+sequoia-sq
 shellcheck
 shfmt
 stow
