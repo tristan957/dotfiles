@@ -23,6 +23,7 @@ gcc
 gh
 git
 git-annex
+git-absorb
 git-delta
 glow
 go
