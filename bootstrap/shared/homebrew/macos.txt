@@ -29,6 +29,7 @@ jj
 jq
 just
 lazygit
+llvm
 luarocks
 man-db
 mise
