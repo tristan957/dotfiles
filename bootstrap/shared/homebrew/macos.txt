@@ -25,6 +25,7 @@ git-annex
 git-delta
 glow
 go
+gron
 jj
 jq
 just
