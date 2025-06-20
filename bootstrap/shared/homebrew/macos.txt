@@ -48,6 +48,7 @@ mold
 moreutils
 muon
 neovim
+ninja
 nodejs
 postgresql@17
 ripgrep
