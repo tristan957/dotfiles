@@ -22,6 +22,7 @@ glow
 jq
 lazygit
 luarocks
+man-db
 mise
 moreutils
 neovim
