@@ -32,6 +32,7 @@ lazygit
 llvm
 luarocks
 man-db
+meson
 mise
 moreutils
 neovim
