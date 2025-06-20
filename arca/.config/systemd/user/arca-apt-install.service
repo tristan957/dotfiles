@@ -11,6 +11,7 @@ ExecStart=/bin/sh -c 'cat $HOME/dotfiles/arca/packages.txt | xargs sudo --preser
 # step.
 ExecStart=sudo /usr/bin/apt-get install -y build-essential
 ExecStart=sudo /usr/bin/apt-get upgrade -y
+ExecStart=sudo /usr/bin/apt-get autoremove -y
 # Retry in case the dpkg lock happens to be busy.
 Restart=on-failure
 RestartSec=30
