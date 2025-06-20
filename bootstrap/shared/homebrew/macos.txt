@@ -3,6 +3,7 @@ asciinema
 bash
 bear
 bison
+cmake
 coreutils
 deno
 difftastic
