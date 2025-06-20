@@ -46,6 +46,7 @@ miller
 mise
 mold
 moreutils
+muon
 neovim
 nodejs
 postgresql@17
