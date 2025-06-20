@@ -24,6 +24,7 @@ git
 git-annex
 git-delta
 glow
+go
 jj
 jq
 lazygit
