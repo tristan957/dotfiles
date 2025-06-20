@@ -1,4 +1,5 @@
 1password-cli
+aerc
 asciinema
 bash
 bear
