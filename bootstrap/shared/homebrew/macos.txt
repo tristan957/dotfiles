@@ -3,6 +3,7 @@ aerc
 asciinema
 bash
 bear
+biome
 bison
 cmake
 coreutils
