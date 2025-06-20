@@ -42,6 +42,7 @@ llvm
 luarocks
 man-db
 meson
+miller
 mise
 mold
 moreutils
