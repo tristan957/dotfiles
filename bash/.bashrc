@@ -246,6 +246,7 @@ if [[ $SHELL_INTEGRATION -eq 1 ]]; then
     OLD_PS4="$PS4"
 fi
 
+builtin source "/etc/bash.bashrc" 2>/dev/null
 builtin source "/etc/bashrc" 2>/dev/null
 
 if [[ $SHELL_INTEGRATION -eq 1 ]]; then
