@@ -27,6 +27,7 @@ glow
 go
 gron
 helm
+helix
 htop
 jj
 jq
