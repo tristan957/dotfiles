@@ -1,6 +1,7 @@
 1password-cli
 asciinema
 bash
+bear
 bison
 coreutils
 deno
