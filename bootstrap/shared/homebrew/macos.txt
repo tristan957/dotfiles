@@ -66,4 +66,5 @@ stow
 tree-sitter
 uv
 vhs
+zig
 zoxide
