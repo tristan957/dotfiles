@@ -26,6 +26,7 @@ git-delta
 glow
 go
 gron
+helm
 htop
 jj
 jq
