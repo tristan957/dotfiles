@@ -27,6 +27,7 @@ mise
 moreutils
 neovim
 nodejs
+postgresql@17
 ripgrep
 rlwrap
 shellcheck
