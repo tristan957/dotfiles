@@ -35,7 +35,7 @@ local function get_formatting_client(bufnr)
     :filter(
       ---@param c vim.lsp.Client
       function(c)
-        return c.supports_method(vim.lsp.protocol.Methods.textDocument_formatting) and ls_markers[c.name] ~= false
+        return c:supports_method(vim.lsp.protocol.Methods.textDocument_formatting) and ls_markers[c.name] ~= false
       end
     )
     :totable()
