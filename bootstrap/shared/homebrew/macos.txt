@@ -27,6 +27,7 @@ git-delta
 glow
 go
 gron
+gum
 helm
 helix
 htop
