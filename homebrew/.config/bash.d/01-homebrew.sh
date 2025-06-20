@@ -3,6 +3,7 @@ if [[ $IS_MACOS -eq 1 ]]; then
     export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="/opt/homebrew/opt/man-db/libexec/bin:$PATH"
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+    export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
     if [[ $- == *i* ]]; then
         for f in /opt/homebrew/etc/bash_completion.d/*; do
