@@ -6,6 +6,7 @@ coreutils
 difftastic
 direnv
 fd
+flex
 font-cascadia-code
 font-cascadia-code-nf
 font-cascadia-code-pl
