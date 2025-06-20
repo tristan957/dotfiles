@@ -10,6 +10,7 @@ M.get_filetypes = function()
   return {
     "asm",
     "bash",
+    "blueprint",
     "c",
     "c_sharp",
     "cmake",
