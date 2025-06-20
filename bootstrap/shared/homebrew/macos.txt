@@ -27,6 +27,7 @@ glow
 go
 jj
 jq
+just
 lazygit
 luarocks
 man-db
