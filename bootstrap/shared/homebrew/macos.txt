@@ -51,4 +51,5 @@ shellcheck
 shfmt
 stow
 uv
+vhs
 zoxide
