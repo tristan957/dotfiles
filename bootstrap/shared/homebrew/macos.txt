@@ -63,6 +63,7 @@ sequoia-sq
 shellcheck
 shfmt
 stow
+tree-sitter
 uv
 vhs
 zoxide
