@@ -51,6 +51,7 @@ neovim
 ninja
 nodejs
 postgresql@17
+qrencode
 reuse
 ripgrep
 rlwrap
