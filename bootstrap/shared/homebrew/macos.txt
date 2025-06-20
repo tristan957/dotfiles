@@ -54,6 +54,7 @@ postgresql@17
 reuse
 ripgrep
 rlwrap
+ruff
 shellcheck
 shfmt
 stow
