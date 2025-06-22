@@ -1,5 +1,6 @@
 bear
 bison
+clangd
 flex
 ripgrep
 stow
