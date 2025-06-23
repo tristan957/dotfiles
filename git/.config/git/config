@@ -25,6 +25,8 @@
 	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 	message = log --format=%B -n 1
+	redo = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+	undo = reset --mixed HEAD^
 	upstream = rev-parse --abbrev-ref --symbolic-full-name @{upstream}
 	z = !git branch --format='%(refname:short)' --all | fzf --bind 'enter:become(git switch ''{}'' >/dev/null 2>/dev/null)'
 [branch]
