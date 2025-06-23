@@ -117,6 +117,8 @@
 	submoduleSummary = false
 [tag]
 	sort = version:refname
+[trailer "link"]
+	key = Link
 [trailer "sign"]
 	key = Signed-off-by
 [trailer "review"]
