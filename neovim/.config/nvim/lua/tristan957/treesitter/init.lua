@@ -27,7 +27,7 @@ M.get_filetypes = function()
     "editorconfig",
     "fish",
     "ghostty",
-    "git_config",
+    "gitconfig",
     "git_rebase",
     "gitattributes",
     "gitcommit",
