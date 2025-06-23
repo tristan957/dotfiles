@@ -110,8 +110,8 @@
 	sendmailCmd = mjmap
 	smtpEncryption = ssl
 	smtpServer = smtp.fastmail.com
-	smtpUser = tristan@partin.io
 	smtpServerPort = 465
+	smtpUser = tristan@partin.io
 [status]
 	relativePaths = true
 	submoduleSummary = false
