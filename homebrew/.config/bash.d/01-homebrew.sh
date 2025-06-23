@@ -6,7 +6,7 @@ if [[ $IS_MACOS -eq 1 ]]; then
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
     export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
-    if [[ $- == *i* ]]; then
+    if [[ $IS_INTERACTIVE -eq 1 ]]; then
         for f in /opt/homebrew/etc/bash_completion.d/*; do
             # shellcheck disable=1090
             . "$f" 2>/dev/null
