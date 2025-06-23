@@ -125,5 +125,8 @@
 	key = Tested-by
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
-[github]
-	username = tristan-partin_data
+# Databricks development practices make me sad :'(
+[include]
+	path = arca-host.config
+[include]
+	path = arca-remote.config

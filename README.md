@@ -15,7 +15,8 @@ This repository uses GNU `stow` to manage `dotfiles`.
 
 - 1password
 - aerc
-- arca (Databricks)
+- arca-host (Databricks)
+- arca-remote (Databricks)
 - asdf
 - bash
 - bat
