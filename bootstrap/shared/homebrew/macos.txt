@@ -67,6 +67,7 @@ shellcheck
 shfmt
 stow
 tree-sitter
+trurl
 uv
 vhs
 zig
