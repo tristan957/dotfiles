@@ -4,6 +4,8 @@ clangd
 flex
 fzf
 gdb
+libcurl4-openssl-dev
+libseccomp-dev
 ripgrep
 stow
 tmux
