@@ -6,7 +6,7 @@ After=network.target
 Type=oneshot
 Environment=DATABRICKS_ALLOW_INSTALL=1
 ExecStart=sudo /usr/bin/apt-get update
-ExecStart=/bin/sh -c 'cat $HOME/dotfiles/arca/packages.txt | xargs sudo --preserve-env=DATABRICKS_ALLOW_INSTALL apt-get install -y'
+ExecStart=/bin/sh -c 'cat $HOME/dotfiles/arca-remote/packages.txt | xargs sudo --preserve-env=DATABRICKS_ALLOW_INSTALL apt-get install -y'
 # Installing build-essential takes a while so we put it in a seperate
 # step.
 ExecStart=sudo /usr/bin/apt-get install -y build-essential
