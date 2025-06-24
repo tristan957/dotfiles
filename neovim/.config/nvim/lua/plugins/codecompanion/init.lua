@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "markview"
 
 ---@type LazySpec
 return {
@@ -9,11 +10,48 @@ return {
     "nvim-treesitter/nvim-treesitter",
     {
       "OXY2DEV/markview.nvim",
-      opts = {
-        preview = {
-          filetypes = { "codecompanion" },
-        },
-      },
+      ---@return markview.config | {}
+      opts = function()
+        --- Conceal HTML tags
+        ---@param icon string
+        ---@param hl_group string
+        ---@return markview.config.html.container_elements.opts
+        local function conceal_tag(icon, hl_group)
+          return {
+            on_node = { hl_group = hl_group },
+            on_closing_tag = { conceal = "" },
+            on_opening_tag = {
+              conceal = "",
+              virt_text_pos = "inline",
+              virt_text = { { icon .. " ", hl_group } },
+            },
+          }
+        end
+
+        ---@type markview.config | {}
+        return {
+          ---@type markview.config.html | {}
+          html = {
+            enable = true,
+            container_elements = {
+              enable = true,
+              ["^buf$"] = conceal_tag("", "CodeCompanionChatVariable"),
+              ["^file$"] = conceal_tag("", "CodeCompanionChatVariable"),
+              ["^help$"] = conceal_tag("󰘥", "CodeCompanionChatVariable"),
+              ["^image$"] = conceal_tag("", "CodeCompanionChatVariable"),
+              ["^symbols$"] = conceal_tag("", "CodeCompanionChatVariable"),
+              ["^url$"] = conceal_tag("󰖟", "CodeCompanionChatVariable"),
+              ["^var$"] = conceal_tag("", "CodeCompanionChatVariable"),
+              ["^tool$"] = conceal_tag("", "CodeCompanionChatTool"),
+              ["^user_prompt$"] = conceal_tag("", "CodeCompanionChatTool"),
+              ["^group$"] = conceal_tag("", "CodeCompanionChatToolGroup"),
+            },
+          },
+          preview = {
+            filetypes = { "codecompanion" },
+          },
+        }
+      end,
     },
   },
   cmd = {
