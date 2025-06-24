@@ -5,12 +5,16 @@ let cache_dir=$XDG_CACHE_HOME . '/vim'
 let data_dir=$XDG_DATA_HOME . '/vim'
 let state_dir=$XDG_STATE_HOME . '/vim'
 
+let &runtimepath.=',' . data_dir
+let &runtimepath.=',' . data_dir . '/vimfiles'
+let &runtimepath.=',' . data_dir . '/vimfiles/after'
+
 """"""""
 " Plug
 """"""""
 
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  exe 'silent !curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  silent execute '!curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -35,7 +39,7 @@ Plug 'tpope/vim-surround'
 let g:fzf_command_prefix = 'Fzf'
 
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 
@@ -106,7 +110,7 @@ set scrolloff=5 " start scrolling X lines from bottom or top
 set secure " no autocmd, shell, or write commands can be run in .exrc files
 set shiftwidth=0
 set shortmess+=c " don't pass messages to |ins-completion-menu|
-set showbreak='+++ '  " what to show when line breaks
+let &showbreak='+++ '  " what to show when line breaks
 " set showcmd " show the last run command
 set showmatch " highlight matching brackets
 set signcolumn=yes " always show the signcolumn
