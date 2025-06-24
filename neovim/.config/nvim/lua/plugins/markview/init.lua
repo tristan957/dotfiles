@@ -8,6 +8,7 @@ return {
   lazy = true,
   event = "VeryLazy",
   dependencies = {
+    "echasnovski/mini.icons",
     "Saghen/blink.cmp",
   },
   ---@param _ LazyPlugin
