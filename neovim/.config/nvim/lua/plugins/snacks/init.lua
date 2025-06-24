@@ -63,6 +63,7 @@ return {
               key = "C",
               desc = "CodeCompanion",
               action = ":CodeCompanionChat Toggle",
+              enabled = require("lazy.core.config").plugins["codecompanion.nvim"] ~= nil,
             },
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             {
