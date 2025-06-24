@@ -8,7 +8,6 @@ return {
   branch = vim.fn.has("nvim-0.11") == 1 and "main" or "master",
   build = ":TSUpdate",
   dependencies = {
-    "apple/pkl-neovim",
     "bezhermoso/tree-sitter-ghostty",
   },
   ---@type TSConfig | {}
