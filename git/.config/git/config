@@ -57,6 +57,7 @@
 	renames = true
 	submodule = log
 	tool = difftastic
+	wsErrorHighlight = none
 [difftool]
 	prompt = false
 # https://difftastic.wilfred.me.uk/git.html
