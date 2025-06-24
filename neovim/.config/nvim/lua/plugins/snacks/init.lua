@@ -136,7 +136,7 @@ return {
         },
         ---@diagnostic disable-next-line: missing-fields
         notification_history = {
-          border = vim.o.winborder,
+          border = vim.fn.has("nvim-0.11") == 1 and vim.o.winborder or "single",
         },
         ---@diagnostic disable-next-line: missing-fields
         notifier = {
