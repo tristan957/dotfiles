@@ -198,6 +198,7 @@ vlc
 vulkan-devel
 w3m
 wayland-protocols-devel
+wcurl
 wine-core
 wine-mono
 wl-clipboard

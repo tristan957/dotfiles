@@ -43,9 +43,6 @@ alias ls='ls -v --hyperlink --indicator-style=slash --color=auto'
 # Apply colors to commands
 alias diff='diff --color=auto'
 
-# shellcheck disable=2139
-alias wget="wget --hsts-file=${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"
-
 if ! command -v 'bw' &>/dev/null && command -v 'flatpak' &>/dev/null; then
     if flatpak list --app --columns=application | grep --quiet 'com.bitwarden.desktop' &>/dev/null; then
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
