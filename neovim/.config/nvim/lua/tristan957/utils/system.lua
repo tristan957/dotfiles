@@ -5,6 +5,8 @@ local M = {}
 --- On Linux:
 --- https://flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.Settings.html
 ---
+--- If the command to retrieve the theme fails, the return value will be dark.
+---
 ---@return "dark" | "light"
 M.color_scheme = function()
   if vim.uv.os_uname().sysname == "Darwin" then
@@ -13,7 +15,7 @@ M.color_scheme = function()
     local cmd = vim.system({"defaults", "read", "-g", "AppleInterfaceStyle"}):wait()
 
     if cmd.code ~= 0 then
-      return "light"
+      return "dark"
     end
 
     return utils.rstrip(cmd.stdout) == "Dark" and "dark" or "light"
@@ -36,7 +38,7 @@ M.color_scheme = function()
     :wait()
 
   if cmd.code ~= 0 then
-    return "light"
+    return "dark"
   end
 
   return vim.json.decode(cmd.stdout)["data"][1]["data"] == 1 and "dark" or "light"
