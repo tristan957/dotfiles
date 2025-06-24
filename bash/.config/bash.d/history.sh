@@ -1,0 +1,3 @@
+HISTCONTROL='ignoredups:ignorespace'
+HISTSIZE=1000000
+HISTTIMEFORMAT='%FT%T%z: '
