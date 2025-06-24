@@ -52,7 +52,8 @@ stow_setup
 
 # Source all other bash config files
 for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do
-    builtin source "$f" 2>/dev/null
+    # shellcheck disable=1090
+    . "$f" 2>/dev/null
 done
 
 1password_setup

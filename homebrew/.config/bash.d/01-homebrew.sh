@@ -7,7 +7,8 @@ if [[ $IS_MACOS -eq 1 ]]; then
 
     if [[ $- == *i* ]]; then
         for f in /opt/homebrew/etc/bash_completion.d/*; do
-            builtin source "$f" 2>/dev/null
+            # shellcheck disable=1090
+            . "$f" 2>/dev/null
         done
     fi
 fi

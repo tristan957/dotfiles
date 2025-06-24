@@ -1,2 +1,2 @@
-[[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]] && . /opt/homebrew/etc/profile.d/bash_completion.sh
-[[ -r /etc/bash_completion ]] && . /etc/bash_completion
+. /opt/homebrew/etc/profile.d/bash_completion.sh 2>/dev/null
+. /etc/bash_completion 2>/dev/null
