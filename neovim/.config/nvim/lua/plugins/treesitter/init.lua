@@ -4,8 +4,8 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
-  enabled = true,
-  branch = "main",
+  cond = vim.fn.executable("tree-sitter") == 1,
+  branch = vim.fn.has("nvim-0.11") == 1 and "main" or "master",
   build = ":TSUpdate",
   dependencies = {
     "apple/pkl-neovim",
