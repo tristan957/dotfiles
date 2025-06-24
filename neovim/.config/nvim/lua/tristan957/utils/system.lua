@@ -42,4 +42,13 @@ M.color_scheme = function()
   return vim.json.decode(cmd.stdout)["data"][1]["data"] == 1 and "dark" or "light"
 end
 
+--- Check if this is an arca machine
+---
+--- arca is a Databricks thing.
+---
+---@return boolean
+M.is_arca = function()
+  return vim.fn.filereadable(vim.fs.joinpath(vim.env.HOME, ".arca", "last_arch")) == 1
+end
+
 return M
