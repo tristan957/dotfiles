@@ -111,8 +111,8 @@ return {
         chat = {
           follow = true,
           icons = {
-            pinned_buffer = " ",
-            watched_buffer = " ",
+            buffer_pin = " ",
+            buffer_watch = " ",
           },
           window = {
             layout = "vertical",
