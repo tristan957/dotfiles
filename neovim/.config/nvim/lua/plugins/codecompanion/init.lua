@@ -4,7 +4,7 @@
 ---@type LazySpec
 return {
   "olimorris/codecompanion.nvim",
-  enabled = true,
+  cond = not require("tristan957.utils.system").is_arca(),
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",

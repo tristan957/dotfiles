@@ -14,13 +14,15 @@ return {
   ---@param _ LazyPlugin
   ---@param opts markview.config
   opts = function(_, opts)
+    local filetypes = { "markdown" }
+    if opts ~= nil then
+      filetypes = vim.list_extend(filetypes, opts.preview.filetypes)
+    end
+
     ---@type markview.config
     return vim.tbl_deep_extend("keep", {
       preview = {
-        filetypes = {
-          "markdown",
-          unpack(opts.preview.filetypes),
-        },
+        filetypes = filetypes,
         callbacks = {
           on_attach = function(_, wins)
             for win in ipairs(wins) do
