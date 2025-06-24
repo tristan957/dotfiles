@@ -15,7 +15,7 @@ return {
   ---@param opts markview.config
   opts = function(_, opts)
     local filetypes = { "markdown" }
-    if opts ~= nil then
+    if vim.tbl_get(opts, "preview", "filetypes") ~= nil then
       filetypes = vim.list_extend(filetypes, opts.preview.filetypes)
     end
 
