@@ -3,7 +3,7 @@
 ---@type LazySpec
 return {
   "Bekaboo/dropbar.nvim",
-  enabled = true,
+  cond = vim.fn.has("nvim-0.11") == 1,
   event = { "BufNewFile", "BufReadPre" },
   dependencies = {
     {
