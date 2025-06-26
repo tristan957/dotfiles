@@ -74,6 +74,7 @@ sequoia-sq
 shellcheck
 shfmt
 stow
+tmux
 tree-sitter
 trurl
 uv
