@@ -7,7 +7,7 @@ alias ls='ls -v --hyperlink --indicator-style=slash --color=auto'
 # Apply colors to commands
 alias diff='diff --color=auto'
 
-if ! command -v 'bw' &>/dev/null && command -v 'flatpak' &>/dev/null; then
+if ! command -v bw &>/dev/null && command -v flatpak &>/dev/null; then
     if flatpak list --app --columns=application | grep --quiet 'com.bitwarden.desktop' &>/dev/null; then
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
     fi
@@ -28,14 +28,14 @@ alias hpull='history -r'
 # Push new history to the HISTFILE
 alias hpush='history -a'
 
-if command -v 'rlwrap' &>/dev/null; then
+if command -v rlwrap &>/dev/null; then
     for cmd in dash luajit; do
         # shellcheck disable=2139
         alias $cmd="rlwrap $cmd"
     done
 fi
 
-if command -v 'run0' &>/dev/null; then
+if command -v run0 &>/dev/null; then
     alias run0='run0 --background'
 fi
 
