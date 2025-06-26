@@ -45,6 +45,7 @@ jsonnet
 just
 kubecfg
 kubectl
+kubectx
 lazygit
 llvm
 luarocks
