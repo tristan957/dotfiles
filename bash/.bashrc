@@ -1,3 +1,4 @@
+# shellcheck disable=2034
 IS_INTERACTIVE=$([[ $- == *i* ]] && echo 1 || echo 0)
 # shellcheck disable=2034
 IS_MACOS=$([[ "$(uname -s)" == Darwin ]] && echo 1 || echo 0)
@@ -11,6 +12,3 @@ for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do
     # shellcheck disable=1090
     . "$f" 2>/dev/null
 done
-
-# Don't run if it's not an interactive shell
-[[ $IS_INTERACTIVE -eq 0 ]] && builtin return
