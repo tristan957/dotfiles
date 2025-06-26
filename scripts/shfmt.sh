@@ -1,7 +1,6 @@
 #!/bin/sh
 
-files=$(find . -name "*.sh" -type f \
-    -not -path "./rust/.opt/cargo/*")
+files=$(find . -name "*.sh" -type f)
 
 # shellcheck disable=SC2086
 shfmt --case-indent --diff --language-dialect bash --indent 4 \
