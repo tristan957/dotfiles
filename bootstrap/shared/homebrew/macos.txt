@@ -55,7 +55,7 @@ moreutils
 muon
 neovim
 ninja
-nodejs
+node
 pkgconf
 postgresql@17
 qrencode
