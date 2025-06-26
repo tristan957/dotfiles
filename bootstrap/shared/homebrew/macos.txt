@@ -57,6 +57,7 @@ muon
 neovim
 ninja
 node
+opentofu
 pkgconf
 postgresql@17
 qrencode
