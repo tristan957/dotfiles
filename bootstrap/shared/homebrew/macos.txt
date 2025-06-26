@@ -5,6 +5,7 @@ bash
 bear
 biome
 bison
+blueprint-compiler
 cmake
 coreutils
 curl
