@@ -43,6 +43,7 @@ jj
 jq
 jsonnet
 just
+kubecfg
 kubectl
 lazygit
 llvm
