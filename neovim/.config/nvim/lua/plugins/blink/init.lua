@@ -6,7 +6,7 @@ return {
   "Saghen/blink.cmp",
   enabled = true,
   lazy = true,
-  version = "v0.*",
+  version = "v1.*",
   event = { "CmdlineEnter", "InsertEnter" },
   ---@type blink.cmp.Config
   opts = {
