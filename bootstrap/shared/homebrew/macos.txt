@@ -43,6 +43,7 @@ jj
 jq
 jsonnet
 just
+kubectl
 lazygit
 llvm
 luarocks
