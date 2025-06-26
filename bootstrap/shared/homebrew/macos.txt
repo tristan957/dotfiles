@@ -79,5 +79,6 @@ tree-sitter
 trurl
 uv
 vhs
+zellij
 zig
 zoxide
