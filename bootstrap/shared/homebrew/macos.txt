@@ -64,6 +64,7 @@ ninja
 node
 opentofu
 pkgconf
+poetry
 postgresql@17
 qrencode
 reuse
