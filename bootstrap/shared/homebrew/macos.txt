@@ -12,6 +12,7 @@ curl
 deno
 difftastic
 direnv
+docker
 eza
 fish
 fd
