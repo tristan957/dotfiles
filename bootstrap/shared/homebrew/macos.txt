@@ -76,6 +76,7 @@ sequin
 sequoia-sq
 shellcheck
 shfmt
+sops
 stow
 tmux
 tree-sitter
