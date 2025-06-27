@@ -44,6 +44,7 @@ jj
 jq
 jsonnet
 just
+k3d
 k9s
 kubecfg
 kubectl
