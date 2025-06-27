@@ -78,6 +78,7 @@ shellcheck
 shfmt
 sops
 stow
+tilt
 tmux
 tree-sitter
 trurl
