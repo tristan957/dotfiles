@@ -35,6 +35,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - flyctl
 - fzf
 - gdb
+- gh
 - ghostty
 - git
 - glab

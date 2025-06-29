@@ -1,0 +1,6 @@
+[Unit]
+Description=Regenerate gh bash completion
+
+[Service]
+Type=oneshot
+ExecStart=sh -c -- 'gh completion --shell bash >"$XDG_DATA_HOME/bash-completion/completions/gh"'

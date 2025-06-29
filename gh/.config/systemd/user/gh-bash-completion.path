@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in gh
+
+[Path]
+PathChanged=/usr/bin/gh
+
+[Install]
+WantedBy=paths.target
