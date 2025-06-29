@@ -1,5 +1,3 @@
-adw-toolbar-style = raised
-
 auto-update = off
 
 bell-features = no-audio,no-system,no-title
