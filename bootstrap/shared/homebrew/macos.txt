@@ -80,6 +80,7 @@ sops
 stow
 tilt
 tmux
+tree
 tree-sitter
 trurl
 uv
