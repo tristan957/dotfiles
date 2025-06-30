@@ -1,6 +1,7 @@
 1password-cli
 aerc
 asciinema
+basedpyright
 bash
 bear
 biome
