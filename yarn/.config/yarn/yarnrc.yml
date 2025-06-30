@@ -1,2 +1,2 @@
 cacheFolder: "${XDG_CACHE_HOME:-$HOME/.cache}/yarn"
-globalFolder: "$HOME/.opt/yarn"
+globalFolder: "${HOME}/.opt/yarn"
