@@ -1,0 +1,1 @@
+set -gx KUBECONFIG "$XDG_CONFIG_HOME/kube"
