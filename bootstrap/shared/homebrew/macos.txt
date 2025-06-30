@@ -84,6 +84,7 @@ tree-sitter
 trurl
 uv
 vhs
+vim
 yq
 zellij
 zig
