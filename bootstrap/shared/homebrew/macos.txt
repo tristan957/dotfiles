@@ -85,6 +85,7 @@ trurl
 uv
 vhs
 vim
+yarn
 yq
 zellij
 zig
