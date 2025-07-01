@@ -52,6 +52,7 @@ k9s
 kubecfg
 kubectl
 kubectx
+kustomize
 lazygit
 llvm
 luarocks
