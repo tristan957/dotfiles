@@ -18,6 +18,7 @@ eza
 fish
 fd
 flex
+flyctl
 font-cascadia-code
 font-cascadia-code-nf
 font-cascadia-code-pl
