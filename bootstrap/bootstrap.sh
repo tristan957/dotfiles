@@ -29,6 +29,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/flatpak.sh"
 . "$dir/shared/gdb.sh"
 . "$dir/shared/gh.sh"
+. "$dir/shared/ghostty.sh"
 . "$dir/shared/glab.sh"
 . "$dir/shared/grub.sh"
 . "$dir/shared/homebrew.sh"
@@ -69,6 +70,7 @@ rustup_setup
 homebrew_setup
 tmux_setup
 gh_setup
+ghostty_setup
 glab_setup
 grub_setup
 uv_setup
