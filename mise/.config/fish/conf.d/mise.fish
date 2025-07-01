@@ -5,6 +5,8 @@ if not status is-interactive
     return
 end
 
+set -gx MISE_LOG_FILE "$XDG_STATE_HOME/mise/mise.log"
+
 if command --query mise
     mise activate fish | source
 end
