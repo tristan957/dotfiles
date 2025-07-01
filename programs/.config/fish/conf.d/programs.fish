@@ -1,1 +1,1 @@
-set -U fish_user_paths "$HOME/.local/bin" $fish_user_paths
+fish_add_path "$HOME/.local/bin"
