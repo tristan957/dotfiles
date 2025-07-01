@@ -69,6 +69,7 @@ opentofu
 pkgconf
 poetry
 postgresql@17
+pre-commit
 qrencode
 reuse
 ripgrep
