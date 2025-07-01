@@ -6,9 +6,6 @@ clipboard-paste-bracketed-safe = true
 clipboard-paste-protection = true
 clipboard-trim-trailing-spaces = true
 
-# command = fish
-# command = tmux attach-session -t t
-
 confirm-close-surface = true
 
 copy-on-select = true
