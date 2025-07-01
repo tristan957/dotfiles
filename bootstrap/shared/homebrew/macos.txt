@@ -54,7 +54,6 @@ kubectx
 lazygit
 llvm
 luarocks
-man-db
 meson
 miller
 mise
