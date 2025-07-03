@@ -85,7 +85,7 @@ M.get_filetypes = function()
     "scss",
     "sh",
     "sql",
-    "ssh_config",
+    "sshconfig",
     "starlark",
     "strace",
     "superhtml",
