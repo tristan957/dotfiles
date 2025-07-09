@@ -48,7 +48,7 @@ resize-overlay-position = bottom-right
 selection-invert-fg-bg = true
 
 shell-integration = detect
-shell-integration-features = no-cursor,title,sudo
+shell-integration-features = no-cursor,title,ssh-terminfo,sudo
 
 theme = light:one_light,dark:one_dark_vivid
 
