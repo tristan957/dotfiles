@@ -82,6 +82,7 @@ shellcheck
 shfmt
 sops
 stow
+stylua
 tilt
 tmux
 tree
