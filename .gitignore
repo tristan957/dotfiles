@@ -2,11 +2,9 @@
 /glab/.config/glab-cli/config.yml
 /node_modules/
 /vim/.config/vim/.netrwhist
-/vim/.config/vim/autoload/plug.vim
-/vim/.config/vim/autoload/plug.vim.old
 !/.vscode/
-/rust/.opt/cargo/*
-!/rust/.opt/config.toml
+/teleport/.opt/tsh/
+!/teleport/.opt/tsh/config
 *.service.requires/
 *.service.wants/
 *.target.requires/
