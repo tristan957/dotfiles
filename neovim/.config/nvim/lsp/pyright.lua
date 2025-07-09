@@ -13,16 +13,22 @@ return {
     },
   },
   before_init = function(_, config)
-    local poetry = require("tristan957.utils.poetry")
-    local default_config = require("lspconfig.configs.pyright").default_config
-
     -- We are already in the virtual environment, so skip the setup.
     if vim.env.VIRTUAL_ENV ~= nil then
       return
     end
 
-    if poetry.is_workspace(vim.uv.cwd() --[[@as string]]) and vim.fn.executable("poetry") == 1 then
-      config.cmd = { "poetry", "run", "--", unpack(default_config.cmd) }
+    local poetry = require("tristan957.utils.poetry")
+
+    if
+      poetry.is_workspace(vim.uv.cwd() --[[@as string]]) and vim.fn.executable("poetry") == 1
+    then
+      local python_exe = poetry.python_executable()
+      if python_exe ~= nil then
+        config.settings.python["pythonPath"] = poetry.python_executable()
+      else
+        vim.notify("Failed to find Python exectuable for Poetry workspace", vim.log.levels.WARN)
+      end
     end
   end,
 }
