@@ -68,6 +68,7 @@ neovim
 ninja
 node
 opentofu
+pandoc
 pkgconf
 poetry
 postgresql@17
