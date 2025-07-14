@@ -55,6 +55,7 @@ kubectl
 kubectx
 kustomize
 lazygit
+libtool
 llvm
 luarocks
 meson
