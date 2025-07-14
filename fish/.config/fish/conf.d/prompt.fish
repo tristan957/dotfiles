@@ -25,7 +25,7 @@ function __prompt_extras
 
     # Python virtual environments are so fun
     if set -q VIRTUAL_ENV
-        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 105) \b$(basename "$VIRTUAL_ENV")"
+        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 105) \b[$(basename "$VIRTUAL_ENV")]"
     end
 
     if command --query "kubectl"
