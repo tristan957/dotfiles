@@ -15,7 +15,7 @@ M.color_scheme = function()
     local cmd = vim.system({"defaults", "read", "-g", "AppleInterfaceStyle"}):wait()
 
     if cmd.code ~= 0 then
-      return "dark"
+      return "light"
     end
 
     return utils.rstrip(cmd.stdout) == "Dark" and "dark" or "light"
