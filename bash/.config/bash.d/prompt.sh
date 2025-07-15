@@ -51,8 +51,10 @@ function __prompt_extras() {
         kubectl_curr_ctx=$(kubectl config current-context 2>/dev/null)
         # shellcheck disable=SC2181
         if [[ $? -eq 0 ]]; then
-            kubectl_curr_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
-            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 14)[$kubectl_curr_ctx > ${kubectl_curr_ns:-default}]"
+            kubectl_curr_ns=$(kubectl config view --minify \
+                -o go-template='{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
+                2>/dev/null)
+            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 14)[$kubectl_curr_ctx > $kubectl_curr_ns]"
         fi
     fi
 
