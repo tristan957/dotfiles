@@ -29,7 +29,7 @@ return {
       ["@string.special.url"] = { fg = "${blue}", italic = false, underline = true },
       ["@keyword.operator.lua"] = { link = "@keyword.lua" },
       ["@lsp.typemod.variable.global.lua"] = { link = "@lsp.typemod.variable.defaultLibrary.lua" },
-      ["@property.meson"] = { fg = "${white}" },
+      ["@property.meson"] = { link = "Text" },
     },
     options = {
       cursorline = vim.o.cursorline,
