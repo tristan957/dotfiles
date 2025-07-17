@@ -17,6 +17,7 @@ deno
 difftastic
 direnv
 docker
+dotnet
 eza
 fish
 fd
