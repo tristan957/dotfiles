@@ -3,5 +3,7 @@ function ghostty_enable_service {
 }
 
 function ghostty_setup {
-    ghostty_enable_service
+    if command -v systemctl &>/dev/null; then
+        ghostty_enable_service
+    fi
 }
