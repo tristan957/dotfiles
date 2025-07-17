@@ -1,3 +1,7 @@
+function homebrew_add_taps() {
+    brew tap databricks/tap
+}
+
 function homebrew_install_packages() {
     local dir=$(dirname "${BASH_SOURCE[0]}")
     local packages="$dir/homebrew/macos.txt"
@@ -19,6 +23,8 @@ function homebrew_setup() {
         homebrew_install
     fi
 
+    homebrew_add_taps
     homebrew_install_packages
+
     brew cleanup
 }
