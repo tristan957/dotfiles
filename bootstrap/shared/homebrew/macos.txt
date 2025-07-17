@@ -12,6 +12,7 @@ cmake
 conftest
 coreutils
 curl
+databricks
 deno
 difftastic
 direnv
