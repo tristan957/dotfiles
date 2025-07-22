@@ -39,6 +39,7 @@ git-delta
 glow
 go
 gopls
+grep
 gron
 gum
 helm

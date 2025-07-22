@@ -5,6 +5,7 @@ end
 
 fish_add_path --prepend "$HOMEBREW_PREFIX/opt/curl/bin"
 fish_add_path --prepend "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
+fish_add_path --prepend "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"
 fish_add_path --prepend "$HOMEBREW_PREFIX/opt/libtool/libexec/gnubin"
 fish_add_path --prepend "$HOMEBREW_PREFIX/opt/man-db/libexec/bin"
 fish_add_path --prepend "$HOMEBREW_PREFIX/opt/llvm/bin"
