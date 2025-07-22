@@ -76,6 +76,7 @@ pkgconf
 poetry
 postgresql@17
 pre-commit
+pygmentize
 qrencode
 reuse
 ripgrep
