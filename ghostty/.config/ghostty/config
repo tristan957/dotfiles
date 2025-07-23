@@ -11,9 +11,10 @@ confirm-close-surface = true
 copy-on-select = true
 
 cursor-click-to-move = true
-cursor-invert-fg-bg = true
+cursor-color = cell-foreground
 cursor-style = block
 cursor-style-blink =
+cursor-text = cell-background
 
 desktop-notifications = true
 
@@ -45,7 +46,8 @@ mouse-hide-while-typing = false
 resize-overlay = after-first
 resize-overlay-position = bottom-right
 
-selection-invert-fg-bg = true
+selection-background = cell-foreground
+selection-foreground = cell-background
 
 shell-integration = detect
 shell-integration-features = no-cursor,title,ssh-terminfo,sudo
