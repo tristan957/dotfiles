@@ -41,6 +41,12 @@ link-url = true
 
 linux-cgroup = always
 
+macos-auto-secure-input = true
+macos-hidden = never
+macos-icon = official
+macos-secure-input-indication = true
+macos-window-shadow = true
+
 mouse-hide-while-typing = false
 
 resize-overlay = after-first
