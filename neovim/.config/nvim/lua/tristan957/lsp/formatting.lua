@@ -19,6 +19,7 @@ local ls_markers = {
     ".rustfmt.toml",
     "rustfmt.toml",
   },
+  zls = true,
 }
 
 --- Get client for formatting a buffer.
