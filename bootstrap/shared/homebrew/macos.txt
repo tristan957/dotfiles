@@ -102,4 +102,5 @@ yarn
 yq
 zellij
 zig
+zls
 zoxide
