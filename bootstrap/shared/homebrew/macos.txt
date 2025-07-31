@@ -19,9 +19,9 @@ direnv
 docker
 dotnet
 eza
+fd
 findutils
 fish
-fd
 flex
 flyctl
 font-cascadia-code
@@ -34,8 +34,8 @@ fzf
 gcc
 gh
 git
-git-annex
 git-absorb
+git-annex
 git-delta
 glow
 go
@@ -43,8 +43,8 @@ gopls
 grep
 gron
 gum
-helm
 helix
+helm
 hexyl
 htop
 hyperfine
