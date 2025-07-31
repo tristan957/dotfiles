@@ -61,6 +61,7 @@ lazygit
 libtool
 llvm
 luarocks
+make
 meson
 miller
 mise
