@@ -2,6 +2,7 @@ if [[ $IS_MACOS -eq 1 ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/libtool/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/man-db/libexec/bin:$PATH"
