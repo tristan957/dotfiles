@@ -19,6 +19,7 @@ direnv
 docker
 dotnet
 eza
+findutils
 fish
 fd
 flex
