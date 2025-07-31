@@ -96,7 +96,7 @@ stylua
 tilt
 tmux
 tree
-tree-sitter
+tree-sitter-cli
 trurl
 uv
 vhs
