@@ -63,6 +63,7 @@ libtool
 llvm
 luarocks
 make
+man-db
 meson
 miller
 mise
