@@ -1,5 +1,6 @@
 vim.filetype.add({
   extension = {
+    gotmpl = "gotmpl",
     ---@param path string
     h = function(path)
       -- Try to be a little intelligent when determining if a .h file is C++ or C
