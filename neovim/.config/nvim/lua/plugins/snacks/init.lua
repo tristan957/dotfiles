@@ -112,7 +112,34 @@ return {
       lazygit = {},
       notifier = {
         enabled = true,
-        style = "fancy",
+        icons = {
+          error = "",
+          warn = "",
+          info = "",
+          debug = "",
+          trace = "",
+        },
+        style = function(buf, notif, ctx)
+          if notif.title == nil then
+            notif.title = ""
+          end
+
+          if notif.icon ~= nil then
+            notif.icon = vim.trim(notif.icon) .. " "
+          end
+
+          local title = string.format(
+            "%s%s%s",
+            notif.icon,
+            string.len(notif.title) > 0 and " " or "",
+            notif.title
+          )
+
+          ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
+          ctx.opts.title_pos = "center"
+
+          vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
+        end,
       },
       picker = {
         enabled = true,
