@@ -1,14 +1,3 @@
--- Always load project settings first
-require("tristan957.project-settings").setup({
-  fs_root = vim.fs.joinpath(vim.env.HOME, "Projects"),
-  rtps_root = vim.fs.joinpath(
-    vim.fn.stdpath("config") --[[@as string]],
-    "lua",
-    "tristan957",
-    "runtimepaths"
-  ),
-})
-
 -- Then setup PATH
 require("tristan957.path")
 

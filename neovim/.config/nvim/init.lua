@@ -86,6 +86,16 @@ vim.g.markdown_fenced_languages = {
 }
 vim.g.omni_sql_no_default_maps = 1
 
+vim.g.project_settings_opts = {
+  fs_root = vim.fs.joinpath(vim.env.HOME, "Projects"),
+  rtps_root = vim.fs.joinpath(
+    vim.fn.stdpath("config") --[[@as string]],
+    "lua",
+    "tristan957",
+    "runtimepaths"
+  ),
+} --[[@as ProjectSettingsOpts]]
+
 require("lazy").setup("plugins", {
   change_detection = {
     enabled = false,
