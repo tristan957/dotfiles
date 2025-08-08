@@ -39,6 +39,7 @@ git-annex
 git-delta
 glow
 go
+golangci-lint
 gopls
 grep
 gron
