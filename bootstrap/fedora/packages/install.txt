@@ -22,6 +22,7 @@ code
 codium
 codespell
 compat-lua
+crush
 dconf-editor
 ddcutil
 delve
