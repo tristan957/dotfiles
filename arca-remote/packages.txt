@@ -8,6 +8,7 @@ gdb
 libcurl4-openssl-dev
 libipc-run-perl
 libseccomp-dev
+meson
 ripgrep
 rlwrap
 stow
