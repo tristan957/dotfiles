@@ -6,6 +6,7 @@ flex
 fzf
 gdb
 libcurl4-openssl-dev
+libipc-run-perl
 libseccomp-dev
 ripgrep
 rlwrap
