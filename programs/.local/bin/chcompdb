@@ -17,9 +17,10 @@ if TYPE_CHECKING:
 
 def printed_path(path: pathlib.Path) -> pathlib.Path:
     cwd = os.getcwd()
-    if compdb_symlink.is_relative_to(cwd):
+    try:
         return compdb_symlink.relative_to(cwd)
-    return path
+    except ValueError:
+        return path
 
 
 parser = argparse.ArgumentParser("Change the current compilation database")
