@@ -1,7 +1,7 @@
 bear
 bison
 ccache
-clangd
+clangd-20
 flex
 fzf
 gdb
