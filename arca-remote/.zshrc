@@ -2,6 +2,8 @@ loginctl enable-linger
 
 # Please arca, stop it
 git -C "$HOME/dotfiles" restore git/.config/git/config
+mv "$HOME/.ssh/config" "$HOME/.ssh/config.old"
+sed '/^Include/d' < "$HOME/.ssh/config.old" > "$HOME/.ssh/config"
 
 HISTFILE="${XDG_STATE_HOME:-$HOME/.var}/zsh/history"
 HISTSIZE=1000000
