@@ -115,9 +115,9 @@ Statusline from left to right:
 
 - session
 - window list
-  - current window
-  - random window
-  - last window
+    - current window
+    - random window
+    - last window
 - hostname
 - date
 - 24-hr time
