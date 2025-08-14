@@ -5,5 +5,5 @@
 if which delta >/dev/null 2>&1; then
     exec delta --color-only --features=interactive
 else
-    exec git diff --color=always
+    exec cat
 fi
