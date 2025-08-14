@@ -42,6 +42,7 @@ function stow_setup() {
         nnn
         node
         npm
+        nvm
         pgrx
         postgresql
         programs

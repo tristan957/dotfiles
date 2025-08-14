@@ -61,6 +61,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - nnn
 - node
 - npm
+- nvm
 - pgrx
 - postgresql
 - programs

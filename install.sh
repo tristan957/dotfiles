@@ -56,6 +56,7 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "nnn"
         "node"
         "npm"
+        "nvm"
         "pgrx"
         "postgresql"
         "programs"
