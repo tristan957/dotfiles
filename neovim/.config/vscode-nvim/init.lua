@@ -19,8 +19,11 @@ local vscode = require("vscode")
 
 vim.notify = vscode.notify
 
+-- No idea why this is necessary: https://github.com/vscode-neovim/vscode-neovim/issues/1137#issuecomment-1936954633
+vim.keymap.set("", "<Space>", "<Nop>")
+
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.opt.autoread = true
 vim.opt.backup = false
@@ -34,7 +37,7 @@ vim.opt.writebackup = false
 
 vim.keymap.set("n", "<leader><leader>", function()
   vscode.action("workbench.action.quickOpen")
-end, { desc = "Open file" })
+end, { desc = "Go to file" })
 vim.keymap.set("n", "[t", function()
   vscode.action("workbench.action.previousEditor")
 end, { desc = "Previous tab" })
