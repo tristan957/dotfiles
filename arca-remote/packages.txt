@@ -2,6 +2,7 @@ bear
 bison
 ccache
 clangd-20
+direnv
 flex
 fzf
 gdb
