@@ -1,0 +1,5 @@
+[net]
+  # Given a more complex Git configuration, the Cargo Git library is pretty
+  # naive. It doesn't resolve the config entirely. Use the Git CLI to avoid
+  # any Git config problems.
+  git-fetch-with-cli = true
