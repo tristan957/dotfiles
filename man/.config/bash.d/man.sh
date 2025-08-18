@@ -3,7 +3,7 @@ if command -v nvim &>/dev/null; then
 fi
 
 if [[ -v HOMEBREW_PREFIX ]]; then
-    if command -v xcode-select; then
+    if command -v xcode-select &>/dev/null; then
         for path in $(xcode-select --show-manpaths); do
             export MANPATH="$path:$MANPATH"
         done
