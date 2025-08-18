@@ -63,6 +63,7 @@ kustomize
 lazygit
 libtool
 llvm
+lua-language-server
 luarocks
 make
 man-db
