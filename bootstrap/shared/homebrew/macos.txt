@@ -4,10 +4,12 @@ asciinema
 automake
 basedpyright
 bash
+bazel
 bear
 biome
 bison
 blueprint-compiler
+buildifier
 cmake
 conftest
 coreutils
