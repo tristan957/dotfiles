@@ -78,6 +78,7 @@ muon
 neovim
 ninja
 node
+openjdk
 opentofu
 pandoc
 pkgconf
