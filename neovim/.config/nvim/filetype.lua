@@ -43,6 +43,7 @@ vim.filetype.add({
     out = "output",
     plist = "xml",
     scfg = "scfg",
+    tmpl = "gotmpl",
   },
   filename = {
     [".clang-format"] = "yaml",
