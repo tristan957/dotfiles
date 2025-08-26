@@ -43,6 +43,7 @@ vim.filetype.add({
     out = "output",
     plist = "xml",
     scfg = "scfg",
+    ssh = "sshconfig",
     tmpl = "gotmpl",
   },
   filename = {
