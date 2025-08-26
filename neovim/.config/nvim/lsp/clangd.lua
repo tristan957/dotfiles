@@ -12,8 +12,6 @@ return {
   },
   on_init = function()
     vim.api.nvim_create_user_command("Chcompdb", function(opts)
-      local chcompdb = require("tristan957.chcompdb").chcompdb
-
       if #opts.fargs == 0 then
         local fzf_lua = require("fzf-lua")
 
