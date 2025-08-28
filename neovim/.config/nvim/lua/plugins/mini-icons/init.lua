@@ -2,7 +2,7 @@
 
 ---@type LazySpec
 return {
-  "echasnovski/mini.icons",
+  "nvim-mini/mini.icons",
   enabled = true,
   lazy = true,
   opts = {

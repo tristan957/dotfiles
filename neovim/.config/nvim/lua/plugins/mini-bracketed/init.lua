@@ -2,7 +2,7 @@
 
 ---@type LazySpec
 return {
-  "echasnovski/mini.bracketed",
+  "nvim-mini/mini.bracketed",
   enabled = true,
   event = "VeryLazy",
   opts = {

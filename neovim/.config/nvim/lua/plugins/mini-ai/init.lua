@@ -2,7 +2,7 @@
 
 ---@type LazySpec
 return {
-  "echasnovski/mini.ai",
+  "nvim-mini/mini.ai",
   enabled = true,
   event = { "BufNewFile", "BufReadPre" },
   opts = {},

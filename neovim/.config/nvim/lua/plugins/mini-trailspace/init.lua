@@ -2,7 +2,7 @@
 
 ---@type LazySpec
 return {
-  "echasnovski/mini.trailspace",
+  "nvim-mini/mini.trailspace",
   enabled = true,
   event = { "BufNewFile", "BufReadPre" },
   config = function()
