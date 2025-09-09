@@ -65,6 +65,7 @@ kustomize
 lazygit
 libtool
 llvm
+lsr
 lua-language-server
 luarocks
 make
