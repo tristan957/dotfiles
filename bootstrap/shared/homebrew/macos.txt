@@ -47,6 +47,7 @@ gopls
 grep
 gron
 gum
+harper
 helix
 helm
 hexyl
