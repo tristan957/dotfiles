@@ -101,6 +101,7 @@ shfmt
 sops
 stow
 stylua
+television
 tilt
 tmux
 tree
