@@ -72,22 +72,21 @@ return {
     { "g`", "<cmd>CodeCompanionChat Add<cr>", "v", noremap = true, silent = true },
   },
   opts = function(_, _)
-    local utils = require("tristan957.utils")
-
     return {
       adapters = {
         anthropic = function()
           return require("codecompanion.adapters").extend("anthropic", {
             env = {
-              api_key = utils.rstrip(vim
+              api_key = vim
                 .system({
                   "op",
                   "--account",
                   "my.1password.com",
                   "read",
+                  "--no-newline",
                   "op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
                 })
-                :wait().stdout),
+                :wait().stdout,
             },
           })
         end,
@@ -96,7 +95,7 @@ return {
         slash_commands = {
           ["file"] = {
             callback = "strategies.chat.slash_commands.file",
-            description = "Select a file using Telescope",
+            description = "Select a file using picker",
             opts = {
               provider = "snacks",
               contains_code = true,
