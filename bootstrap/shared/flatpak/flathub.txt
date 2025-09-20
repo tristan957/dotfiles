@@ -42,4 +42,5 @@ org.gnome.design.Lorem
 org.inkscape.Inkscape
 org.signal.Signal
 page.tesk.Refine
+se.sjoerd.Graphs
 us.zoom.Zoom
