@@ -1,5 +1,8 @@
+FileCopyrightText
 JWT
 JWTs
+Partin
+SPDX
 TODO
 canonicalized
 compute's
