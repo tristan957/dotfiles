@@ -30,6 +30,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     -- "pyright",
     "ruff",
     "rust_analyzer",
+    "stylua",
     "systemd_ls",
     "taplo",
     "terraformls",
