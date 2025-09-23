@@ -35,6 +35,7 @@ font-cascadia-mono-nf
 font-cascadia-mono-pl
 fzf
 gcc
+gdb
 gh
 git
 git-absorb
