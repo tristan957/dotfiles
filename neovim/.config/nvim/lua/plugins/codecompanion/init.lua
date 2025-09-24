@@ -73,23 +73,25 @@ return {
   },
   opts = function(_, _)
     return {
-      adapters = {
-        anthropic = function()
-          return require("codecompanion.adapters").extend("anthropic", {
-            env = {
-              api_key = vim
-                .system({
-                  "op",
-                  "--account",
-                  "my.1password.com",
-                  "read",
-                  "--no-newline",
-                  "op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
-                })
-                :wait().stdout,
-            },
-          })
-        end,
+      http = {
+        adapters = {
+          anthropic = function()
+            return require("codecompanion.adapters").extend("anthropic", {
+              env = {
+                api_key = vim
+                  .system({
+                    "op",
+                    "--account",
+                    "my.1password.com",
+                    "read",
+                    "--no-newline",
+                    "op://Personal/j3bxrfsofvsfhxggdfwdlhiqhy/credential",
+                  })
+                  :wait().stdout,
+              },
+            })
+          end,
+        },
       },
       chat = {
         slash_commands = {
