@@ -108,6 +108,7 @@ tmux
 tree
 tree-sitter-cli
 trurl
+typst
 uv
 vhs
 vim
