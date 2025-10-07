@@ -4,13 +4,13 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
-  cond = vim.fn.executable("tree-sitter") == 1,
+  cond = require("tristan957.treesitter").is_cli_available(),
   branch = vim.fn.has("nvim-0.11") == 1 and "main" or "master",
   build = ":TSUpdate",
   dependencies = {
     {
       "bezhermoso/tree-sitter-ghostty",
-      cond = vim.fn.executable("tree-sitter") == 1,
+      cond = require("tristan957.treesitter").is_cli_available(),
     },
   },
   ---@type TSConfig | {}

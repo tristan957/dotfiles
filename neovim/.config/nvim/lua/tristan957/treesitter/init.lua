@@ -2,9 +2,19 @@ local M = {}
 
 M.augroup = vim.api.nvim_create_augroup("tristan957_treesitter", { clear = true })
 
+--- Check whether the tree-sitter CLI is available
+---@return boolean
+M.is_cli_available = function()
+  return vim.fn.executable("tree-sitter") == 1
+end
+
 --- Get filetypes which have treesitter support according to my configuration.
 ---@return string[]
 M.get_filetypes = function()
+  if not M.is_cli_available() then
+    return {}
+  end
+
   return {
     "asm",
     "bash",
