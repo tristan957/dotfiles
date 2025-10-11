@@ -86,7 +86,7 @@ opentofu
 pandoc
 pkgconf
 poetry
-postgresql@17
+postgresql@18
 pre-commit
 pygmentize
 qrencode
