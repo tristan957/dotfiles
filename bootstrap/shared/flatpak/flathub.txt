@@ -4,6 +4,7 @@ app.drey.KeyRack
 com.belmoussaoui.Decoder
 com.belmoussaoui.Obfuscate
 com.discordapp.Discord
+com.fastmail.Fastmail
 com.github.finefindus.eyedropper
 com.github.marhkb.Pods
 com.mojang.Minecraft
