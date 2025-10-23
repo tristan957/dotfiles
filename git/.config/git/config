@@ -44,6 +44,7 @@
 	helper = !git-credential-op --account=my.1password.com op://Personal/n62vgxyhplzbjjb7bp2yki6eiq/password
 # https://dandavison.github.io/delta/
 [delta]
+	detect-dark-light = auto
 	hyperlinks = true
 	hyperlinks-file-link-format = "{path}:{line}"
 	navigate = true
