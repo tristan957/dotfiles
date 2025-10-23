@@ -49,6 +49,7 @@
 	navigate = true
 	side-by-side = true
 	syntax-theme = TwoDark
+	tabs = 4
 	unobtrusive-line-numbers = true
 [diff]
 	algorithm = histogram
