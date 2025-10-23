@@ -31,7 +31,7 @@ return {
               desc = "Find File",
               action = ":lua Snacks.picker.smart()",
             },
-            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+            { icon = " ", key = "n", desc = "New File", action = ":enew | startinsert" },
             {
               icon = " ",
               key = "g",
