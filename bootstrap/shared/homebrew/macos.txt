@@ -114,6 +114,7 @@ typst
 uv
 vhs
 vim
+w3m
 yarn
 yq
 zellij
