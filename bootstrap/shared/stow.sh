@@ -9,6 +9,7 @@ function stow_setup() {
         bash
         bat
         cargo
+        chawan
         clangd
         comlink
         containers
