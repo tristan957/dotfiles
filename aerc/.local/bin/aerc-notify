@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case "$(uname)" in
+    "Darwin")
+        # https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html
+        osascript -e \
+            "$(printf \
+                'display notification "%s" with title "%s" subtitle "%s"' \
+                "$AERC_FROM_NAME <$AERC_FROM_ADDRESS>" \
+                "New email" \
+                "$AERC_SUBJECT")"
+        ;;
+    *)
+        # https://specifications.freedesktop.org/notification-spec/latest/index.html
+        notify-send \
+            --category=email.arrived \
+            --icon=mail-message-new \
+            --urgency=normal \
+            "New email from $AERC_FROM_NAME <$AERC_FROM_ADDRESS>" \
+            "$AERC_SUBJECT"
+        ;;
+esac
