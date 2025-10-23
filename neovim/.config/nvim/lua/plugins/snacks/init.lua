@@ -156,26 +156,14 @@ return {
       },
       styles = {
         input = {
-          -- Use single instead of winborder to always ensure there is a visible
-          -- border
-          border = "single",
           title_pos = "center",
           relative = "editor",
         },
         ---@diagnostic disable-next-line: missing-fields
-        notification_history = {
-          border = vim.fn.has("nvim-0.11") == 1 and vim.o.winborder or "single",
-        },
-        ---@diagnostic disable-next-line: missing-fields
         notifier = {
-          border = "single",
           wo = {
             wrap = true,
           },
-        },
-        ---@diagnostic disable-next-line: missing-fields
-        picker = {
-          border = "single",
         },
         ---@diagnostic disable-next-line: missing-fields
         zen = {
