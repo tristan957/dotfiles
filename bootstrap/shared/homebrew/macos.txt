@@ -4,6 +4,7 @@ asciinema
 automake
 basedpyright
 bash
+bat
 bazel
 bear
 biome
