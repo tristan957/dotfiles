@@ -37,6 +37,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "terraformls",
     "tilt_ls",
     "ts_ls",
+    "ts_query_ls",
     "tinymist",
     "vacuum",
     "vimls",
