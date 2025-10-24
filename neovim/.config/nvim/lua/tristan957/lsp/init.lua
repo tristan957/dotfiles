@@ -14,6 +14,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "cssls",
     "denols",
     "docker_language_server",
+    "fish_lsp",
     "gleam",
     "gopls",
     "harper_ls",
