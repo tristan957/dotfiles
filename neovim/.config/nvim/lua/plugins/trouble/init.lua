@@ -11,7 +11,6 @@ return {
   opts = {
     indent_guides = true,
     win = {
-      border = "none",
       position = "bottom",
     },
   },
