@@ -27,6 +27,7 @@ eza
 fd
 findutils
 fish
+fish-lsp
 flex
 flyctl
 font-cascadia-code
