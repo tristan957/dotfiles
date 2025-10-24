@@ -72,8 +72,12 @@ return {
   lsp_implementations = function()
     Snacks.picker.lsp_implementations()
   end,
-  lsp_incoming_calls = function() end,
-  lsp_outgoing_calls = function() end,
+  lsp_incoming_calls = function()
+    Snacks.picker.lsp_incoming_calls()
+  end,
+  lsp_outgoing_calls = function()
+    Snacks.picker.lsp_outgoing_calls()
+  end,
   lsp_references = function()
     Snacks.picker.lsp_references()
   end,
