@@ -2,7 +2,7 @@ if not status is-interactive
     return
 end
 
-set -U fish_greeting
+set -g fish_greeting
 
 # Vi settings
 set fish_cursor_default block
