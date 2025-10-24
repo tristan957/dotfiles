@@ -30,7 +30,8 @@ M.get_filetypes = function()
     "desktop",
     "dhall",
     "diff",
-    "dockerfile",
+    -- This grammar sucks ass
+    -- "dockerfile",
     "doxygen",
     "editorconfig",
     "fish",
