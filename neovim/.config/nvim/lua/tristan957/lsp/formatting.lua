@@ -15,9 +15,7 @@ local ls_markers = {
   lua_ls = false,
   terraformls = true,
   ts_ls = false,
-  stylua = {
-    ".stylua.toml",
-  },
+  stylua = false,
   rust_analyzer = {
     ".rustfmt.toml",
     "rustfmt.toml",
