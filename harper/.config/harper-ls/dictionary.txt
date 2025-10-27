@@ -15,5 +15,6 @@ UTF
 XFAIL
 canonicalized
 compute's
+initdb
 libc
 postgres
