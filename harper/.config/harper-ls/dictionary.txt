@@ -18,4 +18,5 @@ compute's
 harper
 initdb
 libc
+libicu
 postgres
