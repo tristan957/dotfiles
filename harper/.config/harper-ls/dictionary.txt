@@ -15,6 +15,7 @@ UTF
 XFAIL
 canonicalized
 compute's
+harper
 initdb
 libc
 postgres
