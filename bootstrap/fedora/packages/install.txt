@@ -122,7 +122,7 @@ lldb
 llvm
 luarocks
 lynx
-maven
+maven4
 meson
 miller
 mingw64-gcc
