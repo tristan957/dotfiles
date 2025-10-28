@@ -61,9 +61,6 @@ repo_gpgcheck=0
 gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
         sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo
 
-    # Hare
-    sudo dnf copr enable --assumeyes mroche/hare
-
     # Hashicorp
     sudo dnf config-manager addrepo --assumeyes \
         --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
