@@ -6,6 +6,14 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[aerc/.config/aerc/signatures/*.txt]
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+[aerc/.config/aerc/templates/*.gotmpl]
+insert_final_newline = false
+trim_trailing_whitespace = false
+
 [.bashrc]
 indent_style = space
 indent_size = 4
