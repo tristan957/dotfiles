@@ -62,6 +62,7 @@ vim.filetype.add({
   pattern = {
     [".*config/aerc/accounts.conf"] = "ini",
     [".*config/aerc/aerc.conf"] = "ini",
+    [".*config/aerc/signatures/.*"] = "aerc-signature",
     [".*config/aerc/templates/.*"] = "aerc-template",
     [".*config/containers/containers.conf"] = "toml",
     [".*config/containers/containers.conf.d/.*.conf"] = "toml",
