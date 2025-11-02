@@ -18,6 +18,7 @@ conftest
 coreutils
 curl
 databricks
+delve
 deno
 devcontainer
 difftastic
