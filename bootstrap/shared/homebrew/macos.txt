@@ -13,6 +13,7 @@ blueprint-compiler
 buildifier
 chawan
 cmake
+codespell
 conftest
 coreutils
 curl
