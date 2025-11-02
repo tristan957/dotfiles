@@ -69,6 +69,7 @@ gnome-firmware
 gnome-sound-recorder
 go-task
 golang
+golangci-lint
 google-chrome-stable
 google-cloud-cli
 gstreamer1-plugins-bad-free-devel
