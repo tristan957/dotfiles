@@ -9,8 +9,6 @@ return {
   config = function()
     local MiniTrailspace = require("mini.trailspace")
 
-    MiniTrailspace.setup()
-
     local group = vim.api.nvim_create_augroup("tristan957_MiniTrailspace", { clear = true })
 
     vim.api.nvim_create_autocmd("BufWritePre", {
