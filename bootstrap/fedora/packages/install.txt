@@ -176,6 +176,7 @@ scdoc
 sequin
 sequoia-sq
 shfmt
+snapd
 socat
 steam-devices
 stow
