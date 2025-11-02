@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "g)", picker.lsp_outgoing_calls, "Show outgoing calls")
     map("n", "gra", vim.lsp.buf.code_action, "View code actions")
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
-    map("n", "<Leader>gO", picker.lsp_workspace_symbols, "Search workspace symbols")
+    map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
 
     -- if client:supports_method("textDocument/completion") then
     --   vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
