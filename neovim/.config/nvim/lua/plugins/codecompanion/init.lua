@@ -73,8 +73,8 @@ return {
   },
   opts = function(_, _)
     return {
-      http = {
-        adapters = {
+      adapters = {
+        http = {
           anthropic = function()
             return require("codecompanion.adapters").extend("anthropic", {
               env = {
