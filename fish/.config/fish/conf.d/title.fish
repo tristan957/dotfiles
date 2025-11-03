@@ -4,15 +4,15 @@ function fish_title
     switch (uname)
     case Darwin
         if set --query argv[1]
-            echo $cwd: $argv
+            echo (whoami)@(prompt_hostname):$cwd: $argv
         else
-            echo $cwd
+            echo (whoami)@(prompt_hostname):$cwd
         end
     case '*'
         if set --query argv[1]
-            echo $argv
+            echo (whoami)@(prompt_hostname): $argv
         else
-            echo $cwd
+            echo (whoami)@(prompt_hostname)
         end
     end
 end
