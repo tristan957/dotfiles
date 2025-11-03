@@ -1,17 +1,22 @@
 #!/bin/sh
 
+SIGNATURES_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/aerc/signatures"
+
 case "$AERC_ACCOUNT" in
     Personal)
         case "$AERC_FOLDER" in
-            PostgreSQL/hackers)
-                cat "$HOME/.config/aerc/signatures/work.txt"
+            Postgres/*)
+                cat "$SIGNATURES_DIR/work.txt"
                 ;;
             *)
-                cat "$HOME/.config/aerc/signatures/personal.txt"
+                cat "$SIGNATURES_DIR/personal.txt"
                 ;;
         esac
         ;;
     Work)
-        cat "$HOME/.config/aerc/signatures/work.txt"
+        cat "$SIGNATURES_DIR/work.txt"
+        ;;
+    *)
+        cat "$SIGNATURES_DIR/personal.txt"
         ;;
 esac
