@@ -53,7 +53,7 @@ function __prompt_host
     if set --query $container
         sed -n 's/^name="\(.*\)"$/\1/p' </run/.containerenv
     else
-        hostname
+        prompt_hostname
     end
 end
 
@@ -69,5 +69,5 @@ function fish_prompt
         set user_char '#'
     end
 
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$USER@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
+    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
 end
