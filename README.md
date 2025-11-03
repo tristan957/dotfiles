@@ -44,6 +44,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - homebrew
 - hut
 - info
+- jj
 - jq
 - jupyter
 - kubernetes

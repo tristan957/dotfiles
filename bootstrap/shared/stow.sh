@@ -31,6 +31,7 @@ function stow_setup() {
         helix
         hut
         info
+        jj
         jq
         jupyter
         kubernetes

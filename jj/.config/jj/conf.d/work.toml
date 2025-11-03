@@ -1,0 +1,7 @@
+--when.repositories = [
+  "~/Projects/work/cloud",
+  "~/Projects/work/neon",
+]
+
+[user]
+email = "tristan.partin@databricks.com"
