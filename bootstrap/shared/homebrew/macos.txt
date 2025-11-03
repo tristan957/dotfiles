@@ -107,6 +107,7 @@ shfmt
 sops
 stow
 stylua
+taplo
 television
 tilt
 tmux
