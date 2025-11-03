@@ -16,6 +16,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - asdf
 - bash
 - bat
+- bun
 - cargo
 - chawan
 - clangd

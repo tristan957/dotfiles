@@ -8,6 +8,7 @@ function stow_setup() {
         asdf
         bash
         bat
+        bun
         cargo
         chawan
         clangd
