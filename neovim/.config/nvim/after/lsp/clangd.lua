@@ -13,20 +13,24 @@ return {
   on_init = function()
     vim.api.nvim_create_user_command("Chcompdb", function(opts)
       if #opts.fargs == 0 then
-        local fzf_lua = require("fzf-lua")
-
-        fzf_lua.fzf_exec("find -type f -name 'compile_commands.*'", {
-          prompt = "Compilation Database> ",
-          actions = {
-            ["default"] = function(selected)
-              chcompdb(selected[1])
-            end,
+        vim.ui.select(
+          vim.fs.find(function(name, _)
+            return name:match("compile_commands%.json")
+          end, {
+            limit = math.huge,
+            type = "file",
+          }),
+          {
+            prompt = "Choose a compilation database",
           },
-          -- This isn't working as expected for some reason
-          -- fn_transform = function(db)
-          --   return fzf_lua.make_entry.file(db, { file_icons = true, color_icons = true })
-          -- end,
-        })
+          function(compdb, _)
+            if compdb == nil then
+              return
+            end
+
+            chcompdb(compdb)
+          end
+        )
       elseif #opts.fargs == 1 then
         chcompdb(opts.fargs[1])
       else
