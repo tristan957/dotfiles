@@ -4,7 +4,7 @@ Diagnostics:
   UnusedIncludes: Strict
 
 If:
-  PathMatch: ".*(\\\\|/)postgres(ql)?(\\\\|/).*\\.h"
+  PathMatch: .*/(postgres(?:ql)?)/.*\.h$
 CompileFlags:
   Add:
     - "-include"
