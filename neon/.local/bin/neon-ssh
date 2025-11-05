@@ -1,5 +1,28 @@
 #!/usr/bin/env bash
 
+usage() {
+    cat << EOF
+Usage: neon-ssh [OPTIONS] ENDPOINT [SSH_ARGS...]
+
+Connect to a Neon compute via kubectl exec and SSH.
+
+OPTIONS:
+    -c CONTEXT     Kubernetes context to use
+    -n NAMESPACE   Kubernetes namespace to use
+    -h             Show this help message and exit
+
+ARGUMENTS:
+    ENDPOINT       The neon endpoint ID to connect to
+    SSH_ARGS       Additional arguments to pass to ssh
+
+EXAMPLES:
+    neon-ssh my-endpoint
+    neon-ssh -c production -n neon-system my-endpoint
+    neon-ssh -c staging my-endpoint -p 2222
+    neon-ssh -n custom-namespace my-endpoint -- ls -la
+EOF
+}
+
 args=("$@")
 
 if [[ $# -lt 1 ]]; then
@@ -7,10 +30,24 @@ if [[ $# -lt 1 ]]; then
     exit 1
 fi
 
-while getopts "" o; do
+context=""
+namespace=""
+
+while getopts "c:n:h" o; do
     case "${o}" in
+        c)
+            context="${OPTARG}"
+            ;;
+        n)
+            namespace="${OPTARG}"
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
         *)
-            echo 'Invalid option' >&2
+            echo "Invalid option: $o" >&2
+            usage >&2
             exit 1
             ;;
     esac
@@ -19,11 +56,22 @@ shift $((OPTIND - 1))
 OPTIND=$((OPTIND - 1))
 
 endpoint="${args[$OPTIND]}"
+
 shift
 OPTIND=$((OPTIND + 1))
 
+# Build kubectl context and namespace arguments
+kubectl_args=()
+if [[ -n "$context" ]]; then
+    kubectl_args+=(--context="$context")
+fi
+if [[ -n "$namespace" ]]; then
+    kubectl_args+=(--namespace="$namespace")
+fi
+
 kubectl exec --stdin=true --tty=true \
-    "$(kubectl get pod --selector "neon/endpoint-id=$endpoint" \
+    "${kubectl_args[@]}" \
+    "$(kubectl get pod "${kubectl_args[@]}" --selector "neon/endpoint-id=$endpoint" \
         --output 'jsonpath={.items[0].metadata.name}')" \
     -- \
     ssh -o 'UserKnownHostsFile /dev/null' -o 'LogLevel ERROR' guest-vm "${args[@]:$OPTIND}"
