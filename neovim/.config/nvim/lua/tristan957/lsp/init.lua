@@ -63,6 +63,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gy", picker.lsp_type_definitions, "Goto type definitions")
     map("n", "g(", picker.lsp_incoming_calls, "Show incoming calls")
     map("n", "g)", picker.lsp_outgoing_calls, "Show outgoing calls")
+    map("n", "grr", picker.lsp_references, "Show references")
     map("n", "gra", vim.lsp.buf.code_action, "View code actions")
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
     map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
