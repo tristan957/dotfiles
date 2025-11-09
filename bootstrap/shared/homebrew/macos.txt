@@ -2,6 +2,7 @@
 aerc
 asciinema
 automake
+azure-cli
 basedpyright
 bash
 bat
