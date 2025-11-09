@@ -143,6 +143,11 @@ return {
       },
       picker = {
         enabled = true,
+        previewers = {
+          wo = {
+            showbreak = "NONE",
+          },
+        },
         ui_select = true,
       },
       quickfile = {
