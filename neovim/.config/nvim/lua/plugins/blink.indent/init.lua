@@ -7,27 +7,42 @@ return {
   cond = true,
   enabled = true,
   event = "BufRead",
-  --- @type blink.indent.Config
-  opts = {
-    scope = {
-      char = "▎",
-      enabled = true,
-      highlights = require("tristan957.utils.list").shuffle({
-        "BlinkIndentOrange",
-        "BlinkIndentViolet",
-        "BlinkIndentBlue",
-        "BlinkIndentRed",
-        "BlinkIndentCyan",
-        "BlinkIndentYellow",
-        "BlinkIndentGreen",
-      }),
-    },
-    static = {
-      char = "▏",
-      enabled = true,
-    },
-    underline = {
-      enabled = false,
-    },
-  },
+  opts = function()
+    local colors = require("tristan957.utils.list").shuffle({
+      "Orange",
+      "Violet",
+      "Blue",
+      "Red",
+      "Cyan",
+      "Yellow",
+      "Green",
+    })
+
+    --- @type blink.indent.Config
+    return {
+      scope = {
+        char = "▎",
+        enabled = true,
+        highlights = vim
+          .iter(colors)
+          :map(function(c)
+            return "BlinkIndent" .. c
+          end)
+          :totable(),
+        underline = {
+          enabled = true,
+          highlights = vim
+            .iter(colors)
+            :map(function(c)
+              return string.format("BlinkIndent%sUnderline", c)
+            end)
+            :totable(),
+        },
+      },
+      static = {
+        char = "▏",
+        enabled = true,
+      },
+    }
+  end,
 }
