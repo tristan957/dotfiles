@@ -1,3 +1,6 @@
+-- Make sure that we actually have randomness in the config
+math.randomseed(os.time())
+
 local lazy_path = vim.fs.joinpath(vim.fn.stdpath("data") --[[@as string]], "lazy", "lazy.nvim")
 
 if not vim.uv.fs_stat(lazy_path) then
