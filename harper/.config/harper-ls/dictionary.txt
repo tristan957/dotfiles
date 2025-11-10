@@ -5,6 +5,7 @@ Hadron
 JWT
 JWTs
 Lakebase
+Makefile
 NGINX
 Partin
 Podman
