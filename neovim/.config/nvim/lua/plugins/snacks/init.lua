@@ -105,6 +105,30 @@ return {
       },
       indent = {
         enabled = false,
+        animate = {
+          enabled = false,
+        },
+        chunk = {
+          enabled = false,
+        },
+        indent = {
+          enabled = true,
+          char = "▏",
+        },
+        scope = {
+          enabled = true,
+          char = "▎",
+          hl = require("tristan957.utils.list").shuffle({
+            "SnacksIndent1",
+            "SnacksIndent2",
+            "SnacksIndent3",
+            "SnacksIndent4",
+            "SnacksIndent5",
+            "SnacksIndent6",
+            "SnacksIndent7",
+            "SnacksIndent8",
+          }),
+        },
       },
       input = {
         enabled = true,
