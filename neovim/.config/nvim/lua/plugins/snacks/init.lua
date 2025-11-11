@@ -36,7 +36,7 @@ return {
               icon = " ",
               key = "g",
               desc = "Find Text",
-              action = ":lua Snacks.dashboard.pick('live_grep')",
+              action = ":lua Snacks.picker.grep({ hidden = true })",
             },
             {
               icon = " ",
