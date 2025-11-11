@@ -4,7 +4,7 @@
 ---@type LazySpec
 return {
   "saghen/blink.indent",
-  cond = true,
+  cond = vim.fn.has("nvim-0.11") == 1,
   enabled = true,
   event = "BufRead",
   opts = function()
