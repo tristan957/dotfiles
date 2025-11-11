@@ -9,6 +9,7 @@ fzf
 gdb
 libcurl4-openssl-dev
 libipc-run-perl
+libtool
 libseccomp-dev
 meson
 moreutils
