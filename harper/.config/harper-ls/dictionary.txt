@@ -4,6 +4,7 @@ HIPAA
 Hadron
 JWT
 JWTs
+LDFLAGS
 Lakebase
 Makefile
 NGINX
