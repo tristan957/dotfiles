@@ -42,6 +42,7 @@ org.gnome.design.IconLibrary
 org.gnome.design.Lorem
 org.inkscape.Inkscape
 org.signal.Signal
+org.telegram.desktop
 page.tesk.Refine
 se.sjoerd.Graphs
 us.zoom.Zoom
