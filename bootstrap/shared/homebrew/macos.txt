@@ -115,6 +115,7 @@ tmux
 tree
 tree-sitter-cli
 trurl
+ts_query_ls
 typst
 uv
 vhs
