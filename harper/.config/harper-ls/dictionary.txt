@@ -6,6 +6,7 @@ JWT
 JWTs
 LDFLAGS
 Lakebase
+MANPATH
 Makefile
 NGINX
 Partin
