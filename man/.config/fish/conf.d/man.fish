@@ -2,7 +2,7 @@ if command --query nvim
     set -gx MANPAGER 'nvim +Man!'
 end
 
-switch (uname)
+switch "$(uname)"
 case Darwin
     if test "$(command -v man)" != /usr/bin/man && command --query xcode-select
         for path in (xcode-select --show-manpaths)
