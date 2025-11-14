@@ -24,6 +24,7 @@ delve
 deno
 devcontainer
 difftastic
+diffutils
 direnv
 docker
 dotnet
