@@ -8,6 +8,7 @@ bash
 bat
 bazel
 bear
+binutils
 biome
 bison
 blueprint-compiler
