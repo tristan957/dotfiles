@@ -50,11 +50,16 @@ git-absorb
 git-annex
 git-delta
 glow
+gnu-tar
+gnu-time
+gnu-which
 go
 golangci-lint
 gopls
+gpatch
 grep
 gron
+gsed
 gum
 harper
 helix
