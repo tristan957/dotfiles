@@ -1,8 +1,10 @@
 if [[ $IS_MACOS -eq 1 ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PATH="$HOMEBREW_PREFIX/opt/bison/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/flex/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
