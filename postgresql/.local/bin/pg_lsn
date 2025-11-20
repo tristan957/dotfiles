@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+
+"""
+Convert PostgreSQL LSN (Log Sequence Number) to bytes.
+
+LSN format: XX/YYYYYYYY (hexadecimal)
+Byte offset: (XX * 2^32) + YYYYYYYY
+
+Usage:
+    ./lsn_to_bytes.py 0/1234ABCD
+    echo "0/1234ABCD" | ./lsn_to_bytes.py
+    ./lsn_to_bytes.py 1/0 0/1000000
+"""
+
+import argparse
+import re
+import sys
+
+
+def lsn_to_bytes(lsn: str) -> int:
+    """
+    Convert PostgreSQL LSN to byte offset.
+
+    Args:
+        lsn: LSN string in format XX/YYYYYYYY (hexadecimal)
+
+    Returns:
+        Byte offset as integer
+
+    Raises:
+        ValueError: If LSN format is invalid
+    """
+    # Validate LSN format
+    if not re.match(r"^[0-9A-Fa-f]+/[0-9A-Fa-f]+$", lsn):
+        raise ValueError(
+            f"Invalid LSN format: '{lsn}'. Expected format: XX/YYYYYYYY (hex)\n"
+            "Example: 0/1234ABCD or 1A/B2C3D4E5"
+        )
+
+    # Split LSN into high and low parts
+    high_hex, low_hex = lsn.split("/")
+
+    # Convert hex to decimal
+    high = int(high_hex, 16)
+    low = int(low_hex, 16)
+
+    # Calculate byte offset: high * 2^32 + low
+    bytes_offset = (high << 32) + low
+
+    return bytes_offset
+
+
+def bytes_to_lsn(bytes_offset: int) -> str:
+    """
+    Convert byte offset to PostgreSQL LSN.
+
+    Args:
+        bytes_offset: Byte offset as integer
+
+    Returns:
+        LSN string in format XX/YYYYYYYY
+    """
+    if bytes_offset < 0:
+        raise ValueError("Byte offset must be non-negative")
+
+    high = bytes_offset >> 32
+    low = bytes_offset & 0xFFFFFFFF
+
+    return f"{high:X}/{low:X}"
+
+
+def process_item(item: str, reverse: bool) -> bool:
+    """
+    Process a single item (LSN or byte offset) and print the result.
+
+    Args:
+        item: String to convert (LSN or byte offset)
+        reverse: If True, convert bytes to LSN; if False, convert LSN to bytes
+
+    Returns:
+        True on success, False on error
+    """
+    try:
+        if reverse:
+            bytes_offset = int(item)
+            print(bytes_to_lsn(bytes_offset))
+        else:
+            print(lsn_to_bytes(item))
+        return True
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return False
+
+
+def main() -> int:
+    """Main entry point."""
+    parser = argparse.ArgumentParser(
+        description="Convert PostgreSQL LSN (Log Sequence Number) to bytes",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s 0/0                  # Output: 0
+  %(prog)s 0/1000000            # Output: 16777216
+  %(prog)s 1/0                  # Output: 4294967296
+  %(prog)s 16/3002D50           # Output: 94506028368
+  echo "0/1234ABCD" | %(prog)s  # Output: 305441741
+
+  # Convert bytes back to LSN
+  %(prog)s --reverse 305441741  # Output: 0/1234ABCD
+
+Notes:
+  - Both uppercase and lowercase hex digits are accepted
+  - Can process multiple LSNs in one invocation
+  - Reads from stdin if no arguments provided
+        """,
+    )
+    parser.add_argument(
+        "lsn",
+        nargs="*",
+        help="LSN(s) in format XX/YYYYYYYY (hexadecimal) or byte offsets with --reverse",
+    )
+    parser.add_argument(
+        "-r",
+        "--reverse",
+        action="store_true",
+        help="Convert bytes to LSN instead of LSN to bytes",
+    )
+
+    args = parser.parse_args()
+
+    try:
+        # If arguments provided, use them
+        if args.lsn:
+            for item in args.lsn:
+                if not process_item(item, args.reverse):
+                    return 1
+        # Otherwise read from stdin
+        elif not sys.stdin.isatty():
+            for line in sys.stdin:
+                line = line.strip()
+                if not line:  # Skip empty lines
+                    continue
+                if not process_item(line, args.reverse):
+                    return 1
+        else:
+            parser.print_help()
+            return 1
+
+    except KeyboardInterrupt:
+        return 130
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
