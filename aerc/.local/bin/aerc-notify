@@ -3,11 +3,13 @@
 case "$(uname)" in
     Darwin)
         # https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html
+        #
+        # We must escape double quotes for AppleScript
         osascript -e \
             "$(printf \
                 'display notification "%s" with title "New email" subtitle "%s"' \
-                "$AERC_SUBJECT" \
-                "$AERC_FROM_NAME <$AERC_FROM_ADDRESS>")"
+                "$(printf '%s' "$AERC_SUBJECT" | sed 's/"/\\"/g')" \
+                "$(printf '%s' "$AERC_FROM_NAME <$AERC_FROM_ADDRESS>" | sed 's/"/\\"/g')")"
         ;;
     *)
         # https://specifications.freedesktop.org/notification-spec/latest/index.html
