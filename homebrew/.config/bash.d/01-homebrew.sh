@@ -15,7 +15,7 @@ if [[ $IS_MACOS -eq 1 ]]; then
     export PATH="$HOMEBREW_PREFIX/opt/llvm/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/make/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/man-db/libexec/bin:$PATH"
-    export PATH="$HOMEBREW_PREFIX/opt/postgresql@17/bin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH"
 
     if [[ $IS_INTERACTIVE -eq 1 ]]; then
         for f in "$HOMEBREW_PREFIX"/etc/bash_completion.d/*; do
