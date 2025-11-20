@@ -3,9 +3,10 @@
   # naive. It doesn't resolve the config entirely. Use the Git CLI to avoid
   # any Git config problems.
   git-fetch-with-cli = true
-[target.x86_64-unknown-linux-gnu]
-  linker = "clang"
-  rustflags = ["-C", "link-arg=--ld=mold"]
 [target.stable-aarch64-apple-darwin]
   linker = "clang"
   rustflags = ["-C", "link-arg=--ld=mold"]
+# Uncomment after arca is moved off of something newer than they year 2000, wtf
+# [target.x86_64-unknown-linux-gnu]
+#   linker = "clang"
+#   rustflags = ["-C", "link-arg=--ld=mold"]
