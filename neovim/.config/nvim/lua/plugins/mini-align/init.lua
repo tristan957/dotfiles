@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "mini.align"
 
 ---@type LazySpec
 return {

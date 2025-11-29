@@ -1,3 +1,4 @@
+---@module "jdtls",
 ---@module "lazy"
 
 ---@type LazySpec

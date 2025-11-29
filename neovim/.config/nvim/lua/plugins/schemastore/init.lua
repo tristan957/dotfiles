@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "schemastore"
 
 ---@type LazySpec
 return {

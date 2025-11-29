@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "treesitter-context"
 
 ---@type LazySpec
 return {

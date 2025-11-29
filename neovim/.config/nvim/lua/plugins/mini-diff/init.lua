@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "mini.diff"
 
 ---@type LazySpec
 return {

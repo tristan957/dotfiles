@@ -1,3 +1,4 @@
+---@module "dap"
 ---@module "lazy"
 
 ---@type LazySpec

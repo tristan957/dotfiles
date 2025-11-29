@@ -1,3 +1,4 @@
+---@module "amp"
 ---@module "lazy"
 
 ---@type LazySpec

@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "mini.ai"
 
 ---@type LazySpec
 return {

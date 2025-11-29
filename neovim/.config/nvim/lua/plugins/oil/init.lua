@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "oil"
 
 ---@type LazySpec
 return {

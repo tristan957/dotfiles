@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "lualine"
 
 ---@type LazySpec
 return {

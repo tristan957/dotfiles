@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "onedarkpro"
 
 ---@type LazySpec
 return {

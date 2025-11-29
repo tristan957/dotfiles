@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "mini.surround"
 
 ---@type LazySpec
 return {
