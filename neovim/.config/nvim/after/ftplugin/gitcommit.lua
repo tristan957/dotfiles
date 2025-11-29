@@ -6,3 +6,4 @@ vim.opt_local.shiftwidth = 4
 vim.opt_local.tabstop = 4
 
 vim.b.minitrailspace_disable = true
+vim.b.snacks_indent = false
