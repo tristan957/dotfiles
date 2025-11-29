@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "nvim-mini/mini.icons",
-  enabled = true,
   lazy = true,
   opts = {
     style = "glyph",

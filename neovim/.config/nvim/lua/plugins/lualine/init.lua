@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "nvim-lualine/lualine.nvim",
-  enabled = true,
   event = "UIEnter",
   opts = {
     options = {

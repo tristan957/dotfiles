@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "folke/trouble.nvim",
-  enabled = true,
   lazy = true,
   cmd = "Trouble",
   ---@type trouble.Config | {}

@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
-  enabled = true,
   lazy = true,
   version = "v1.*",
   event = { "CmdlineEnter", "InsertEnter" },

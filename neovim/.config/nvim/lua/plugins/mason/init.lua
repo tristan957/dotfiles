@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "mason-org/mason.nvim",
-  enabled = true,
   build = ":MasonUpdate",
   event = "VimEnter",
   ---@type MasonSettings

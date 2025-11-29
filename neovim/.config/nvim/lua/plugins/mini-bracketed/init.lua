@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "nvim-mini/mini.bracketed",
-  enabled = true,
   event = "VeryLazy",
   opts = {
     buffer = { suffix = "", options = {} },

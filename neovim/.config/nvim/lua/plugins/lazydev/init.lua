@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "folke/lazydev.nvim",
-  enabled = true,
   ft = "lua",
   ---@type lazydev.Config
   opts = {

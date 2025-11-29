@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "mfussenegger/nvim-dap",
-  enabled = true,
   dependencies = {
     "mfussenegger/nluarepl",
   },

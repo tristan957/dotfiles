@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "mfussenegger/nvim-jdtls",
-  enabled = true,
   ft = "java",
   config = function()
     local jdtls = require("jdtls")

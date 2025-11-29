@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "olimorris/onedarkpro.nvim",
-  enabled = true,
   lazy = false,
   priority = 1000,
   dev = false,

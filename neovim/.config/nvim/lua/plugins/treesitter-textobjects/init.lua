@@ -5,7 +5,6 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   cond = require("tristan957.treesitter").is_cli_available() and vim.fn.has("nvim-0.11") == 1,
-  enabled = true,
   branch = "main",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
