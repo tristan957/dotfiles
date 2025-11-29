@@ -49,7 +49,7 @@ M.is_workspace = function(dir)
   return vim.uv.fs_stat(vim.fs.joinpath(dir, "poetry.lock")) ~= nil
 end
 
---- Run a synchronous command using `poetry run`
+--- Run a synchronous command using `poetry run`.
 ---@param cmd string[]
 ---@return vim.SystemCompleted
 M.run = function(cmd)
