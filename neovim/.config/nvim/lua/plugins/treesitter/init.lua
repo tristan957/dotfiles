@@ -8,10 +8,7 @@ return {
   branch = vim.fn.has("nvim-0.11") == 1 and "main" or "master",
   build = ":TSUpdate",
   dependencies = {
-    {
-      "bezhermoso/tree-sitter-ghostty",
-      cond = require("tristan957.treesitter").is_cli_available(),
-    },
+    "bezhermoso/tree-sitter-ghostty",
   },
   ---@type TSConfig | {}
   opts = {},
