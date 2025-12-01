@@ -28,6 +28,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "lua_ls",
     "marksman",
     "muon",
+    "postgres_lsp",
     -- "pyright",
     "ruff",
     "rust_analyzer",
