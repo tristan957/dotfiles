@@ -99,6 +99,7 @@ opentofu
 pandoc
 pkgconf
 poetry
+postgres-language-server
 postgresql@18
 pre-commit
 pygmentize
