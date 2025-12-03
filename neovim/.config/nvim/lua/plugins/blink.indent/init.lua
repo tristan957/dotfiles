@@ -4,7 +4,7 @@
 ---@type LazySpec
 return {
   "saghen/blink.indent",
-  cond = vim.fn.has("nvim-0.11") == 1 and false,
+  cond = vim.fn.has("nvim-0.11") == 1,
   event = "BufRead",
   opts = function()
     local colors = require("tristan957.utils.list").shuffle({
