@@ -6,7 +6,7 @@
     "prettier:format": "prettier --config .prettierrc.yml --write '**/*.{yaml,yml}'"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.18.1",
+    "markdownlint-cli2": "^0.19.1",
     "prettier": "^3.7.3"
   }
 }
