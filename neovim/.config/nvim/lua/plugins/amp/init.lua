@@ -5,4 +5,5 @@
 return {
   "sourcegraph/amp.nvim",
   enabled = false,
+  event = "VeryLazy",
 }
