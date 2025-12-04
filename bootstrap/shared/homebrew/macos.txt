@@ -80,6 +80,7 @@ kustomize
 lazygit
 libtool
 llvm
+logcli
 lsr
 lua-language-server
 luarocks
