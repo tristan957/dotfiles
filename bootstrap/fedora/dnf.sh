@@ -87,6 +87,10 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
     sudo dnf config-manager addrepo --assumeyes \
         --from-repofile=https://rpm.releases.teleport.dev/teleport.repo
 
+    # Terra
+    sudo dnf install --nogpgcheck --repofrompath \
+        'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+
     # VSCode
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     echo '[code]

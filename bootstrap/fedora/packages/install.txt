@@ -10,6 +10,7 @@ black
 blueprint-compiler
 btop
 buildah
+bun
 cascadia-fonts-all
 catimg
 chromium
@@ -26,6 +27,7 @@ crush
 dconf-editor
 ddcutil
 delve
+deno
 dhall
 dhall-json
 difftastic
