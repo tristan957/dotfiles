@@ -104,6 +104,7 @@ poetry
 postgres-language-server
 postgresql@18
 pre-commit
+prise
 pygmentize
 qrencode
 reuse
@@ -135,5 +136,6 @@ yarn
 yq
 zellij
 zig
+zigdoc
 zls
 zoxide
