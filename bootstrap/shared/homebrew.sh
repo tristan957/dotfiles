@@ -1,5 +1,6 @@
 function homebrew_add_taps() {
     brew tap databricks/tap
+    brew tap oven-sh/bun
 }
 
 function homebrew_install_packages() {

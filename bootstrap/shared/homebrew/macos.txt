@@ -13,6 +13,7 @@ biome
 bison
 blueprint-compiler
 buildifier
+bun
 chawan
 cmake
 codespell
