@@ -14,6 +14,7 @@ for f in "$HOME/.bash"*; do
     fi
 done
 
+mkdir -p "$HOME/Projects"
 mkdir -p "{$XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completion"
 mkdir -p "${XDG_STATE_HOME:-$HOME/.var}"
 mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/postgresql"
