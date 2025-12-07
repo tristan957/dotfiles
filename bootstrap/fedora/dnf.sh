@@ -14,10 +14,6 @@ repo_gpgcheck=1
 gpgkey=https://downloads.1password.com/linux/keys/1password.asc' |
         sudo tee /etc/yum.repos.d/1password.repo
 
-    # Docker
-    # sudo dnf config-manager addrepo --assumeyes \
-    #     --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
-
     # Charm
     echo '[charm]
 name=Charm
