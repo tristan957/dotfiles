@@ -1,5 +1,6 @@
 1password-cli
 aerc
+amp
 asciinema
 automake
 azure-cli
