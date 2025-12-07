@@ -1,4 +1,4 @@
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
+if [[ -v HOMEBREW_PREFIX ]]; then
     . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" 2>/dev/null
 fi
 
