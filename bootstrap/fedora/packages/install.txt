@@ -33,10 +33,10 @@ dhall-json
 difftastic
 direnv
 distrobox
-docker-buildx-plugin
-docker-ce
-docker-ce-cli
-docker-compose-plugin
+# docker-buildx-plugin
+# docker-ce
+# docker-ce-cli
+# docker-compose-plugin
 containerd.io
 dotnet-sdk-9.0
 elixir
