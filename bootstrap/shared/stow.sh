@@ -25,7 +25,6 @@ function stow_setup() {
         ghostty
         git
         glow
-        grep
         go
         harper
         helix
