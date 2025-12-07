@@ -17,6 +17,7 @@ done
 mkdir -p "$HOME/Projects"
 mkdir -p "{$XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completion"
 mkdir -p "${XDG_STATE_HOME:-$HOME/.var}"
+mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/bash"
 mkdir -p "${XDG_STATE_HOME:-$HOME/.var}/postgresql"
 mkdir -p "$HOME/.opt"
 
