@@ -149,7 +149,6 @@ pipx
 pnpm
 podman-compose
 podman-docker
-powershell
 pre-commit
 protonvpn-cli
 ptyxis
