@@ -1,3 +1,5 @@
+/cargo/.opt/cargo/env
+/cargo/.opt/cargo/bin/
 /fish/.config/fish/fish_variables
 /glab/.config/glab-cli/config.yml
 /node_modules/
