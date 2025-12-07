@@ -71,7 +71,6 @@ function stow_setup() {
     else
         packages+=(
             desktop-database
-            electron
             flyctl
             ptyxis
             systemd
