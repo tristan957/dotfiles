@@ -138,6 +138,7 @@ mozilla-openh264
 mullvad-vpn
 muon-meson
 neovim
+nim
 ninja-build
 nnn
 nodejs
