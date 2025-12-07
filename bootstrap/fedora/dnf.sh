@@ -84,7 +84,7 @@ gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg' |
         --from-repofile=https://rpm.releases.teleport.dev/teleport.repo
 
     # Terra
-    sudo dnf install --nogpgcheck --repofrompath \
+    sudo dnf install --nogpgcheck --repofrompath --assumeyes \
         'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
     # VSCode
@@ -131,31 +131,30 @@ function dnf_install_packages() {
 # https://rpmfusion.org/Howto/Multimedia
 function dnf_proprietary_multimedia() {
     # Switch to the full ffmpeg
-    sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+    sudo dnf swap --assumeyes ffmpeg-free ffmpeg --allowerasing
 
     # Install additional codecs
-    sudo dnf update @multimedia \
+    sudo dnf update --assumeyes @multimedia \
         --setopt="install_weak_deps=False" \
         --exclude=PackageKit-gstreamer-plugin
-    sudo dnf update @sound-and-video
 
     # Intel hardware accelerated codecs
-    sudo dnf install intel-media-driver
+    sudo dnf install --assumeyes intel-media-driver
 
     # AMD hardware accelerated codecs
-    sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
-    sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+    sudo dnf swap --assumeyes mesa-va-drivers mesa-va-drivers-freeworld
+    sudo dnf swap --assumeyes mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 
     # NVIDIA hardware accelerated codecs
     # I don't own NVIDIA, but if I did...
     # sudo dnf install libva-nvidia-driver
 
     # Play a DVD
-    sudo dnf install rpmfusion-free-release-tainted
-    sudo dnf install libdvdcss
+    sudo dnf install --assumeyes rpmfusion-free-release-tainted
+    sudo dnf install --assumeyes libdvdcss
 
-    sudo dnf install rpmfusion-nonfree-release-tainted
-    sudo dnf --repo=rpmfusion-nonfree-tainted install "*-firmware"
+    sudo dnf install --assumeyes rpmfusion-nonfree-release-tainted
+    sudo dnf --repo=rpmfusion-nonfree-tainted install --assumeyes "*-firmware"
 }
 
 function dnf_setup() {
