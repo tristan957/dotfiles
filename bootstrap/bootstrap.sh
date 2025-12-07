@@ -75,6 +75,6 @@ grub_setup
 uv_setup
 asciinema_setup
 podman_setup
-mise_setup
-nix_setup
+# mise_setup
+# nix_setup
 # docker_setup
