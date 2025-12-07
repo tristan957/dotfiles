@@ -5,8 +5,10 @@ else
 fi
 
 if [[ -v HOMEBREW_PREFIX ]]; then
-    [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]] && . "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
-else
-    [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
-    [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
+    if [[ -f "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]]; then
+        . "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+    fi
+elif [[ -d "$NVM_DIR" ]]; then
+    . "$NVM_DIR/nvm.sh"
+    . "$NVM_DIR/bash_completion"
 fi
