@@ -1,7 +1,5 @@
 function glab_login_gitlab {
-    # It looks like if we use the web login method, tokens will refresh
-    # automatically.
-    glab auth login --web
+    glab auth login --hostname gitlab.com
 }
 
 function glab_login_gnome {
@@ -21,11 +19,16 @@ function glab_write_config {
     glab config set glamour_style dark
 }
 
+function glab_permissions {
+    chmod 600 "${XDG_CONFIG_HOME:-$HOME/.config}/glab-cli/aliases.yml"
+}
+
 function glab_setup {
     if ! command -v glab &>/dev/null; then
         builtin return
     fi
 
+    glab_permissions
     glab_login_gitlab
     glab_login_gnome
     glab_write_config
