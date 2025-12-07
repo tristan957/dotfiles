@@ -97,17 +97,6 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc' |
         sudo tee /etc/yum.repos.d/vscode.repo
 
-    # VSCodium
-    sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
-    echo '[vscodium]
-name=VSCodium
-baseurl=https://download.vscodium.com/rpms/
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg' |
-        sudo tee /etc/yum.repos.d/vscodium.repo
-
     sudo dnf update --assumeyes @core
 }
 
