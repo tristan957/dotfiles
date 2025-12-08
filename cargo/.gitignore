@@ -1,0 +1,6 @@
+/.opt/cargo/.global-cache
+/.opt/cargo/.package-cache
+/.opt/cargo/.package-cache-mutate
+/.opt/cargo/env
+/.opt/cargo/bin/
+/.opt/cargo/registry/
