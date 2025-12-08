@@ -3,8 +3,7 @@ Description=Watch for changes in $XDG_DATA_HOME/man
 
 [Path]
 MakeDirectory=true
-# systemd, why can't I use environment variables!!!!
-PathChanged=%h/.local/share/man
+PathChanged=%D/man
 
 [Install]
 WantedBy=paths.target
