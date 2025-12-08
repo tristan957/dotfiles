@@ -13,9 +13,7 @@ return {
     separator = "─",
     on_attach = function(bufnr)
       -- Do not attach if there is no treesitter parser for the filetype
-      local ok, _ = pcall(vim.treesitter.get_parser, bufnr)
-
-      return ok
+      return require("tristan957.treesitter").has_parser(vim.bo[bufnr].filetype)
     end,
   },
   config = function(_, opts)
@@ -25,8 +23,12 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       group = require("tristan957.treesitter").augroup,
-      pattern = require("tristan957.treesitter").get_filetypes(),
+      desc = "Add buffer local keymaps for interacting with nvim-treesitter-context",
       callback = function(ev)
+        if not require("tristan957.treesitter").has_parser(vim.bo[ev.buf].filetype) then
+          return
+        end
+
         vim.keymap.set("n", "<C-w>C", context.toggle, { buffer = ev.buf, desc = "Toggle context" })
         vim.keymap.set("n", "[C", function()
           context.go_to_context(vim.v.count1)

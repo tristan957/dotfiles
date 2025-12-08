@@ -9,7 +9,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
-  event = { "BufNewFile", "BufReadPre" },
+  event = "VeryLazy",
   ---@type TSTextObjects.UserConfig
   opts = {
     select = {
@@ -27,44 +27,36 @@ return {
   config = function(_, opts)
     require("nvim-treesitter-textobjects").setup(opts)
 
-    vim.keymap.set({ "x", "o" }, "ab", function()
-      require("nvim-treesitter-textobjects.select").select_textobject("@block.outer", "textobjects")
-    end)
-    vim.keymap.set({ "x", "o" }, "ib", function()
-      require("nvim-treesitter-textobjects.select").select_textobject("@block.inner", "textobjects")
-    end)
-    vim.keymap.set({ "x", "o" }, "ac", function()
-      require("nvim-treesitter-textobjects.select").select_textobject(
-        "@comment.outer",
-        "textobjects"
-      )
-    end)
-    vim.keymap.set({ "x", "o" }, "ic", function()
-      require("nvim-treesitter-textobjects.select").select_textobject(
-        "@comment.inner",
-        "textobjects"
-      )
-    end)
-    vim.keymap.set({ "x", "o" }, "af", function()
-      require("nvim-treesitter-textobjects.select").select_textobject(
-        "@function.outer",
-        "textobjects"
-      )
-    end)
-    vim.keymap.set({ "x", "o" }, "if", function()
-      require("nvim-treesitter-textobjects.select").select_textobject(
-        "@function.inner",
-        "textobjects"
-      )
-    end)
-    vim.keymap.set({ "x", "o" }, "ak", function()
-      require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
-    end)
-    vim.keymap.set({ "x", "o" }, "ik", function()
-      require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
-    end)
-    vim.keymap.set({ "x", "o" }, "as", function()
-      require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
-    end)
+    vim.api.nvim_create_autocmd("FileType", {
+      group = require("tristan957.treesitter").augroup,
+      desc = "Attach nvim-treesitter-textobjects if and only if a parser is available",
+      callback = function(ev)
+        if not require("tristan957.treesitter").has_parser(vim.bo[ev.buf].filetype) then
+          return
+        end
+
+        ---@param lhs string
+        ---@param query_string string
+        ---@param query_group string
+        local add_textobject_keymap = function(lhs, query_string, query_group)
+          vim.keymap.set({ "x", "o" }, lhs, function()
+            require("nvim-treesitter-textobjects.select").select_textobject(
+              query_string,
+              query_group
+            )
+          end, { buffer = ev.buf })
+        end
+
+        add_textobject_keymap("ab", "@block.outer", "textobjects")
+        add_textobject_keymap("ib", "@block.inner", "textobjects")
+        add_textobject_keymap("ac", "@comment.outer", "textobjects")
+        add_textobject_keymap("ic", "@comment.inner", "textobjects")
+        add_textobject_keymap("af", "@function.outer", "textobjects")
+        add_textobject_keymap("if", "@function.inner", "textobjects")
+        add_textobject_keymap("af", "@class.outer", "textobjects")
+        add_textobject_keymap("if", "@class.inner", "textobjects")
+        add_textobject_keymap("aS", "@local.scope", "locals")
+      end,
+    })
   end,
 }

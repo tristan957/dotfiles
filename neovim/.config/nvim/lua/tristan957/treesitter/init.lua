@@ -2,6 +2,13 @@ local M = {}
 
 M.augroup = vim.api.nvim_create_augroup("tristan957_treesitter", { clear = true })
 
+--- Check if a tree-sitter parser is available for the filetype
+---@param ft string
+---@return boolean
+M.has_parser = function(ft)
+  return pcall(vim.treesitter.language.add, vim.treesitter.language.get_lang(ft) or ft)
+end
+
 --- Check whether the tree-sitter CLI is available
 ---@return boolean
 M.is_cli_available = function()
