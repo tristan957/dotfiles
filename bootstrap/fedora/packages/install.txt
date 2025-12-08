@@ -205,6 +205,7 @@ wayland-protocols-devel
 wine-core
 wine-mono
 wl-clipboard
+xlsclients
 yarnpkg
 yt-dlp
 yq
