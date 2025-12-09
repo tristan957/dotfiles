@@ -101,6 +101,7 @@ node
 openjdk
 opentofu
 pandoc
+perl
 pkgconf
 poetry
 postgres-language-server
