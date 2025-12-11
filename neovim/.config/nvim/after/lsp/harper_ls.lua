@@ -4,6 +4,7 @@ local xdg = require("tristan957.utils.xdg")
 return {
   filetypes = {
     "gitcommit",
+    "mail",
   },
   settings = {
     ["harper-ls"] = {
