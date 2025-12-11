@@ -8,6 +8,7 @@ return {
   },
   settings = {
     ["harper-ls"] = {
+      dialect = "American",
       userDictPath = vim.fs.joinpath(xdg.config_home(), "harper-ls", "dictionary.txt"),
     },
   },
