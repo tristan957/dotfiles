@@ -15,6 +15,8 @@ bison
 blueprint-compiler
 buildifier
 bun
+cargo-deny
+cargo-udeps
 chawan
 cmake
 codespell
