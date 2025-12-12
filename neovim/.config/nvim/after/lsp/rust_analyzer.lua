@@ -2,16 +2,11 @@
 return {
   settings = {
     ["rust-analyzer"] = {
+      cargo = {
+        targetDir = true,
+      },
       check = {
         command = "clippy",
-        extraArgs = {
-          "--target-dir=target/analyzer",
-        },
-      },
-      server = {
-        extraEnv = {
-          CARGO_TARGET_DIR = "target/analyzer",
-        },
       },
     },
   },
