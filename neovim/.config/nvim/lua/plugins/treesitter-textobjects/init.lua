@@ -24,6 +24,10 @@ return {
       end,
     },
   },
+  init = function()
+    -- Disable entire built-in ftplugin mappings to avoid conflicts.
+    vim.g.no_plugin_maps = true
+  end,
   config = function(_, opts)
     require("nvim-treesitter-textobjects").setup(opts)
 
