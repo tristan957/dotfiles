@@ -90,7 +90,7 @@ return {
       "requirements",
       "robots",
       "rust",
-      -- "scfg",
+      "scfg",
       "scss",
       "sh",
       "sql",
