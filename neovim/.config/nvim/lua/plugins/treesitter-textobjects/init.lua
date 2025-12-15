@@ -35,6 +35,8 @@ return {
       group = require("tristan957.treesitter").augroup,
       desc = "Attach nvim-treesitter-textobjects if and only if a parser is available",
       callback = function(ev)
+        local ts_repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
+
         if not require("tristan957.treesitter").has_parser(vim.bo[ev.buf].filetype) then
           return
         end
@@ -55,11 +57,26 @@ return {
         add_textobject_keymap("ib", "@block.inner", "textobjects")
         add_textobject_keymap("ac", "@comment.outer", "textobjects")
         add_textobject_keymap("ic", "@comment.inner", "textobjects")
-        add_textobject_keymap("af", "@function.outer", "textobjects")
-        add_textobject_keymap("if", "@function.inner", "textobjects")
-        add_textobject_keymap("af", "@class.outer", "textobjects")
-        add_textobject_keymap("if", "@class.inner", "textobjects")
+        add_textobject_keymap("am", "@function.outer", "textobjects")
+        add_textobject_keymap("im", "@function.inner", "textobjects")
+        add_textobject_keymap("ak", "@class.outer", "textobjects")
+        add_textobject_keymap("ik", "@class.inner", "textobjects")
         add_textobject_keymap("aS", "@local.scope", "locals")
+
+        -- Repeat movement with ; and ,
+        -- ensure ; goes forward and , goes backward regardless of the last direction
+        vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+        vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+        -- vim way: ; goes to the direction you were moving.
+        -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+        -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+        -- Repeatable f, F, t, T expressions
+        vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+        vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+        vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+        vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
       end,
     })
   end,
