@@ -127,6 +127,7 @@ lldb
 llvm
 luarocks
 lynx
+mariadb-connector-c-devel
 maven4
 meson
 miller
