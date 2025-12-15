@@ -25,8 +25,8 @@ return {
       pattern = filetypes,
       callback = function(ev)
         vim.bo[ev.buf].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-        vim.wo.foldmethod = "expr"
-        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo[0][0].foldmethod = "expr"
 
         vim.treesitter.start(ev.buf)
       end,
