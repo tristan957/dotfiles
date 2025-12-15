@@ -35,8 +35,8 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "TSUpdate",
       callback = function()
-        ---@diagnostic disable-next-line: missing-fields
         require("nvim-treesitter.parsers").ghactions = {
+          tier = 0,
           install_info = {
             url = "https://github.com/rmuir/tree-sitter-ghactions",
             revision = "main",
