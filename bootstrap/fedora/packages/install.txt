@@ -11,6 +11,7 @@ blueprint-compiler
 btop
 buildah
 bun
+cargo-deny
 cascadia-fonts-all
 catimg
 chromium
