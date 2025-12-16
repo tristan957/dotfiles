@@ -110,6 +110,7 @@ return {
           provider = "default",
         },
         chat = {
+          auto_scroll = true,
           follow = true,
           icons = {
             buffer_pin = " ",
@@ -142,8 +143,15 @@ return {
           show_default_prompt_library = true,
         },
       },
+      interactions = {
+        chat = {
+          opts = {
+            completion_provider = "blink",
+          },
+        },
+      },
       opts = {
-        log_level = "TRACE",
+        log_level = "ERROR",
       },
       strategies = {
         chat = {
