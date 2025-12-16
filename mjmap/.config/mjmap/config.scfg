@@ -1,5 +1,5 @@
 account "personal" {
     session-url "https://api.fastmail.com/jmap/session"
-    token-cmd "op --account my.1password.com read op://Personal/prea5bdo7w2c7sgddn2vnvgzxe/credential"
+    token-cmd "op --account my.1password.com read 'op://Personal/mjmap/credential'"
     username "tristan@partin.io"
 }
