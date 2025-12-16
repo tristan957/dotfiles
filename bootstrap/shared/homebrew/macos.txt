@@ -138,6 +138,7 @@ uv
 vhs
 vim
 w3m
+yaml-language-server
 yarn
 yq
 zellij
