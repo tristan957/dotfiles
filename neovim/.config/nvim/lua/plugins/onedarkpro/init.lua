@@ -34,5 +34,8 @@ return {
     options = {
       cursorline = vim.o.cursorline,
     },
+    plugins = {
+      diffview = false,
+    },
   },
 }
