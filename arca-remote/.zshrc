@@ -14,11 +14,11 @@ git -C "$HOME/dotfiles" restore \
 mv "$HOME/.ssh/config" "$HOME/.ssh/config.old"
 sed '/^Include/d' < "$HOME/.ssh/config.old" > "$HOME/.ssh/config"
 
-HISTFILE="${XDG_STATE_HOME:-$HOME/.var}/zsh/history"
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=1000000
 
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ -v TMUX ]]; then
     exec env SHELL="$(which bash)" bash
 else
-    exec env SHELL="$(which bash)" tmux -f "${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
+    exec env SHELL="$(which bash)" tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"
 fi
