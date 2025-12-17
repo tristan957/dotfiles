@@ -7,8 +7,8 @@ M.augroup = vim.api.nvim_create_augroup("tristan957_treesitter", { clear = true 
 ---@return boolean
 M.has_parser = function(ft)
   local language = vim.treesitter.language.get_lang(ft) or ft
-  local loaded, err = vim.treesitter.language.add(language)
-  if err ~= nil then
+  local success, loaded = pcall(vim.treesitter.language.add, language)
+  if success ~= nil then
     return false
   end
 
