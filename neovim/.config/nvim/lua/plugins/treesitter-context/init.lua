@@ -4,6 +4,7 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter-context",
+  cond = require("tristan957.treesitter").is_cli_available() and vim.fn.has("nvim-0.11") == 1,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
