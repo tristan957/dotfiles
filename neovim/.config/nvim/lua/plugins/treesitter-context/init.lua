@@ -30,9 +30,9 @@ return {
         end
 
         vim.keymap.set("n", "<C-w>C", context.toggle, { buffer = ev.buf, desc = "Toggle context" })
-        vim.keymap.set("n", "[C", function()
+        vim.keymap.set("n", "gC", function()
           context.go_to_context(vim.v.count1)
-        end, { buffer = ev.buf, silent = true, desc = "Jump to context" })
+        end, { buffer = ev.buf, silent = true, desc = "Go to to context" })
       end,
     })
   end,
