@@ -134,6 +134,7 @@ tree-sitter-cli
 trurl
 ts_query_ls
 typst
+ty
 uv
 vhs
 vim

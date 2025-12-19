@@ -5,7 +5,7 @@ vim.lsp.set_log_level("OFF")
 if vim.fn.has("nvim-0.11") == 1 then
   vim.lsp.enable({
     "awkls",
-    "basedpyright",
+    -- "basedpyright",
     "bashls",
     "biome",
     "blueprint_ls",
@@ -40,6 +40,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "tinymist",
     "ts_ls",
     "ts_query_ls",
+    "ty",
     "vacuum",
     "vimls",
     "yamlls",
