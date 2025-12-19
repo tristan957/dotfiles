@@ -13,7 +13,7 @@ local M = {}
 --- Wrap a command array in systemd-run(1)
 ---@param cmd string[]
 ---@param options SystemdRunOptions?
-M.wrap_command_with_run = function(cmd, options)
+M.run_command_line = function(cmd, options)
   local wrapper = { "systemd-run" }
   local o = options or {}
 
