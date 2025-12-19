@@ -145,4 +145,5 @@ zellij
 zig
 zigdoc
 zls
+zmx
 zoxide
