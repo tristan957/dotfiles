@@ -141,7 +141,6 @@ w3m
 yaml-language-server
 yarn
 yq
-zellij
 zig
 zigdoc
 zls
