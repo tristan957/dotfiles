@@ -29,8 +29,8 @@ return {
       "desktop",
       "dhall",
       "diff",
-      -- This grammar sucks ass
-      -- "dockerfile",
+      --This grammar sucks ass
+      --"dockerfile",
       "doxygen",
       "editorconfig",
       "fish",

@@ -1,4 +1,4 @@
--- Make sure that we actually have randomness in the config
+--Make sure that we actually have randomness in the config
 math.randomseed(os.time())
 
 local lazy_path = vim.fs.joinpath(vim.fn.stdpath("data") --[[@as string]], "lazy", "lazy.nvim")
@@ -85,7 +85,7 @@ vim.g.c_syntax_for_h = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.markdown_fenced_languages = {
-  "ts=typescript", -- Because of Deno's language server
+  "ts=typescript", --Because of Deno's language server
 }
 vim.g.omni_sql_no_default_maps = 1
 

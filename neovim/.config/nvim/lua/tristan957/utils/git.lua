@@ -1,6 +1,6 @@
 local M = {}
 
---- Check whether or not Neovim is running as the GIT_EDITOR
+---Check whether or not Neovim is running as the GIT_EDITOR
 ---
 ---@return boolean
 M.is_editor = function()

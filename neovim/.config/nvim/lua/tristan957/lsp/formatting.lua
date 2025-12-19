@@ -23,7 +23,7 @@ local ls_markers = {
   zls = true,
 }
 
---- Get client for formatting a buffer.
+---Get client for formatting a buffer.
 ---@param bufnr integer Buffer number
 ---@return vim.lsp.Client?
 local function get_formatting_client(bufnr)

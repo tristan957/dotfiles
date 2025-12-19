@@ -1,11 +1,11 @@
 local M = {}
 
---- Find the best Python executable for this directory
+---Find the best Python executable for this directory
 ---@return string
 M.find = function()
   local poetry = require("tristan957.utils.poetry")
 
-  -- We are already in the virual environment, so skip the setup.
+  --We are already in the virual environment, so skip the setup.
   if vim.env.VIRTUAL_ENV ~= nil then
     return "python3"
   end
@@ -22,7 +22,7 @@ end
 
 M.executable = M.find()
 
--- We need to find the correct Python executable again if we change directories
+--We need to find the correct Python executable again if we change directories
 vim.api.nvim_create_autocmd("DirChanged", {
   callback = function()
     M.executable = M.find()

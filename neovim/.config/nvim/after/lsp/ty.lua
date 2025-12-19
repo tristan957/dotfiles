@@ -1,7 +1,9 @@
+--https://docs.astral.sh/ty/reference/configuration/
+
 ---@type vim.lsp.Config
 return {
   before_init = function(_, config)
-    -- We are already in the virtual environment, so skip the setup.
+    --We are already in the virtual environment, so skip the setup.
     if vim.env.VIRTUAL_ENV ~= nil then
       return
     end

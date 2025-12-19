@@ -19,7 +19,7 @@ local vscode = require("vscode")
 
 vim.notify = vscode.notify
 
--- No idea why this is necessary: https://github.com/vscode-neovim/vscode-neovim/issues/1137#issuecomment-1936954633
+--No idea why this is necessary: https://github.com/vscode-neovim/vscode-neovim/issues/1137#issuecomment-1936954633
 vim.keymap.set("", "<Space>", "<Nop>")
 
 vim.g.mapleader = " "

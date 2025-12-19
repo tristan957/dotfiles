@@ -17,7 +17,7 @@ if e == nil then
   return
 end
 
--- +2 to move past last letter and trailing slash
+--+2 to move past last letter and trailing slash
 local project = string.sub(cwd, e + 2)
 
 local rtp = vim.fs.joinpath(opts.rtps_root, project)

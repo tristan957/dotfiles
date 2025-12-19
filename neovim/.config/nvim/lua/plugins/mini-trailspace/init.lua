@@ -18,7 +18,7 @@ return {
           return
         end
 
-        -- If we ask for trailing whitespace, respect it
+        --If we ask for trailing whitespace, respect it
         if string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil then
           return
         end
@@ -53,8 +53,8 @@ return {
           return
         end
 
-        -- We should unhighlight in the case where we have allowed trailing
-        -- whitespace
+        --We should unhighlight in the case where we have allowed trailing
+        --whitespace
         local should_disable = string.find(vim.bo[ev.buf].formatoptions, "w") ~= nil
         vim.b[ev.buf].minitrailspace_disable = should_disable
         if should_disable then

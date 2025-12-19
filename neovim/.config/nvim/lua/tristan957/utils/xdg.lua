@@ -1,6 +1,6 @@
 local M = {}
 
---- Get the XDG_CONFIG_HOME path
+---Get the XDG_CONFIG_HOME path
 ---@return string
 M.config_home = function()
   local dir = vim.uv.os_getenv("XDG_CONFIG_HOME")

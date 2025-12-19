@@ -2,7 +2,7 @@ local M = {}
 
 local fs = require("tristan957.utils.fs")
 
---- rg(1) command which will return files in a project
+---rg(1) command which will return files in a project
 ---@param ignore_largely_irrelevant_paths boolean
 ---@return string[]
 M.project_files = function(ignore_largely_irrelevant_paths)
@@ -31,7 +31,7 @@ M.project_files = function(ignore_largely_irrelevant_paths)
   return cmd
 end
 
---- rg(1) command which will take a grep expression
+---rg(1) command which will take a grep expression
 ---@param ignore_largely_irrelevant_paths boolean
 ---@return string[]
 M.grep = function(ignore_largely_irrelevant_paths)

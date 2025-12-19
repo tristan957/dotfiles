@@ -1,6 +1,6 @@
 local M = {}
 
---- Options to pass to systemd-run(1). See systemd-run(1) for more details.
+---Options to pass to systemd-run(1). See systemd-run(1) for more details.
 ---@class SystemdRunOptions
 ---@field unit string?
 ---@field pty boolean?
@@ -10,7 +10,7 @@ local M = {}
 ---@field quiet boolean?
 ---@field user boolean?
 
---- Wrap a command array in systemd-run(1)
+---Wrap a command array in systemd-run(1)
 ---@param cmd string[]
 ---@param options SystemdRunOptions?
 M.run_command_line = function(cmd, options)

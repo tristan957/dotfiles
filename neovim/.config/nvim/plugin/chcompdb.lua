@@ -1,4 +1,4 @@
---- Run chcompdb(1) to change the compilation database
+---Run chcompdb(1) to change the compilation database
 ---@param compdb string
 _G.chcompdb = function(compdb)
   vim.system({ "chcompdb", "--quiet", compdb }, {}, function(o)

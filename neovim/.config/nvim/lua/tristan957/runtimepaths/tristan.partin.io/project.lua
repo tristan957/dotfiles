@@ -8,8 +8,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     local prettier = "prettier"
 
     if vim.fn.executable(prettier) ~= 1 then
-      -- Check if it is install in node_modules
-      -- TODO: is it possible to get yarn or npm to tell me the path of prettier?
+      --Check if it is install in node_modules
+      --TODO: is it possible to get yarn or npm to tell me the path of prettier?
       prettier = "node_modules/.bin/prettier"
       if vim.fn.executable(prettier) ~= 1 then
         return

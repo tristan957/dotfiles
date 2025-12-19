@@ -18,24 +18,24 @@ comlink.connect({
   password = password,
 })
 
--- https://modern.ircdocs.horse/formatting
+--https://modern.ircdocs.horse/formatting
 local function format(cmdline)
   local channel = comlink.selected_channel()
   if channel == nil then
     return
   end
 
-  -- bold
+  --bold
   local s = string.gsub(cmdline, "%*%*(.+)%*%*", "\x02%1\x02")
-  -- italics
+  --italics
   s = string.gsub(s, "%*(.+)%*", "\x1D%1\x1D")
-  -- strikethrough
+  --strikethrough
   s = string.gsub(s, "~(.+)~", "\x1E%1\x1E")
-  -- underline
+  --underline
   s = string.gsub(s, "_(.+)_", "\x1F%1\x1F")
-  -- monospace
+  --monospace
   s = string.gsub(s, "`(.+)`", "\x11%1\x11")
-  -- reverse
+  --reverse
   s = string.gsub(s, "\\(.+)\\", "\x16%1\x16")
 
   channel:send_msg(s)

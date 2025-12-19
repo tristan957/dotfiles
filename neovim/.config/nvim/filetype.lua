@@ -2,10 +2,10 @@ vim.filetype.add({
   extension = {
     gotmpl = "gotmpl",
     h = function(path)
-      -- Try to be a little intelligent when determining if a .h file is C++ or C
+      --Try to be a little intelligent when determining if a .h file is C++ or C
 
-      -- If a .cc or .cpp file with the same basename exists next to this
-      -- header file, assume the header is C++.
+      --If a .cc or .cpp file with the same basename exists next to this
+      --header file, assume the header is C++.
       local stem = vim.fn.fnamemodify(path, ":r")
       if
         vim.uv.fs_stat(string.format("%s.cc", stem))
@@ -14,8 +14,8 @@ vim.filetype.add({
         return "cpp"
       end
 
-      -- If the header file contains C++ specific keywords, assume it is
-      -- C++
+      --If the header file contains C++ specific keywords, assume it is
+      --C++
       if
         vim.fn.search(
           string.format(

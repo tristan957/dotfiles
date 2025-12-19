@@ -1,4 +1,5 @@
---- https://github.com/microsoft/pyright/blob/main/docs/settings.md
+--https://github.com/microsoft/pyright/blob/main/docs/settings.md
+
 ---@type vim.lsp.Config
 return {
   autostart = false,
@@ -13,7 +14,7 @@ return {
     },
   },
   before_init = function(_, config)
-    -- We are already in the virtual environment, so skip the setup.
+    --We are already in the virtual environment, so skip the setup.
     if vim.env.VIRTUAL_ENV ~= nil then
       return
     end

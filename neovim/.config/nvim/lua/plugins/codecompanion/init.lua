@@ -12,7 +12,7 @@ return {
       "OXY2DEV/markview.nvim",
       ---@return markview.config | {}
       opts = function()
-        --- Conceal HTML tags
+        ---Conceal HTML tags
         ---@param icon string
         ---@param hl_group string
         ---@return markview.config.html.container_elements.opts

@@ -1,4 +1,5 @@
---- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
+--https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
+
 ---@type vim.lsp.Config
 return {
   settings = {

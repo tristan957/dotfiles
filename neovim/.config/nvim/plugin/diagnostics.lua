@@ -1,6 +1,6 @@
 vim.diagnostic.config({
-  -- Instead of using the sign column for diagnostic information, highlight the
-  -- line numbers.
+  --Instead of using the sign column for diagnostic information, highlight the
+  --line numbers.
   signs = {
     numhl = {
       [vim.diagnostic.severity.ERROR] = "DiagnosticError",

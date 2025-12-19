@@ -1,6 +1,6 @@
 local M = {}
 
---- Paths that can largely be ignored when searching the filesystem
+---Paths that can largely be ignored when searching the filesystem
 M.largely_irrelevant_paths = {
   ".cache/clangd",
   ".clangd",

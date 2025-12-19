@@ -1,11 +1,11 @@
 local M = {}
 
---- Get the current system color-scheme
+---Get the current system color-scheme
 ---
---- On Linux:
---- https://flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.Settings.html
+---On Linux:
+---https://flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.Settings.html
 ---
---- If the command to retrieve the theme fails, the return value will be dark.
+---If the command to retrieve the theme fails, the return value will be dark.
 ---
 ---@return "dark" | "light"
 M.color_scheme = function()
@@ -44,9 +44,9 @@ M.color_scheme = function()
   return vim.json.decode(cmd.stdout)["data"][1]["data"] == 1 and "dark" or "light"
 end
 
---- Check if this is an arca machine
+---Check if this is an arca machine
 ---
---- arca is a Databricks thing.
+---arca is a Databricks thing.
 ---
 ---@return boolean
 M.is_arca = function()

@@ -30,11 +30,11 @@ return {
         },
       },
       lualine_x = {
-        -- {
-        --   "%S",
-        --   separator = "",
-        --   draw_empty = true,
-        -- },
+        --{
+        --  "%S",
+        --  separator = "",
+        --  draw_empty = true,
+        --},
         "encoding",
         {
           "fileformat",

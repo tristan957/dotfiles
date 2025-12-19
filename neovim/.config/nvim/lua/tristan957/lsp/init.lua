@@ -5,7 +5,7 @@ vim.lsp.set_log_level("OFF")
 if vim.fn.has("nvim-0.11") == 1 then
   vim.lsp.enable({
     "awkls",
-    -- "basedpyright",
+    --"basedpyright",
     "bashls",
     "biome",
     "blueprint_ls",
@@ -29,7 +29,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "marksman",
     "muon",
     "postgres_lsp",
-    -- "pyright",
+    --"pyright",
     "ruff",
     "rust_analyzer",
     "stylua",
@@ -70,9 +70,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
     map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
 
-    -- if client:supports_method("textDocument/completion") then
-    --   vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    -- end
+    --if client:supports_method("textDocument/completion") then
+    --  vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    --end
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       desc = "Format on save",

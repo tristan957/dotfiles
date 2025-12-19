@@ -2,7 +2,7 @@
 return {
   filetypes = {
     "sgml",
-    -- From lspconfig...
+    --From lspconfig...
     "xml",
     "xsd",
     "xsl",

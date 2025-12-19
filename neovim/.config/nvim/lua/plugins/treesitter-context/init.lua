@@ -13,7 +13,7 @@ return {
   opts = {
     separator = "─",
     on_attach = function(bufnr)
-      -- Do not attach if there is no treesitter parser for the filetype
+      --Do not attach if there is no treesitter parser for the filetype
       return require("tristan957.treesitter").has_parser(vim.bo[bufnr].filetype)
     end,
   },

@@ -1,6 +1,6 @@
 local M = {}
 
---- Check whether or not Neovim is a subprocess of aerc
+---Check whether or not Neovim is a subprocess of aerc
 ---
 ---@return boolean
 M.is_subprocess = function()

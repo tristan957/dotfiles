@@ -3,7 +3,7 @@ local system = require("tristan957.utils.system")
 local DARK_THEME = "onedark_vivid"
 local LIGHT_THEME = "onelight"
 
---- Set the theme
+---Set the theme
 ---
 ---@param theme "light" | "dark"
 local function set_theme(theme)

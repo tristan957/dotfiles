@@ -17,7 +17,7 @@ return {
       "Green",
     })
 
-    --- @type blink.indent.Config
+    ---@type blink.indent.Config
     return {
       scope = {
         char = "▎",

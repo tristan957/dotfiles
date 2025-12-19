@@ -1,6 +1,6 @@
 local M = {}
 
---- Shuffle a list in place
+---Shuffle a list in place
 ---@generic T
 ---@param list T[]
 ---@return T[]

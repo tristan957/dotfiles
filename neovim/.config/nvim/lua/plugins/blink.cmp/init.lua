@@ -99,10 +99,10 @@ return {
 
         return default
       end,
-      -- For whatever reason, this does not work :^(
-      -- per_filetype = {
-      --   lua = { "lazydev" },
-      -- },
+      --For whatever reason, this does not work :^(
+      --per_filetype = {
+      --  lua = { "lazydev" },
+      --},
       providers = {
         lazydev = {
           name = "LazyDev",

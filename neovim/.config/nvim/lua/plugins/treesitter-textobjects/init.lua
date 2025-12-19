@@ -25,7 +25,7 @@ return {
     },
   },
   init = function()
-    -- Disable entire built-in ftplugin mappings to avoid conflicts.
+    --Disable entire built-in ftplugin mappings to avoid conflicts.
     vim.g.no_plugin_maps = true
   end,
   config = function(_, opts)
@@ -63,16 +63,16 @@ return {
         add_textobject_keymap("ik", "@class.inner", "textobjects")
         add_textobject_keymap("aS", "@local.scope", "locals")
 
-        -- Repeat movement with ; and ,
-        -- ensure ; goes forward and , goes backward regardless of the last direction
+        --Repeat movement with ; and ,
+        --ensure ; goes forward and , goes backward regardless of the last direction
         vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
         vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 
-        -- vim way: ; goes to the direction you were moving.
-        -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-        -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+        --vim way: ; goes to the direction you were moving.
+        --vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+        --vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
 
-        -- Repeatable f, F, t, T expressions
+        --Repeatable f, F, t, T expressions
         vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
         vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
         vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
