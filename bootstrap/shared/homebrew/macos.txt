@@ -136,6 +136,7 @@ ts_query_ls
 typst
 ty
 uv
+vacuum
 vhs
 vim
 w3m
