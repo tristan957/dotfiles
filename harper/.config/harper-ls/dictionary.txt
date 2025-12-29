@@ -2,6 +2,7 @@ AIX
 Databricks
 FileCopyrightText
 GUC
+GUCs
 HIPAA
 Hadron
 JWT
