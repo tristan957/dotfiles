@@ -3,7 +3,7 @@
 # Wrapper around delta which uses a fallback if it is not available on PATH
 
 if which delta >/dev/null 2>&1; then
-    exec delta --color-only --features=interactive
+    exec delta --color-only --features=interactive 2>/dev/null
 else
     exec cat
 fi
