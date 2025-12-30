@@ -33,7 +33,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "ruff",
     "rust_analyzer",
     "stylua",
-    "systemd_ls",
+    "systemd_lsp",
     "taplo",
     "terraformls",
     "tilt_ls",
