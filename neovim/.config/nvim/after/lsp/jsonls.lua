@@ -5,6 +5,7 @@ return {
   filetypes = {
     "json",
     "json.openapi",
+    "jsonc",
   },
   settings = {
     json = {
