@@ -118,6 +118,7 @@ libpeas-devel
 libportal-devel
 libreoffice
 libsass-devel
+libsecret-devel
 libsoup-devel
 libtsan
 libtsan-static
