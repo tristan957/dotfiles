@@ -48,6 +48,7 @@ fd-find
 figlet
 fish
 flatpak-builder
+foundry
 fswatch
 fzf
 gcc
@@ -110,6 +111,7 @@ libdb-devel
 libdex-devel
 libdrm-devel
 libepoxy-devel
+libfoundry-gtk-devel
 liblsan
 liblsan-static
 libpeas-devel
