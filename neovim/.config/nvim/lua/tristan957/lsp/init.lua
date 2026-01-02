@@ -4,7 +4,6 @@ vim.lsp.set_log_level("OFF")
 
 if vim.fn.has("nvim-0.11") == 1 then
   vim.lsp.enable({
-    "awkls",
     --"basedpyright",
     "bashls",
     "biome",
