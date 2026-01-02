@@ -114,6 +114,7 @@ libepoxy-devel
 libfoundry-gtk-devel
 liblsan
 liblsan-static
+libpanel-devel
 libpeas-devel
 libportal-devel
 libreoffice
