@@ -79,5 +79,6 @@ vim.filetype.add({
     [".*/templates/.*%.tpl"] = "helm",
     [".*/templates/.*%.txt"] = "helm",
     [".*/templates/.*%.ya?ml"] = "helm",
+    [".*%.%d%.scd"] = "scdoc",
   },
 })
