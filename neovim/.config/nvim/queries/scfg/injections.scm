@@ -1,4 +1,4 @@
-;  extends
+; extends
 
 ; Inject shell/bash syntax into token-cmd directive values for mjmap config
 ((directive

@@ -1,4 +1,4 @@
-;  extends
+; extends
 
 ; SQL injection for rust-postgres client methods
 (call_expression

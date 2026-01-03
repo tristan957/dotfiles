@@ -1,6 +1,6 @@
 ; extends
 
-; github actions
+; GitHub Actions
 ([
   (string_scalar)
   (block_scalar)
