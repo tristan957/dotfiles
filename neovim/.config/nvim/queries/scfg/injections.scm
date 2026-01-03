@@ -7,6 +7,6 @@
     (word
       (dquote_word) @injection.content)))
  (#eq? @_name "token-cmd")
- (#is-mjmap-config?)
+ (#filename-lua-match? ".*config/mjmap/config%.scfg$")
  (#set! injection.language "sh")
  (#offset! @injection.content 0 1 0 -1)) ; Exclude the quotes
