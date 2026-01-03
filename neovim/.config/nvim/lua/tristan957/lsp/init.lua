@@ -22,6 +22,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "jqls",
     "jsonls",
     "jsonnet_ls",
+    "just",
     "kcl",
     "lemminx",
     "lua_ls",
