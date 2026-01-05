@@ -19,6 +19,15 @@ return {
 
     ---@type blink.indent.Config
     return {
+      blocked = {
+        buftypes = {
+          include_defaults = true,
+        },
+        filetypes = {
+          include_defaults = true,
+          "markdown",
+        },
+      },
       scope = {
         char = "▎",
         enabled = true,
