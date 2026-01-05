@@ -22,26 +22,17 @@ return {
     return vim.tbl_deep_extend("keep", {
       preview = {
         filetypes = filetypes,
-        callbacks = {
-          on_attach = function(_, wins)
-            for win in ipairs(wins) do
-              vim.wo[win].list = false
-            end
-          end,
-          on_detach = function(_, wins)
-            for win in ipairs(wins) do
-              vim.wo[win].list = true
-            end
-          end,
-          on_mode_change = function(_, wins, mode)
-            local list = mode == "i"
-            for win in ipairs(wins) do
-              vim.wo[win].list = list
-            end
-          end,
-        },
+        icon_provider = "mini",
         ignore_buftypes = {},
       },
     }, opts)
   end,
+  ---@param _ LazyPlugin
+  ---@param opts markview.config
+  config = function(_, opts)
+    require("markview").setup(opts)
+    require("markview.extras.checkboxes").setup()
+    require("markview.extras.editor").setup()
+    require("markview.extras.headings").setup()
+  end
 }
