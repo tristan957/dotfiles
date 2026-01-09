@@ -2,6 +2,7 @@ local ignored_filetypes = {
   "gitcommit",
   "gitrebase",
   "hgcommit",
+  "snacks_picker_input",
   "svn",
 }
 
