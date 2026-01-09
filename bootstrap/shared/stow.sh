@@ -60,7 +60,6 @@ function stow_setup() {
         vim
         vscodium
         xdg
-        yarn
         zoxide
     )
 

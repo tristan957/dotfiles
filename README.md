@@ -83,7 +83,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - vim
 - vscodium
 - xdg
-- yarn
 - zoxide
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like
