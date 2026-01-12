@@ -1,6 +1,7 @@
 function homebrew_add_taps() {
     brew tap ampcode/tap
     brew tap databricks/tap
+    brew tap hashicorp/tap
     brew tap neurosnap/tap
     brew tap oven-sh/bun
     brew tap rockorager/tap
