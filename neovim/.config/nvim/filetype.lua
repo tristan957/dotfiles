@@ -80,5 +80,7 @@ vim.filetype.add({
     [".*/templates/.*%.txt"] = "helm",
     [".*/templates/.*%.ya?ml"] = "helm",
     [".*%.%d%.scd"] = "scdoc",
+    [".*%.jsonnet.TEMPLATE"] = "jsonnet",
+    [".*%.libsonnet.TEMPLATE"] = "jsonnet",
   },
 })
