@@ -83,6 +83,7 @@ return {
       "powershell",
       "printf",
       "prisma",
+      "promql",
       "psv",
       "promql",
       "properties",
