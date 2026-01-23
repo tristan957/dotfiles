@@ -97,6 +97,11 @@ vim.g.project_settings_opts = {
     "tristan957",
     "runtimepaths"
   ),
+  overrides = {
+    -- Arca overrides
+    [vim.fs.joinpath(vim.env.HOME, "neon")] = "work/neon",
+    [vim.fs.joinpath(vim.env.HOME, "universe")] = "work/universe",
+  },
 } --[[@as ProjectSettingsOpts]]
 
 require("lazy").setup("plugins", {
