@@ -42,8 +42,6 @@ if project == nil then
   project = string.sub(cwd, e + 2)
 end
 
-vim.print(project)
-
 local rtp = vim.fs.joinpath(opts.rtps_root, project)
 if vim.fn.isdirectory(rtp) == 1 then
   -- Append the project's runtimepath
