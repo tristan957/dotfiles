@@ -125,6 +125,7 @@ shfmt
 sops
 stow
 stylua
+swiftly
 taplo
 television
 tilt
