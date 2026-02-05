@@ -5,4 +5,7 @@ if not status is-interactive
 end
 
 # Enable Vi mode
-set -g fish_key_bindings fish_vi_key_bindings
+#
+# Note that we don't need to do this. See the fish_user_key_bindings definition
+# where we have emacs binds and vi binds at the same time!
+# set -g fish_key_bindings fish_vi_key_bindings
