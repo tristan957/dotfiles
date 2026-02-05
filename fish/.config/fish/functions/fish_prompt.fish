@@ -4,13 +4,13 @@ end
 
 set -g __fish_git_prompt_char_stateseparator ' '
 set -g __fish_git_prompt_describe_style 'branch'
-set -U __fish_git_prompt_showcolorhints
+set -g __fish_git_prompt_showcolorhints
 # set -g __fish_git_prompt_showconflictstate true
-set -U __fish_git_prompt_showdirtystate
+set -g __fish_git_prompt_showdirtystate
 set -g __fish_git_prompt_showstashstate true
-set -U __fish_git_prompt_showuntrackedfiles
+set -g __fish_git_prompt_showuntrackedfiles
 set -g __fish_git_prompt_showupstream 'verbose'
-set -U __fish_git_prompt_use_informative_chars
+set -g __fish_git_prompt_use_informative_chars
 
 function __prompt_time
     echo -n (date +%H:%M:%S)
