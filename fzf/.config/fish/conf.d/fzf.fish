@@ -3,5 +3,9 @@ if not status is-interactive
 end
 
 if command --query fzf
-    fzf --fish | source
+    if fzf --fish &>/dev/null
+        fzf --fish | source
+    else if test -f /usr/share/doc/fzf/examples/key-bindings.fish
+        source /usr/share/doc/fzf/examples/key-bindings.fish
+    end
 end
