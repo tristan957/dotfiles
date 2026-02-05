@@ -1,3 +1,4 @@
+apt-file
 autoconf
 bear
 bison
