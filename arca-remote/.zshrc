@@ -20,5 +20,5 @@ HISTSIZE=1000000
 if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ -v TMUX ]]; then
     exec env SHELL="$(which fish)" fish
 else
-    fish -c 'tmux attach-session -t arca'
+    exec env SHELL="$(which fish)" tmux attach-session -t default
 fi
