@@ -1,0 +1,13 @@
+[Unit]
+Description=Start tmux arca session
+After=tmux-server.service
+Requires=tmux-server.service
+
+[Service]
+Type=oneshot
+ExecStart=tmux new-session -t arca -s default -d
+ExecStop=tmux kill-session -t arca
+RemainAfterExit=true
+
+[Install]
+WantedBy=tmux-server.service

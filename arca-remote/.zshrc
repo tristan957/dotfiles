@@ -18,7 +18,7 @@ HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=1000000
 
 if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ -v TMUX ]]; then
-    exec env SHELL="$(which bash)" bash
+    exec env SHELL="$(which fish)" fish
 else
-    exec env SHELL="$(which bash)" tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"
+    exec env SHELL="$(which fish)" tmux attach-session -t arca
 fi
