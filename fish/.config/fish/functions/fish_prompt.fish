@@ -61,6 +61,14 @@ function __prompt_jobs
     jobs --pid | wc --lines
 end
 
+function __prompt_user_char
+    if fish_is_root_user
+        echo '#'
+    else
+        echo '$'
+    end
+end
+
 function __prompt_mode_char
     set -l mode_char '+'
     switch $fish_bind_mode
@@ -84,11 +92,6 @@ end
 function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
-    set -l user_char '$'
 
-    if fish_is_root_user
-        set user_char '#'
-    end
-
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$(__prompt_mode_char) $user_char $(set_color normal)"
+    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$(__prompt_mode_char) $(__prompt_user_char) $(set_color normal)"
 end
