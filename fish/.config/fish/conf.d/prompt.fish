@@ -65,9 +65,28 @@ function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
     set -l user_char '$'
+
     if fish_is_root_user
         set user_char '#'
     end
 
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n+ $user_char $(set_color normal)"
+    set -l mode_char '+'
+    if test "$fish_key_bindings" = fish_vi_key_bindings
+        switch $fish_bind_mode
+            case insert
+                set mode_char '○'
+            case replace
+                set mode_char '◌'
+            case replace_one
+                set mode_char '◌'
+            case operator
+                set mode_char '◌'
+            case visual
+                set mode_char '◙'
+            case '*'
+                set mode_char '●'
+        end
+    end
+
+    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$mode_char $user_char $(set_color normal)"
 end
