@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=forking
-ExecStart=tmux start-server
+ExecStart=tmux -f %h/.config/tmux/tmux.conf start-server
 ExecStop=tmux kill-server
 # Seems necessary for color support
 Environment=COLORTERM=truecolor
