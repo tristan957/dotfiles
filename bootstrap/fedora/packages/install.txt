@@ -148,6 +148,7 @@ nim
 ninja-build
 nnn
 nodejs
+nu
 opentofu
 pandoc
 parallel
