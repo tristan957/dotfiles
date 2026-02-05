@@ -1,0 +1,16 @@
+[Unit]
+Description=Start arca tmux server
+After=default.target
+
+[Service]
+Type=forking
+ExecStart=tmux -f %h/.config/tmux/tmux.conf start-server
+ExecStop=tmux kill-server
+# Seems necessary for color support
+Environment=COLORTERM=truecolor
+Environment=TERM=xterm-256color
+Restart=on-failure
+WorkingDirectory=%h
+
+[Install]
+WantedBy=default.target
