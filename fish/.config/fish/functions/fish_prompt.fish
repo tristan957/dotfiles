@@ -13,7 +13,7 @@ set -g __fish_git_prompt_showupstream 'verbose'
 set -g __fish_git_prompt_use_informative_chars
 
 function __prompt_time
-    echo -n (date +%H:%M:%S)
+    date '+%H:%M:%S'
 end
 
 function __prompt_extras
@@ -38,7 +38,7 @@ function __prompt_extras
         end
     end
 
-    echo -ne "$PROMPT_EXTRAS"
+    printf '%s' "$PROMPT_EXTRAS"
 end
 
 # I could add the container application here:
@@ -63,9 +63,9 @@ end
 
 function __prompt_user_char
     if fish_is_root_user
-        echo '#'
+        printf '#'
     else
-        echo '$'
+        printf '$'
     end
 end
 
@@ -86,12 +86,12 @@ function __prompt_mode_char
         set mode_char '●'
     end
 
-    echo -n "$mode_char"
+    printf '%s' "$mode_char"
 end
 
 function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
 
-    echo -ne "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$(__prompt_mode_char) $(__prompt_user_char) $(set_color normal)"
+    printf "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$(__prompt_mode_char) $(__prompt_user_char) $(set_color normal)"
 end
