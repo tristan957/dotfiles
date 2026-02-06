@@ -15,7 +15,7 @@ mv "$HOME/.ssh/config" "$HOME/.ssh/config.old"
 sed '/^Include/d' < "$HOME/.ssh/config.old" > "$HOME/.ssh/config"
 
 # Make sure the ssh-agent environment variables are set
-eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s)" &>/dev/null
 
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=1000000
