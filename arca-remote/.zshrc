@@ -17,6 +17,9 @@ sed '/^Include/d' < "$HOME/.ssh/config.old" > "$HOME/.ssh/config"
 # Make sure the ssh-agent environment variables are set
 eval "$(ssh-agent -s)" &>/dev/null
 
+# Add the arca ssh key to the ssh-agent
+ssh-add ~/.ssh/arca
+
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=1000000
 
