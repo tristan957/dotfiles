@@ -1,6 +1,6 @@
 set bell-style none
 set completion-ignore-case on
-set editing-mode emacs
+set editing-mode vi
 set emacs-mode-string \1\e[1 q\2
 set expand-tilde on
 set mark-symlinked-directories on
@@ -8,12 +8,10 @@ set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set show-mode-in-prompt on
 set skip-completed-text on
-set vi-cmd-mode-string \1\e[4 q\2
-set vi-ins-mode-string \1\e[5 q\2
-# set vi-ins-mode-string "\1\e[1m\2●\1\e[0m\2\1\e[3 q\2 "
-# set vi-cmd-mode-string "\1\e[1m\2○\1\e[0m\2\1\e[0 q\2 "
+set vi-cmd-mode-string "●\1\e[2 q\2 "
+set vi-ins-mode-string "○\1\e[6 q\2 "
 
-TAB: menu-complete
+"TAB": menu-complete
 "\e[Z": menu-complete-backward # Shift-tab
 # "\e[A": history-search-backward # up-arrow
 # "\e[B": history-search-forward # down-arrow
@@ -23,10 +21,10 @@ set keymap emacs
 "\b": kill-whole-line # Ctrl-backspace
 
 set keymap vi-command
-Control-l: clear-screen
+"Control-l": clear-screen
 "\ee": emacs-editing-mode
 "\b": kill-whole-line # Ctrl-backspace
 
 set keymap vi-insert
-Control-l: clear-screen
+"Control-l": clear-screen
 "\b": kill-whole-line # Ctrl-backspace
