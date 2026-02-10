@@ -3,6 +3,7 @@
 ShellCheck
 ansible
 asciinema
+atuin
 azure-cli
 bat
 bear
