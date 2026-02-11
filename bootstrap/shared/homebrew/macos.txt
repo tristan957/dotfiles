@@ -111,6 +111,7 @@ postgres-language-server
 postgresql@18
 pre-commit
 prise
+protobuf-c
 pygmentize
 qrencode
 reuse
