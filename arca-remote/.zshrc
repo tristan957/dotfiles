@@ -18,7 +18,7 @@ sed '/^Include/d' < "$HOME/.ssh/config.old" > "$HOME/.ssh/config"
 eval "$(ssh-agent -s)" &>/dev/null
 
 # Add the arca ssh key to the ssh-agent
-ssh-add ~/.ssh/arca
+ssh-add ~/.ssh/arca &>/dev/null
 
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=1000000
