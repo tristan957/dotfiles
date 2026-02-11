@@ -5,7 +5,9 @@ Requires=tmux-server-arca.service
 
 [Service]
 Type=oneshot
-ExecStart=tmux new-session -t arca -s default -d
+ExecStart=tmux new-session -t arca -s default -d \; \
+    set-option -t arca remain-on exit on \; \
+    set-hook -t arca pane-died 'respawn-pane'
 ExecStop=tmux kill-session -t arca
 RemainAfterExit=true
 
