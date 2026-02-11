@@ -30,3 +30,16 @@
   (#eq? @format "go-template=")
   (#set! injection.language "gotmpl")
   (#offset! @injection.content 0 1 0 -1))
+
+; Highlight awk programs when awk is the command
+;
+; awk '...'
+((command
+    name: (word) @cmd
+    argument: [
+      (single_quote_string)
+      (double_quote_string)
+    ] @injection.content)
+  (#any-of? @cmd "awk" "gawk")
+  (#set! injection.language "awk")
+  (#offset! @injection.content 0 1 0 -1))
