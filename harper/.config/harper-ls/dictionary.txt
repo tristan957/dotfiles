@@ -12,6 +12,7 @@ Lakebase
 MANPATH
 Makefile
 NGINX
+OSC
 Partin
 PgDay
 PgUS
