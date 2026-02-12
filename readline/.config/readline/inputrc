@@ -1,7 +1,7 @@
 set bell-style none
 set completion-ignore-case on
 set editing-mode vi
-set emacs-mode-string \1\e[1 q\2
+set emacs-mode-string "\1\e[1 q\2"
 set expand-tilde on
 set mark-symlinked-directories on
 set menu-complete-display-prefix on
