@@ -30,3 +30,4 @@ libc
 libicu
 pageserver
 postgres
+readline
