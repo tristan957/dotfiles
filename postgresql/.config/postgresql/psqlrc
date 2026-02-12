@@ -13,5 +13,6 @@
 \set HISTSIZE 1000000
 
 \set PROMPT1 '%n@%/%x%R%# '
+\set PROMPT2 '%n@%/%x%R%# '
 
 \unset QUIET
