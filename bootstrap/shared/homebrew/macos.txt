@@ -31,6 +31,8 @@ difftastic
 diffutils
 direnv
 docker
+docker-buildx
+docker-compose
 dotnet
 duckdb
 eza
