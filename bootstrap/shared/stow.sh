@@ -14,6 +14,7 @@ function stow_setup() {
         clangd
         comlink
         containers
+        delta
         deno
         dir_colors
         direnv

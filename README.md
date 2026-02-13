@@ -22,6 +22,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - clangd
 - comlink
 - containers
+- delta
 - deno
 - desktop-database
 - dir_colors
