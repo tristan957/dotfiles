@@ -49,6 +49,8 @@ macos-window-shadow = true
 
 mouse-hide-while-typing = false
 
+palette-generate = true
+
 resize-overlay = after-first
 resize-overlay-position = bottom-right
 
