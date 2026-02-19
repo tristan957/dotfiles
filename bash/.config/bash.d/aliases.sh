@@ -14,7 +14,7 @@ if ! command -v bw &>/dev/null && command -v flatpak &>/dev/null; then
 fi
 
 # shellcheck disable=2086,2139,2154,2183
-alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
+alias colors='(x=$(tput op) y=$(printf %76s);for i in {0..255};do o=00$i;echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${y// /=}$x;done)'
 
 # Shut the copyright notice up
 alias gdb='gdb --quiet'
