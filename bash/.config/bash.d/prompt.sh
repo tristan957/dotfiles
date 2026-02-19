@@ -38,12 +38,12 @@ function __prompt_extras() {
     # Git information for prompt
     if git rev-parse --quiet &>/dev/null && [[ $have_git_ps1 -eq 1 ]]; then
         # shellcheck disable=SC2016
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(__tput setaf 39)[%s]")"
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(__tput setaf 4)[%s]")"
     fi
 
     # Python virtual environments are so fun
     if [[ -n ${VIRTUAL_ENV+x} ]]; then
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 105)[$(basename "${VIRTUAL_ENV}")]"
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 6)[$(basename "${VIRTUAL_ENV}")]"
     fi
 
     # kubectl current context/namespace
@@ -54,7 +54,7 @@ function __prompt_extras() {
             kubectl_curr_ns=$(kubectl config view --minify \
                 -o go-template='{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
                 2>/dev/null)
-            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 14)[$kubectl_curr_ctx > $kubectl_curr_ns]"
+            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 5)[$kubectl_curr_ctx > $kubectl_curr_ns]"
         fi
     fi
 
@@ -78,7 +78,7 @@ function __prompt_host() {
     fi
 }
 
-PS1="\[$(__tput bold)\]\[$(__tput setaf 208)\][\$? \j \t] \[$(__tput setaf 76)\][\u@\$(__prompt_host)] \[$(__tput setaf 214)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]\$ \[$(__tput sgr0)\]"
+PS1="\[$(__tput bold)\]\[$(__tput setaf 1)\][\$? \j \t] \[$(__tput setaf 2)\][\u@\$(__prompt_host)] \[$(__tput setaf 3)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]\$ \[$(__tput sgr0)\]"
 PS2="\[$(__tput bold)\]> \[$(__tput sgr0)\]"
 PS3="\[$(__tput bold)\]#? \[$(__tput sgr0)\]"
 PS4='$(__tput sgr0)$(__tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(__tput sgr0)   '

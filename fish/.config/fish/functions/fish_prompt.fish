@@ -20,12 +20,12 @@ function __prompt_extras
     set -l PROMPT_EXTRAS ''
 
     if git rev-parse --quiet &>/dev/null
-        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(fish_vcs_prompt "$(tput setaf 39) \b[%s]")"
+        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(fish_vcs_prompt "$(tput setaf 4) \b[%s]")"
     end
 
     # Python virtual environments are so fun
     if set -q VIRTUAL_ENV
-        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 105) \b[$(basename "$VIRTUAL_ENV")]"
+        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 6) \b[$(basename "$VIRTUAL_ENV")]"
     end
 
     if command --query "kubectl"
@@ -34,7 +34,7 @@ function __prompt_extras
             set -l kubectl_curr_ns (kubectl config view --minify \
                 -o go-template='{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
                 2>/dev/null)
-            set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 14) \b[$kubectl_curr_ctx > $kubectl_curr_ns]"
+            set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 5) \b[$kubectl_curr_ctx > $kubectl_curr_ns]"
         end
     end
 
@@ -93,5 +93,5 @@ function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
 
-    printf "$(set_color --bold) \b$(tput setaf 208) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 76) \b[$(whoami)@$(__prompt_host)] $(tput setaf 214) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$(__prompt_mode_char) $(__prompt_user_char) $(set_color normal)"
+    printf "$(set_color --bold) \b$(tput setaf 1) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(tput setaf 2) \b[$(whoami)@$(__prompt_host)] $(tput setaf 3) \b[$cwd]$(__prompt_extras) \b$(tput sgr0)\n$(__prompt_mode_char) $(__prompt_user_char) $(set_color normal)"
 end
