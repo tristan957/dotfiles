@@ -1,5 +1,4 @@
 {
-  "amp.nvim": { "branch": "main", "commit": "621f1ca375fc2887d30a4ac32a8b6c582d28f9c0" },
   "blink.cmp": { "branch": "main", "commit": "4b18c32adef2898f95cdef6192cbd5796c1a332d" },
   "blink.indent": { "branch": "main", "commit": "9c80820ca77218a8d28e70075d6f44a1609911fe" },
   "codecompanion.nvim": { "branch": "main", "commit": "42cf6d1637fc8934421fe69745fd01098068ece6" },
