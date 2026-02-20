@@ -7,7 +7,7 @@
   arguments: (arguments
     (string_literal
       (string_content) @injection.content))
-  (#any-of? @_method "query" "query_one" "simple_query" "execute" "prepare")
+  (#any-of? @_method "query" "query_one" "query_opt" "query_raw" "simple_query" "execute" "prepare")
   (#set! injection.language "sql"))
 
 ; SQL injection for sqlx function calls
