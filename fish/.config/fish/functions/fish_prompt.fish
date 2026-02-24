@@ -25,7 +25,7 @@ function __prompt_extras
 
     # Python virtual environments are so fun
     if set -q VIRTUAL_ENV
-        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 6) \b[$(basename "$VIRTUAL_ENV")]"
+        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 5) \b[$(basename "$VIRTUAL_ENV")]"
     end
 
     if command --query "kubectl"
@@ -34,7 +34,7 @@ function __prompt_extras
             set -l kubectl_curr_ns (kubectl config view --minify \
                 -o go-template='{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
                 2>/dev/null)
-            set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 5) \b[$kubectl_curr_ctx > $kubectl_curr_ns]"
+            set PROMPT_EXTRAS "$PROMPT_EXTRAS $(tput setaf 6) \b[$kubectl_curr_ctx > $kubectl_curr_ns]"
         end
     end
 

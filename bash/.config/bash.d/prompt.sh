@@ -43,7 +43,7 @@ function __prompt_extras() {
 
     # Python virtual environments are so fun
     if [[ -n ${VIRTUAL_ENV+x} ]]; then
-        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 6)[$(basename "${VIRTUAL_ENV}")]"
+        PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 5)[$(basename "${VIRTUAL_ENV}")]"
     fi
 
     # kubectl current context/namespace
@@ -54,7 +54,7 @@ function __prompt_extras() {
             kubectl_curr_ns=$(kubectl config view --minify \
                 -o go-template='{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
                 2>/dev/null)
-            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 5)[$kubectl_curr_ctx > $kubectl_curr_ns]"
+            PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__tput setaf 6)[$kubectl_curr_ctx > $kubectl_curr_ns]"
         fi
     fi
 
