@@ -204,6 +204,8 @@ toolbox
 transmission-gtk
 trurl
 ty
+typst
+typstyle
 uncrustify
 valgrind
 vim-enhanced
