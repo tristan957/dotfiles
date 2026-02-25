@@ -203,6 +203,7 @@ tokei
 toolbox
 transmission-gtk
 trurl
+ty
 uncrustify
 valgrind
 vim-enhanced
