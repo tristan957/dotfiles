@@ -207,6 +207,7 @@ ty
 typst
 typstyle
 uncrustify
+uv
 valgrind
 vim-enhanced
 vlc
