@@ -1,3 +1,1 @@
-export BUN_INSTALL="$HOME/.opt/bun"
-
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$XDG_CACHE_HOME/.bun/bin:$PATH"

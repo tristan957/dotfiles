@@ -1,0 +1,6 @@
+# https://bun.com/docs/runtime/bunfig
+
+# Bun is cooked: https://github.com/oven-sh/bun/issues/25766
+# [install]
+# globalDir = "/Users/tristan.partin/.cache/bun"
+# globalBinDir = "/Users/tristan.partin/.local/bin"

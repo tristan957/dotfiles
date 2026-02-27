@@ -1,3 +1,1 @@
-set -gx BUN_INSTALL "$HOME/.opt/bun"
-
-fish_add_path --prepend "$BUN_INSTALL/bin"
+fish_add_path --prepend "$XDG_CACHE_HOME/.bun/bin"
