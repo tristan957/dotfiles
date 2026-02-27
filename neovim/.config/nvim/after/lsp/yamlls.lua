@@ -8,6 +8,9 @@ return {
   },
   settings = {
     yaml = {
+      kubernetesCRDStore = {
+        enable = true,
+      },
       schemaStore = {
         enable = false,
         url = "",
