@@ -6,6 +6,7 @@ return {
   "olimorris/codecompanion.nvim",
   cond = not require("tristan957.utils.system").is_arca(),
   dependencies = {
+    "github/copilot.vim",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     {
@@ -155,7 +156,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "anthropic",
+          adapter = "copilot",
           keymaps = {
             send = {
               modes = { n = "<CR>", i = "<C-s>" },
@@ -166,7 +167,7 @@ return {
           },
         },
         inline = {
-          adapter = "anthropic",
+          adapter = "copilot",
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
