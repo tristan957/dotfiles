@@ -4,6 +4,7 @@
   "codecompanion.nvim": { "branch": "main", "commit": "a3710ff4f10a8f215ace1a4f5f0f881d0c6c4e93" },
   "copilot.vim": { "branch": "release", "commit": "a12fd5672110c8aa7e3c8419e28c96943ca179be" },
   "dart-vim-plugin": { "branch": "master", "commit": "4bdc04e2540edf90fda2812434c11d19dc04bc8f" },
+  "diffs.nvim": { "branch": "main", "commit": "749a21ae3c5c1f419120765357fdcce29374f24a" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lazydev.nvim": { "branch": "main", "commit": "5231c62aa83c2f8dc8e7ba957aa77098cda1257d" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
