@@ -27,14 +27,24 @@ local LOCAL_PATHS = {
 ---@class VSCodeMCPConfig
 ---@field mcpServers table<string, MCPServerConfig>
 
----Recursively replace ${env:VAR} placeholders in a value with the corresponding
----environment variable
+---Expand environment variable placeholders per
+---https://code.claude.com/docs/en/mcp#environment-variable-expansion-in-mcp-json
+---
+---Supported syntax:
+---* ${VAR} - Expands to the value of environment variable VAR (empty if unset)
+---* ${VAR:-default} - Expands to VAR if set, otherwise uses default
+---
 ---@param value any
 ---@return any
 local function expand_env(value)
   if type(value) == "string" then
-    return value:gsub("%$%{env:([^}]+)%}", function(var)
-      return vim.env[var] or ""
+    return value:gsub("%$%{([^}]+)%}", function(spec)
+      local name, default = spec:match("^([^:]+):-(.*)$")
+      if name then
+        return vim.env[name] or default
+      end
+
+      return vim.env[spec] or ""
     end)
   end
 
@@ -50,8 +60,7 @@ local function expand_env(value)
   return value
 end
 
----Parse an mcp.json file and expand ${env:XXX} placeholders with environment
----variable values
+---Parse an mcp.json file
 ---@param path string Path to the mcp.json file
 ---@return VSCodeMCPConfig|nil config Parsed config, or nil on error
 ---@return string|nil err Error message if parsing failed
