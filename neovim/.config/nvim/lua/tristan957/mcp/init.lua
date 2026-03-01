@@ -8,6 +8,7 @@ local GLOBAL_PATHS = {
 }
 
 local LOCAL_PATHS = {
+  vim.fs.joinpath(vim.env.PWD, ".mcp.json"),
   vim.fs.joinpath(vim.env.PWD, ".cursor", "mcp.json"),
   vim.fs.joinpath(vim.env.PWD, ".vscode", "mcp.json"),
 }
@@ -84,6 +85,7 @@ end
 ---* ~/.vscode/mcp.json
 ---
 ---Local paths (first existing):
+---* {cwd}/.mcp.json
 ---* {cwd}/.cursor/mcp.json
 ---* {cwd}/.vscode/mcp.json
 ---
