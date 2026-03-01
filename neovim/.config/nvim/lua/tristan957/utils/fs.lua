@@ -1,5 +1,18 @@
 local M = {}
 
+---Return the first path that exists, or nil if none exist
+---@param paths string[]
+---@return string|nil
+function M.first_existing(paths)
+  for _, path in ipairs(paths) do
+    if vim.fn.filereadable(path) == 1 then
+      return path
+    end
+  end
+
+  return nil
+end
+
 ---Paths that can largely be ignored when searching the filesystem
 M.largely_irrelevant_paths = {
   ".cache/clangd",
