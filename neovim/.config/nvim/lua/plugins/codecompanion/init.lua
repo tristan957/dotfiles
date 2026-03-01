@@ -151,6 +151,18 @@ return {
           },
         },
       },
+      ---@type CodeCompanion.MCPConfig
+      mcp = {
+        enable = true,
+        servers = vim
+          .iter(require("tristan957.mcp").load_servers())
+          :fold({}, function(acc, name, server)
+            local cmd = { server.command }
+            vim.list_extend(cmd, server.args)
+            acc[name] = { cmd = cmd, env = server.env or {} }
+            return acc
+          end),
+      },
       opts = {
         log_level = "ERROR",
       },
