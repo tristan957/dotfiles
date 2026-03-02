@@ -62,15 +62,27 @@ return {
     "CodeCompanionCmd",
   },
   keys = {
-    { "<C-`>", "<cmd>CodeCompanionActions<cr>", { "n", "v" }, noremap = true, silent = true },
     {
-      "<Leader>`",
-      "<cmd>CodeCompanionChat Toggle<cr>",
-      { "n", "v" },
+      "<C-`>",
+      "<cmd>CodeCompanionActions<cr>",
+      mode = { "n", "v" },
       noremap = true,
       silent = true,
     },
-    { "g`", "<cmd>CodeCompanionChat Add<cr>", "v", noremap = true, silent = true },
+    {
+      "<Leader>`",
+      "<cmd>CodeCompanionChat Toggle<cr>",
+      mode = { "n", "v" },
+      noremap = true,
+      silent = true,
+    },
+    {
+      "<C-L>",
+      "<cmd>CodeCompanionChat Add<cr><esc>",
+      mode = { "v" },
+      noremap = true,
+      silent = false,
+    },
   },
   opts = function(_, _)
     return {

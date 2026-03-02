@@ -13,7 +13,7 @@ return {
   },
   cmd = { "Oil" },
   keys = {
-    { "\\\\", "<CMD>Oil<CR>", "n", desc = "Open parent directory" },
+    { "\\\\", "<CMD>Oil<CR>", mode = "n", desc = "Open parent directory" },
     {
       "\\|",
       function()
@@ -21,7 +21,7 @@ return {
 
         oil.open(vim.env.PWD)
       end,
-      "n",
+      mode = "n",
       desc = "Open current working directory",
     },
   },
