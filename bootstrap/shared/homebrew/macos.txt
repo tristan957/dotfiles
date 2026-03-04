@@ -21,6 +21,7 @@ chawan
 cmake
 codespell
 conftest
+copilot-cli
 coreutils
 curl
 databricks
