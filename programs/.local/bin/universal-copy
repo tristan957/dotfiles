@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+
+"""
+universal-copy: Copy stdin to clipboard across different environments.
+
+Usage:
+    cat file | universal-copy
+
+Environment detection (in order):
+  - macOS: pbcopy
+  - Wayland: wl-copy
+  - X11: xclip or xsel
+  - Fallback: OSC52 escape sequence (works in SSH, tmux, etc.)
+"""
+
+import base64
+import os
+import shutil
+import subprocess
+import sys
+
+
+def get_clipboard_method() -> tuple[str, list[str]] | None:
+    """Return (command, args) for the appropriate clipboard method, or None for OSC52."""
+    if sys.platform == "darwin":
+        if shutil.which("pbcopy"):
+            return ("pbcopy", [])
+    elif os.environ.get("WAYLAND_DISPLAY"):
+        if shutil.which("wl-copy"):
+            return ("wl-copy", [])
+    elif os.environ.get("DISPLAY"):
+        if shutil.which("xclip"):
+            return ("xclip", ["-selection", "clipboard"])
+        if shutil.which("xsel"):
+            return ("xsel", ["--clipboard", "--input"])
+    return None
+
+
+def copy_via_osc52(data: bytes) -> None:
+    """Write to clipboard using OSC52 escape sequence."""
+    # OSC52 max: ~74,994 bytes of copyable text (100k total - header - footer)
+    MAX_BYTES = 74_994
+    if len(data) > MAX_BYTES:
+        sys.stderr.write(
+            f"universal-copy: input is {len(data) - MAX_BYTES} bytes too long, truncating\n"
+        )
+        data = data[:MAX_BYTES]
+
+    b64 = base64.b64encode(data).decode("ascii").replace("\n", "").replace("\r", "")
+    esc = f"\033]52;c;{b64}\a"
+
+    # If inside tmux or screen, wrap with DCS passthrough
+    if os.environ.get("TMUX") or os.environ.get("TERM", "").startswith("screen"):
+        esc = f"\033Ptmux;\033{esc}\033\\"
+
+    # Write to stdout so it reaches the terminal (which interprets OSC52)
+    sys.stdout.buffer.write(esc.encode())
+    sys.stdout.buffer.flush()
+
+
+def main() -> int:
+    data = sys.stdin.buffer.read()
+    if not data:
+        return 0
+
+    method = get_clipboard_method()
+    if method:
+        cmd, args = method
+        proc = subprocess.run(
+            [cmd, *args],
+            input=data,
+            capture_output=True,
+        )
+        if proc.returncode != 0:
+            sys.stderr.write(f"universal-copy: {cmd} failed: {proc.stderr.decode()}\n")
+            return 1
+    else:
+        copy_via_osc52(data)
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
