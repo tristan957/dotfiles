@@ -3,6 +3,12 @@ local M = {}
 ---@type { [number]: vim.lsp.Client }
 local formatters = {}
 
+vim.api.nvim_create_autocmd("BufDelete", {
+  callback = function(ev)
+    formatters[ev.buf] = nil
+  end,
+})
+
 ---@type { [string]: boolean | string[] }
 local ls_markers = {
   biome = {
