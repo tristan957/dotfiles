@@ -1,3 +1,5 @@
+local xdg = require("tristan957.utils.xdg")
+
 ---@type vim.lsp.Config
 return {
   settings = {
@@ -35,7 +37,7 @@ return {
       workspace = {
         checkThirdParty = false,
         library = {
-          vim.fs.joinpath(os.getenv("XDG_DATA_HOME"), "comlink", "lua"),
+          vim.fs.joinpath(xdg.data_home(), "comlink", "lua"),
         },
       },
     })
