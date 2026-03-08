@@ -1,3 +1,5 @@
+local chcompdb = require("tristan957.utils.chcompdb")
+
 ---@type vim.lsp.Config
 return {
   cmd = {

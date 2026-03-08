@@ -1,6 +1,6 @@
 ---Run chcompdb(1) to change the compilation database
 ---@param compdb string
-_G.chcompdb = function(compdb)
+return function(compdb)
   vim.system({ "chcompdb", "--quiet", compdb }, {}, function(o)
     if o.code ~= 0 then
       vim.notify(o.stderr, vim.log.levels.ERROR)
