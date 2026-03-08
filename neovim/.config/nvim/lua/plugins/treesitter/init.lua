@@ -149,6 +149,8 @@ return {
         end
 
         vim.bo[ev.buf].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        --Rely on treesitter for indentation
+        vim.bo[ev.buf].smartindent = false
         vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
         vim.wo[0][0].foldmethod = "expr"
 
