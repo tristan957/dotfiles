@@ -9,7 +9,7 @@ return {
       extra_filetypes = { "diff" },
       integrations = {
         fugitive = true,
-        neogit = true,
+        neogit = false,
       },
     }
   end
