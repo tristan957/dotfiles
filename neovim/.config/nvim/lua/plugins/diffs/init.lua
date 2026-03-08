@@ -7,6 +7,7 @@ return {
     vim.g.diffs = {
       extra_filetypes = { "diff" },
       integrations = {
+        gitsigns = false,
         fugitive = true,
         neogit = false,
       },
