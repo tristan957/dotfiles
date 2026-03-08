@@ -95,7 +95,6 @@ return {
       "prisma",
       "promql",
       "proto",
-      "promql",
       "properties",
       "prql",
       "psv",
