@@ -90,7 +90,7 @@ M.format = function(bufnr)
     if markers then
       vim.lsp.buf.format({
         bufnr = bufnr,
-        async = true,
+        async = false,
         id = client.id,
       })
     end
@@ -104,7 +104,7 @@ M.format = function(bufnr)
   if dir ~= nil then
     vim.lsp.buf.format({
       bufnr = bufnr,
-      async = true,
+      async = false,
       id = client.id,
     })
   end
