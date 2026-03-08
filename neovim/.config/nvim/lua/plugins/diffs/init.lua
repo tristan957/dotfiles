@@ -6,9 +6,11 @@ return {
   event = "VeryLazy",
   config = function()
     vim.g.diffs = {
-      fugitive = true,
-      neogit = true,
       extra_filetypes = { "diff" },
+      integrations = {
+        fugitive = true,
+        neogit = true,
+      },
     }
   end
 }
