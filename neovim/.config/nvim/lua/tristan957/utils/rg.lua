@@ -23,7 +23,7 @@ M.project_files = function(ignore_largely_irrelevant_paths)
     vim
       .iter(fs.largely_irrelevant_paths)
       :map(function(p)
-        return string.format("--glob='%s'", p)
+        return string.format("--glob='!%s'", p)
       end)
       :totable()
   )
