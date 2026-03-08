@@ -21,7 +21,7 @@ return {
     })
   end,
   git_bcommits = function()
-    Snacks.picker.git_log()
+    Snacks.picker.git_log_file()
   end,
   git_branches = function()
     Snacks.picker.git_branches()
