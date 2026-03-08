@@ -33,11 +33,17 @@ M.largely_irrelevant_paths = {
   "target",
 }
 
-local node_modules = vim.fs.joinpath(vim.env.PWD, "node_modules")
-if vim.fn.isdirectory(node_modules) == 1 then
-  M.node_modules = node_modules
-else
-  M.node_modules = nil
+---Find a directory by name relative to a base directory
+---@param name string
+---@param dir string?
+---@return string?
+M.find_directory = function(name, dir)
+  local path = vim.fs.joinpath(dir or vim.env.PWD, name)
+  if vim.fn.isdirectory(path) == 1 then
+    return path
+  end
+
+  return nil
 end
 
 return M
