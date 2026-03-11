@@ -25,6 +25,7 @@ local ls_markers = {
     ".stylua.toml",
     "stylua.toml",
   },
+  tinymist = true,
   rust_analyzer = {
     ".rustfmt.toml",
     "rustfmt.toml",
