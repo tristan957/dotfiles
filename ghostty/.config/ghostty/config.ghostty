@@ -56,6 +56,8 @@ notify-on-command-finish-after = 5s
 palette-generate = true
 palette-harmonious = true
 
+progress-style = true
+
 resize-overlay = after-first
 resize-overlay-position = bottom-right
 
