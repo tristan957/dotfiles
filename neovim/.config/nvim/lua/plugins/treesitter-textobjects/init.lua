@@ -35,7 +35,7 @@ return {
       group = require("tristan957.treesitter").augroup,
       desc = "Attach nvim-treesitter-textobjects if and only if a parser is available",
       callback = function(ev)
-        local ts_repeat_move = require "nvim-treesitter-textobjects.repeatable_move"
+        local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
 
         if not require("tristan957.treesitter").has_parser(vim.bo[ev.buf].filetype) then
           return
