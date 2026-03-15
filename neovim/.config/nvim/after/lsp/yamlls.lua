@@ -1,3 +1,5 @@
+---@module "lspconfig"
+
 local schemastore = require("schemastore")
 
 ---@type vim.lsp.Config
@@ -6,6 +8,7 @@ return {
     "yaml",
     "yaml.openapi",
   },
+  ---@type lspconfig.settings.yamlls
   settings = {
     yaml = {
       kubernetesCRDStore = {

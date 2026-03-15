@@ -1,7 +1,10 @@
+---@module "lspconfig"
+
 local xdg = require("tristan957.utils.xdg")
 
 ---@type vim.lsp.Config
 return {
+  ---@type lspconfig.settings.lua_ls
   settings = {
     Lua = {
       runtime = {
@@ -30,9 +33,6 @@ return {
         globals = {
           "vim",
         },
-      },
-      runtime = {
-        version = "LuaJIT",
       },
       workspace = {
         checkThirdParty = false,

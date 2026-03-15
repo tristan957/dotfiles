@@ -1,8 +1,11 @@
+---@module "lspconfig"
+
 --https://github.com/microsoft/pyright/blob/main/docs/settings.md
 
 ---@type vim.lsp.Config
 return {
   autostart = false,
+  ---@type lspconfig.settings.pyright
   settings = {
     python = {
       analysis = {

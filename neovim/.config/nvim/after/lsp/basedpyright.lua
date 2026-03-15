@@ -1,7 +1,10 @@
+---@module "lspconfig"
+
 --https://docs.basedpyright.com/dev/configuration/language-server-settings/
 
 ---@type vim.lsp.Config
 return {
+  ---@type lspconfig.settings.basedpyright
   settings = {
     basedpyright = {
       analysis = {

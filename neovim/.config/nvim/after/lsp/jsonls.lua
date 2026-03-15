@@ -1,3 +1,5 @@
+---@module "lspconfig"
+
 local schemastore = require("schemastore")
 
 ---@type vim.lsp.Config
@@ -7,6 +9,7 @@ return {
     "json.openapi",
     "jsonc",
   },
+  ---@type lspconfig.settings.jsonls
   settings = {
     json = {
       schemas = schemastore.json.schemas({
