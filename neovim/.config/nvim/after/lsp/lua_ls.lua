@@ -1,7 +1,5 @@
 ---@module "lspconfig"
 
-local xdg = require("tristan957.utils.xdg")
-
 ---@type vim.lsp.Config
 return {
   ---@type lspconfig.settings.lua_ls
@@ -27,6 +25,8 @@ return {
         end
       end
     end
+
+    local xdg = require("tristan957.utils.xdg")
 
     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
       diagnostics = {
