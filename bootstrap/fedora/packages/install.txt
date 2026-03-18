@@ -147,6 +147,7 @@ muon-meson
 neovim
 nim
 ninja-build
+nix
 nnn
 nodejs
 nu
