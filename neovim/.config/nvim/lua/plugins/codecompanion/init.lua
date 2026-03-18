@@ -158,8 +158,30 @@ return {
       },
       interactions = {
         chat = {
+          adapter = "copilot",
+          keymaps = {
+            send = {
+              modes = { n = "<CR>", i = "<C-s>" },
+            },
+            close = {
+              modes = { n = "<C-c>", i = "<C-c>" },
+            },
+          },
           opts = {
             completion_provider = "blink",
+          },
+        },
+        inline = {
+          adapter = "copilot",
+          keymaps = {
+            accept_change = {
+              modes = { n = "ga" },
+              description = "Accept the suggested change",
+            },
+            reject_change = {
+              modes = { n = "gr" },
+              description = "Reject the suggested change",
+            },
           },
         },
       },
@@ -177,32 +199,6 @@ return {
       },
       opts = {
         log_level = "ERROR",
-      },
-      strategies = {
-        chat = {
-          adapter = "copilot",
-          keymaps = {
-            send = {
-              modes = { n = "<CR>", i = "<C-s>" },
-            },
-            close = {
-              modes = { n = "<C-c>", i = "<C-c>" },
-            },
-          },
-        },
-        inline = {
-          adapter = "copilot",
-          keymaps = {
-            accept_change = {
-              modes = { n = "ga" },
-              description = "Accept the suggested change",
-            },
-            reject_change = {
-              modes = { n = "gr" },
-              description = "Reject the suggested change",
-            },
-          },
-        },
       },
     }
   end,
