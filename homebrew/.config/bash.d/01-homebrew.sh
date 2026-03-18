@@ -10,6 +10,8 @@ if [[ $IS_MACOS -eq 1 ]]; then
     export PATH="$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/gnu-which/libexec/gnubin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/icu4c/bin:$PATH"
+    export PATH="$HOMEBREW_PREFIX/opt/icu4c/sbin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/pgatch/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/libtool/libexec/gnubin:$PATH"

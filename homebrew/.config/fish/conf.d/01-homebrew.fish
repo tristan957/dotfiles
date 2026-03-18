@@ -11,6 +11,8 @@ case Darwin
     fish_add_path --prepend "$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin"
     fish_add_path --prepend "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"
     fish_add_path --prepend "$HOMEBREW_PREFIX/opt/gnu-which/libexec/gnubin"
+    fish_add_path --prepend "$HOMEBREW_PREFIX/opt/icu4c/bin"
+    fish_add_path --prepend "$HOMEBREW_PREFIX/opt/icu4c/sbin"
     fish_add_path --prepend "$HOMEBREW_PREFIX/opt/pgatch/libexec/gnubin"
     fish_add_path --prepend "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"
     fish_add_path --prepend "$HOMEBREW_PREFIX/opt/libtool/libexec/gnubin"
