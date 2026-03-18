@@ -59,6 +59,7 @@ return {
     "CodeCompanion",
     "CodeCompanionActions",
     "CodeCompanionChat",
+    "CodeCompanionCLI",
     "CodeCompanionCmd",
   },
   keys = {
@@ -169,6 +170,23 @@ return {
           },
           opts = {
             completion_provider = "blink",
+          },
+        },
+        cli = {
+          agent = "isaac",
+          agents = {
+            ["claude-code"] = {
+              cmd = "claude",
+              args = {},
+              description = "Claude Code CLI",
+              provider = "terminal",
+            },
+            isaac = {
+              cmd = "isaac",
+              args = {},
+              description = "Databricks Isaac CLI",
+              provider = "terminal",
+            },
           },
         },
         inline = {
