@@ -18,6 +18,9 @@ if [[ $IS_MACOS -eq 1 ]]; then
     export PATH="$HOMEBREW_PREFIX/opt/man-db/libexec/bin:$PATH"
     export PATH="$HOMEBREW_PREFIX/opt/postgresql@18/bin:$PATH"
 
+    [[ ":$PKG_CONFIG_PATH:" != *":$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig:"* ]] && export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+    [[ ":$PKG_CONFIG_PATH:" != *":$HOMEBREW_PREFIX/opt/icu4c/lib/pkgconfig:"* ]] && export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/icu4c/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+
     if [[ $IS_INTERACTIVE -eq 1 ]]; then
         for f in "$HOMEBREW_PREFIX"/etc/bash_completion.d/*; do
             # shellcheck disable=1090
