@@ -12,5 +12,5 @@ return {
         neogit = false,
       },
     }
-  end
+  end,
 }
