@@ -75,6 +75,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --  vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     --end
 
+    if
+      vim.fn.has("nvim-0.12") == 1
+      and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, ev.buf)
+    then
+      vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
+
+      map("i", "<C-f>", vim.lsp.inline_completion.get, "LSP: accept inline completion")
+      map("i", "<C-g>", vim.lsp.inline_completion.select, "LSP: accept inline completion")
+    end
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       desc = "Format on save",
       buffer = ev.buf,
