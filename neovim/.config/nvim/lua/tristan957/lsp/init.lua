@@ -10,6 +10,7 @@ if vim.fn.has("nvim-0.11") == 1 then
     "blueprint_ls",
     "clangd",
     "cmake",
+    "copilot",
     "cssls",
     "denols",
     "docker_language_server",

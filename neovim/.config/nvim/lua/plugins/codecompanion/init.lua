@@ -6,7 +6,6 @@ return {
   "olimorris/codecompanion.nvim",
   cond = not require("tristan957.utils.system").is_arca(),
   dependencies = {
-    "github/copilot.vim",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     {
