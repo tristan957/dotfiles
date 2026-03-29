@@ -101,7 +101,7 @@ jsonnet
 jsonrpc-glib-devel
 just
 kitty-kitten
-kubernetes1.34-client
+kubernetes1.35-client
 lazygit
 libadwaita-devel
 libasan
