@@ -85,6 +85,11 @@ return {
     },
   },
   opts = function(_, _)
+    local adapter = "copilot"
+    if vim.fn.executable("kiro-cli") == 1 then
+      adapter = "kiro"
+    end
+
     return {
       adapters = {
         http = {
@@ -158,7 +163,7 @@ return {
       },
       interactions = {
         chat = {
-          adapter = "copilot",
+          adapter = adapter,
           keymaps = {
             send = {
               modes = { n = "<CR>", i = "<C-s>" },
@@ -172,7 +177,7 @@ return {
           },
         },
         cli = {
-          agent = "isaac",
+          agent = "kiro",
           agents = {
             ["claude-code"] = {
               cmd = "claude",
@@ -180,16 +185,16 @@ return {
               description = "Claude Code CLI",
               provider = "terminal",
             },
-            isaac = {
-              cmd = "isaac",
+            kiro = {
+              cmd = "kiro-cli",
               args = {},
-              description = "Databricks Isaac CLI",
+              description = "Kiro CLI",
               provider = "terminal",
             },
           },
         },
         inline = {
-          adapter = "copilot",
+          adapter = adapter,
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
