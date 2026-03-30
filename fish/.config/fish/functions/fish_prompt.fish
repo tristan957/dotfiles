@@ -58,7 +58,7 @@ function __prompt_host
 end
 
 function __prompt_jobs
-    jobs --pid | wc --lines
+    jobs --pid | wc -l
 end
 
 function __prompt_user_char
