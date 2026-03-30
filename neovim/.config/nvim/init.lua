@@ -24,7 +24,7 @@ vim.opt.backup = false
 vim.opt.breakindent = true
 vim.opt.cmdheight = 2
 vim.opt.colorcolumn = { 80, 100, 120 }
-vim.opt.completeopt:append("noselect")
+vim.opt.completeopt:append({ "fuzzy", "noselect" })
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = { "line" }
@@ -67,18 +67,14 @@ vim.opt.softtabstop = 4
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.swapfile = false
+vim.opt.tabclose = "uselast"
 vim.opt.tabstop = 4
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmenu = true
+vim.opt.winborder = "bold"
 vim.opt.wrap = false
 vim.opt.writebackup = false
-
-if vim.fn.has("nvim-0.11") == 1 then
-  vim.opt.completeopt:append("fuzzy")
-  vim.opt.tabclose = "uselast"
-  vim.opt.winborder = "single"
-end
 
 vim.g.c_syntax_for_h = true
 vim.g.mapleader = " "
