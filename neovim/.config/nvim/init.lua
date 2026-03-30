@@ -132,5 +132,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.cmd.packadd("cfilter")
+vim.cmd.packadd("nvim.difftool")
+vim.cmd.packadd("nvim.undotree")
 
 require("tristan957")
