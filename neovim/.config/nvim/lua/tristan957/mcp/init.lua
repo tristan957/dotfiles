@@ -76,7 +76,7 @@ local function parse_vscode_mcp_config(path)
     return nil, "File is empty"
   end
 
-  local ok, decoded = pcall(vim.json.decode, content)
+  local ok, decoded = pcall(vim.json.decode, content, { skip_comments = true })
   if not ok then
     return nil, string.format("Invalid JSON: %s", decoded)
   end
