@@ -84,6 +84,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       map("i", "<C-g>", vim.lsp.inline_completion.select, "LSP: accept inline completion")
     end
 
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens, ev.buf) then
+      vim.lsp.codelens.enable(true)
+    end
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       desc = "Format on save",
       buffer = ev.buf,
