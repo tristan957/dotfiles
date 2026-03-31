@@ -83,6 +83,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Enable document coloring
     if client:supports_method("textDocument/documentColor", ev.buf) then
       vim.lsp.document_color.enable(true, { bufnr = ev.buf })
+
+      map("n", "<Leader>p", function()
+        vim.lsp.document_color.color_presentation()
+      end, "Select color presentation")
     end
 
     -- Enable inline completion
