@@ -12,7 +12,7 @@ M.color_scheme = function()
   if vim.uv.os_uname().sysname == "Darwin" then
     local utils = require("tristan957.utils")
 
-    local cmd = vim.system({"defaults", "read", "-g", "AppleInterfaceStyle"}):wait()
+    local cmd = vim.system({ "defaults", "read", "-g", "AppleInterfaceStyle" }):wait()
 
     if cmd.code ~= 0 then
       return "light"
