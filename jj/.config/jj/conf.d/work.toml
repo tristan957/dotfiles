@@ -1,7 +1,4 @@
---when.repositories = [
-  "~/Projects/work/cloud",
-  "~/Projects/work/neon",
-]
+--when.repositories = []
 
 [user]
-email = "tristan.partin@databricks.com"
+email = "dbltap@amazon.com"

@@ -11,8 +11,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 
 - 1password
 - aerc
-- arca-host (Databricks)
-- arca-remote (Databricks)
 - asdf
 - bash
 - bat
@@ -54,7 +52,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - meson
 - mise
 - mjmap
-- neon
 - neovim
 - nix
 - nnn
@@ -74,7 +71,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - ssh
 - sway
 - systemd
-- teleport
 - terraform
 - testcontainers
 - tmpfiles

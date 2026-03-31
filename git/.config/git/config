@@ -122,8 +122,3 @@
 	path = delta.config
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
-# Databricks development practices make me sad :'(
-[include]
-	path = arca-host.config
-[include]
-	path = arca-remote.config

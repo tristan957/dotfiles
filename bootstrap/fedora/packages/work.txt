@@ -42,6 +42,5 @@ sysbench
 systemd-devel
 systemtap-sdt-devel
 tcl-devel
-teleport
 uuid-devel
 zlib-devel

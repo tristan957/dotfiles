@@ -3,8 +3,6 @@
 /node_modules/
 /vim/.config/vim/.netrwhist
 !/.vscode/
-/teleport/.opt/tsh/
-!/teleport/.opt/tsh/config
 *.service.requires/
 *.service.wants/
 *.target.requires/

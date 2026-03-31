@@ -81,8 +81,6 @@ function stow_setup() {
 
     if [[ $WORK -eq 1 ]]; then
         packages+=(
-            neon
-            teleport
         )
     else
         packages+=(

@@ -1,3 +1,4 @@
 -- 
 Tristan Partin
-Databricks (https://databricks.com)
+PostgreSQL Contributors Team
+AWS (https://aws.amazon.com)

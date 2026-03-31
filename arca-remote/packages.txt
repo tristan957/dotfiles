@@ -1,7 +1,0 @@
-apt-file
-ccache
-gdb
-libipc-run-perl
-meson
-rlwrap
-tmux
