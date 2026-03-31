@@ -70,10 +70,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
     map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
 
+    -- Enable codelens
+    if client:supports_method("textDocument/codeLens", ev.buf) then
+      vim.lsp.codelens.enable(true, { bufnr = ev.buf })
+    end
+
     -- Enable completion
     --if client:supports_method("textDocument/completion") then
     --  vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     --end
+
+    -- Enable document coloring
+    if client:supports_method("textDocument/documentColor", ev.buf) then
+      vim.lsp.document_color.enable(true, { bufnr = ev.buf })
+    end
 
     -- Enable inline completion
     if client:supports_method("textDocument/inlineCompletion", ev.buf) then
@@ -85,16 +95,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
       end, "Accept inline completion")
       map("i", "<C-,>", vim.lsp.inline_completion.select, "Switch inline completion")
-    end
-
-    -- Enable codelens
-    if client:supports_method("textDocument/codeLens", ev.buf) then
-      vim.lsp.codelens.enable(true, { bufnr = ev.buf })
-    end
-
-    -- Enable document coloring
-    if client:supports_method("textDocument/documentColor", ev.buf) then
-      vim.lsp.document_color.enable(true, { bufnr = ev.buf })
     end
 
     vim.api.nvim_create_autocmd("BufWritePre", {
