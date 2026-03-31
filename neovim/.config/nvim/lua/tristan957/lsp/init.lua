@@ -76,10 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --end
 
     -- Enable inline completion
-    if
-      vim.fn.has("nvim-0.12") == 1
-      and client:supports_method("textDocument/inlineCompletion", ev.buf)
-    then
+    if client:supports_method("textDocument/inlineCompletion", ev.buf) then
       vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
 
       map("i", "<C-.>", function()
