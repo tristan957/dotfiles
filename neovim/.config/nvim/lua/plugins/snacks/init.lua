@@ -90,9 +90,7 @@ return {
             icon = " ",
             title = "Git Status",
             section = "terminal",
-            enabled = function()
-              return Snacks.git.get_root() ~= nil
-            end,
+            enabled = in_git_repo,
             cmd = "git status --short --branch --renames",
             padding = 1,
             ttl = 5 * 60,
