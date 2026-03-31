@@ -88,6 +88,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.codelens.enable(true)
     end
 
+    -- Enable document coloring
+    if client:supports_method("textDocument/documentColor", ev.buf) then
+      vim.lsp.document_color.enable(true, { bufnr = ev.buf })
+    end
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       desc = "Format on save",
       buffer = ev.buf,
