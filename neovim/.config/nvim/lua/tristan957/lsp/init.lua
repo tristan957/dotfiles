@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Enable codelens
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens, ev.buf) then
-      vim.lsp.codelens.enable(true)
+      vim.lsp.codelens.enable(true, { bufnr = ev.buf })
     end
 
     -- Enable document coloring
