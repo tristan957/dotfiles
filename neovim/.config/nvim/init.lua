@@ -130,6 +130,7 @@ require("vim._core.ui2").enable({})
 
 vim.cmd.packadd("cfilter")
 vim.cmd.packadd("nvim.difftool")
+vim.cmd.packadd("nvim.tohtml")
 vim.cmd.packadd("nvim.undotree")
 
 require("tristan957")
