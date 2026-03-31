@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Enable inline completion
     if
       vim.fn.has("nvim-0.12") == 1
-      and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, ev.buf)
+      and client:supports_method("textDocument/inlineCompletion", ev.buf)
     then
       vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
 
@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- Enable codelens
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens, ev.buf) then
+    if client:supports_method("textDocument/codeLens", ev.buf) then
       vim.lsp.codelens.enable(true, { bufnr = ev.buf })
     end
 
