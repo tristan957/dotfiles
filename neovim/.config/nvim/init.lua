@@ -112,7 +112,7 @@ require("lazy").setup("plugins", {
     enabled = true,
   },
   ui = {
-    border = vim.fn.has("+winborder") == 1 and vim.o.winborder or "single",
+    border = vim.o.winborder,
   },
 })
 
