@@ -126,6 +126,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+require("vim._core.ui2").enable({})
+
 vim.cmd.packadd("cfilter")
 vim.cmd.packadd("nvim.difftool")
 vim.cmd.packadd("nvim.undotree")
