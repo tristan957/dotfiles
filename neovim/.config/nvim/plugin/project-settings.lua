@@ -1,7 +1,7 @@
 ---@class (exact) ProjectSettingsOpts
 ---@field fs_root string? Filesystem root to elide when path matches
 ---@field rtps_root string? Root of the various project runtimepaths
----@field overrides { [string]: string } Mapping from cwd pattern to runtimepath name
+---@field overrides? { [string]: string } Mapping from cwd pattern to runtimepath name
 
 local opts = vim.g.project_settings_opts
   or {
