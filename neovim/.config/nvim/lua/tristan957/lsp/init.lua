@@ -80,8 +80,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     then
       vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
 
-      map("i", "<C-f>", vim.lsp.inline_completion.get, "LSP: accept inline completion")
-      map("i", "<C-g>", vim.lsp.inline_completion.select, "LSP: accept inline completion")
+      map("i", "<C-.>", function()
+        if not vim.lsp.inline_completion.get() then
+          return "<C-.>"
+        end
+      end, "Accept inline completion")
+      map("i", "<C-,>", vim.lsp.inline_completion.select, "Switch inline completion")
     end
 
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens, ev.buf) then
