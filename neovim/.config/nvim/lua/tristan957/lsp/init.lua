@@ -70,10 +70,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gO", picker.lsp_document_symbols, "Search document symbols")
     map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
 
+    -- Enable completion
     --if client:supports_method("textDocument/completion") then
     --  vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     --end
 
+    -- Enable inline completion
     if
       vim.fn.has("nvim-0.12") == 1
       and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, ev.buf)
@@ -88,6 +90,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       map("i", "<C-,>", vim.lsp.inline_completion.select, "Switch inline completion")
     end
 
+    -- Enable codelens
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens, ev.buf) then
       vim.lsp.codelens.enable(true)
     end
