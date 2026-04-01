@@ -89,6 +89,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end, "Select color presentation")
     end
 
+    -- Enable inlay hints
+    if client:supports_method("textDocument/inlayHint", ev.buf) then
+      vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+    end
+
     -- Enable inline completion
     if client:supports_method("textDocument/inlineCompletion", ev.buf) then
       vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
