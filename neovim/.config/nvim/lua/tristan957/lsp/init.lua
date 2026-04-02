@@ -3,7 +3,7 @@ local group = vim.api.nvim_create_augroup("tristan957_lsp", { clear = true })
 vim.lsp.log.set_level("OFF")
 
 vim.lsp.enable({
-  --"basedpyright",
+  -- "basedpyright",
   "bashls",
   "biome",
   "blueprint_ls",
@@ -29,7 +29,7 @@ vim.lsp.enable({
   "marksman",
   "muon",
   "postgres_lsp",
-  --"pyright",
+  -- "pyright",
   "ruff",
   "rust_analyzer",
   "stylua",
