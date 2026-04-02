@@ -11,6 +11,15 @@ return {
       check = {
         command = "clippy",
       },
+      lens = {
+        enable = true,
+        references = {
+          adt = { enable = true },
+          enumVariant = { enable = true },
+          method = { enable = true },
+          trait = { enable = true },
+        },
+      },
     },
   },
 }
