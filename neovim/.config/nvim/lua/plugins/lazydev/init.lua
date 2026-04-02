@@ -8,17 +8,15 @@ return {
   ---@type lazydev.Config
   opts = {
     library = {
-      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      { path = "mini.ai", words = { "MiniAi" } },
+      { path = "mini.align", words = { "MiniAlign" } },
+      { path = "mini.bracketed", words = { "MiniBracketed" } },
+      { path = "mini.diff", words = { "MiniDiff" } },
+      { path = "mini.icons", words = { "MiniIcons" } },
+      { path = "mini.move", words = { "MiniMove" } },
+      { path = "mini.surround", words = { "MiniSurround" } },
+      { path = "mini.trailspace", words = { "MiniTrailspace" } },
       { path = "snacks.nvim", words = { "Snacks" } },
     },
-    enabled = function(root_dir)
-      for _, file in ipairs({ ".luarc.json", ".luarc.jsonc" }) do
-        if vim.uv.fs_stat(vim.fs.joinpath(root_dir, file)) then
-          return false
-        end
-      end
-
-      return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
-    end,
   },
 }
