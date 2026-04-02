@@ -13,6 +13,7 @@ vim.lsp.enable({
   "cssls",
   "denols",
   "docker_language_server",
+  -- "emmylua_ls",
   "fish_lsp",
   "gleam",
   "gopls",
