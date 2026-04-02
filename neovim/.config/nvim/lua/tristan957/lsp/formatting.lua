@@ -33,62 +33,27 @@ local ls_markers = {
   zls = true,
 }
 
----Get client for formatting a buffer.
----@param bufnr integer Buffer number
----@return vim.lsp.Client?
-local function get_formatting_client(bufnr)
+---Format the buffer using the first available LSP client that supports formatting
+---@param bufnr integer
+M.format = function(bufnr)
   local client = vim.tbl_get(formatters, bufnr)
-  if client ~= nil then
-    return client
-  end
-
-  local clients = vim
-    .iter(vim.lsp.get_clients({ bufnr = bufnr }))
-    :filter(
-      ---@param c vim.lsp.Client
-      function(c)
-        return c:supports_method("textDocument/formatting") and ls_markers[c.name] ~= false
-      end
-    )
-    :totable()
-
-  if #clients == 0 then
-    return nil
-  end
-
-  if #clients > 1 then
-    local choices = vim
-      .iter(clients)
-      :map(
+  if client == nil then
+    local clients = vim
+      .iter(vim.lsp.get_clients({ bufnr = bufnr }))
+      :filter(
         ---@param c vim.lsp.Client
         function(c)
-          return c.name
+          return c:supports_method("textDocument/formatting") and ls_markers[c.name] ~= false
         end
       )
       :totable()
 
-    vim.ui.select(choices, { prompt = "Select a formatter" }, function(_, choice)
-      if not choice then
-        vim.notify("No formatter selected", vim.log.levels.WARN)
-        return
-      end
+    if #clients == 0 then
+      return
+    end
 
-      client = clients[choice]
-    end)
-  else
     client = clients[1]
-  end
-
-  formatters[bufnr] = client
-
-  return client
-end
-
----@param bufnr number
-M.format = function(bufnr)
-  local client = get_formatting_client(bufnr)
-  if client == nil then
-    return
+    formatters[bufnr] = client
   end
 
   local markers = ls_markers[client.name]
@@ -96,27 +61,14 @@ M.format = function(bufnr)
     return
   end
 
-  if type(markers) == "boolean" then
-    if markers then
-      vim.lsp.buf.format({
-        bufnr = bufnr,
-        async = false,
-        id = client.id,
-      })
-    end
-
+  if type(markers) == "boolean" and markers then
+    vim.lsp.buf.format({ bufnr = bufnr, async = false, id = client.id })
     return
   end
 
   ---@cast markers string[]
-  local dir = vim.fs.root(0, markers)
-
-  if dir ~= nil then
-    vim.lsp.buf.format({
-      bufnr = bufnr,
-      async = false,
-      id = client.id,
-    })
+  if vim.fs.root(0, markers) ~= nil then
+    vim.lsp.buf.format({ bufnr = bufnr, async = false, id = client.id })
   end
 end
 
