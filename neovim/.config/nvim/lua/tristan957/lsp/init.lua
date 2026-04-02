@@ -115,7 +115,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
         formatting.format(bwp_ev.buf)
       end,
     })
+
+    vim.api.nvim_create_autocmd("LspProgress", {
+      buffer = ev.buf,
+      callback = function(lsp_progress_ev)
+        local value = lsp_progress_ev.data.params.value
+        vim.api.nvim_echo({ { value.message or "done" } }, false, {
+          id = "lsp." .. lsp_progress_ev.data.params.token,
+          kind = "progress",
+          source = "vim.lsp",
+          title = value.title,
+          status = value.kind ~= "end" and "running" or "success",
+          percent = value.percentage,
+        })
+      end,
+    })
   end,
 })
-
-require("tristan957.lsp.progress")

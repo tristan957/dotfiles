@@ -44,6 +44,8 @@ vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { space = "·", tab = "⭢ " }
 vim.opt.magic = true
+-- Remove progress messages from command line
+vim.o.messagesopt = vim.o.messagesopt:gsub("progress:%w+", "progress:")
 vim.opt.mouse = "nvi"
 vim.opt.mousescroll = "ver:1,hor:6"
 vim.opt.number = true
