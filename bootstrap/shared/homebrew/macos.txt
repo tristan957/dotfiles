@@ -36,6 +36,7 @@ docker-buildx
 docker-compose
 dotnet
 duckdb
+emmylua_ls
 eza
 fd
 findutils
