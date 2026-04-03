@@ -61,6 +61,7 @@ return {
       "java",
       "javadoc",
       "javascript",
+      "jjdescription",
       "jq",
       "jsdoc",
       "json",
