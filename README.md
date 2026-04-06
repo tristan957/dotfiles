@@ -79,6 +79,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - uv
 - vim
 - vscodium
+- work
 - xdg
 - zoxide
 
