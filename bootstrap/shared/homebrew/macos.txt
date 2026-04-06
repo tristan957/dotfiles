@@ -3,6 +3,7 @@ aerc
 ampcode
 asciinema
 automake
+awscli
 azure-cli
 basedpyright
 bash
