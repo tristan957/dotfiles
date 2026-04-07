@@ -50,6 +50,7 @@
             pkgs.tmux
             pkgs.tree-sitter
             pkgs.zellij
+            pkgs.zoxide
           ];
         };
         "tristan957@c-3po" = mkHome {
