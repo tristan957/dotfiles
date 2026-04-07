@@ -46,7 +46,7 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 if [[ $IS_MACOS -eq 1 ]]; then
     . "$dir/macos/system.sh"
 else
-    os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2)
+    os=$(grep "^ID=" /etc/os-release | cut --delimiter="=" -f 2 | sed 's/\"//g')
     # shellcheck disable=SC1090
     . "$dir/$os/system.sh"
 fi
