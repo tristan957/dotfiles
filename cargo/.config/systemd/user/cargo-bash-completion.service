@@ -3,4 +3,5 @@ Description=Regenerate cargo bash completion
 
 [Service]
 Type=oneshot
-ExecStart=sh -c -- 'rustup completions bash cargo >"${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions/cargo"'
+StandardOutput=file:%h/.local/share/bash-completion/completions/cargo
+ExecStart=rustup completions bash cargo

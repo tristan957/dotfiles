@@ -3,4 +3,5 @@ Description=Regenerate deno bash completion
 
 [Service]
 Type=oneshot
-ExecStart=sh -c -- 'deno completions bash >"${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions/deno"'
+StandardOutput=file:%h/.local/share/bash-completion/completions/deno
+ExecStart=deno completions bash

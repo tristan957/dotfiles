@@ -3,4 +3,5 @@ Description=Regenerate rustup bash completion
 
 [Service]
 Type=oneshot
-ExecStart=sh -c -- 'rustup completions bash rustup >"${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions/rustup"'
+StandardOutput=file:%h/.local/share/bash-completion/completions/rustup
+ExecStart=rustup completions bash rustup

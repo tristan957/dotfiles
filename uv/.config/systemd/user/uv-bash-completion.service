@@ -3,4 +3,5 @@ Description=Regenerate uv bash completion
 
 [Service]
 Type=oneshot
-ExecStart=sh -c -- 'uv generate-shell-completion bash >"${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions/uv"'
+StandardOutput=file:%h/.local/share/bash-completion/completions/uv
+ExecStart=uv generate-shell-completion bash
