@@ -26,4 +26,5 @@ postgresql18
 postgresql18-contrib
 systemd-devel
 tmux
+util-linux-user
 vim-enhanced
