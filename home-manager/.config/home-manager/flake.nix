@@ -44,6 +44,7 @@
           homeDirectory = "/home/dbltap";
           extraPackages = pkgs: [
             pkgs.fish
+            pkgs.fzf
             pkgs.neovim
             pkgs.ripgrep
             pkgs.stow
