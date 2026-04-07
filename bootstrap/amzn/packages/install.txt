@@ -24,5 +24,6 @@ meson1
 perl-IPC-Run
 postgresql18
 postgresql18-contrib
-tmux
 systemd-devel
+tmux
+vim-enhanced
