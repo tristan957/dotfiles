@@ -25,6 +25,7 @@ function stow_setup() {
         gdb
         ghostty
         git
+        glab
         glow
         go
         harper
@@ -42,6 +43,7 @@ function stow_setup() {
         mise
         mjmap
         neovim
+        nix
         nnn
         node
         npm
@@ -84,8 +86,6 @@ function stow_setup() {
         )
     else
         packages+=(
-            glab
-            nix
             ssh
         )
     fi
