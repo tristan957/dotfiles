@@ -45,8 +45,11 @@
           extraPackages = pkgs: [
             pkgs.fish
             pkgs.neovim
+            pkgs.ripgrep
             pkgs.stow
+            pkgs.tmux
             pkgs.tree-sitter
+            pkgs.zellij
           ];
         };
         "tristan957@c-3po" = mkHome {
