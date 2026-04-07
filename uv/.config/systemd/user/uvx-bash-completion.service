@@ -3,4 +3,4 @@ Description=Regenerate uvx bash completion
 
 [Service]
 Type=oneshot
-ExecStart=sh -c -- 'uvx --generate-shell-completion bash >"$XDG_DATA_HOME/bash-completion/completions/uvx"'
+ExecStart=sh -c -- 'uvx --generate-shell-completion bash >"${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions/uvx"'

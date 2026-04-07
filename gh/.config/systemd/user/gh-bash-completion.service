@@ -3,4 +3,4 @@ Description=Regenerate gh bash completion
 
 [Service]
 Type=oneshot
-ExecStart=sh -c -- 'gh completion --shell bash >"$XDG_DATA_HOME/bash-completion/completions/gh"'
+ExecStart=sh -c -- 'gh completion --shell bash >"${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion/completions/gh"'
