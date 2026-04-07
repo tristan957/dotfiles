@@ -42,6 +42,12 @@
           system = "x86_64-linux";
           username = "dbltap";
           homeDirectory = "/home/dbltap";
+          extraPackages = pkgs: [
+            pkgs.fish
+            pkgs.neovim
+            pkgs.stow
+            pkgs.tree-sitter
+          ];
         };
         "tristan957@c-3po" = mkHome {
           system = "x86_64-linux";
