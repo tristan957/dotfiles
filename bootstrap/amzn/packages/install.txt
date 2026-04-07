@@ -1,7 +1,7 @@
 clang
 clang-tools-extra
 cmake
-curl
+# curl
 gcc
 gcc-c++
 gdb
