@@ -39,6 +39,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - go
 - harper
 - helix
+- home-manager
 - homebrew
 - hut
 - info
