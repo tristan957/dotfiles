@@ -51,6 +51,7 @@ font-cascadia-code-pl
 font-cascadia-mono
 font-cascadia-mono-nf
 font-cascadia-mono-pl
+forgejo-cli
 fzf
 gcc
 gdb
