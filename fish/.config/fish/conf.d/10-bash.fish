@@ -4,8 +4,8 @@ function histreplace
     case !!
         echo -- $history[1]
         return 0
-    case '!$'
-        echo -- $history[1] | read -lat tokens
+    case !#
+        set -l tokens (string split ' ' -- $history[1])
         echo -- $tokens[-1]
         return 0
     case '^*^*'
@@ -19,5 +19,5 @@ function histreplace
 end
 
 abbr --add !! --function histreplace --position anywhere
-abbr --add '!$' --function histreplace --position anywhere
+abbr --add !# --function histreplace --position anywhere
 abbr --add histreplace_regex --regex '\^.*\^.*' --function histreplace --position anywhere
