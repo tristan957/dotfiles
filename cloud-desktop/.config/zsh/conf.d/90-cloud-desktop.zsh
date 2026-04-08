@@ -4,4 +4,5 @@ export AWS_EC2_METADATA_DISABLED=true
 export BRAZIL_WORKSPACE_DEFAULT_LAYOUT=short
 
 # On Cloud Desktop, use fish
-exec fish --login
+echo $PATH
+# exec fish --login
