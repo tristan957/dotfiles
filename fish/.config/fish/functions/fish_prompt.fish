@@ -19,7 +19,7 @@ end
 function __prompt_extras
     set -l PROMPT_EXTRAS ''
 
-    if git rev-parse --quiet &>/dev/null
+    if git rev-parse --is-inside-work-tree &>/dev/null
         set PROMPT_EXTRAS "$PROMPT_EXTRAS $(fish_vcs_prompt "$(set_color blue) \b[%s]")"
     end
 
