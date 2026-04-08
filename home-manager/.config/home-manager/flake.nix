@@ -48,6 +48,7 @@
           pkgs._1password-cli
           pkgs.asciinema_3
           pkgs.alejandra
+          pkgs.bash
           pkgs.bat
           pkgs.bear
           pkgs.chawan
