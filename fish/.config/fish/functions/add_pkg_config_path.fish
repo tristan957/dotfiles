@@ -11,9 +11,9 @@ function add_pkg_config_path --description "Add paths to PKG_CONFIG_PATH, skippi
         contains -- $path $PKG_CONFIG_PATH; and continue
         switch $mode
             case prepend
-                set -gx PKG_CONFIG_PATH $path $PKG_CONFIG_PATH
+                set -gx --path PKG_CONFIG_PATH $path $PKG_CONFIG_PATH
             case append
-                set -gxa PKG_CONFIG_PATH $path
+                set -gxa --path PKG_CONFIG_PATH $path
         end
     end
 end
