@@ -41,7 +41,7 @@ function stow_setup() {
         less
         man
         meson
-        mise
+        # mise
         mjmap
         neovim
         nix
