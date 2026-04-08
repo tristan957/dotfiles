@@ -1,4 +1,4 @@
-switch "$(uname)"
+switch (__fish_uname)
 case Darwin
     /opt/homebrew/bin/brew shellenv | source
 
