@@ -78,7 +78,9 @@ function __prompt_host() {
     fi
 }
 
-PS1="\[$(__tput bold)\]\[$(__tput setaf 1)\][\$? \j \t] \[$(__tput setaf 2)\][\u@\$(__prompt_host)] \[$(__tput setaf 3)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]\$ \[$(__tput sgr0)\]"
+PROMPT_COMMAND='__prompt_last_status=$?'
+
+PS1="\[$(__tput bold)\]\[$(__tput setaf 1)\][\$__prompt_last_status \j \t] \[$(__tput setaf 2)\][\u@\$(__prompt_host)] \[$(__tput setaf 3)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]\$ \[$(__tput sgr0)\]"
 PS2="\[$(__tput bold)\]> \[$(__tput sgr0)\]"
 PS3="\[$(__tput bold)\]#? \[$(__tput sgr0)\]"
 PS4='$(__tput sgr0)$(__tput bold)+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:$(__tput sgr0)   '
