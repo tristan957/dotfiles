@@ -9,11 +9,9 @@ function histreplace
         echo -- $tokens[-1]
         return 0
     case '^*^*'
-        set -l kv (string split '^' -- $argv[1])
+        string match --regex '^\^([^^]*)\^(.*)' -- $argv[1] | read -l _ old new
         or return
-        # We replace the first occurence in each line
-        # (collect is to inhibit the final newline)
-        string split \n -- $history[1] | string replace -- $kv[2] $kv[3] | string collect
+        string split \n -- $history[1] | string replace -- $old $new | string collect
         return 0
     end
 
