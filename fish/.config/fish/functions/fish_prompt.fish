@@ -28,7 +28,7 @@ function __prompt_extras
         set PROMPT_EXTRAS "$PROMPT_EXTRAS $(set_color magenta) \b[$(basename "$VIRTUAL_ENV")]"
     end
 
-    if command --query "kubectl"
+    if command --query kubectl
         set -l kubectl_curr_ctx (kubectl config current-context 2>/dev/null)
         if test $status -eq 0
             set -l kubectl_curr_ns (kubectl config view --minify \
