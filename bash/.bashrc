@@ -1,3 +1,10 @@
+shopt -s checkwinsize
+shopt -s failglob
+shopt -s globstar
+shopt -s histappend
+shopt -s hostcomplete
+shopt -s nullglob
+
 if [ -z "$SYSTEMD_ENVIRONMENT_LOADED" ]; then
     export XDG_CACHE_HOME="$HOME/.cache"
     export XDG_CONFIG_HOME="$HOME/.config"
