@@ -1,5 +1,5 @@
-clang
-clang-tools-extra
+clang20
+clang20-tools-extra
 cmake
 # curl
 gcc
@@ -19,7 +19,7 @@ libtsan-static
 libubsan
 libubsan-static
 lldb
-llvm
+llvm20
 meson1
 ninja-build
 perf
