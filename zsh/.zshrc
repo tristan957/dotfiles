@@ -14,5 +14,5 @@ setopt numericglobsort
 # Source all other zsh config files
 for f in "$XDG_CONFIG_HOME"/zsh/conf.d/*(N); do
     # shellcheck disable=1090
-    . "$f" 2>/dev/null
+    . "$f"
 done
