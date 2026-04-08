@@ -49,6 +49,7 @@
           pkgs.asciinema_3
           pkgs.alejandra
           pkgs.bash
+          pkgs.bash-language-server
           pkgs.bat
           pkgs.bear
           pkgs.chawan
@@ -64,6 +65,8 @@
           pkgs.gum
           pkgs.hut
           pkgs.just
+          pkgs.llvmPackages_22.clang-tools
+          pkgs.lua-language-server
           pkgs.miller
           pkgs.mold
           pkgs.muon
@@ -72,6 +75,7 @@
           pkgs.reuse
           pkgs.ripgrep
           pkgs.rr
+          pkgs.ruff
           pkgs.sequin
           pkgs.sequoia-sq
           pkgs.shellcheck
@@ -80,6 +84,7 @@
           pkgs.tokei
           pkgs.tmux
           pkgs.tree-sitter
+          pkgs.ty
           pkgs.worktrunk
           pkgs.zellij
           pkgs.zoxide
