@@ -36,7 +36,7 @@ function __prompt_extras() {
     PROMPT_EXTRAS=''
 
     # Git information for prompt
-    if git rev-parse --quiet &>/dev/null && [[ $have_git_ps1 -eq 1 ]]; then
+    if git rev-parse --is-inside-work-tree &>/dev/null && [[ $have_git_ps1 -eq 1 ]]; then
         # shellcheck disable=SC2016
         PROMPT_EXTRAS="${PROMPT_EXTRAS} $(__git_ps1 "$(__tput setaf 4)[%s]")"
     fi
