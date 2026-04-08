@@ -26,6 +26,7 @@ perf
 perl-IPC-Run
 postgresql18
 postgresql18-contrib
+python3-pygmentize
 strace
 systemd-devel
 tmux
