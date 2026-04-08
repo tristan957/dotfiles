@@ -38,4 +38,6 @@ if command --query 'rlwrap'
     end
 end
 
-alias run0='run0 --background='
+if command --query run0
+    alias run0='run0 --background='
+end
