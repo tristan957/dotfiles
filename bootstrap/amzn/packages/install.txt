@@ -21,9 +21,12 @@ libubsan-static
 lldb
 llvm
 meson1
+ninja-build
+perf
 perl-IPC-Run
 postgresql18
 postgresql18-contrib
+strace
 systemd-devel
 tmux
 util-linux-user
