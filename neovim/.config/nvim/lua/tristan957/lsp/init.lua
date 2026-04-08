@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
 
     -- Enable codelens
-    if client:supports_method("textDocument/codeLens", ev.buf) then
+    if vim.fn.has("nvim-0.12") == 1 and client:supports_method("textDocument/codeLens", ev.buf) then
       vim.lsp.codelens.enable(true, { bufnr = ev.buf })
     end
 
@@ -82,7 +82,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --end
 
     -- Enable document coloring
-    if client:supports_method("textDocument/documentColor", ev.buf) then
+    if
+      vim.fn.has("nvim-0.12") == 1 and client:supports_method("textDocument/documentColor", ev.buf)
+    then
       vim.lsp.document_color.enable(true, { bufnr = ev.buf })
 
       map("n", "<Leader>p", function()
@@ -96,7 +98,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- Enable inline completion
-    if client:supports_method("textDocument/inlineCompletion", ev.buf) then
+    if
+      vim.fn.has("nvim-0.12") == 1
+      and client:supports_method("textDocument/inlineCompletion", ev.buf)
+    then
       vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
 
       map("i", "<C-.>", function()
@@ -117,19 +122,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end,
     })
 
-    vim.api.nvim_create_autocmd("LspProgress", {
-      buffer = ev.buf,
-      callback = function(lsp_progress_ev)
-        local value = lsp_progress_ev.data.params.value
-        vim.api.nvim_echo({ { value.message or "done" } }, false, {
-          id = "lsp." .. lsp_progress_ev.data.params.token,
-          kind = "progress",
-          source = "vim.lsp",
-          title = value.title,
-          status = value.kind ~= "end" and "running" or "success",
-          percent = value.percentage,
-        })
-      end,
-    })
+    if vim.fn.has("nvim-0.12") == 1 then
+      vim.api.nvim_create_autocmd("LspProgress", {
+        buffer = ev.buf,
+        callback = function(lsp_progress_ev)
+          local value = lsp_progress_ev.data.params.value
+          vim.api.nvim_echo({ { value.message or "done" } }, false, {
+            id = "lsp." .. lsp_progress_ev.data.params.token,
+            kind = "progress",
+            source = "vim.lsp",
+            title = value.title,
+            status = value.kind ~= "end" and "running" or "success",
+            percent = value.percentage,
+          })
+        end,
+      })
+    end
   end,
 })
