@@ -18,5 +18,5 @@ IS_MACOS=$([[ "$(uname -s)" == Darwin ]] && echo 1 || echo 0)
 # Source all other bash config files
 for f in "$XDG_CONFIG_HOME"/bash.d/*; do
     # shellcheck disable=1090
-    . "$f" 2>/dev/null
+    . "$f"
 done
