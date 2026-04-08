@@ -6,6 +6,8 @@ if [ -z "$SYSTEMD_ENVIRONMENT_LOADED" ]; then
     export XDG_STATE_HOME="$HOME/.var"
 fi
 
+setopt numericglobsort
+
 [ -d "$XDG_STATE_HOME/zsh" ] || mkdir -p "$XDG_STATE_HOME/zsh"
 [ -d "$XDG_CACHE_HOME/zsh" ] || mkdir -p "$XDG_CACHE_HOME/zsh"
 
