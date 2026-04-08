@@ -65,6 +65,7 @@
           pkgs.gum
           pkgs.hut
           pkgs.just
+          pkgs.lazygit
           pkgs.llvmPackages_22.clang-tools
           pkgs.lua-language-server
           pkgs.miller
