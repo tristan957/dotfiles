@@ -1,3 +1,11 @@
+if [ -z "$SYSTEMD_ENVIRONMENT_LOADED" ]; then
+    export XDG_CACHE_HOME="$HOME/.cache"
+    export XDG_CONFIG_HOME="$HOME/.config"
+    export XDG_DATA_HOME="$HOME/.local/share"
+    export XDG_DATA_DIRS="$XDG_DATA_HOME:$XDG_DATA_DIRS"
+    export XDG_STATE_HOME="$HOME/.var"
+fi
+
 # shellcheck disable=2034
 IS_INTERACTIVE=$([[ $- == *i* ]] && echo 1 || echo 0)
 # shellcheck disable=2034
@@ -8,7 +16,7 @@ IS_MACOS=$([[ "$(uname -s)" == Darwin ]] && echo 1 || echo 0)
 . "/etc/bashrc" 2>/dev/null
 
 # Source all other bash config files
-for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do
+for f in "$XDG_CONFIG_HOME"/bash.d/*; do
     # shellcheck disable=1090
     . "$f" 2>/dev/null
 done
