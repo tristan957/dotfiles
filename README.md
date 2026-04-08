@@ -18,6 +18,7 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - cargo
 - chawan
 - clangd
+- cloud-desktop
 - comlink
 - containers
 - delta
