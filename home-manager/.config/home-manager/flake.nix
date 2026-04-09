@@ -57,8 +57,10 @@
           pkgs.delta
           pkgs.difftastic
           pkgs.direnv
+          pkgs.ditaa
           pkgs.fd
           pkgs.fish
+          pkgs.fop
           pkgs.fzf
           pkgs.gh
           pkgs.glab
@@ -74,6 +76,7 @@
           pkgs.muon
           pkgs.neovim
           pkgs.nushell
+          pkgs.pandoc
           pkgs.reuse
           pkgs.ripgrep
           pkgs.rr
