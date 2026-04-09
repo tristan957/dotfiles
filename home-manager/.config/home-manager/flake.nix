@@ -88,6 +88,7 @@
           pkgs.tree-sitter
           pkgs.ts_query_ls
           pkgs.ty
+          pkgs.vscode-langservers-extracted
           pkgs.worktrunk
           pkgs.zellij
           pkgs.zoxide
