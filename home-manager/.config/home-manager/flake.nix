@@ -53,6 +53,7 @@
           pkgs.bat
           pkgs.bear
           pkgs.chawan
+          pkgs.copilot-language-server
           pkgs.delta
           pkgs.difftastic
           pkgs.direnv
@@ -85,6 +86,7 @@
           pkgs.tokei
           pkgs.tmux
           pkgs.tree-sitter
+          pkgs.ts_query_ls
           pkgs.ty
           pkgs.worktrunk
           pkgs.zellij
