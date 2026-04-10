@@ -86,11 +86,13 @@
           pkgs.shellcheck
           pkgs.shfmt
           pkgs.stow
-          pkgs.tokei
+          pkgs.tinymist
           pkgs.tmux
+          pkgs.tokei
           pkgs.tree-sitter
           pkgs.ts_query_ls
           pkgs.ty
+          pkgs.typst
           pkgs.vscode-langservers-extracted
           pkgs.worktrunk
           pkgs.zellij
