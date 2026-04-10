@@ -3,6 +3,8 @@ clang20
 clang20-tools-extra
 cmake
 # curl
+docbook-dtds
+docbook-style-xsl
 docbook2X
 flex
 gcc
@@ -37,7 +39,10 @@ numactl-devel
 openldap-devel
 pam-devel
 perf
+perl
+perl-FindBin
 perl-IPC-Run
+perl-Test-Simple
 postgresql18
 postgresql18-contrib
 python3-devel
@@ -50,4 +55,5 @@ tcl-devel
 texinfo
 tmux
 util-linux-user
+valgrind
 vim-enhanced
