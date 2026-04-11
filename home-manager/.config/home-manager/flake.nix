@@ -56,6 +56,7 @@
             chawan
             copilot-language-server
             delta
+            delve
             difftastic
             direnv
             ditaa
@@ -66,6 +67,8 @@
             gh
             glab
             glow
+            go
+            golangci-lint
             gum
             hut
             just
