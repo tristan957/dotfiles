@@ -78,6 +78,7 @@
             neovim
             nushell
             pandoc
+            postgres-language-server
             reuse
             ripgrep
             rr
