@@ -62,6 +62,7 @@
             ditaa
             fd
             fish
+            fish-lsp
             fop
             fzf
             gh
