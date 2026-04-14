@@ -99,7 +99,6 @@ make
 man-db
 meson
 miller
-mise
 mold
 moreutils
 muon
