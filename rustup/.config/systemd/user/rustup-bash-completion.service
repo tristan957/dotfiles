@@ -1,7 +1,0 @@
-[Unit]
-Description=Regenerate rustup bash completion
-
-[Service]
-Type=oneshot
-StandardOutput=file:%h/.local/share/bash-completion/completions/rustup
-ExecStart=rustup completions bash rustup

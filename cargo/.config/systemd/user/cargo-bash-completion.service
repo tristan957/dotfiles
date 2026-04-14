@@ -1,7 +1,0 @@
-[Unit]
-Description=Regenerate cargo bash completion
-
-[Service]
-Type=oneshot
-StandardOutput=file:%h/.local/share/bash-completion/completions/cargo
-ExecStart=rustup completions bash cargo

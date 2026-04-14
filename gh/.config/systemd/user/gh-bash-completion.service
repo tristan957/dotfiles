@@ -1,7 +1,0 @@
-[Unit]
-Description=Regenerate gh bash completion
-
-[Service]
-Type=oneshot
-StandardOutput=file:%h/.local/share/bash-completion/completions/gh
-ExecStart=gh completion --shell bash
