@@ -124,6 +124,7 @@ reuse
 ripgrep
 rlwrap
 ruff
+rustup
 scdoc
 sequin
 sequoia-sq

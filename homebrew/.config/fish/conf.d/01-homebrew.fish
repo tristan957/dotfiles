@@ -19,7 +19,8 @@ case Darwin
         "$HOMEBREW_PREFIX/opt/llvm/bin" \
         "$HOMEBREW_PREFIX/opt/make/libexec/gnubin" \
         "$HOMEBREW_PREFIX/opt/man-db/libexec/bin" \
-        "$HOMEBREW_PREFIX/opt/postgresql@18/bin"
+        "$HOMEBREW_PREFIX/opt/postgresql@18/bin" \
+        "$HOMEBREW_PREFIX/opt/rustup/bin"
 
     add_pkg_config_path \
         "$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig" \
