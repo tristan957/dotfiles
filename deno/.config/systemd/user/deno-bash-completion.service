@@ -1,7 +1,0 @@
-[Unit]
-Description=Regenerate deno bash completion
-
-[Service]
-Type=oneshot
-StandardOutput=file:%h/.local/share/bash-completion/completions/deno
-ExecStart=deno completions bash
