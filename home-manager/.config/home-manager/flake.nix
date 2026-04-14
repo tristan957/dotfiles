@@ -92,6 +92,7 @@
             rr
             ruff
             rustup
+            scdoc
             sequin
             sequoia-sq
             shellcheck
