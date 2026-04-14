@@ -47,6 +47,7 @@
         extraPackages = pkgs:
           with pkgs; [
             _1password-cli
+            aerc
             asciinema_3
             ast-grep
             alejandra
