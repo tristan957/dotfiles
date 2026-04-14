@@ -1,7 +1,0 @@
-[Unit]
-Description=Regenerate flyctl bash completion
-
-[Service]
-Type=oneshot
-StandardOutput=file:%h/.local/share/bash-completion/completions/flyctl
-ExecStart=flyctl completion bash

@@ -29,7 +29,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - dotnet
 - editline
 - fish
-- flyctl
 - fzf
 - gdb
 - gh
