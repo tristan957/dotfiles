@@ -86,6 +86,7 @@
             ripgrep
             rr
             ruff
+            rustup
             sequin
             sequoia-sq
             shellcheck
