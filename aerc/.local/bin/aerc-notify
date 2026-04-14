@@ -1,23 +1,6 @@
 #!/bin/sh
 
-case "$(uname)" in
-    Darwin)
-        # https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html
-        #
-        # We must escape double quotes for AppleScript
-        osascript -e \
-            "$(printf \
-                'display notification "%s" with title "New email" subtitle "%s"' \
-                "$(printf '%s' "$AERC_SUBJECT" | sed 's/"/\\"/g')" \
-                "$(printf '%s' "$AERC_FROM_NAME <$AERC_FROM_ADDRESS>" | sed 's/"/\\"/g')")"
-        ;;
-    *)
-        # https://specifications.freedesktop.org/notification-spec/latest/index.html
-        notify-send \
-            --category=email.arrived \
-            --icon=mail-message-new \
-            --urgency=normal \
-            "New email from $AERC_FROM_NAME <$AERC_FROM_ADDRESS>" \
-            "$AERC_SUBJECT"
-        ;;
-esac
+printf '\033]777;notify;New email from %s <%s>;%s\a' \
+    "$AERC_FROM_NAME" \
+    "$AERC_FROM_ADDRESS" \
+    "$AERC_SUBJECT"
