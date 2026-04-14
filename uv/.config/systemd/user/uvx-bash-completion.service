@@ -1,7 +1,0 @@
-[Unit]
-Description=Regenerate uvx bash completion
-
-[Service]
-Type=oneshot
-StandardOutput=file:%h/.local/share/bash-completion/completions/uvx
-ExecStart=uvx --generate-shell-completion bash

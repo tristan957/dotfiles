@@ -77,7 +77,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - tmpfiles
 - tmux
 - toolbox
-- uv
 - vim
 - vscodium
 - work
