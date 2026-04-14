@@ -5,5 +5,5 @@ export BRAZIL_WORKSPACE_DEFAULT_LAYOUT=short
 
 # On Cloud Desktop, use fish
 if command -v fish &>/dev/null; then
-    exec fish --login
+    exec env SHELL="$(which fish)" fish --login
 fi
