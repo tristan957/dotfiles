@@ -54,10 +54,12 @@
             bash-language-server
             bat
             bear
+            bun
             chawan
             copilot-language-server
             delta
             delve
+            deno
             difftastic
             direnv
             ditaa
