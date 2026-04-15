@@ -31,7 +31,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - fish
 - fzf
 - gdb
-- gh
 - ghostty
 - git
 - glab
