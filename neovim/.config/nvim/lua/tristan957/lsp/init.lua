@@ -3,6 +3,7 @@ local group = vim.api.nvim_create_augroup("tristan957_lsp", { clear = true })
 vim.lsp.log.set_level("OFF")
 
 vim.lsp.enable({
+  "ast_grep",
   -- "basedpyright",
   "bashls",
   "biome",
