@@ -39,5 +39,5 @@ return {
     require("markview.extras.checkboxes").setup()
     require("markview.extras.editor").setup()
     require("markview.extras.headings").setup()
-  end
+  end,
 }
