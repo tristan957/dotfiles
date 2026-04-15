@@ -13,6 +13,8 @@ return {
   ---@param _ LazyPlugin
   ---@param opts markview.config
   opts = function(_, opts)
+    local presets = require("markview.presets")
+
     local filetypes = { "markdown" }
     if vim.tbl_get(opts, "preview", "filetypes") ~= nil then
       filetypes = vim.list_extend(filetypes, opts.preview.filetypes)
@@ -20,6 +22,9 @@ return {
 
     ---@type markview.config
     return vim.tbl_deep_extend("keep", {
+      markdown = {
+        block_quotes = presets.obsidian,
+      },
       preview = {
         filetypes = filetypes,
         icon_provider = "mini",
