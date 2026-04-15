@@ -2,6 +2,7 @@
 aerc
 ampcode
 asciinema
+ast-grep
 automake
 awscli
 azure-cli
