@@ -57,6 +57,7 @@
             bear
             bun
             chawan
+            coccinelle
             copilot-language-server
             delta
             delve
