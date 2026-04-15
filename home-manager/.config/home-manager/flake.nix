@@ -48,6 +48,7 @@
           with pkgs; [
             _1password-cli
             asciinema_3
+            ast-grep
             alejandra
             bash
             bash-language-server
