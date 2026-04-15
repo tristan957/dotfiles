@@ -80,6 +80,7 @@ function __prompt_host() {
 
 PROMPT_COMMAND='__prompt_last_status=$?'
 
+# shellcheck disable=SC2154
 PS1="\[$(__tput bold)\]\[$(__tput setaf 1)\][\$__prompt_last_status \j \t] \[$(__tput setaf 2)\][\u@\$(__prompt_host)] \[$(__tput setaf 3)\][\W]\$(__prompt_extras)\[$(__tput sgr0)\]\n\[$(__tput bold)\]\$ \[$(__tput sgr0)\]"
 PS2="\[$(__tput bold)\]> \[$(__tput sgr0)\]"
 PS3="\[$(__tput bold)\]#? \[$(__tput sgr0)\]"
