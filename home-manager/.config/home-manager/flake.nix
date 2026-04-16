@@ -115,6 +115,8 @@
             vscode-langservers-extracted
             worktrunk
             zellij
+            zig
+            zls
             zoxide
           ];
       };
