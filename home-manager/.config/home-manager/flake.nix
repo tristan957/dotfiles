@@ -87,6 +87,7 @@
             miller
             mold
             muon
+            nodejs
             neovim
             nushell
             pandoc
