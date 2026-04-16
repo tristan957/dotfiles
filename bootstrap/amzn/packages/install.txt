@@ -56,4 +56,5 @@ texinfo
 tmux
 util-linux-user
 valgrind
+valgrind-devel
 vim-enhanced
