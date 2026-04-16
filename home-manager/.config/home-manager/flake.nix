@@ -83,6 +83,7 @@
             lazygit
             llvmPackages_22.clang-tools
             lua-language-server
+            meson
             miller
             mold
             muon
