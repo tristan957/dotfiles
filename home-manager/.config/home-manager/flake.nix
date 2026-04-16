@@ -56,6 +56,7 @@
             bat
             bear
             bun
+            ccache
             chawan
             coccinelle
             copilot-language-server
