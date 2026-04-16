@@ -75,6 +75,7 @@
             glab
             glow
             go
+            gopls
             golangci-lint
             gum
             hut
