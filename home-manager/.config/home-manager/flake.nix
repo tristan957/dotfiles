@@ -97,6 +97,7 @@
             rr
             ruff
             rustup
+            samurai
             scdoc
             sequin
             sequoia-sq
