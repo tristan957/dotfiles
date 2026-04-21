@@ -205,6 +205,41 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
+        extraPackages = pkgs:
+          with pkgs; [
+            bash
+            bat
+            bear
+            ccache
+            copilot-language-server
+            delta
+            difftastic
+            direnv
+            ditaa
+            fish
+            fop
+            fzf
+            lazygit
+            llvmPackages_22.clang-tools
+            meson
+            mold
+            muon
+            pandoc
+            postgres-language-server
+            neovim
+            ninja
+            ripgrep
+            rr
+            samurai
+            sccache
+            stow
+            tmux
+            tree-sitter
+            vscode-langservers-extracted
+            zellij
+            zoxide
+            zsh
+          ];
       };
       "tristan957@c-3po" = mkHome {
         system = "x86_64-linux";
