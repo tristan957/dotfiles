@@ -54,7 +54,6 @@ return {
       "fugitive",
       "lazy",
       "man",
-      "mason",
       "oil",
       "quickfix",
       "trouble",
