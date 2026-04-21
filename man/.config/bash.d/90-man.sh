@@ -9,7 +9,7 @@ if [[ $IS_MACOS -eq 1 ]]; then
         done
     fi
 
-    if [[ -v $HOMEBREW_PREFIX ]]; then
+    if [[ -v HOMEBREW_PREFIX ]]; then
         export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
 
         export MANPATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
