@@ -1,4 +1,5 @@
-if not set -q __NIX_SOURCED
-    set -gx __NIX_SOURCED 1
-    source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
-end
+# Multi-user (daemon) installation
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish 2>/dev/null
+
+# Single-user installation
+source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
