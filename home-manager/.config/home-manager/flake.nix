@@ -201,6 +201,11 @@
             zsh
           ];
       };
+      "dbltap@dbltap-lts" = mkHome {
+        system = "x86_64-linux";
+        username = "dbltap";
+        homeDirectory = "/home/dbltap";
+      };
       "tristan957@c-3po" = mkHome {
         system = "x86_64-linux";
         username = "tristan957";
