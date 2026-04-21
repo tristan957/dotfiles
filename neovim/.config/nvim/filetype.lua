@@ -76,6 +76,7 @@ vim.filetype.add({
     ["helmfile-.*"] = "helm",
     ["openapi.*%.ya?ml"] = "yaml.openapi",
     ["openapi.*%.json"] = "json.openapi",
+    [".*/specs/.*%.spec"] = "postgres_spec",
     [".*/templates/.*%.tpl"] = "helm",
     [".*/templates/.*%.txt"] = "helm",
     [".*/templates/.*%.ya?ml"] = "helm",
