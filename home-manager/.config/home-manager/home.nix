@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   username,
   homeDirectory,
@@ -76,6 +77,8 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  programs.man.enable = !pkgs.stdenv.isDarwin;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
