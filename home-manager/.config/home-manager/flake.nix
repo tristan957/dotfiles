@@ -39,6 +39,86 @@
         system = "aarch64-darwin";
         username = "dbltap";
         homeDirectory = "/Users/dbltap";
+        extraPackages = pkgs:
+          with pkgs; [
+            _1password-cli
+            alejandra
+            asciinema_3
+            ast-grep
+            awscli2
+            bash
+            bash-language-server
+            bat
+            binutils
+            bun
+            cascadia-code
+            chawan
+            copilot-language-server
+            coreutils-full
+            curlFull
+            delta
+            delve
+            deno
+            difftastic
+            diffutils
+            direnv
+            fd
+            findutils
+            fish
+            fish-lsp
+            fzf
+            gh
+            git
+            glab
+            glow
+            gnumake
+            gnupatch
+            gnused
+            gnutar
+            go
+            golangci-lint
+            gopls
+            gum
+            hut
+            jj
+            jq
+            just
+            lazygit
+            lua-language-server
+            miller
+            moreutils
+            muon
+            neovim
+            nushell
+            postgres-language-server
+            reuse
+            ripgrep
+            ruff
+            rustup
+            scdoc
+            sequin
+            sequoia-sq
+            shellcheck
+            shfmt
+            stow
+            stylua
+            time
+            tinymist
+            tmux
+            trurl
+            tokei
+            tree-sitter
+            ts_query_ls
+            ty
+            typst
+            vhs
+            vim
+            vscode-langservers-extracted
+            which
+            yq
+            zellij
+            zoxide
+          ];
       };
       "dbltap@dbltap-dev" = mkHome {
         system = "x86_64-linux";
