@@ -198,6 +198,7 @@
             zig
             zls
             zoxide
+            zsh
           ];
       };
       "tristan957@c-3po" = mkHome {
