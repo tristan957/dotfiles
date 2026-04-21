@@ -78,6 +78,19 @@
     # EDITOR = "emacs";
   };
 
+  fonts.fontconfig.enable = true;
+
+  home.activation.linkFonts = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ "$(uname)" = "Darwin" ]; then
+      fonts_dir="$HOME/Library/Fonts/HomeManager"
+      rm -rf "$fonts_dir"
+      mkdir -p "$fonts_dir"
+      for f in "${config.home.profileDirectory}/share/fonts"/**/*.{ttf,otf}; do
+        ln -sf "$f" "$fonts_dir/"
+      done
+    fi
+  '';
+
   programs.man.enable = !pkgs.stdenv.isDarwin;
 
   # Let Home Manager install and manage itself.
