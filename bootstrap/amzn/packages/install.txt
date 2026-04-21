@@ -46,7 +46,7 @@ perl-Test-Simple
 postgresql18
 postgresql18-contrib
 python3-devel
-python3-pygmentize
+python3-pygments
 readline-devel
 strace
 systemd-devel
