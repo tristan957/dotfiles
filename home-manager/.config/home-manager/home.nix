@@ -82,12 +82,8 @@
 
   home.activation.linkFonts = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ "$(uname)" = "Darwin" ]; then
-      fonts_dir="$HOME/Library/Fonts/HomeManager"
-      rm -rf "$fonts_dir"
-      mkdir -p "$fonts_dir"
-      for f in "${config.home.profileDirectory}/share/fonts"/**/*.{ttf,otf}; do
-        ln -sf "$f" "$fonts_dir/"
-      done
+      fonts_dir="$HOME/Library/Fonts"
+      find -L "${config.xdg.stateHome}/nix/profiles/home-manager/home-path/share/fonts" \( -name "*.ttf" -o -name "*.otf" \) -exec cp -fL {} "$fonts_dir/" \;
     fi
   '';
 
