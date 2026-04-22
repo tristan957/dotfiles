@@ -92,6 +92,7 @@
             muon
             neovim
             nixd
+            nodejs
             nushell
             postgres-language-server
             reuse
