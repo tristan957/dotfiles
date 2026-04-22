@@ -30,6 +30,7 @@ vim.lsp.enable({
   "lua_ls",
   "marksman",
   "muon",
+  "nixd",
   "postgres_lsp",
   -- "pyright",
   "ruff",

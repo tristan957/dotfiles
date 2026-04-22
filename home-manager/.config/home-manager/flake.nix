@@ -91,6 +91,7 @@
             moreutils
             muon
             neovim
+            nixd
             nushell
             postgres-language-server
             reuse
@@ -170,8 +171,9 @@
             miller
             mold
             muon
-            nodejs
             neovim
+            nixd
+            nodejs
             nushell
             pandoc
             postgres-language-server
@@ -228,6 +230,7 @@
             meson
             mold
             muon
+            nixd
             pandoc
             postgres-language-server
             neovim
