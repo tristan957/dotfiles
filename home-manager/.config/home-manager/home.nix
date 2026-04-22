@@ -89,6 +89,7 @@
     fi
   '';
 
+  # man-db does not work on macOS because it uses a different system
   programs.man.enable = !pkgs.stdenv.isDarwin;
 
   # Let Home Manager install and manage itself.
