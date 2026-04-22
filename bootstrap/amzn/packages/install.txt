@@ -48,6 +48,7 @@ postgresql18-contrib
 python3-devel
 python3-pygments
 readline-devel
+sqlite
 strace
 systemd-devel
 systemtap-sdt-dtrace
