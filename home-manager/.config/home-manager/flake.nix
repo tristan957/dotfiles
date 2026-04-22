@@ -18,6 +18,7 @@
       system,
       username,
       homeDirectory,
+      isMultiUserInstall ? true,
       extraPackages ? (_: []),
     }: let
       pkgs = import nixpkgs {
@@ -28,7 +29,7 @@
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit username homeDirectory;
+          inherit username homeDirectory isMultiUserInstall;
           machinePackages = extraPackages pkgs;
         };
         modules = [./home.nix];
@@ -39,6 +40,7 @@
         system = "aarch64-darwin";
         username = "dbltap";
         homeDirectory = "/Users/dbltap";
+        isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
             _1password-cli
@@ -124,6 +126,7 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
+        isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
             _1password-cli
@@ -205,6 +208,7 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
+        isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
             bash
