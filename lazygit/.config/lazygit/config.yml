@@ -4,7 +4,7 @@ git:
   pagers:
     - colorArg: always
       externalDiffCommand: difft --color=always
-      pager: delta --dark --paging=never
+      pager: delta --paging=never
 gui:
   nerdFontsVersion: "3"
 os:
