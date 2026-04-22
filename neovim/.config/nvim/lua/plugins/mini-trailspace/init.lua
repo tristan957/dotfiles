@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "nvim-mini/mini.trailspace",
-  event = { "BufNewFile", "BufReadPre" },
   config = function()
     local MiniTrailspace = require("mini.trailspace")
 
