@@ -26,7 +26,7 @@
   "oil.nvim": { "branch": "master", "commit": "0fcc83805ad11cf714a949c98c605ed717e0b83e" },
   "onedarkpro.nvim": { "branch": "main", "commit": "f5fddfd5122fe00421e199151ae4fe8571a02898" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
-  "schemastore.nvim": { "branch": "main", "commit": "250aed7415ddd6cb3ea321490c7b35094ed9148d" },
+  "schemastore.nvim": { "branch": "main", "commit": "d09eb13366fe95deeecf3deba7a4639f0c82fcdc" },
   "snacks.nvim": { "branch": "main", "commit": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e" },
   "tree-sitter-ghostty": { "branch": "main", "commit": "aa57c921774abb95804f4765850ecd98877b2ab2" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
