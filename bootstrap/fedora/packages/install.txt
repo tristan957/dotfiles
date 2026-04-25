@@ -162,7 +162,6 @@ pnpm
 podman-compose
 podman-docker
 pre-commit
-protonvpn-cli
 pylint
 python3-devel
 python3-dnf-plugin-versionlock
