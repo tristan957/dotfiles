@@ -58,7 +58,7 @@ gcc-c++
 gettext-envsubst
 gh
 git
-git-absorb
+# git-absorb
 git-annex
 git-delta
 git-email
