@@ -41,6 +41,7 @@ distrobox
 # docker-compose-plugin
 containerd.io
 dotnet-sdk-9.0
+dracut-config-rescue
 elixir
 epiphany
 erlang
