@@ -156,6 +156,7 @@ opentofu
 pandoc
 parallel
 pax-utils
+perf
 pipx
 pnpm
 podman-compose
