@@ -88,6 +88,7 @@
             lazygit
             lua-language-server
             miller
+            mjmap
             moreutils
             muon
             neovim
@@ -170,6 +171,7 @@
             lua-language-server
             meson
             miller
+            mjmap
             mold
             muon
             neovim
