@@ -95,17 +95,20 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  nix.settings = lib.mkIf (!isMultiUserInstall) {
-    # These are trusted settings that make much more sense to set at the
-    # /etc/nix/nix.conf level. Otherwise you get warnings like the following:
-    #
-    # warning: ignoring the client-specified setting
-    # 'use-xdg-base-directories', because it is a restricted setting and you are
-    # not a trusted user
-    use-xdg-base-directories = true;
-    extra-experimental-features = [
-      "flakes"
-      "nix-command"
-    ];
+  nix = {
+    package = pkgs.nix;
+    settings = lib.mkIf (!isMultiUserInstall) {
+      # These are trusted settings that make much more sense to set at the
+      # /etc/nix/nix.conf level. Otherwise you get warnings like the following:
+      #
+      # warning: ignoring the client-specified setting
+      # 'use-xdg-base-directories', because it is a restricted setting and you
+      # are not a trusted user
+      use-xdg-base-directories = true;
+      extra-experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+    };
   };
 }
