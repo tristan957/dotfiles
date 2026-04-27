@@ -1,0 +1,20 @@
+layout {
+    tab {
+        name "aerc"
+
+        pane {
+            borderless true
+            command "aerc"
+            name "aerc"
+        }
+    }
+
+    tab {
+        name "ide"
+
+        pane {
+            command "nvim"
+            name "editor"
+        }
+    }
+}
