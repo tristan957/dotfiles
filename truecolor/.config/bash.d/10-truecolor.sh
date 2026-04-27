@@ -1,0 +1,1 @@
+export COLORTERM=truecolor
