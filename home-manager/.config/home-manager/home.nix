@@ -89,11 +89,11 @@
     fi
   '';
 
-  # man-db does not work on macOS because it uses a different system
-  programs.man.enable = !pkgs.stdenv.isDarwin;
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # man-db does not work on macOS because it uses a different system
+  programs.man.enable = !pkgs.stdenv.isDarwin;
 
   nix = {
     package = pkgs.nix;
