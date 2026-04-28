@@ -40,8 +40,11 @@
 	verbose = true
 [core]
 	autoclrf = false
-[credential]
-	helper = !git-credential-op --account=my.1password.com op://Personal/n62vgxyhplzbjjb7bp2yki6eiq/password
+[credential "https://github.com"]
+	helper = op --account=my.1password.com op://Git/GitHub/credential
+[credential "smtps://smtp.fastmail.com"]
+	username = tristan@partin.io
+	helper = op --account=my.1password.com op://Git/Email/password
 [diff]
 	algorithm = histogram
 	colorMoved = plain
