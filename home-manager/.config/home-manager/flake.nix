@@ -23,6 +23,8 @@
     }: let
       pkgs = import nixpkgs {
         inherit system;
+
+        # Allow unfree packages like 1Password CLI
         config.allowUnfree = true;
       };
     in
