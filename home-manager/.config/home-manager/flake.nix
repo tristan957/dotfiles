@@ -121,10 +121,10 @@
             time
             tinymist
             tmux
-            trurl
             tofu-ls
             tokei
             tree-sitter
+            trurl
             ts_query_ls
             ty
             typst
