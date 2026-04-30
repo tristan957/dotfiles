@@ -101,6 +101,7 @@
             moreutils
             muon
             neovim
+            nh
             nixd
             nodejs
             nushell
@@ -184,6 +185,7 @@
             mold
             muon
             neovim
+            nh
             nixd
             nodejs
             nushell
@@ -242,6 +244,7 @@
             meson
             mold
             muon
+            nh
             nixd
             pandoc
             postgres-language-server
@@ -274,6 +277,7 @@
             copilot-language-server
             fish-lsp
             lua-language-server
+            nh
             nixd
             vscode-langservers-extracted
             zls
