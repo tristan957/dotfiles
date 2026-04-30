@@ -1,1 +1,1 @@
-export GDBHISTFILE="${XDG_STATE_HOME:-$HOME/.var}/gdb/history"
+export GDBHISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/gdb/history"
