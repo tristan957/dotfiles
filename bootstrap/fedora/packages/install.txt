@@ -22,6 +22,8 @@ clang-tools-extra
 clean-rpm-gpg-pubkey
 cloudflared
 cmake
+coccinelle
+coccinelle-bash-completion
 code
 codium
 codespell
