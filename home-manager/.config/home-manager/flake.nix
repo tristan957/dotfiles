@@ -138,7 +138,7 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
-        isMultiUserInstall = false;
+        isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
             _1password-cli
@@ -222,7 +222,7 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
-        isMultiUserInstall = false;
+        isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
             bash
