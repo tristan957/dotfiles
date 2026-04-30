@@ -264,6 +264,13 @@
         system = "x86_64-linux";
         username = "tristan957";
         homeDirectory = "/home/tristan957";
+        isMultiUserInstall = true;
+        extraPackages = pkgs:
+          with pkgs; [
+            copilot-language-server
+            lua-language-server
+            vscode-langservers-extracted
+          ];
       };
     };
   };
