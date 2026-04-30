@@ -267,9 +267,16 @@
         isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
+            alejandra
+            ast-grep
+            bash-language-server
+            chawan
             copilot-language-server
+            fish-lsp
             lua-language-server
+            nixd
             vscode-langservers-extracted
+            zls
           ];
       };
     };
