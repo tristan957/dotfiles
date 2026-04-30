@@ -69,7 +69,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - ssh
 - sway
 - systemd
-- terraform
 - testcontainers
 - tmpfiles
 - tmux
