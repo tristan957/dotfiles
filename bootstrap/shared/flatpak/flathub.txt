@@ -9,7 +9,6 @@ com.github.finefindus.eyedropper
 com.github.marhkb.Pods
 com.mojang.Minecraft
 com.obsproject.Studio
-com.protonvpn.www
 com.rafaelmardojai.SharePreview
 com.slack.Slack
 com.spotify.Client
