@@ -66,7 +66,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - readline
 - ripgrep
 - rlwrap
-- rustup
 - ssh
 - sway
 - systemd

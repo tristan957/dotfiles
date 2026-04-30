@@ -12,6 +12,7 @@ blueprint-compiler
 btop
 buildah
 bun
+cargo
 cargo-deny
 cascadia-fonts-all
 catimg
@@ -182,6 +183,8 @@ rpmconf
 rr
 ruby
 ruff
+rust
+rustup
 samurai
 sassc
 scdoc

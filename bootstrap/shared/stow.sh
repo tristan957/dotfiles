@@ -55,7 +55,6 @@ function stow_setup() {
         readline
         ripgrep
         rlwrap
-        rustup
         terraform
         testcontainers
         tmux

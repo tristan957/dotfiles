@@ -38,7 +38,6 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/mise.sh"
 . "$dir/shared/nix.sh"
 . "$dir/shared/podman.sh"
-. "$dir/shared/rustup.sh"
 . "$dir/shared/stow.sh"
 . "$dir/shared/tmux.sh"
 . "$dir/shared/uv.sh"
@@ -66,7 +65,6 @@ flatpak_setup
 system_setup
 gdb_setup
 aerc_setup
-rustup_setup
 homebrew_setup
 tmux_setup
 gh_setup

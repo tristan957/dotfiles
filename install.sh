@@ -64,7 +64,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "readline"
         "ripgrep"
         "rlwrap"
-        "rustup"
         "ssh"
         "terraform"
         "testcontainers"
