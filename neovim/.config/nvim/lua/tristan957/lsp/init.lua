@@ -41,6 +41,7 @@ vim.lsp.enable({
   "terraformls",
   "tilt_ls",
   "tinymist",
+  "tofu_ls",
   "ts_ls",
   "ts_query_ls",
   "ty",
