@@ -105,6 +105,7 @@
             nixd
             nodejs
             nushell
+            opentofu
             postgres-language-server
             reuse
             ripgrep
@@ -121,6 +122,7 @@
             tinymist
             tmux
             trurl
+            tofu-ls
             tokei
             tree-sitter
             ts_query_ls
