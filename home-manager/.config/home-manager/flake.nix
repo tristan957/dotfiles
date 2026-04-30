@@ -57,7 +57,7 @@
             asciinema_3
             ast-grep
             awscli2
-            bash
+            bashInteractive
             bash-language-server
             bat
             binutils
@@ -147,7 +147,7 @@
             asciinema_3
             ast-grep
             alejandra
-            bash
+            bashInteractive
             bash-language-server
             bat
             bear
@@ -227,7 +227,7 @@
         isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
-            bash
+            bashInteractive
             bat
             bear
             ccache
