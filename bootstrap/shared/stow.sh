@@ -6,7 +6,6 @@ function stow_setup() {
         1password
         aerc
         bash
-        cargo
         comlink
         containers
         delta

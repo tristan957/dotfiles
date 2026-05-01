@@ -32,7 +32,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
     packages+=(
         "aerc"
         "bash"
-        "cargo"
         "clangd"
         "difftastic"
         "dir_colors"

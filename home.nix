@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./modules/bat.nix
+    ./modules/cargo.nix
     ./modules/chawan.nix
     ./modules/clangd.nix
     ./modules/deno.nix
