@@ -1,6 +1,0 @@
-[Unit]
-Description=Regenerate $XDG_DATA_HOME/man man page database
-
-[Service]
-Type=oneshot
-ExecStart=mandb "${XDG_DATA_HOME}/man"

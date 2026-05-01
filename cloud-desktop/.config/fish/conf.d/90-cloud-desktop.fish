@@ -1,4 +1,0 @@
-# if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
-set -gx AWS_EC2_METADATA_DISABLED true
-
-set -gx BRAZIL_WORKSPACE_DEFAULT_LAYOUT short

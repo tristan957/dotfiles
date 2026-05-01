@@ -1,6 +1,0 @@
-[Unit]
-Description=Reset the aerc accounts.conf permissions
-
-[Service]
-Type=oneshot
-ExecStart=chmod 600 "${XDG_CONFIG_HOME}/aerc/accounts.conf"

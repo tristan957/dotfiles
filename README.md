@@ -11,7 +11,7 @@ This repository uses `home-manager` to manage dotfiles.
 
 ## Terminal
 
-![Terminal with bash and tmux running to showcase style](terminal.png "Terminal")
+![Terminal with bash and tmux running to showcase style](images/terminal.png "Terminal")
 
 ### Bash
 
