@@ -37,7 +37,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - hut
 - info
 - jj
-- jupyter
 - kubernetes
 - lazygit
 - man
