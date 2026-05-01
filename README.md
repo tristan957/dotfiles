@@ -51,7 +51,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - testcontainers
 - tmpfiles
 - tmux
-- truecolor
 - toolbox
 - vim
 - work

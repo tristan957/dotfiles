@@ -97,6 +97,7 @@
   #  /etc/profiles/per-user/dbltap/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    COLORTERM = "truecolor";
     EDITOR = "nvim";
   };
 
