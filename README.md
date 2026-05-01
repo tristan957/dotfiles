@@ -52,7 +52,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - neovim
 - nix
 - node
-- npm
 - opencode
 - pgrx
 - postgresql

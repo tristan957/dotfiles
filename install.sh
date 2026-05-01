@@ -53,7 +53,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "neovim"
         "nix"
         "node"
-        "npm"
         "pgrx"
         "postgresql"
         "programs"

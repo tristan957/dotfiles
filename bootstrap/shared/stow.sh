@@ -43,7 +43,6 @@ function stow_setup() {
         neovim
         nix
         node
-        npm
         pgrx
         postgresql
         programs
