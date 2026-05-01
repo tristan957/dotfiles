@@ -30,6 +30,7 @@
       ./modules/glow.nix
       ./modules/harper.nix
       ./modules/hut.nix
+      ./modules/jj.nix
       ./modules/jq.nix
       ./modules/kubernetes.nix
       ./modules/lazygit.nix

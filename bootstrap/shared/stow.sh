@@ -9,7 +9,6 @@ function stow_setup() {
         fish
         git
         helix
-        jj
         neovim
         nix
     )
