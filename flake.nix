@@ -61,7 +61,6 @@
             asciinema_3
             ast-grep
             awscli2
-            bashInteractive
             bash-language-server
             binutils
             bun
@@ -150,7 +149,6 @@
             asciinema_3
             ast-grep
             alejandra
-            bashInteractive
             bash-language-server
             bear
             bun
@@ -227,7 +225,6 @@
         isWorkMachine = true;
         extraPackages = pkgs:
           with pkgs; [
-            bashInteractive
             bear
             ccache
             copilot-language-server
