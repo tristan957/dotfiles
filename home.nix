@@ -62,6 +62,7 @@
       ./modules/work.nix
     ]
     ++ lib.optionals isLinux [
+      ./modules/1password.nix
       ./modules/ptyxis.nix
       ./modules/tmpfiles.nix
     ];
