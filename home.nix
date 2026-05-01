@@ -11,6 +11,7 @@
   imports = [
     ./modules/go.nix
     ./modules/nnn.nix
+    ./modules/node.nix
   ];
 
   home.username = username;

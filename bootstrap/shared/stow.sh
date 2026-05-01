@@ -42,7 +42,6 @@ function stow_setup() {
         mjmap
         neovim
         nix
-        node
         pgrx
         postgresql
         programs
