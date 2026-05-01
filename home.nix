@@ -36,6 +36,7 @@
       ./modules/hut.nix
       ./modules/jj.nix
       ./modules/jq.nix
+      ./modules/just.nix
       ./modules/kubernetes.nix
       ./modules/lazygit.nix
       ./modules/less.nix
