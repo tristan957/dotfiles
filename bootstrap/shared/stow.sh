@@ -27,7 +27,6 @@ function stow_setup() {
         git
         glab
         glow
-        go
         harper
         helix
         hut

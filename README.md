@@ -35,7 +35,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - git
 - glab
 - glow
-- go
 - harper
 - helix
 - homebrew

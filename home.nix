@@ -8,6 +8,10 @@
   machinePackages ? [],
   ...
 }: {
+  imports = [
+    ./modules/go.nix
+  ];
+
   home.username = username;
   home.homeDirectory = homeDirectory;
 

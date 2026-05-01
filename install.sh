@@ -44,7 +44,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "gdb"
         "git"
         "glow"
-        "go"
         "info"
         "jq"
         "jupyter"
