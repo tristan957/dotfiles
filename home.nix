@@ -15,6 +15,7 @@
     ./modules/nnn.nix
     ./modules/node.nix
     ./modules/python.nix
+    ./modules/rustup.nix
   ];
 
   home.username = username;
