@@ -18,7 +18,6 @@ function stow_setup() {
         dotnet
         editline
         fish
-        fzf
         gdb
         ghostty
         git
@@ -38,10 +37,8 @@ function stow_setup() {
         programs
         testcontainers
         tmux
-        uv
         vim
         xdg
-        zoxide
     )
 
     if [[ $IS_MACOS -eq 1 ]]; then

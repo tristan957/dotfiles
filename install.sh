@@ -55,7 +55,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "vim"
         "xdg"
         "yarn"
-        "zoxide"
     )
 fi
 
