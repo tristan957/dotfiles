@@ -21,6 +21,7 @@
     ./modules/glow.nix
     ./modules/hut.nix
     ./modules/jq.nix
+    ./modules/lazygit.nix
     ./modules/less.nix
     ./modules/mjmap.nix
     ./modules/nnn.nix

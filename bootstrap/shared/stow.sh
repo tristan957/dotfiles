@@ -21,7 +21,6 @@ function stow_setup() {
         hut
         jj
         kubernetes
-        lazygit
         man
         meson
         neovim

@@ -30,7 +30,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - hut
 - jj
 - kubernetes
-- lazygit
 - man
 - meson
 - neovim
