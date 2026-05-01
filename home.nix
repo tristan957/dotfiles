@@ -18,6 +18,7 @@
       ./modules/cargo.nix
       ./modules/chawan.nix
       ./modules/clangd.nix
+      ./modules/comlink.nix
       ./modules/deno.nix
       ./modules/direnv.nix
       ./modules/dotnet.nix
