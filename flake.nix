@@ -76,7 +76,6 @@
             fd
             findutils
             fish-lsp
-            fzf
             gh
             git
             glab
@@ -166,7 +165,6 @@
             fd
             fish-lsp
             fop
-            fzf
             gh
             glab
             glow
@@ -237,7 +235,6 @@
             direnv
             ditaa
             fop
-            fzf
             lazygit
             llvmPackages_22.clang-tools
             meson

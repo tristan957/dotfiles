@@ -12,6 +12,7 @@
     ./modules/deno.nix
     ./modules/dotnet.nix
     ./modules/editline.nix
+    ./modules/fzf.nix
     ./modules/gdb.nix
     ./modules/go.nix
     ./modules/hut.nix
