@@ -54,7 +54,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - postgresql
 - programs
 - ptyxis
-- python
 - readline
 - ripgrep
 - rlwrap

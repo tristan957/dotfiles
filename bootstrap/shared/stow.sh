@@ -44,7 +44,6 @@ function stow_setup() {
         pgrx
         postgresql
         programs
-        python
         readline
         ripgrep
         rlwrap

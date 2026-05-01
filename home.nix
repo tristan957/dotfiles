@@ -14,6 +14,7 @@
     ./modules/go.nix
     ./modules/nnn.nix
     ./modules/node.nix
+    ./modules/python.nix
   ];
 
   home.username = username;
