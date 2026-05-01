@@ -22,6 +22,7 @@
     ./modules/nnn.nix
     ./modules/node.nix
     ./modules/python.nix
+    ./modules/ripgrep.nix
     ./modules/rlwrap.nix
     ./modules/rustup.nix
     ./modules/zoxide.nix

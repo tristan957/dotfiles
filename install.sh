@@ -50,7 +50,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "programs"
         "python"
         "readline"
-        "ripgrep"
         "ssh"
         "testcontainers"
         "tmux"

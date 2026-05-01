@@ -105,7 +105,6 @@
             opentofu
             postgres-language-server
             reuse
-            ripgrep
             ruff
             rustup
             scdoc
@@ -187,7 +186,6 @@
             pandoc
             postgres-language-server
             reuse
-            ripgrep
             rr
             ruff
             rustup
@@ -241,7 +239,6 @@
             postgres-language-server
             neovim
             ninja
-            ripgrep
             rr
             samurai
             sccache

@@ -48,7 +48,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - programs
 - ptyxis
 - readline
-- ripgrep
 - ssh
 - systemd
 - testcontainers

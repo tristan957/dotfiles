@@ -38,7 +38,6 @@ function stow_setup() {
         postgresql
         programs
         readline
-        ripgrep
         testcontainers
         tmux
         uv
