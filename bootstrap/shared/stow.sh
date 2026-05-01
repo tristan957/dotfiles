@@ -12,7 +12,6 @@ function stow_setup() {
         jj
         neovim
         nix
-        postgresql
         testcontainers
     )
 

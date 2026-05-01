@@ -19,7 +19,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - jj
 - neovim
 - nix
-- postgresql
 - ssh
 - systemd
 - testcontainers

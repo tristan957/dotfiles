@@ -34,7 +34,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "git"
         "neovim"
         "nix"
-        "postgresql"
         "ssh"
         "testcontainers"
     )

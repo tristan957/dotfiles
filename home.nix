@@ -40,6 +40,7 @@
       ./modules/nnn.nix
       ./modules/node.nix
       ./modules/programs.nix
+      ./modules/psql.nix
       ./modules/python.nix
       ./modules/readline.nix
       ./modules/ripgrep.nix
