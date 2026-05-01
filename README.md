@@ -25,7 +25,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - desktop-database
 - dir_colors
 - direnv
-- dotnet
 - editline
 - fish
 - fzf

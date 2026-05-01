@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./modules/deno.nix
+    ./modules/dotnet.nix
     ./modules/go.nix
     ./modules/nnn.nix
     ./modules/node.nix
