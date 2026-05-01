@@ -38,7 +38,6 @@ function stow_setup() {
         mjmap
         neovim
         nix
-        pgrx
         postgresql
         programs
         readline

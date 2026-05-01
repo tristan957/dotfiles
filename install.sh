@@ -49,7 +49,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "meson"
         "neovim"
         "nix"
-        "pgrx"
         "postgresql"
         "programs"
         "python"
