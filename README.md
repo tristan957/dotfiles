@@ -33,7 +33,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - lazygit
 - man
 - meson
-- mjmap
 - neovim
 - nix
 - opencode

@@ -24,7 +24,6 @@ function stow_setup() {
         lazygit
         man
         meson
-        mjmap
         neovim
         nix
         postgresql

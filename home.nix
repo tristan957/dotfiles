@@ -22,6 +22,7 @@
     ./modules/hut.nix
     ./modules/jq.nix
     ./modules/less.nix
+    ./modules/mjmap.nix
     ./modules/nnn.nix
     ./modules/node.nix
     ./modules/python.nix
