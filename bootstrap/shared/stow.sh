@@ -7,7 +7,6 @@ function stow_setup() {
         bash
         delta
         fish
-        ghostty
         git
         helix
         jj

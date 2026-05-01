@@ -25,6 +25,7 @@
       ./modules/editline.nix
       ./modules/fzf.nix
       ./modules/gdb.nix
+      ./modules/ghostty.nix
       ./modules/go.nix
       ./modules/glow.nix
       ./modules/harper.nix

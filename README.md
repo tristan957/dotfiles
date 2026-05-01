@@ -14,7 +14,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - delta
 - desktop-database
 - fish
-- ghostty
 - git
 - helix
 - jj
