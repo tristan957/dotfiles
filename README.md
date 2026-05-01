@@ -58,7 +58,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - ripgrep
 - rlwrap
 - ssh
-- sway
 - systemd
 - testcontainers
 - tmpfiles
