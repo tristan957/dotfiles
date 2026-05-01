@@ -15,18 +15,13 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - bun
 - cargo
 - chawan
-- clangd
 - cloud-desktop
 - comlink
 - containers
 - delta
 - desktop-database
 - dir_colors
-- direnv
-- editline
 - fish
-- fzf
-- gdb
 - ghostty
 - git
 - harper
@@ -53,8 +48,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - toolbox
 - vim
 - work
-- xdg
-- zoxide
 - zsh
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like

@@ -13,9 +13,7 @@ function stow_setup() {
         containers
         delta
         dir_colors
-        editline
         fish
-        gdb
         ghostty
         git
         harper
