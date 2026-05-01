@@ -26,6 +26,7 @@
       ./modules/fzf.nix
       ./modules/gdb.nix
       ./modules/ghostty.nix
+      ./modules/git.nix
       ./modules/go.nix
       ./modules/glow.nix
       ./modules/harper.nix

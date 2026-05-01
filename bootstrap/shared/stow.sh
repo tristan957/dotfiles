@@ -5,9 +5,7 @@ function stow_setup() {
     local packages=(
         1password
         bash
-        delta
         fish
-        git
         nix
     )
 

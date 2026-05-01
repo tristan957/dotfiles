@@ -11,10 +11,8 @@ This repository uses GNU `stow` to manage `dotfiles`.
 
 - 1password
 - bash
-- delta
 - desktop-database
 - fish
-- git
 - nix
 - zsh
 
