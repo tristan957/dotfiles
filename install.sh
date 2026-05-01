@@ -38,7 +38,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "postgresql"
         "ssh"
         "testcontainers"
-        "vim"
     )
 fi
 

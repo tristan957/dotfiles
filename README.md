@@ -24,7 +24,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - systemd
 - testcontainers
 - tmpfiles
-- vim
 - zsh
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like

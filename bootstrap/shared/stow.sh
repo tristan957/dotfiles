@@ -14,7 +14,6 @@ function stow_setup() {
         nix
         postgresql
         testcontainers
-        vim
     )
 
     packages+=(

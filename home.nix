@@ -46,6 +46,7 @@
       ./modules/rlwrap.nix
       ./modules/rustup.nix
       ./modules/tmux.nix
+      ./modules/vim.nix
       ./modules/zoxide.nix
     ]
     ++ lib.optionals isCloudDesktop [
