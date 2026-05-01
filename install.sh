@@ -35,7 +35,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "neovim"
         "nix"
         "ssh"
-        "testcontainers"
     )
 fi
 

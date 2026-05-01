@@ -46,6 +46,7 @@
       ./modules/ripgrep.nix
       ./modules/rlwrap.nix
       ./modules/rustup.nix
+      ./modules/testcontainers.nix
       ./modules/tmux.nix
       ./modules/vim.nix
       ./modules/zoxide.nix
