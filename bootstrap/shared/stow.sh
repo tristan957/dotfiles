@@ -4,7 +4,6 @@ function stow_setup() {
 
     local packages=(
         1password
-        aerc
         bash
         comlink
         containers

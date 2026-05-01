@@ -9,6 +9,7 @@
   ...
 }: {
   imports = [
+    ./modules/aerc.nix
     ./modules/bat.nix
     ./modules/cargo.nix
     ./modules/chawan.nix
