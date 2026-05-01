@@ -95,7 +95,7 @@
   #  /etc/profiles/per-user/dbltap/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   fonts.fontconfig.enable = true;
