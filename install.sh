@@ -35,7 +35,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "bat"
         "cargo"
         "clangd"
-        "deno"
         "difftastic"
         "dir_colors"
         "dotnet"

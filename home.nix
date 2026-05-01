@@ -9,6 +9,7 @@
   ...
 }: {
   imports = [
+    ./modules/deno.nix
     ./modules/go.nix
     ./modules/nnn.nix
     ./modules/node.nix

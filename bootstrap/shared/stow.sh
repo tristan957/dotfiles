@@ -15,7 +15,6 @@ function stow_setup() {
         comlink
         containers
         delta
-        deno
         dir_colors
         direnv
         dotnet
