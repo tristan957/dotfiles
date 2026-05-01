@@ -13,7 +13,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - aerc
 - bash
 - cargo
-- chawan
 - cloud-desktop
 - comlink
 - containers

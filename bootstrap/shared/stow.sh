@@ -7,7 +7,6 @@ function stow_setup() {
         aerc
         bash
         cargo
-        chawan
         comlink
         containers
         delta
