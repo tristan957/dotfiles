@@ -20,6 +20,10 @@
       source = ../programs/.local/bin/f2c;
       executable = true;
     };
+    ".local/bin/pg_lsn" = {
+      source = ../programs/.local/bin/pg_lsn;
+      executable = true;
+    };
     ".local/bin/pgsql-hacker" = {
       source = ../programs/.local/bin/pgsql-hacker;
       executable = true;

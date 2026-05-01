@@ -5,9 +5,4 @@
   };
 
   xdg.configFile."psql/psqlrc".source = ../postgresql/.config/postgresql/psqlrc;
-
-  home.file.".local/bin/pg_lsn" = {
-    source = ../postgresql/.local/bin/pg_lsn;
-    executable = true;
-  };
 }
