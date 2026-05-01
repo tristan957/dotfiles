@@ -34,7 +34,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "bash"
         "clangd"
         "difftastic"
-        "dir_colors"
         "editline"
         "fzf"
         "gdb"

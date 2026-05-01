@@ -9,7 +9,6 @@ function stow_setup() {
         comlink
         containers
         delta
-        dir_colors
         fish
         ghostty
         git

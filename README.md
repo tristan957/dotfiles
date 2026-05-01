@@ -17,7 +17,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - containers
 - delta
 - desktop-database
-- dir_colors
 - fish
 - ghostty
 - git
