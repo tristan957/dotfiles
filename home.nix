@@ -29,6 +29,7 @@
       ./modules/go.nix
       ./modules/glow.nix
       ./modules/harper.nix
+      ./modules/helix.nix
       ./modules/hut.nix
       ./modules/jj.nix
       ./modules/jq.nix

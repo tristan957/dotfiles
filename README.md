@@ -15,7 +15,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - desktop-database
 - fish
 - git
-- helix
 - neovim
 - nix
 - ssh
