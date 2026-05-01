@@ -13,6 +13,7 @@
     ./modules/dotnet.nix
     ./modules/editline.nix
     ./modules/go.nix
+    ./modules/hut.nix
     ./modules/jq.nix
     ./modules/less.nix
     ./modules/nnn.nix
