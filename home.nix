@@ -23,6 +23,7 @@
     ./modules/python.nix
     ./modules/rlwrap.nix
     ./modules/rustup.nix
+    ./modules/zoxide.nix
   ];
 
   home.username = username;

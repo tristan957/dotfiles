@@ -132,7 +132,6 @@
             which
             yq
             zellij
-            zoxide
           ];
       };
       "dbltap@dbltap-dev" = mkHome {
@@ -214,7 +213,6 @@
             zellij
             zig
             zls
-            zoxide
             zsh
           ];
       };
@@ -255,7 +253,6 @@
             tree-sitter
             vscode-langservers-extracted
             zellij
-            zoxide
             zsh
           ];
       };
