@@ -11,9 +11,7 @@ function stow_setup() {
         fish
         ghostty
         git
-        harper
         helix
-        hut
         jj
         kubernetes
         neovim

@@ -31,24 +31,17 @@ done
 if [ "${#packages[@]}" -eq 0 ]; then
     packages+=(
         "bash"
-        "clangd"
         "difftastic"
-        "editline"
-        "fzf"
-        "gdb"
         "git"
         "kubernetes"
         "neovim"
         "nix"
         "postgresql"
         "programs"
-        "python"
         "ssh"
         "testcontainers"
         "tmux"
         "vim"
-        "xdg"
-        "yarn"
     )
 fi
 
