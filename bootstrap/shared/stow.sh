@@ -8,10 +8,6 @@ function stow_setup() {
         nix
     )
 
-    packages+=(
-        desktop-database
-    )
-
     stow --restow "${packages[@]}"
 
     popd &>/dev/null || exit

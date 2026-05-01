@@ -63,6 +63,7 @@
     ]
     ++ lib.optionals isLinux [
       ./modules/1password.nix
+      ./modules/desktop-database.nix
       ./modules/ptyxis.nix
       ./modules/tmpfiles.nix
     ];
