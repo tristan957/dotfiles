@@ -20,6 +20,7 @@
     ./modules/gdb.nix
     ./modules/go.nix
     ./modules/glow.nix
+    ./modules/harper.nix
     ./modules/hut.nix
     ./modules/jq.nix
     ./modules/lazygit.nix
