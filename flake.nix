@@ -75,7 +75,6 @@
             direnv
             fd
             findutils
-            fish
             fish-lsp
             fzf
             gh
@@ -165,7 +164,6 @@
             direnv
             ditaa
             fd
-            fish
             fish-lsp
             fop
             fzf
@@ -238,7 +236,6 @@
             difftastic
             direnv
             ditaa
-            fish
             fop
             fzf
             lazygit
