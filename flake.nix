@@ -89,6 +89,7 @@
             golangci-lint
             gopls
             gum
+            harper
             hut
             jj
             jq
@@ -171,6 +172,7 @@
             gopls
             golangci-lint
             gum
+            harper
             hut
             just
             lazygit
@@ -231,6 +233,7 @@
             difftastic
             ditaa
             fop
+            harper
             lazygit
             llvmPackages_22.clang-tools
             meson
@@ -266,6 +269,7 @@
             chawan
             copilot-language-server
             fish-lsp
+            harper
             lua-language-server
             nh
             nixd
