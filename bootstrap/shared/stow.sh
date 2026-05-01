@@ -6,7 +6,6 @@ function stow_setup() {
         1password
         bash
         comlink
-        containers
         delta
         fish
         ghostty
