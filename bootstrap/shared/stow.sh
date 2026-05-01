@@ -8,7 +8,6 @@ function stow_setup() {
         delta
         fish
         git
-        neovim
         nix
     )
 

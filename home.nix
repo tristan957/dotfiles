@@ -39,6 +39,7 @@
       ./modules/man.nix
       ./modules/meson.nix
       ./modules/mjmap.nix
+      ./modules/neovim.nix
       ./modules/nnn.nix
       ./modules/node.nix
       ./modules/programs.nix
