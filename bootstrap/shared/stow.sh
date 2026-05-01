@@ -13,7 +13,6 @@ function stow_setup() {
 
     packages+=(
         desktop-database
-        tmpfiles
     )
 
     stow --restow "${packages[@]}"

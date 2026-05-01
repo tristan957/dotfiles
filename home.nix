@@ -62,6 +62,7 @@
     ]
     ++ lib.optionals isLinux [
       ./modules/ptyxis.nix
+      ./modules/tmpfiles.nix
     ];
 
   home.username = username;
