@@ -30,6 +30,7 @@
       ./modules/lazygit.nix
       ./modules/less.nix
       ./modules/man.nix
+      ./modules/meson.nix
       ./modules/mjmap.nix
       ./modules/nnn.nix
       ./modules/node.nix

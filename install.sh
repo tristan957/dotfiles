@@ -38,7 +38,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "gdb"
         "git"
         "kubernetes"
-        "meson"
         "neovim"
         "nix"
         "postgresql"
