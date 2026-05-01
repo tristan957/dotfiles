@@ -19,7 +19,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - ghostty
 - git
 - helix
-- homebrew
 - jj
 - kubernetes
 - neovim

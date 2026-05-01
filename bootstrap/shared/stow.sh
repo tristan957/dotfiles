@@ -23,18 +23,12 @@ function stow_setup() {
         vim
     )
 
-    if [[ $IS_MACOS -eq 1 ]]; then
-        packages+=(
-            homebrew
-        )
-    else
-        packages+=(
-            desktop-database
-            ptyxis
-            systemd
-            tmpfiles
-        )
-    fi
+    packages+=(
+        desktop-database
+        ptyxis
+        systemd
+        tmpfiles
+    )
 
     stow --restow "${packages[@]}"
 
