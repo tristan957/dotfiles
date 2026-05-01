@@ -69,7 +69,7 @@
             curlFull
             delta
             delve
-            deno
+            # deno
             difftastic
             diffutils
             direnv

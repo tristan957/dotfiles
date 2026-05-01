@@ -30,7 +30,6 @@ function stow_setup() {
         go
         harper
         helix
-        home-manager
         hut
         info
         jj
