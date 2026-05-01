@@ -43,7 +43,6 @@ function stow_setup() {
         tmux
         uv
         vim
-        vscodium
         xdg
         zoxide
     )

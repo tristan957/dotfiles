@@ -57,7 +57,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - truecolor
 - toolbox
 - vim
-- vscodium
 - work
 - xdg
 - zoxide
