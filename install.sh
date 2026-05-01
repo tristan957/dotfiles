@@ -52,7 +52,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "python"
         "readline"
         "ripgrep"
-        "rlwrap"
         "ssh"
         "testcontainers"
         "tmux"

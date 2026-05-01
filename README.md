@@ -50,7 +50,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - ptyxis
 - readline
 - ripgrep
-- rlwrap
 - ssh
 - systemd
 - testcontainers

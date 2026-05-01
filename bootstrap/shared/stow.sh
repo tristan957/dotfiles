@@ -40,7 +40,6 @@ function stow_setup() {
         programs
         readline
         ripgrep
-        rlwrap
         testcontainers
         tmux
         uv
