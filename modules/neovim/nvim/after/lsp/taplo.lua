@@ -1,11 +1,11 @@
 ---@type vim.lsp.Config
 return {
   settings = {
-    taplo = {
+    evenBetterToml = {
       schema = {
         enabled = true,
         associations = {
-          ["^.*config/jj/.*\\.toml$"] = "https://jj-vcs.github.io/jj/latest/config-schema.json",
+          ["^.*/jj/.*\\.toml$"] = "https://docs.jj-vcs.dev/latest/config-schema.json",
         },
       },
     },
