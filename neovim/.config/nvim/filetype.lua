@@ -44,6 +44,7 @@ vim.filetype.add({
     plist = "xml",
     scfg = "scfg",
     ssh = "sshconfig",
+    tf = "terraform",
     tmpl = "gotmpl",
   },
   filename = {
