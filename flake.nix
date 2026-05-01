@@ -30,7 +30,7 @@
         overlays = [
           (final: prev: {
             # direnv's checkPhase seems to struggle if direnv is loaded
-            direnv = prev.direnv.overrideAttrs { doCheck = false; };
+            direnv = prev.direnv.overrideAttrs {doCheck = false;};
           })
         ];
       };
