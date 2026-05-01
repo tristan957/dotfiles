@@ -31,7 +31,6 @@ done
 if [ "${#packages[@]}" -eq 0 ]; then
     packages+=(
         "bash"
-        "difftastic"
         "git"
         "neovim"
         "nix"
