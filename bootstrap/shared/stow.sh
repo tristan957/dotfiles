@@ -29,7 +29,6 @@ function stow_setup() {
         hut
         info
         jj
-        jq
         jupyter
         kubernetes
         lazygit

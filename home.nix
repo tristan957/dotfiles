@@ -12,6 +12,7 @@
     ./modules/deno.nix
     ./modules/dotnet.nix
     ./modules/go.nix
+    ./modules/jq.nix
     ./modules/nnn.nix
     ./modules/node.nix
     ./modules/python.nix
