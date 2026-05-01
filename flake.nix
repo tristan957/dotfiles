@@ -117,6 +117,7 @@
             shfmt
             stow
             stylua
+            taplo
             time
             tinymist
             tmux
@@ -201,6 +202,7 @@
             shellcheck
             shfmt
             stow
+            taplo
             tinymist
             tmux
             tokei
@@ -248,6 +250,7 @@
             samurai
             sccache
             stow
+            taplo
             tmux
             tree-sitter
             vscode-langservers-extracted
@@ -271,6 +274,7 @@
             lua-language-server
             nh
             nixd
+            taplo
             vscode-langservers-extracted
             zls
           ];
