@@ -23,7 +23,6 @@ function stow_setup() {
         gdb
         ghostty
         git
-        glab
         glow
         harper
         helix
