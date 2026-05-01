@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./modules/bat.nix
+    ./modules/clangd.nix
     ./modules/deno.nix
     ./modules/direnv.nix
     ./modules/dotnet.nix
