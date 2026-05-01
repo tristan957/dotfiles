@@ -12,7 +12,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - 1password
 - aerc
 - bash
-- bun
 - cargo
 - chawan
 - cloud-desktop
