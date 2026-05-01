@@ -34,7 +34,6 @@ function stow_setup() {
         testcontainers
         tmux
         vim
-        xdg
     )
 
     if [[ $IS_MACOS -eq 1 ]]; then

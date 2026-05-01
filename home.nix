@@ -35,6 +35,14 @@
   home.username = username;
   home.homeDirectory = homeDirectory;
 
+  xdg = {
+    enable = true;
+    cacheHome = "${homeDirectory}/.cache";
+    configHome = "${homeDirectory}/.config";
+    dataHome = "${homeDirectory}/.local/share";
+    stateHome = "${homeDirectory}/.local/state";
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
