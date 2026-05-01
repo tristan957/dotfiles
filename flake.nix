@@ -72,7 +72,6 @@
             # deno
             difftastic
             diffutils
-            direnv
             fd
             findutils
             fish-lsp
@@ -159,7 +158,6 @@
             delve
             deno
             difftastic
-            direnv
             ditaa
             fd
             fish-lsp
@@ -230,7 +228,6 @@
             copilot-language-server
             delta
             difftastic
-            direnv
             ditaa
             fop
             lazygit

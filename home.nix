@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./modules/deno.nix
+    ./modules/direnv.nix
     ./modules/dotnet.nix
     ./modules/editline.nix
     ./modules/fzf.nix
