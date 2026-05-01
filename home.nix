@@ -14,6 +14,7 @@
   imports =
     [
       ./modules/aerc.nix
+      ./modules/bash.nix
       ./modules/bat.nix
       ./modules/cargo.nix
       ./modules/chawan.nix
@@ -145,6 +146,7 @@
   home.sessionVariables = {
     COLORTERM = "truecolor";
     EDITOR = "nvim";
+    PAGER = "less";
   };
 
   fonts.fontconfig.enable = true;

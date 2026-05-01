@@ -3,7 +3,6 @@ function stow_setup() {
     pushd "$dir" &>/dev/null || exit
 
     local packages=(
-        bash
         fish
         nix
     )
