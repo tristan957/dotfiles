@@ -39,7 +39,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "programs"
         "ssh"
         "testcontainers"
-        "tmux"
         "vim"
     )
 fi

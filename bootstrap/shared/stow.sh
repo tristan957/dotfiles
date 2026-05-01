@@ -17,7 +17,6 @@ function stow_setup() {
         postgresql
         programs
         testcontainers
-        tmux
         vim
     )
 

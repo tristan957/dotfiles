@@ -28,7 +28,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - systemd
 - testcontainers
 - tmpfiles
-- tmux
 - vim
 - zsh
 
