@@ -213,7 +213,6 @@
             zellij
             zig
             zls
-            zsh
           ];
       };
       "dbltap@dbltap-lts" = mkHome {
@@ -252,7 +251,6 @@
             tree-sitter
             vscode-langservers-extracted
             zellij
-            zsh
           ];
       };
       "tristan957@c-3po" = mkHome {

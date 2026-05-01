@@ -55,6 +55,7 @@
       ./modules/tmux.nix
       ./modules/vim.nix
       ./modules/zoxide.nix
+      ./modules/zsh.nix
     ]
     ++ lib.optionals isCloudDesktop [
       ./modules/cloud-desktop.nix

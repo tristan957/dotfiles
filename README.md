@@ -10,7 +10,6 @@ These are my personal configuration files.
 This repository uses GNU `stow` to manage `dotfiles`.
 
 - nix
-- zsh
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like
 `stow {package}`.
