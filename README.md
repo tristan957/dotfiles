@@ -35,7 +35,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - helix
 - homebrew
 - hut
-- info
 - jj
 - kubernetes
 - lazygit

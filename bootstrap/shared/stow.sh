@@ -27,7 +27,6 @@ function stow_setup() {
         harper
         helix
         hut
-        info
         jj
         kubernetes
         lazygit
