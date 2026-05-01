@@ -19,7 +19,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - git
 - helix
 - jj
-- kubernetes
 - neovim
 - nix
 - postgresql

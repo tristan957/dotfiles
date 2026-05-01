@@ -12,7 +12,6 @@ function stow_setup() {
         git
         helix
         jj
-        kubernetes
         neovim
         nix
         postgresql

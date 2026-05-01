@@ -28,6 +28,7 @@
       ./modules/harper.nix
       ./modules/hut.nix
       ./modules/jq.nix
+      ./modules/kubernetes.nix
       ./modules/lazygit.nix
       ./modules/less.nix
       ./modules/man.nix
