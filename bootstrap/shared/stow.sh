@@ -13,7 +13,6 @@ function stow_setup() {
         neovim
         nix
         postgresql
-        programs
         testcontainers
         vim
     )

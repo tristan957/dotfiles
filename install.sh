@@ -36,7 +36,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "neovim"
         "nix"
         "postgresql"
-        "programs"
         "ssh"
         "testcontainers"
         "vim"
