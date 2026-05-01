@@ -45,7 +45,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "info"
         "jupyter"
         "kubernetes"
-        "less"
         "meson"
         "neovim"
         "nix"

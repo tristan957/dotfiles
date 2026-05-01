@@ -13,6 +13,7 @@
     ./modules/dotnet.nix
     ./modules/go.nix
     ./modules/jq.nix
+    ./modules/less.nix
     ./modules/nnn.nix
     ./modules/node.nix
     ./modules/python.nix

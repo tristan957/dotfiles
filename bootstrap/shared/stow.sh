@@ -32,7 +32,6 @@ function stow_setup() {
         jupyter
         kubernetes
         lazygit
-        less
         man
         meson
         mjmap

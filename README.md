@@ -40,7 +40,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - jupyter
 - kubernetes
 - lazygit
-- less
 - man
 - meson
 - mjmap
