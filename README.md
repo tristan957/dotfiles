@@ -47,7 +47,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - postgresql
 - programs
 - ptyxis
-- readline
 - ssh
 - systemd
 - testcontainers

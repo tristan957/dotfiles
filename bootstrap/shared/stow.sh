@@ -37,7 +37,6 @@ function stow_setup() {
         nix
         postgresql
         programs
-        readline
         testcontainers
         tmux
         uv

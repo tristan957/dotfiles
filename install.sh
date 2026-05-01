@@ -49,7 +49,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "postgresql"
         "programs"
         "python"
-        "readline"
         "ssh"
         "testcontainers"
         "tmux"
