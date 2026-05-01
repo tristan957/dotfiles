@@ -20,6 +20,7 @@
       homeDirectory,
       isCloudDesktop ? false,
       isMultiUserInstall ? true,
+      isWorkMachine ? false,
       extraPackages ? (_: []),
     }: let
       pkgs = import nixpkgs {
@@ -39,7 +40,7 @@
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit username homeDirectory isCloudDesktop isMultiUserInstall;
+          inherit username homeDirectory isCloudDesktop isMultiUserInstall isWorkMachine;
           machinePackages = extraPackages pkgs;
         };
         modules = [./home.nix];
@@ -51,6 +52,7 @@
         username = "dbltap";
         homeDirectory = "/Users/dbltap";
         isMultiUserInstall = true;
+        isWorkMachine = true;
         extraPackages = pkgs:
           with pkgs; [
             _1password-cli
@@ -138,6 +140,7 @@
         homeDirectory = "/home/dbltap";
         isCloudDesktop = true;
         isMultiUserInstall = true;
+        isWorkMachine = true;
         extraPackages = pkgs:
           with pkgs; [
             _1password-cli
@@ -218,6 +221,7 @@
         homeDirectory = "/home/dbltap";
         isCloudDesktop = true;
         isMultiUserInstall = true;
+        isWorkMachine = true;
         extraPackages = pkgs:
           with pkgs; [
             bashInteractive

@@ -38,15 +38,6 @@ function stow_setup() {
         )
     fi
 
-    if [[ $WORK -eq 1 ]]; then
-        packages+=(
-        )
-    else
-        packages+=(
-            ssh
-        )
-    fi
-
     stow --restow "${packages[@]}"
 
     popd &>/dev/null || exit

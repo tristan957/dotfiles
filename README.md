@@ -35,7 +35,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - tmpfiles
 - tmux
 - vim
-- work
 - zsh
 
 The above is a list of packages `stow(8)` can be used on. That syntax looks like

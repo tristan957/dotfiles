@@ -6,6 +6,7 @@
   homeDirectory,
   isMultiUserInstall,
   isCloudDesktop,
+  isWorkMachine,
   machinePackages ? [],
   ...
 }: {
@@ -43,6 +44,9 @@
     ]
     ++ lib.optionals isCloudDesktop [
       ./modules/cloud-desktop.nix
+    ]
+    ++ lib.optionals isWorkMachine [
+      ./modules/work.nix
     ];
 
   home.username = username;
