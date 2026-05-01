@@ -5,12 +5,9 @@
 
 These are my personal configuration files.
 
-## GNU Stow
+## Home Manager
 
-This repository uses GNU `stow` to manage `dotfiles`.
-
-The above is a list of packages `stow(8)` can be used on. That syntax looks like
-`stow {package}`.
+This repository uses `home-manager` to manage dotfiles.
 
 ## Terminal
 

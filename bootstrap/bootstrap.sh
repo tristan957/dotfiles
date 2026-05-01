@@ -6,7 +6,7 @@ set -o pipefail
 IS_MACOS=$([[ "$(uname -s)" == 'Darwin' ]] && echo 1 || echo 0)
 
 for f in "$HOME/.bash"*; do
-    # if we are a symlink, we most likely already stowed
+    # if we are a symlink, we most likely already set up home-manager
     if [[ -L "$f" ]]; then
         continue
     else
@@ -38,7 +38,6 @@ dir=$(dirname "${BASH_SOURCE[0]}")
 . "$dir/shared/mise.sh"
 . "$dir/shared/nix.sh"
 . "$dir/shared/podman.sh"
-. "$dir/shared/stow.sh"
 . "$dir/shared/tmux.sh"
 . "$dir/shared/uv.sh"
 
@@ -49,8 +48,6 @@ else
     # shellcheck disable=SC1090
     . "$dir/$os/system.sh"
 fi
-
-stow_setup
 
 # Source all other bash config files
 for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/bash.d/*; do

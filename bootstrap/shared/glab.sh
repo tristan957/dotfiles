@@ -9,7 +9,7 @@ function glab_login_gnome {
 }
 
 function glab_write_config {
-    # We can't store this in stow because the GitLab team stores credentials in
+    # We can't store this in home-manager because the GitLab team stores credentials in
     # the file.
     #
     # WTF!
