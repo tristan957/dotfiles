@@ -9,6 +9,7 @@
   ...
 }: {
   imports = [
+    ./modules/bat.nix
     ./modules/deno.nix
     ./modules/direnv.nix
     ./modules/dotnet.nix

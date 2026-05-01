@@ -59,7 +59,6 @@
             awscli2
             bashInteractive
             bash-language-server
-            bat
             binutils
             bun
             cascadia-code
@@ -146,7 +145,6 @@
             alejandra
             bashInteractive
             bash-language-server
-            bat
             bear
             bun
             ccache
@@ -220,7 +218,6 @@
         extraPackages = pkgs:
           with pkgs; [
             bashInteractive
-            bat
             bear
             ccache
             copilot-language-server
