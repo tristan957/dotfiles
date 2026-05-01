@@ -17,7 +17,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - git
 - nix
 - ssh
-- systemd
 - tmpfiles
 - zsh
 
