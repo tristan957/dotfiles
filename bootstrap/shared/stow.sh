@@ -44,7 +44,6 @@ function stow_setup() {
         nix
         node
         npm
-        nvm
         pgrx
         postgresql
         programs

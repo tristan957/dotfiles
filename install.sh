@@ -54,7 +54,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "nix"
         "node"
         "npm"
-        "nvm"
         "pgrx"
         "postgresql"
         "programs"
