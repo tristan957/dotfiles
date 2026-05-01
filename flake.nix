@@ -18,6 +18,7 @@
       system,
       username,
       homeDirectory,
+      isCloudDesktop ? false,
       isMultiUserInstall ? true,
       extraPackages ? (_: []),
     }: let
@@ -38,7 +39,7 @@
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit username homeDirectory isMultiUserInstall;
+          inherit username homeDirectory isCloudDesktop isMultiUserInstall;
           machinePackages = extraPackages pkgs;
         };
         modules = [./home.nix];
@@ -135,6 +136,7 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
+        isCloudDesktop = true;
         isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [
@@ -214,6 +216,7 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
+        isCloudDesktop = true;
         isMultiUserInstall = true;
         extraPackages = pkgs:
           with pkgs; [

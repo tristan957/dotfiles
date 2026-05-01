@@ -5,38 +5,43 @@
   username,
   homeDirectory,
   isMultiUserInstall,
+  isCloudDesktop,
   machinePackages ? [],
   ...
 }: {
-  imports = [
-    ./modules/aerc.nix
-    ./modules/bat.nix
-    ./modules/cargo.nix
-    ./modules/chawan.nix
-    ./modules/clangd.nix
-    ./modules/deno.nix
-    ./modules/direnv.nix
-    ./modules/dotnet.nix
-    ./modules/editline.nix
-    ./modules/fzf.nix
-    ./modules/gdb.nix
-    ./modules/go.nix
-    ./modules/glow.nix
-    ./modules/harper.nix
-    ./modules/hut.nix
-    ./modules/jq.nix
-    ./modules/lazygit.nix
-    ./modules/less.nix
-    ./modules/mjmap.nix
-    ./modules/nnn.nix
-    ./modules/node.nix
-    ./modules/python.nix
-    ./modules/readline.nix
-    ./modules/ripgrep.nix
-    ./modules/rlwrap.nix
-    ./modules/rustup.nix
-    ./modules/zoxide.nix
-  ];
+  imports =
+    [
+      ./modules/aerc.nix
+      ./modules/bat.nix
+      ./modules/cargo.nix
+      ./modules/chawan.nix
+      ./modules/clangd.nix
+      ./modules/deno.nix
+      ./modules/direnv.nix
+      ./modules/dotnet.nix
+      ./modules/editline.nix
+      ./modules/fzf.nix
+      ./modules/gdb.nix
+      ./modules/go.nix
+      ./modules/glow.nix
+      ./modules/harper.nix
+      ./modules/hut.nix
+      ./modules/jq.nix
+      ./modules/lazygit.nix
+      ./modules/less.nix
+      ./modules/mjmap.nix
+      ./modules/nnn.nix
+      ./modules/node.nix
+      ./modules/python.nix
+      ./modules/readline.nix
+      ./modules/ripgrep.nix
+      ./modules/rlwrap.nix
+      ./modules/rustup.nix
+      ./modules/zoxide.nix
+    ]
+    ++ lib.optionals isCloudDesktop [
+      ./modules/cloud-desktop.nix
+    ];
 
   home.username = username;
   home.homeDirectory = homeDirectory;

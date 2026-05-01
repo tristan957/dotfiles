@@ -11,7 +11,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 
 - 1password
 - bash
-- cloud-desktop
 - comlink
 - containers
 - delta
