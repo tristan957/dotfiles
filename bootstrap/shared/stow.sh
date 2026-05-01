@@ -16,7 +16,6 @@ function stow_setup() {
         hut
         jj
         kubernetes
-        man
         meson
         neovim
         nix
