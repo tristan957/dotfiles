@@ -42,7 +42,6 @@ function stow_setup() {
         mjmap
         neovim
         nix
-        nnn
         node
         npm
         nvm

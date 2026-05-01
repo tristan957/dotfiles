@@ -10,6 +10,7 @@
 }: {
   imports = [
     ./modules/go.nix
+    ./modules/nnn.nix
   ];
 
   home.username = username;

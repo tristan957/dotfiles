@@ -52,7 +52,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "meson"
         "neovim"
         "nix"
-        "nnn"
         "node"
         "npm"
         "nvm"
