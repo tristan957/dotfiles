@@ -11,6 +11,7 @@
   imports = [
     ./modules/deno.nix
     ./modules/dotnet.nix
+    ./modules/editline.nix
     ./modules/go.nix
     ./modules/jq.nix
     ./modules/less.nix
@@ -23,8 +24,6 @@
 
   home.username = username;
   home.homeDirectory = homeDirectory;
-
-  xdg.stateHome = "${homeDirectory}/.local/state";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
