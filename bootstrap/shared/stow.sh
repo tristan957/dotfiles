@@ -54,7 +54,6 @@ function stow_setup() {
     else
         packages+=(
             desktop-database
-            flyctl
             ptyxis
             systemd
             tmpfiles
