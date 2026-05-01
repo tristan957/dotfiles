@@ -9,13 +9,10 @@ function stow_setup() {
         bun
         cargo
         chawan
-        clangd
         comlink
         containers
         delta
         dir_colors
-        direnv
-        dotnet
         editline
         fish
         gdb
