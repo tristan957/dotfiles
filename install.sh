@@ -33,7 +33,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "bash"
         "git"
         "nix"
-        "ssh"
     )
 fi
 
