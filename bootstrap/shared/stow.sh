@@ -21,7 +21,6 @@ function stow_setup() {
         gdb
         ghostty
         git
-        glow
         harper
         helix
         hut

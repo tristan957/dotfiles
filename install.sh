@@ -40,7 +40,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "fzf"
         "gdb"
         "git"
-        "glow"
         "kubernetes"
         "meson"
         "neovim"
