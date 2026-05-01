@@ -5,7 +5,6 @@ function stow_setup() {
     local packages=(
         1password
         aerc
-        asdf
         bash
         bat
         bun
