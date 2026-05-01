@@ -41,6 +41,7 @@
         inherit pkgs;
         extraSpecialArgs = {
           inherit username homeDirectory isCloudDesktop isMultiUserInstall isWorkMachine;
+          isLinux = pkgs.stdenv.isLinux;
           machinePackages = extraPackages pkgs;
         };
         modules = [./home.nix];

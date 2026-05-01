@@ -22,7 +22,6 @@ function stow_setup() {
 
     packages+=(
         desktop-database
-        ptyxis
         systemd
         tmpfiles
     )

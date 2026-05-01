@@ -6,6 +6,7 @@
   homeDirectory,
   isMultiUserInstall,
   isCloudDesktop,
+  isLinux,
   isWorkMachine,
   machinePackages ? [],
   ...
@@ -49,6 +50,9 @@
     ]
     ++ lib.optionals isWorkMachine [
       ./modules/work.nix
+    ]
+    ++ lib.optionals isLinux [
+      ./modules/ptyxis.nix
     ];
 
   home.username = username;

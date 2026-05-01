@@ -23,7 +23,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - nix
 - postgresql
 - programs
-- ptyxis
 - ssh
 - systemd
 - testcontainers
