@@ -53,7 +53,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "testcontainers"
         "tmux"
         "toolbox"
-        "uv"
         "vim"
         "xdg"
         "yarn"
