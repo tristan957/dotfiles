@@ -24,6 +24,7 @@
       ./modules/direnv.nix
       ./modules/dotnet.nix
       ./modules/editline.nix
+      ./modules/fish.nix
       ./modules/fzf.nix
       ./modules/gdb.nix
       ./modules/ghostty.nix
@@ -54,6 +55,7 @@
       ./modules/testcontainers.nix
       ./modules/tmux.nix
       ./modules/vim.nix
+      ./modules/zellij.nix
       ./modules/zoxide.nix
       ./modules/zsh.nix
     ]
@@ -158,10 +160,6 @@
       find -L "${config.xdg.stateHome}/nix/profiles/home-manager/home-path/share/fonts" \( -name "*.ttf" -o -name "*.otf" \) -exec cp -fL {} "$fonts_dir/" \;
     fi
   '';
-
-  programs.fish = {
-    enable = true;
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -30,7 +30,6 @@ done
 
 if [ "${#packages[@]}" -eq 0 ]; then
     packages+=(
-        "nix"
     )
 fi
 
