@@ -37,7 +37,6 @@ This repository uses GNU `stow` to manage `dotfiles`.
 - testcontainers
 - tmpfiles
 - tmux
-- toolbox
 - vim
 - work
 - zsh

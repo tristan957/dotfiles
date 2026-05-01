@@ -47,7 +47,6 @@ if [ "${#packages[@]}" -eq 0 ]; then
         "ssh"
         "testcontainers"
         "tmux"
-        "toolbox"
         "vim"
         "xdg"
         "yarn"

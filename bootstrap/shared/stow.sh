@@ -37,7 +37,6 @@ function stow_setup() {
             ptyxis
             systemd
             tmpfiles
-            toolbox
         )
     fi
 
