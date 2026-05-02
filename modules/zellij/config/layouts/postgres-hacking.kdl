@@ -1,7 +1,16 @@
 layout {
-    tab {
-        name "aerc"
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="tab-var"
+        }
 
+        children
+
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+    tab name="aerc" {
         pane {
             borderless true
             command "aerc"
@@ -9,9 +18,7 @@ layout {
         }
     }
 
-    tab {
-        name "ide"
-
+    tab name="ide"{
         pane {
             command "nvim"
             name "editor"
