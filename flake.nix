@@ -18,10 +18,8 @@
       system,
       username,
       homeDirectory,
-      isCloudDesktop ? false,
-      isMultiUserInstall ? true,
-      isWorkMachine ? false,
-      extraPackages ? (_: []),
+      modules,
+      packages ? (_: []),
     }: let
       pkgs = import nixpkgs {
         inherit system;
@@ -40,21 +38,95 @@
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit username homeDirectory isCloudDesktop isMultiUserInstall isWorkMachine;
-          isLinux = pkgs.stdenv.isLinux;
-          machinePackages = extraPackages pkgs;
+          inherit username homeDirectory;
         };
-        modules = [./home.nix];
+        modules = [
+          ./home.nix
+          {
+            modules = builtins.listToAttrs (map (name: {
+                inherit name;
+                value = {enable = true;};
+              })
+              modules);
+            home.packages = packages pkgs;
+          }
+        ];
       };
+
+    # Modules for Email support
+    emailModules = [
+      "aerc"
+      "bat"
+      "chawan"
+      "mjmap"
+    ];
+
+    # Modules for Rust support
+    rustModules = [
+      "cargo"
+      "rustup"
+    ];
+
+    commonModules = [
+      "bash"
+      "clangd"
+      "deno"
+      "direnv"
+      "dotnet"
+      "editline"
+      "fish"
+      "fzf"
+      "git"
+      "glow"
+      "go"
+      "harper"
+      "helix"
+      "hut"
+      "jj"
+      "jq"
+      "just"
+      "lazygit"
+      "less"
+      "man"
+      "meson"
+      "neovim"
+      "nix"
+      "nnn"
+      "node"
+      "programs"
+      "psql"
+      "python"
+      "readline"
+      "ripgrep"
+      "rlwrap"
+      "testcontainers"
+      "tmux"
+      "vim"
+      "zellij"
+      "zoxide"
+      "zsh"
+    ];
   in {
+    homeManagerModules.default = ./home.nix;
+
     homeConfigurations = {
       "dbltap@macbook" = mkHome {
         system = "aarch64-darwin";
         username = "dbltap";
         homeDirectory = "/Users/dbltap";
-        isMultiUserInstall = true;
-        isWorkMachine = true;
-        extraPackages = pkgs:
+        modules =
+          commonModules
+          ++ emailModules
+          ++ rustModules
+          ++ [
+            "comlink"
+            "fonts"
+            "ghostty"
+            "kiro"
+            "vscode"
+            "work"
+          ];
+        packages = pkgs:
           with pkgs; [
             _1password-cli
             alejandra
@@ -140,10 +212,19 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
-        isCloudDesktop = true;
-        isMultiUserInstall = true;
-        isWorkMachine = true;
-        extraPackages = pkgs:
+        modules =
+          commonModules
+          ++ emailModules
+          ++ rustModules
+          ++ [
+            "cloud-desktop"
+            "comlink"
+            "desktop-database"
+            "gdb"
+            "kiro"
+            "work"
+          ];
+        packages = pkgs:
           with pkgs; [
             _1password-cli
             aerc
@@ -159,7 +240,7 @@
             copilot-language-server
             delta
             delve
-            deno
+            # deno
             difftastic
             ditaa
             fd
@@ -221,10 +302,15 @@
         system = "x86_64-linux";
         username = "dbltap";
         homeDirectory = "/home/dbltap";
-        isCloudDesktop = true;
-        isMultiUserInstall = true;
-        isWorkMachine = true;
-        extraPackages = pkgs:
+        modules =
+          commonModules
+          ++ [
+            "cloud-desktop"
+            "gdb"
+            "kiro"
+            "work"
+          ];
+        packages = pkgs:
           with pkgs; [
             bear
             ccache
@@ -260,8 +346,21 @@
         system = "x86_64-linux";
         username = "tristan957";
         homeDirectory = "/home/tristan957";
-        isMultiUserInstall = true;
-        extraPackages = pkgs:
+        modules =
+          commonModules
+          ++ emailModules
+          ++ [
+            "comlink"
+            "desktop-database"
+            "fonts"
+            "gdb"
+            "ghostty"
+            "kubernetes"
+            "ptyxis"
+            "tmpfiles"
+            "vscode"
+          ];
+        packages = pkgs:
           with pkgs; [
             alejandra
             ast-grep

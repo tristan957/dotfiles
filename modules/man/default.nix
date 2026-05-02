@@ -1,24 +1,33 @@
-{pkgs, ...}: {
-  programs.man.enable = !pkgs.stdenv.isDarwin;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options.modules.man.enable = lib.mkEnableOption "man";
 
-  home.sessionVariables = {
-    MANPAGER = "nvim +Man!";
-  };
+  config = lib.mkIf config.modules.man.enable {
+    programs.man.enable = !pkgs.stdenv.isDarwin;
 
-  systemd.user.services."mandb" = {
-    Unit.Description = "Regenerate $XDG_DATA_HOME/man man page database";
-    Service = {
-      Type = "oneshot";
-      ExecStart = ''mandb "''${XDG_DATA_HOME}/man"'';
+    home.sessionVariables = {
+      MANPAGER = "nvim +Man!";
     };
-  };
 
-  systemd.user.paths."mandb" = {
-    Unit.Description = "Watch for changes in $XDG_DATA_HOME/man";
-    Path = {
-      MakeDirectory = true;
-      PathChanged = "%h/.local/share/man";
+    systemd.user.services."mandb" = {
+      Unit.Description = "Regenerate $XDG_DATA_HOME/man man page database";
+      Service = {
+        Type = "oneshot";
+        ExecStart = ''mandb "''${XDG_DATA_HOME}/man"'';
+      };
     };
-    Install.WantedBy = ["paths.target"];
+
+    systemd.user.paths."mandb" = {
+      Unit.Description = "Watch for changes in $XDG_DATA_HOME/man";
+      Path = {
+        MakeDirectory = true;
+        PathChanged = "%h/.local/share/man";
+      };
+      Install.WantedBy = ["paths.target"];
+    };
   };
 }

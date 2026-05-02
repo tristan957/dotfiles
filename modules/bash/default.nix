@@ -1,52 +1,60 @@
-{config, ...}: {
-  programs.bash = {
-    enable = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options.modules.bash.enable = lib.mkEnableOption "bash";
 
-    historyControl = [
-      "ignoredups"
-      "ignorespace"
-    ];
-    historyFile = "${config.xdg.stateHome}/bash/history";
-    historyFileSize = 1000000;
-    historySize = 1000000;
+  config = lib.mkIf config.modules.bash.enable {
+    programs.bash = {
+      enable = true;
 
-    shellOptions = [
-      "checkwinsize"
-      "failglob"
-      "globstar"
-      "histappend"
-      "hostcomplete"
-      "nullglob"
-    ];
+      historyControl = [
+        "ignoredups"
+        "ignorespace"
+      ];
+      historyFile = "${config.xdg.stateHome}/bash/history";
+      historyFileSize = 1000000;
+      historySize = 1000000;
 
-    logoutExtra = builtins.readFile ./bash_logout;
+      shellOptions = [
+        "checkwinsize"
+        "failglob"
+        "globstar"
+        "histappend"
+        "hostcomplete"
+        "nullglob"
+      ];
 
-    profileExtra = ''
-      # Nix
-      # Multi-user (daemon) installation
-      . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
-      # Fedora
-      . /etc/profile.d/nix-daemon.fish 2>/dev/null
-      # Single-user installation
-      . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
-    '';
+      logoutExtra = builtins.readFile ./bash_logout;
 
-    initExtra = ''
-      HISTTIMEFORMAT='%FT%T%z: '
+      profileExtra = ''
+        # Nix
+        # Multi-user (daemon) installation
+        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
+        # Fedora
+        . /etc/profile.d/nix-daemon.sh 2>/dev/null
+        # Single-user installation
+        . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
+      '';
 
-      # Source system bash files
-      . "/etc/bash.bashrc" 2>/dev/null
-      . "/etc/bashrc" 2>/dev/null
+      initExtra = ''
+        HISTTIMEFORMAT='%FT%T%z: '
 
-      for f in "$XDG_CONFIG_HOME"/bash.d/*; do
-        . "$f"
-      done
-    '';
-  };
+        # Source system bash files
+        . "/etc/bash.bashrc" 2>/dev/null
+        . "/etc/bashrc" 2>/dev/null
 
-  xdg.configFile = {
-    "bash.d/90-aliases.sh".source = ./90-aliases.sh;
-    "bash.d/90-completion.sh".source = ./90-completion.sh;
-    "bash.d/90-prompt.sh".source = ./90-prompt.sh;
+        for f in "$XDG_CONFIG_HOME"/bash.d/*; do
+          . "$f"
+        done
+      '';
+    };
+
+    xdg.configFile = {
+      "bash.d/90-aliases.sh".source = ./90-aliases.sh;
+      "bash.d/90-completion.sh".source = ./90-completion.sh;
+      "bash.d/90-prompt.sh".source = ./90-prompt.sh;
+    };
   };
 }

@@ -1,11 +1,19 @@
-{...}: {
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
+{
+  config,
+  lib,
+  ...
+}: {
+  options.modules.direnv.enable = lib.mkEnableOption "direnv";
 
-  xdg.configFile."direnv/direnv.toml".source = ./direnv.toml;
+  config = lib.mkIf config.modules.direnv.enable {
+    programs.direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    xdg.configFile."direnv/direnv.toml".source = ./direnv.toml;
+  };
 }

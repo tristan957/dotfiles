@@ -1,11 +1,19 @@
-{...}: {
-  home.sessionPath = [
-    "$HOME/.aim/mcp-servers"
-    "$HOME/.toolbox/bin"
-  ];
+{
+  config,
+  lib,
+  ...
+}: {
+  options.modules.work.enable = lib.mkEnableOption "work";
 
-  home.file.".local/bin/mcurl" = {
-    source = ./mcurl;
-    executable = true;
+  config = lib.mkIf config.modules.work.enable {
+    home.sessionPath = [
+      "$HOME/.aim/mcp-servers"
+      "$HOME/.toolbox/bin"
+    ];
+
+    home.file.".local/bin/mcurl" = {
+      source = ./mcurl;
+      executable = true;
+    };
   };
 }

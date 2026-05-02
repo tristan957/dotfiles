@@ -1,8 +1,16 @@
-{config, ...}: {
-  home.sessionVariables = {
-    PSQL_HISTORY = "${config.xdg.stateHome}/psql/history";
-    PSQLRC = "${config.xdg.configHome}/psql/psqlrc";
-  };
+{
+  config,
+  lib,
+  ...
+}: {
+  options.modules.psql.enable = lib.mkEnableOption "psql";
 
-  xdg.configFile."psql/psqlrc".source = ./psqlrc;
+  config = lib.mkIf config.modules.psql.enable {
+    home.sessionVariables = {
+      PSQL_HISTORY = "${config.xdg.stateHome}/psql/history";
+      PSQLRC = "${config.xdg.configHome}/psql/psqlrc";
+    };
+
+    xdg.configFile."psql/psqlrc".source = ./psqlrc;
+  };
 }
