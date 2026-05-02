@@ -1,6 +1,14 @@
-{...}: {
+{config, ...}: {
   programs.bash = {
     enable = true;
+
+    historyControl = [
+      "ignoredups"
+      "ignorespace"
+    ];
+    historyFile = "${config.xdg.stateHome}/bash/history";
+    historyFileSize = 1000000;
+    historySize = 1000000;
 
     shellOptions = [
       "checkwinsize"
@@ -24,6 +32,8 @@
     '';
 
     initExtra = ''
+      HISTTIMEFORMAT='%FT%T%z: '
+
       # Source system bash files
       . "/etc/bash.bashrc" 2>/dev/null
       . "/etc/bashrc" 2>/dev/null
@@ -35,7 +45,6 @@
   };
 
   xdg.configFile = {
-    "bash.d/10-history.sh".source = ./10-history.sh;
     "bash.d/90-aliases.sh".source = ./90-aliases.sh;
     "bash.d/90-completion.sh".source = ./90-completion.sh;
     "bash.d/90-prompt.sh".source = ./90-prompt.sh;

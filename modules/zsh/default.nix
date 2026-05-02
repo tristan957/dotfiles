@@ -6,6 +6,7 @@
     history = {
       path = "${config.xdg.stateHome}/zsh/history";
       save = 1000000;
+      size = 1000000;
       append = true;
       extended = true;
       expireDuplicatesFirst = true;
