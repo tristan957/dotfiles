@@ -1,4 +1,8 @@
-{config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   fonts.fontconfig.enable = true;
 
   home.activation.linkFonts = lib.hm.dag.entryAfter ["writeBoundary"] ''

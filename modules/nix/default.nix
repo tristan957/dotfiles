@@ -1,4 +1,9 @@
-{lib, pkgs, isMultiUserInstall, ...}: {
+{
+  lib,
+  pkgs,
+  isMultiUserInstall,
+  ...
+}: {
   nix = {
     package = pkgs.nix;
     settings = lib.mkIf (!isMultiUserInstall) {
