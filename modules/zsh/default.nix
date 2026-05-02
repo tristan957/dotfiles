@@ -3,6 +3,15 @@
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
 
+    history = {
+      path = "${config.xdg.stateHome}/zsh/history";
+      save = 1000000;
+      append = true;
+      extended = true;
+      expireDuplicatesFirst = true;
+      ignoreDups = true;
+    };
+
     envExtra = ''
       # Nix
       # Multi-user (daemon) installation
@@ -13,9 +22,9 @@
       . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
     '';
 
-    initContent = ''
-      setopt numericglobsort
+    setOptions = ["numericglobsort"];
 
+    initContent = ''
       [ -d "$XDG_STATE_HOME/zsh" ] || mkdir -p "$XDG_STATE_HOME/zsh"
       [ -d "$XDG_CACHE_HOME/zsh" ] || mkdir -p "$XDG_CACHE_HOME/zsh"
 
@@ -27,7 +36,6 @@
 
   xdg.configFile = {
     "zsh/conf.d/10-completion.zsh".source = ./10-completion.zsh;
-    "zsh/conf.d/10-history.zsh".source = ./10-history.zsh;
     "zsh/conf.d/90-prompt.zsh".source = ./90-prompt.zsh;
   };
 }
