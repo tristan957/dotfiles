@@ -13,8 +13,10 @@
     };
 
     home.file = lib.mkIf pkgs.stdenv.isDarwin {
-      "Library/Application Support/com.mitchellh.ghostty/config.ghostty".source =
-        ./config.darwin.ghostty;
+      "Library/Application Support/com.mitchellh.ghostty/config.ghostty" = {
+        source = ./config.darwin.ghostty;
+        force = true;
+      };
     };
   };
 }
