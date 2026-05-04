@@ -1,4 +1,3 @@
-app.devsuite.Manuals
 app.devsuite.Ptyxis
 app.drey.KeyRack
 com.belmoussaoui.Decoder
@@ -32,6 +31,7 @@ org.gnome.Contacts
 org.gnome.Decibels
 org.gnome.Fractal
 org.gnome.Loupe
+org.gnome.Manuals
 org.gnome.Maps
 org.gnome.Papers
 org.gnome.Snapshot
