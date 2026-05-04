@@ -349,6 +349,7 @@
         modules =
           commonModules
           ++ emailModules
+          ++ rustModules
           ++ [
             "comlink"
             "desktop-database"
