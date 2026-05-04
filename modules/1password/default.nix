@@ -1,12 +1,11 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.modules."1password".enable = lib.mkEnableOption "1password";
 
-  config = lib.mkIf (config.modules."1password".enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf config.modules."1password".enable {
     systemd.user.services."1password" = {
       Unit = {
         Description = "Start 1Password";
