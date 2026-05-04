@@ -85,7 +85,6 @@
     ./modules/tmpfiles
     ./modules/vim
     ./modules/vscode
-    ./modules/work
     ./modules/zellij
     ./modules/zoxide
     ./modules/zsh

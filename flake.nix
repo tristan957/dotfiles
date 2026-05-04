@@ -124,7 +124,6 @@
             "ghostty"
             "kiro"
             "vscode"
-            "work"
           ];
         packages = pkgs:
           with pkgs; [
@@ -222,7 +221,6 @@
             "desktop-database"
             "gdb"
             "kiro"
-            "work"
           ];
         packages = pkgs:
           with pkgs; [
@@ -308,7 +306,6 @@
             "cloud-desktop"
             "gdb"
             "kiro"
-            "work"
           ];
         packages = pkgs:
           with pkgs; [

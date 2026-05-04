@@ -19,14 +19,12 @@
       config.extendModules {
         modules = [
           amzn-nix-community.homeModules.default
-          ({pkgs, config, ...}: {
+          ({pkgs, ...}: {
             home.packages = [
-              amzn-nix-community.packages.${pkgs.system}.mcurl
+              amzn-nix-community.packages.${pkgs.stdenv.hostPlatform.system}.mcurl
             ];
 
-            home.sessionPath = [
-              "${config.home.homeDirectory}/.aim/mcp-servers"
-            ];
+            services.midway.aea.cookie-refresh.enable = true;
 
             programs.toolbox = {
               enable = true;
@@ -39,7 +37,7 @@
                 aim.enable = true;
                 axe.enable = true;
                 barium.enable = true;
-                brazil-cli.enable = true;
+                brazilcli.enable = true;
                 cr.enable = true;
                 isengard-cli.enable = true;
               };
@@ -58,7 +56,7 @@
                 enable = true;
                 mcpServers = {
                   builder-mcp = {};
-                  m365-mcp.registry = "grasp-tools";
+                  m365-mcp = {};
                 };
               };
             };

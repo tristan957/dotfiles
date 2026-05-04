@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# Amazon wrapper for cURL that automatically includes support for Midway cookies
-
-curl "$@" ---location --cookie ~/.midway/cookie --cookie-jar ~/.midway/cookie
