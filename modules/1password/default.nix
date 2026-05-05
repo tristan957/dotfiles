@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.modules."1password".enable = lib.mkEnableOption "1password";
@@ -37,7 +38,7 @@
       Install.WantedBy = ["graphical-session.target"];
     };
 
-    systemd.user.tmpfiles.rules = [
+    systemd.user.tmpfiles.rules = lib.mkIf pkgs.stdenv.isLinux [
       "d %S/op 0700"
     ];
   };
