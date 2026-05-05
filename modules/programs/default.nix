@@ -6,9 +6,10 @@
   options.modules.programs.enable = lib.mkEnableOption "programs";
 
   config = lib.mkIf config.modules.programs.enable {
-    home.sessionPath = [
-      "$HOME/.local/bin"
-    ];
+    # Managed in the shell configs to override the Nix binary paths
+    # home.sessionPath = lib.mkBefore [
+    #   "$HOME/.local/bin"
+    # ];
 
     home.file = {
       ".local/bin/c2f" = {

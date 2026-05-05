@@ -21,6 +21,9 @@
         source /etc/profile.d/nix-daemon.fish 2>/dev/null
         # Single-user installation
         source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
+
+        # Make sure local binaries override everything
+        fish_add_path --prepend --move "$HOME/.local/bin"
       '';
     };
 
