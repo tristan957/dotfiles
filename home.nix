@@ -47,6 +47,7 @@
     ./modules/direnv
     ./modules/dotnet
     ./modules/editline
+    ./modules/extended-support
     ./modules/fish
     ./modules/fonts
     ./modules/fzf

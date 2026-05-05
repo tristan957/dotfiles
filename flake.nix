@@ -305,6 +305,7 @@
           commonModules
           ++ [
             "cloud-desktop"
+            "extended-support"
             "gdb"
             "kiro"
           ];
