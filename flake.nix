@@ -68,6 +68,7 @@
     ];
 
     commonModules = [
+      "1password"
       "bash"
       "clangd"
       "deno"
