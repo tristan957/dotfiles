@@ -309,6 +309,7 @@
           ];
         packages = pkgs:
           with pkgs; [
+            _1password-cli
             bear
             ccache
             copilot-language-server
