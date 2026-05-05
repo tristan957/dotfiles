@@ -18,5 +18,9 @@
       };
       Install.WantedBy = ["graphical-session.target"];
     };
+
+    systemd.user.tmpfiles.rules = [
+      "d %S/op 0700"
+    ];
   };
 }
