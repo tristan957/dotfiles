@@ -1,6 +1,7 @@
 {
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "blink.indent": { "branch": "main", "commit": "15b3b25c2e76025733cc96df0144e9a9ef4d495c" },
+  "cocci-syntax": { "branch": "master", "commit": "e2353195eaeb407a53f0b1f47c2fa609d3ce24f0" },
   "codecompanion.nvim": { "branch": "main", "commit": "2e33fbdd1ace1e5019ffba8891c5a23711005707" },
   "dart-vim-plugin": { "branch": "master", "commit": "dd74e59c50e29896483a87373743136f2cbd24e7" },
   "diffs.nvim": { "branch": "main", "commit": "084c4dc119dee9133fc8b215b308f29aeafb9564" },
