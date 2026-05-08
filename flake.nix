@@ -91,7 +91,6 @@
       "man"
       "meson"
       "neovim"
-      "nix"
       "nnn"
       "node"
       "programs"

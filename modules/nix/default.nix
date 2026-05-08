@@ -4,14 +4,12 @@
   pkgs,
   ...
 }: {
-  options.modules.nix.enable = lib.mkEnableOption "nix";
-
   options.modules.nix.isMultiUserInstall = lib.mkOption {
     type = lib.types.bool;
     default = true;
   };
 
-  config = lib.mkIf config.modules.nix.enable {
+  config = {
     nix = {
       gc = {
         automatic = true;
