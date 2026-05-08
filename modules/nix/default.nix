@@ -13,6 +13,11 @@
 
   config = lib.mkIf config.modules.nix.enable {
     nix = {
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
       package = lib.mkDefault pkgs.nix;
       settings = lib.mkIf (!config.modules.nix.isMultiUserInstall) {
         # These are trusted settings that make much more sense to set at the
