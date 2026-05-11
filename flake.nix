@@ -107,6 +107,28 @@
       "zsh"
     ];
   in {
+    devShells = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"] (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          alejandra
+          lua-language-server
+          luajitPackages.luacheck
+          markdownlint-cli2
+          nixd
+          prettier
+          reuse
+          ruff
+          shellcheck
+          shfmt
+          stylua
+          ty
+          vscode-langservers-extracted
+        ];
+      };
+    });
+
     homeManagerModules.default = ./home.nix;
 
     homeConfigurations = {
