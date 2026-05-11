@@ -122,6 +122,7 @@ output column declarations:
 ```
 
 Key fields for SRFs:
+
 - `proallargtypes` — types of all arguments (input + output)
 - `proargmodes` — `o` for each output column
 - `proargnames` — column names matching the output order

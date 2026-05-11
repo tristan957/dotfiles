@@ -46,7 +46,7 @@ nix flake check --no-build
 ### Build tooling (list — include any combination)
 
 | Option | Type | Default | Values | Packages |
-|--------|------|---------|--------|----------|
+| -------- | ------ | --------- | -------- | ---------- |
 | `buildBackend` | list of enum | `["ninja"]` | `ninja`, `samurai` | ninja, samurai |
 | `buildSystem` | list of enum | `["meson"]` | `autoconf`, `meson`, `muon` | autoconf269, meson, muon |
 | `cc` | list of enum | `["gcc"]` | `gcc`, `clang` | gcc, clang |
@@ -56,7 +56,7 @@ nix flake check --no-build
 ### Feature flags (boolean, default `false`)
 
 | Option | Packages | Description |
-|--------|----------|-------------|
+| -------- | ---------- | ------------- |
 | `curl` | curl | libcurl for OAuth 2.0 client flows |
 | `docs` | ditaa, docbook2x, docbook_sgml_dtd_41, docbook_xsl, fop, pandoc | Documentation build toolchain |
 | `gssapi` | krb5 | GSSAPI/Kerberos authentication |
@@ -75,7 +75,7 @@ nix flake check --no-build
 ### Linux-only flags (boolean, default `false`)
 
 | Option | Packages | Description |
-|--------|----------|-------------|
+| -------- | ---------- | ------------- |
 | `bonjour` | avahi-compat | Bonjour/DNS-SD service discovery |
 | `dtrace` | systemtap | DTrace/SystemTap dynamic tracing |
 | `io_uring` | liburing | io_uring async I/O |
