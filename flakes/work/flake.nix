@@ -68,7 +68,6 @@
                       Account = "534344665149";
                     };
                   };
-                  kiro.cli.enable = true;
                   aim = {
                     enable = true;
                     mcpServers = {
@@ -76,6 +75,7 @@
                       m365-mcp = {};
                     };
                   };
+                  kiro.cli.enable = true;
                 };
               })
             ];
