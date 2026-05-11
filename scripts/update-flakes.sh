@@ -3,5 +3,7 @@
 echo 'Updating root flake'
 nix flake update --flake .
 
-echo 'Updating work flake'
-nix flake update --flake ./flakes/work
+for flake in ./flakes/*/; do
+	echo "Updating $(basename "$flake") flake"
+	nix flake update --flake "$flake"
+done
