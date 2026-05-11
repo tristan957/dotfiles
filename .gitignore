@@ -1,8 +1,1 @@
-/fish/.config/fish/fish_variables
 /node_modules/
-/vim/.config/vim/.netrwhist
-!/.vscode/
-*.service.requires/
-*.service.wants/
-*.target.requires/
-*.target.wants/
