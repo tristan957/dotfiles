@@ -203,6 +203,7 @@
             vim
             vscode-langservers-extracted
             which
+            yaml-language-server
             yq
             zellij
           ];
@@ -291,6 +292,7 @@
             typst
             vscode-langservers-extracted
             worktrunk
+            yaml-language-server
             zellij
             zig
             zls
@@ -374,6 +376,7 @@
             nixd
             taplo
             vscode-langservers-extracted
+            yaml-language-server
             zls
           ];
       };
