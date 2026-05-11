@@ -22,12 +22,7 @@ vim.diagnostic.config({
   },
 })
 
-vim.keymap.set(
-  "n",
-  "|dq",
-  vim.diagnostic.setqflist,
-  { desc = "Send diagnostics to quickfix list" }
-)
+vim.keymap.set("n", "|dq", vim.diagnostic.setqflist, { desc = "Send diagnostics to quickfix list" })
 
 vim.keymap.set(
   "n",

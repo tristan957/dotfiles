@@ -10,7 +10,9 @@ M.find = function()
     return "python3"
   end
 
-  if poetry.is_workspace(vim.uv.cwd() --[[@as string]]) then
+  if
+    poetry.is_workspace(vim.uv.cwd() --[[@as string]])
+  then
     local python = poetry.python_executable()
     if python ~= nil then
       return python
