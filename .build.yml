@@ -1,40 +1,31 @@
-image: alpine/edge
-packages:
-  - luacheck
-  - reuse
-  - ruff
-  - shellcheck
-  - shfmt
-  - stylua
-  - yarn
+image: nixos/unstable
+environment:
+  NIX_CONFIG: "experimental-features = nix-command flakes"
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
 tasks:
   - reuse: |
       cd dotfiles
-      reuse lint
+      nix develop --command reuse lint
   - luacheck: |
       cd dotfiles
-      luacheck .
+      nix develop --command luacheck .
   - ruff: |
       cd dotfiles
-      ruff check --diff .
-      ruff format --diff .
+      nix develop --command ruff check --diff .
+      nix develop --command ruff format --diff .
   - shellcheck: |
       cd dotfiles
-      ./scripts/shellcheck.sh
+      nix develop --command ./scripts/shellcheck.sh
   - shfmt: |
       cd dotfiles
-      ./scripts/shfmt.sh
+      nix develop --command ./scripts/shfmt.sh
   - stylua: |
       cd dotfiles
-      stylua --check .
-  - yarn: |
-      cd dotfiles
-      yarn
+      nix develop --command stylua --check .
   - prettier: |
       cd dotfiles
-      yarn run prettier:check
+      nix develop --command prettier --config .prettierrc.yml --check '**/*.{yaml,yml}'
   - markdownlint: |
       cd dotfiles
-      yarn run markdownlint:check
+      nix develop --command markdownlint-cli2 '**/*.md'
