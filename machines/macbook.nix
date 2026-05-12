@@ -21,7 +21,7 @@
     with pkgs; [
       _1password-cli
       alejandra
-      asciinema_3
+      asciinema
       ast-grep
       awscli2
       bash-language-server

@@ -21,7 +21,7 @@
     with pkgs; [
       _1password-cli
       aerc
-      asciinema_3
+      asciinema
       ast-grep
       alejandra
       bash-language-server
