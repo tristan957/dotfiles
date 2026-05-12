@@ -21,25 +21,31 @@
           config.extendModules {
             modules = [
               amzn-nix-community.homeModules.default
-              ({pkgs, ...}: let
+              ({
+                pkgs,
+                lib,
+                ...
+              }: let
                 json = pkgs.formats.json {};
               in {
                 home.packages = [
                   amzn-nix-community.packages.${pkgs.stdenv.hostPlatform.system}.mcurl
                 ];
 
-                home.file.".kiro/settings/mcp.json".source = json.generate "mcp.json" {
-                  mcpServers = {
-                    builder-mcp = {
-                      command = "builder-mcp";
-                      args = ["--include-tools=ReadInternalWebsites,InternalCodeSearch,TicketingReadActions,InternalSearch,SkillsTool"];
+                home.activation.kiroMcpConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+                  install -Dm644 ${json.generate "mcp.json" {
+                    mcpServers = {
+                      builder-mcp = {
+                        command = "builder-mcp";
+                        args = ["--include-tools=ReadInternalWebsites,InternalCodeSearch,TicketingReadActions,InternalSearch,SkillsTool"];
+                      };
+                      m365-mcp = {
+                        command = "grasp-mcp";
+                        args = [];
+                      };
                     };
-                    m365-mcp = {
-                      command = "grasp-mcp";
-                      args = [];
-                    };
-                  };
-                };
+                  }} "$HOME/.kiro/settings/mcp.json"
+                '';
 
                 services.midway.aea.cookie-refresh.enable = true;
 
