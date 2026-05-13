@@ -1,7 +1,6 @@
 {
   commonModules,
-  emailModules,
-  rustModules,
+  ...
 }: {
   system = "x86_64-linux";
   username = "dbltap";
