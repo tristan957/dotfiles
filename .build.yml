@@ -6,6 +6,7 @@ sources:
 tasks:
   - format: |
       cd dotfiles
+      nix develop --command alejandra --check .
       nix develop --command ruff format --diff .
       nix develop --command ./scripts/shfmt.sh
       nix develop --command stylua --check .
@@ -18,3 +19,6 @@ tasks:
       nix develop --command ruff check --diff .
       nix develop --command ./scripts/shellcheck.sh
       nix develop --command markdownlint-cli2 '**/*.md'
+  - check-flakes: |
+      cd dotfiles
+      ./scripts/check-flakes.sh

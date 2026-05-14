@@ -19,7 +19,7 @@
     lib.mkPostgresDeps = import ./lib/mk-postgres-deps.nix {inherit configModule;};
     checks = import ./checks.nix {inherit self forAllSystems;};
     devShells = forAllSystems ({pkgs}: {
-      default = import ./dev-shells/default.nix {inherit pkgs;};
+      default = import ./dev-shells/default.nix {inherit self pkgs;};
     });
   };
 }
