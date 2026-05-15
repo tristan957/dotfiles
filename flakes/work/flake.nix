@@ -3,7 +3,7 @@
 
   inputs = {
     dotfiles.url = "path:../..";
-    amzn-nix-community = {
+    amzn = {
       url = "git+ssh://git.amazon.com/pkg/AmznNix-Community";
       inputs.nixpkgs.follows = "dotfiles/nixpkgs";
       inputs.home-manager.follows = "dotfiles/home-manager";
@@ -12,7 +12,7 @@
 
   outputs = {
     dotfiles,
-    amzn-nix-community,
+    amzn,
     ...
   }: {
     homeConfigurations =
@@ -20,7 +20,7 @@
         _: config:
           config.extendModules {
             modules = [
-              amzn-nix-community.homeModules.default
+              amzn.homeModules.default
               ({
                 pkgs,
                 lib,
@@ -29,7 +29,7 @@
                 json = pkgs.formats.json {};
               in {
                 home.packages = [
-                  amzn-nix-community.packages.${pkgs.stdenv.hostPlatform.system}.mcurl
+                  amzn.packages.${pkgs.stdenv.hostPlatform.system}.mcurl
                 ];
 
                 home.activation.kiroMcpConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
