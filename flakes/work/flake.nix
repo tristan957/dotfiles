@@ -67,6 +67,7 @@
                     axe.enable = true;
                     barium.enable = true;
                     brazilcli.enable = true;
+                    claude-code.enable = true;
                     cr.enable = true;
                     isengard-cli.enable = true;
                   };
