@@ -29,6 +29,7 @@ harper
 initdb
 libc
 libicu
+nixpkgs
 pageserver
 postgres
 readline
