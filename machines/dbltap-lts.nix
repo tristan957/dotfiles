@@ -1,7 +1,4 @@
-{
-  commonModules,
-  ...
-}: {
+{commonModules, ...}: {
   system = "x86_64-linux";
   username = "dbltap";
   homeDirectory = "/home/dbltap";
