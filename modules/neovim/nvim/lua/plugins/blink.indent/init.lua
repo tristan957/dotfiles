@@ -24,6 +24,7 @@ return {
         },
         filetypes = {
           include_defaults = true,
+          "mail",
           "markdown",
         },
       },
