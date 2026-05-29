@@ -13,6 +13,9 @@
   in {
     devShells = forAllSystems ({pkgs}: {
       default = pkgs.mkShell {
+        # _FORTIFY_SOURCE requires -O1+, conflicts with -O0 debug builds
+        hardeningDisable = ["fortify"];
+
         packages = with pkgs;
           [
             # Build dependencies
