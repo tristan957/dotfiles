@@ -29,6 +29,7 @@
       bun
       ccache
       chawan
+      clang
       coccinelle
       copilot-language-server
       delta
