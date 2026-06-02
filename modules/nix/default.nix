@@ -17,7 +17,9 @@
         options = "--delete-older-than 30d";
       };
       package = lib.mkDefault pkgs.nix;
-      settings = lib.mkIf (!config.modules.nix.isMultiUserInstall) {
+      settings = {
+        auto-optimise-store = true;
+      } // lib.optionalAttrs (!config.modules.nix.isMultiUserInstall) {
         # These are trusted settings that make much more sense to set at the
         # /etc/nix/nix.conf level. Otherwise you get warnings like the following:
         #
