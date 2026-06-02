@@ -1,6 +1,6 @@
 ---@module "lspconfig"
 
--- https://cs.opensource.google/go/x/tools/+/master:gopls/doc/
+-- https://go.dev/gopls/settings
 
 ---@type vim.lsp.Config
 return {
