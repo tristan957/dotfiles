@@ -31,6 +31,7 @@ return {
         vendor = true,
         vulncheck = true,
       },
+      semanticTokens = true,
     },
   },
 }
