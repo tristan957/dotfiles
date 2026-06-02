@@ -17,15 +17,14 @@
         options = "--delete-older-than 30d";
       };
       package = lib.mkDefault pkgs.nix;
-      settings = {
-        auto-optimise-store = true;
-      } // lib.optionalAttrs (!config.modules.nix.isMultiUserInstall) {
+      settings = lib.optionalAttrs (!config.modules.nix.isMultiUserInstall) {
         # These are trusted settings that make much more sense to set at the
         # /etc/nix/nix.conf level. Otherwise you get warnings like the following:
         #
         # warning: ignoring the client-specified setting
         # 'use-xdg-base-directories', because it is a restricted setting and you
         # are not a trusted user
+        auto-optimise-store = true;
         extra-experimental-features = [
           "flakes"
           "nix-command"
