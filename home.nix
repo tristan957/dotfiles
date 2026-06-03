@@ -2,6 +2,7 @@
   lib,
   username,
   homeDirectory,
+  stateVersion,
   ...
 }: {
   options.dotfilesPath = lib.mkOption {
@@ -13,7 +14,7 @@
   config = {
     home.username = username;
     home.homeDirectory = homeDirectory;
-    home.stateVersion = "25.11";
+    home.stateVersion = stateVersion;
     home.enableNixpkgsReleaseCheck = false;
 
     xdg = {

@@ -3,6 +3,7 @@
   emailModules,
   rustModules,
 }: {
+  stateVersion = "25.11";
   system = "aarch64-darwin";
   username = "dbltap";
   homeDirectory = "/Users/dbltap";

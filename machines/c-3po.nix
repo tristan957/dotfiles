@@ -3,6 +3,7 @@
   emailModules,
   rustModules,
 }: {
+  stateVersion = "25.11";
   system = "x86_64-linux";
   username = "tristan957";
   homeDirectory = "/home/tristan957";

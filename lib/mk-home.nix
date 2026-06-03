@@ -5,6 +5,7 @@
   system,
   username,
   homeDirectory,
+  stateVersion,
   modules,
   packages ? (_: []),
 }: let
@@ -25,7 +26,7 @@ in
   home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {
-      inherit username homeDirectory;
+      inherit username homeDirectory stateVersion;
     };
     modules = [
       ../home.nix
