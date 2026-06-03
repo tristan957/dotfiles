@@ -1,4 +1,5 @@
 /.clangd
+/.claude/settings.local.json
 /.direnv/
 /.DS_Store
 /.mypy_cache/
