@@ -4,6 +4,9 @@ environment:
 sources:
   - https://git.sr.ht/~tristan957/dotfiles
 tasks:
+  - download: |
+      cd dotfiles
+      nix develop --command true
   - format: |
       cd dotfiles
       nix develop --command alejandra --check .
