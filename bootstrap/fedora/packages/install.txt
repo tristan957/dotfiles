@@ -157,7 +157,7 @@ nix-daemon
 nix-legacy
 nnn
 nodejs
-nu
+nushell
 opentofu
 pandoc
 parallel
