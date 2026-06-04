@@ -1,5 +1,4 @@
 ---@module "lazy"
----@module "mini.trailspace"
 
 ---@type LazySpec
 return {

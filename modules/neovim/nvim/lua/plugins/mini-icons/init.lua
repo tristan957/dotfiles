@@ -1,5 +1,4 @@
 ---@module "lazy"
----@module "mini.icons"
 
 ---@type LazySpec
 return {

@@ -1,5 +1,4 @@
 ---@module "lazy"
----@module "mini.bracketed"
 
 ---@type LazySpec
 return {
