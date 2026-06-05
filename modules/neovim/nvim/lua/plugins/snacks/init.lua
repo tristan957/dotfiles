@@ -58,13 +58,6 @@ return {
               action = ":lua Snacks.picker.git_branches()",
               enabled = in_git_repo,
             },
-            {
-              icon = " ",
-              key = "C",
-              desc = "CodeCompanion",
-              action = ":CodeCompanionChat Toggle",
-              enabled = require("lazy.core.config").plugins["codecompanion.nvim"] ~= nil,
-            },
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             {
               icon = "󰒲 ",

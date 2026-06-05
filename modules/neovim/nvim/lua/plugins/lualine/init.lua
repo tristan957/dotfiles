@@ -49,7 +49,6 @@ return {
       lualine_z = { "location" },
     },
     extensions = {
-      require("plugins.lualine.extensions.codecompanion"),
       require("plugins.lualine.extensions.snacks_dashboard"),
       "fugitive",
       "lazy",
