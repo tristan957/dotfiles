@@ -48,7 +48,8 @@
             samurai
 
             # Libraries
-            aws-lc
+            # Postgres does not support aws-lc
+            # aws-lc
             curl
             gettext
             icu
