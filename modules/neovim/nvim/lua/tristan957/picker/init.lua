@@ -64,7 +64,7 @@ vim.keymap.set("n", "<leader>Q", M.quickfix_history, { desc = "View quickfix his
 vim.keymap.set("n", "<leader>r", M.registers, { desc = "View registers" })
 vim.keymap.set("n", "<leader>R", M.resume, { desc = "Resume last picker" })
 vim.keymap.set("n", "<leader>sh", M.search_history, { desc = "Open search history" })
-vim.keymap.set("n", "<leader>T", M.tagstack, { desc = "Open tagstack" })
+vim.keymap.set("n", "<leader>t", M.tagstack, { desc = "Open tagstack" })
 vim.keymap.set("n", "<leader>u", M.undo, { desc = "Open undo tree" })
 vim.keymap.set("n", "<leader><leader>", M.files, { desc = "Find files" })
 
