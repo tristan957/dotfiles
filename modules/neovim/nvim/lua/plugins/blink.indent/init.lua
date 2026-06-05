@@ -4,6 +4,7 @@
 ---@type LazySpec
 return {
   "saghen/blink.indent",
+  cond = false,
   event = "BufRead",
   opts = function()
     local colors = require("tristan957.utils.list").shuffle({
