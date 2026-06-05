@@ -38,7 +38,7 @@
             bison
             clang
             flex
-            gcc
+            gcc16
             meson
             muon
             ninja
