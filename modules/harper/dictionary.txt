@@ -25,6 +25,7 @@ TODO
 UTF
 XFAIL
 canonicalized
+ccache
 compute's
 harper
 initdb
