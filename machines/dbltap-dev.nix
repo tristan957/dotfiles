@@ -42,6 +42,7 @@
       fish-lsp
       fop
       gh
+      git-absorb
       glab
       glow
       go

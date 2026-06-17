@@ -43,6 +43,7 @@
       fish-lsp
       gh
       git
+      git-absorb
       glab
       glow
       gnumake
