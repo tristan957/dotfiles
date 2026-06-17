@@ -39,6 +39,7 @@
     "neovim"
     "nnn"
     "node"
+    "opencode"
     "programs"
     "psql"
     "python"

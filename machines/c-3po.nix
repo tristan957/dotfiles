@@ -34,7 +34,6 @@
       lua-language-server
       nh
       nixd
-      opencode
       taplo
       vscode-langservers-extracted
       yaml-language-server

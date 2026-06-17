@@ -75,6 +75,7 @@
     ./modules/nix
     ./modules/nnn
     ./modules/node
+    ./modules/opencode
     ./modules/programs
     ./modules/psql
     ./modules/ptyxis
