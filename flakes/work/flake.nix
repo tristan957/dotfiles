@@ -55,6 +55,13 @@
 
                 services.midway.aea.cookie-refresh.enable = true;
 
+                programs.opencode.settings = {
+                  provider."amazon-bedrock".options = {
+                    region = "us-east-1";
+                    profile = "dbltap";
+                  };
+                };
+
                 programs.toolbox = {
                   enable = true;
                   registries = {
