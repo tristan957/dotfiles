@@ -23,6 +23,8 @@
       default = pkgs.mkShell {
         packages = with pkgs; [
           alejandra
+          bashInteractive
+          fish
           lua-language-server
           luajitPackages.luacheck
           markdownlint-cli2
@@ -35,6 +37,7 @@
           stylua
           ty
           vscode-langservers-extracted
+          zsh
         ];
       };
     });
