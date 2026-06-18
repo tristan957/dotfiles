@@ -30,6 +30,7 @@
       chawan
       copilot-language-server
       fish-lsp
+      git-absorb
       harper
       lua-language-server
       nh
