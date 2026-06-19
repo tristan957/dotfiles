@@ -46,7 +46,7 @@
             ninja
             perl
             pkgconf
-            python3
+            python314
             samurai
 
             # Libraries
@@ -81,6 +81,8 @@
 
             # Testing
             perlPackages.IPCRun
+            python314Packages.pytest
+            python314Packages.pytest-tap
 
             # Dev tools
             bash-language-server
