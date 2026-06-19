@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# A script for selecting a tmux session to change to using fzf
+
+tmux list-sessions -F '#{session_last_attached} #{session_name}' |
+    sort -rn |
+    awk '{print $2}' |
+    fzf --tmux center,100%,100% \
+        --reverse \
+        --border-label " Choose session... " \
+        --preview 'tmux capture-pane -ep -t {} 2>/dev/null' \
+        --preview-window bottom:50% \
+        --preview-label ' loading... ' \
+        --bind 'enter:execute(tmux switch-client -t {})+abort' \
+        --bind 'focus:transform-preview-label:tmux display-message -p -t {} " {} · #{session_windows} #{?#{==:#{session_windows},1},window,windows} · created #{t:session_created} " 2>/dev/null'
