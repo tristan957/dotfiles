@@ -58,6 +58,7 @@
                 programs.opencode.settings = {
                   mcp = {
                     builder-mcp = {
+                      enabled = false;
                       type = "local";
                       command = ["builder-mcp"];
                       env = {
