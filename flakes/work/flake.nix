@@ -7,6 +7,7 @@
       url = "git+ssh://git.amazon.com/pkg/AmznNix-Community";
       inputs.nixpkgs.follows = "dotfiles/nixpkgs";
       inputs.home-manager.follows = "dotfiles/home-manager";
+      inputs.systems.follows = "dotfiles/systems";
     };
   };
 

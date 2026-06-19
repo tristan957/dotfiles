@@ -7,17 +7,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    systems.url = "github:nix-systems/default";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    systems,
     ...
   }: let
     mkHome = import ./lib/mk-home.nix {inherit nixpkgs home-manager;};
+    forEachSystem = nixpkgs.lib.genAttrs (import systems);
     inherit (import ./machines/common.nix) commonModules emailModules rustModules;
   in {
-    devShells = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"] (system: let
+    devShells = forEachSystem (system: let
       pkgs = import nixpkgs {inherit system;};
     in {
       default = pkgs.mkShell {

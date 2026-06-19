@@ -11,7 +11,10 @@
           "dotfiles",
           "nixpkgs"
         ],
-        "systems": "systems"
+        "systems": [
+          "dotfiles",
+          "systems"
+        ]
       },
       "locked": {
         "lastModified": 1774456732,
@@ -30,7 +33,8 @@
     "dotfiles": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "systems": "systems"
       },
       "locked": {
         "path": "../..",

@@ -1,17 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    systems.url = "github:nix-systems/default";
   };
 
   outputs = {nixpkgs, ...}: let
     systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-    forAllSystems = f:
-      nixpkgs.lib.genAttrs systems (system:
-        f {
-          pkgs = import nixpkgs {inherit system;};
-        });
+    forEachSystem = nixpkgs.lib.genAttrs (import systems);
   in {
-    devShells = forAllSystems ({pkgs}: {
+    devShells = forEachSystem ({pkgs}: {
       default = pkgs.mkShell {
         # _FORTIFY_SOURCE requires -O1+, conflicts with -O0 debug builds
         hardeningDisable = ["fortify"];
