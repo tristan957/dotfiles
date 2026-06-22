@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# A script for selecting a tmux session to change to using fzf
+
+self=$(realpath "$0")
+
+list_sessions() {
+    tmux list-sessions -F '#{session_last_attached} #{session_name}' |
+        sort -rn |
+        awk '{print $2}'
+}
+
+args=$(getopt \
+    -o l \
+    --long list \
+    -n "$0" \
+    -- "$@") || exit 1
+eval set -- "$args"
+
+while true; do
+    case "$1" in
+        -l|--list) list_sessions; exit 0 ;;
+        --) shift; break ;;
+    esac
+done
+
+list_sessions |
+    fzf --tmux center,100%,100% \
+        --reverse \
+        --border-label " Choose session... " \
+        --preview 'tmux capture-pane -ep -t {} 2>/dev/null' \
+        --preview-window bottom:50% \
+        --preview-label ' loading... ' \
+        --bind 'enter:execute(tmux switch-client -t {})+abort' \
+        --bind "ctrl-d:execute(tmux kill-session -t {})+reload(\"$self\" --list)" \
+        --bind 'ctrl-/:toggle-preview' \
+        --bind 'zero:hide-preview' \
+        --bind 'focus:show-preview+transform-preview-label:tmux display-message -p -t {} " {} · #{session_windows} #{?#{==:#{session_windows},1},window,windows} · created #{t:session_created} " 2>/dev/null'

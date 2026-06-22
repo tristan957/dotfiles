@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# A script for creating a new tmux session using gum input
+
+name=$(
+    gum input \
+        --prompt '> ' \
+        --placeholder 'New session...' \
+        --cursor.mode static \
+        --cursor.foreground '#ffffff' \
+        --no-show-help
+) || exit 0
+
+[[ -z "$name" ]] && exit 0
+
+tmux new-session -ds "$name" && tmux switch-client -t "$name"
