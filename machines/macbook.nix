@@ -61,12 +61,14 @@
       just
       lazygit
       lua-language-server
+      meson
       miller
       mjmap
       moreutils
       muon
       neovim
       nh
+      ninja
       nixd
       nodejs
       nushell
@@ -75,6 +77,7 @@
       reuse
       ruff
       rustup
+      samurai
       scdoc
       sequin
       sequoia-sq
