@@ -1,5 +1,6 @@
 AFAICT
 AIX
+CodeQL
 Databricks
 FileCopyrightText
 GUC
