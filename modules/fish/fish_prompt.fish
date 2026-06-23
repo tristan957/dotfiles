@@ -20,7 +20,9 @@ function __prompt_extras
     set -l PROMPT_EXTRAS ''
 
     if git rev-parse --is-inside-work-tree &>/dev/null
-        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(fish_vcs_prompt "$(set_color blue) \b[%s]")"
+        # These string trim shenanigans are because of
+        # https://github.com/fish-shell/fish-shell/issues/12705
+        set PROMPT_EXTRAS "$PROMPT_EXTRAS $(set_color blue) \b[$(string trim --right "$(fish_vcs_prompt '%s')")]"
     end
 
     # Python virtual environments are so fun
