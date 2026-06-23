@@ -16,7 +16,11 @@ if opts.rtps_root == nil then
   return
 end
 
-local cwd = vim.env.PWD
+local cwd = vim.uv.cwd()
+if cwd == nil then
+  return
+end
+
 local project = nil
 
 -- Check for overrides first
@@ -33,26 +37,42 @@ if project == nil then
     return
   end
 
-  local _, e = string.find(cwd, opts.fs_root)
+  local _, e = string.find(cwd, opts.fs_root, 1, true)
   if e == nil then
     return
   end
 
   -- +2 to move past last letter and trailing slash
-  project = string.sub(cwd, e + 2)
+  local relative = string.sub(cwd, e + 2)
+
+  -- Walk up the relative path to find the first matching runtimepath directory.
+  -- This handles worktree layouts like Projects/postgres/master where the
+  -- runtimepath is named "postgres", not "postgres/master".
+  local candidate = relative
+  while candidate ~= "" do
+    if vim.fn.isdirectory(vim.fs.joinpath(opts.rtps_root, candidate)) == 1 then
+      project = candidate
+      break
+    end
+    -- Strip the last path component
+    local parent = vim.fs.dirname(candidate)
+    if parent == candidate then
+      break
+    end
+    candidate = parent
+  end
+
+  if project == nil then
+    return
+  end
 end
 
 local rtp = vim.fs.joinpath(opts.rtps_root, project)
-if vim.fn.isdirectory(rtp) == 1 then
-  -- Append the project's runtimepath
-  vim.opt.runtimepath:append(rtp)
-  package.path = package.path .. ";" .. rtp .. "/?.lua;" .. rtp .. "/?/init.lua;"
 
-  -- Load the project.lua file if it exists
-  pcall(require, "project")
+-- Append the project's runtimepath
+vim.opt.runtimepath:append(rtp)
 
-  Snacks.notifier.notify("Loaded runtimepath", vim.log.levels.INFO, {
-    icon = "󱁿",
-    title = "Project Settings",
-  })
-end
+Snacks.notifier.notify("Loaded runtimepath", vim.log.levels.INFO, {
+  icon = "󱁿",
+  title = "Project Settings",
+})
