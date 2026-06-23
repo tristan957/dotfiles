@@ -73,7 +73,7 @@
             # Docs
             ditaa
             docbook2x
-            docbook_sgml_dtd_41
+            docbook_xml_dtd_45
             docbook_xsl
             fop
             graphviz
