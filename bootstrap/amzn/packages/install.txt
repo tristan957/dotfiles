@@ -33,6 +33,7 @@ lldb
 llvm20-devel
 lz4
 lz4-devel
+man-pages
 meson1
 ninja-build
 numactl-devel
@@ -45,6 +46,7 @@ perl-IPC-Run
 perl-Test-Simple
 postgresql18
 postgresql18-contrib
+postgresql18-server-devel
 python3-devel
 python3-pygments
 readline-devel
