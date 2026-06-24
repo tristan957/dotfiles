@@ -89,7 +89,7 @@ vim.g.omni_sql_no_default_maps = 1
 ---@param name string
 ---@return string
 local function runtimepath(name)
-  return vim.fs.joinpath(vim.fn.stdpath("config") --[[@as string]], "lua", "tristan957", "runtimepaths", name)
+  return vim.fs.joinpath(vim.fn.stdpath("config") --[[@as string]], "runtimepaths", name)
 end
 
 local home = vim.uv.fs_realpath(vim.env.HOME) or vim.env.HOME
