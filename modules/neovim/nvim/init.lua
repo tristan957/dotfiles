@@ -86,14 +86,19 @@ vim.g.markdown_fenced_languages = {
 }
 vim.g.omni_sql_no_default_maps = 1
 
+---@param name string
+---@return string
+local function runtimepath(name)
+  return vim.fs.joinpath(vim.fn.stdpath("config") --[[@as string]], "lua", "tristan957", "runtimepaths", name)
+end
+
+local home = vim.uv.fs_realpath(vim.env.HOME) or vim.env.HOME
+
 vim.g.project_settings_opts = {
-  fs_root = vim.fs.joinpath(vim.env.HOME, "Projects"),
-  rtps_root = vim.fs.joinpath(
-    vim.fn.stdpath("config") --[[@as string]],
-    "lua",
-    "tristan957",
-    "runtimepaths"
-  ),
+  runtimepaths = {
+    [vim.fs.joinpath(home, "Projects", "postgres")] = runtimepath("postgres"),
+    [vim.fs.joinpath(home, "Projects", "tristan.partin.io")] = runtimepath("tristan.partin.io"),
+  },
 } --[[@as ProjectSettingsOpts]]
 
 require("lazy").setup("plugins", {
