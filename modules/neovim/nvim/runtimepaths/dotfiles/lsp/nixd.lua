@@ -14,6 +14,11 @@ return {
   settings = {
     nixd = {
       options = {
+        -- nixd evaluates NixOS options from <nixpkgs> by default. None of this
+        -- repo is NixOS, so point it at an empty option set to stop that.
+        nixos = {
+          expr = "{ }",
+        },
         ["home-manager"] = {
           expr = string.format(
             '(builtins.getFlake (builtins.toString ./.)).homeConfigurations."%s@%s".options',
