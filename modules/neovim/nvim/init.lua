@@ -96,6 +96,7 @@ local home = vim.uv.fs_realpath(vim.env.HOME) or vim.env.HOME
 
 vim.g.project_settings_opts = {
   runtimepaths = {
+    [vim.fs.joinpath(home, "dotfiles")] = runtimepath("dotfiles"),
     [vim.fs.joinpath(home, "Projects", "postgres")] = runtimepath("postgres"),
     [vim.fs.joinpath(home, "Projects", "tristan.partin.io")] = runtimepath("tristan.partin.io"),
   },
