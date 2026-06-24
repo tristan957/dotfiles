@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.modules.less.enable {
     home.sessionVariables = {
-      LESS = "R";
+      LESS = "Rx4";
       LESSHISTSIZE = 1000000;
       LESSOPEN = "| pygmentize -O style=one-dark %s 2>/dev/null";
     };
