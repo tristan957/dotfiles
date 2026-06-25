@@ -7,5 +7,5 @@ shfmt --case-indent --diff --language-dialect bash --indent 4 \
     modules/aerc/aerc-signature \
     modules/bash/bash_logout \
     modules/programs/dbgwait \
-    modules/tmux/fzf-tmux-sessions \
+    modules/tmux/fzf-sessions \
     $files
