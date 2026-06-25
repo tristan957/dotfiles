@@ -14,15 +14,11 @@ trim_trailing_whitespace = false
 insert_final_newline = false
 trim_trailing_whitespace = false
 
-[.bashrc]
-indent_style = space
-indent_size = 4
-
 [*.fish]
 indent_style = space
 indent_size = 4
 
-[*.json]
+[*.{json,jsonc}]
 indent_style = space
 indent_size = 2
 
@@ -53,7 +49,3 @@ indent_size = 2
 [*.{yaml,yml}]
 indent_style = space
 indent_size = 2
-
-[.zshrc]
-indent_style = space
-indent_size = 4
