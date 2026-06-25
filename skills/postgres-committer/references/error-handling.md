@@ -17,10 +17,10 @@ for error recovery. Definitions are in `src/include/utils/elog.h`.
 
 ## ereport vs elog
 
-- `ereport` — the standard API. Supports `errcode()`, `errmsg()`,
-  `errdetail()`, `errhint()`, and other auxiliary fields.
-- `elog` — shorthand for internal messages where a SQLSTATE code and
-  user-facing detail are not needed. Typically used with `DEBUG` or `LOG`.
+- `ereport` — the standard API. Supports `errcode()`, `errmsg()`, `errdetail()`,
+  `errhint()`, and other auxiliary fields.
+- `elog` — shorthand for internal messages where a SQLSTATE code and user-facing
+  detail are not needed. Typically used with `DEBUG` or `LOG`.
 
 ## PG_TRY / PG_CATCH / PG_FINALLY
 
@@ -48,7 +48,7 @@ PG_END_TRY();
   `WARNING` or `NOTICE`, and vice versa.
 - `ereport` calls include a meaningful `errcode()` for user-facing errors.
 - Error messages are clear and do not leak sensitive data (see `security.md`).
-- Resources are cleaned up on error paths — use `PG_TRY`/`PG_FINALLY` or
-  memory contexts (see `memory-contexts.md`) rather than manual cleanup.
+- Resources are cleaned up on error paths — use `PG_TRY`/`PG_FINALLY` or memory
+  contexts (see `memory-contexts.md`) rather than manual cleanup.
 - `PG_CATCH` blocks either re-throw or abort; silently swallowing errors leaves
   the system in an inconsistent state.

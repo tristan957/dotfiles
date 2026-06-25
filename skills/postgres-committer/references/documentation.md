@@ -1,19 +1,19 @@
 # Documentation
 
-Postgres documentation is split into two parts: internal developer
-documentation and user-facing documentation.
+Postgres documentation is split into two parts: internal developer documentation
+and user-facing documentation.
 
 ## Internal Developer Documentation
 
 Internal developer documentation can be found in code comments, but also
-`README` files in the source tree. Code comments should explain *why*, not
-restate *what* the code does. Avoid overly verbose comments — if the code is
+`README` files in the source tree. Code comments should explain _why_, not
+restate _what_ the code does. Avoid overly verbose comments — if the code is
 clear, a brief note on intent is sufficient.
 
-- `README` files throughout the source tree (e.g., `src/backend/optimizer/README`,
-  `src/backend/utils/mmgr/README`) provide design-level documentation for
-  subsystems. Changes to a subsystem should update its README if the design
-  changes.
+- `README` files throughout the source tree (e.g.,
+  `src/backend/optimizer/README`, `src/backend/utils/mmgr/README`) provide
+  design-level documentation for subsystems. Changes to a subsystem should
+  update its README if the design changes.
 
 ## User-Facing Documentation
 

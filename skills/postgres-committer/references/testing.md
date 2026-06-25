@@ -5,10 +5,10 @@ also live in `contrib/` modules and `src/bin/` utilities.
 
 ## Regression Tests
 
-Located in directories called `regress`. A test consists of a SQL file in
-`sql/` and a matching expected output file in `expected/`. The test runner
-executes the SQL and diffs the output against the expected file. When modifying
-behavior, the expected file must be updated to match.
+Located in directories called `regress`. A test consists of a SQL file in `sql/`
+and a matching expected output file in `expected/`. The test runner executes the
+SQL and diffs the output against the expected file. When modifying behavior, the
+expected file must be updated to match.
 
 ## TAP Tests
 
@@ -18,11 +18,11 @@ infrastructure in `src/test/perl`, primarily:
 - `PostgreSQL::Test::Cluster` — spin up/stop/manage Postgres instances.
 - `PostgreSQL::Test::Utils` — helper functions for common test operations.
 
-TAP tests use `use strict` and `use warnings FATAL => 'all'`. Variables must
-be declared with `my` before use, and redeclaring `my` on the same variable
-in the same scope triggers a fatal warning. When adding code before an
-existing `my $var` declaration, either place the new `my` first or reuse the
-variable without redeclaring.
+TAP tests use `use strict` and `use warnings FATAL => 'all'`. Variables must be
+declared with `my` before use, and redeclaring `my` on the same variable in the
+same scope triggers a fatal warning. When adding code before an existing
+`my $var` declaration, either place the new `my` first or reuse the variable
+without redeclaring.
 
 TAP tests are used for things that need a running server or multiple servers
 (e.g., replication, recovery, pg_basebackup).
@@ -47,8 +47,8 @@ sessions and compares output against expected files.
 ## Running Tests
 
 Tests are run via `meson test` from the build directory. Before running tests,
-the build must be installed into `tmp_install` and an initdb template cache
-must be created. These steps need to be re-run when the build changes.
+the build must be installed into `tmp_install` and an initdb template cache must
+be created. These steps need to be re-run when the build changes.
 
 ```sh
 # Install and prepare the test environment

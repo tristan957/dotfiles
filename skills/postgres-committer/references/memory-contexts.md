@@ -17,8 +17,8 @@ top-level contexts to know:
 - `MessageContext` — reset after each client message.
 - `PortalContext` — tied to the active portal's lifetime.
 
-When creating a new context, parent it to the context whose lifetime matches
-the data's intended lifespan. Parenting to `TopMemoryContext` when
+When creating a new context, parent it to the context whose lifetime matches the
+data's intended lifespan. Parenting to `TopMemoryContext` when
 `TopTransactionContext` would suffice is a common source of leaks.
 
 ## Switching Contexts

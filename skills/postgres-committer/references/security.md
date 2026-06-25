@@ -4,8 +4,8 @@ Security is a very critical aspect of Postgres.
 
 ## C Programming Mistakes
 
-- Buffer overflows — unchecked lengths passed to `memcpy`, `snprintf`
-  truncation silently producing wrong results, `palloc` without validating size.
+- Buffer overflows — unchecked lengths passed to `memcpy`, `snprintf` truncation
+  silently producing wrong results, `palloc` without validating size.
 - Use-after-free — especially after `MemoryContextReset` or
   `MemoryContextDelete` (see `memory-contexts.md`).
 - Integer overflow — arithmetic on user-supplied lengths before allocation.

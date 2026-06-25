@@ -62,7 +62,10 @@
     "markdownBlockQuote": { "dark": "darkFgMuted", "light": "lightFgMuted" },
     "markdownEmph": { "dark": "darkYellow", "light": "lightYellow" },
     "markdownStrong": { "dark": "darkOrange", "light": "lightOrange" },
-    "markdownHorizontalRule": { "dark": "darkFgMuted", "light": "lightFgMuted" },
+    "markdownHorizontalRule": {
+      "dark": "darkFgMuted",
+      "light": "lightFgMuted"
+    },
     "markdownListItem": { "dark": "darkBlue", "light": "lightBlue" },
     "markdownListEnumeration": { "dark": "darkCyan", "light": "lightCyan" },
     "markdownImage": { "dark": "darkBlue", "light": "lightBlue" },

@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     systems.url = "github:nix-systems/default";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -27,22 +31,64 @@
     in {
       systems = import systems;
 
-      perSystem = {pkgs, ...}: {
+      imports = [inputs.treefmt-nix.flakeModule];
+
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        treefmt = {
+          projectRootFile = "flake.nix";
+
+          programs = {
+            alejandra.enable = true;
+            prettier.enable = true;
+            ruff-format.enable = true;
+            stylua.enable = true;
+
+            shfmt = {
+              enable = true;
+              indent_size = 4;
+              simplify = false;
+              includes = [
+                "*.bash"
+                "*.sh"
+                "modules/aerc/aerc-signature"
+                "modules/bash/bash_logout"
+                "modules/programs/dbgwait"
+                "modules/tmux/fzf-sessions"
+              ];
+            };
+          };
+
+          settings = {
+            excludes = [
+              # lazy.nvim manages these lockfiles; do not format them
+              "*/lazy-lock.json"
+            ];
+
+            formatter.shfmt.options = [
+              "--case-indent"
+              "--language-dialect"
+              "bash"
+            ];
+          };
+        };
+
         devShells.default = pkgs.mkShell {
+          inputsFrom = [config.treefmt.build.devShell];
+
           packages = with pkgs; [
-            alejandra
             bashInteractive
             fish
             lua-language-server
             luajitPackages.luacheck
             markdownlint-cli2
             nixd
-            prettier
             reuse
             ruff
             shellcheck
-            shfmt
-            stylua
             ty
             vscode-langservers-extracted
             zsh

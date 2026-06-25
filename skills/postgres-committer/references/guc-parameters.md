@@ -1,9 +1,8 @@
 # GUC Parameters
 
 GUC (Grand Unified Configuration) parameters are Postgres's configuration
-system. Parameters are defined in
-`src/backend/utils/misc/guc_parameters.dat`. See
-`src/backend/utils/misc/README` for design notes.
+system. Parameters are defined in `src/backend/utils/misc/guc_parameters.dat`.
+See `src/backend/utils/misc/README` for design notes.
 
 ## Adding a GUC
 
@@ -11,8 +10,8 @@ system. Parameters are defined in
 2. Add a record to `guc_parameters.dat` in alphabetical order.
 3. Add it to `postgresql.conf.sample` if appropriate.
 4. Document it in `doc/src/sgml/config.sgml`.
-5. If it's a `GUC_LIST_QUOTE` option, add it to
-   `variable_is_guc_list_quote()` in `src/bin/pg_dump/dumputils.c`.
+5. If it's a `GUC_LIST_QUOTE` option, add it to `variable_is_guc_list_quote()`
+   in `src/bin/pg_dump/dumputils.c`.
 
 ## Context Levels
 
@@ -26,8 +25,8 @@ The context controls when a GUC can be changed:
 - `PGC_SUSET` — changeable at runtime by superusers only.
 - `PGC_USERSET` — changeable at runtime by any user.
 
-Choose the most restrictive context that is practical. A GUC that affects
-shared state should not be `PGC_USERSET`.
+Choose the most restrictive context that is practical. A GUC that affects shared
+state should not be `PGC_USERSET`.
 
 ## Extension GUCs
 

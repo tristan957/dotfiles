@@ -6,8 +6,8 @@ results via `PG_RETURN_*` macros or the `Datum` type.
 
 ## Scalar Functions
 
-Return a single value. Registered in `pg_proc.dat` with a concrete
-`prorettype` and `proargtypes`.
+Return a single value. Registered in `pg_proc.dat` with a concrete `prorettype`
+and `proargtypes`.
 
 ```c
 Datum
@@ -33,8 +33,8 @@ Arguments and return values are passed as `Datum`. Common conversion macros:
 - `PG_GETARG_TEXT_PP(n)` / `CStringGetTextDatum(s)` / `PG_RETURN_TEXT_P(x)`
 - `PG_GETARG_FLOAT8(n)` / `Float8GetDatum(x)` / `PG_RETURN_FLOAT8(x)`
 
-Use `PG_ARGISNULL(n)` to check for NULL inputs. Use `PG_RETURN_NULL()` to
-return NULL.
+Use `PG_ARGISNULL(n)` to check for NULL inputs. Use `PG_RETURN_NULL()` to return
+NULL.
 
 ## Set-Returning Functions (SRFs)
 
@@ -42,8 +42,8 @@ Functions that return multiple rows. Two patterns exist:
 
 ### Materialized (Preferred)
 
-Build all rows into a tuplestore in a single call. The executor reads from
-the store afterward.
+Build all rows into a tuplestore in a single call. The executor reads from the
+store afterward.
 
 ```c
 Datum
@@ -70,13 +70,13 @@ my_srf(PG_FUNCTION_ARGS)
 }
 ```
 
-Use this when the result set is bounded or can be computed in one pass. This
-is the pattern used by nearly all modern SRFs.
+Use this when the result set is bounded or can be computed in one pass. This is
+the pattern used by nearly all modern SRFs.
 
 ### Value-Per-Call (Legacy)
 
-The function is called repeatedly, returning one row per call. State is kept
-in `FuncCallContext->user_fctx` across calls.
+The function is called repeatedly, returning one row per call. State is kept in
+`FuncCallContext->user_fctx` across calls.
 
 ```c
 if (SRF_IS_FIRSTCALL())
@@ -92,8 +92,8 @@ else
     SRF_RETURN_DONE(funcctx);
 ```
 
-Use only when lazy evaluation is needed — e.g., the result depends on state
-that may change between calls.
+Use only when lazy evaluation is needed — e.g., the result depends on state that
+may change between calls.
 
 ## Catalog Registration (pg_proc.dat)
 
@@ -108,8 +108,8 @@ Scalar example:
   prosrc => 'pg_stat_get_function_calls' },
 ```
 
-SRF example — requires `proretset => 't'`, `prorettype => 'record'`, and
-output column declarations:
+SRF example — requires `proretset => 't'`, `prorettype => 'record'`, and output
+column declarations:
 
 ```perl
 { oid => '8683',
@@ -136,5 +136,5 @@ Key fields for SRFs:
   A mismatch causes buffer overruns in `tuplestore_putvalues`.
 - Column types in `proallargtypes` match the `Datum` conversions in C.
 - Views wrapping an SRF select all declared output columns.
-- Bounded loops do not need `CHECK_FOR_INTERRUPTS()`; long or unbounded
-  loops do.
+- Bounded loops do not need `CHECK_FOR_INTERRUPTS()`; long or unbounded loops
+  do.

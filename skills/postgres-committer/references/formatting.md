@@ -9,8 +9,8 @@ styling, indentation, and other formatting choices of the existing code.
 - Tab indentation (4-wide tab stops). Never spaces for indentation.
 - `pgindent` (using `pg_bsd_indent`) is the canonical formatter and should be
   run on every commit. GNU indent is not acceptable.
-- New typedefs must be added to `src/tools/pgindent/typedefs.list` or
-  `pgindent` will produce odd spacing.
+- New typedefs must be added to `src/tools/pgindent/typedefs.list` or `pgindent`
+  will produce odd spacing.
 - Naming: `lowercase_with_underscores` for functions and variables, `CamelCase`
   for typedefs and struct tags.
 - File header comment uses the dashed-box style:

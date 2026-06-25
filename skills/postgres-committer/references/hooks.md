@@ -1,8 +1,8 @@
 # Hooks
 
 Hooks are function pointers that allow extensions to intercept or augment core
-behavior without modifying core code. They are declared as `PGDLLIMPORT`
-global variables, typically with a `_hook` suffix.
+behavior without modifying core code. They are declared as `PGDLLIMPORT` global
+variables, typically with a `_hook` suffix.
 
 ## Common Hooks
 
@@ -16,8 +16,8 @@ global variables, typically with a `_hook` suffix.
 
 ## Chaining Pattern
 
-Extensions must save the previous hook value and call it, so multiple
-extensions can coexist:
+Extensions must save the previous hook value and call it, so multiple extensions
+can coexist:
 
 ```c
 static planner_hook_type prev_planner_hook = NULL;

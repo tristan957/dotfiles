@@ -5,11 +5,11 @@ processes need to communicate. There are several IPC mechanisms.
 
 ## Latches
 
-Latches (`SetLatch`, `WaitLatch`, `ResetLatch`) are used to wake a process
-when something needs attention. A shared latch resides in shared memory and
-can be set by any process; a local latch can only be set by a signal handler
-within the same process. Latches must be reset before re-checking the condition
-to avoid missed wakeups.
+Latches (`SetLatch`, `WaitLatch`, `ResetLatch`) are used to wake a process when
+something needs attention. A shared latch resides in shared memory and can be
+set by any process; a local latch can only be set by a signal handler within the
+same process. Latches must be reset before re-checking the condition to avoid
+missed wakeups.
 
 ## Shared Memory
 
@@ -53,8 +53,8 @@ typically need synchronization (see `concurrency.md`).
 ## Signals
 
 `procsignal` provides a mechanism for sending typed signals between backends
-(e.g., requesting a barrier, triggering a catchup interrupt). Direct use of
-OS signals should be avoided in favor of this abstraction.
+(e.g., requesting a barrier, triggering a catchup interrupt). Direct use of OS
+signals should be avoided in favor of this abstraction.
 
 ## Shared Invalidation Messages
 
