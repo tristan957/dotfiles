@@ -7,6 +7,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,10 +35,19 @@
     in {
       systems = import systems;
 
-      imports = [inputs.treefmt-nix.flakeModule];
+      # Expose the evaluated flake-parts option set (debug.options,
+      # allSystems.<system>.options, ...) so editors/nixd can offer completion
+      # and docs for perSystem options like treefmt and pre-commit.
+      debug = true;
+
+      imports = [
+        inputs.git-hooks.flakeModule
+        inputs.treefmt-nix.flakeModule
+      ];
 
       perSystem = {
         config,
+        lib,
         pkgs,
         ...
       }: {
@@ -76,8 +89,48 @@
           };
         };
 
+        pre-commit.settings.hooks = {
+          luacheck.enable = true;
+
+          # markdownlint-cli2 reads .markdownlint-cli2.yaml from the repo root.
+          # Defined as a custom hook because the predefined `markdownlint` hook
+          # wraps markdownlint-cli (v1), which uses inline config instead.
+          markdownlint-cli2 = {
+            enable = true;
+            name = "markdownlint-cli2";
+            entry = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
+            files = "\\.md$";
+          };
+          reuse.enable = true;
+          ruff.enable = true;
+          shellcheck = {
+            enable = true;
+            types_or = lib.mkForce [];
+            files = lib.concatStringsSep "|" [
+              "\\.sh$"
+              "^modules/aerc/aerc-signature$"
+              "^modules/bash/bash_logout$"
+              "^modules/programs/dbgwait$"
+            ];
+            args = [
+              "--shell"
+              "bash"
+              "--external-sources"
+            ];
+          };
+
+          # Run treefmt as a hook so commits are formatted
+          treefmt = {
+            enable = true;
+            package = config.treefmt.build.wrapper;
+          };
+        };
+
         devShells.default = pkgs.mkShell {
-          inputsFrom = [config.treefmt.build.devShell];
+          inputsFrom = [
+            config.pre-commit.devShell
+            config.treefmt.build.devShell
+          ];
 
           packages = with pkgs; [
             bashInteractive

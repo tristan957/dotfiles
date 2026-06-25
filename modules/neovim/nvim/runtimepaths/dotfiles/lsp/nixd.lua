@@ -19,6 +19,9 @@ return {
         nixos = {
           expr = "{ }",
         },
+        ["flake-parts"] = {
+          expr = "(builtins.getFlake (builtins.toString ./.)).allSystems.${builtins.currentSystem}.options",
+        },
         ["home-manager"] = {
           expr = string.format(
             '(builtins.getFlake (builtins.toString ./.)).homeConfigurations."%s@%s".options',
