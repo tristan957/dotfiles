@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.fish.enable = lib.mkEnableOption "fish";
-
-  config = lib.mkIf config.modules.fish.enable {
+{...}: {
+  config = {
     programs.fish = {
       enable = true;
 

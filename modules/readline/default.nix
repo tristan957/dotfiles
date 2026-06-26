@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.readline.enable = lib.mkEnableOption "readline";
-
-  config = lib.mkIf config.modules.readline.enable {
+{config, ...}: {
+  config = {
     home.sessionVariables = {
       INPUTRC = "${config.xdg.configHome}/readline/inputrc";
     };

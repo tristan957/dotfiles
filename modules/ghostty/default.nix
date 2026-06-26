@@ -1,12 +1,9 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: {
-  options.modules.ghostty.enable = lib.mkEnableOption "ghostty";
-
-  config = lib.mkIf config.modules.ghostty.enable {
+  config = {
     xdg.configFile = {
       "ghostty/config.ghostty".source = ./config.ghostty;
       "ghostty/themes".source = ./themes;

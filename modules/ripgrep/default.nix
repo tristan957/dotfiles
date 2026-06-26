@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.ripgrep.enable = lib.mkEnableOption "ripgrep";
-
-  config = lib.mkIf config.modules.ripgrep.enable {
+{...}: {
+  config = {
     programs.ripgrep = {
       enable = true;
       arguments = ["--hidden"];

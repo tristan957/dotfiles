@@ -1,25 +1,75 @@
 {
-  commonModules,
-  emailModules,
-  rustModules,
-}: {
-  stateVersion = "25.11";
   system = "x86_64-linux";
-  username = "dbltap";
-  homeDirectory = "/home/dbltap";
-  modules =
-    commonModules
-    ++ emailModules
-    ++ rustModules
-    ++ [
-      "cloud-desktop"
-      "comlink"
-      "desktop-database"
-      "gdb"
-      "kiro"
+
+  machine = {
+    config,
+    pkgs,
+    ...
+  }: let
+    root = "${config.home.homeDirectory}/dotfiles";
+  in {
+    imports = [
+      ../modules/1password
+      ../modules/aerc
+      ../modules/bash
+      ../modules/bat
+      ../modules/cargo
+      ../modules/chawan
+      ../modules/clangd
+      ../modules/cloud-desktop
+      ../modules/comlink
+      ../modules/deno
+      ../modules/desktop-database
+      ../modules/direnv
+      ../modules/dotnet
+      ../modules/editline
+      ../modules/fish
+      ../modules/fzf
+      ../modules/gdb
+      ../modules/git
+      ../modules/glow
+      ../modules/go
+      ../modules/harper
+      ../modules/helix
+      ../modules/hut
+      ../modules/jj
+      ../modules/jq
+      ../modules/just
+      ../modules/kiro
+      ../modules/lazygit
+      ../modules/less
+      ../modules/man
+      ../modules/meson
+      ../modules/mjmap
+      ../modules/neovim
+      ../modules/nix
+      ../modules/nnn
+      ../modules/node
+      ../modules/opencode
+      ../modules/programs
+      ../modules/psql
+      ../modules/python
+      ../modules/readline
+      ../modules/ripgrep
+      ../modules/rlwrap
+      ../modules/rustup
+      ../modules/testcontainers
+      ../modules/tmux
+      ../modules/vim
+      ../modules/zellij
+      ../modules/zoxide
+      ../modules/zsh
     ];
-  packages = pkgs:
-    with pkgs; [
+
+    home.username = "dbltap";
+    home.homeDirectory = "/home/dbltap";
+    home.stateVersion = "25.11";
+
+    modules.aerc.symlink = "${root}/modules/aerc/accounts.conf";
+    modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
+    modules.neovim.symlink = "${root}/modules/neovim/nvim";
+
+    home.packages = with pkgs; [
       _1password-cli
       aerc
       asciinema
@@ -68,8 +118,8 @@
       nushell
       pandoc
       postgres-language-server
-      reuse
       rr
+      reuse
       ruff
       rustup
       samurai
@@ -95,4 +145,5 @@
       zig
       zls
     ];
+  };
 }

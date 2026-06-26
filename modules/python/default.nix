@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.python.enable = lib.mkEnableOption "python";
-
-  config = lib.mkIf config.modules.python.enable {
+{config, ...}: {
+  config = {
     home.sessionVariables = {
       PYTHON_HISTORY = "${config.xdg.stateHome}/python/history";
       # Python virtual environments should stop messing with PS1

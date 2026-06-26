@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.deno.enable = lib.mkEnableOption "deno";
-
-  config = lib.mkIf config.modules.deno.enable {
+{config, ...}: {
+  config = {
     home.sessionVariables = {
       DENO_DIR = "${config.xdg.cacheHome}/deno";
       DENO_INSTALL_ROOT = "${config.home.homeDirectory}/.local/bin";

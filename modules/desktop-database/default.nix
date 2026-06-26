@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.desktop-database.enable = lib.mkEnableOption "desktop-database";
-
-  config = lib.mkIf config.modules.desktop-database.enable {
+{...}: {
+  config = {
     systemd.user.services."desktop-database" = {
       Unit.Description = "Update $XDG_DATA_HOME/applications/ desktop database";
       Service = {

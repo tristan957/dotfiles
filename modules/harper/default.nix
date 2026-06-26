@@ -2,12 +2,22 @@
   config,
   lib,
   ...
-}: {
-  options.modules.harper.enable = lib.mkEnableOption "harper";
+}: let
+  cfg = config.modules.harper;
+in {
+  options.modules.harper.symlink = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
+    default = null;
+    description = ''
+      Absolute path to symlink the harper dictionary from for live editing
+      (out-of-store symlink). Null uses the Nix store copy.
+    '';
+  };
 
-  config = lib.mkIf config.modules.harper.enable {
+  config = {
     xdg.configFile."harper-ls/dictionary.txt".source =
-      config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/harper/dictionary.txt";
+      if cfg.symlink != null
+      then config.lib.file.mkOutOfStoreSymlink cfg.symlink
+      else ./dictionary.txt;
   };
 }

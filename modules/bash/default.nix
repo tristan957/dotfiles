@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.bash.enable = lib.mkEnableOption "bash";
-
-  config = lib.mkIf config.modules.bash.enable {
+{config, ...}: {
+  config = {
     programs.bash = {
       enable = true;
 

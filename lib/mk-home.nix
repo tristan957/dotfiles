@@ -3,11 +3,7 @@
   home-manager,
 }: {
   system,
-  username,
-  homeDirectory,
-  stateVersion,
-  modules,
-  packages ? (_: []),
+  machine,
 }: let
   pkgs = import nixpkgs {
     inherit system;
@@ -25,18 +21,19 @@
 in
   home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {
-      inherit username homeDirectory stateVersion;
-    };
     modules = [
-      ../home.nix
+      # Base configuration shared by every machine.
       {
-        modules = builtins.listToAttrs (map (name: {
-            inherit name;
-            value = {enable = true;};
-          })
-          modules);
-        home.packages = packages pkgs;
+        home.enableNixpkgsReleaseCheck = false;
+
+        xdg.enable = true;
+
+        home.sessionVariables = {
+          COLORTERM = "truecolor";
+        };
+
+        programs.home-manager.enable = true;
       }
+      machine
     ];
   }

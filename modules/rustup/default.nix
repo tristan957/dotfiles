@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.rustup.enable = lib.mkEnableOption "rustup";
-
-  config = lib.mkIf config.modules.rustup.enable {
+{config, ...}: {
+  config = {
     home.sessionVariables = {
       RUSTUP_HOME = "${config.home.homeDirectory}/.opt/rustup";
     };

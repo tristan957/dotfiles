@@ -1,12 +1,9 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: {
-  options.modules."1password".enable = lib.mkEnableOption "1password";
-
-  config = lib.mkIf config.modules."1password".enable {
+  config = {
     programs.zsh.envExtra = ''
       if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
         export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"

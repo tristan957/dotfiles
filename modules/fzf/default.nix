@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.fzf.enable = lib.mkEnableOption "fzf";
-
-  config = lib.mkIf config.modules.fzf.enable {
+{...}: {
+  config = {
     programs.fzf = {
       enable = true;
       enableBashIntegration = true;

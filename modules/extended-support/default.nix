@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.extended-support.enable = lib.mkEnableOption "extended-support";
-
-  config = lib.mkIf config.modules.extended-support.enable {
+{config, ...}: {
+  config = {
     home.sessionVariables = {
       OPS_EXTENDED_SUPPORT_DIR = "${config.home.homeDirectory}/Projects/work/postgresql-extended-support-ops";
       PGES_EXTENDED_SUPPORT_DIR = "${config.home.homeDirectory}/Projects/work/postgresql-extended-support";

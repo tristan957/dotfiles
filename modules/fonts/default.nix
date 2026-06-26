@@ -3,9 +3,7 @@
   lib,
   ...
 }: {
-  options.modules.fonts.enable = lib.mkEnableOption "fonts";
-
-  config = lib.mkIf config.modules.fonts.enable {
+  config = {
     fonts.fontconfig.enable = true;
 
     home.activation.linkFonts = lib.hm.dag.entryAfter ["writeBoundary"] ''

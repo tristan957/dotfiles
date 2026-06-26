@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.opencode.enable = lib.mkEnableOption "opencode";
-
-  config = lib.mkIf config.modules.opencode.enable {
+{...}: {
+  config = {
     programs.opencode = {
       enable = true;
 

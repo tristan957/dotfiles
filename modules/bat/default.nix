@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.bat.enable = lib.mkEnableOption "bat";
-
-  config = lib.mkIf config.modules.bat.enable {
+{...}: {
+  config = {
     programs.bat = {
       enable = true;
       config = {

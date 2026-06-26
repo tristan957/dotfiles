@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.zsh.enable = lib.mkEnableOption "zsh";
-
-  config = lib.mkIf config.modules.zsh.enable {
+{config, ...}: {
+  config = {
     programs.zsh = {
       enable = true;
       dotDir = "${config.xdg.configHome}/zsh";

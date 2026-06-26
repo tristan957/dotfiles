@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.editline.enable = lib.mkEnableOption "editline";
-
-  config = lib.mkIf config.modules.editline.enable {
+{config, ...}: {
+  config = {
     home.sessionVariables = {
       EDITRC = "${config.xdg.configHome}/editline/editrc";
     };

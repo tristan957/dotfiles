@@ -1,12 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  options.modules.man.enable = lib.mkEnableOption "man";
-
-  config = lib.mkIf config.modules.man.enable {
+{pkgs, ...}: {
+  config = {
     programs.man.enable = !pkgs.stdenv.isDarwin;
 
     home.sessionVariables = {

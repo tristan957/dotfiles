@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.chawan.enable = lib.mkEnableOption "chawan";
-
-  config = lib.mkIf config.modules.chawan.enable {
+{...}: {
+  config = {
     xdg.configFile."chawan/config.toml".source = ./config.toml;
   };
 }

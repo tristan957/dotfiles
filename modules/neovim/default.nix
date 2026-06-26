@@ -2,15 +2,24 @@
   config,
   lib,
   ...
-}: {
-  options.modules.neovim.enable = lib.mkEnableOption "neovim";
+}: let
+  cfg = config.modules.neovim;
+in {
+  options.modules.neovim.symlink = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
+    default = null;
+    description = ''
+      Absolute path to symlink the Neovim config from for live editing
+      (out-of-store symlink). Null uses the Nix store copy.
+    '';
+  };
 
-  config = lib.mkIf config.modules.neovim.enable {
+  config = {
+    home.sessionVariables.EDITOR = "nvim";
+
     xdg.configFile."nvim".source =
-      if config.dotfilesPath != null
-      then
-        config.lib.file.mkOutOfStoreSymlink
-        "${config.dotfilesPath}/modules/neovim/nvim"
+      if cfg.symlink != null
+      then config.lib.file.mkOutOfStoreSymlink cfg.symlink
       else ./nvim;
   };
 }

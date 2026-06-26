@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.cloud-desktop.enable = lib.mkEnableOption "cloud-desktop";
-
-  config = lib.mkIf config.modules.cloud-desktop.enable {
+{lib, ...}: {
+  config = {
     home.sessionVariables = {
       AWS_EC2_METADATA_DISABLED = "true";
       BRAZIL_WORKSPACE_DEFAULT_LAYOUT = "short";

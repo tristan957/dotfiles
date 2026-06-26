@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.kubernetes.enable = lib.mkEnableOption "kubernetes";
-
-  config = lib.mkIf config.modules.kubernetes.enable {
+{...}: {
+  config = {
     home.file = {
       ".local/bin/kubectl-setns" = {
         source = ./kubectl-setns;

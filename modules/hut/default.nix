@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.hut.enable = lib.mkEnableOption "hut";
-
-  config = lib.mkIf config.modules.hut.enable {
+{...}: {
+  config = {
     xdg.configFile."hut/config".source = ./config;
   };
 }

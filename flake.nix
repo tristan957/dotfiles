@@ -31,7 +31,6 @@
   }:
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
       mkHome = import ./lib/mk-home.nix {inherit nixpkgs home-manager;};
-      inherit (import ./machines/common.nix) commonModules emailModules rustModules;
     in {
       systems = import systems;
 
@@ -150,16 +149,12 @@
       };
 
       flake = {
-        homeConfigurations = let
-          machineArgs = {inherit commonModules emailModules rustModules;};
-        in {
-          "dbltap@macbook" = mkHome (import ./machines/macbook.nix machineArgs);
-          "dbltap@dbltap-dev" = mkHome (import ./machines/dbltap-dev.nix machineArgs);
-          "dbltap@dbltap-lts" = mkHome (import ./machines/dbltap-lts.nix machineArgs);
-          "tristan957@c-3po" = mkHome (import ./machines/c-3po.nix machineArgs);
+        homeConfigurations = {
+          "dbltap@macbook" = mkHome (import ./machines/macbook.nix);
+          "dbltap@dbltap-dev" = mkHome (import ./machines/dbltap-dev.nix);
+          "dbltap@dbltap-lts" = mkHome (import ./machines/dbltap-lts.nix);
+          "tristan957@c-3po" = mkHome (import ./machines/c-3po.nix);
         };
-
-        homeModules.default = ./home.nix;
       };
     });
 }

@@ -1,11 +1,7 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.modules.less.enable = lib.mkEnableOption "less";
+{...}: {
+  config = {
+    home.sessionVariables.PAGER = "less";
 
-  config = lib.mkIf config.modules.less.enable {
     programs.less = {
       enable = true;
 
