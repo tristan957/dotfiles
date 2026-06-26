@@ -2,7 +2,7 @@
 #
 # Wired into config.lib.file in lib/mk-home.nix, so modules use it as:
 #   { config, ... }: {
-#     home.file.".local/bin/foo" = config.lib.file.mkExecutable ./foo;
+#     home.file."${config.xdg.binHome}/foo" = config.lib.file.mkExecutable ./foo;
 #   }
 source: {
   inherit source;

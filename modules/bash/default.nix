@@ -32,7 +32,7 @@
         . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
 
         # Make sure local binaries override everything
-        export PATH="$HOME/.local/bin:$PATH"
+        export PATH="${config.xdg.binHome}:$PATH"
       '';
 
       initExtra = ''

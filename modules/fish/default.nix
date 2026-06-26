@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   config = {
     programs.fish = {
       enable = true;
@@ -17,7 +17,7 @@
         source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
 
         # Make sure local binaries override everything
-        fish_add_path --prepend --move "$HOME/.local/bin"
+        fish_add_path --prepend --move "${config.xdg.binHome}"
       '';
     };
 

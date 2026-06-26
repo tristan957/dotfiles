@@ -6,7 +6,7 @@
     package = null;
 
     env = {
-      GOBIN = "${config.home.homeDirectory}/.local/bin";
+      GOBIN = "${config.xdg.binHome}";
       GOMODCACHE = "${config.xdg.cacheHome}/go";
       GOPATH = "${config.xdg.dataHome}/go";
     };

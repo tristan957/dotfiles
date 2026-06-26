@@ -32,8 +32,8 @@ in {
       };
 
     home.file = {
-      ".local/bin/aerc-notify" = config.lib.file.mkExecutable ./aerc-notify;
-      ".local/bin/aerc-signature" = config.lib.file.mkExecutable ./aerc-signature;
+      "${config.xdg.binHome}/aerc-notify" = config.lib.file.mkExecutable ./aerc-notify;
+      "${config.xdg.binHome}/aerc-signature" = config.lib.file.mkExecutable ./aerc-signature;
     };
 
     home.activation.aercAccounts = lib.hm.dag.entryAfter ["writeBoundary"] (
