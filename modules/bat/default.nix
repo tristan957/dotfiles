@@ -3,7 +3,7 @@
     programs.bat = {
       enable = true;
       config = {
-        theme = "TwoDark";
+        theme = "base16";
       };
     };
   };
