@@ -1,52 +1,16 @@
-{...}: {
+{config, ...}: {
   config = {
-    # Managed in the shell configs to override the Nix binary paths. This is
-    # left here as a reminder.
-    # home.sessionPath = lib.mkBefore [
-    #   "$HOME/.local/bin"
-    # ];
-
     home.file = {
-      ".local/bin/c2f" = {
-        source = ./c2f;
-        executable = true;
-      };
-      ".local/bin/chcompdb" = {
-        source = ./chcompdb;
-        executable = true;
-      };
-      ".local/bin/dbgwait" = {
-        source = ./dbgwait;
-        executable = true;
-      };
-      ".local/bin/f2c" = {
-        source = ./f2c;
-        executable = true;
-      };
-      ".local/bin/pg_lsn" = {
-        source = ./pg_lsn;
-        executable = true;
-      };
-      ".local/bin/pgsql-hacker" = {
-        source = ./pgsql-hacker;
-        executable = true;
-      };
-      ".local/bin/substr" = {
-        source = ./substr;
-        executable = true;
-      };
-      ".local/bin/universal-copy" = {
-        source = ./universal-copy;
-        executable = true;
-      };
-      ".local/bin/xdp-file-chooser" = {
-        source = ./xdp-file-chooser;
-        executable = true;
-      };
-      ".local/bin/yaml2json" = {
-        source = ./yaml2json;
-        executable = true;
-      };
+      ".local/bin/c2f" = config.lib.file.mkExecutable ./c2f;
+      ".local/bin/chcompdb" = config.lib.file.mkExecutable ./chcompdb;
+      ".local/bin/dbgwait" = config.lib.file.mkExecutable ./dbgwait;
+      ".local/bin/f2c" = config.lib.file.mkExecutable ./f2c;
+      ".local/bin/pg_lsn" = config.lib.file.mkExecutable ./pg_lsn;
+      ".local/bin/pgsql-hacker" = config.lib.file.mkExecutable ./pgsql-hacker;
+      ".local/bin/substr" = config.lib.file.mkExecutable ./substr;
+      ".local/bin/universal-copy" = config.lib.file.mkExecutable ./universal-copy;
+      ".local/bin/xdp-file-chooser" = config.lib.file.mkExecutable ./xdp-file-chooser;
+      ".local/bin/yaml2json" = config.lib.file.mkExecutable ./yaml2json;
     };
   };
 }

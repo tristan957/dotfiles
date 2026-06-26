@@ -17,6 +17,10 @@ in
     modules = [
       # Base configuration shared by every machine.
       {
+        # Custom helpers, exposed alongside home-manager's own under
+        # config.lib.file (e.g. config.lib.file.mkExecutable).
+        lib.file.mkExecutable = import ./mk-executable.nix;
+
         home.enableNixpkgsReleaseCheck = false;
 
         xdg.enable = true;

@@ -32,14 +32,8 @@ in {
       };
 
     home.file = {
-      ".local/bin/aerc-notify" = {
-        source = ./aerc-notify;
-        executable = true;
-      };
-      ".local/bin/aerc-signature" = {
-        source = ./aerc-signature;
-        executable = true;
-      };
+      ".local/bin/aerc-notify" = config.lib.file.mkExecutable ./aerc-notify;
+      ".local/bin/aerc-signature" = config.lib.file.mkExecutable ./aerc-signature;
     };
 
     home.activation.aercAccounts = lib.hm.dag.entryAfter ["writeBoundary"] (

@@ -1,14 +1,8 @@
-{...}: {
+{config, ...}: {
   config = {
     home.file = {
-      ".local/bin/kubectl-setns" = {
-        source = ./kubectl-setns;
-        executable = true;
-      };
-      ".local/bin/kubectl-cc" = {
-        source = ./kubectl-cc;
-        executable = true;
-      };
+      ".local/bin/kubectl-cc" = config.lib.file.mkExecutable ./kubectl-cc;
+      ".local/bin/kubectl-setns" = config.lib.file.mkExecutable ./kubectl-setns;
     };
   };
 }
