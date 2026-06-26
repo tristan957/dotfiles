@@ -4,60 +4,61 @@
   machine = {
     config,
     pkgs,
+    dotfiles,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
   in {
-    imports = [
-      ../modules/1password
-      ../modules/aerc
-      ../modules/bash
-      ../modules/bat
-      ../modules/cargo
-      ../modules/chawan
-      ../modules/clangd
-      ../modules/comlink
-      ../modules/deno
-      ../modules/direnv
-      ../modules/dotnet
-      ../modules/editline
-      ../modules/fish
-      ../modules/fonts
-      ../modules/fzf
-      ../modules/ghostty
-      ../modules/git
-      ../modules/glow
-      ../modules/go
-      ../modules/harper
-      ../modules/helix
-      ../modules/hut
-      ../modules/jj
-      ../modules/just
-      ../modules/kiro
-      ../modules/lazygit
-      ../modules/less
-      ../modules/man
-      ../modules/meson
-      ../modules/mjmap
-      ../modules/neovim
-      ../modules/nix
-      ../modules/nnn
-      ../modules/node
-      ../modules/opencode
-      ../modules/programs
-      ../modules/psql
-      ../modules/python
-      ../modules/readline
-      ../modules/ripgrep
-      ../modules/rlwrap
-      ../modules/rustup
-      ../modules/testcontainers
-      ../modules/tmux
-      ../modules/vim
-      ../modules/vscode
-      ../modules/zellij
-      ../modules/zoxide
-      ../modules/zsh
+    imports = with dotfiles.homeModules; [
+      _1password
+      aerc
+      bash
+      bat
+      cargo
+      chawan
+      clangd
+      comlink
+      deno
+      direnv
+      dotnet
+      editline
+      fish
+      fonts
+      fzf
+      ghostty
+      git
+      glow
+      go
+      harper
+      helix
+      hut
+      jj
+      just
+      kiro
+      lazygit
+      less
+      man
+      meson
+      mjmap
+      neovim
+      nix
+      nnn
+      node
+      opencode
+      programs
+      psql
+      python
+      readline
+      ripgrep
+      rlwrap
+      rustup
+      testcontainers
+      tmux
+      vim
+      vscode
+      zellij
+      zoxide
+      zsh
     ];
 
     home.username = "dbltap";

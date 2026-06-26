@@ -30,7 +30,9 @@
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
-      mkHome = import ./lib/mk-home.nix {inherit nixpkgs home-manager;};
+      mkHomeModules = import ./lib/home-modules.nix;
+      homeModules = mkHomeModules ./modules;
+      mkHome = import ./lib/mk-home.nix {inherit nixpkgs home-manager homeModules;};
     in {
       systems = import systems;
 
@@ -149,18 +151,18 @@
       };
 
       flake = {
-        homeConfigurations = {
-          "dbltap@macbook" = mkHome (import ./machines/macbook.nix);
-          "dbltap@dbltap-dev" = mkHome (import ./machines/dbltap-dev.nix);
-          "dbltap@dbltap-lts" = mkHome (import ./machines/dbltap-lts.nix);
-          "tristan957@c-3po" = mkHome (import ./machines/c-3po.nix);
+        # Export all dotfiles for external consumers
+        inherit homeModules;
+
+        # Re-export helpers so downstream flakes (e.g. flakes/work) can build
+        # their own machine configurations against this repo's modules, and
+        # generate their own `homeModules` from a modules directory
+        lib = {
+          inherit mkHome mkHomeModules;
         };
 
-        homeModules = {
-          bash = import ./modules/bash;
-          fish = import ./modules/fish;
-          neovim = import ./modules/neovim;
-          zsh = import ./modules/zsh;
+        homeConfigurations = {
+          "tristan957@c-3po" = mkHome (import ./machines/c-3po.nix);
         };
       };
     });
