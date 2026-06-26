@@ -1,6 +1,7 @@
-{lib, ...}: {
+{...}: {
   config = {
-    # Managed in the shell configs to override the Nix binary paths
+    # Managed in the shell configs to override the Nix binary paths. This is
+    # left here as a reminder.
     # home.sessionPath = lib.mkBefore [
     #   "$HOME/.local/bin"
     # ];
