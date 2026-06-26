@@ -33,7 +33,6 @@
       ../modules/helix
       ../modules/hut
       ../modules/jj
-      ../modules/jq
       ../modules/just
       ../modules/kiro
       ../modules/lazygit
