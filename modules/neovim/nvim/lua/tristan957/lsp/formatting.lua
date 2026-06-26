@@ -19,6 +19,7 @@ local ls_markers = {
   },
   gopls = true,
   lua_ls = false,
+  nixd = true,
   terraformls = true,
   ts_ls = false,
   stylua = {
