@@ -155,6 +155,13 @@
           "dbltap@dbltap-lts" = mkHome (import ./machines/dbltap-lts.nix);
           "tristan957@c-3po" = mkHome (import ./machines/c-3po.nix);
         };
+
+        homeModules = {
+          bash = import ./modules/bash;
+          fish = import ./modules/fish;
+          neovim = import ./modules/neovim;
+          zsh = import ./modules/zsh;
+        };
       };
     });
 }
