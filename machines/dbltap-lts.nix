@@ -75,12 +75,12 @@
       meson
       mold
       muon
+      neovim
       nh
+      ninja
       nixd
       pandoc
       postgres-language-server
-      neovim
-      ninja
       rr
       samurai
       sccache

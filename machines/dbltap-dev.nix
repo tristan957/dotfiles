@@ -71,9 +71,9 @@
     home.packages = with pkgs; [
       _1password-cli
       aerc
+      alejandra
       asciinema
       ast-grep
-      alejandra
       bash-language-server
       bear
       bun
@@ -96,8 +96,8 @@
       glab
       glow
       go
-      gopls
       golangci-lint
+      gopls
       gum
       harper
       hut
@@ -117,8 +117,8 @@
       nushell
       pandoc
       postgres-language-server
-      rr
       reuse
+      rr
       ruff
       rustup
       samurai
