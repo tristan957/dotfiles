@@ -15,8 +15,7 @@
       };
 
       skills = ../../skills;
-      themes = ./themes;
-      tui.theme = "one-dark-vivid";
+      tui.theme = "system";
     };
   };
 }
