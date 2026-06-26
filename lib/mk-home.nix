@@ -10,13 +10,6 @@
 
     # Allow unfree packages like 1Password CLI
     config.allowUnfree = true;
-
-    overlays = [
-      (final: prev: {
-        # direnv's checkPhase seems to struggle if direnv is loaded
-        direnv = prev.direnv.overrideAttrs {doCheck = false;};
-      })
-    ];
   };
 in
   home-manager.lib.homeManagerConfiguration {
