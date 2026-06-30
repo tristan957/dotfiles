@@ -79,6 +79,7 @@
       alejandra
       asciinema
       ast-grep
+      basedpyright
       bash-language-server
       bear
       bun

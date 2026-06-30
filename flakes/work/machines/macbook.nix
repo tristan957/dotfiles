@@ -75,6 +75,7 @@
       asciinema
       ast-grep
       awscli2
+      basedpyright
       bash-language-server
       binutils
       bun

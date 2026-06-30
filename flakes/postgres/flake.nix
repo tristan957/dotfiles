@@ -90,6 +90,7 @@
               python314Packages.pytest
 
               # Dev tools
+              basedpyright
               bash-language-server
               bear
               binutils
