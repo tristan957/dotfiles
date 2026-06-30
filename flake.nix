@@ -78,10 +78,10 @@
 
           settings = {
             excludes = [
-              # lazy.nvim manages these lockfiles
-              "*/lazy-lock.json"
               # flake.lock is managed by nix
               "*/flake.lock"
+              # lazy.nvim manages these lockfiles
+              "*/lazy-lock.json"
             ];
 
             formatter.shfmt.options = [
