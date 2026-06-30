@@ -147,6 +147,7 @@
       ts_query_ls
       ty
       typst
+      uv
       vhs
       vim
       vscode-langservers-extracted
