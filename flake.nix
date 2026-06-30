@@ -129,7 +129,7 @@
           };
         };
 
-        devShells.default = pkgs.mkShell {
+        devShells.default = pkgs.mkShellNoCC {
           inputsFrom = [
             config.pre-commit.devShell
             config.treefmt.build.devShell
