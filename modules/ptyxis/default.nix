@@ -5,6 +5,7 @@
 }: {
   config = lib.mkIf pkgs.stdenv.isLinux {
     programs.ptyxis.enable = true;
+    programs.ptyxis.package = null;
 
     programs.ptyxis.palettes = {
       One-Vivid = {
