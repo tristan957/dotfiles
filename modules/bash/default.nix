@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   config = {
     programs.bash = {
       enable = true;
@@ -53,5 +57,9 @@
       "bash.d/90-completion.sh".source = ./90-completion.sh;
       "bash.d/90-prompt.sh".source = ./90-prompt.sh;
     };
+
+    home.activation.createBashStateDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      mkdir -p "${config.xdg.stateHome}/bash"
+    '';
   };
 }
