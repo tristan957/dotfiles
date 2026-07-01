@@ -14,10 +14,7 @@
 .cache/clangd/
 .compdb/
 .envrc
-.exrc
 .nfs*
-.nvim.lua
-.nvimrc
 .vscode/
 compile_commands.json
 compile_commands.*.json
