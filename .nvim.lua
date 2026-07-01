@@ -43,7 +43,7 @@ local function home_manager_expr()
 end
 
 ---@type vim.lsp.Config
-return {
+vim.lsp.config("nixd", {
   settings = {
     nixd = {
       options = {
@@ -61,4 +61,4 @@ return {
       },
     },
   },
-}
+})
