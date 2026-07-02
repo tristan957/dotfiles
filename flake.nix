@@ -142,6 +142,10 @@
             luajitPackages.luacheck
             markdownlint-cli2
             nixd
+            (python314.withPackages (ps:
+              with ps; [
+                matplotlib
+              ]))
             reuse
             ruff
             shellcheck
