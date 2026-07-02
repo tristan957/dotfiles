@@ -1,5 +1,7 @@
-{
+{...}: {
   programs.opencode.settings = {
+    enabled_providers = ["amazon-bedrock"];
+
     mcp.builder-mcp = {
       enabled = false;
       type = "local";
@@ -16,5 +18,7 @@
       region = "us-east-1";
       profile = "dbltap";
     };
+
+    share = "disabled";
   };
 }
