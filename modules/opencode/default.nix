@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   config = {
     programs.opencode = {
       enable = true;
@@ -12,9 +12,11 @@
             oauth = {};
           };
         };
+        skills = {
+          paths = ["${config.home.homeDirectory}/dotfiles/skills"];
+        };
       };
 
-      skills = ../../skills;
       tui.theme = "system";
     };
   };
