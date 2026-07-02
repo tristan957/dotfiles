@@ -124,6 +124,10 @@
       pandoc
       postgres-language-server
       reuse
+      (python314.withPackages (ps:
+        with ps; [
+          matplotlib
+        ]))
       rr
       ruff
       rustup
