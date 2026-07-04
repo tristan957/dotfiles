@@ -95,5 +95,5 @@ function fish_prompt
     set -l last_status $status
     set -l cwd (prompt_pwd --dir-length=1)
 
-    printf "$(set_color --bold) \b$(set_color red) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(set_color green) \b[$(whoami)@$(__prompt_host)] $(set_color yellow) \b[$cwd]$(__prompt_extras) \b$(set_color normal)\n$(__prompt_mode_char) $(__prompt_user_char) "
+    printf "$(set_color --bold)$(set_color red) \b[$last_status $(__prompt_jobs) $(__prompt_time)] $(set_color green) \b[$(whoami)@$(__prompt_host)] $(set_color yellow) \b[$cwd]$(__prompt_extras) \b$(set_color normal)\n$(__prompt_mode_char) $(__prompt_user_char) "
 end
