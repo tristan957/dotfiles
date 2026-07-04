@@ -60,7 +60,7 @@ function __prompt_host
 end
 
 function __prompt_jobs
-    jobs --pid | wc -l
+    jobs --pid | wc -l | string trim
 end
 
 function __prompt_user_char
