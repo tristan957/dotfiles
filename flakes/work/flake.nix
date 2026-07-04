@@ -12,15 +12,11 @@
     };
   };
 
-  outputs = {
-    dotfiles,
-    amzn,
-    ...
-  }: let
+  outputs = inputs @ {dotfiles, ...}: let
     inherit (dotfiles.lib) mkHome mkHomeModules;
 
     homeModules = mkHomeModules ./modules;
-    mkWork = import ./lib/mk-work.nix {inherit mkHome homeModules amzn dotfiles;};
+    mkWork = import ./lib/mk-work.nix {inherit inputs mkHome homeModules;};
   in {
     # Export all work dotfiles for external consumers
     inherit homeModules;

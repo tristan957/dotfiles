@@ -11,20 +11,19 @@
 # default, so machine files reference shared modules via `dotfiles.homeModules`
 # and work modules via `homeModules`.
 {
+  inputs,
   mkHome,
   homeModules,
-  amzn,
-  dotfiles,
 }: args:
 (mkHome (args
   // {
-    extraSpecialArgs = {inherit dotfiles homeModules;};
+    extraSpecialArgs = {inherit inputs homeModules;};
   }))
   .extendModules {
   modules =
     [
-      amzn.homeModules.default
-      (homeModules.midway amzn)
+      inputs.amzn.homeModules.default
+      (homeModules.midway inputs.amzn)
     ]
     ++ (with homeModules; [
       ada

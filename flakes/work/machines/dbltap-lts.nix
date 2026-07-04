@@ -2,16 +2,16 @@
   system = "x86_64-linux";
 
   machine = {
+    inputs,
     config,
     pkgs,
-    dotfiles,
     homeModules,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
   in {
     imports =
-      (with dotfiles.homeModules; [
+      (with inputs.dotfiles.homeModules; [
         _1password
         bash
         clangd

@@ -2,14 +2,14 @@
   system = "aarch64-darwin";
 
   machine = {
+    inputs,
     config,
     pkgs,
-    dotfiles,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
   in {
-    imports = with dotfiles.homeModules; [
+    imports = with inputs.dotfiles.homeModules; [
       _1password
       aerc
       bash

@@ -2,16 +2,16 @@
   system = "x86_64-linux";
 
   machine = {
+    inputs,
     config,
     pkgs,
-    dotfiles,
     homeModules,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
   in {
     imports =
-      (with dotfiles.homeModules; [
+      (with inputs.dotfiles.homeModules; [
         _1password
         aerc
         bash
@@ -142,7 +142,7 @@
       stow
       taplo
       tinymist
-      tmux
+      inputs.ghostty-tmux.packages.${system}.default
       tokei
       tree-sitter
       ts_query_ls

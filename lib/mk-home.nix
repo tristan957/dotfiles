@@ -1,6 +1,5 @@
 {
-  nixpkgs,
-  home-manager,
+  inputs,
   # The repository's Home Manager modules, exposed so machine configurations
   # can import them by name (e.g. `homeModules.git`) regardless of where the
   # machine file lives on disk (which lets machine files live in other flakes,
@@ -15,14 +14,14 @@
   # `homeModules` with their own module set.
   extraSpecialArgs ? {},
 }: let
-  pkgs = import nixpkgs {
+  pkgs = import inputs.nixpkgs {
     inherit system;
 
     # Allow unfree packages like 1Password CLI
     config.allowUnfree = true;
   };
 in
-  home-manager.lib.homeManagerConfiguration {
+  inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit homeModules;} // extraSpecialArgs;
     modules = [

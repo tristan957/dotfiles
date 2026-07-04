@@ -32,7 +32,7 @@
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
       mkHomeModules = import ./lib/home-modules.nix;
       homeModules = mkHomeModules ./modules;
-      mkHome = import ./lib/mk-home.nix {inherit nixpkgs home-manager homeModules;};
+      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
     in {
       systems = import systems;
 
