@@ -10,6 +10,12 @@
       inputs.flake-parts.follows = "dotfiles/flake-parts";
       inputs.systems.follows = "dotfiles/systems";
     };
+    bmux = {
+      url = "github:Uzaaft/bmux";
+      inputs.nixpkgs.follows = "dotfiles/nixpkgs";
+      inputs.ghostty.inputs.home-manager.follows = "dotfiles/home-manager";
+      inputs.ghostty.inputs.systems.follows = "dotfiles/systems";
+    };
   };
 
   outputs = inputs @ {dotfiles, ...}: let

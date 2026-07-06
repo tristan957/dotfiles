@@ -142,7 +142,7 @@
       stow
       taplo
       tinymist
-      inputs.ghostty-tmux.packages.${system}.default
+      inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default
       tokei
       tree-sitter
       ts_query_ls

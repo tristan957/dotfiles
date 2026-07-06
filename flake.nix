@@ -24,8 +24,6 @@
 
   outputs = inputs @ {
     flake-parts,
-    home-manager,
-    nixpkgs,
     systems,
     ...
   }:
