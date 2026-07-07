@@ -2,7 +2,9 @@
   "nodes": {
     "bmux": {
       "inputs": {
-        "ghostty": "ghostty",
+        "ghostty": [
+          "ghostty"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -18,22 +20,6 @@
       "original": {
         "owner": "Uzaaft",
         "repo": "bmux",
-        "type": "github"
-      }
-    },
-    "flatpak": {
-      "locked": {
-        "lastModified": 1767983141,
-        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
-        "owner": "gmodena",
-        "repo": "nix-flatpak",
-        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gmodena",
-        "ref": "latest",
-        "repo": "nix-flatpak",
         "type": "github"
       }
     },
@@ -89,6 +75,22 @@
         "type": "github"
       }
     },
+    "flatpak": {
+      "locked": {
+        "lastModified": 1767983141,
+        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "latest",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "ghostty": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -96,7 +98,6 @@
           "home-manager"
         ],
         "nixpkgs": [
-          "bmux",
           "nixpkgs"
         ],
         "systems": [
@@ -106,11 +107,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1783354077,
-        "narHash": "sha256-2yuGpbOnRJoGrMAijwY0kIt7owHEQV6bD7litPqR1OY=",
+        "lastModified": 1783394291,
+        "narHash": "sha256-9GIRkUZGM+7uQBHlQ0HTvlba+1zdvsWWmPSGCzOBF6o=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "2da015cd6ac06cedc89e09756e895d2c1715205d",
+        "rev": "cabbdee32b75ac71f0e2b19b31e4c25da97b5461",
         "type": "github"
       },
       "original": {
@@ -181,6 +182,7 @@
         "bmux": "bmux",
         "flake-parts": "flake-parts",
         "flatpak": "flatpak",
+        "ghostty": "ghostty",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
@@ -226,17 +228,14 @@
     "zig": {
       "inputs": {
         "flake-compat": [
-          "bmux",
           "ghostty",
           "flake-compat"
         ],
         "nixpkgs": [
-          "bmux",
           "ghostty",
           "nixpkgs"
         ],
         "systems": [
-          "bmux",
           "ghostty",
           "systems"
         ]
@@ -258,7 +257,6 @@
     "zig_2": {
       "inputs": {
         "nixpkgs": [
-          "bmux",
           "ghostty",
           "zon2nix",
           "nixpkgs"
@@ -281,7 +279,6 @@
     "zon2nix": {
       "inputs": {
         "nixpkgs": [
-          "bmux",
           "ghostty",
           "nixpkgs"
         ],
