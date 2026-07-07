@@ -23,7 +23,7 @@
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit homeModules;} // extraSpecialArgs;
+    extraSpecialArgs = {inherit inputs homeModules;} // extraSpecialArgs;
     modules =
       [
         # Base configuration shared by every machine.
