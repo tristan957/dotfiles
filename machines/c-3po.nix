@@ -24,6 +24,7 @@
       dotnet
       editline
       fish
+      flatpak
       fonts
       fzf
       gdb

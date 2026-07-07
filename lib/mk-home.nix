@@ -24,23 +24,28 @@ in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
     extraSpecialArgs = {inherit homeModules;} // extraSpecialArgs;
-    modules = [
-      # Base configuration shared by every machine.
-      {
-        # Custom helpers, exposed alongside home-manager's own under
-        # config.lib.file (e.g. config.lib.file.mkExecutable).
-        lib.file.mkExecutable = import ./mk-executable.nix;
+    modules =
+      [
+        # Base configuration shared by every machine.
+        {
+          # Custom helpers, exposed alongside home-manager's own under
+          # config.lib.file (e.g. config.lib.file.mkExecutable).
+          lib.file.mkExecutable = import ./mk-executable.nix;
 
-        home.enableNixpkgsReleaseCheck = false;
+          home.enableNixpkgsReleaseCheck = false;
 
-        xdg.enable = true;
+          xdg.enable = true;
 
-        home.sessionVariables = {
-          COLORTERM = "truecolor";
-        };
+          home.sessionVariables = {
+            COLORTERM = "truecolor";
+          };
 
-        programs.home-manager.enable = true;
-      }
-      machine
-    ];
+          programs.home-manager.enable = true;
+        }
+        machine
+      ]
+      # nix-flatpak is only meaningful on Linux (flatpak does not exist on macOS).
+      ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+        inputs.flatpak.homeManagerModules.nix-flatpak
+      ];
   }

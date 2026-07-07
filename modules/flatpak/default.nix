@@ -1,0 +1,90 @@
+{...}: {
+  services.flatpak = {
+    enable = true;
+
+    update = {
+      auto = {
+        enable = false;
+      };
+      onActivation = false;
+    };
+
+    remotes = [
+      {
+        name = "gnome-nightly";
+        location = "https://nightly.gnome.org/gnome-nightly.flatpakrepo";
+      }
+    ];
+
+    packages = [
+      # GNOME Nightly
+      {
+        appId = "org.gnome.Adwaita1.Demo";
+        origin = "gnome-nightly";
+      }
+      {
+        appId = "org.gnome.Sdk.Debug";
+        origin = "gnome-nightly";
+      }
+      {
+        appId = "org.gnome.Sdk.Docs";
+        origin = "gnome-nightly";
+      }
+      {
+        appId = "org.gtk.Demo4";
+        origin = "gnome-nightly";
+      }
+
+      # Flathub
+      "app.devsuite.Ptyxis"
+      "app.drey.KeyRack"
+      "com.belmoussaoui.Decoder"
+      "com.belmoussaoui.Obfuscate"
+      "com.discordapp.Discord"
+      "com.fastmail.Fastmail"
+      "com.github.finefindus.eyedropper"
+      "com.github.marhkb.Pods"
+      "com.mojang.Minecraft"
+      "com.obsproject.Studio"
+      "com.rafaelmardojai.SharePreview"
+      "com.slack.Slack"
+      "com.spotify.Client"
+      "com.valvesoftware.Steam"
+      "de.haeckerfelix.Fragments"
+      "dev.geopjr.Tuba"
+      "io.bassi.Amberol"
+      "io.github.realmazharhussain.GdmSettings"
+      "io.gitlab.news_flash.NewsFlash"
+      "md.obsidian.Obsidian"
+      # "io.podman_desktop.PodmanDesktop"
+      "org.freecad.FreeCAD"
+      "org.freedesktop.Bustle"
+      "org.gimp.GIMP"
+      "org.gnome.dspy"
+      "org.gnome.Builder"
+      "org.gnome.Calculator"
+      "org.gnome.Calendar"
+      "org.gnome.clocks"
+      "org.gnome.Contacts"
+      "org.gnome.Decibels"
+      "org.gnome.Fractal"
+      "org.gnome.Loupe"
+      "org.gnome.Manuals"
+      "org.gnome.Maps"
+      "org.gnome.Papers"
+      "org.gnome.Snapshot"
+      "org.gnome.Weather"
+      "org.gnome.design.Contrast"
+      "org.gnome.design.IconLibrary"
+      "org.gnome.design.Lorem"
+      "org.inkscape.Inkscape"
+      "org.signal.Signal"
+      "org.telegram.desktop"
+      "page.tesk.Refine"
+      "se.sjoerd.Graphs"
+      "us.zoom.Zoom"
+    ];
+
+    overrides = {};
+  };
+}

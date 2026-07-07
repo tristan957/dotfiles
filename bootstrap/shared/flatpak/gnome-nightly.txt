@@ -1,4 +1,0 @@
-org.gnome.Adwaita1.Demo
-org.gnome.Sdk.Docs//master
-org.gnome.Sdk.Debug//master
-org.gtk.Demo4
