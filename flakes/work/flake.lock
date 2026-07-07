@@ -57,6 +57,7 @@
     },
     "dotfiles": {
       "inputs": {
+        "bmux": "bmux",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
@@ -135,6 +136,7 @@
           "home-manager"
         ],
         "nixpkgs": [
+          "dotfiles",
           "bmux",
           "nixpkgs"
         ],
@@ -221,7 +223,10 @@
     "root": {
       "inputs": {
         "amzn": "amzn",
-        "bmux": "bmux",
+        "bmux": [
+          "dotfiles",
+          "bmux"
+        ],
         "dotfiles": "dotfiles"
       }
     },
@@ -264,16 +269,19 @@
     "zig": {
       "inputs": {
         "flake-compat": [
+          "dotfiles",
           "bmux",
           "ghostty",
           "flake-compat"
         ],
         "nixpkgs": [
+          "dotfiles",
           "bmux",
           "ghostty",
           "nixpkgs"
         ],
         "systems": [
+          "dotfiles",
           "bmux",
           "ghostty",
           "systems"
@@ -296,6 +304,7 @@
     "zig_2": {
       "inputs": {
         "nixpkgs": [
+          "dotfiles",
           "bmux",
           "ghostty",
           "zon2nix",
@@ -319,6 +328,7 @@
     "zon2nix": {
       "inputs": {
         "nixpkgs": [
+          "dotfiles",
           "bmux",
           "ghostty",
           "nixpkgs"
