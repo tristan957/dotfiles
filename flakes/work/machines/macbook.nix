@@ -139,7 +139,7 @@
       taplo
       time
       tinymist
-      inputs.dotfiles.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default
       tofu-ls
       tokei
       tree-sitter

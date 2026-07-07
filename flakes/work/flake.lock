@@ -35,7 +35,10 @@
     },
     "bmux": {
       "inputs": {
-        "ghostty": "ghostty",
+        "ghostty": [
+          "dotfiles",
+          "ghostty"
+        ],
         "nixpkgs": [
           "dotfiles",
           "nixpkgs"
@@ -59,6 +62,8 @@
       "inputs": {
         "bmux": "bmux",
         "flake-parts": "flake-parts",
+        "flatpak": "flatpak",
+        "ghostty": "ghostty",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
@@ -128,6 +133,22 @@
         "type": "github"
       }
     },
+    "flatpak": {
+      "locked": {
+        "lastModified": 1767983141,
+        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "latest",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "ghostty": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -137,7 +158,6 @@
         ],
         "nixpkgs": [
           "dotfiles",
-          "bmux",
           "nixpkgs"
         ],
         "systems": [
@@ -148,11 +168,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1783354077,
-        "narHash": "sha256-2yuGpbOnRJoGrMAijwY0kIt7owHEQV6bD7litPqR1OY=",
+        "lastModified": 1783431367,
+        "narHash": "sha256-ZMhxF0mU5KDFs2m2j+wGWf8bJnNIavf6bAAB2rJwzcY=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "2da015cd6ac06cedc89e09756e895d2c1715205d",
+        "rev": "160c3c69ea9a47961dfd973a8190b774048c20a1",
         "type": "github"
       },
       "original": {
@@ -191,11 +211,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783388784,
-        "narHash": "sha256-w+YU5vatysjLZIg1wOKSzo/RL9Z66eBQuIjVnBM/1Zg=",
+        "lastModified": 1783436070,
+        "narHash": "sha256-F80z1JoiJgZyTT5D+3siLOVzqmCEphLR7t0Ym/I2CLI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "63d02d1c19f1c2b47a5bc7e55c620b6af7b218a6",
+        "rev": "f09af49406ffad37acb6538d3207189a1a1e0b7e",
         "type": "github"
       },
       "original": {
@@ -270,19 +290,16 @@
       "inputs": {
         "flake-compat": [
           "dotfiles",
-          "bmux",
           "ghostty",
           "flake-compat"
         ],
         "nixpkgs": [
           "dotfiles",
-          "bmux",
           "ghostty",
           "nixpkgs"
         ],
         "systems": [
           "dotfiles",
-          "bmux",
           "ghostty",
           "systems"
         ]
@@ -305,7 +322,6 @@
       "inputs": {
         "nixpkgs": [
           "dotfiles",
-          "bmux",
           "ghostty",
           "zon2nix",
           "nixpkgs"
@@ -329,7 +345,6 @@
       "inputs": {
         "nixpkgs": [
           "dotfiles",
-          "bmux",
           "ghostty",
           "nixpkgs"
         ],
