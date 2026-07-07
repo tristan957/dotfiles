@@ -159,6 +159,10 @@
           window-titlebar-background = "#fafafa";
         };
       };
+
+      systemd = {
+        enable = false;
+      };
     };
 
     # Enable the ghostty systemd user service if ghostty is installed and
