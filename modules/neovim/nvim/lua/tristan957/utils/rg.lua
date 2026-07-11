@@ -23,7 +23,7 @@ M.project_files = function(ignore_largely_irrelevant_paths)
     vim
       .iter(fs.largely_irrelevant_paths)
       :map(function(p)
-        return string.format("--glob='!%s'", p)
+        return string.format("--glob=!%s", p)
       end)
       :totable()
   )
@@ -49,7 +49,7 @@ M.grep = function(ignore_largely_irrelevant_paths)
 
   if ignore_largely_irrelevant_paths then
     vim.iter(fs.largely_irrelevant_paths):each(function(p)
-      table.insert(cmd, 2, string.format("--glob='!%s'", p))
+      table.insert(cmd, 2, string.format("--glob=!%s", p))
     end)
   end
 
