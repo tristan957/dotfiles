@@ -25,21 +25,34 @@ M.virtualenvs_path = function()
 end
 
 ---Get the Python executable from poetry.
----@return string?
-M.python_executable = function()
-  local cmd = vim
-    .system({
-      "poetry",
-      "env",
-      "info",
-      "--executable",
-    })
-    :wait()
-  if cmd.code ~= 0 then
-    return nil
+---
+---If `callback` is omitted, this blocks until poetry responds. If `callback`
+---is given, the command runs without blocking and `callback` is invoked with
+---the result once it's ready.
+---@param callback fun(python: string?)?
+---@return string? python Only returned when `callback` is omitted.
+M.python_executable = function(callback)
+  local cmd_args = { "poetry", "env", "info", "--executable" }
+
+  if callback == nil then
+    local cmd = vim.system(cmd_args):wait()
+    if cmd.code ~= 0 then
+      return nil
+    end
+
+    return utils.rstrip(cmd.stdout)
   end
 
-  return utils.rstrip(cmd.stdout)
+  vim.system(cmd_args, {}, function(cmd)
+    vim.schedule(function()
+      if cmd.code ~= 0 then
+        callback(nil)
+        return
+      end
+
+      callback(utils.rstrip(cmd.stdout))
+    end)
+  end)
 end
 
 ---Is the directory a Poetry workspace?
