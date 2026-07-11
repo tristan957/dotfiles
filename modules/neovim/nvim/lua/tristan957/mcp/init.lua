@@ -7,12 +7,6 @@ local GLOBAL_PATHS = {
   vim.fs.joinpath(vim.env.HOME, ".vscode", "mcp.json"),
 }
 
-local LOCAL_PATHS = {
-  vim.fs.joinpath(vim.env.PWD, ".mcp.json"),
-  vim.fs.joinpath(vim.env.PWD, ".cursor", "mcp.json"),
-  vim.fs.joinpath(vim.env.PWD, ".vscode", "mcp.json"),
-}
-
 ---MCP server configuration for stdio servers
 ---@class StdioMCPServerConfig
 ---@field type "stdio"
@@ -104,9 +98,16 @@ function M.load_servers()
   ---@type table<string, MCPServerConfig>
   local servers = {}
 
+  local cwd = vim.uv.cwd() --[[@as string]]
+  local local_paths = {
+    vim.fs.joinpath(cwd, ".mcp.json"),
+    vim.fs.joinpath(cwd, ".cursor", "mcp.json"),
+    vim.fs.joinpath(cwd, ".vscode", "mcp.json"),
+  }
+
   --Paths to load
   local global_path = fs.first_existing(GLOBAL_PATHS)
-  local local_path = fs.first_existing(LOCAL_PATHS)
+  local local_path = fs.first_existing(local_paths)
   local paths_to_load = {}
   if global_path then
     table.insert(paths_to_load, global_path)
@@ -116,13 +117,18 @@ function M.load_servers()
   end
 
   for _, path in ipairs(paths_to_load) do
-    local config = parse_vscode_mcp_config(path)
+    local config, err = parse_vscode_mcp_config(path)
     if config and config.mcpServers then
       for name, server in pairs(config.mcpServers) do
         if server.type == "stdio" and server.command and vim.fn.executable(server.command) == 1 then
           servers[name] = server
         end
       end
+    elseif err then
+      vim.notify(
+        string.format("Failed to parse MCP config at %s: %s", path, err),
+        vim.log.levels.WARN
+      )
     end
   end
 
