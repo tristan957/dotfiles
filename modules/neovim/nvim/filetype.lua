@@ -25,7 +25,7 @@ vim.filetype.add({
               [[\<constexpr\>]],
               [[\<consteval\>]],
               [[\<extern "C"\>]],
-              [[^class\> [A-Z]],
+              "^class\\> [A-Z]",
               [[^\s*using\>]],
               [[\<template\>\s*<]],
               [[\<std::]],
