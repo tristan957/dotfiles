@@ -14,7 +14,21 @@ return {
     sections = {
       lualine_b = {
         "branch",
-        "diff",
+        {
+          "diff",
+          source = function()
+            local summary = vim.b.minidiff_summary
+            if summary == nil then
+              return nil
+            end
+
+            return {
+              added = summary.add,
+              modified = summary.change,
+              removed = summary.delete,
+            }
+          end,
+        },
       },
       lualine_c = {
         {
