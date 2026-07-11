@@ -35,10 +35,7 @@
     },
     "bmux": {
       "inputs": {
-        "ghostty": [
-          "dotfiles",
-          "ghostty"
-        ],
+        "ghostty": "ghostty",
         "nixpkgs": [
           "dotfiles",
           "nixpkgs"
@@ -63,7 +60,6 @@
         "bmux": "bmux",
         "flake-parts": "flake-parts",
         "flatpak": "flatpak",
-        "ghostty": "ghostty",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
@@ -158,6 +154,7 @@
         ],
         "nixpkgs": [
           "dotfiles",
+          "bmux",
           "nixpkgs"
         ],
         "systems": [
@@ -168,11 +165,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1783702482,
-        "narHash": "sha256-I5WgJqLZF8Qn+/Iaouhh95HRvEV3n8f/c2rpYD+bHxE=",
+        "lastModified": 1783532979,
+        "narHash": "sha256-Uz+Hkcyvp4GrOjzNXplQo4VWMs2R+BYpzfLGDHdQnQA=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "53bd14fecfd68c6c0ab64d37b5943247299e2b40",
+        "rev": "f815f8459421e4b53e6c4b9ba559a74e9dc62798",
         "type": "github"
       },
       "original": {
@@ -211,11 +208,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783711151,
-        "narHash": "sha256-232L3Nku2nLch/TQHsJEIhiZJKr+VTehnVUs1NZ0SNc=",
+        "lastModified": 1783744526,
+        "narHash": "sha256-yYVxW+uIbCx0Nt870fbErQbz+b2+3Gwpppe+JbIU+Co=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f938277527aa084929261879d50d9832b9eab6d3",
+        "rev": "2afec152df4e284d264f8489d16004c264aebf4c",
         "type": "github"
       },
       "original": {
@@ -226,11 +223,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1783475452,
-        "narHash": "sha256-3S92fSuv32mjJz2Qb2F4405c21J55F4NIphz5K6hxco=",
+        "lastModified": 1783604885,
+        "narHash": "sha256-tzMgSkV7kljEkqIjlgV6F+n+xD+/a35Db8bs7a4BFAo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "05988b07fb05cbcb50be6bce197b4b5f75b5e61b",
+        "rev": "767b0d3ec98a143ad9ed7dfc0d5553510ac27133",
         "type": "github"
       },
       "original": {
@@ -290,16 +287,19 @@
       "inputs": {
         "flake-compat": [
           "dotfiles",
+          "bmux",
           "ghostty",
           "flake-compat"
         ],
         "nixpkgs": [
           "dotfiles",
+          "bmux",
           "ghostty",
           "nixpkgs"
         ],
         "systems": [
           "dotfiles",
+          "bmux",
           "ghostty",
           "systems"
         ]
@@ -322,6 +322,7 @@
       "inputs": {
         "nixpkgs": [
           "dotfiles",
+          "bmux",
           "ghostty",
           "zon2nix",
           "nixpkgs"
@@ -345,6 +346,7 @@
       "inputs": {
         "nixpkgs": [
           "dotfiles",
+          "bmux",
           "ghostty",
           "nixpkgs"
         ],
