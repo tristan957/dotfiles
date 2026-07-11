@@ -4,7 +4,6 @@
 
 ---@type vim.lsp.Config
 return {
-  autostart = false,
   ---@type lspconfig.settings.pyright
   settings = {
     python = {
