@@ -133,16 +133,11 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-if vim.fn.has("nvim-0.12") == 1 then
-  require("vim._core.ui2").enable({})
-end
+require("vim._core.ui2").enable({})
 
 vim.cmd.packadd("cfilter")
-
-if vim.fn.has("nvim-0.12") == 1 then
-  vim.cmd.packadd("nvim.difftool")
-  vim.cmd.packadd("nvim.tohtml")
-  vim.cmd.packadd("nvim.undotree")
-end
+vim.cmd.packadd("nvim.difftool")
+vim.cmd.packadd("nvim.tohtml")
+vim.cmd.packadd("nvim.undotree")
 
 require("tristan957")

@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "go", picker.lsp_workspace_symbols, "Search workspace symbols")
 
     -- Enable codelens
-    if vim.fn.has("nvim-0.12") == 1 and client:supports_method("textDocument/codeLens", ev.buf) then
+    if client:supports_method("textDocument/codeLens", ev.buf) then
       vim.lsp.codelens.enable(true, { bufnr = ev.buf })
     end
 
@@ -115,9 +115,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --end
 
     -- Enable document coloring
-    if
-      vim.fn.has("nvim-0.12") == 1 and client:supports_method("textDocument/documentColor", ev.buf)
-    then
+    if client:supports_method("textDocument/documentColor", ev.buf) then
       vim.lsp.document_color.enable(true, { bufnr = ev.buf })
 
       map("n", "<Leader>p", function()
@@ -131,10 +129,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- Enable inline completion
-    if
-      vim.fn.has("nvim-0.12") == 1
-      and client:supports_method("textDocument/inlineCompletion", ev.buf)
-    then
+    if client:supports_method("textDocument/inlineCompletion", ev.buf) then
       vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
 
       map("i", "<C-.>", function()
