@@ -2,9 +2,7 @@
   "nodes": {
     "bmux": {
       "inputs": {
-        "ghostty": [
-          "ghostty"
-        ],
+        "ghostty": "ghostty",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -20,6 +18,22 @@
       "original": {
         "owner": "Uzaaft",
         "repo": "bmux",
+        "type": "github"
+      }
+    },
+    "flatpak": {
+      "locked": {
+        "lastModified": 1767983141,
+        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "latest",
+        "repo": "nix-flatpak",
         "type": "github"
       }
     },
@@ -75,22 +89,6 @@
         "type": "github"
       }
     },
-    "flatpak": {
-      "locked": {
-        "lastModified": 1767983141,
-        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
-        "owner": "gmodena",
-        "repo": "nix-flatpak",
-        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gmodena",
-        "ref": "latest",
-        "repo": "nix-flatpak",
-        "type": "github"
-      }
-    },
     "ghostty": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -98,6 +96,7 @@
           "home-manager"
         ],
         "nixpkgs": [
+          "bmux",
           "nixpkgs"
         ],
         "systems": [
@@ -182,7 +181,6 @@
         "bmux": "bmux",
         "flake-parts": "flake-parts",
         "flatpak": "flatpak",
-        "ghostty": "ghostty",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
@@ -228,14 +226,17 @@
     "zig": {
       "inputs": {
         "flake-compat": [
+          "bmux",
           "ghostty",
           "flake-compat"
         ],
         "nixpkgs": [
+          "bmux",
           "ghostty",
           "nixpkgs"
         ],
         "systems": [
+          "bmux",
           "ghostty",
           "systems"
         ]
@@ -257,6 +258,7 @@
     "zig_2": {
       "inputs": {
         "nixpkgs": [
+          "bmux",
           "ghostty",
           "zon2nix",
           "nixpkgs"
@@ -279,6 +281,7 @@
     "zon2nix": {
       "inputs": {
         "nixpkgs": [
+          "bmux",
           "ghostty",
           "nixpkgs"
         ],

@@ -6,19 +6,14 @@
     bmux = {
       url = "github:Uzaaft/bmux";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.ghostty.follows = "ghostty";
+      inputs.ghostty.inputs.home-manager.follows = "home-manager";
+      inputs.ghostty.inputs.systems.follows = "systems";
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-    };
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";

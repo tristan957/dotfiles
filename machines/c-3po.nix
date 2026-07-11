@@ -2,7 +2,6 @@
   system = "x86_64-linux";
 
   machine = {
-    # inputs,
     config,
     pkgs,
     homeModules,
@@ -83,7 +82,6 @@
       copilot-language-server
       fish-lsp
       flyctl
-      # inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
       git-absorb
       harper
       lua-language-server
