@@ -59,8 +59,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     assert(client ~= nil)
 
-    local map = function(mode, lhs, rhs, desc)
-      vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
+    local map = function(mode, lhs, rhs, desc, opts)
+      vim.keymap.set(
+        mode,
+        lhs,
+        rhs,
+        vim.tbl_extend("force", { buffer = ev.buf, desc = desc }, opts or {})
+      )
     end
 
     map("n", "gd", picker.lsp_definitions, "Goto definitions")
@@ -109,9 +114,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
       map("i", "<C-.>", function()
         if not vim.lsp.inline_completion.get() then
-          return "<C-.>"
+          return vim.keycode("<C-.>")
         end
-      end, "Accept inline completion")
+      end, "Accept inline completion", { expr = true })
       map("i", "<C-,>", vim.lsp.inline_completion.select, "Switch inline completion")
     end
 
