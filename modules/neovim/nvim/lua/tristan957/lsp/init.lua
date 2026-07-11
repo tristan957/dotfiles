@@ -51,6 +51,31 @@ vim.lsp.enable({
   "zls",
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  desc = "Format on save",
+  group = group,
+  callback = function(ev)
+    local formatting = require("tristan957.lsp.formatting")
+
+    formatting.format(ev.buf)
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspProgress", {
+  group = group,
+  callback = function(ev)
+    local value = ev.data.params.value
+    vim.api.nvim_echo({ { value.message or "done" } }, false, {
+      id = "lsp." .. ev.data.params.token,
+      kind = "progress",
+      source = "vim.lsp",
+      title = value.title,
+      status = value.kind ~= "end" and "running" or "success",
+      percent = value.percentage,
+    })
+  end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(ev)
@@ -118,33 +143,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
       end, "Accept inline completion", { expr = true })
       map("i", "<C-,>", vim.lsp.inline_completion.select, "Switch inline completion")
-    end
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      desc = "Format on save",
-      buffer = ev.buf,
-      callback = function(bwp_ev)
-        local formatting = require("tristan957.lsp.formatting")
-
-        formatting.format(bwp_ev.buf)
-      end,
-    })
-
-    if vim.fn.has("nvim-0.12") == 1 then
-      vim.api.nvim_create_autocmd("LspProgress", {
-        buffer = ev.buf,
-        callback = function(lsp_progress_ev)
-          local value = lsp_progress_ev.data.params.value
-          vim.api.nvim_echo({ { value.message or "done" } }, false, {
-            id = "lsp." .. lsp_progress_ev.data.params.token,
-            kind = "progress",
-            source = "vim.lsp",
-            title = value.title,
-            status = value.kind ~= "end" and "running" or "success",
-            percent = value.percentage,
-          })
-        end,
-      })
     end
   end,
 })

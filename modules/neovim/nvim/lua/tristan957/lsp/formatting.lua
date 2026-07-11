@@ -44,7 +44,10 @@ M.format = function(bufnr)
       :filter(
         ---@param c vim.lsp.Client
         function(c)
-          return c:supports_method("textDocument/formatting") and ls_markers[c.name] ~= false
+          local markers = ls_markers[c.name]
+          return c:supports_method("textDocument/formatting")
+            and markers ~= nil
+            and markers ~= false
         end
       )
       :totable()
@@ -68,7 +71,7 @@ M.format = function(bufnr)
   end
 
   ---@cast markers string[]
-  if vim.fs.root(0, markers) ~= nil then
+  if vim.fs.root(bufnr, markers) ~= nil then
     vim.lsp.buf.format({ bufnr = bufnr, async = false, id = client.id })
   end
 end
