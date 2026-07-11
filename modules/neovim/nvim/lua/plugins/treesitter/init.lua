@@ -14,6 +14,20 @@ return {
   config = function(_, opts)
     require("nvim-treesitter").setup(opts)
 
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TSUpdate",
+      callback = function()
+        require("nvim-treesitter.parsers").ghactions = {
+          tier = 0,
+          install_info = {
+            url = "https://github.com/rmuir/tree-sitter-ghactions",
+            revision = "main",
+            queries = "queries",
+          },
+        }
+      end,
+    })
+
     require("nvim-treesitter").install({
       "arduino",
       "asm",
@@ -37,6 +51,7 @@ return {
       "editorconfig",
       "fish",
       "fortran",
+      "ghactions",
       "git_config",
       "git_rebase",
       "gitattributes",
@@ -156,20 +171,6 @@ return {
         vim.wo[0][0].foldmethod = "expr"
 
         vim.treesitter.start(ev.buf)
-      end,
-    })
-
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "TSUpdate",
-      callback = function()
-        require("nvim-treesitter.parsers").ghactions = {
-          tier = 0,
-          install_info = {
-            url = "https://github.com/rmuir/tree-sitter-ghactions",
-            revision = "main",
-            queries = "queries",
-          },
-        }
       end,
     })
   end,
