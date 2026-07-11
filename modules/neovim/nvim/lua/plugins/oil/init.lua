@@ -4,7 +4,6 @@
 ---@type LazySpec
 return {
   "stevearc/oil.nvim",
-  event = "VimEnter",
   ---@type oil.SetupOpts
   opts = {
     view_options = {
