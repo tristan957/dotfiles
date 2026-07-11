@@ -13,7 +13,7 @@ return {
   settings = {
     json = {
       schemas = schemastore.json.schemas({
-        extras = {
+        extra = {
           {
             name = "LuaLS Settings",
             url = "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
