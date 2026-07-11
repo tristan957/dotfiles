@@ -37,7 +37,7 @@ local ls_markers = {
 ---Format the buffer using the first available LSP client that supports formatting
 ---@param bufnr integer
 M.format = function(bufnr)
-  local client = vim.tbl_get(formatters, bufnr)
+  local client = formatters[bufnr]
   if client == nil then
     local clients = vim
       .iter(vim.lsp.get_clients({ bufnr = bufnr }))
