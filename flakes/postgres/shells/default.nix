@@ -33,7 +33,6 @@ pkgs.mkShell {
       ninja
       perl
       pkgconf
-      python314
       samurai
 
       # Dev tools
@@ -62,7 +61,11 @@ pkgs.mkShell {
 
       # Testing
       perlPackages.IPCRun
-      python314Packages.pytest
+      (python3.withPackages
+        (ps:
+          with ps; [
+            pytest
+          ]))
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       avahi-compat
