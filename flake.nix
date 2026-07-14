@@ -158,6 +158,17 @@
             vscode-langservers-extracted
             zsh
           ];
+
+          # Nix's Python setup-hooks (triggered by `reuse` and
+          # `python3.withPackages` above) export PYTHONPATH into this shell so
+          # build-time tooling can see those packages. That's not
+          # needed here — `reuse`'s wrapper and the withPackages interpreter
+          # already know where their own site-packages live — and a leaked
+          # PYTHONPATH breaks unrelated tools invoked from this shell (e.g.
+          # other Python-based CLIs with their own bundled interpreter).
+          shellHook = ''
+            unset PYTHONPATH
+          '';
         };
       };
 
