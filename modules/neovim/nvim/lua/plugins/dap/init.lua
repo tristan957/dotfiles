@@ -15,7 +15,34 @@ return {
     dap.set_log_level("INFO")
 
     vim.keymap.set("n", "<C-w>b", "<cmd>DapToggleRepl<cr>", { desc = "Toggle the DAP REPL" })
+    vim.keymap.set("n", "<Leader>dc", "<cmd>DapContinue<cr>", { desc = "Continue the DAP session" })
+    vim.keymap.set(
+      "n",
+      "<Leader>db",
+      "<cmd>DapToggleBreakpoint<cr>",
+      { desc = "Continue the DAP session" }
+    )
+    vim.keymap.set(
+      "n",
+      "<Leader>dd",
+      "<cmd>DapDisconnect<cr>",
+      { desc = "Continue the DAP session" }
+    )
+    vim.keymap.set("n", "<Leader>dp", "<cmd>DapPause<cr>", { desc = "Continue the DAP session" })
+    vim.keymap.set("n", "<Leader>di", "<cmd>DapStepInto<cr>", { desc = "Continue the DAP session" })
+    vim.keymap.set("n", "<Leader>do", "<cmd>DapStepOut<cr>", { desc = "Continue the DAP session" })
+    vim.keymap.set("n", "<Leader>dn", "<cmd>DapStepOver<cr>", { desc = "Continue the DAP session" })
 
-    dap.adapters.python = require("tristan957.dap.config.debugpy")
+    if vim.fn.has("macunix") == 1 then
+      dap.configurations.c = require("plugins.dap.config.lldb")
+    else
+      dap.configurations.c = require("plugins.dap.config.gdb")
+    end
+
+    dap.adapters.gdb = require("plugins.dap.adapters.gdb")
+    dap.adapters.lldb = require("plugins.dap.config.lldb")
+    dap.adapters.python = require("plugins.dap.adapters.debugpy")
+
+    dap.configurations.cpp = dap.configurations.c
   end,
 }
