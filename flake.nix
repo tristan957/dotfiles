@@ -147,7 +147,7 @@
             luajitPackages.luacheck
             markdownlint-cli2
             nixd
-            (python314.withPackages (ps:
+            (python3.withPackages (ps:
               with ps; [
                 matplotlib
               ]))
