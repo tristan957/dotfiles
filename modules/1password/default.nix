@@ -4,23 +4,30 @@
   ...
 }: {
   config = {
-    programs.zsh.envExtra = ''
-      if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
-        export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"
-      fi
-    '';
+    programs.zsh.envExtra =
+      # zsh
+      ''
+        if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
+          export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"
+        fi
+      '';
 
-    programs.bash.profileExtra = lib.mkAfter ''
-      if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
-        export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"
-      fi
-    '';
+    programs.bash.profileExtra =
+      lib.mkAfter
+      # bash
+      ''
+        if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
+          export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"
+        fi
+      '';
 
-    programs.fish.shellInit = ''
-      if test -f "$XDG_CONFIG_HOME/op/service-account-token"
-        set -gx OP_SERVICE_ACCOUNT_TOKEN (cat "$XDG_CONFIG_HOME/op/service-account-token")
-      end
-    '';
+    programs.fish.shellInit =
+      # fish
+      ''
+        if test -f "$XDG_CONFIG_HOME/op/service-account-token"
+          set -gx OP_SERVICE_ACCOUNT_TOKEN (cat "$XDG_CONFIG_HOME/op/service-account-token")
+        end
+      '';
 
     systemd.user.services."1password" = {
       Unit = {

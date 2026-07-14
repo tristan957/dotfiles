@@ -3,22 +3,26 @@
     programs.fish = {
       enable = true;
 
-      interactiveShellInit = ''
-        set -g fish_greeting
-      '';
+      interactiveShellInit =
+        # fish
+        ''
+          set -g fish_greeting
+        '';
 
-      shellInit = ''
-        # Nix
-        # Multi-user (daemon) installation
-        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish 2>/dev/null
-        # Fedora
-        source /etc/profile.d/nix-daemon.fish 2>/dev/null
-        # Single-user installation
-        source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
+      shellInit =
+        # fish
+        ''
+          # Nix
+          # Multi-user (daemon) installation
+          source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish 2>/dev/null
+          # Fedora
+          source /etc/profile.d/nix-daemon.fish 2>/dev/null
+          # Single-user installation
+          source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
 
-        # Make sure local binaries override everything
-        fish_add_path --prepend --move "${config.xdg.binHome}"
-      '';
+          # Make sure local binaries override everything
+          fish_add_path --prepend --move "${config.xdg.binHome}"
+        '';
     };
 
     xdg.configFile = {

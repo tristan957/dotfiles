@@ -9,9 +9,12 @@
       PSQLRC = "${config.xdg.configHome}/psql/psqlrc";
     };
 
-    home.activation.createPsqlStateDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p "${config.xdg.stateHome}/psql"
-    '';
+    home.activation.createPsqlStateDir =
+      lib.hm.dag.entryAfter ["writeBoundary"]
+      # bash
+      ''
+        mkdir -p "${config.xdg.stateHome}/psql"
+      '';
 
     xdg.configFile."psql/psqlrc".source = ./psqlrc;
   };

@@ -10,16 +10,18 @@ pkgs.mkShell {
   # contains no .so files. Meson trusts that path, fails to find libicuuc.so,
   # and falls back to the system ICU (wrong version). Fix by providing .pc
   # files with libdir pointing to the actual library output.
-  shellHook = ''
-    export PKG_CONFIG_PATH="${
-      pkgs.runCommand "icu-pc-fix" {} ''
-        mkdir -p $out/lib/pkgconfig
-        for pc in ${pkgs.icu.dev}/lib/pkgconfig/*.pc; do
-          sed "s|libdir *=.*|libdir=${pkgs.icu}/lib|" "$pc" > "$out/lib/pkgconfig/$(basename "$pc")"
-        done
-      ''
-    }/lib/pkgconfig''${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
-  '';
+  shellHook =
+    # bash
+    ''
+      export PKG_CONFIG_PATH="${
+        pkgs.runCommand "icu-pc-fix" {} ''
+          mkdir -p $out/lib/pkgconfig
+          for pc in ${pkgs.icu.dev}/lib/pkgconfig/*.pc; do
+            sed "s|libdir *=.*|libdir=${pkgs.icu}/lib|" "$pc" > "$out/lib/pkgconfig/$(basename "$pc")"
+          done
+        ''
+      }/lib/pkgconfig''${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+    '';
 
   nativeBuildInputs = with pkgs;
     [

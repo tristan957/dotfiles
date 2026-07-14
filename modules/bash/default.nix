@@ -26,30 +26,34 @@
 
       logoutExtra = builtins.readFile ./bash_logout;
 
-      profileExtra = ''
-        # Nix
-        # Multi-user (daemon) installation
-        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
-        # Fedora
-        . /etc/profile.d/nix-daemon.sh 2>/dev/null
-        # Single-user installation
-        . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
+      profileExtra =
+        # bash
+        ''
+          # Nix
+          # Multi-user (daemon) installation
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
+          # Fedora
+          . /etc/profile.d/nix-daemon.sh 2>/dev/null
+          # Single-user installation
+          . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
 
-        # Make sure local binaries override everything
-        export PATH="${config.xdg.binHome}:$PATH"
-      '';
+          # Make sure local binaries override everything
+          export PATH="${config.xdg.binHome}:$PATH"
+        '';
 
-      initExtra = ''
-        HISTTIMEFORMAT='%FT%T%z: '
+      initExtra =
+        # bash
+        ''
+          HISTTIMEFORMAT='%FT%T%z: '
 
-        # Source system bash files
-        . "/etc/bash.bashrc" 2>/dev/null
-        . "/etc/bashrc" 2>/dev/null
+          # Source system bash files
+          . "/etc/bash.bashrc" 2>/dev/null
+          . "/etc/bashrc" 2>/dev/null
 
-        for f in "$XDG_CONFIG_HOME"/bash.d/*; do
-          . "$f"
-        done
-      '';
+          for f in "$XDG_CONFIG_HOME"/bash.d/*; do
+            . "$f"
+          done
+        '';
     };
 
     xdg.configFile = {
@@ -58,8 +62,11 @@
       "bash.d/90-prompt.sh".source = ./90-prompt.sh;
     };
 
-    home.activation.createBashStateDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p "${config.xdg.stateHome}/bash"
-    '';
+    home.activation.createBashStateDir =
+      lib.hm.dag.entryAfter ["writeBoundary"]
+      # bash
+      ''
+        mkdir -p "${config.xdg.stateHome}/bash"
+      '';
   };
 }

@@ -7,10 +7,13 @@
     };
 
     # Exec into fish as soon as possible in Cloud Desktops
-    programs.zsh.initContent = lib.mkBefore ''
-      if command -v fish &>/dev/null; then
-        exec env SHELL="$(which fish)" fish --login
-      fi
-    '';
+    programs.zsh.initContent =
+      lib.mkBefore
+      # zsh
+      ''
+        if command -v fish &>/dev/null; then
+          exec env SHELL="$(which fish)" fish --login
+        fi
+      '';
   };
 }

@@ -166,9 +166,11 @@
           # already know where their own site-packages live — and a leaked
           # PYTHONPATH breaks unrelated tools invoked from this shell (e.g.
           # other Python-based CLIs with their own bundled interpreter).
-          shellHook = ''
-            unset PYTHONPATH
-          '';
+          shellHook =
+            # bash
+            ''
+              unset PYTHONPATH
+            '';
         };
       };
 

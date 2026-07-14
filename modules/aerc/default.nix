@@ -38,14 +38,18 @@ in {
 
     home.activation.aercAccounts = lib.hm.dag.entryAfter ["writeBoundary"] (
       if cfg.symlink != null
-      then ''
-        # Live checkout: ensure the symlinked accounts.conf is private.
-        chmod 600 "${cfg.symlink}"
-      ''
-      else ''
-        # No checkout: install a writable, private copy from the store.
-        run install -Dm600 ${./accounts.conf} "${config.xdg.configHome}/aerc/accounts.conf"
-      ''
+      then
+        # bash
+        ''
+          # Live checkout: ensure the symlinked accounts.conf is private.
+          chmod 600 "${cfg.symlink}"
+        ''
+      else
+        # bash
+        ''
+          # No checkout: install a writable, private copy from the store.
+          run install -Dm600 ${./accounts.conf} "${config.xdg.configHome}/aerc/accounts.conf"
+        ''
     );
   };
 }

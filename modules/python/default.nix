@@ -10,8 +10,11 @@
       VIRTUAL_ENV_DISABLE_PROMPT = 1;
     };
 
-    home.activation.createPythonStateDir = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p "${config.xdg.stateHome}/python"
-    '';
+    home.activation.createPythonStateDir =
+      lib.hm.dag.entryAfter ["writeBoundary"]
+      # bash
+      ''
+        mkdir -p "${config.xdg.stateHome}/python"
+      '';
   };
 }
