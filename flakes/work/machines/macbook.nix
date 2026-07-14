@@ -111,6 +111,7 @@
       jq
       just
       lazygit
+      lldb
       lua-language-server
       meson
       miller
