@@ -8,14 +8,6 @@ M.vcountify = function(func, ...)
   end
 end
 
----Strips trailing newlines in a string
----@param s string
----@return string
-M.rstrip = function(s)
-  local stripped, _ = string.gsub(s, "(\n)$", "")
-  return stripped
-end
-
 ---Prepend prefix to all element in a table
 ---@param prefix string
 ---@param tbl string[]

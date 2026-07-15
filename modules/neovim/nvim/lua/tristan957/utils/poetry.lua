@@ -1,7 +1,5 @@
 local M = {}
 
-local utils = require("tristan957.utils")
-
 ---Get the cache-dir setting from poetry.
 ---@return string?
 M.cache_dir = function()
@@ -10,7 +8,7 @@ M.cache_dir = function()
     return nil
   end
 
-  return utils.rstrip(cmd.stdout)
+  return vim.trim(cmd.stdout)
 end
 
 ---Get the virtualenvs.path setting from poetry.
@@ -21,7 +19,7 @@ M.virtualenvs_path = function()
     return nil
   end
 
-  return utils.rstrip(cmd.stdout)
+  return vim.trim(cmd.stdout)
 end
 
 ---Get the Python executable from poetry.
@@ -40,7 +38,7 @@ M.python_executable = function(callback)
       return nil
     end
 
-    return utils.rstrip(cmd.stdout)
+    return vim.trim(cmd.stdout)
   end
 
   vim.system(cmd_args, {}, function(cmd)
@@ -50,7 +48,7 @@ M.python_executable = function(callback)
         return
       end
 
-      callback(utils.rstrip(cmd.stdout))
+      callback(vim.trim(cmd.stdout))
     end)
   end)
 end
