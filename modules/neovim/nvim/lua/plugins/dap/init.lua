@@ -35,12 +35,15 @@ return {
 
     if vim.fn.has("macunix") == 1 then
       dap.configurations.c = require("plugins.dap.config.lldb")
+      dap.configurations.rust = require("plugins.dap.config.rust-lldb")
     else
       dap.configurations.c = require("plugins.dap.config.gdb")
+      dap.configurations.rust = require("plugins.dap.config.rust-gdb")
     end
 
     dap.adapters.gdb = require("plugins.dap.adapters.gdb")
     dap.adapters.lldb = require("plugins.dap.adapters.lldb")
+    dap.adapters["rust-gdb"] = require("plugins.dap.adapters.rust-gdb")
     dap.adapters.python = require("plugins.dap.adapters.debugpy")
 
     dap.configurations.cpp = dap.configurations.c
