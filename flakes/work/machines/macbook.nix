@@ -106,6 +106,7 @@
       gopls
       gum
       harper
+      hunk
       hut
       jj
       jq

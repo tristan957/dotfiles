@@ -84,6 +84,7 @@
       flyctl
       git-absorb
       harper
+      hunk
       lua-language-server
       nh
       nixd

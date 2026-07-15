@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   config = {
     programs.opencode = {
       enable = true;
@@ -13,7 +17,10 @@
           };
         };
         skills = {
-          paths = ["${config.home.homeDirectory}/dotfiles/skills"];
+          paths = [
+            "${config.home.homeDirectory}/dotfiles/skills"
+            "${pkgs.hunk}/skills"
+          ];
         };
       };
 

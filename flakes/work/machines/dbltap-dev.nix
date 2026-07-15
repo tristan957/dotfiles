@@ -107,6 +107,7 @@
       gopls
       gum
       harper
+      hunk
       hut
       just
       lazygit
