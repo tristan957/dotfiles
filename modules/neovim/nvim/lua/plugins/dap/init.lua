@@ -40,7 +40,7 @@ return {
     end
 
     dap.adapters.gdb = require("plugins.dap.adapters.gdb")
-    dap.adapters.lldb = require("plugins.dap.config.lldb")
+    dap.adapters.lldb = require("plugins.dap.adapters.lldb")
     dap.adapters.python = require("plugins.dap.adapters.debugpy")
 
     dap.configurations.cpp = dap.configurations.c
