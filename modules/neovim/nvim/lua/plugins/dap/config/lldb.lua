@@ -31,14 +31,4 @@ return {
     end,
     cwd = "${workspaceFolder}",
   },
-  {
-    name = "Attach to gdbserver :1234 (C/C++)",
-    type = "lldb",
-    request = "attach",
-    target = "localhost:1234",
-    program = function()
-      return require("dap.utils").pick_file({ executables = true })
-    end,
-    cwd = "${workspaceFolder}",
-  },
 }
