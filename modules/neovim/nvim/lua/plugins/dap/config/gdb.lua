@@ -7,7 +7,7 @@ return {
     type = "gdb",
     request = "launch",
     program = function()
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      return require("dap.utils").pick_file({ executables = true })
     end,
     args = {}, -- provide arguments if needed
     cwd = "${workspaceFolder}",
@@ -18,10 +18,16 @@ return {
     type = "gdb",
     request = "attach",
     program = function()
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      return require("dap.utils").pick_file({ executables = true })
     end,
     pid = function()
-      local name = vim.fn.input("Executable name (filter): ")
+      local co = coroutine.running()
+      vim.ui.input({ prompt = "Executable name (filter): " }, function(name)
+        vim.schedule(function()
+          coroutine.resume(co, name)
+        end)
+      end)
+      local name = coroutine.yield()
       return require("dap.utils").pick_process({ filter = name })
     end,
     cwd = "${workspaceFolder}",
@@ -32,7 +38,7 @@ return {
     request = "attach",
     target = "localhost:1234",
     program = function()
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      return require("dap.utils").pick_file({ executables = true })
     end,
     cwd = "${workspaceFolder}",
   },
