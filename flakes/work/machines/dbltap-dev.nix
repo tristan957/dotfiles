@@ -132,6 +132,7 @@
       (python314.withPackages (ps:
         with ps; [
           matplotlib
+          pytest
         ]))
       rr
       ruff
