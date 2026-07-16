@@ -120,6 +120,7 @@
       mjmap
       mold
       muon
+      mypy
       neovim
       nh
       nixd
