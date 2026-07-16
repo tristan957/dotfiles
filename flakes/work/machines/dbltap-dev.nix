@@ -33,6 +33,7 @@
         go
         harper
         helix
+        hunk
         hut
         jj
         just
