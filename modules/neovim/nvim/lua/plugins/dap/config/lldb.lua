@@ -9,6 +9,7 @@ return {
     program = function()
       return require("dap.utils").pick_file({ executables = true })
     end,
+    args = require("plugins.dap.utils").args,
     cwd = "${workspaceFolder}",
     stopAtBeginningOfMainSubprogram = false,
   },
@@ -19,16 +20,7 @@ return {
     program = function()
       return require("dap.utils").pick_file({ executables = true })
     end,
-    pid = function()
-      local co = coroutine.running()
-      vim.ui.input({ prompt = "Executable name (filter): " }, function(name)
-        vim.schedule(function()
-          coroutine.resume(co, name)
-        end)
-      end)
-      local name = coroutine.yield()
-      return require("dap.utils").pick_process({ filter = name })
-    end,
+    pid = require("plugins.dap.utils").pid,
     cwd = "${workspaceFolder}",
   },
 }
