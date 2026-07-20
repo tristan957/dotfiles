@@ -88,6 +88,7 @@
       lua-language-server
       nh
       nixd
+      rustup
       tombi
       vscode-langservers-extracted
       yaml-language-server
