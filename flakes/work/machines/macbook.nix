@@ -5,61 +5,66 @@
     inputs,
     config,
     pkgs,
+    homeModules,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
   in {
-    imports = with inputs.dotfiles.homeModules; [
-      _1password
-      aerc
-      bash
-      bat
-      cargo
-      chawan
-      clangd
-      comlink
-      deno
-      direnv
-      dotnet
-      editline
-      fish
-      fonts
-      fzf
-      ghostty
-      git
-      glow
-      go
-      harper
-      helix
-      hut
-      jj
-      just
-      kiro
-      lazygit
-      less
-      man
-      meson
-      mjmap
-      neovim
-      nix
-      nnn
-      node
-      opencode
-      programs
-      psql
-      python
-      readline
-      ripgrep
-      rlwrap
-      rustup
-      testcontainers
-      tmux
-      vim
-      vscode
-      zellij
-      zoxide
-      zsh
-    ];
+    imports =
+      (with inputs.dotfiles.homeModules; [
+        _1password
+        aerc
+        bash
+        bat
+        cargo
+        chawan
+        clangd
+        comlink
+        deno
+        direnv
+        dotnet
+        editline
+        fish
+        fonts
+        fzf
+        ghostty
+        git
+        glow
+        go
+        harper
+        helix
+        hut
+        jj
+        just
+        kiro
+        lazygit
+        less
+        man
+        meson
+        mjmap
+        neovim
+        nix
+        nnn
+        node
+        opencode
+        programs
+        psql
+        python
+        readline
+        ripgrep
+        rlwrap
+        rustup
+        testcontainers
+        tmux
+        vim
+        vscode
+        zellij
+        zoxide
+        zsh
+      ])
+      ++ (with homeModules; [
+        go
+      ]);
 
     home.username = "dbltap";
     home.homeDirectory = "/Users/dbltap";
