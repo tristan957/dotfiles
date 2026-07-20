@@ -1,21 +1,17 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: {
+}: let
+  mcp = import ../../lib/mcp {inherit lib;};
+in {
   config = {
     programs.opencode = {
       enable = true;
 
       settings = {
-        mcp = {
-          fastmail = {
-            enabled = false;
-            type = "remote";
-            url = "https://api.fastmail.com/mcp";
-            oauth = {};
-          };
-        };
+        mcp = mcp.opencode.generate [mcp.servers.fastmail];
         skills = {
           paths = [
             "${config.home.homeDirectory}/dotfiles/skills"

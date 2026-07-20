@@ -38,6 +38,7 @@
       mkHomeModules = import ./lib/home-modules.nix;
       homeModules = mkHomeModules ./modules;
       mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
+      mcp = import ./lib/mcp {inherit (inputs.nixpkgs) lib;};
     in {
       systems = import systems;
 
@@ -182,7 +183,7 @@
         # their own machine configurations against this repo's modules, and
         # generate their own `homeModules` from a modules directory
         lib = {
-          inherit mkHome mkHomeModules;
+          inherit mkHome mkHomeModules mcp;
         };
 
         homeConfigurations = {
