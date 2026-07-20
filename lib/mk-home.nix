@@ -19,6 +19,20 @@
 
     # Allow unfree packages like 1Password CLI
     config.allowUnfree = true;
+
+    overlays = inputs.nixpkgs.lib.optionals (inputs.nixpkgs.lib.hasSuffix "-darwin" system) [
+      (_final: prev: {
+        # nixpkgs' curl percent-encodes some characters (e.g. "/", "]", ";")
+        # as uppercase hex (%2F, %5D, %3B), but trurl's test suite still
+        # expects lowercase (%2f, %5d, %3b) for 6 of 215 cases. This is a
+        # curl/trurl version skew, not something we can fix locally.
+        #
+        # This has only been observed on macOS.
+        trurl = prev.trurl.overrideAttrs (_: {
+          doCheck = false;
+        });
+      })
+    ];
   };
 in
   inputs.home-manager.lib.homeManagerConfiguration {
