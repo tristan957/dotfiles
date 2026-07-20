@@ -90,6 +90,7 @@
       nixd
       rustup
       tombi
+      vacuum-go
       vscode-langservers-extracted
       yaml-language-server
       zls
