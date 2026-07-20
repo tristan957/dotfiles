@@ -14,6 +14,7 @@ in {
       install -Dm644 ${json.generate "mcp.json" {
         mcpServers = {
           builder-mcp = {
+            type = "local";
             command = "builder-mcp";
             args = [];
             env = {
