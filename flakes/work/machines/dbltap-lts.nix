@@ -90,7 +90,7 @@
       samurai
       sccache
       stow
-      taplo
+      tombi
       tmux
       tree-sitter
       vscode-langservers-extracted

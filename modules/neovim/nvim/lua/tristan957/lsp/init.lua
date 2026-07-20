@@ -37,7 +37,7 @@ vim.lsp.enable({
   "rust_analyzer",
   "stylua",
   "systemd_lsp",
-  "taplo",
+  "tombi",
   "terraformls",
   "tilt_ls",
   "tinymist",

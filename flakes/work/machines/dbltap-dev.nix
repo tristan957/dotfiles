@@ -145,7 +145,7 @@
       shellcheck
       shfmt
       stow
-      taplo
+      tombi
       tinymist
       inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default
       tokei

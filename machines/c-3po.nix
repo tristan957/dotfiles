@@ -88,7 +88,7 @@
       lua-language-server
       nh
       nixd
-      taplo
+      tombi
       vscode-langservers-extracted
       yaml-language-server
       zls

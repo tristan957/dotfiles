@@ -143,12 +143,12 @@
       shfmt
       stow
       stylua
-      taplo
       time
       tinymist
       inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default
       tofu-ls
       tokei
+      tombi
       tree-sitter
       trurl
       ts_query_ls

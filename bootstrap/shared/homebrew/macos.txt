@@ -135,7 +135,7 @@ sops
 stow
 stylua
 swiftly
-taplo
+tombi
 television
 tilt
 tmux
