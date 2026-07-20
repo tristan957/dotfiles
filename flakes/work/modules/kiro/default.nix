@@ -23,10 +23,10 @@ in {
               TOOL_PERSONALIZATION_ROLLOUT_PERCENTAGE = "100";
             };
           };
-          m365-mcp = {
-            command = "grasp-mcp";
-            args = [];
-          };
+          # m365-mcp = {
+          #   command = "grasp-mcp";
+          #   args = [];
+          # };
         };
       }} "$HOME/.kiro/settings/mcp.json"
     '';
