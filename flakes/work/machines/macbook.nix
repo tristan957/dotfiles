@@ -131,6 +131,7 @@
       nodejs
       nushell
       opentofu
+      pkgconf
       postgres-language-server
       reuse
       ruff
