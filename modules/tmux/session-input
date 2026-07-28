@@ -8,6 +8,8 @@ name=$(
         --placeholder 'New session...' \
         --cursor.mode static \
         --cursor.foreground '#ffffff' \
+        --placeholder.background '0' \
+        --prompt.background '0' \
         --no-show-help
 ) || exit 0
 
