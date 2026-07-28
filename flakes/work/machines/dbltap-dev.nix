@@ -127,6 +127,7 @@
       nodejs
       nushell
       pandoc
+      pkgconf
       postgres-language-server
       reuse
       (python314.withPackages (ps:
