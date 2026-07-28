@@ -20,7 +20,12 @@ in {
         };
       };
 
-      tui.theme = "system";
+      tui = {
+        keybinds = {
+          input_submit = "return,kpenter";
+        };
+        theme = "system";
+      };
     };
   };
 }
