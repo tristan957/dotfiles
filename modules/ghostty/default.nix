@@ -61,6 +61,7 @@
           link-url = true;
 
           mouse-hide-while-typing = false;
+          mouse-scroll-multiplier = "discrete:1,precision:1";
 
           notify-on-command-finish = "unfocused";
           notify-on-command-finish-action = "bell,notify";
