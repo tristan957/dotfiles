@@ -3,6 +3,7 @@
 
   machine = {
     config,
+    inputs,
     pkgs,
     homeModules,
     ...
