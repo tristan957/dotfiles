@@ -1,5 +1,5 @@
 {
-  config,
+  dotfilesPackages,
   pkgs,
   lib,
   ...
@@ -14,7 +14,7 @@ in {
         mcp = mcp.opencode.generate [mcp.servers.fastmail];
         skills = {
           paths = [
-            "${config.home.homeDirectory}/dotfiles/skills"
+            "${dotfilesPackages.skills}/skills"
             "${pkgs.hunk}/skills"
           ];
         };

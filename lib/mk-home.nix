@@ -20,10 +20,14 @@
     # Allow unfree packages like 1Password CLI
     config.allowUnfree = true;
   };
+
+  # This repo's own packages (see `flake.nix`'s `packages.<name>` outputs
+  # and `pkgs/`), exposed to modules as `dotfilesPackages`
+  dotfilesPackages = inputs.self.packages.${system};
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit inputs homeModules;} // extraSpecialArgs;
+    extraSpecialArgs = {inherit inputs homeModules dotfilesPackages;} // extraSpecialArgs;
     modules =
       [
         # Base configuration shared by every machine.
