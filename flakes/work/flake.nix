@@ -11,6 +11,7 @@
       inputs.systems.follows = "dotfiles/systems";
     };
     bmux.follows = "dotfiles/bmux";
+    nur.follows = "dotfiles/nur";
   };
 
   outputs = inputs @ {dotfiles, ...}: let

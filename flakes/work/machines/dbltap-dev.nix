@@ -149,6 +149,7 @@
       tombi
       tinymist
       inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.nur.legacyPackages.${pkgs.stdenv.hostPlatform.system}.repos.Freed-Wu.tmux-language-server
       tokei
       tree-sitter
       ts_query_ls

@@ -74,26 +74,30 @@
     modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
     modules.neovim.symlink = "${root}/modules/neovim/nvim";
 
-    home.packages = with pkgs; [
-      alejandra
-      ast-grep
-      bash-language-server
-      chawan
-      copilot-language-server
-      fish-lsp
-      flyctl
-      git-absorb
-      harper
-      hunk
-      lua-language-server
-      nh
-      nixd
-      rustup
-      tombi
-      vacuum-go
-      vscode-langservers-extracted
-      yaml-language-server
-      zls
-    ];
+    home.packages = with pkgs;
+      [
+        alejandra
+        ast-grep
+        bash-language-server
+        chawan
+        copilot-language-server
+        fish-lsp
+        flyctl
+        git-absorb
+        harper
+        hunk
+        lua-language-server
+        nh
+        nixd
+        rustup
+        tombi
+        vacuum-go
+        vscode-langservers-extracted
+        yaml-language-server
+        zls
+      ]
+      ++ [
+        inputs.nur.legacyPackages.${pkgs.stdenv.hostPlatform.system}.repos.Freed-Wu.tmux-language-server
+      ];
   };
 }
