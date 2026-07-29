@@ -33,6 +33,14 @@ return {
             queries = "queries",
           },
         }
+        require("nvim-treesitter.parsers").tmuxf = {
+          tier = 0,
+          install_info = {
+            url = "https://github.com/Freed-Wu/tree-sitter-tmuxf",
+            revision = "main",
+            queries = "queries",
+          },
+        }
       end,
     })
 
@@ -145,6 +153,7 @@ return {
       "swift",
       "terraform",
       "tmux",
+      "tmuxf",
       "toml",
       "tsv",
       "tsx",
