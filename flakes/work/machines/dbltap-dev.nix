@@ -44,6 +44,7 @@
         meson
         mjmap
         neovim
+        nh
         nix
         nnn
         node
@@ -124,7 +125,6 @@
           muon
           mypy
           neovim
-          nh
           nixd
           nodejs
           nushell

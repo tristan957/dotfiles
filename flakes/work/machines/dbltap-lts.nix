@@ -36,6 +36,7 @@
         man
         meson
         neovim
+        nh
         nix
         nnn
         node
@@ -81,7 +82,6 @@
       mold
       muon
       neovim
-      nh
       ninja
       nixd
       pandoc

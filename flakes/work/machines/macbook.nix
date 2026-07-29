@@ -43,6 +43,7 @@
         meson
         mjmap
         neovim
+        nh
         nix
         nnn
         node
@@ -127,7 +128,6 @@
           moreutils
           muon
           neovim
-          nh
           ninja
           nixd
           nodejs

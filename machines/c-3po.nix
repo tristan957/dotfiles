@@ -44,6 +44,7 @@
       meson
       mjmap
       neovim
+      nh
       nix
       nnn
       node
@@ -87,7 +88,6 @@
         harper
         hunk
         lua-language-server
-        nh
         nixd
         rustup
         tombi
