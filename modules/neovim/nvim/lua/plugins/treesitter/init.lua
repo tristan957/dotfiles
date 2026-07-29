@@ -25,6 +25,14 @@ return {
             queries = "queries",
           },
         }
+        require("nvim-treesitter.parsers").tmux = {
+          tier = 0,
+          install_info = {
+            url = "https://github.com/Freed-Wu/tree-sitter-tmux",
+            revision = "main",
+            queries = "queries",
+          },
+        }
       end,
     })
 
