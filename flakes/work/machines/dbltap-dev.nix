@@ -37,7 +37,6 @@
         hut
         jj
         just
-        kiro
         lazygit
         less
         man
