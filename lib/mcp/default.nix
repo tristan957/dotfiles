@@ -16,6 +16,10 @@
     type = lib.types.attrsOf lib.types.str;
     default = {};
   };
+  argsOption = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = [];
+  };
 
   # A locally spawned MCP server run as a subprocess
   mkLocal = args:
@@ -23,6 +27,7 @@
       {
         name = strOption;
         command = strOption;
+        args = argsOption;
         env = envOption;
       }
       args)
@@ -71,7 +76,7 @@ in {
           // (
             if server.kind == "local"
             then {
-              command = [server.command];
+              command = [server.command] ++ server.args;
               env = server.env;
             }
             else if server.kind == "remote"
@@ -91,7 +96,7 @@ in {
           then {
             type = "local";
             command = server.command;
-            args = [];
+            args = server.args;
             env = server.env;
           }
           else throw "mcp.kiro.generate: unknown server kind `${server.kind}`";
