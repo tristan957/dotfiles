@@ -13,5 +13,11 @@
         TOOL_PERSONALIZATION_ROLLOUT_PERCENTAGE = "100";
       };
     };
+
+    creds-agent = mkLocal {
+      name = "creds-agent";
+      command = "aim";
+      args = ["mcp" "start-server" "local-creds-agent-mcp"];
+    };
   };
 }

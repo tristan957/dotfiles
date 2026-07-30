@@ -13,6 +13,7 @@ in {
   home.file.".kiro/settings/mcp.json".source = json.generate "mcp.json" {
     mcpServers = inputs.dotfiles.lib.mcp.kiro.generate [
       mcp.servers.builder-mcp
+      mcp.servers.creds-agent
     ];
   };
 }
