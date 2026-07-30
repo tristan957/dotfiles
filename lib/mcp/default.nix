@@ -47,6 +47,11 @@ in {
   # Server definitions shared across configs (currently just the personal
   # opencode config, but nothing ties a server to a particular consumer).
   servers = {
+    _1password = mkLocal {
+      name = "1password";
+      command = "1password-mcp";
+    };
+
     fastmail = mkRemote {
       name = "fastmail";
       url = "https://api.fastmail.com/mcp";

@@ -11,7 +11,10 @@ in {
       enable = true;
 
       settings = {
-        mcp = mcp.opencode.generate [mcp.servers.fastmail];
+        mcp = mcp.opencode.generate [
+          mcp.servers._1password
+          mcp.servers.fastmail
+        ];
         skills = {
           paths = [
             "${dotfilesPackages.skills}/skills"
