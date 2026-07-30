@@ -85,7 +85,6 @@
           awscli2
           basedpyright
           bash-language-server
-          binutils
           bun
           cascadia-code
           chawan
