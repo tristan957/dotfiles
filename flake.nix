@@ -80,7 +80,6 @@
                 "*.sh"
                 "modules/aerc/aerc-signature"
                 "modules/bash/bash_logout"
-                "modules/programs/dbgwait"
                 "modules/tmux/fzf-sessions"
               ];
             };
@@ -123,7 +122,6 @@
               "\\.sh$"
               "^modules/aerc/aerc-signature$"
               "^modules/bash/bash_logout$"
-              "^modules/programs/dbgwait$"
             ];
             args = [
               "--shell"
