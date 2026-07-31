@@ -126,6 +126,7 @@
           muon
           neovim
           ninja
+          nix-auth
           nixd
           nodejs
           nushell

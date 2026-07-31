@@ -88,6 +88,7 @@
         harper
         hunk
         lua-language-server
+        nix-auth
         nixd
         rustup
         tombi

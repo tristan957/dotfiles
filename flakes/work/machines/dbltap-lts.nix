@@ -82,6 +82,7 @@
       muon
       neovim
       ninja
+      nix-auth
       nixd
       pandoc
       postgres-language-server

@@ -124,6 +124,7 @@
           muon
           mypy
           neovim
+          nix-auth
           nixd
           nodejs
           nushell
