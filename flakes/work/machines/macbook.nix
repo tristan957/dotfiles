@@ -70,7 +70,6 @@
     home.homeDirectory = "/Users/dbltap";
     home.stateVersion = "25.11";
 
-    modules.aerc.symlink = "${root}/modules/aerc/accounts.conf";
     modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
     modules.neovim.symlink = "${root}/modules/neovim/nvim";
 
