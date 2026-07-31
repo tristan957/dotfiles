@@ -91,6 +91,7 @@
           chawan
           clang
           coccinelle
+          codespell
           copilot-language-server
           delta
           delve
