@@ -157,6 +157,7 @@
             (python3.withPackages (ps:
               with ps; [
                 matplotlib
+                pyyaml
               ]))
             reuse
             ruff
