@@ -33,7 +33,11 @@ pkgs.mkShell {
       meson
       muon
       ninja
-      perl
+      (perl.withPackages
+        (ps:
+          with ps; [
+            IPCRun
+          ]))
       pkgconf
       samurai
 
@@ -62,7 +66,6 @@ pkgs.mkShell {
       pandoc
 
       # Testing
-      perlPackages.IPCRun
       (python3.withPackages
         (ps:
           with ps; [
