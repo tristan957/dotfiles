@@ -8,7 +8,6 @@
       "${config.xdg.binHome}/pgsql-hacker" = config.lib.file.mkExecutable ./pgsql-hacker;
       "${config.xdg.binHome}/substr" = config.lib.file.mkExecutable ./substr;
       "${config.xdg.binHome}/universal-copy" = config.lib.file.mkExecutable ./universal-copy;
-      "${config.xdg.binHome}/yaml2json" = config.lib.file.mkExecutable ./yaml2json;
     };
   };
 }
