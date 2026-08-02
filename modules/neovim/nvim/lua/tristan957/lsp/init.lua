@@ -31,6 +31,7 @@ vim.lsp.enable({
   "marksman",
   "muon",
   "nixd",
+  "nushell",
   "postgres_lsp",
   -- "pyright",
   "ruff",
