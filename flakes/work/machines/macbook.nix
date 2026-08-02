@@ -16,6 +16,7 @@
         aerc
         bash
         bat
+        bun
         cargo
         chawan
         clangd
@@ -83,7 +84,6 @@
           awscli2
           basedpyright
           bash-language-server
-          bun
           cascadia-code
           copilot-language-server
           coreutils-full

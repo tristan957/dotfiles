@@ -16,6 +16,7 @@
         aerc
         bash
         bat
+        bun
         cargo
         chawan
         clangd
@@ -85,7 +86,6 @@
           basedpyright
           bash-language-server
           bear
-          bun
           ccache
           clang
           coccinelle
