@@ -74,6 +74,8 @@
     modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
     modules.neovim.symlink = "${root}/modules/neovim/nvim";
 
+    programs.go.package = null;
+
     home.packages = with pkgs;
       [
         alejandra

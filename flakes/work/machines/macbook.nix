@@ -104,7 +104,6 @@
           gnupatch
           gnused
           gnutar
-          go
           golangci-lint
           gopls
           gum
