@@ -11,7 +11,7 @@
     };
 
     home.file = {
-      "${config.xdg.binHome}/aerc-notify" = config.lib.file.mkExecutable ./aerc-notify;
+      ".local/libexec/aerc/hooks/mail-received" = config.lib.file.mkExecutable ./hooks/mail-received;
       "${config.xdg.binHome}/aerc-signature" = config.lib.file.mkExecutable ./aerc-signature;
     };
   };
