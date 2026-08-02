@@ -15,6 +15,7 @@
         _1password
         aerc
         asciinema
+        awscli
         bash
         bat
         bun
@@ -80,7 +81,6 @@
           _1password-cli
           alejandra
           ast-grep
-          awscli2
           basedpyright
           bash-language-server
           cascadia-code

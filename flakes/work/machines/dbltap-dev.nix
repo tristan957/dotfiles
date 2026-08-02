@@ -15,6 +15,7 @@
         _1password
         aerc
         asciinema
+        awscli
         bash
         bat
         bun
