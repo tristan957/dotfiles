@@ -149,7 +149,6 @@
           sequoia-sq
           shellcheck
           shfmt
-          stow
           tombi
           tinymist
           inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default

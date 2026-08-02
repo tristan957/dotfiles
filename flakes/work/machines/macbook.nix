@@ -141,7 +141,6 @@
           sequoia-sq
           shellcheck
           shfmt
-          stow
           stylua
           time
           tinymist

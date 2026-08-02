@@ -88,7 +88,6 @@
       rr
       samurai
       sccache
-      stow
       tombi
       tmux
       tree-sitter

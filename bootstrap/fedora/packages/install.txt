@@ -198,7 +198,6 @@ shfmt
 snapd
 socat
 steam-devices
-stow
 strace
 swift-lang
 symlinks
