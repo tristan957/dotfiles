@@ -61,6 +61,7 @@
         rustup
         testcontainers
         tmux
+        uv
         vim
         vscode
         zellij
@@ -151,7 +152,6 @@
           ts_query_ls
           ty
           typst
-          uv
           vhs
           vim
           vscode-langservers-extracted

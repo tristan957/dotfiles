@@ -62,6 +62,7 @@
         rustup
         testcontainers
         tmux
+        uv
         vim
         zellij
         zoxide
@@ -157,7 +158,6 @@
           ts_query_ls
           ty
           typst
-          uv
           vscode-langservers-extracted
           worktrunk
           yaml-language-server
