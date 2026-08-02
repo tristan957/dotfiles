@@ -39,6 +39,7 @@
         helix
         hut
         jj
+        jq
         just
         lazygit
         less
@@ -111,7 +112,6 @@
           hunk
           hut
           jj
-          jq
           just
           lazygit
           lldb

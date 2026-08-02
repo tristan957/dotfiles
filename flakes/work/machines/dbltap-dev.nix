@@ -40,6 +40,7 @@
         hunk
         hut
         jj
+        jq
         just
         lazygit
         less
