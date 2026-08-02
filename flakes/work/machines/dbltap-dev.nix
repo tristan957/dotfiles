@@ -14,6 +14,7 @@
       (with inputs.dotfiles.homeModules; [
         _1password
         aerc
+        asciinema
         bash
         bat
         bun
@@ -80,7 +81,6 @@
           _1password-cli
           aerc
           alejandra
-          asciinema
           ast-grep
           basedpyright
           bash-language-server
