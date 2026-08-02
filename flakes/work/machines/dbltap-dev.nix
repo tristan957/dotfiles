@@ -62,6 +62,7 @@
         rustup
         testcontainers
         tmux
+        ty
         uv
         vim
         zellij
@@ -156,7 +157,6 @@
           tokei
           tree-sitter
           ts_query_ls
-          ty
           typst
           vscode-langservers-extracted
           worktrunk

@@ -61,6 +61,7 @@
         rustup
         testcontainers
         tmux
+        ty
         uv
         vim
         vscode
@@ -150,7 +151,6 @@
           tree-sitter
           trurl
           ts_query_ls
-          ty
           typst
           vhs
           vim
