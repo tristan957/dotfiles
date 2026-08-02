@@ -85,7 +85,6 @@
           bash-language-server
           bun
           cascadia-code
-          chawan
           copilot-language-server
           coreutils-full
           curlFull

@@ -1,5 +1,13 @@
 {...}: {
   config = {
-    xdg.configFile."chawan/config.toml".source = ./config.toml;
+    programs.chawan.enable = true;
+    programs.chawan.settings = {
+      buffer = {
+        images = true;
+      };
+      network = {
+        allow-http-from-file = true;
+      };
+    };
   };
 }

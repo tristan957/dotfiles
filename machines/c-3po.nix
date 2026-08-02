@@ -80,7 +80,6 @@
         alejandra
         ast-grep
         bash-language-server
-        chawan
         copilot-language-server
         fish-lsp
         flyctl

@@ -87,7 +87,6 @@
           bear
           bun
           ccache
-          chawan
           clang
           coccinelle
           codespell
