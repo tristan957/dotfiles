@@ -28,6 +28,7 @@
         direnv
         dotnet
         editline
+        fd
         fish
         fzf
         gdb
@@ -96,7 +97,6 @@
           # deno
           difftastic
           ditaa
-          fd
           fish-lsp
           fop
           gh

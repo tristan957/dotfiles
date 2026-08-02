@@ -27,6 +27,7 @@
         direnv
         dotnet
         editline
+        fd
         fish
         fonts
         fzf
@@ -92,7 +93,6 @@
           # deno
           difftastic
           diffutils
-          fd
           findutils
           fish-lsp
           gh
