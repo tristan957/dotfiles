@@ -155,7 +155,6 @@ ninja-build
 nix
 nix-daemon
 nix-legacy
-nnn
 nodejs
 nushell
 opentofu

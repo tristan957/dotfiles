@@ -46,7 +46,6 @@
         neovim
         nh
         nix
-        nnn
         node
         opencode
         programs
