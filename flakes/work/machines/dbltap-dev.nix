@@ -58,6 +58,7 @@
         readline
         ripgrep
         rlwrap
+        ruff
         rustup
         testcontainers
         tmux
@@ -138,7 +139,6 @@
               pytest
             ]))
           rr
-          ruff
           rustup
           samurai
           sccache

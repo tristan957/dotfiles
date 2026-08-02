@@ -57,6 +57,7 @@
         readline
         ripgrep
         rlwrap
+        ruff
         rustup
         testcontainers
         tmux
@@ -131,7 +132,6 @@
           pkgconf
           postgres-language-server
           reuse
-          ruff
           rustup
           samurai
           scdoc
