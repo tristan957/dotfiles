@@ -124,5 +124,7 @@
 	key = Tested-by
 [include]
 	path = delta.config
+[includeIf "gitdir:~/Projects/postgres/"]
+	path = postgres.config
 [includeIf "gitdir:~/Projects/work/"]
 	path = work.config
