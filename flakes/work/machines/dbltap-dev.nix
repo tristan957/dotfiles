@@ -51,6 +51,7 @@
         nh
         nix
         node
+        nushell
         opencode
         programs
         psql
@@ -130,7 +131,6 @@
           nix-auth
           nixd
           nodejs
-          nushell
           pandoc
           pkgconf
           postgres-language-server

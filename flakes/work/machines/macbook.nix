@@ -50,6 +50,7 @@
         nh
         nix
         node
+        nushell
         opencode
         programs
         psql
@@ -129,7 +130,6 @@
           nix-auth
           nixd
           nodejs
-          nushell
           opentofu
           pkgconf
           postgres-language-server
