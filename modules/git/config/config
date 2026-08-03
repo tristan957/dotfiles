@@ -63,6 +63,7 @@
 	prune = true
 	prunetags = true
 [format]
+	commitListFormat = modern
 	coverFromDescription = auto
 	coverLetter = auto
 	notes = true
