@@ -13,6 +13,9 @@ case "$AERC_ACCOUNT" in
                 ;;
         esac
         ;;
+    PgUS)
+        cat "$SIGNATURES_DIR/pgus.txt"
+        ;;
     Work)
         cat "$SIGNATURES_DIR/work.txt"
         ;;
