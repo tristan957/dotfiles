@@ -90,6 +90,7 @@
           basedpyright
           bash-language-server
           cascadia-code
+          codespell
           copilot-language-server
           coreutils-full
           curlFull
