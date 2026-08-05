@@ -9,7 +9,7 @@ tasks:
       nix develop --command true
   - check-flake: |
       cd dotfiles
-      nix flake check
+      nix flake check --print-build-logs
   - check-postgres-flake: |
       cd dotfiles/flakes/postgres
-      nix flake check
+      nix flake check --print-build-logs
