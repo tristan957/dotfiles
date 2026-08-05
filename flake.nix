@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     systems.url = "github:nix-systems/default";
-    treefmt-nix = {
+    treefmt = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -53,7 +53,7 @@
 
       imports = [
         inputs.git-hooks.flakeModule
-        inputs.treefmt-nix.flakeModule
+        inputs.treefmt.flakeModule
       ];
 
       perSystem = {

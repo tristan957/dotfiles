@@ -229,7 +229,7 @@
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "systems": "systems",
-        "treefmt-nix": "treefmt-nix"
+        "treefmt": "treefmt"
       }
     },
     "systems": {
@@ -247,7 +247,7 @@
         "type": "github"
       }
     },
-    "treefmt-nix": {
+    "treefmt": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
