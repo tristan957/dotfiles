@@ -6,7 +6,7 @@ engine: microvm
 
 steps:
   - name: download-dependencies
-    run: nix develop --command true
+    command: nix develop --command true
 
   - name: check-flake
-    run: nix flake check --print-build-logs
+    command: nix flake check --print-build-logs
