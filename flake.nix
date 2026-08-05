@@ -131,10 +131,7 @@
           };
 
           # Run treefmt as a hook so commits are formatted
-          treefmt = {
-            enable = true;
-            package = config.treefmt.build.wrapper;
-          };
+          treefmt.enable = true;
         };
 
         packages.skills = pkgs.callPackage ./pkgs/skills {};
