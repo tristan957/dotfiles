@@ -3,8 +3,8 @@ disableStartupPopups: true
 git:
   pagers:
     - colorArg: always
-      externalDiffCommand: difft --color=always
       pager: delta --paging=never
+    - externalDiffCommand: difft --color=always
 gui:
   nerdFontsVersion: "3"
 os:
