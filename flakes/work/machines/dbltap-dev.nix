@@ -141,7 +141,7 @@
               pytest
             ]))
           rr
-          rustup
+          (pkgs.lib.hiPrio pkgs.rust-analyzer)
           samurai
           sccache
           scdoc

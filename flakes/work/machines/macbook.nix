@@ -135,7 +135,7 @@
           pkgconf
           postgres-language-server
           reuse
-          rustup
+          (pkgs.lib.hiPrio pkgs.rust-analyzer)
           samurai
           scdoc
           sequin

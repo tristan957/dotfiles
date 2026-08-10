@@ -90,7 +90,7 @@
         lua-language-server
         nix-auth
         nixd
-        rustup
+        (pkgs.lib.hiPrio pkgs.rust-analyzer)
         tombi
         vacuum-go
         vscode-langservers-extracted
