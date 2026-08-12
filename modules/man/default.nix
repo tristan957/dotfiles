@@ -1,6 +1,17 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   config = {
-    programs.man.enable = !pkgs.stdenv.isDarwin;
+    programs.man = {
+      enable = true;
+
+      # macOS ships its own man, and man-db's mandb/apropos would shadow it.
+      # Keep the module enabled so home.extraOutputsToInstall still pulls in
+      # the man output of every package.
+      package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin null;
+    };
 
     home.sessionVariables = {
       MANPAGER = "nvim +Man!";
