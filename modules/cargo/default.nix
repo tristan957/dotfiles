@@ -19,9 +19,10 @@
         };
 
         target = {
-          stable-aarch64-apple-darwin = {
+          # mold has no Mach-O backend (its macOS support lived in sold, which
+          # is discontinued), so darwin uses the default Apple linker.
+          aarch64-apple-darwin = {
             linker = "clang";
-            rustflags = ["-C" "link-arg=-fuse-ld=mold"];
           };
           x86_64-unknown-linux-gnu = {
             linker = "clang";
