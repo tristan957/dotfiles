@@ -5,14 +5,9 @@
       PGES_EXTENDED_SUPPORT_DIR = "${config.home.homeDirectory}/Projects/work/postgresql-extended-support";
     };
 
-    programs.zsh.initContent =
-      # zsh
-      ''
-        if [ -n "$OP_SERVICE_ACCOUNT_TOKEN" ]; then
-          export GITLAB_TOKEN="$(op read 'op://PostgreSQL Extended Support/GitLab Token/credential')"
-        fi
-      '';
-
+    # No zsh equivalent: the only machine importing this module also imports
+    # cloud-desktop, which execs into fish from the top of .zshrc, so anything
+    # added here at the default order would never run.
     programs.bash.initExtra =
       # bash
       ''
