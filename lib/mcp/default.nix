@@ -20,6 +20,14 @@
     type = lib.types.listOf lib.types.str;
     default = [];
   };
+  # Optional override for whether a server is loaded at startup. `null` means
+  # "defer to the consuming tool's own default", which differs per tool:
+  # opencode opts servers out, kiro opts them in. Each generator renders this
+  # in its tool's own spelling (opencode `enabled`, kiro `disabled`).
+  enabledOption = lib.mkOption {
+    type = lib.types.nullOr lib.types.bool;
+    default = null;
+  };
 
   # A locally spawned MCP server run as a subprocess
   mkLocal = args:
@@ -29,6 +37,7 @@
         command = strOption;
         args = argsOption;
         env = envOption;
+        enabled = enabledOption;
       }
       args)
     // {kind = "local";};
@@ -39,6 +48,7 @@
       {
         name = strOption;
         url = strOption;
+        enabled = enabledOption;
         oauth = lib.mkOption {
           type = lib.types.attrsOf lib.types.anything;
           default = {};
@@ -49,8 +59,9 @@
 in {
   inherit mkLocal mkRemote;
 
-  # Server definitions shared across configs (currently just the personal
-  # opencode config, but nothing ties a server to a particular consumer).
+  # Server definitions shared across configs. Nothing ties a server to a
+  # particular consumer: `_1password` is used by both the personal opencode
+  # config and the work kiro config.
   servers = {
     _1password = mkLocal {
       name = "1password";
@@ -70,7 +81,11 @@ in {
         name = server.name;
         value =
           {
-            enabled = false;
+            # opencode servers stay opt-in unless a definition says otherwise.
+            enabled =
+              if server.enabled == null
+              then false
+              else server.enabled;
             type = server.kind;
           }
           // (
@@ -95,12 +110,18 @@ in {
         name = server.name;
         value =
           if server.kind == "local"
-          then {
-            type = "local";
-            command = server.command;
-            args = server.args;
-            env = server.env;
-          }
+          then
+            {
+              type = "local";
+              command = server.command;
+              args = server.args;
+              env = server.env;
+            }
+            # Kiro loads servers by default, so only emit the key when a
+            # definition overrides it (see `kiro-cli mcp add --disabled`).
+            // lib.optionalAttrs (server.enabled != null) {
+              disabled = !server.enabled;
+            }
           else throw "mcp.kiro.generate: unknown server kind `${server.kind}`";
       })
       servers);
