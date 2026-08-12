@@ -1,4 +1,6 @@
---when.repositories = []
+# Mirrors the `includeIf "gitdir:~/Projects/work/"` section of the git config,
+# so work repositories are not committed to with the personal identity.
+--when.repositories = ["~/Projects/work"]
 
 [user]
 email = "dbltap@amazon.com"
