@@ -2,7 +2,7 @@ function fish_title
     set -l host (prompt_hostname)
     set -l cwd (prompt_pwd --dir-length=1)
 
-    switch (__fish_uname)
+    switch (uname)
     case Darwin
         if set --query argv[1]
             echo $USER@$host:$cwd: $argv
