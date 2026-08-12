@@ -8,13 +8,11 @@
     programs.less = {
       enable = true;
 
-      config =
-        # lesskey
-        ''
-          #env
-          LESSHISTFILE = ${config.xdg.stateHome}/less/history
-          LESSHISTSIZE = 1000000
-        '';
+      config = ''
+        #env
+        LESSHISTFILE = ${config.xdg.stateHome}/less/history
+        LESSHISTSIZE = 1000000
+      '';
 
       options = {
         RAW-CONTROL-CHARS = true;

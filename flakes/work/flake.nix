@@ -1,10 +1,6 @@
 {
   description = "Work-specific Home Manager extensions";
 
-  # This flake has its own lock file, which independently pins every input the
-  # dotfiles flake pins. Update the two together (`nix flake update` here after
-  # updating the parent), otherwise the personal and work configurations build
-  # against different nixpkgs revisions.
   inputs = {
     dotfiles.url = "path:../..";
     amzn = {
@@ -29,7 +25,7 @@
     inherit homeModules;
 
     # The shared MCP catalogue extended with the work-only servers, so
-    # downstream consumers do not have to reassemble it.
+    # downstream consumers do not have to reassemble it
     lib = {inherit mcp;};
 
     homeConfigurations = {

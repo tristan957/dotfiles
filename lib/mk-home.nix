@@ -6,7 +6,7 @@
   # e.g. flakes/work).
   homeModules,
   # The MCP server catalogue and per-tool generators, exposed to modules as
-  # `mcp`. Downstream flakes override this with their own extended catalogue.
+  # `mcp`.
   mcp,
 }: {
   system,

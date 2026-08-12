@@ -4,9 +4,6 @@
     PGES_EXTENDED_SUPPORT_DIR = "${config.home.homeDirectory}/Projects/work/postgresql-extended-support";
   };
 
-  # No zsh equivalent: the only machine importing this module also imports
-  # cloud-desktop, which execs into fish from the top of .zshrc, so anything
-  # added here at the default order would never run.
   programs.bash.initExtra =
     # bash
     ''

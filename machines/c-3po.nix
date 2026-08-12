@@ -76,6 +76,7 @@
     modules.neovim.symlink = "${root}/modules/neovim/nvim";
 
     programs.go.package = null;
+    programs.nh.homeFlake = "${root}";
 
     home.packages = with pkgs;
       [

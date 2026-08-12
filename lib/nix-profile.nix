@@ -6,23 +6,27 @@
 # three cannot drift apart.
 {
   # POSIX shell syntax, used by both bash and zsh.
-  posix = ''
-    # Nix
-    # Multi-user (daemon) installation
-    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
-    # Fedora
-    . /etc/profile.d/nix-daemon.sh 2>/dev/null
-    # Single-user installation
-    . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
-  '';
+  posix =
+    # bash
+    ''
+      # Nix
+      # Multi-user (daemon) installation
+      . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
+      # Fedora
+      . /etc/profile.d/nix-daemon.sh 2>/dev/null
+      # Single-user installation
+      . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
+    '';
 
-  fish = ''
-    # Nix
-    # Multi-user (daemon) installation
-    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish 2>/dev/null
-    # Fedora
-    source /etc/profile.d/nix-daemon.fish 2>/dev/null
-    # Single-user installation
-    source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
-  '';
+  fish =
+    # fish
+    ''
+      # Nix
+      # Multi-user (daemon) installation
+      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish 2>/dev/null
+      # Fedora
+      source /etc/profile.d/nix-daemon.fish 2>/dev/null
+      # Single-user installation
+      source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
+    '';
 }

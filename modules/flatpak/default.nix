@@ -1,7 +1,4 @@
-# Linux only. The nix-flatpak module that provides services.flatpak is only
-# imported on Linux (see lib/mk-home.nix), so importing this on darwin fails
-# outright; a lib.mkIf guard here would not help.
-{...}: {
+{
   config = {
     services.flatpak = {
       enable = true;

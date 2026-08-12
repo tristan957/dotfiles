@@ -75,8 +75,6 @@
               enable = true;
               indent_size = 4;
               simplify = false;
-              # Shell scripts shipped by modules have no extension, so each
-              # has to be named explicitly.
               includes = [
                 "*.bash"
                 "*.sh"

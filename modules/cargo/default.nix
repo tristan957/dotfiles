@@ -9,9 +9,7 @@
       cargoHome = "${config.home.homeDirectory}/.opt/cargo";
 
       settings = {
-        # An installation root, not a bin directory: `cargo install` appends
-        # /bin to it.
-        install.root = builtins.dirOf config.xdg.binHome;
+        install.root = dirOf config.xdg.binHome;
 
         net = {
           # Given a more complex Git configuration, the Cargo Git library is
@@ -21,11 +19,6 @@
         };
 
         target = {
-          # mold has no Mach-O backend (its macOS support lived in sold, which
-          # is discontinued), so darwin uses the default Apple linker.
-          aarch64-apple-darwin = {
-            linker = "clang";
-          };
           x86_64-unknown-linux-gnu = {
             linker = "clang";
             rustflags = ["-C" "link-arg=-fuse-ld=mold"];

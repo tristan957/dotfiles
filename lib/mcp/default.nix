@@ -22,8 +22,8 @@
   };
   # Optional override for whether a server is loaded at startup. `null` means
   # "defer to the consuming tool's own default", which differs per tool:
-  # opencode opts servers out, kiro opts them in. Each generator renders this
-  # in its tool's own spelling (opencode `enabled`, kiro `disabled`).
+  # OpenCode opts servers out, Kiro opts them in. Each generator renders this
+  # in its tool's own spelling (OpenCode `enabled`, Kiro `disabled`).
   enabledOption = lib.mkOption {
     type = lib.types.nullOr lib.types.bool;
     default = null;
@@ -59,9 +59,6 @@
 in {
   inherit mkLocal mkRemote;
 
-  # Server definitions shared across configs. Nothing ties a server to a
-  # particular consumer: `_1password` is used by both the personal opencode
-  # config and the work kiro config.
   servers = {
     _1password = mkLocal {
       name = "1password";
@@ -81,7 +78,7 @@ in {
         name = server.name;
         value =
           {
-            # opencode servers stay opt-in unless a definition says otherwise.
+            # OpenCode servers stay opt-in unless a definition says otherwise.
             enabled =
               if server.enabled == null
               then false
