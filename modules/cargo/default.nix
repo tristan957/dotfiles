@@ -9,7 +9,9 @@
       cargoHome = "${config.home.homeDirectory}/.opt/cargo";
 
       settings = {
-        install.root = "${config.home.homeDirectory}/.local";
+        # An installation root, not a bin directory: `cargo install` appends
+        # /bin to it.
+        install.root = builtins.dirOf config.xdg.binHome;
 
         net = {
           # Given a more complex Git configuration, the Cargo Git library is
