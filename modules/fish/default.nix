@@ -29,7 +29,6 @@
       "fish/conf.d/10-aliases.fish".source = ./10-aliases.fish;
       "fish/conf.d/10-bash.fish".source = ./10-bash.fish;
       "fish/conf.d/10-cursor.fish".source = ./10-cursor.fish;
-      "fish/conf.d/10-keybindings.fish".source = ./10-keybindings.fish;
       "fish/conf.d/10-title.fish".source = ./10-title.fish;
       "fish/functions/add_pkg_config_path.fish".source = ./add_pkg_config_path.fish;
       "fish/functions/fish_mode_prompt.fish".source = ./fish_mode_prompt.fish;
