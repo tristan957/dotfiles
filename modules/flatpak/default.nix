@@ -56,7 +56,6 @@
       "io.github.realmazharhussain.GdmSettings"
       "io.gitlab.news_flash.NewsFlash"
       "md.obsidian.Obsidian"
-      # "io.podman_desktop.PodmanDesktop"
       "org.freecad.FreeCAD"
       "org.freedesktop.Bustle"
       "org.gimp.GIMP"
@@ -84,7 +83,5 @@
       "se.sjoerd.Graphs"
       "us.zoom.Zoom"
     ];
-
-    overrides = {};
   };
 }

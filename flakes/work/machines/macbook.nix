@@ -98,7 +98,6 @@
           curlFull
           delta
           delve
-          # deno
           difftastic
           diffutils
           findutils

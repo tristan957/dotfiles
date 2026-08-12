@@ -101,7 +101,6 @@
           copilot-language-server
           delta
           delve
-          # deno
           difftastic
           ditaa
           fish-lsp
