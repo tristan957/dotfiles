@@ -4,20 +4,12 @@
   ...
 }: let
   cfg = config.modules.harper;
+  symlink = import ../../lib/symlink.nix {inherit lib;};
 in {
-  options.modules.harper.symlink = lib.mkOption {
-    type = lib.types.nullOr lib.types.str;
-    default = null;
-    description = ''
-      Absolute path to symlink the harper dictionary from for live editing
-      (out-of-store symlink). Null uses the Nix store copy.
-    '';
-  };
+  options.modules.harper.symlink = symlink.mkOption "the harper dictionary";
 
   config = {
     xdg.configFile."harper-ls/dictionary.txt".source =
-      if cfg.symlink != null
-      then config.lib.file.mkOutOfStoreSymlink cfg.symlink
-      else ./dictionary.txt;
+      symlink.select config cfg.symlink ./dictionary.txt;
   };
 }
