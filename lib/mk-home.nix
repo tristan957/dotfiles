@@ -31,10 +31,11 @@ in
     modules =
       [
         # Base configuration shared by every machine.
-        {
+        ({lib, ...}: {
           # Custom helpers, exposed alongside home-manager's own under
-          # config.lib.file (e.g. config.lib.file.mkExecutable).
+          # config.lib (e.g. config.lib.file.mkExecutable).
           lib.file.mkExecutable = import ./mk-executable.nix;
+          lib.activation.mkDir = import ./mk-dir.nix {inherit lib;};
 
           home.enableNixpkgsReleaseCheck = false;
 
@@ -45,7 +46,7 @@ in
           };
 
           programs.home-manager.enable = true;
-        }
+        })
         machine
       ]
       # nix-flatpak is only meaningful on Linux (flatpak does not exist on macOS).

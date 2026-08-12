@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   config = {
     home.sessionVariables = {
       PSQL_HISTORY = "${config.xdg.stateHome}/psql/history";
@@ -10,11 +6,7 @@
     };
 
     home.activation.createPsqlStateDir =
-      lib.hm.dag.entryAfter ["writeBoundary"]
-      # bash
-      ''
-        mkdir -p "${config.xdg.stateHome}/psql"
-      '';
+      config.lib.activation.mkDir "${config.xdg.stateHome}/psql";
 
     xdg.configFile."psql/psqlrc".source = ./psqlrc;
   };

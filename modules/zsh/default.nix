@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{config, ...}: let
   nixProfile = import ../../lib/nix-profile.nix;
 in {
   config = {
@@ -58,11 +54,7 @@ in {
     # compinit runs before initContent, so the cache directory cannot be
     # created from there. home-manager already creates the history directory.
     home.activation.createZshCacheDir =
-      lib.hm.dag.entryAfter ["writeBoundary"]
-      # bash
-      ''
-        mkdir -p "${config.xdg.cacheHome}/zsh"
-      '';
+      config.lib.activation.mkDir "${config.xdg.cacheHome}/zsh";
 
     xdg.configFile = {
       "zsh/conf.d/90-prompt.zsh".source = ./90-prompt.zsh;

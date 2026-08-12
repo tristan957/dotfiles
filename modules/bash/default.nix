@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{config, ...}: let
   nixProfile = import ../../lib/nix-profile.nix;
 in {
   config = {
@@ -62,10 +58,6 @@ in {
     };
 
     home.activation.createBashStateDir =
-      lib.hm.dag.entryAfter ["writeBoundary"]
-      # bash
-      ''
-        mkdir -p "${config.xdg.stateHome}/bash"
-      '';
+      config.lib.activation.mkDir "${config.xdg.stateHome}/bash";
   };
 }

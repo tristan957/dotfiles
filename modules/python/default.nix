@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   config = {
     home.sessionVariables = {
       PYTHON_HISTORY = "${config.xdg.stateHome}/python/history";
@@ -11,10 +7,6 @@
     };
 
     home.activation.createPythonStateDir =
-      lib.hm.dag.entryAfter ["writeBoundary"]
-      # bash
-      ''
-        mkdir -p "${config.xdg.stateHome}/python"
-      '';
+      config.lib.activation.mkDir "${config.xdg.stateHome}/python";
   };
 }

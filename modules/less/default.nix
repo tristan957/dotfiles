@@ -1,17 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   config = {
     home.sessionVariables.PAGER = "less";
 
     home.activation.createLessStateDir =
-      lib.hm.dag.entryAfter ["writeBoundary"]
-      # bash
-      ''
-        mkdir -p "${config.xdg.stateHome}/less"
-      '';
+      config.lib.activation.mkDir "${config.xdg.stateHome}/less";
 
     programs.less = {
       enable = true;
