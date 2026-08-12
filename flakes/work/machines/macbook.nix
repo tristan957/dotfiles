@@ -2,10 +2,11 @@
   system = "aarch64-darwin";
 
   machine = {
-    inputs,
     config,
-    pkgs,
     homeModules,
+    inputs,
+    lib,
+    pkgs,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
@@ -136,7 +137,7 @@
           pkgconf
           postgres-language-server
           reuse
-          (pkgs.lib.hiPrio pkgs.rust-analyzer)
+          (lib.hiPrio rust-analyzer)
           samurai
           scdoc
           sequin

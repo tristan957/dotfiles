@@ -2,10 +2,11 @@
   system = "x86_64-linux";
 
   machine = {
-    inputs,
     config,
-    pkgs,
     homeModules,
+    inputs,
+    lib,
+    pkgs,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
@@ -142,7 +143,7 @@
               pytest
             ]))
           rr
-          (pkgs.lib.hiPrio pkgs.rust-analyzer)
+          (lib.hiPrio rust-analyzer)
           samurai
           sccache
           scdoc
@@ -150,8 +151,8 @@
           sequoia-sq
           shellcheck
           shfmt
-          tombi
           tinymist
+          tombi
           tokei
           tree-sitter
           ts_query_ls

@@ -2,10 +2,10 @@
   system = "x86_64-linux";
 
   machine = {
-    inputs,
     config,
-    pkgs,
     homeModules,
+    inputs,
+    pkgs,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";

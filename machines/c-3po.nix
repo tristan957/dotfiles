@@ -3,9 +3,10 @@
 
   machine = {
     config,
-    inputs,
-    pkgs,
     homeModules,
+    inputs,
+    lib,
+    pkgs,
     ...
   }: let
     root = "${config.home.homeDirectory}/dotfiles";
@@ -90,7 +91,7 @@
         lua-language-server
         nix-auth
         nixd
-        (pkgs.lib.hiPrio pkgs.rust-analyzer)
+        (lib.hiPrio rust-analyzer)
         tombi
         vacuum-go
         vscode-langservers-extracted
