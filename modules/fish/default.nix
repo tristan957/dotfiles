@@ -20,8 +20,10 @@
           # Single-user installation
           source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
 
-          # Make sure local binaries override everything
-          fish_add_path --prepend --move "${config.xdg.binHome}"
+          # Make sure local binaries override everything. --global --path edits
+          # $PATH directly instead of the universal $fish_user_paths, which
+          # would persist to fish_variables outside of nix's control.
+          fish_add_path --global --path --prepend --move "${config.xdg.binHome}"
         '';
     };
 
