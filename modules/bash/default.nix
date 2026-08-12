@@ -49,7 +49,10 @@
           . "/etc/bash.bashrc" 2>/dev/null
           . "/etc/bashrc" 2>/dev/null
 
-          for f in "$XDG_CONFIG_HOME"/bash.d/*; do
+          # Interpolated rather than using $XDG_CONFIG_HOME, which is exported
+          # from .profile and so is not guaranteed to be set here. This module
+          # always installs files into bash.d, so failglob cannot trip on it.
+          for f in "${config.xdg.configHome}"/bash.d/*; do
             . "$f"
           done
         '';
