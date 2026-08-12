@@ -11,6 +11,13 @@
 
   config = {
     nix = {
+      # use-xdg-base-directories is set at the /etc/nix/nix.conf level (see the
+      # note below), so home-manager cannot infer it from its own settings and
+      # has to be told. Without this, config.home.profileDirectory resolves to
+      # ~/.nix-profile and config.nix.defexprDir to ~/.nix-defexpr, neither of
+      # which exists on these machines.
+      assumeXdg = true;
+
       gc = {
         automatic = true;
         dates = "weekly";
