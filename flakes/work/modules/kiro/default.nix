@@ -1,4 +1,5 @@
 {
+  dotfilesPackages,
   pkgs,
   inputs,
   ...
@@ -11,7 +12,7 @@ in {
   programs.toolbox.kiro.cli.enable = true;
 
   home.file = {
-    ".kiro/skills".source = "${inputs.dotfiles}/skills";
+    ".kiro/skills".source = "${dotfilesPackages.skills}/skills";
     ".kiro/settings/mcp.json".source = json.generate "mcp.json" {
       mcpServers = inputs.dotfiles.lib.mcp.kiro.generate [
         inputs.dotfiles.lib.mcp.servers._1password
