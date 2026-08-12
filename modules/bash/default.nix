@@ -21,7 +21,6 @@
         "globstar"
         "histappend"
         "hostcomplete"
-        "nullglob"
       ];
 
       logoutExtra = builtins.readFile ./bash_logout;
