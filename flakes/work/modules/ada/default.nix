@@ -1,7 +1,5 @@
 {
   programs.toolbox = {
-    tools.ada.enable = true;
-
     ada = {
       enable = true;
       defaults = {
