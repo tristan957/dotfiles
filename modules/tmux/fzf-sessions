@@ -10,25 +10,17 @@ list_sessions() {
         awk '{print $2}'
 }
 
-args=$(getopt \
-    -o l \
-    --long list \
-    -n "$0" \
-    -- "$@") || exit 1
-eval set -- "$args"
-
-while true; do
-    case "$1" in
-        -l | --list)
-            list_sessions
-            exit 0
-            ;;
-        --)
-            shift
-            break
-            ;;
-    esac
-done
+case "${1-}" in
+    -l | --list)
+        list_sessions
+        exit 0
+        ;;
+    "") ;;
+    *)
+        printf 'usage: %s [-l|--list]\n' "$0" >&2
+        exit 1
+        ;;
+esac
 
 list_sessions |
     fzf --tmux center,100%,100% \
