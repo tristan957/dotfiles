@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# kubectl plugin that prints the current context and namespace, for use in a
+# shell prompt.
+#
+# Usage:
+#   kubectl prompt [separator]
+#
+# Prints "<context><separator><namespace>" and exits 0, or prints nothing and
+# exits 1 if there is no current context configured. Separator defaults to a
+# single space if omitted.
+
+set -eu
+
+separator=${1:- }
+
+# --minify trims the kubeconfig down to just the current context, so we can pull
+# both the context name and namespace out of a single kubectl call. We use a
+# literal newline (rather than the caller-supplied separator) to split the two
+# fields internally, so that separators containing glob/pattern characters can't
+# interfere with the split below.
+info=$(kubectl config view --minify \
+    --output='go-template={{ .current-context }}{{ "\n" }}{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
+    2>/dev/null) || exit 1
+
+oldifs=$IFS
+IFS='
+'
+set -f
+# shellcheck disable=SC2086
+set -- $info
+set +f
+IFS=$oldifs
+
+context=${1:-}
+namespace=${2:-}
+
+if [ -z "$context" ]; then
+    exit 1
+fi
+
+printf '%s%s%s' "$context" "$separator" "$namespace"

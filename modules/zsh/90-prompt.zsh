@@ -26,14 +26,10 @@ function __prompt_extras() {
     fi
 
     if (( $+commands[kubectl] )); then
-        local ctx
-        ctx=$(kubectl config current-context 2>/dev/null)
+        local kube_info
+        kube_info=$(kubectl prompt ' > ' 2>/dev/null)
         if [[ $? -eq 0 ]]; then
-            local ns
-            ns=$(kubectl config view --minify \
-                -o go-template='{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
-                2>/dev/null)
-            extras+=" %F{cyan}[$ctx > $ns]"
+            extras+=" %F{cyan}[$kube_info]"
         fi
     fi
 

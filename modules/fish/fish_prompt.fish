@@ -31,14 +31,9 @@ function __prompt_extras
     end
 
     if command --query kubectl
-        # --minify trims the kubeconfig down to just the current context, so we
-        # can pull both the context name and namespace out of a single call
-        set -l kubectl_info (kubectl config view --minify \
-            -o go-template='{{ .current-context }}{{ "\t" }}{{ if .contexts }}{{ with (index .contexts 0).context.namespace }}{{ . }}{{ else }}default{{ end }}{{ else }}default{{ end }}' \
-            2>/dev/null)
-        if test $status -eq 0 -a -n "$kubectl_info"
-            set -l parts (string split \t -- $kubectl_info)
-            set PROMPT_EXTRAS "$PROMPT_EXTRAS $(set_color cyan) \b[$parts[1] > $parts[2]]"
+        set -l kubectl_info (kubectl prompt ' > ' 2>/dev/null)
+        if test $status -eq 0
+            set PROMPT_EXTRAS "$PROMPT_EXTRAS $(set_color cyan) \b[$kubectl_info]"
         end
     end
 
