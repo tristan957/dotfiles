@@ -1,11 +1,9 @@
 {
   dotfilesPackages,
+  mcp,
   pkgs,
-  lib,
   ...
-}: let
-  mcp = import ../../lib/mcp {inherit lib;};
-in {
+}: {
   config = {
     programs.opencode = {
       enable = true;

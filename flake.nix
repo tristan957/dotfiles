@@ -41,8 +41,8 @@
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
       mkHomeModules = import ./lib/home-modules.nix;
       homeModules = mkHomeModules ./modules;
-      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
       mcp = import ./lib/mcp {inherit (inputs.nixpkgs) lib;};
+      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules mcp;};
     in {
       systems = import systems;
 

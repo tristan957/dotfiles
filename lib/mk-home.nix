@@ -5,6 +5,9 @@
   # machine file lives on disk (which lets machine files live in other flakes,
   # e.g. flakes/work).
   homeModules,
+  # The MCP server catalogue and per-tool generators, exposed to modules as
+  # `mcp`. Downstream flakes override this with their own extended catalogue.
+  mcp,
 }: {
   system,
   machine,
@@ -27,7 +30,7 @@
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit inputs homeModules dotfilesPackages;} // extraSpecialArgs;
+    extraSpecialArgs = {inherit inputs homeModules dotfilesPackages mcp;} // extraSpecialArgs;
     modules =
       [
         # Base configuration shared by every machine.
