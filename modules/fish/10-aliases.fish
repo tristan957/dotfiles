@@ -12,7 +12,7 @@ alias ls='ls -v --hyperlink --indicator-style=slash --color=auto'
 alias diff='diff --color=auto'
 
 if ! command --query 'bw' && command --query 'flatpak'
-    if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop &>/dev/null
+    if flatpak list --app --columns=application | grep --quiet com.bitwarden.desktop
         alias bw='flatpak run --command=bw com.bitwarden.desktop'
     end
 end
