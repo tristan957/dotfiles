@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -7,8 +8,8 @@
     programs.zsh.envExtra =
       # zsh
       ''
-        if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
-          export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"
+        if [ -f "${config.xdg.configHome}/op/service-account-token" ]; then
+          export OP_SERVICE_ACCOUNT_TOKEN="$(cat "${config.xdg.configHome}/op/service-account-token")"
         fi
       '';
 
@@ -16,16 +17,16 @@
       lib.mkAfter
       # bash
       ''
-        if [ -f "$XDG_CONFIG_HOME/op/service-account-token" ]; then
-          export OP_SERVICE_ACCOUNT_TOKEN="$(cat "$XDG_CONFIG_HOME/op/service-account-token")"
+        if [ -f "${config.xdg.configHome}/op/service-account-token" ]; then
+          export OP_SERVICE_ACCOUNT_TOKEN="$(cat "${config.xdg.configHome}/op/service-account-token")"
         fi
       '';
 
     programs.fish.shellInit =
       # fish
       ''
-        if test -f "$XDG_CONFIG_HOME/op/service-account-token"
-          set -gx OP_SERVICE_ACCOUNT_TOKEN (cat "$XDG_CONFIG_HOME/op/service-account-token")
+        if test -f "${config.xdg.configHome}/op/service-account-token"
+          set -gx OP_SERVICE_ACCOUNT_TOKEN (cat "${config.xdg.configHome}/op/service-account-token")
         end
       '';
 

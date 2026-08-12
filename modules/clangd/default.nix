@@ -1,10 +1,16 @@
-{pkgs, ...}: let
-  configPath =
-    if pkgs.stdenv.hostPlatform.isDarwin
-    then "Library/Preferences/clangd/config.yaml"
-    else ".config/clangd/config.yaml";
-in {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   config = {
-    home.file.${configPath}.source = ./config.yaml;
+    # clangd reads ~/Library/Preferences on darwin instead of following XDG.
+    xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+      "clangd/config.yaml".source = ./config.yaml;
+    };
+
+    home.file = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+      "Library/Preferences/clangd/config.yaml".source = ./config.yaml;
+    };
   };
 }

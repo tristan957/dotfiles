@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -33,7 +34,7 @@
       Unit.Description = "Watch for changes in $XDG_DATA_HOME/man";
       Path = {
         MakeDirectory = true;
-        PathChanged = "%h/.local/share/man";
+        PathChanged = "${config.xdg.dataHome}/man";
       };
       Install.WantedBy = ["paths.target"];
     };
