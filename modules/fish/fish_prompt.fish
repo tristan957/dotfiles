@@ -62,7 +62,7 @@ function __prompt_host
 end
 
 function __prompt_jobs
-    jobs --pid | wc -l | string trim
+    count (jobs --pid)
 end
 
 function __prompt_user_char
