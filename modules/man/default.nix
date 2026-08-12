@@ -11,6 +11,10 @@
       # Keep the module enabled so home.extraOutputsToInstall still pulls in
       # the man output of every package.
       package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin null;
+
+      # The fish module turns this on by default to back up `apropos`
+      # completion, but generating caches needs man-db, which darwin lacks.
+      generateCaches = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin false;
     };
 
     home.sessionVariables = {
