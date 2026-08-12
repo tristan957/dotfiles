@@ -77,7 +77,9 @@ in {
             if server.kind == "local"
             then {
               command = [server.command] ++ server.args;
-              env = server.env;
+              # OpenCode's McpLocalConfig names this `environment`, and its
+              # schema sets `additionalProperties: false`, so `env` is rejected.
+              environment = server.env;
             }
             else if server.kind == "remote"
             then {inherit (server) url oauth;}
