@@ -118,7 +118,7 @@
           harper
           hunk
           hut
-          jj
+          jujutsu
           just
           lazygit
           lldb
