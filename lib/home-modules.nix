@@ -26,7 +26,10 @@ in
   builtins.listToAttrs (
     builtins.concatMap (
       name: let
-        value = import (modulesDir + "/${name}");
+        # The path rather than `import path`, so the module system can
+        # attribute evaluation errors to a file instead of reporting
+        # `<unknown-file>`.
+        value = modulesDir + "/${name}";
         aliased = alias name;
       in
         [{inherit name value;}]
