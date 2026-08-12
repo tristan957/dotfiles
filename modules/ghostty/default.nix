@@ -56,7 +56,7 @@ in {
             "-dlig"
           ];
           font-size =
-            if pkgs.stdenv.isDarwin
+            if pkgs.stdenv.hostPlatform.isDarwin
             then 13
             else 10;
 
@@ -65,7 +65,7 @@ in {
               "super+ctrl+\\=new_split:right"
               "super+ctrl+-=new_split:down"
             ]
-            ++ lib.optionals pkgs.stdenv.isLinux [
+            ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
               # GTK Inspector
               "ctrl+shift+d=ignore"
               "ctrl+shift+e=unbind"
@@ -112,14 +112,14 @@ in {
           window-theme = "ghostty";
           window-width = 80;
         }
-        // lib.optionalAttrs pkgs.stdenv.isDarwin {
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
           macos-auto-secure-input = true;
           macos-hidden = "never";
           macos-icon = "official";
           macos-secure-input-indication = true;
           macos-window-shadow = true;
         }
-        // lib.optionalAttrs pkgs.stdenv.isLinux {
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
           linux-cgroup = "always";
         };
 
@@ -140,7 +140,7 @@ in {
     # `systemctl cat` is used as the test because `list-unit-files` exits 0 even
     # when nothing matches its pattern, which would let the enable below run and
     # fail on a host without the unit, aborting activation.
-    home.activation.enableGhosttyService = lib.mkIf pkgs.stdenv.isLinux (
+    home.activation.enableGhosttyService = lib.mkIf pkgs.stdenv.hostPlatform.isLinux (
       lib.hm.dag.entryAfter ["writeBoundary"]
       # bash
       ''

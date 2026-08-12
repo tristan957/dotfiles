@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   configPath =
-    if pkgs.stdenv.isDarwin
+    if pkgs.stdenv.hostPlatform.isDarwin
     then "Library/Preferences/clangd/config.yaml"
     else ".config/clangd/config.yaml";
 in {

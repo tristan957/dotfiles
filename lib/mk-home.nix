@@ -50,7 +50,7 @@ in
         machine
       ]
       # nix-flatpak is only meaningful on Linux (flatpak does not exist on macOS).
-      ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+      ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
         inputs.flatpak.homeManagerModules.nix-flatpak
       ];
   }

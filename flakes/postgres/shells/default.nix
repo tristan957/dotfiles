@@ -72,7 +72,7 @@ pkgs.mkShell {
             pytest
           ]))
     ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       avahi-compat
       elfutils
       gcc16

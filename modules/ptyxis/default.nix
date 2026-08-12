@@ -19,7 +19,7 @@
       variant.colors
     );
 in {
-  config = lib.mkIf pkgs.stdenv.isLinux {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     programs.ptyxis.enable = true;
     programs.ptyxis.package = null;
 

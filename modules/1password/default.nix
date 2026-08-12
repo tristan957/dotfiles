@@ -42,7 +42,7 @@
       Install.WantedBy = ["graphical-session.target"];
     };
 
-    systemd.user.tmpfiles.rules = lib.mkIf pkgs.stdenv.isLinux [
+    systemd.user.tmpfiles.rules = lib.mkIf pkgs.stdenv.hostPlatform.isLinux [
       "d %S/op 0700"
     ];
   };
