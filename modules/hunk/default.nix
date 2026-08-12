@@ -1,4 +1,4 @@
-{
+{...}: {
   config = {
     xdg.configFile."hunk/config.toml" = {
       text =

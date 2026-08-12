@@ -1,3 +1,5 @@
 {...}: {
-  programs.jq.enable = true;
+  config = {
+    programs.jq.enable = true;
+  };
 }

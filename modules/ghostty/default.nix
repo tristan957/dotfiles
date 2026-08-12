@@ -129,6 +129,8 @@ in {
       };
 
       systemd = {
+        # Load-bearing: home-manager defaults this to true on Linux and then
+        # asserts that package is non-null, which it is not here.
         enable = false;
       };
     };

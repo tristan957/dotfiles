@@ -20,14 +20,19 @@
     );
 in {
   config = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-    programs.ptyxis.enable = true;
-    programs.ptyxis.package = null;
+    programs.ptyxis = {
+      enable = true;
 
-    programs.ptyxis.palettes = {
-      One-Vivid = {
-        Palette.Name = palette.name;
-        Dark = mkVariant palette.dark;
-        Light = mkVariant palette.light;
+      # Ptyxis is installed as a flatpak (see the flatpak module), so only its
+      # configuration is managed here.
+      package = null;
+
+      palettes = {
+        One-Vivid = {
+          Palette.Name = palette.name;
+          Dark = mkVariant palette.dark;
+          Light = mkVariant palette.light;
+        };
       };
     };
   };
