@@ -2,23 +2,7 @@
   lib,
   pkgs,
   ...
-}: let
-  palette = (import ../../lib/palettes.nix).one-vivid;
-
-  # Ghostty takes explicit "N=#rrggbb" entries. Emitted low/high paired to
-  # match how the palette reads in ghostty's own documentation.
-  mkTheme = variant: {
-    inherit (variant) background foreground;
-    palette =
-      lib.concatMap (i: [
-        "${toString i}=${builtins.elemAt variant.colors i}"
-        "${toString (i + 8)}=${builtins.elemAt variant.colors (i + 8)}"
-      ])
-      (lib.range 0 7);
-    split-divider-color = variant.divider;
-    window-titlebar-background = variant.titlebar;
-  };
-in {
+}: {
   config = {
     programs.ghostty = {
       enable = true;
@@ -124,8 +108,57 @@ in {
         };
 
       themes = {
-        one_dark_vivid = mkTheme palette.dark;
-        one_light = mkTheme palette.light;
+        one_dark_vivid = {
+          background = "#282c34";
+          foreground = "#ffffff";
+          palette = [
+            "0=#282c34"
+            "8=#5c6370"
+            "1=#ef596f"
+            "9=#f38897"
+            "2=#89ca78"
+            "10=#a9d89d"
+            "3=#e5c07b"
+            "11=#edd4a6"
+            "4=#61afef"
+            "12=#8fc6f4"
+            "5=#d55fde"
+            "13=#e089e7"
+            "6=#2bbac5"
+            "14=#4bced8"
+            "7=#abb2bf"
+            "15=#c8cdd5"
+          ];
+          split-divider-color = "#5c6370";
+          # Value comes from Ptyxis :)
+          window-titlebar-background = "#303643";
+        };
+
+        one_light = {
+          background = "#fafafa";
+          foreground = "#323232";
+          palette = [
+            "0=#6a6a6a"
+            "8=#bebebe"
+            "1=#e05661"
+            "9=#e88189"
+            "2=#1da912"
+            "10=#25d717"
+            "3=#eea825"
+            "11=#f2bb54"
+            "4=#118dc3"
+            "12=#1caceb"
+            "5=#9a77cf"
+            "13=#b69ddc"
+            "6=#56b6c2"
+            "14=#7bc6d0"
+            "7=#fafafa"
+            "15=#ffffff"
+          ];
+          split-divider-color = "#bebebe";
+          # Value comes from Ptyxis :)
+          window-titlebar-background = "#fafafa";
+        };
       };
 
       systemd = {
