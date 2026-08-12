@@ -5,8 +5,9 @@ if [ $# -ne 2 ]; then
     exit 2
 fi
 
-case "$2" in (*$1*)
+case "$2" in *$1*)
     exit 0
+    ;;
 esac
 
 exit 1

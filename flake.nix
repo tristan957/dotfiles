@@ -75,12 +75,23 @@
               enable = true;
               indent_size = 4;
               simplify = false;
+              # Shell scripts shipped by modules have no extension, so each
+              # has to be named explicitly.
               includes = [
                 "*.bash"
                 "*.sh"
                 "modules/aerc/aerc-signature"
+                "modules/aerc/filters/pgp-keys"
+                "modules/aerc/hooks/mail-received"
                 "modules/bash/bash_logout"
+                "modules/git/git-user"
+                "modules/git/interactive-diff"
+                "modules/kubernetes/kubectl-cc"
+                "modules/kubernetes/kubectl-prompt"
+                "modules/kubernetes/kubectl-setns"
+                "modules/programs/substr"
                 "modules/tmux/fzf-sessions"
+                "modules/tmux/session-input"
               ];
             };
           };
@@ -121,7 +132,17 @@
             files = lib.concatStringsSep "|" [
               "\\.sh$"
               "^modules/aerc/aerc-signature$"
+              "^modules/aerc/filters/pgp-keys$"
+              "^modules/aerc/hooks/mail-received$"
               "^modules/bash/bash_logout$"
+              "^modules/git/git-user$"
+              "^modules/git/interactive-diff$"
+              "^modules/kubernetes/kubectl-cc$"
+              "^modules/kubernetes/kubectl-prompt$"
+              "^modules/kubernetes/kubectl-setns$"
+              "^modules/programs/substr$"
+              "^modules/tmux/fzf-sessions$"
+              "^modules/tmux/session-input$"
             ];
             args = [
               "--shell"
