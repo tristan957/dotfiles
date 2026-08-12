@@ -25,7 +25,10 @@
           # Single-user installation
           . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
 
-          # Make sure local binaries override everything
+          # Make sure local binaries override everything. .zshenv is sourced by
+          # every zsh, including nested ones, so keep $path unique to stop the
+          # entry accumulating. -U keeps the first occurrence, preserving order.
+          typeset -U path PATH
           export PATH="${config.xdg.binHome}:$PATH"
         '';
 
