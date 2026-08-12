@@ -27,7 +27,6 @@
   modules =
     [
       inputs.amzn.homeModules.default
-      (homeModules.midway inputs.amzn)
     ]
     ++ (with homeModules; [
       ada
@@ -40,6 +39,7 @@
       grasp-tools
       isengard
       kiro
+      midway
       opencode
       toolbox
     ]);
