@@ -81,6 +81,8 @@
     modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
     modules.neovim.symlink = "${root}/modules/neovim/nvim";
 
+    programs.nh.flake = "${root}/flakes/work";
+
     home.packages = (
       with pkgs;
         [
