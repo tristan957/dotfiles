@@ -1,6 +1,4 @@
-{config, ...}: let
-  nixProfile = import ../../lib/nix-profile.nix;
-in {
+{config, ...}: {
   config = {
     programs.zsh = {
       enable = true;
@@ -17,10 +15,15 @@ in {
       };
 
       envExtra =
-        nixProfile.posix
-        +
         # zsh
         ''
+          # Nix
+          # Multi-user (daemon) installation
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh 2>/dev/null
+          # Fedora
+          . /etc/profile.d/nix-daemon.sh 2>/dev/null
+          # Single-user installation
+          . "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.sh" 2>/dev/null
 
           # Make sure local binaries override everything. .zshenv is sourced by
           # every zsh, including nested ones, so keep $path unique to stop the

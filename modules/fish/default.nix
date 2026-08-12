@@ -1,6 +1,4 @@
-{config, ...}: let
-  nixProfile = import ../../lib/nix-profile.nix;
-in {
+{config, ...}: {
   config = {
     programs.fish = {
       enable = true;
@@ -12,10 +10,15 @@ in {
         '';
 
       shellInit =
-        nixProfile.fish
-        +
         # fish
         ''
+          # Nix
+          # Multi-user (daemon) installation
+          source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish 2>/dev/null
+          # Fedora
+          source /etc/profile.d/nix-daemon.fish 2>/dev/null
+          # Single-user installation
+          source "$XDG_STATE_HOME/nix/profile/etc/profile.d/nix.fish" 2>/dev/null
 
           # Make sure local binaries override everything. --global --path edits
           # $PATH directly instead of the universal $fish_user_paths, which
