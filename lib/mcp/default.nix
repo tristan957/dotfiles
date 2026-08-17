@@ -69,6 +69,11 @@ in {
       name = "fastmail";
       url = "https://api.fastmail.com/mcp";
     };
+
+    vercel = mkRemote {
+      name = "vercel";
+      url = "https://mcp.vercel.com";
+    };
   };
 
   # Turns a list of generic server records (from `mkLocal`/`mkRemote`) into

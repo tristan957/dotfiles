@@ -24,6 +24,7 @@
         mcp = mcp.opencode.generate [
           mcp.servers._1password
           mcp.servers.fastmail
+          mcp.servers.vercel
         ];
         skills = {
           paths = [
