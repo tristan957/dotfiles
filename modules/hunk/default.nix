@@ -5,6 +5,7 @@
         # toml
         ''
           mode = "auto"
+          tab_width = 4
         '';
     };
   };
