@@ -1,10 +1,11 @@
 confirmOnQuit: false
 disableStartupPopups: true
 git:
-  pagers:
-    - colorArg: always
-      pager: delta --paging=never
-    - externalDiffCommand: difft --color=always
+  diffRenderers:
+    - command: delta --paging=never
+      colorArg: always
+    - command: difft --color=always
+      type: extDiff
 gui:
   nerdFontsVersion: "3"
 os:
