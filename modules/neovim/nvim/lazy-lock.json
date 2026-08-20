@@ -20,7 +20,7 @@
   "nluarepl": { "branch": "main", "commit": "2a15a3ac15f396959160909fb759e6b8e7691816" },
   "nvim-dap": { "branch": "master", "commit": "9e848e09a697ee95302a3ef2dd43fd6eb709e570" },
   "nvim-jdtls": { "branch": "master", "commit": "6e9d953f0b82bccdb834cfde0e893f3119c22592" },
-  "nvim-lspconfig": { "branch": "master", "commit": "6fc041976833841cc9d991f45193533fe2a2e09b" },
+  "nvim-lspconfig": { "branch": "master", "commit": "bff1bd61cb1455040533201ca1edf1e84efa578f" },
   "nvim-treesitter": { "branch": "main", "commit": "074aa4422bf029908338e855d0c0f71470a971bb" },
   "nvim-treesitter-context": { "branch": "master", "commit": "f3061339b8eaf9fda873600bc425b8d2d8502533" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "898ee307df58f854d11cd7edd06472574d48014e" },
