@@ -47,12 +47,16 @@ sessions and compares output against expected files.
 ## Running Tests
 
 Tests are run via `meson test` from the build directory. Before running tests,
-the build must be installed into `tmp_install` and an initdb template cache must
-be created. These steps need to be re-run when the build changes.
+the build must be installed into `tmp_install` using the following command:
 
 ```sh
-# Install and prepare the test environment
-DESTDIR=tmp_install ninja install
+meson test postgresql:tmp_install
+```
+
+Remeber to re-run the test every time a build input changes. The tests also use
+an initdb template cache, which must be created with:
+
+```sh
 meson test postgresql:initdb_cache
 ```
 
@@ -60,7 +64,7 @@ Test modules (`src/test/modules/`) are installed separately. Re-run this after
 modifying test module code:
 
 ```sh
-DESTDIR=tmp_install ninja install-test-files
+meson test postgresql:install_test_files
 ```
 
 Running tests:

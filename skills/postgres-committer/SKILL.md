@@ -14,6 +14,10 @@ explain _why_ something is a problem.
 
 For both developing and reviewing, apply each of the following areas:
 
+1. **Building** - Verify that the code builds cleanly without warnings. Always
+   use Meson to build PostgreSQL unless we also need to touch the Autotools
+   build.
+
 1. **Security** — Flag C mistakes (buffer overflows, use-after-free, integer
    overflow), missing permission checks, and information leakage. See
    `references/security.md`.
