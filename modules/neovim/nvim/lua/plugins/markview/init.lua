@@ -25,6 +25,7 @@ return {
         block_quotes = presets.obsidian,
       },
       preview = {
+        enable = false,
         filetypes = filetypes,
         icon_provider = "mini",
         ignore_buftypes = {},
