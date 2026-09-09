@@ -63,7 +63,6 @@
       tmux
       vim
       vscode
-      zellij
       zoxide
       zsh
     ];

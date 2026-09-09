@@ -67,7 +67,6 @@
         uv
         vim
         vscode
-        zellij
         zoxide
         zsh
       ])
@@ -160,7 +159,6 @@
           which
           yaml-language-server
           yq
-          zellij
         ]
         ++ [
           inputs.bmux.packages.${pkgs.stdenv.hostPlatform.system}.default

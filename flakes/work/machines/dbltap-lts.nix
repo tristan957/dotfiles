@@ -48,7 +48,6 @@
         testcontainers
         tmux
         vim
-        zellij
         zoxide
         zsh
       ])
@@ -96,7 +95,6 @@
       tree-sitter
       vscode-langservers-extracted
       yaml-language-server
-      zellij
     ];
   };
 }

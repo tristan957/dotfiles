@@ -67,7 +67,6 @@
         ty
         uv
         vim
-        zellij
         zoxide
         zsh
       ])
@@ -160,7 +159,6 @@
           vscode-langservers-extracted
           worktrunk
           yaml-language-server
-          zellij
           zig
           zls
         ]
