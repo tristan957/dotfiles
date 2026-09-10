@@ -11,3 +11,8 @@ CompileFlags:
   Add:
     - "-include"
     - "postgres.h"
+---
+# Remove unrecognized clang compiler flags
+CompileFlags:
+  Remove:
+    - -fpch-deps
