@@ -3,6 +3,8 @@
 Diagnostics:
   UnusedIncludes: Strict
 
+# Postgres for whatever reason chooses not to include postgres.h in its own
+# headers. I presume it is for compilation speed.
 If:
   PathMatch: .*/(postgres(?:ql)?)/.*\.h$
 CompileFlags:
