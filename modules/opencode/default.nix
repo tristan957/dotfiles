@@ -29,7 +29,7 @@
         skills = {
           paths = [
             "${dotfilesPackages.skills}/skills"
-            "${pkgs.hunk}/skills"
+            "${pkgs.hunk}/share/skills"
           ];
         };
       };
