@@ -105,6 +105,8 @@
           ditaa
           fish-lsp
           fop
+          (lib.hiPrio gcc)
+          gdb
           gh
           git
           git-absorb
