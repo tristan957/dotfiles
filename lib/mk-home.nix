@@ -22,6 +22,8 @@
 
     # Allow unfree packages like 1Password CLI
     config.allowUnfree = true;
+
+    overlays = [(import ../overlays)];
   };
 
   # This repo's own packages (see `flake.nix`'s `packages.<name>` outputs
