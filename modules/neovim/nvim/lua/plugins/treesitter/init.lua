@@ -149,6 +149,7 @@ return {
       "starlark",
       "strace",
       "superhtml",
+      "svelte",
       "sway",
       "swift",
       "terraform",

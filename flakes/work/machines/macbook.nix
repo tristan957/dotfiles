@@ -144,6 +144,7 @@
           shellcheck
           shfmt
           stylua
+          svelte-language-server
           time
           tinymist
           tofu-ls

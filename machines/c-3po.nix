@@ -92,6 +92,7 @@
         nix-auth
         nixd
         (lib.hiPrio rust-analyzer)
+        svelte-language-server
         tombi
         vacuum-go
         vscode-langservers-extracted
