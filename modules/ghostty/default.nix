@@ -41,7 +41,7 @@
           ];
           font-size =
             if pkgs.stdenv.hostPlatform.isDarwin
-            then 13
+            then 12
             else 10;
 
           keybind =
