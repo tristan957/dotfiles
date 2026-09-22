@@ -17,25 +17,18 @@
       };
 
       # Wrap it such that we can have auto detecting dark/light mode
-      package = let
-        unwrapped = pkgs.delta;
-      in
-        pkgs.symlinkJoin {
-          name = "delta-${unwrapped.version}";
-          paths = [unwrapped];
-          postBuild = ''
-            rm -f $out/bin/delta
-            cat > $out/bin/delta <<'EOF'
-            #!/bin/sh
-            case "$(appearance 2>/dev/null)" in
+      package = pkgs.symlinkJoin {
+        name = "delta-${pkgs.delta.version}";
+        paths = [pkgs.delta];
+        nativeBuildInputs = [pkgs.makeWrapper];
+        postBuild = ''
+          wrapProgram $out/bin/delta \
+            --run 'case "$(appearance 2>/dev/null)" in
             light) export DELTA_FEATURES=light ;;
             dark) export DELTA_FEATURES=dark ;;
-            esac
-            exec ${unwrapped}/bin/delta "$@"
-            EOF
-            chmod +x $out/bin/delta
-          '';
-        };
+          esac'
+        '';
+      };
     };
   };
 }
