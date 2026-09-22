@@ -24,6 +24,7 @@
         chawan
         clangd
         comlink
+        delta
         deno
         desktop-database
         direnv
@@ -99,7 +100,6 @@
           coccinelle
           codespell
           copilot-language-server
-          delta
           delve
           difftastic
           ditaa

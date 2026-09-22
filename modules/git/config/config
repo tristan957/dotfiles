@@ -122,8 +122,6 @@
 	key = Reviewed-by
 [trailer "test"]
 	key = Tested-by
-[include]
-	path = delta.config
 [includeIf "gitdir:~/Projects/postgres/"]
 	path = postgres.config
 [includeIf "gitdir:~/Projects/work/"]

@@ -24,6 +24,7 @@
         chawan
         clangd
         comlink
+        delta
         deno
         direnv
         dotnet
@@ -96,7 +97,6 @@
           copilot-language-server
           coreutils-full
           curlFull
-          delta
           delve
           difftastic
           diffutils

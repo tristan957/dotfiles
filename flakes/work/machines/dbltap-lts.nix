@@ -15,6 +15,7 @@
         _1password
         bash
         clangd
+        delta
         deno
         direnv
         dotnet
@@ -71,7 +72,6 @@
       bear
       ccache
       copilot-language-server
-      delta
       difftastic
       ditaa
       fop
