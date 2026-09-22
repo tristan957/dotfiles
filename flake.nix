@@ -52,6 +52,14 @@
       debug = true;
 
       imports = [
+        {
+          perSystem = {system, ...}: {
+            _module.args.pkgs = import inputs.nixpkgs {
+              inherit system;
+              overlays = [(import ./overlays)];
+            };
+          };
+        }
         inputs.git-hooks.flakeModule
         inputs.treefmt.flakeModule
       ];
