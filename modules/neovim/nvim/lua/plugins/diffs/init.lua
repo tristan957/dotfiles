@@ -6,11 +6,6 @@ return {
   init = function()
     vim.g.diffs = {
       extra_filetypes = { "diff" },
-      integrations = {
-        gitsigns = false,
-        fugitive = true,
-        neogit = false,
-      },
     }
   end,
   config = function()
