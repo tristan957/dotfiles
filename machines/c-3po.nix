@@ -21,6 +21,7 @@
       clangd
       comlink
       deno
+      delta
       desktop-database
       direnv
       dotnet
