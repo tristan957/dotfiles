@@ -1,6 +1,7 @@
 {config, ...}: {
   config = {
     home.file = {
+      "${config.xdg.binHome}/appearance" = config.lib.file.mkExecutable ./appearance;
       "${config.xdg.binHome}/c2f" = config.lib.file.mkExecutable ./c2f;
       "${config.xdg.binHome}/chcompdb" = config.lib.file.mkExecutable ./chcompdb;
       "${config.xdg.binHome}/f2c" = config.lib.file.mkExecutable ./f2c;

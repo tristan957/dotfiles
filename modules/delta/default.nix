@@ -27,14 +27,9 @@
             rm -f $out/bin/delta
             cat > $out/bin/delta <<'EOF'
             #!/bin/sh
-            case "$(uname -s)" in
-            Darwin)
-                if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" = Dark ]; then
-                    export DELTA_FEATURES=dark
-                else
-                    export DELTA_FEATURES=light
-                fi
-                ;;
+            case "$(appearance 2>/dev/null)" in
+            light) export DELTA_FEATURES=light ;;
+            dark) export DELTA_FEATURES=dark ;;
             esac
             exec ${unwrapped}/bin/delta "$@"
             EOF

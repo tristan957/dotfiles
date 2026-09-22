@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import re
+import select
+import sys
+import termios
+import tty
+from typing import TYPE_CHECKING, cast
+
+if TYPE_CHECKING:
+
+    class Args(argparse.Namespace):
+        timeout: float
+
+
+RESPONSE_RE = re.compile(rb"rgb:([0-9a-fA-F]+)/([0-9a-fA-F]+)/([0-9a-fA-F]+)")
+
+
+def query_background_color(tty_fd: int, timeout: float) -> bytes:
+    """Send the OSC 11 query and read the raw response from the terminal."""
+    os.write(tty_fd, b"\033]11;?\033\\")
+
+    response = b""
+    while True:
+        ready, _, _ = select.select([tty_fd], [], [], timeout)
+        if not ready:
+            break
+        chunk = os.read(tty_fd, 1)
+        if not chunk:
+            break
+        response += chunk
+        if response.endswith(b"\a") or response.endswith(b"\033\\"):
+            break
+    return response
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description=(
+            'Print "dark" or "light" based on the terminal\'s actual '
+            "background color, queried via the OSC 11 escape sequence. "
+            "Prints nothing and exits non-zero if the terminal doesn't "
+            "respond within the timeout, e.g. no controlling tty or an "
+            "unsupported terminal."
+        )
+    )
+    parser.add_argument(
+        "-t",
+        "--timeout",
+        type=float,
+        default=0.5,
+        help="seconds to wait for each byte of the terminal's response (default: 0.5)",
+    )
+    args = cast("Args", parser.parse_args())
+
+    try:
+        tty_fd = os.open("/dev/tty", os.O_RDWR)
+    except OSError:
+        return 1
+
+    try:
+        old_settings = termios.tcgetattr(tty_fd)
+    except termios.error:
+        os.close(tty_fd)
+        return 1
+
+    try:
+        tty.setraw(tty_fd)
+        response = query_background_color(tty_fd, args.timeout)
+    finally:
+        termios.tcsetattr(tty_fd, termios.TCSADRAIN, old_settings)
+        os.close(tty_fd)
+
+    match = RESPONSE_RE.search(response)
+    if not match:
+        return 1
+
+    r, g, b = (int(component[:2], 16) for component in match.groups())
+    # Perceived luminance (ITU-R BT.601).
+    luminance = (r * 299 + g * 587 + b * 114) / 1000
+
+    print("dark" if luminance < 128 else "light")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
