@@ -76,7 +76,7 @@
 [init]
 	defaultBranch = master
 [interactive]
-	diffFilter = interactive-diff
+	diffFilter = delta --color-only
 [log]
 	date = iso-local
 [merge]
