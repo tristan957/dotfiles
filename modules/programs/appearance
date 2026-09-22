@@ -4,9 +4,11 @@ import argparse
 import os
 import re
 import select
+import subprocess
 import sys
 import termios
 import tty
+from enum import StrEnum
 from typing import TYPE_CHECKING, cast
 
 if TYPE_CHECKING:
@@ -15,11 +17,18 @@ if TYPE_CHECKING:
         timeout: float
 
 
+class Mode(StrEnum):
+    DARK = "dark"
+    LIGHT = "light"
+
 RESPONSE_RE = re.compile(rb"rgb:([0-9a-fA-F]+)/([0-9a-fA-F]+)/([0-9a-fA-F]+)")
 
 
 def query_background_color(tty_fd: int, timeout: float) -> bytes:
-    """Send the OSC 11 query and read the raw response from the terminal."""
+    """
+    Send the OSC 11 query and read the raw response from the terminal.
+    """
+
     os.write(tty_fd, b"\033]11;?\033\\")
 
     response = b""
@@ -36,14 +45,73 @@ def query_background_color(tty_fd: int, timeout: float) -> bytes:
     return response
 
 
+def detect_background(timeout: float) -> Mode | None:
+    """
+    Return Mode.DARK or Mode.LIGHT, or None if the terminal didn't respond.
+    """
+
+    try:
+        tty_fd = os.open("/dev/tty", os.O_RDWR)
+    except OSError:
+        return None
+
+    try:
+        old_settings = termios.tcgetattr(tty_fd)
+    except termios.error:
+        os.close(tty_fd)
+        return None
+
+    try:
+        tty.setraw(tty_fd)
+        response = query_background_color(tty_fd, timeout)
+    finally:
+        termios.tcsetattr(tty_fd, termios.TCSADRAIN, old_settings)
+        os.close(tty_fd)
+
+    match = RESPONSE_RE.search(response)
+    if not match:
+        return None
+
+    r, g, b = (int(component[:2], 16) for component in match.groups())
+    # Perceived luminance (ITU-R BT.601).
+    luminance = (r * 299 + g * 587 + b * 114) / 1000
+
+    return Mode.DARK if luminance < 128 else Mode.LIGHT
+
+
+def platform_appearance() -> Mode | None:
+    """
+    Fall back to the OS-wide appearance setting, or None if it can't be
+    determined.
+    """
+
+    match sys.platform:
+        case "darwin":
+            try:
+                proc = subprocess.run(
+                    ["defaults", "read", "-g", "AppleInterfaceStyle"],
+                    capture_output=True,
+                    text=True,
+                    timeout=1,
+                )
+            except (OSError, subprocess.TimeoutExpired):
+                return None
+
+            if proc.returncode != 0:
+                return None
+
+            return Mode.DARK if proc.stdout.strip().lower() == str(Mode.DARK) else Mode.LIGHT
+        case _:
+            return None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
             'Print "dark" or "light" based on the terminal\'s actual '
             "background color, queried via the OSC 11 escape sequence. "
-            "Prints nothing and exits non-zero if the terminal doesn't "
-            "respond within the timeout, e.g. no controlling tty or an "
-            "unsupported terminal."
+            "Falls back to the OS-wide appearance setting. Exits with a "
+            "non-zero code if the appearance mode cannot be determined."
         )
     )
     parser.add_argument(
@@ -55,33 +123,12 @@ def main() -> int:
     )
     args = cast("Args", parser.parse_args())
 
-    try:
-        tty_fd = os.open("/dev/tty", os.O_RDWR)
-    except OSError:
-        return 1
+    result = detect_background(args.timeout)
+    if result is None:
+        result = platform_appearance()
 
-    try:
-        old_settings = termios.tcgetattr(tty_fd)
-    except termios.error:
-        os.close(tty_fd)
-        return 1
+    print(result)
 
-    try:
-        tty.setraw(tty_fd)
-        response = query_background_color(tty_fd, args.timeout)
-    finally:
-        termios.tcsetattr(tty_fd, termios.TCSADRAIN, old_settings)
-        os.close(tty_fd)
-
-    match = RESPONSE_RE.search(response)
-    if not match:
-        return 1
-
-    r, g, b = (int(component[:2], 16) for component in match.groups())
-    # Perceived luminance (ITU-R BT.601).
-    luminance = (r * 299 + g * 587 + b * 114) / 1000
-
-    print("dark" if luminance < 128 else "light")
     return 0
 
 
