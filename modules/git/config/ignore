@@ -1,21 +1,55 @@
-/.clangd
-/.claude/settings.local.json
-/.direnv/
-/.DS_Store
-/.mypy_cache/
-/.ruff_cache/
-/.zig-cache/
-/__pycache__/
-/node_modules/
-/outgoing/
+# Cargo
 /target/
-/zig-out/
-/zig-pkg/
+
+# Clangd
+/.clangd
 .cache/clangd/
-.compdb/
-.envrc
-.nfs*
-.vscode/
 compile_commands.json
 compile_commands.*.json
+
+# Claude
+/.claude/settings.local.json
+
+# Compdb
+.compdb/
+
+# Direnv
+/.direnv/
+.envrc
+
+# devenv
+/.devenv/
+devenv.local.nix
+devenv.local.yaml
+
+# Git
+/outgoing/
+
+# JavaScript
+/node_modules/
+
+# macOS
+.DS_Store
+
+# mypy
+/.mypy_cache/
+
+# NFS
+.nfs*
+
+# Python
+/__pycache__/
+
+# Pyright/basedpyright
 pyrightconfig.json
+
+# Ruff
+/.ruff_cache/
+
+# VSCode
+.vscode/
+
+# Zig
+/.zig-cache/
+/zig-out/
+/zig-pkg/
