@@ -23,6 +23,7 @@
       deno
       delta
       desktop-database
+      devenv
       direnv
       dotnet
       editline

@@ -26,6 +26,7 @@
         comlink
         delta
         deno
+        devenv
         direnv
         dotnet
         editline
