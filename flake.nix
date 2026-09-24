@@ -125,7 +125,7 @@
           markdownlint-cli2 = {
             enable = true;
             name = "markdownlint-cli2";
-            entry = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
+            entry = lib.getExe pkgs.markdownlint-cli2;
             files = "\\.md$";
           };
           reuse.enable = true;
