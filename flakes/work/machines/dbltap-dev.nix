@@ -31,6 +31,7 @@
         direnv
         dotnet
         editline
+        fastmail
         fd
         fish
         fzf

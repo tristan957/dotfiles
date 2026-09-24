@@ -5,9 +5,6 @@
   # machine file lives on disk (which lets machine files live in other flakes,
   # e.g. flakes/work).
   homeModules,
-  # The MCP server catalogue and per-tool generators, exposed to modules as
-  # `mcp`.
-  mcp,
 }: {
   system,
   machine,
@@ -32,25 +29,34 @@
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit inputs homeModules dotfilesPackages mcp;} // extraSpecialArgs;
+    extraSpecialArgs = {inherit inputs homeModules dotfilesPackages;} // extraSpecialArgs;
     modules =
       [
         # Base configuration shared by every machine.
         ({lib, ...}: {
-          # Custom helpers, exposed alongside home-manager's own under
-          # config.lib (e.g. config.lib.file.mkExecutable).
-          lib.file.mkExecutable = import ./mk-executable.nix;
-          lib.activation.mkDir = import ./mk-dir.nix {inherit lib;};
-
-          home.enableNixpkgsReleaseCheck = false;
-
-          xdg.enable = true;
-
-          home.sessionVariables = {
-            COLORTERM = "truecolor";
+          # Default all MCP servers to disabled
+          options.programs.mcp.servers = lib.mkOption {
+            type = lib.types.attrsOf (lib.types.submodule {
+              config.enabled = lib.mkDefault false;
+            });
           };
 
-          programs.home-manager.enable = true;
+          config = {
+            # Custom helpers, exposed alongside home-manager's own under
+            # config.lib (e.g. config.lib.file.mkExecutable).
+            lib.file.mkExecutable = import ./mk-executable.nix;
+            lib.activation.mkDir = import ./mk-dir.nix {inherit lib;};
+
+            home.enableNixpkgsReleaseCheck = false;
+
+            xdg.enable = true;
+
+            home.sessionVariables = {
+              COLORTERM = "truecolor";
+            };
+
+            programs.home-manager.enable = true;
+          };
         })
         machine
       ]

@@ -41,8 +41,7 @@
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
       mkHomeModules = import ./lib/home-modules.nix;
       homeModules = mkHomeModules ./modules;
-      mcp = import ./lib/mcp {inherit (inputs.nixpkgs) lib;};
-      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules mcp;};
+      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
     in {
       systems = import systems;
 
@@ -210,7 +209,7 @@
         # their own machine configurations against this repo's modules, and
         # generate their own `homeModules` from a modules directory
         lib = {
-          inherit mkHome mkHomeModules mcp;
+          inherit mkHome mkHomeModules;
         };
 
         homeConfigurations = {

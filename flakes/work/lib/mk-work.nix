@@ -5,9 +5,8 @@
 # `{ system, machine }` argument every `machines/*.nix` returns.
 #
 # Machine functions and modules receive `inputs` (this flake's inputs, so
-# `inputs.dotfiles.homeModules` reaches the shared modules), `homeModules`
-# (this flake's work modules) and `mcp` (the shared MCP catalogue extended with
-# the work servers) as module arguments, injected via `mkHome`'s
+# `inputs.dotfiles.homeModules` reaches the shared modules) and `homeModules`
+# (this flake's work modules) as module arguments, injected via `mkHome`'s
 # `extraSpecialArgs`.
 #
 # Note that overriding `inputs` replaces the value the dotfiles flake would
@@ -17,11 +16,10 @@
   inputs,
   mkHome,
   homeModules,
-  mcp,
 }: args:
 (mkHome (args
   // {
-    extraSpecialArgs = {inherit inputs homeModules mcp;};
+    extraSpecialArgs = {inherit inputs homeModules;};
   }))
   .extendModules {
   modules =
@@ -34,6 +32,7 @@
       axe
       barium
       brazilcli
+      builder-mcp
       claude-code
       cr
       grasp-tools

@@ -27,6 +27,7 @@
       direnv
       dotnet
       editline
+      fastmail
       fish
       flatpak
       fonts
@@ -63,6 +64,7 @@
       testcontainers
       tmpfiles
       tmux
+      vercel
       vim
       vscode
       zoxide

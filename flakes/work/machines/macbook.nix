@@ -30,6 +30,7 @@
         direnv
         dotnet
         editline
+        fastmail
         fd
         fish
         fonts

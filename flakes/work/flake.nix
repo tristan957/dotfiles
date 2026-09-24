@@ -18,15 +18,10 @@
     inherit (dotfiles.lib) mkHome mkHomeModules;
 
     homeModules = mkHomeModules ./modules;
-    mcp = import ./lib/mcp.nix {inherit (dotfiles.lib) mcp;};
-    mkWork = import ./lib/mk-work.nix {inherit inputs mkHome homeModules mcp;};
+    mkWork = import ./lib/mk-work.nix {inherit inputs mkHome homeModules;};
   in {
     # Export all work dotfiles for external consumers
     inherit homeModules;
-
-    # The shared MCP catalogue extended with the work-only servers, so
-    # downstream consumers do not have to reassemble it
-    lib = {inherit mcp;};
 
     homeConfigurations = {
       "dbltap@dbltap-dev" = mkWork (import ./machines/dbltap-dev.nix);
