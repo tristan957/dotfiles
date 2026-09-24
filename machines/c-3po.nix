@@ -63,7 +63,6 @@
       rustup
       testcontainers
       tmpfiles
-      tmux
       vercel
       vim
       vscode
@@ -81,30 +80,26 @@
     programs.go.package = null;
     programs.nh.homeFlake = "${root}";
 
-    home.packages = with pkgs;
-      [
-        alejandra
-        ast-grep
-        bash-language-server
-        copilot-language-server
-        fish-lsp
-        flyctl
-        git-absorb
-        harper
-        hunk
-        lua-language-server
-        nix-auth
-        nixd
-        (lib.hiPrio rust-analyzer)
-        svelte-language-server
-        tombi
-        vacuum-go
-        vscode-langservers-extracted
-        yaml-language-server
-        zls
-      ]
-      ++ [
-        inputs.nur.legacyPackages.${pkgs.stdenv.hostPlatform.system}.repos.Freed-Wu.tmux-language-server
-      ];
+    home.packages = with pkgs; [
+      alejandra
+      ast-grep
+      bash-language-server
+      copilot-language-server
+      fish-lsp
+      flyctl
+      git-absorb
+      harper
+      hunk
+      lua-language-server
+      nix-auth
+      nixd
+      (lib.hiPrio rust-analyzer)
+      svelte-language-server
+      tombi
+      vacuum-go
+      vscode-langservers-extracted
+      yaml-language-server
+      zls
+    ];
   };
 }
