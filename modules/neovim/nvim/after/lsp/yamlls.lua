@@ -18,7 +18,12 @@ return {
         enable = false,
         url = "",
       },
-      schemas = schemastore.yaml.schemas(),
+      schemas = vim.tbl_extend("force", schemastore.yaml.schemas(), {
+        ["https://devenv.sh/devenv.schema.json"] = {
+          "devenv.yaml",
+          "devenv.local.yaml",
+        },
+      }),
     },
   },
 }
