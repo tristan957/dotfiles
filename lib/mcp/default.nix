@@ -65,6 +65,11 @@ in {
       command = "1password-mcp";
     };
 
+    devenv = mkLocal {
+      name = "devenv";
+      command = "devenv mcp";
+    };
+
     fastmail = mkRemote {
       name = "fastmail";
       url = "https://api.fastmail.com/mcp";
