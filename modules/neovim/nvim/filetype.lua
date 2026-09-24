@@ -54,6 +54,7 @@ vim.filetype.add({
     [".mcp.json"] = "jsonc",
     ["dep5"] = "debian-copyright",
     ["devcontainer.json"] = "jsonc",
+    ["devenv.lock"] = "json",
     ["hse.conf"] = "json",
     ["kvdb.conf"] = "json",
     ["kvdb.meta"] = "json",
