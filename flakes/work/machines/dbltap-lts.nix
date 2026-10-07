@@ -91,7 +91,6 @@
       samurai
       sccache
       tombi
-      tmux
       tree-sitter
       vscode-langservers-extracted
       yaml-language-server

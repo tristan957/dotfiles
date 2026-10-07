@@ -10,7 +10,6 @@
       inputs.flake-parts.follows = "dotfiles/flake-parts";
       inputs.systems.follows = "dotfiles/systems";
     };
-    bmux.follows = "dotfiles/bmux";
     nur.follows = "dotfiles/nur";
   };
 

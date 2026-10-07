@@ -4,5 +4,7 @@
     home.file.".local/libexec/tmux/session-input" = config.lib.file.mkExecutable ./session-input;
 
     xdg.configFile."tmux/tmux.conf".source = ./tmux.conf;
+
+    programs.tmux.enable = true;
   };
 }

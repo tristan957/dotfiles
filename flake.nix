@@ -3,12 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    bmux = {
-      url = "github:Uzaaft/bmux?ref=tristan957/build";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.ghostty.inputs.home-manager.follows = "home-manager";
-      inputs.ghostty.inputs.systems.follows = "systems";
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
