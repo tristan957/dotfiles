@@ -2,8 +2,8 @@
 
 ---@type vim.lsp.Config
 return {
+  ---@type lspconfig.settings.tombi
   settings = {
-    ---@type lspconfig.settings.tombi
     tombi = {
       schemas = {
         {
