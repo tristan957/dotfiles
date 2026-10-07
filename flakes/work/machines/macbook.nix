@@ -68,7 +68,6 @@
         ty
         uv
         vim
-        vscode
         zoxide
         zsh
       ])

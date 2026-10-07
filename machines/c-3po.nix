@@ -65,7 +65,6 @@
       tmpfiles
       vercel
       vim
-      vscode
       zoxide
       zsh
     ];
