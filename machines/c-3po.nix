@@ -75,7 +75,6 @@
     home.stateVersion = "25.11";
 
     modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
-    modules.neovim.symlink = "${root}/modules/neovim/nvim";
 
     programs.go.package = null;
     programs.nh.homeFlake = "${root}";
