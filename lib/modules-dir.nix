@@ -1,4 +1,4 @@
-# Auto-generate the set of Home Manager modules from the `modules/home/` directory.
+# Auto-generate an attrset of modules from a directory.
 #
 # Every immediate subdirectory of `modulesDir` that contains a `default.nix`
 # becomes an attribute whose value is the imported module, e.g.
@@ -26,9 +26,8 @@ in
   builtins.listToAttrs (
     builtins.concatMap (
       name: let
-        # The path rather than `import path`, so the module system can
-        # attribute evaluation errors to a file instead of reporting
-        # `<unknown-file>`.
+        # The path rather than `import path`, so the module system can attribute
+        # evaluation errors to a file instead of reporting `<unknown-file>`.
         value = modulesDir + "/${name}";
         aliased = alias name;
       in
