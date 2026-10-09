@@ -1,5 +1,3 @@
-local xdg = require("tristan957.utils.xdg")
-
 ---@type vim.lsp.Config
 return {
   filetypes = {
@@ -9,7 +7,14 @@ return {
   settings = {
     ["harper-ls"] = {
       dialect = "American",
-      userDictPath = vim.fs.joinpath(xdg.config_home(), "harper-ls", "dictionary.txt"),
+      userDictPath = vim.fs.joinpath(
+        vim.env.HOME,
+        "dotfiles",
+        "modules",
+        "home",
+        "harper",
+        "dictionary.txt"
+      ),
     },
   },
 }

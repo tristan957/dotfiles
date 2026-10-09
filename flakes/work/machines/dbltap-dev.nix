@@ -39,7 +39,6 @@
         git
         glow
         go
-        harper
         helix
         hunk
         hut
@@ -81,8 +80,6 @@
     home.username = "dbltap";
     home.homeDirectory = "/home/dbltap";
     home.stateVersion = "25.11";
-
-    modules.harper.symlink = "${root}/modules/home/harper/dictionary.txt";
 
     programs.nh.homeFlake = "${root}/flakes/work";
 

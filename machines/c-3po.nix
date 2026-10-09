@@ -37,7 +37,6 @@
       git
       glow
       go
-      harper
       helix
       hut
       jj
@@ -72,8 +71,6 @@
     home.username = "tristan957";
     home.homeDirectory = "/home/tristan957";
     home.stateVersion = "25.11";
-
-    modules.harper.symlink = "${root}/modules/home/harper/dictionary.txt";
 
     programs.go.package = null;
     programs.nh.homeFlake = "${root}";
