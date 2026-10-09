@@ -1,8 +1,8 @@
-# Auto-generate the set of Home Manager modules from the `modules/` directory.
+# Auto-generate the set of Home Manager modules from the `modules/home/` directory.
 #
 # Every immediate subdirectory of `modulesDir` that contains a `default.nix`
 # becomes an attribute whose value is the imported module, e.g.
-# `homeModules.git = import ./modules/git`. This keeps the flake's exposed
+# `homeModules.git = import ./modules/home/git`. This keeps the flake's exposed
 # `homeModules` in sync with the directory layout automatically.
 #
 # Directory names that are not valid bare Nix identifiers (e.g. `1password`,

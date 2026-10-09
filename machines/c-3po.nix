@@ -73,7 +73,7 @@
     home.homeDirectory = "/home/tristan957";
     home.stateVersion = "25.11";
 
-    modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
+    modules.harper.symlink = "${root}/modules/home/harper/dictionary.txt";
 
     programs.go.package = null;
     programs.nh.homeFlake = "${root}";

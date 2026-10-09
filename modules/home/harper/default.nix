@@ -4,7 +4,7 @@
   ...
 }: let
   cfg = config.modules.harper;
-  symlink = import ../../lib/symlink.nix {inherit lib;};
+  symlink = import ../../../lib/symlink.nix {inherit lib;};
 in {
   options.modules.harper.symlink = symlink.mkOption "the harper dictionary";
 

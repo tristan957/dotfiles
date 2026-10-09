@@ -34,7 +34,7 @@
   }:
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
       mkHomeModules = import ./lib/home-modules.nix;
-      homeModules = mkHomeModules ./modules;
+      homeModules = mkHomeModules ./modules/home;
       mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
     in {
       systems = import systems;
@@ -79,17 +79,17 @@
               includes = [
                 "*.bash"
                 "*.sh"
-                "modules/aerc/aerc-signature"
-                "modules/aerc/filters/pgp-keys"
-                "modules/aerc/hooks/mail-received"
-                "modules/bash/bash_logout"
-                "modules/git/git-user"
-                "modules/kubernetes/kubectl-cc"
-                "modules/kubernetes/kubectl-prompt"
-                "modules/kubernetes/kubectl-setns"
-                "modules/programs/substr"
-                "modules/tmux/fzf-sessions"
-                "modules/tmux/session-input"
+                "modules/home/aerc/aerc-signature"
+                "modules/home/aerc/filters/pgp-keys"
+                "modules/home/aerc/hooks/mail-received"
+                "modules/home/bash/bash_logout"
+                "modules/home/git/git-user"
+                "modules/home/kubernetes/kubectl-cc"
+                "modules/home/kubernetes/kubectl-prompt"
+                "modules/home/kubernetes/kubectl-setns"
+                "modules/home/programs/substr"
+                "modules/home/tmux/fzf-sessions"
+                "modules/home/tmux/session-input"
               ];
             };
           };
@@ -129,17 +129,17 @@
             types_or = lib.mkForce [];
             files = lib.concatStringsSep "|" [
               "\\.sh$"
-              "^modules/aerc/aerc-signature$"
-              "^modules/aerc/filters/pgp-keys$"
-              "^modules/aerc/hooks/mail-received$"
-              "^modules/bash/bash_logout$"
-              "^modules/git/git-user$"
-              "^modules/kubernetes/kubectl-cc$"
-              "^modules/kubernetes/kubectl-prompt$"
-              "^modules/kubernetes/kubectl-setns$"
-              "^modules/programs/substr$"
-              "^modules/tmux/fzf-sessions$"
-              "^modules/tmux/session-input$"
+              "^modules/home/aerc/aerc-signature$"
+              "^modules/home/aerc/filters/pgp-keys$"
+              "^modules/home/aerc/hooks/mail-received$"
+              "^modules/home/bash/bash_logout$"
+              "^modules/home/git/git-user$"
+              "^modules/home/kubernetes/kubectl-cc$"
+              "^modules/home/kubernetes/kubectl-prompt$"
+              "^modules/home/kubernetes/kubectl-setns$"
+              "^modules/home/programs/substr$"
+              "^modules/home/tmux/fzf-sessions$"
+              "^modules/home/tmux/session-input$"
             ];
             args = [
               "--shell"

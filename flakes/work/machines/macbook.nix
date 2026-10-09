@@ -80,7 +80,7 @@
     home.homeDirectory = "/Users/dbltap";
     home.stateVersion = "25.11";
 
-    modules.harper.symlink = "${root}/modules/harper/dictionary.txt";
+    modules.harper.symlink = "${root}/modules/home/harper/dictionary.txt";
 
     programs.nh.homeFlake = "${root}/flakes/work";
 

@@ -16,7 +16,7 @@
   outputs = inputs @ {dotfiles, ...}: let
     inherit (dotfiles.lib) mkHome mkHomeModules;
 
-    homeModules = mkHomeModules ./modules;
+    homeModules = mkHomeModules ./modules/home;
     mkWork = import ./lib/mk-work.nix {inherit inputs mkHome homeModules;};
   in {
     # Export all work dotfiles for external consumers

@@ -115,7 +115,14 @@ require("lazy").setup("plugins", {
   install = {
     colorscheme = { "default" },
   },
-  lockfile = vim.fs.joinpath(vim.env.HOME, "dotfiles", "modules", "neovim", "lazy-lock.json"),
+  lockfile = vim.fs.joinpath(
+    vim.env.HOME,
+    "dotfiles",
+    "modules",
+    "home",
+    "neovim",
+    "lazy-lock.json"
+  ),
   rocks = {
     enabled = true,
   },
