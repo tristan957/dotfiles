@@ -125,7 +125,7 @@
         miller
         mjmap
         moreutils
-        muon
+        # muon
         neovim
         ninja
         nix-auth
@@ -137,7 +137,7 @@
         python3
         reuse
         (lib.hiPrio rust-analyzer)
-        samurai
+        # samurai
         scdoc
         sequin
         sequoia-sq
