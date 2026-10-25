@@ -7,34 +7,18 @@
     programs.opencode = {
       enable = true;
 
-      package = pkgs.symlinkJoin {
-        inherit (pkgs.opencode) meta;
-        name = "opencode-wrapped-${pkgs.opencode.version}";
-        paths = [pkgs.opencode];
-        nativeBuildInputs = [pkgs.makeWrapper];
-        postBuild = ''
-          wrapProgram $out/bin/opencode \
-            --set OPENCODE_DISABLE_LSP_DOWNLOAD true
-        '';
-      };
-
       enableMcpIntegration = true;
 
       settings = {
-        lsp = {};
-        skills = {
-          paths = [
-            "${dotfilesPackages.skills}/share/skills"
-            "${pkgs.hunk}/share/skills"
-          ];
-        };
+        skills = [
+          "${dotfilesPackages.skills}/share/skills"
+          "${pkgs.hunk}/share/skills"
+        ];
       };
 
-      tui = {
-        keybinds = {
-          input_submit = "return,kpenter";
-        };
-        theme = "system";
+      cli = {
+        keybinds."input.submit" = "return,kpenter";
+        theme.mode = "system";
       };
     };
   };

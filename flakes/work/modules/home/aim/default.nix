@@ -1,5 +1,5 @@
 {config, ...}: {
-  programs.opencode.settings.skills.paths = ["${config.home.homeDirectory}/.aim/skills"];
+  programs.opencode.settings.skills = ["${config.home.homeDirectory}/.aim/skills"];
 
   programs.mcp = {
     enable = true;
