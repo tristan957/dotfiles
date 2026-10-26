@@ -74,6 +74,7 @@
       ])
       ++ (with homeModules; [
         go
+        rex
       ]);
 
     home.username = "dbltap";
