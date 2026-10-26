@@ -18,7 +18,13 @@
 
       cli = {
         keybinds."input.submit" = "return,kpenter";
-        theme.mode = "system";
+        session = {
+          scrollbar = true;
+        };
+        theme = {
+          name = "system";
+          mode = "system";
+        };
       };
     };
   };
