@@ -65,7 +65,6 @@
         ruff
         rustup
         testcontainers
-        tmux
         ty
         uv
         vim
@@ -85,87 +84,83 @@
     programs.nh.homeFlake = "${root}/flakes/work";
 
     home.packages = (
-      with pkgs;
-        [
-          _1password-cli
-          aerc
-          alejandra
-          ast-grep
-          basedpyright
-          bash-language-server
-          bear
-          ccache
-          clang
-          coccinelle
-          codespell
-          copilot-language-server
-          delve
-          difftastic
-          ditaa
-          fish-lsp
-          fop
-          (lib.hiPrio gcc)
-          gdb
-          gh
-          git
-          git-absorb
-          glab
-          glow
-          go
-          golangci-lint
-          gopls
-          gum
-          harper
-          hunk
-          hut
-          just
-          lazygit
-          lldb
-          llvmPackages_22.clang-tools
-          lua-language-server
-          meson
-          miller
-          mjmap
-          mold
-          muon
-          mypy
-          neovim
-          nix-auth
-          nixd
-          nodejs
-          pandoc
-          pkgconf
-          postgres-language-server
-          reuse
-          (python314.withPackages (ps:
-            with ps; [
-              matplotlib
-              pytest
-            ]))
-          rr
-          (lib.hiPrio rust-analyzer)
-          samurai
-          sccache
-          scdoc
-          sequin
-          sequoia-sq
-          shellcheck
-          shfmt
-          tinymist
-          tombi
-          tokei
-          tree-sitter
-          ts_query_ls
-          typst
-          vscode-langservers-extracted
-          worktrunk
-          yaml-language-server
-          zig
-          zls
-        ]
-        ++ [
-          inputs.nur.legacyPackages.${pkgs.stdenv.hostPlatform.system}.repos.Freed-Wu.tmux-language-server
-        ]
+      with pkgs; [
+        _1password-cli
+        aerc
+        alejandra
+        ast-grep
+        basedpyright
+        bash-language-server
+        bear
+        ccache
+        clang
+        coccinelle
+        codespell
+        copilot-language-server
+        delve
+        difftastic
+        ditaa
+        fish-lsp
+        fop
+        (lib.hiPrio gcc)
+        gdb
+        gh
+        git
+        git-absorb
+        glab
+        glow
+        go
+        golangci-lint
+        gopls
+        gum
+        harper
+        hunk
+        hut
+        just
+        lazygit
+        lldb
+        llvmPackages_22.clang-tools
+        lua-language-server
+        meson
+        miller
+        mjmap
+        mold
+        muon
+        mypy
+        neovim
+        nix-auth
+        nixd
+        nodejs
+        pandoc
+        pkgconf
+        postgres-language-server
+        reuse
+        (python314.withPackages (ps:
+          with ps; [
+            matplotlib
+            pytest
+          ]))
+        rr
+        (lib.hiPrio rust-analyzer)
+        samurai
+        sccache
+        scdoc
+        sequin
+        sequoia-sq
+        shellcheck
+        shfmt
+        tinymist
+        tombi
+        tokei
+        tree-sitter
+        ts_query_ls
+        typst
+        vscode-langservers-extracted
+        worktrunk
+        yaml-language-server
+        zig
+        zls
+      ]
     );
   };
 }
