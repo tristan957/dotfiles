@@ -4,7 +4,6 @@
   machine = {
     config,
     homeModules,
-    inputs,
     lib,
     pkgs,
     ...
