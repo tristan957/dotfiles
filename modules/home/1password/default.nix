@@ -6,7 +6,6 @@
 }: {
   config = {
     programs.mcp = {
-      enable = true;
       servers."1password".command = "1password-mcp";
     };
 

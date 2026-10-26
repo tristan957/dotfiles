@@ -2,7 +2,6 @@
   programs.opencode.settings.skills = ["${config.home.homeDirectory}/.aim/skills"];
 
   programs.mcp = {
-    enable = true;
     servers.creds-agent = {
       command = "aim";
       args = ["mcp" "start-server" "local-creds-agent-mcp"];

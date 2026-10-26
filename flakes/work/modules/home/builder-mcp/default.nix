@@ -1,6 +1,5 @@
 {...}: {
   programs.mcp = {
-    enable = true;
     servers.builder-mcp = {
       command = "builder-mcp";
       env = {

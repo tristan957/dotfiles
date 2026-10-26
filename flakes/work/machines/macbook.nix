@@ -47,6 +47,7 @@
         lazygit
         less
         man
+        mcp
         meson
         mjmap
         neovim
