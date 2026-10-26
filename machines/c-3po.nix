@@ -60,6 +60,7 @@
       ripgrep
       rlwrap
       rustup
+      skills
       testcontainers
       tmpfiles
       vercel

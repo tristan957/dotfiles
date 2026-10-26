@@ -1,8 +1,4 @@
-{
-  dotfilesPackages,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   config = {
     programs.opencode = {
       enable = true;
@@ -10,10 +6,7 @@
       enableMcpIntegration = true;
 
       settings = {
-        skills = [
-          "${dotfilesPackages.skills}/share/skills"
-          "${pkgs.hunk}/share/skills"
-        ];
+        skills = ["${pkgs.hunk}/share/skills"];
       };
 
       cli = {

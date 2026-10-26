@@ -22,14 +22,10 @@
 
     overlays = [(import ../overlays)];
   };
-
-  # This repo's own packages (see `flake.nix`'s `packages.<name>` outputs
-  # and `pkgs/`), exposed to modules as `dotfilesPackages`
-  dotfilesPackages = inputs.self.packages.${system};
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
-    extraSpecialArgs = {inherit inputs homeModules dotfilesPackages;} // extraSpecialArgs;
+    extraSpecialArgs = {inherit inputs homeModules;} // extraSpecialArgs;
     modules =
       [
         # Base configuration shared by every machine.

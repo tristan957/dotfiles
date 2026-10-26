@@ -65,6 +65,7 @@
         rlwrap
         ruff
         rustup
+        skills
         ssh-tunnels
         testcontainers
         ty

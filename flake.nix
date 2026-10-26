@@ -152,8 +152,6 @@
           treefmt.enable = true;
         };
 
-        packages.skills = pkgs.callPackage ./pkgs/skills {};
-
         devShells.default = pkgs.mkShellNoCC {
           inputsFrom = [
             config.pre-commit.devShell

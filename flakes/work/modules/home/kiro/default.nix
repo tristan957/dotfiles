@@ -1,6 +1,5 @@
 {
   config,
-  dotfilesPackages,
   lib,
   pkgs,
   ...
@@ -27,7 +26,7 @@ in {
   programs.toolbox.kiro.cli.enable = true;
 
   home.file = {
-    ".kiro/skills".source = "${dotfilesPackages.skills}/skills";
+    ".kiro/skills".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.agents/skills";
     ".kiro/settings/mcp.json".source = json.generate "mcp.json" {
       mcpServers = lib.mapAttrs toKiro config.programs.mcp.servers;
     };

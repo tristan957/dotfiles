@@ -65,6 +65,7 @@
         rlwrap
         ruff
         rustup
+        skills
         testcontainers
         ty
         uv
