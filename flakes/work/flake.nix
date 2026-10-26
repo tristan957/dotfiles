@@ -10,7 +10,7 @@
       inputs.flake-parts.follows = "dotfiles/flake-parts";
       inputs.systems.follows = "dotfiles/systems";
     };
-    nur.follows = "dotfiles/nur";
+    # nur.follows = "dotfiles/nur";
     # Prebuilt binary; needs the pkgs.superlogical.com login in /etc/nix/netrc
     rex.url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
   };

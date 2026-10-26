@@ -242,10 +242,6 @@
       "inputs": {
         "amzn": "amzn",
         "dotfiles": "dotfiles",
-        "nur": [
-          "dotfiles",
-          "nur"
-        ],
         "rex": "rex"
       }
     },
