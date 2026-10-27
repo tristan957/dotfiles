@@ -7,8 +7,8 @@
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
-  rexWithSkill = inputs.rex.packages.${pkgs.stdenv.hostPlatform.system}.rex.overrideAttrs (old: {
-    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.installAgentSkills];
+  rexExtended = inputs.rex.packages.${pkgs.stdenv.hostPlatform.system}.rex.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.installAgentSkills pkgs.installShellFiles];
     postInstall =
       (old.postInstall or "")
       + ''
@@ -16,6 +16,15 @@
         mkdir -p "$HOME"
         $out/bin/rex skill setup --agent opencode --autostart=false
         installSkill "$HOME/.agents/skills/rex"
+        installShellCompletion --cmd rex \
+          --bash <($out/bin/rex completion bash --autostart=false) \
+          --zsh <($out/bin/rex completion zsh --autostart=false) \
+          --fish <($out/bin/rex completion fish --autostart=false) \
+          --nushell <($out/bin/rex completion nu --autostart=false)
+        # installShellCompletion has no PowerShell support in current nixpkgs
+        # pin. Waiting for the feature to move through the pipeline
+        mkdir -p $out/share/powershell/completions
+        $out/bin/rex completion powershell --autostart=false > $out/share/powershell/completions/rex.ps1
       '';
   });
 in {
@@ -26,7 +35,7 @@ in {
       enable = true;
       package =
         if isLinux
-        then rexWithSkill
+        then rexExtended
         else null;
       sshGuard = false;
       # The config is for the app, which is macOS only at the moment
@@ -41,6 +50,6 @@ in {
 
     programs.mcp.servers.superlogical.url = "https://www.superlogical.com/rex/community-mcp";
 
-    programs.opencode.settings.skills = lib.mkIf (config.programs.rex.package == rexWithSkill) ["${rexWithSkill}/share/skills"];
+    programs.opencode.settings.skills = lib.mkIf (config.programs.rex.package == rexExtended) ["${rexExtended}/share/skills"];
   };
 }
