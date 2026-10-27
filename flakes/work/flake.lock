@@ -198,9 +198,21 @@
       "inputs": {
         "amzn": "amzn",
         "dotfiles": "dotfiles",
+        "flake-parts": [
+          "dotfiles",
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "dotfiles",
+          "nixpkgs"
+        ],
         "rex": [
           "dotfiles",
           "rex"
+        ],
+        "systems": [
+          "dotfiles",
+          "systems"
         ]
       }
     },

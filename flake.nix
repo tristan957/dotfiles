@@ -38,6 +38,7 @@
       mkModules = import ./lib/modules-dir.nix;
       homeModules = mkModules ./modules/home;
       mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
+      mkNixConf = import ./lib/mk-nix-conf.nix;
     in {
       systems = import systems;
 
@@ -154,6 +155,11 @@
           treefmt.enable = true;
         };
 
+        packages.nix-conf = mkNixConf pkgs [
+          ./modules/home/nix/conf.d/nix.conf
+          ./modules/home/nix/conf.d/numtide.conf
+        ];
+
         devShells.default = pkgs.mkShellNoCC {
           inputsFrom = [
             config.pre-commit.devShell
@@ -203,7 +209,7 @@
         # their own machine configurations against this repo's modules, and
         # generate their own `homeModules` from a modules directory
         lib = {
-          inherit mkHome mkModules;
+          inherit mkHome mkModules mkNixConf;
         };
 
         homeConfigurations = {
