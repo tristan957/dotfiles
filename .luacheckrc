@@ -10,6 +10,7 @@ ignore = {
 
 read_globals = {
   "chcompdb",
-  "vim",
+  "rex",
   "Snacks",
+  "vim",
 }

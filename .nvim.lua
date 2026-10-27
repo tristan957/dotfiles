@@ -42,7 +42,16 @@ local function home_manager_expr()
   )
 end
 
----@type vim.lsp.Config
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "rex" },
+      },
+    },
+  },
+})
+
 vim.lsp.config("nixd", {
   settings = {
     nixd = {
