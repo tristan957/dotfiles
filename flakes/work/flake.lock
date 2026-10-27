@@ -214,10 +214,10 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1793129062,
-        "narHash": "sha256-ppR6mqKW1IWxX7y6/P7LS5MHp5rQLQz4CybQyGme834=",
+        "lastModified": 1793131181,
+        "narHash": "sha256-ZaU8uqfBByS1/SWrGsqBC7GsghQwVHQ6c9IvnWW6Irg=",
         "type": "tarball",
-        "url": "https://pkgs.superlogical.com/rex/nix/snapshot/0.0.1793129062-g2c6573.tar.gz"
+        "url": "https://pkgs.superlogical.com/rex/nix/snapshot/0.0.1793131181-gdd9a20.tar.gz"
       },
       "original": {
         "type": "tarball",
