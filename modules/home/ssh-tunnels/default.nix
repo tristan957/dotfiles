@@ -125,6 +125,17 @@ in {
           '';
         };
 
+        logFile = mkOption {
+          type = types.nullOr types.str;
+          default = null;
+          example = "/Users/me/.local/state/ssh-tunnel-example.log";
+          description = ''
+            File to append ssh's stderr to on macOS. launchd does not rotate
+            it, so it grows without limit. When null, the output is discarded.
+            Unused on Linux, where the journal captures the output.
+          '';
+        };
+
         restartSeconds = mkOption {
           type = types.ints.positive;
           default = 30;
@@ -152,13 +163,16 @@ in {
       launchd.agents = lib.mapAttrs' (name: tunnel:
         lib.nameValuePair (serviceName name) {
           enable = true;
-          config = {
-            ProgramArguments = [tunnel.command] ++ sshArgs tunnel;
-            RunAtLoad = true;
-            KeepAlive = true;
-            ThrottleInterval = tunnel.restartSeconds;
-            StandardErrorPath = "${config.xdg.stateHome}/${serviceName name}.log";
-          };
+          config =
+            {
+              ProgramArguments = [tunnel.command] ++ sshArgs tunnel;
+              RunAtLoad = true;
+              KeepAlive = true;
+              ThrottleInterval = tunnel.restartSeconds;
+            }
+            // lib.optionalAttrs (tunnel.logFile != null) {
+              StandardErrorPath = tunnel.logFile;
+            };
         })
       tunnels;
     })
