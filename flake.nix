@@ -16,6 +16,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Track master until a release containing 94e4fe0 ("Don't refresh gcroots")
+    # reaches nixpkgs; 3.2.0 bumps the watched profile .rc on every cache hit,
+    # which makes multiple shells in one project re-evaluate on every prompt.
+    nix-direnv = {
+      url = "github:nix-community/nix-direnv";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        treefmt-nix.follows = "treefmt";
+      };
+    };
     # nur = {
     #   url = "github:nix-community/NUR";
     #   inputs.nixpkgs.follows = "nixpkgs";
