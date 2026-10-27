@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
 
   rexWithSkill = inputs.rex.packages.${pkgs.stdenv.hostPlatform.system}.rex.overrideAttrs (old: {
     nativeBuildInputs = (old.nativeBuildInputs or []) ++ [pkgs.installAgentSkills];
@@ -23,14 +23,15 @@ in {
 
   # On Linux, home-manager installs rex and runs the server. On macOS, the Rex
   # app provides both, so only the config file is shared.
-  programs.rex = lib.mkIf isLinux {
+  programs.rex = {
     enable = true;
-    package = rexWithSkill;
+    package =
+      if isLinux
+      then rexWithSkill
+      else null;
     sshGuard = false;
     config = ./init.lua;
   };
-
-  xdg.configFile."rex/init.lua" = lib.mkIf isDarwin {source = ./init.lua;};
 
   services.rex.enable = isLinux;
 
