@@ -61,6 +61,7 @@
         psql
         python
         readline
+        rex
         ripgrep
         rlwrap
         ruff
