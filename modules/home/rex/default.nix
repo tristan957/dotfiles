@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
@@ -50,6 +49,6 @@ in {
 
     programs.mcp.servers.superlogical.url = "https://www.superlogical.com/rex/community-mcp";
 
-    programs.opencode.settings.skills = lib.mkIf (config.programs.rex.package == rexExtended) ["${rexExtended}/share/skills"];
+    programs.opencode.settings.skills = lib.mkIf isLinux ["${rexExtended}/share/skills"];
   };
 }
