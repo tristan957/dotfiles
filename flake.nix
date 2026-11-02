@@ -32,7 +32,10 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     # Prebuilt binary; needs the pkgs.superlogical.com login in /etc/nix/netrc
-    rex.url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
+    rex = {
+      url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     systems.url = "github:nix-systems/default";
     treefmt = {
       url = "github:numtide/treefmt-nix";
