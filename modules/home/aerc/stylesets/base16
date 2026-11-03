@@ -1,0 +1,123 @@
+# Terminal-palette styleset that works on light and dark backgrounds.
+#
+# Rules:
+#   - Never use palette 0, 7 or 15; they don't flip with light/dark themes.
+#   - Text uses the terminal default fg. Emphasis is bold, de-emphasis is dim.
+#   - Neutral fills use bg 8 with the default fg.
+#   - Colored fills use fg <color> + reverse, so text takes the terminal bg.
+#   - 4 (blue) is the accent. 3 and 6 are weak on light themes; use sparingly.
+
+*.default = true
+*.normal = true
+
+*error.bold = true
+*error.fg = 1
+*warning.bold = true
+*warning.fg = 3
+*success.bold = true
+*success.fg = 2
+
+*.selected.bg = 8
+*.selected.bold = true
+
+border.fg = 8
+
+completion_default.bg = 8
+completion_default.selected.bg = default
+completion_default.selected.fg = 4
+completion_default.selected.reverse = true
+completion_description.bg = 8
+completion_description.dim = true
+completion_gutter.bg = 8
+completion_pill.bg = 4
+
+dirlist_default.selected.bg = 8
+dirlist_unread.bold = true
+dirlist_recent.fg = 4
+
+header.bold = true
+header.fg = 4
+
+keyhint_default.bg = 8
+keyhint_key.bold = true
+keyhint_key.fg = 4
+keyhint_desc.bg = 8
+
+msglist_answered.fg = 2
+msglist_deleted.dim = true
+msglist_flagged.bold = true
+msglist_flagged.fg = 1
+msglist_forwarded.fg = 4
+msglist_gutter.bg = 8
+msglist_pill.bg = 4
+msglist_result.bold = true
+msglist_result.fg = 4
+msglist_result.underline = true
+msglist_thread_context.dim = true
+msglist_thread_folded.italic = true
+msglist_unread.bold = true
+msglist_marked.bold = true
+msglist_marked.fg = 5
+msglist_marked.reverse = true
+msglist_marked.selected.bg = 8
+msglist_marked.selected.reverse = toggle
+
+part_filename.bg = 8
+part_mimetype.bg = 8
+part_mimetype.dim = true
+part_switcher.bg = 8
+
+selector_default.bg = 8
+selector_chooser.bg = 8
+selector_chooser.bold = true
+selector_focused.bg = default
+selector_focused.bold = true
+selector_focused.fg = 4
+selector_focused.reverse = true
+
+spinner.fg = 4
+
+statusline_default.bg = 8
+statusline_error.bg = default
+statusline_error.bold = true
+statusline_error.fg = 1
+statusline_error.reverse = true
+statusline_success.bg = default
+statusline_success.bold = true
+statusline_success.fg = 2
+statusline_success.reverse = true
+
+tab.bg = 8
+tab.selected.bg = default
+tab.selected.bold = true
+tab.selected.fg = 4
+tab.selected.reverse = true
+
+title.bg = 8
+title.bold = true
+
+subject.bold = true
+date.dim = true
+
+[viewer]
+*.default = true
+*.normal = true
+
+code.fg = 5
+diff_add.fg = 2
+diff_chunk.fg = 4
+diff_chunk_func.fg = 5
+diff_del.fg = 1
+diff_meta.bold = true
+diff_whitespace.bg = 1
+header.bold = true
+header.fg = 4
+quote_1.fg = 4
+quote_2.fg = 5
+quote_3.fg = 2
+quote_4.dim = true
+quote_4.fg = 5
+quote_x.dim = true
+signature.dim = true
+url.fg = 4
+url.underline = true
