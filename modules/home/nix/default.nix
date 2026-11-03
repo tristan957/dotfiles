@@ -19,11 +19,6 @@
       # are not a trusted user
       assumeXdg = true;
 
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 30d";
-      };
       package = lib.mkDefault pkgs.nix;
     };
   };
