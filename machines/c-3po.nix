@@ -91,6 +91,7 @@
       nix-auth
       nixd
       (lib.hiPrio rust-analyzer)
+      shfmt
       svelte-language-server
       tombi
       vacuum-go
