@@ -57,6 +57,7 @@
       ptyxis
       python
       readline
+      rex
       ripgrep
       rlwrap
       rustup
