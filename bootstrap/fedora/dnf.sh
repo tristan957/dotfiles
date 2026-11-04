@@ -44,7 +44,7 @@ enabled=1
 gpgcheck=1
 gpgkey=https://rpm.grafana.com/gpg.key
 sslverify=1
-sslcacert=/etc/pki/tls/certs/ca-bundle.crt' |
+sslcacert=/etc/ssl/certs/ca-bundle.crt' |
         sudo tee /etc/yum.repos.d/grafana.repo
 
     # Google Cloud CLI (https://cloud.google.com/sdk/docs/install#rpm)
