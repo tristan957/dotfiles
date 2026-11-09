@@ -127,46 +127,50 @@
           };
         };
 
-        pre-commit.settings.hooks = {
-          luacheck.enable = true;
+        pre-commit.settings = {
+          hooks = {
+            luacheck.enable = true;
 
-          # markdownlint-cli2 reads .markdownlint-cli2.yaml from the repo root.
-          # Defined as a custom hook because the predefined `markdownlint` hook
-          # wraps markdownlint-cli (v1), which uses inline config instead.
-          markdownlint-cli2 = {
-            enable = true;
-            name = "markdownlint-cli2";
-            entry = lib.getExe pkgs.markdownlint-cli2;
-            files = "\\.md$";
-          };
-          reuse.enable = true;
-          ruff.enable = true;
-          shellcheck = {
-            enable = true;
-            types_or = lib.mkForce [];
-            files = lib.concatStringsSep "|" [
-              "\\.sh$"
-              "^modules/home/aerc/aerc-signature$"
-              "^modules/home/aerc/filters/pgp-keys$"
-              "^modules/home/aerc/hooks/mail-received$"
-              "^modules/home/bash/bash_logout$"
-              "^modules/home/git/git-user$"
-              "^modules/home/kubernetes/kubectl-cc$"
-              "^modules/home/kubernetes/kubectl-prompt$"
-              "^modules/home/kubernetes/kubectl-setns$"
-              "^modules/home/programs/substr$"
-              "^modules/home/tmux/fzf-sessions$"
-              "^modules/home/tmux/session-input$"
-            ];
-            args = [
-              "--shell"
-              "bash"
-              "--external-sources"
-            ];
+            # markdownlint-cli2 reads .markdownlint-cli2.yaml from the repo root.
+            # Defined as a custom hook because the predefined `markdownlint` hook
+            # wraps markdownlint-cli (v1), which uses inline config instead.
+            markdownlint-cli2 = {
+              enable = true;
+              name = "markdownlint-cli2";
+              entry = lib.getExe pkgs.markdownlint-cli2;
+              files = "\\.md$";
+            };
+            reuse.enable = true;
+            ruff.enable = true;
+            shellcheck = {
+              enable = true;
+              types_or = lib.mkForce [];
+              files = lib.concatStringsSep "|" [
+                "\\.sh$"
+                "^modules/home/aerc/aerc-signature$"
+                "^modules/home/aerc/filters/pgp-keys$"
+                "^modules/home/aerc/hooks/mail-received$"
+                "^modules/home/bash/bash_logout$"
+                "^modules/home/git/git-user$"
+                "^modules/home/kubernetes/kubectl-cc$"
+                "^modules/home/kubernetes/kubectl-prompt$"
+                "^modules/home/kubernetes/kubectl-setns$"
+                "^modules/home/programs/substr$"
+                "^modules/home/tmux/fzf-sessions$"
+                "^modules/home/tmux/session-input$"
+              ];
+              args = [
+                "--shell"
+                "bash"
+                "--external-sources"
+              ];
+            };
+
+            # Run treefmt as a hook so commits are formatted
+            treefmt.enable = true;
           };
 
-          # Run treefmt as a hook so commits are formatted
-          treefmt.enable = true;
+          package = pkgs.prek;
         };
 
         packages.nix-conf = mkNixConf pkgs [
