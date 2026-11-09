@@ -85,7 +85,7 @@
 
           programs = {
             alejandra.enable = true;
-            prettier.enable = true;
+            biome.enable = true;
             ruff-format.enable = true;
             stylua.enable = true;
 
