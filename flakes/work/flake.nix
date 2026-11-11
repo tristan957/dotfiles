@@ -25,7 +25,7 @@
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
-      inherit (dotfiles.lib) mkHome mkModules mkNixConf;
+      inherit (dotfiles.lib) mkHome mkModules mkNixConf pkgsFor;
 
       homeModules = mkModules ./modules/home;
       mkWork = import ./lib/mk-work.nix {inherit inputs mkHome homeModules;};
@@ -34,7 +34,13 @@
     in {
       systems = import systems;
 
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
+        _module.args.pkgs = pkgsFor system;
+
         packages.nix-conf = mkNixConf pkgs [
           "${daemon}/nix.conf"
           "${daemon}/numtide.conf"

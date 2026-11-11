@@ -48,10 +48,11 @@
     systems,
     ...
   }:
-    flake-parts.lib.mkFlake {inherit inputs;} ({...}: let
+    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: let
       mkModules = import ./lib/modules-dir.nix;
       homeModules = mkModules ./modules/home;
-      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules;};
+      pkgsFor = system: withSystem system ({pkgs, ...}: pkgs);
+      mkHome = import ./lib/mk-home.nix {inherit inputs homeModules pkgsFor;};
       mkNixConf = import ./lib/mk-nix-conf.nix;
     in {
       systems = import systems;
@@ -66,6 +67,10 @@
           perSystem = {system, ...}: {
             _module.args.pkgs = import inputs.nixpkgs {
               inherit system;
+
+              # Allow unfree packages like 1Password CLI
+              config.allowUnfree = true;
+
               overlays = [(import ./overlays)];
             };
           };
@@ -227,7 +232,7 @@
         # their own machine configurations against this repo's modules, and
         # generate their own `homeModules` from a modules directory
         lib = {
-          inherit mkHome mkModules mkNixConf;
+          inherit mkHome mkModules mkNixConf pkgsFor;
         };
 
         homeConfigurations = {

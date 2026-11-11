@@ -5,6 +5,7 @@
   # machine file lives on disk (which lets machine files live in other flakes,
   # e.g. flakes/work).
   homeModules,
+  pkgsFor,
 }: {
   system,
   machine,
@@ -14,14 +15,7 @@
   # `homeModules` with their own module set.
   extraSpecialArgs ? {},
 }: let
-  pkgs = import inputs.nixpkgs {
-    inherit system;
-
-    # Allow unfree packages like 1Password CLI
-    config.allowUnfree = true;
-
-    overlays = [(import ../overlays)];
-  };
+  pkgs = pkgsFor system;
 in
   inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
