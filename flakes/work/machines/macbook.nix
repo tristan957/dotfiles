@@ -66,7 +66,6 @@
         ruff
         rustup
         skills
-        ssh-tunnels
         testcontainers
         ty
         uv
@@ -83,12 +82,6 @@
     home.stateVersion = "25.11";
 
     programs.nh.homeFlake = "${root}/flakes/work";
-
-    services.ssh-tunnels.dbltap-dev-rex = {
-      host = "dbltap-dev";
-      localPort = 17297;
-      remoteSocket = "/run/user/34341130/rex/server.sock";
-    };
 
     home.packages = (
       with pkgs; [
