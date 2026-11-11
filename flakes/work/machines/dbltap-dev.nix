@@ -77,6 +77,7 @@
       ++ (with homeModules; [
         cloud-desktop
         go
+        jj
       ]);
 
     home.username = "dbltap";

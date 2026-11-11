@@ -29,6 +29,7 @@
       cr
       grasp-tools
       isengard
+      jj
       kiro
       midway
       opencode

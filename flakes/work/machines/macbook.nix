@@ -75,6 +75,7 @@
       ])
       ++ (with homeModules; [
         go
+        jj
       ]);
 
     home.username = "dbltap";
@@ -115,7 +116,6 @@
         harper
         hunk
         hut
-        jujutsu
         just
         lazygit
         lldb

@@ -55,6 +55,7 @@
         cloud-desktop
         extended-support
         go
+        jj
       ]);
 
     home.username = "dbltap";

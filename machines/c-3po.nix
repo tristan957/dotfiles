@@ -75,6 +75,7 @@
     home.stateVersion = "25.11";
 
     programs.go.package = null;
+    programs.jujutsu.package = lib.mkDefault null;
     programs.nh.homeFlake = "${root}";
 
     home.packages = with pkgs; [
