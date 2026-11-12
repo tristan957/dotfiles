@@ -74,7 +74,7 @@
       fop
       harper
       lazygit
-      llvmPackages_22.clang-tools
+      llvmPackages_23.clang-tools
       mold
       muon
       ninja

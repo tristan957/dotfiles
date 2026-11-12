@@ -116,7 +116,7 @@
         harper
         lazygit
         lldb
-        llvmPackages_22.clang-tools
+        llvmPackages_23.clang-tools
         lua-language-server
         miller
         mold
