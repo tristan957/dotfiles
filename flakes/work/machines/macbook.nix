@@ -125,7 +125,6 @@
         opentofu
         pkgconf
         postgres-language-server
-        python3
         reuse
         (lib.hiPrio rust-analyzer)
         # samurai

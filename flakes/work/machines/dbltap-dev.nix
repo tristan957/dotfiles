@@ -128,7 +128,7 @@
         pkgconf
         postgres-language-server
         reuse
-        (python314.withPackages (ps:
+        (python315.withPackages (ps:
           with ps; [
             matplotlib
             pytest

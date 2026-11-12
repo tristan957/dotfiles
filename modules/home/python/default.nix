@@ -1,10 +1,16 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   config = {
     home.sessionVariables = {
       PYTHON_HISTORY = "${config.xdg.stateHome}/python/history";
       # Python virtual environments should stop messing with PS1
       VIRTUAL_ENV_DISABLE_PROMPT = 1;
     };
+
+    home.packages = pkgs.python3;
 
     home.activation.createPythonStateDir =
       config.lib.activation.mkDir "${config.xdg.stateHome}/python";
