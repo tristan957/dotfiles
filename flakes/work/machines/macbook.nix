@@ -42,6 +42,7 @@
         glow
         go
         helix
+        hunk
         hut
         jj
         jq
@@ -104,7 +105,6 @@
         fish-lsp
         gh
         glab
-        glow
         gnumake
         gnupatch
         gnused
@@ -113,22 +113,15 @@
         gopls
         gum
         harper
-        hunk
-        hut
-        just
         lazygit
         lldb
         lua-language-server
-        meson
         miller
-        mjmap
         moreutils
         # muon
-        neovim
         ninja
         nix-auth
         nixd
-        nodejs
         opentofu
         pkgconf
         postgres-language-server
@@ -153,7 +146,6 @@
         ts_query_ls
         typst
         vhs
-        vim
         vscode-langservers-extracted
         which
         yaml-language-server

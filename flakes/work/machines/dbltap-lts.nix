@@ -75,10 +75,8 @@
       harper
       lazygit
       llvmPackages_22.clang-tools
-      meson
       mold
       muon
-      neovim
       ninja
       nix-auth
       nixd

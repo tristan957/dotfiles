@@ -28,6 +28,7 @@
       dotnet
       editline
       fastmail
+      fedora
       fish
       flatpak
       fonts
@@ -39,6 +40,7 @@
       glow
       go
       helix
+      hunk
       hut
       jj
       just
@@ -76,9 +78,6 @@
     home.homeDirectory = "/home/tristan957";
     home.stateVersion = "25.11";
 
-    programs.git.package = lib.mkDefault null;
-    programs.go.package = null;
-    programs.jujutsu.package = lib.mkDefault null;
     programs.nh.homeFlake = "${root}";
 
     home.packages = with pkgs; [
@@ -89,7 +88,6 @@
       fish-lsp
       flyctl
       harper
-      hunk
       lua-language-server
       nix-auth
       nixd

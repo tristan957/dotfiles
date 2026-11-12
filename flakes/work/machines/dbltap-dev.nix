@@ -107,32 +107,22 @@
         fish-lsp
         fop
         (lib.hiPrio gcc)
-        gdb
         gh
         glab
-        glow
-        go
         golangci-lint
         gopls
         gum
         harper
-        hunk
-        hut
-        just
         lazygit
         lldb
         llvmPackages_22.clang-tools
         lua-language-server
-        meson
         miller
-        mjmap
         mold
         muon
         mypy
-        neovim
         nix-auth
         nixd
-        nodejs
         pandoc
         pkgconf
         postgres-language-server
