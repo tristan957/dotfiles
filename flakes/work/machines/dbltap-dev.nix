@@ -128,11 +128,6 @@
         pkgconf
         postgres-language-server
         reuse
-        (python315.withPackages (ps:
-          with ps; [
-            matplotlib
-            pytest
-          ]))
         rr
         (lib.hiPrio rust-analyzer)
         samurai

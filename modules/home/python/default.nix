@@ -10,7 +10,7 @@
       VIRTUAL_ENV_DISABLE_PROMPT = 1;
     };
 
-    home.packages = pkgs.python3;
+    home.packages = [pkgs.python3];
 
     home.activation.createPythonStateDir =
       config.lib.activation.mkDir "${config.xdg.stateHome}/python";
