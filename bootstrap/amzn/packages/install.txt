@@ -9,7 +9,6 @@ docbook2X
 flex
 gcc
 gcc-c++
-gdb
 git
 git-email
 jq
@@ -60,4 +59,3 @@ tmux
 util-linux-user
 valgrind
 valgrind-devel
-vim-enhanced
