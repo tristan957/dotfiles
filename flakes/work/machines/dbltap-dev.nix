@@ -99,7 +99,8 @@
         bear
         ccache
         clang
-        coccinelle
+        # Broken: depends on ocaml-pcre, which is marked broken in nixpkgs
+        # coccinelle
         codespell
         copilot-language-server
         delve
