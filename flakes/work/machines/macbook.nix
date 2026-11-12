@@ -27,6 +27,7 @@
         delta
         deno
         devenv
+        difftastic
         direnv
         dotnet
         editline
@@ -37,6 +38,7 @@
         fzf
         ghostty
         git
+        git-absorb
         glow
         go
         helix
@@ -97,13 +99,10 @@
         coreutils-full
         curlFull
         delve
-        difftastic
         diffutils
         findutils
         fish-lsp
         gh
-        git
-        git-absorb
         glab
         glow
         gnumake

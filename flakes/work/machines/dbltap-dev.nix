@@ -28,6 +28,7 @@
         deno
         desktop-database
         devenv
+        difftastic
         direnv
         dotnet
         editline
@@ -37,6 +38,7 @@
         fzf
         gdb
         git
+        git-absorb
         glow
         go
         helix
@@ -101,15 +103,12 @@
         codespell
         copilot-language-server
         delve
-        difftastic
         ditaa
         fish-lsp
         fop
         (lib.hiPrio gcc)
         gdb
         gh
-        git
-        git-absorb
         glab
         glow
         go

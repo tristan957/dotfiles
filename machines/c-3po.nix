@@ -23,6 +23,7 @@
       delta
       desktop-database
       devenv
+      difftastic
       direnv
       dotnet
       editline
@@ -34,6 +35,7 @@
       gdb
       ghostty
       git
+      git-absorb
       glow
       go
       helix
@@ -74,6 +76,7 @@
     home.homeDirectory = "/home/tristan957";
     home.stateVersion = "25.11";
 
+    programs.git.package = lib.mkDefault null;
     programs.go.package = null;
     programs.jujutsu.package = lib.mkDefault null;
     programs.nh.homeFlake = "${root}";
@@ -85,7 +88,6 @@
       copilot-language-server
       fish-lsp
       flyctl
-      git-absorb
       harper
       hunk
       lua-language-server

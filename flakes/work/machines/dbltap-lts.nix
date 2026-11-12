@@ -17,6 +17,7 @@
         clangd
         delta
         deno
+        difftastic
         direnv
         dotnet
         editline
@@ -69,7 +70,6 @@
       bear
       ccache
       copilot-language-server
-      difftastic
       ditaa
       fop
       harper

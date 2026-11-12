@@ -1,5 +1,12 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   config = {
+    programs.git.settings.interactive.diffFilter = "${lib.getExe' config.programs.delta.finalPackage "delta"} --color-only";
+
     programs.delta = {
       enable = true;
 

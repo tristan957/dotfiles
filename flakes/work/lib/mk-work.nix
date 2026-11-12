@@ -27,6 +27,7 @@
       builder-mcp
       claude-code
       cr
+      git
       grasp-tools
       isengard
       jj
