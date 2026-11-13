@@ -16,6 +16,7 @@ in {
         # toml
         ''
           mode = "auto"
+          theme = "terminal"
           tab_width = 4
         '';
     };
