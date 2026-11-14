@@ -95,6 +95,7 @@
       shfmt
       svelte-language-server
       tombi
+      typescript
       vacuum-go
       vscode-langservers-extracted
       yaml-language-server

@@ -142,6 +142,7 @@
         tokei
         tree-sitter
         ts_query_ls
+        typescript
         typst
         vscode-langservers-extracted
         worktrunk

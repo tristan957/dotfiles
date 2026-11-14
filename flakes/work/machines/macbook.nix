@@ -143,6 +143,7 @@
         tree-sitter
         trurl
         ts_query_ls
+        typescript
         typst
         vhs
         vscode-langservers-extracted
