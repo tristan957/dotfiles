@@ -45,7 +45,7 @@ vim.lsp.enable({
   "tinymist",
   "tmux_ls",
   "tofu_ls",
-  "ts_ls",
+  "tsc",
   "ts_query_ls",
   "ty",
   "vacuum",
