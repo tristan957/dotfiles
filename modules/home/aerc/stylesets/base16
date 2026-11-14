@@ -18,10 +18,10 @@
 *success.fg = 2
 
 *.selected.bg = 8
-*.selected.bold = true
 
 border.fg = 8
 
+completion*.selected.bold = true
 completion_default.bg = 8
 completion_default.selected.bg = default
 completion_default.selected.fg = 4
@@ -33,7 +33,7 @@ completion_pill.bg = 4
 
 dirlist_default.selected.bg = 8
 dirlist_unread.bold = true
-dirlist_recent.fg = 4
+dirlist_recent.fg = 6
 
 header.bold = true
 header.fg = 4
@@ -47,7 +47,7 @@ msglist_answered.fg = 2
 msglist_deleted.dim = true
 msglist_flagged.bold = true
 msglist_flagged.fg = 1
-msglist_forwarded.fg = 4
+msglist_forwarded.fg = 6
 msglist_gutter.bg = 8
 msglist_pill.bg = 4
 msglist_result.bold = true
@@ -62,10 +62,9 @@ msglist_marked.reverse = true
 msglist_marked.selected.bg = 8
 msglist_marked.selected.reverse = toggle
 
-part_filename.bg = 8
-part_mimetype.bg = 8
+part_filename.fg = 5
 part_mimetype.dim = true
-part_switcher.bg = 8
+part*.selected.bold = true
 
 selector_default.bg = 8
 selector_chooser.bg = 8
@@ -75,7 +74,7 @@ selector_focused.bold = true
 selector_focused.fg = 4
 selector_focused.reverse = true
 
-spinner.fg = 4
+spinner.fg = 3
 
 statusline_default.bg = 8
 statusline_error.bg = default
@@ -112,7 +111,7 @@ diff_meta.bold = true
 diff_whitespace.bg = 1
 header.bold = true
 header.fg = 4
-quote_1.fg = 4
+quote_1.fg = 6
 quote_2.fg = 5
 quote_3.fg = 2
 quote_4.dim = true
