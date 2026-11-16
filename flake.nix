@@ -183,6 +183,8 @@
           ./modules/home/nix/conf.d/numtide.conf
         ];
 
+        checks.hunk-extensions = pkgs.callPackage ./modules/home/hunk/checks.nix {};
+
         devShells.default = pkgs.mkShellNoCC {
           inputsFrom = [
             config.pre-commit.devShell
@@ -191,6 +193,7 @@
 
           packages = with pkgs; [
             bashInteractive
+            bun
             fish
             lua-language-server
             luajitPackages.luacheck

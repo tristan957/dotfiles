@@ -20,5 +20,7 @@ in {
           tab_width = 4
         '';
     };
+
+    xdg.configFile."hunk/extensions/copy-selected-hunk.ts".source = ./extensions/copy-selected-hunk.ts;
   };
 }
