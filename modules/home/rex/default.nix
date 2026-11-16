@@ -19,11 +19,8 @@
           --bash <($out/bin/rex completion bash --autostart=false) \
           --zsh <($out/bin/rex completion zsh --autostart=false) \
           --fish <($out/bin/rex completion fish --autostart=false) \
-          --nushell <($out/bin/rex completion nu --autostart=false)
-        # installShellCompletion has no PowerShell support in current nixpkgs
-        # pin. Waiting for the feature to move through the pipeline
-        mkdir -p $out/share/powershell/completions
-        $out/bin/rex completion powershell --autostart=false > $out/share/powershell/completions/rex.ps1
+          --nushell <($out/bin/rex completion nu --autostart=false) \
+          --powershell <($out/bin/rex completion powershell --autostart=false)
       '';
   });
 in {
