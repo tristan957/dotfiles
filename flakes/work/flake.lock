@@ -20,11 +20,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789936198,
-        "narHash": "sha256-KrG5LZiUfef42AdVW00D05PBAzLpi3jw+9CXdHR5uGs=",
+        "lastModified": 1794867243,
+        "narHash": "sha256-zTxVBZngbkyka5gaVXDgKHjLgx/yD9XwFdWoiEK92jU=",
         "ref": "refs/heads/mainline",
-        "rev": "3747fdfe50b95f82f03df5c249ce9d0d150100e1",
-        "revCount": 31,
+        "rev": "6900793d542d998959b240094998ed63a18b6cc4",
+        "revCount": 32,
         "type": "git",
         "url": "ssh://git.amazon.com/pkg/AmznNix-Community"
       },
@@ -138,11 +138,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794715309,
-        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
+        "lastModified": 1794944675,
+        "narHash": "sha256-VPQtZmEzjoQMmh5ATbEDMPK3H4J3vVWbcruQkZyixBI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
+        "rev": "6e4bcf6931d797a3e7718e4dec84992d67a00bf1",
         "type": "github"
       },
       "original": {
@@ -182,11 +182,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794644783,
-        "narHash": "sha256-3GnIGIy15bMduoS9RnWqKTmsJLWThla42UFtm0S7+us=",
+        "lastModified": 1794705614,
+        "narHash": "sha256-DZ5eNWHA6heAHwkMt1SBtF1p8Lfgi4ivqdqmgxUZkLs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5d2b81a7a3be3e2f832879028e4d60abbf58e9a0",
+        "rev": "1c872b8c508bbbfebc1b0b74777ff391ce0a574c",
         "type": "github"
       },
       "original": {
@@ -204,10 +204,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1794831907,
-        "narHash": "sha256-gJ8CNJpU5IuBcUP0Cw/HLy5gdfIlOego3VH6xmeAKB4=",
+        "lastModified": 1794945734,
+        "narHash": "sha256-ZsMvQOhq9R0mTrnvPiP3eLTweXTTCpe8/i5KWS9qaIw=",
         "type": "tarball",
-        "url": "https://pkgs.superlogical.com/rex/nix/snapshot/0.0.1794831907-gef3705.tar.gz"
+        "url": "https://pkgs.superlogical.com/rex/nix/snapshot/0.0.1794945734-gfa5253.tar.gz"
       },
       "original": {
         "type": "tarball",
