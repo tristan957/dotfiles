@@ -1,0 +1,3 @@
+{
+  home.file.".hushlogin".text = "";
+}
