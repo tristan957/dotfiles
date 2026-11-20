@@ -49,6 +49,7 @@
         just
         lazygit
         less
+        macos
         man
         mcp
         meson
