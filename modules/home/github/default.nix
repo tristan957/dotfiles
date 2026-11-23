@@ -3,6 +3,9 @@
     programs.gh = {
       enable = lib.mkDefault true;
       gitCredentialHelper.enable = false;
+      settings = {
+        "color_labels" = "enabled";
+      };
     };
 
     programs.mcp = {
