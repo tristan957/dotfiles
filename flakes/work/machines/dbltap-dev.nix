@@ -127,6 +127,7 @@
         pandoc
         pkgconf
         postgres-language-server
+        pyrefly
         reuse
         rr
         (lib.hiPrio rust-analyzer)

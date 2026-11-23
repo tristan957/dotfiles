@@ -33,6 +33,7 @@ vim.lsp.enable({
   "nixd",
   "nushell",
   "postgres_lsp",
+  -- "pyrefly",
   -- "pyright",
   "ruff",
   "rust_analyzer",

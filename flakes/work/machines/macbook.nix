@@ -126,6 +126,7 @@
         opentofu
         pkgconf
         postgres-language-server
+        pyrefly
         reuse
         (lib.hiPrio rust-analyzer)
         # samurai
