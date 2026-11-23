@@ -6,6 +6,7 @@ return {
   settings = {
     tinymist = {
       formatterMode = "typstyle",
+      rootPath = vim.fs.root(0, ".git") or vim.uv.cwd(),
     },
   },
 }
