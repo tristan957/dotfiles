@@ -37,6 +37,7 @@
       ghostty
       git
       git-absorb
+      github
       glow
       go
       helix

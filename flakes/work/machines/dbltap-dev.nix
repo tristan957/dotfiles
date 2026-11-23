@@ -39,6 +39,7 @@
         gdb
         git
         git-absorb
+        github
         glow
         go
         helix
@@ -108,7 +109,6 @@
         fish-lsp
         fop
         (lib.hiPrio gcc)
-        gh
         glab
         golangci-lint
         gopls

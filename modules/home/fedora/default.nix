@@ -17,11 +17,18 @@
     });
 in {
   config = {
-    programs = nullPackages "programs" [
-      "git"
-      "go"
-      "jujutsu"
-    ];
+    programs =
+      nullPackages "programs" [
+        "git"
+        "go"
+        "jujutsu"
+      ]
+      // {
+        # programs.gh.package is not nullable, so gh is switched off instead.
+        # Priority 900 beats the mkDefault in the github module while still
+        # letting a machine override it with a plain assignment.
+        gh.enable = lib.mkOverride 900 false;
+      };
 
     dotfiles = nullPackages "dotfiles" [
       "gdb"

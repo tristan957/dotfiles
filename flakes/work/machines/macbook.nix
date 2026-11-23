@@ -39,6 +39,7 @@
         ghostty
         git
         git-absorb
+        github
         glow
         go
         helix
@@ -104,7 +105,6 @@
         diffutils
         findutils
         fish-lsp
-        gh
         glab
         gnumake
         gnupatch
