@@ -74,6 +74,7 @@
         testcontainers
         ty
         uv
+        vercel
         vim
         zoxide
         zsh
