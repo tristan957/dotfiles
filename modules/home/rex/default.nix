@@ -42,7 +42,14 @@ in {
     };
 
     # The server is distributed on macOS via the app
-    services.rex.enable = isLinux;
+    services.rex = lib.mkIf isLinux {
+      enable = true;
+
+      # Open links in the browser of the client that owns the terminal
+      environment.BROWSER = lib.getExe (pkgs.writeShellScriptBin "rex-browser" ''
+        exec ${lib.getExe rexExtended} open "$@"
+      '');
+    };
 
     programs.mcp.servers.superlogical.url = "https://www.superlogical.com/rex/community-mcp";
 
