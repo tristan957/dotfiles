@@ -30,6 +30,12 @@ return {
       ["@keyword.operator.lua"] = { link = "@keyword.lua" },
       ["@lsp.typemod.variable.global.lua"] = { link = "@lsp.typemod.variable.defaultLibrary.lua" },
       ["@property.meson"] = { link = "Text" },
+      mailQuoted1 = { fg = "${cyan}" },
+      mailQuoted2 = { fg = "${purple}" },
+      mailQuoted3 = { fg = "${green}" },
+      mailQuoted4 = { fg = "${yellow}" },
+      mailQuoted5 = { fg = "${blue}" },
+      mailQuoted6 = { fg = "${orange}" },
     },
     options = {
       cursorline = vim.o.cursorline,
